@@ -66,9 +66,9 @@
     "date-fns-tz": "latest",
     "@vercel/analytics": "latest",
     "@vercel/speed-insights": "latest",
+    "crypto": "latest",
     "lru-cache": "latest",
-    "nanoid": "latest",
-    "crypto": "latest"
+    "nanoid": "latest"
   },
   "devDependencies": {
     "@types/node": "^22",

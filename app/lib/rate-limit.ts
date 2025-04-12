@@ -73,5 +73,22 @@ export default function rateLimit(options?: Options) {
       // while not being too restrictive
       return `${ip}:${userAgent.substring(0, 20)}`
     },
+
+    // Check if request is from the same origin/local development
+    isSameOrigin: (req: Request): boolean => {
+      const headersList = headers()
+      const origin = headersList.get("origin")
+      const referer = headersList.get("referer")
+      const host = headersList.get("host")
+
+      // Check if this is a local development environment
+      const isLocalDev =
+        process.env.NODE_ENV === "development" || host?.includes("localhost") || host?.includes("127.0.0.1")
+
+      // Check if the request is from the same origin
+      const isSameOriginRequest = origin ? origin.includes(host || "") : referer ? referer.includes(host || "") : false
+
+      return isLocalDev || isSameOriginRequest
+    },
   }
 }

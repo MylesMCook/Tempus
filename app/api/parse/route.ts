@@ -50,15 +50,10 @@ type ApiResponse = {
   requestId?: string
 }
 
-// Create tiered rate limiters with different thresholds
+// Create rate limiters with different thresholds
 const publicLimiter = rateLimit({
   interval: 60 * 1000, // 60 seconds
   uniqueTokenPerInterval: 1000,
-})
-
-const strictLimiter = rateLimit({
-  interval: 10 * 1000, // 10 seconds
-  uniqueTokenPerInterval: 500,
 })
 
 export async function GET(request: NextRequest) {
@@ -81,39 +76,40 @@ export async function GET(request: NextRequest) {
     // Get client identifiers for rate limiting
     const clientIp = publicLimiter.getClientIdentifier(request)
     const uniqueClient = publicLimiter.getUniqueIdentifier(request)
+    const isSameOrigin = publicLimiter.isSameOrigin(request)
 
-    // Apply tiered rate limiting
-    try {
-      // Strict limit per unique client (IP + user agent) - 30 requests per 10 seconds
-      await strictLimiter.check(30, uniqueClient)
+    // Skip or apply very lenient rate limiting for same-origin requests
+    // This ensures the API works smoothly during development and for UI components
+    if (!isSameOrigin) {
+      try {
+        // More generous limit per IP - 200 requests per minute for external users
+        await publicLimiter.check(200, clientIp)
+      } catch (rateLimitResult: any) {
+        statusCode = 429
+        const retryAfter = rateLimitResult.reset || 60
 
-      // More generous limit per IP - 100 requests per minute
-      await publicLimiter.check(100, clientIp)
-    } catch (rateLimitResult: any) {
-      statusCode = 429
-      const retryAfter = rateLimitResult.reset || 60
-
-      return NextResponse.json(
-        {
-          error: "Too many requests",
-          details: "Rate limit exceeded",
-          retryAfter: retryAfter,
-          requestId,
-        },
-        {
-          status: statusCode,
-          headers: {
-            "Retry-After": retryAfter.toString(),
-            "X-RateLimit-Limit": rateLimitResult.limit?.toString() || "100",
-            "X-RateLimit-Remaining": "0",
-            "X-RateLimit-Reset": retryAfter.toString(),
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Methods": "GET, OPTIONS",
-            "Access-Control-Allow-Headers": "Content-Type",
-            "Access-Control-Expose-Headers": "X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+        return NextResponse.json(
+          {
+            error: "Too many requests",
+            details: "Rate limit exceeded",
+            retryAfter: retryAfter,
+            requestId,
           },
-        },
-      )
+          {
+            status: statusCode,
+            headers: {
+              "Retry-After": retryAfter.toString(),
+              "X-RateLimit-Limit": rateLimitResult.limit?.toString() || "200",
+              "X-RateLimit-Remaining": "0",
+              "X-RateLimit-Reset": retryAfter.toString(),
+              "Access-Control-Allow-Origin": "*",
+              "Access-Control-Allow-Methods": "GET, OPTIONS",
+              "Access-Control-Allow-Headers": "Content-Type",
+              "Access-Control-Expose-Headers": "X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            },
+          },
+        )
+      }
     }
 
     // Validate the input
@@ -213,14 +209,16 @@ export async function GET(request: NextRequest) {
 
     success = true
 
-    // Calculate remaining rate limit
-    let remainingRequests = 100
-    try {
-      const rateLimitResult = await publicLimiter.check(100, clientIp)
-      remainingRequests = rateLimitResult.remaining
-    } catch (e) {
-      // If check fails, default to 0 remaining
-      remainingRequests = 0
+    // Calculate remaining rate limit - skip for same-origin requests
+    let remainingRequests = 200
+    if (!isSameOrigin) {
+      try {
+        const rateLimitResult = await publicLimiter.check(200, clientIp)
+        remainingRequests = rateLimitResult.remaining
+      } catch (e) {
+        // If check fails, default to 0 remaining
+        remainingRequests = 0
+      }
     }
 
     return NextResponse.json(response, {
@@ -230,8 +228,8 @@ export async function GET(request: NextRequest) {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "GET, OPTIONS",
         "Access-Control-Allow-Headers": "Content-Type",
-        "X-RateLimit-Limit": "100",
-        "X-RateLimit-Remaining": remainingRequests.toString(),
+        "X-RateLimit-Limit": isSameOrigin ? "unlimited" : "200",
+        "X-RateLimit-Remaining": isSameOrigin ? "unlimited" : remainingRequests.toString(),
         "X-Content-Type-Options": "nosniff",
         "X-Frame-Options": "DENY",
         "Access-Control-Expose-Headers": "X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",

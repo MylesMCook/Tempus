@@ -244,12 +244,27 @@ export function ApiDocs() {
 
       if (!response.ok) {
         console.error("API Error:", data)
-        setErrorMessage(data.error || `Error ${response.status}: ${response.statusText}`)
-        toast({
-          title: "API Error",
-          description: data.error || "An error occurred while testing the API",
-          variant: "destructive",
-        })
+
+        // Special handling for rate limit errors
+        if (response.status === 429) {
+          const retryAfter = data.retryAfter || 60
+          setErrorMessage(`Rate limit exceeded. Please try again in ${retryAfter} seconds.`)
+
+          // Show a more helpful toast for rate limits
+          toast({
+            title: "Rate limit reached",
+            description: `Please wait ${retryAfter} seconds before trying again.`,
+            variant: "destructive",
+            duration: 5000,
+          })
+        } else {
+          setErrorMessage(data.error || `Error ${response.status}: ${response.statusText}`)
+          toast({
+            title: "API Error",
+            description: data.error || "An error occurred while testing the API",
+            variant: "destructive",
+          })
+        }
       } else {
         toast({
           title: "API Test Successful",
