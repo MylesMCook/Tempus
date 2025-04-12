@@ -64,9 +64,9 @@
     "vue": "latest",
     "vue-router": "latest",
     "lru-cache": "latest",
+    "date-fns-tz": "latest",
     "@vercel/analytics": "latest",
-    "@vercel/speed-insights": "latest",
-    "date-fns-tz": "latest"
+    "@vercel/speed-insights": "latest"
   },
   "devDependencies": {
     "@types/node": "^22",

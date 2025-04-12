@@ -2,7 +2,6 @@
 
 import * as React from "react"
 import {
-  CalendarIcon,
   Check,
   Clock,
   Copy,
@@ -15,9 +14,12 @@ import {
   Clock3,
   CalendarClock,
 } from "lucide-react"
+
+// Update the import for DatePickerModal to ensure we're using the enhanced version
+import { DatePickerModal } from "./date-picker-modal"
+
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
-import { Calendar as CalendarComponent } from "@/components/ui/calendar"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { parseNaturalLanguageDate, debugDateParser } from "../lib/date-parser"
 import { trackEvent } from "@/lib/analytics"
@@ -652,26 +654,13 @@ export function DatePicker({ date, onDateChange, onFormattedDateChange, classNam
                 </Tooltip>
               </TooltipProvider>
 
-              <Popover open={open} onOpenChange={setOpen}>
-                <PopoverTrigger asChild>
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className="h-8 w-8 hover:bg-primary/10 hover:text-primary"
-                    aria-label="Open calendar"
-                  >
-                    <CalendarIcon className="h-4 w-4" />
-                  </Button>
-                </PopoverTrigger>
-                <PopoverContent className="w-auto p-0" align="end">
-                  <CalendarComponent
-                    mode="single"
-                    selected={previewDate || date}
-                    onSelect={handleCalendarSelect}
-                    initialFocus
-                  />
-                </PopoverContent>
-              </Popover>
+              <DatePickerModal
+                date={date}
+                previewDate={previewDate}
+                onSelect={handleCalendarSelect}
+                open={open}
+                setOpen={setOpen}
+              />
             </div>
           </div>
 

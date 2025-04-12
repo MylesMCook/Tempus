@@ -1,10 +1,18 @@
 import type React from "react"
-import { Geist, Azeret_Mono as GeistMono } from "next/font/google"
+import { Geist, Geist_Mono as GeistMono } from "next/font/google"
 import type { Metadata } from "next"
-import { Analytics } from "@vercel/analytics/react"
-import { SpeedInsights } from "@vercel/speed-insights/next"
 import { cn } from "@/lib/utils"
 import "./globals.css"
+import { CookieConsent } from "./components/cookie-consent"
+import { ConsentProvider } from "./context/consent-context"
+import { ConditionalAnalytics } from "./components/conditional-analytics"
+
+// Add this to make TypeScript happy with our custom window property
+declare global {
+  interface Window {
+    _analyticsDisabled?: boolean
+  }
+}
 
 const geist = Geist({
   subsets: ["latin"],
@@ -56,9 +64,11 @@ export default function RootLayout({
       <body
         className={cn("min-h-screen bg-background antialiased", geist.variable, geistMono.variable, geist.className)}
       >
-        {children}
-        <Analytics />
-        <SpeedInsights />
+        <ConsentProvider>
+          {children}
+          <ConditionalAnalytics />
+          <CookieConsent />
+        </ConsentProvider>
       </body>
     </html>
   )

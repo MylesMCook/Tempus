@@ -8,6 +8,7 @@ import { ApiDocs } from "./components/api-docs"
 import { SettingsProvider } from "./context/settings-context"
 import { formatInTimeZone } from "date-fns-tz"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import Link from "next/link"
 
 const examples = {
   Simple: ["now", "today", "tomorrow", "yesterday", "next friday", "last monday"],
@@ -81,8 +82,8 @@ export default function Home() {
                 Natural Language Time, <span className="text-primary">Precisely Parsed</span>
               </h1>
               <p className="text-xl text-muted-foreground max-w-prose mx-auto">
-                Transform expressions like "next friday" or "3.5 weeks from now" into exact dates and time. Simple, powerful, and
-                built for people.
+                Transform expressions like "next friday" or "3.5 weeks from now" into exact dates and time. Simple,
+                powerful, and built for people.
               </p>
             </div>
             <div className="relative">
@@ -151,7 +152,12 @@ export default function Home() {
               <Clock className="size-4" />
               <span>TempusTotal</span>
             </div>
-            <div>Natural language date parsing, made simple.</div>
+            <div className="flex items-center gap-4">
+              <span>Natural language date parsing, made simple.</span>
+              <Link href="/privacy" className="hover:underline hover:text-foreground transition-colors">
+                Privacy Policy
+              </Link>
+            </div>
           </div>
         </footer>
       </div>
