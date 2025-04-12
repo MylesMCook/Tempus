@@ -1,0 +1,160 @@
+"use client"
+
+import { useState } from "react"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Clock } from "lucide-react"
+import { DatePicker } from "./components/date-picker"
+import { ApiDocs } from "./components/api-docs"
+import { SettingsProvider } from "./context/settings-context"
+import { formatInTimeZone } from "date-fns-tz"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+
+const examples = {
+  Simple: ["now", "today", "tomorrow", "yesterday", "next friday", "last monday"],
+  Relative: ["in 3 days", "2 weeks from now", "3 months ago", "1 year from now", "5 days ago"],
+  "Date Math": [
+    "today plus 2 weeks",
+    "tomorrow minus 3 days",
+    "2 weeks plus 3 days",
+    "1 month minus 1 week",
+    "6 months plus 2 weeks",
+  ],
+  Fractional: [
+    "1.5 days from now",
+    "2.5 weeks ago",
+    "6.5 months from today",
+    "0.5 years from now",
+    "today plus 0.25 years",
+  ],
+  Advanced: [
+    "6 months before sep 14",
+    "2 weeks after dec 25",
+    "3 days before next friday",
+    "1 month after last monday",
+    "2.5 weeks before may 1",
+    "friday next week",
+  ],
+}
+
+export default function Home() {
+  const [date, setDate] = useState<Date>()
+  const [formattedDate, setFormattedDate] = useState<string>("")
+  const [activeCategory, setActiveCategory] = useState<string>("Simple")
+
+  // Update the handler to store both the Date object and its formatted representation
+  const handleDateChange = (newDate: Date | undefined) => {
+    setDate(newDate)
+    if (newDate) {
+      // Format the date according to the user's settings
+      const { dateFormat } = JSON.parse(localStorage.getItem("parserSettings") || '{"dateFormat":"EEEE, MMMM d, yyyy"}')
+      const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone
+      const formatted = formatInTimeZone(newDate, timezone, dateFormat)
+      setFormattedDate(formatted)
+    } else {
+      setFormattedDate("")
+    }
+  }
+
+  const handleExampleClick = (expression: string) => {
+    const input = document.querySelector("input")
+    if (input) {
+      const nativeInputValueSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, "value")?.set
+      if (nativeInputValueSetter) {
+        nativeInputValueSetter.call(input, expression)
+        input.dispatchEvent(new Event("input", { bubbles: true }))
+        input.focus()
+      }
+    }
+  }
+
+  return (
+    <SettingsProvider>
+      <div className="min-h-screen bg-background">
+        <main className="container py-12 space-y-12">
+          <section className="max-w-2xl mx-auto text-center space-y-6">
+            <div className="inline-flex items-center gap-2 text-primary">
+              <Clock className="size-6" />
+              <span className="text-lg font-bold tracking-tight">TempusTotal</span>
+            </div>
+            <div className="space-y-4">
+              <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
+                Natural Language Dates, <span className="text-primary">Precisely Parsed</span>
+              </h1>
+              <p className="text-xl text-muted-foreground max-w-prose mx-auto">
+                Transform expressions like "next friday" or "3.5 weeks from now" into exact dates. Simple, powerful, and
+                built for humans.
+              </p>
+            </div>
+            <div className="relative">
+              <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-primary/20 via-primary/30 rounded-xl blur-xl" />
+              <div className="relative bg-background rounded-lg border shadow-sm">
+                <DatePicker date={date} onDateChange={handleDateChange} />
+              </div>
+            </div>
+          </section>
+
+          <section className="max-w-2xl mx-auto">
+            <Card>
+              <CardHeader className="bg-muted/30 pb-4">
+                <CardTitle>Date Expression Examples</CardTitle>
+                <CardDescription>Explore different ways to express dates in natural language</CardDescription>
+              </CardHeader>
+
+              <CardContent className="p-0">
+                <Tabs defaultValue={activeCategory} onValueChange={setActiveCategory} className="w-full">
+                  <div className="px-4 py-2 border-b">
+                    <TabsList className="grid grid-cols-5 gap-1">
+                      {Object.keys(examples).map((category) => (
+                        <TabsTrigger key={category} value={category} className="text-xs">
+                          {category}
+                        </TabsTrigger>
+                      ))}
+                    </TabsList>
+                  </div>
+
+                  {Object.entries(examples).map(([category, expressions]) => (
+                    <TabsContent key={category} value={category} className="p-4">
+                      <p className="text-sm text-muted-foreground mb-3">
+                        {category === "Simple" && "Basic date references that are easy to understand."}
+                        {category === "Relative" && "Dates defined in relation to the current moment."}
+                        {category === "Date Math" && "Expressions that perform calculations with dates."}
+                        {category === "Fractional" && "Precise date calculations using decimal values."}
+                        {category === "Advanced" && "Complex expressions combining multiple concepts."}
+                      </p>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        {expressions.map((expression) => (
+                          <button
+                            key={expression}
+                            onClick={() => handleExampleClick(expression)}
+                            className="text-left px-3 py-2 rounded-md
+                              bg-background hover:bg-primary/5 transition-colors
+                              border border-border hover:border-primary/30"
+                          >
+                            <span className="text-sm">{expression}</span>
+                          </button>
+                        ))}
+                      </div>
+                    </TabsContent>
+                  ))}
+                </Tabs>
+              </CardContent>
+            </Card>
+          </section>
+          <section className="max-w-2xl mx-auto">
+            <ApiDocs />
+          </section>
+        </main>
+
+        <footer className="border-t mt-12">
+          <div className="container py-6 flex flex-col sm:flex-row items-center gap-4 sm:justify-between text-sm text-muted-foreground">
+            <div className="flex items-center gap-2">
+              <Clock className="size-4" />
+              <span>TempusTotal</span>
+            </div>
+            <div>Natural language date parsing, made simple.</div>
+          </div>
+        </footer>
+      </div>
+    </SettingsProvider>
+  )
+}
