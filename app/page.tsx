@@ -81,8 +81,8 @@ export default function Home() {
                 Natural Language Time, <span className="text-primary">Precisely Parsed</span>
               </h1>
               <p className="text-xl text-muted-foreground max-w-prose mx-auto">
-                Transform expressions like "next friday" or "3.5 weeks from now" into exact dates. Simple, powerful, and
-                built for humans.
+                Transform expressions like "next friday" or "3.5 weeks from now" into exact dates and time. Simple, powerful, and
+                built for people.
               </p>
             </div>
             <div className="relative">
