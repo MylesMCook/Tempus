@@ -13,8 +13,8 @@ export function middleware(request: NextRequest) {
   // Add security headers
   const headers = response.headers
 
-  // HSTS
-  headers.set("Strict-Transport-Security", "max-age=31536000; includeSubDomains")
+  // HSTS - Strict Transport Security
+  headers.set("Strict-Transport-Security", "max-age=31536000; includeSubDomains; preload")
 
   // Prevent clickjacking
   headers.set("X-Frame-Options", "DENY")
@@ -25,10 +25,13 @@ export function middleware(request: NextRequest) {
   // Referrer policy
   headers.set("Referrer-Policy", "strict-origin-when-cross-origin")
 
+  // Permissions Policy (formerly Feature Policy)
+  headers.set("Permissions-Policy", "camera=(), microphone=(), geolocation=(), interest-cohort=()")
+
   // Content Security Policy - Less restrictive for API routes
   headers.set(
     "Content-Security-Policy",
-    "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self' *;",
+    "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self' *; font-src 'self' data:; frame-ancestors 'none';",
   )
 
   return response

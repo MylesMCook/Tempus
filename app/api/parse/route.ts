@@ -7,25 +7,28 @@
  */
 import { type NextRequest, NextResponse } from "next/server"
 import { parseNaturalLanguageDate } from "../../lib/date-parser"
-import { headers } from "next/headers"
 import rateLimit from "../../lib/rate-limit"
 import { z } from "zod"
 import { metrics } from "@/lib/monitoring"
 import { trackAPIUsage, trackError } from "@/lib/analytics"
+import { nanoid } from "nanoid"
 
-// Update the querySchema to properly handle timezone
+// Update the querySchema to properly handle timezone and add more validation
 const querySchema = z.object({
   expression: z
     .string()
-    .min(1)
-    .max(200)
-    .transform((str) => str.trim()),
-  format: z.string().optional(),
+    .min(1, "Expression is required")
+    .max(200, "Expression is too long (max 200 characters)")
+    .trim()
+    .refine((val) => !/[<>{}]/.test(val), {
+      message: "Expression contains invalid characters",
+    }),
+  format: z.string().max(50).optional(),
   preserveDayOfMonth: z
     .enum(["true", "false"])
     .optional()
     .transform((val) => val === "true"),
-  timezone: z.string().optional().default("UTC"),
+  timezone: z.string().max(50).optional().default("UTC"),
 })
 
 // Response schema for better type safety
@@ -44,45 +47,70 @@ type ApiResponse = {
     preserveDayOfMonth?: boolean
     timezone?: string
   }
+  requestId?: string
 }
 
-// Create rate limiter instance with more permissive limits
-const limiter = rateLimit({
+// Create tiered rate limiters with different thresholds
+const publicLimiter = rateLimit({
   interval: 60 * 1000, // 60 seconds
-  uniqueTokenPerInterval: 1000, // Increased from 500
+  uniqueTokenPerInterval: 1000,
+})
+
+const strictLimiter = rateLimit({
+  interval: 10 * 1000, // 10 seconds
+  uniqueTokenPerInterval: 500,
 })
 
 export async function GET(request: NextRequest) {
   const startTime = performance.now()
   let success = false
   let statusCode = 200
-  const searchParams = new URL(request.url).searchParams
-  const expression = searchParams.get("expression")
-  const format = searchParams.get("format") || undefined
-  const preserveDayOfMonth = searchParams.get("preserveDayOfMonth") || undefined
-  const timezone = searchParams.get("timezone") || undefined
+  const requestId = nanoid(8) // Generate a short unique ID for this request
+
+  // Declare expression here to ensure it's accessible in the finally block
+  let expression: string | null = null
 
   try {
-    // Get IP for rate limiting
-    const ip = headers().get("x-forwarded-for") ?? "anonymous"
+    const url = new URL(request.url)
+    const searchParams = url.searchParams
+    expression = searchParams.get("expression")
+    const format = searchParams.get("format") || undefined
+    const preserveDayOfMonth = searchParams.get("preserveDayOfMonth") || undefined
+    const timezone = searchParams.get("timezone") || undefined
 
-    // Apply rate limiting - increased to 120 requests per minute per IP
+    // Get client identifiers for rate limiting
+    const clientIp = publicLimiter.getClientIdentifier(request)
+    const uniqueClient = publicLimiter.getUniqueIdentifier(request)
+
+    // Apply tiered rate limiting
     try {
-      await limiter.check(120, ip)
-    } catch {
+      // Strict limit per unique client (IP + user agent) - 30 requests per 10 seconds
+      await strictLimiter.check(30, uniqueClient)
+
+      // More generous limit per IP - 100 requests per minute
+      await publicLimiter.check(100, clientIp)
+    } catch (rateLimitResult: any) {
       statusCode = 429
+      const retryAfter = rateLimitResult.reset || 60
+
       return NextResponse.json(
         {
           error: "Too many requests",
-          details: "Please try again in a minute",
+          details: "Rate limit exceeded",
+          retryAfter: retryAfter,
+          requestId,
         },
         {
           status: statusCode,
           headers: {
-            "Retry-After": "60",
+            "Retry-After": retryAfter.toString(),
+            "X-RateLimit-Limit": rateLimitResult.limit?.toString() || "100",
+            "X-RateLimit-Remaining": "0",
+            "X-RateLimit-Reset": retryAfter.toString(),
             "Access-Control-Allow-Origin": "*",
             "Access-Control-Allow-Methods": "GET, OPTIONS",
             "Access-Control-Allow-Headers": "Content-Type",
+            "Access-Control-Expose-Headers": "X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           },
         },
       )
@@ -102,6 +130,7 @@ export async function GET(request: NextRequest) {
         {
           error: "Invalid input",
           details: result.error.issues,
+          requestId,
         },
         {
           status: statusCode,
@@ -126,7 +155,10 @@ export async function GET(request: NextRequest) {
     if (!parsedDate) {
       statusCode = 400
       return NextResponse.json(
-        { error: "Could not parse date expression" },
+        {
+          error: "Could not parse date expression",
+          requestId,
+        },
         {
           status: statusCode,
           headers: {
@@ -150,6 +182,7 @@ export async function GET(request: NextRequest) {
         components: extractComponents(result.data.expression),
         timezone: timezoneValue,
       },
+      requestId,
     }
 
     // Format the date if a format was provided
@@ -180,12 +213,28 @@ export async function GET(request: NextRequest) {
 
     success = true
 
+    // Calculate remaining rate limit
+    let remainingRequests = 100
+    try {
+      const rateLimitResult = await publicLimiter.check(100, clientIp)
+      remainingRequests = rateLimitResult.remaining
+    } catch (e) {
+      // If check fails, default to 0 remaining
+      remainingRequests = 0
+    }
+
     return NextResponse.json(response, {
       headers: {
-        "Cache-Control": "public, s-maxage=3600",
+        // Use short cache for successful responses to reduce load
+        "Cache-Control": "public, max-age=60, s-maxage=300",
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "GET, OPTIONS",
         "Access-Control-Allow-Headers": "Content-Type",
+        "X-RateLimit-Limit": "100",
+        "X-RateLimit-Remaining": remainingRequests.toString(),
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "DENY",
+        "Access-Control-Expose-Headers": "X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
       },
     })
   } catch (error) {
@@ -194,13 +243,13 @@ export async function GET(request: NextRequest) {
 
     // Track the error
     if (error instanceof Error) {
-      trackError(error, { path: "/api/parse" })
+      trackError(error, { path: "/api/parse", requestId })
     }
 
     return NextResponse.json(
       {
         error: "Internal server error",
-        requestId: crypto.randomUUID(),
+        requestId,
       },
       {
         status: statusCode,
@@ -237,6 +286,7 @@ export async function OPTIONS() {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "GET, OPTIONS",
         "Access-Control-Allow-Headers": "Content-Type",
+        "Access-Control-Max-Age": "86400", // Cache preflight requests for 24 hours
       },
     },
   )
