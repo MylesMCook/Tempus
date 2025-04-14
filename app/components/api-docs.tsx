@@ -312,13 +312,13 @@ export function ApiDocs() {
 
   return (
     <section className="w-full max-w-2xl mx-auto space-y-6">
-      <Card className="w-full">
+      <Card className="w-full overflow-hidden">
         <CardHeader className="bg-muted/30 pb-4">
           <CardTitle>API Playground</CardTitle>
           <CardDescription>Test the date parsing API with different expressions</CardDescription>
         </CardHeader>
 
-        <CardContent className="space-y-4 relative min-h-[400px]">
+        <CardContent className="space-y-4 relative min-h-[400px] p-4 sm:p-6">
           {/* Examples Bar */}
           <div className="mb-4">
             <h3 className="text-sm font-medium mb-2">Example Expressions</h3>
@@ -338,12 +338,18 @@ export function ApiDocs() {
                 </button>
               ))}
             </div>
-            <div className="border-b -mx-6 w-[calc(100%+3rem)]"></div>
+            {/* Fix for the divider - use relative positioning and width 100% */}
+            <div className="relative">
+              <div
+                className="absolute left-0 right-0 border-b w-full"
+                style={{ marginLeft: "-1rem", marginRight: "-1rem", width: "calc(100% + 2rem)" }}
+              ></div>
+            </div>
           </div>
 
           {/* Main Input Area */}
           <div className="space-y-2">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-wrap items-center justify-between gap-2">
               <Label htmlFor="test-expression" className="text-sm font-medium">
                 Date Expression
               </Label>
@@ -511,7 +517,7 @@ export function ApiDocs() {
           {/* Success Result Display */}
           {testResult && !errorMessage && (
             <div
-              className="rounded-lg border animate-in fade-in-50 duration-300 min-h-[200px]"
+              className="rounded-lg border animate-in fade-in-50 duration-300 min-h-[200px] overflow-hidden"
               aria-live="polite"
               aria-atomic="true"
             >
@@ -536,15 +542,15 @@ export function ApiDocs() {
                 </div>
               </div>
 
-              <div className="p-3 max-h-[400px] overflow-auto bg-zinc-950">
-                <pre className="text-sm text-zinc-100 font-mono">{formattedJson}</pre>
+              <div className="p-3 max-h-[400px] overflow-auto bg-zinc-950 w-full">
+                <pre className="text-sm text-zinc-100 font-mono whitespace-pre-wrap break-all">{formattedJson}</pre>
               </div>
 
               <div className="p-3 sm:p-4 border-t bg-muted/20">
                 <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-0 sm:justify-between">
-                  <div className="flex-1 truncate">
+                  <div className="flex-1 overflow-hidden">
                     <Label className="text-xs font-medium block text-muted-foreground">Request URL:</Label>
-                    <code className="text-xs block truncate max-w-[calc(100vw-3rem)] sm:max-w-md">{testUrl}</code>
+                    <code className="text-xs block overflow-hidden text-ellipsis w-full">{testUrl}</code>
                   </div>
                   <Button
                     variant="outline"
