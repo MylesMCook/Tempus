@@ -71,9 +71,9 @@ export default function Home() {
   return (
     <SettingsProvider>
       <div className="min-h-screen bg-background">
-        <main className="container py-8 sm:py-12 space-y-8 sm:space-y-12 px-4 sm:px-6">
+        <main className="container py-8 sm:py-12 space-y-8 sm:space-y-12 px-4 sm:px-6 flex flex-col items-center">
           {/* Adjust the header spacing and title sizes for better mobile layout */}
-          <section className="max-w-2xl mx-auto text-center space-y-4 sm:space-y-6">
+          <section className="w-full max-w-2xl mx-auto text-center space-y-4 sm:space-y-6">
             <div className="inline-flex items-center gap-2 text-primary">
               <Clock className="size-5 sm:size-6" />
               <span className="text-base sm:text-lg font-bold tracking-tight">TempusTotal</span>
@@ -96,7 +96,7 @@ export default function Home() {
           </section>
 
           {/* Adjust the examples layout for improved mobile display */}
-          <section className="max-w-2xl mx-auto px-0 sm:px-4">
+          <section className="w-full max-w-2xl mx-auto">
             <Card>
               <CardHeader className="bg-muted/30 pb-4">
                 <CardTitle>Date Expression Examples</CardTitle>
@@ -143,7 +143,7 @@ export default function Home() {
               </CardContent>
             </Card>
           </section>
-          <section className="max-w-2xl mx-auto">
+          <section className="w-full max-w-2xl mx-auto">
             <ApiDocs />
           </section>
         </main>

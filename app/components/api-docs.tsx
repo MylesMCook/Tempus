@@ -311,8 +311,8 @@ export function ApiDocs() {
   }, [testResult])
 
   return (
-    <section className="max-w-3xl mx-auto space-y-6">
-      <Card>
+    <section className="w-full max-w-2xl mx-auto space-y-6">
+      <Card className="w-full">
         <CardHeader className="bg-muted/30 pb-4">
           <CardTitle>API Playground</CardTitle>
           <CardDescription>Test the date parsing API with different expressions</CardDescription>
@@ -338,7 +338,7 @@ export function ApiDocs() {
                 </button>
               ))}
             </div>
-            <div className="border-b -mx-6"></div>
+            <div className="border-b -mx-6 w-full"></div>
           </div>
 
           {/* Main Input Area */}

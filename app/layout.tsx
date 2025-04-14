@@ -66,7 +66,7 @@ export default function RootLayout({
         className={cn("min-h-screen bg-background antialiased", geist.variable, geistMono.variable, geist.className)}
       >
         <ConsentProvider>
-          {children}
+          <div className="flex flex-col items-center w-full">{children}</div>
           <ConditionalAnalytics />
           <CookieConsent />
         </ConsentProvider>

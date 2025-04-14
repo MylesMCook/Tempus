@@ -391,12 +391,12 @@ export function DatePicker({ date, onDateChange, onFormattedDateChange, classNam
   }
 
   return (
-    <div className={cn("w-full flex flex-col", className)}>
+    <div className={cn("w-full flex flex-col max-w-full", className)}>
       <div className="relative group">
         <div className="absolute -inset-0.5 bg-gradient-to-r from-primary/20 via-primary/30 to-primary/20 rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-1000" />
         <div className="relative flex flex-col gap-1.5 bg-background rounded-lg p-1.5">
           {/* Update the DatePicker to improve mobile UI */}
-          <div className="relative flex items-center overflow-hidden rounded-md shadow-sm">
+          <div className="relative flex items-center w-full overflow-hidden rounded-md shadow-sm">
             <input
               ref={inputRef}
               type="text"
