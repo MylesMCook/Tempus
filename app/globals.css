@@ -112,3 +112,14 @@
     @apply focus-visible:ring-1 focus-visible:ring-primary/30 focus-visible:border-primary/50;
   }
 }
+
+/* Add these styles to ensure proper overflow handling */
+@layer utilities {
+  .break-all {
+    word-break: break-all;
+  }
+
+  .overflow-x-hidden {
+    overflow-x: hidden;
+  }
+}

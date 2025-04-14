@@ -94,14 +94,36 @@ const dateFormats = [
   { label: "Custom format...", value: "custom" },
 ]
 
+// Update the formatJSON function to better handle mobile display
+
 // Function to format JSON with syntax highlighting
-function formatJSON(json: any): React.ReactNode {
+function formatJSON(json: any, syntaxHighlighting: boolean): React.ReactNode {
+  if (!syntaxHighlighting) {
+    return <span className="whitespace-pre-wrap break-all">{JSON.stringify(json, null, 2)}</span>
+  }
+
   // Convert the JSON to a string with proper indentation
-  const jsonString = JSON.stringify(json, null, 2)
+  const jsonString = JSON.stringify(
+    json,
+    (key, value) => {
+      // Format Date objects specially
+      if (value instanceof Date) {
+        return {
+          _isDate: true,
+          iso: value.toISOString(),
+          local: value.toString(),
+          timestamp: value.getTime(),
+          timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+        }
+      }
+      return value
+    },
+    2,
+  )
 
   // Replace key-value pairs with styled spans
   return (
-    <pre className="syntax-highlight">
+    <pre className="syntax-highlight whitespace-pre-wrap break-all">
       {jsonString.split("\n").map((line, i) => {
         // Match keys and values
         const keyMatch = line.match(/^(\s*)(".*?"):/)
@@ -112,7 +134,7 @@ function formatJSON(json: any): React.ReactNode {
           const value = valueMatch[1]
 
           return (
-            <div key={i}>
+            <div key={i} className="overflow-hidden">
               {spaces}
               <span className="json-key">{key}</span>:
               {value.includes('"') ? (
@@ -126,7 +148,11 @@ function formatJSON(json: any): React.ReactNode {
           )
         }
 
-        return <div key={i}>{line}</div>
+        return (
+          <div key={i} className="overflow-hidden">
+            {line}
+          </div>
+        )
       })}
     </pre>
   )
@@ -307,7 +333,7 @@ export function ApiDocs() {
 
   const formattedJson = useMemo(() => {
     if (!testResult) return null
-    return formatJSON(testResult)
+    return formatJSON(testResult, true)
   }, [testResult])
 
   return (
@@ -515,15 +541,19 @@ export function ApiDocs() {
                 </div>
               </div>
 
+              {/* Update the JSON response display section to prevent overflow */}
               <div className="p-3 max-h-[400px] overflow-auto bg-zinc-950">
-                <pre className="text-sm text-zinc-100 font-mono">{formattedJson}</pre>
+                <pre className="text-sm text-zinc-100 font-mono whitespace-pre-wrap break-all overflow-x-hidden">
+                  {formattedJson}
+                </pre>
               </div>
 
+              {/* Update the request URL display to prevent overflow */}
               <div className="p-3 sm:p-4 border-t bg-muted/20">
                 <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-0 sm:justify-between">
-                  <div className="flex-1 truncate">
+                  <div className="flex-1 overflow-hidden">
                     <Label className="text-xs font-medium block text-muted-foreground">Request URL:</Label>
-                    <code className="text-xs block truncate max-w-[calc(100vw-3rem)] sm:max-w-md">{testUrl}</code>
+                    <code className="text-xs block overflow-hidden text-ellipsis max-w-full">{testUrl}</code>
                   </div>
                   <Button
                     variant="outline"
