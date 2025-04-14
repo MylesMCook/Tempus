@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { useMediaQuery } from "@/hooks/use-media-query"
 
 interface DateExpressionTabsProps {
   examples: Record<string, string[]>
@@ -10,18 +11,31 @@ interface DateExpressionTabsProps {
 
 export function DateExpressionTabs({ examples, onExampleClick }: DateExpressionTabsProps) {
   const [activeCategory, setActiveCategory] = useState<string>(Object.keys(examples)[0])
+  const isDesktop = useMediaQuery("(min-width: 768px)")
 
   return (
     <Tabs defaultValue={activeCategory} onValueChange={setActiveCategory} className="w-full">
       <div className="px-2 sm:px-4 py-2 border-b overflow-x-auto">
         <div className="flex min-w-full pb-1">
-          <TabsList className="inline-flex h-9 w-auto gap-1">
-            {Object.keys(examples).map((category) => (
-              <TabsTrigger key={category} value={category} className="text-xs whitespace-nowrap px-3 flex-shrink-0">
-                {category}
-              </TabsTrigger>
-            ))}
-          </TabsList>
+          {isDesktop ? (
+            // Desktop view - evenly distributed tabs
+            <TabsList className="inline-flex h-9 w-full">
+              {Object.keys(examples).map((category) => (
+                <TabsTrigger key={category} value={category} className="text-xs flex-1">
+                  {category}
+                </TabsTrigger>
+              ))}
+            </TabsList>
+          ) : (
+            // Mobile view - scrollable tabs
+            <TabsList className="inline-flex h-9 w-auto gap-1">
+              {Object.keys(examples).map((category) => (
+                <TabsTrigger key={category} value={category} className="text-xs whitespace-nowrap px-3 flex-shrink-0">
+                  {category}
+                </TabsTrigger>
+              ))}
+            </TabsList>
+          )}
         </div>
       </div>
 
