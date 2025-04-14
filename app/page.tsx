@@ -71,17 +71,17 @@ export default function Home() {
   return (
     <SettingsProvider>
       <div className="min-h-screen bg-background">
-        <main className="container py-12 space-y-12">
-          <section className="max-w-2xl mx-auto text-center space-y-6">
+        <main className="container py-8 sm:py-12 space-y-8 sm:space-y-12 px-4 sm:px-6">
+          <section className="max-w-2xl mx-auto text-center space-y-4 sm:space-y-6">
             <div className="inline-flex items-center gap-2 text-primary">
               <Clock className="size-6" />
               <span className="text-lg font-bold tracking-tight">TempusTotal</span>
             </div>
             <div className="space-y-4">
-              <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">
                 Natural Language Time, <span className="text-primary">Precisely Parsed</span>
               </h1>
-              <p className="text-xl text-muted-foreground max-w-prose mx-auto">
+              <p className="text-lg sm:text-xl text-muted-foreground max-w-prose mx-auto">
                 Transform expressions like "next friday" or "3.5 weeks from now" into exact dates and time. Simple,
                 powerful, and built for people.
               </p>
@@ -94,7 +94,7 @@ export default function Home() {
             </div>
           </section>
 
-          <section className="max-w-2xl mx-auto">
+          <section className="max-w-2xl mx-auto px-0 sm:px-4">
             <Card>
               <CardHeader className="bg-muted/30 pb-4">
                 <CardTitle>Date Expression Examples</CardTitle>
@@ -104,7 +104,7 @@ export default function Home() {
               <CardContent className="p-0">
                 <Tabs defaultValue={activeCategory} onValueChange={setActiveCategory} className="w-full">
                   <div className="px-4 py-2 border-b">
-                    <TabsList className="grid grid-cols-5 gap-1">
+                    <TabsList className="grid grid-cols-3 sm:grid-cols-5 gap-1">
                       {Object.keys(examples).map((category) => (
                         <TabsTrigger key={category} value={category} className="text-xs">
                           {category}

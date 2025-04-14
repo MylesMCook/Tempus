@@ -63,12 +63,12 @@
     "svelte": "latest",
     "vue": "latest",
     "vue-router": "latest",
-    "date-fns-tz": "latest",
     "@vercel/analytics": "latest",
     "@vercel/speed-insights": "latest",
     "crypto": "latest",
     "lru-cache": "latest",
-    "nanoid": "latest"
+    "nanoid": "latest",
+    "date-fns-tz": "latest"
   },
   "devDependencies": {
     "@types/node": "^22",

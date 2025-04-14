@@ -390,8 +390,6 @@ export function DatePicker({ date, onDateChange, onFormattedDateChange, classNam
     return activeStep === null || activeStep === step
   }
 
-  // Remove this line entirely as we're using direct variables now
-
   return (
     <div className={cn("w-full flex flex-col", className)}>
       <div className="relative group">
@@ -405,7 +403,7 @@ export function DatePicker({ date, onDateChange, onFormattedDateChange, classNam
               onChange={handleInputChange}
               onKeyDown={handleKeyDown}
               placeholder="Try any natural date expression..."
-              className="w-full h-12 px-4 text-lg bg-transparent border-0 outline-none ring-0 focus:ring-0 placeholder:text-muted-foreground/60"
+              className="w-full h-12 px-3 sm:px-4 text-base sm:text-lg bg-transparent border-0 outline-none ring-0 focus:ring-0 placeholder:text-muted-foreground/60"
               aria-label="Choose a date (any way you like)"
             />
             <div className="flex items-center gap-1 mr-2">
@@ -665,8 +663,8 @@ export function DatePicker({ date, onDateChange, onFormattedDateChange, classNam
           </div>
 
           {previewDate && (
-            <div className="flex flex-col gap-3 px-4 py-3 bg-muted/50 rounded-md">
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+            <div className="flex flex-col gap-3 px-3 sm:px-4 py-3 bg-muted/50 rounded-md">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-3">
                 <div className="flex items-center gap-3">
                   <div className="flex items-center gap-1.5 text-muted-foreground">
                     <Clock className="size-4" />
@@ -679,12 +677,12 @@ export function DatePicker({ date, onDateChange, onFormattedDateChange, classNam
                     </span>
                   </div>
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto">
                   <Button
                     size="sm"
                     variant="outline"
                     className={cn(
-                      "h-8 px-3 text-xs border shadow-sm transition-colors",
+                      "h-8 px-3 text-xs border shadow-sm transition-colors flex-1 sm:flex-none",
                       showTimeSelector
                         ? "bg-primary/10 border-primary/50 text-primary"
                         : "hover:border-primary/50 hover:bg-primary/5",
@@ -699,7 +697,7 @@ export function DatePicker({ date, onDateChange, onFormattedDateChange, classNam
                     size="sm"
                     variant={copied ? "outline" : "default"}
                     className={cn(
-                      "h-8 px-3 text-xs transition-all shadow-sm",
+                      "h-8 px-3 text-xs transition-all shadow-sm flex-1 sm:flex-none",
                       copied
                         ? "bg-green-100 text-green-700 border-green-300 hover:bg-green-200 dark:bg-green-900/30 dark:text-green-400 dark:border-green-700"
                         : "",
@@ -713,7 +711,7 @@ export function DatePicker({ date, onDateChange, onFormattedDateChange, classNam
               </div>
 
               {showTimeSelector && (
-                <div className="border-t pt-3 mt-1">
+                <div className="border-t pt-3 mt-1 overflow-x-hidden">
                   <div className="flex items-center justify-between mb-2">
                     <h4 className="text-sm font-medium flex items-center gap-1.5">
                       <Clock3 className="size-3.5" />

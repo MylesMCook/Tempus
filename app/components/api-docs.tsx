@@ -320,17 +320,17 @@ export function ApiDocs() {
 
         <CardContent className="space-y-4">
           {/* Examples Bar */}
-          <div className="px-4 py-2 border-b mb-4">
+          <div className="mb-4">
             <h3 className="text-sm font-medium mb-2">Example Expressions</h3>
-            <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-4 gap-2">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 mb-4">
               {examples.map((example, index) => (
                 <button
                   key={index}
                   className={cn(
-                    "px-3 py-2 text-xs border rounded-md text-left transition-all",
+                    "px-3 py-2 text-sm border rounded-md text-left transition-all",
                     index === activeExample
                       ? "bg-primary text-primary-foreground"
-                      : "bg-card hover:bg-muted/30 hover:border-primary/20",
+                      : "bg-background hover:bg-muted/30 hover:border-primary/20",
                   )}
                   onClick={() => loadExample(index)}
                 >
@@ -338,6 +338,7 @@ export function ApiDocs() {
                 </button>
               ))}
             </div>
+            <div className="border-b -mx-6"></div>
           </div>
 
           {/* Main Input Area */}
@@ -350,20 +351,20 @@ export function ApiDocs() {
                 variant="ghost"
                 size="sm"
                 className={cn(
-                  "text-xs h-7 px-2 transition-colors",
+                  "text-xs h-8 px-3 transition-colors",
                   showAdvancedOptions ? "bg-primary/10 text-primary" : "",
                 )}
                 onClick={() => setShowAdvancedOptions(!showAdvancedOptions)}
               >
                 {showAdvancedOptions ? (
-                  <ChevronUp className="h-3 w-3 mr-1" />
+                  <ChevronUp className="h-3.5 w-3.5 mr-1.5" />
                 ) : (
-                  <ChevronDown className="h-3 w-3 mr-1" />
+                  <ChevronDown className="h-3.5 w-3.5 mr-1.5" />
                 )}
                 {showAdvancedOptions ? "Hide Options" : "Show Options"}
               </Button>
             </div>
-            <div className="flex flex-col sm:flex-row gap-2 items-start">
+            <div className="flex flex-col sm:flex-row gap-3 items-start">
               <div className="relative flex-1 w-full">
                 <Input
                   id="test-expression"
@@ -397,11 +398,11 @@ export function ApiDocs() {
               <Button
                 onClick={testApi}
                 disabled={isTesting || !testExpression.trim()}
-                className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm w-full sm:w-auto"
+                className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm w-full sm:w-auto h-10 px-4 text-sm"
               >
                 {isTesting ? (
                   <>
-                    <RefreshCwIcon className="w-4 h-4 mr-2 animate-spin" />
+                    <RefreshCwIcon className="w-4 h-4 mr-2" />
                     <span>Testing...</span>
                   </>
                 ) : (
@@ -416,7 +417,7 @@ export function ApiDocs() {
 
           {/* Advanced Options */}
           {showAdvancedOptions && (
-            <div className="border rounded-lg p-3 space-y-4 bg-muted/20 animate-in fade-in slide-in-from-top-2 duration-300">
+            <div className="border rounded-lg p-3 sm:p-4 space-y-4 bg-muted/20 animate-in fade-in slide-in-from-top-2 duration-300">
               <div className="space-y-2">
                 <Label htmlFor="date-format" className="text-sm font-medium">
                   Date Format
@@ -460,7 +461,7 @@ export function ApiDocs() {
                 )}
               </div>
 
-              <div className="flex items-center gap-4 justify-between">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 sm:justify-between">
                 <div>
                   <Label htmlFor="preserve-day" className="text-sm font-medium">
                     Preserve Day of Month
@@ -471,6 +472,7 @@ export function ApiDocs() {
                   id="preserve-day"
                   checked={settings.preserveDayOfMonth}
                   onCheckedChange={(checked) => updateSettings({ preserveDayOfMonth: checked })}
+                  className="mt-1 sm:mt-0"
                 />
               </div>
             </div>
@@ -492,7 +494,7 @@ export function ApiDocs() {
           {/* Success Result Display */}
           {testResult && !errorMessage && (
             <div className="rounded-lg border animate-in fade-in duration-200" aria-live="polite" aria-atomic="true">
-              <div className="flex items-center justify-between p-3 bg-muted/30 border-b">
+              <div className="flex items-center justify-between p-3 sm:p-4 bg-muted/30 border-b">
                 <div className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-green-500" />
                   <h4 className="font-medium">API Response</h4>
@@ -517,16 +519,16 @@ export function ApiDocs() {
                 <pre className="text-sm text-zinc-100 font-mono">{formattedJson}</pre>
               </div>
 
-              <div className="p-3 border-t bg-muted/20">
-                <div className="flex items-center justify-between">
+              <div className="p-3 sm:p-4 border-t bg-muted/20">
+                <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-0 sm:justify-between">
                   <div className="flex-1 truncate">
                     <Label className="text-xs font-medium block text-muted-foreground">Request URL:</Label>
-                    <code className="text-xs block truncate">{testUrl}</code>
+                    <code className="text-xs block truncate max-w-[calc(100vw-3rem)] sm:max-w-md">{testUrl}</code>
                   </div>
                   <Button
                     variant="outline"
                     size="sm"
-                    className="ml-2 h-8 whitespace-nowrap flex-shrink-0"
+                    className="sm:ml-2 h-8 whitespace-nowrap w-full sm:w-auto flex-shrink-0"
                     onClick={() => copyToClipboard(testUrl, "url")}
                   >
                     {copied["url"] ? <CheckIcon className="h-3 w-3 mr-1" /> : <CopyIcon className="h-3 w-3 mr-1" />}
@@ -537,8 +539,14 @@ export function ApiDocs() {
             </div>
           )}
 
-          <div className="flex justify-end">
-            <Button variant="outline" size="sm" onClick={resetForm} className="h-8 text-xs" disabled={isTesting}>
+          <div className="flex justify-center sm:justify-end">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={resetForm}
+              className="h-9 px-4 text-sm w-full sm:w-auto"
+              disabled={isTesting}
+            >
               Reset Form
             </Button>
           </div>
@@ -547,25 +555,25 @@ export function ApiDocs() {
 
       {/* Add CSS for syntax highlighting */}
       <style jsx global>{`
-       .syntax-highlight .json-key {
-         color: #a626a4;
-       }
-       .syntax-highlight .json-string {
-         color: #50a14f;
-       }
-       .syntax-highlight .json-number {
-         color: #986801;
-       }
-       .dark .syntax-highlight .json-key {
-         color: #c678dd;
-       }
-       .dark .syntax-highlight .json-string {
-         color: #98c379;
-       }
-       .dark .syntax-highlight .json-number {
-         color: #d19a66;
-       }
-     `}</style>
+     .syntax-highlight .json-key {
+       color: #a626a4;
+     }
+     .syntax-highlight .json-string {
+       color: #50a14f;
+     }
+     .syntax-highlight .json-number {
+       color: #986801;
+     }
+     .dark .syntax-highlight .json-key {
+       color: #c678dd;
+     }
+     .dark .syntax-highlight .json-string {
+       color: #98c379;
+     }
+     .dark .syntax-highlight .json-number {
+       color: #d19a66;
+     }
+   `}</style>
     </section>
   )
 }
