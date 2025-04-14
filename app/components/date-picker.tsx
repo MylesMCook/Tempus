@@ -395,6 +395,7 @@ export function DatePicker({ date, onDateChange, onFormattedDateChange, classNam
       <div className="relative group">
         <div className="absolute -inset-0.5 bg-gradient-to-r from-primary/20 via-primary/30 to-primary/20 rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-1000" />
         <div className="relative flex flex-col gap-1.5 bg-background rounded-lg p-1.5">
+          {/* Update the DatePicker to improve mobile UI */}
           <div className="relative flex items-center overflow-hidden rounded-md shadow-sm">
             <input
               ref={inputRef}
@@ -403,10 +404,10 @@ export function DatePicker({ date, onDateChange, onFormattedDateChange, classNam
               onChange={handleInputChange}
               onKeyDown={handleKeyDown}
               placeholder="Try any natural date expression..."
-              className="w-full h-12 px-3 sm:px-4 text-base sm:text-lg bg-transparent border-0 outline-none ring-0 focus:ring-0 placeholder:text-muted-foreground/60"
+              className="w-full h-12 px-3 text-base sm:text-lg bg-transparent border-0 outline-none ring-0 focus:ring-0 placeholder:text-muted-foreground/60"
               aria-label="Choose a date (any way you like)"
             />
-            <div className="flex items-center gap-1 mr-2">
+            <div className="flex items-center gap-0.5 mr-1 sm:gap-1 sm:mr-2">
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
@@ -635,15 +636,15 @@ export function DatePicker({ date, onDateChange, onFormattedDateChange, classNam
                       variant="ghost"
                       size="sm"
                       className={cn(
-                        "h-8 border border-transparent",
+                        "h-8 border border-transparent px-3",
                         debugMode
                           ? "bg-primary/10 text-primary border-primary/30"
                           : "hover:bg-primary/5 hover:text-primary",
                       )}
                       onClick={toggleDebugMode}
                     >
-                      <Code className="size-4 mr-1" />
-                      {debugMode ? "Hide" : "Debug"}
+                      <Code className="size-4 mr-1 hidden sm:inline-block" />
+                      <span>Debug</span>
                     </Button>
                   </TooltipTrigger>
                   <TooltipContent>

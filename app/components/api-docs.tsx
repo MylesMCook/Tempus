@@ -322,7 +322,7 @@ export function ApiDocs() {
           {/* Examples Bar */}
           <div className="mb-4">
             <h3 className="text-sm font-medium mb-2">Example Expressions</h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 mb-4">
+            <div className="grid grid-cols-2 gap-2 mb-4">
               {examples.map((example, index) => (
                 <button
                   key={index}

@@ -72,16 +72,17 @@ export default function Home() {
     <SettingsProvider>
       <div className="min-h-screen bg-background">
         <main className="container py-8 sm:py-12 space-y-8 sm:space-y-12 px-4 sm:px-6">
+          {/* Adjust the header spacing and title sizes for better mobile layout */}
           <section className="max-w-2xl mx-auto text-center space-y-4 sm:space-y-6">
             <div className="inline-flex items-center gap-2 text-primary">
-              <Clock className="size-6" />
-              <span className="text-lg font-bold tracking-tight">TempusTotal</span>
+              <Clock className="size-5 sm:size-6" />
+              <span className="text-base sm:text-lg font-bold tracking-tight">TempusTotal</span>
             </div>
-            <div className="space-y-4">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">
+            <div className="space-y-3 sm:space-y-4">
+              <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">
                 Natural Language Time, <span className="text-primary">Precisely Parsed</span>
               </h1>
-              <p className="text-lg sm:text-xl text-muted-foreground max-w-prose mx-auto">
+              <p className="text-base sm:text-lg text-muted-foreground max-w-prose mx-auto px-1">
                 Transform expressions like "next friday" or "3.5 weeks from now" into exact dates and time. Simple,
                 powerful, and built for people.
               </p>
@@ -94,6 +95,7 @@ export default function Home() {
             </div>
           </section>
 
+          {/* Adjust the examples layout for improved mobile display */}
           <section className="max-w-2xl mx-auto px-0 sm:px-4">
             <Card>
               <CardHeader className="bg-muted/30 pb-4">
@@ -103,8 +105,8 @@ export default function Home() {
 
               <CardContent className="p-0">
                 <Tabs defaultValue={activeCategory} onValueChange={setActiveCategory} className="w-full">
-                  <div className="px-4 py-2 border-b">
-                    <TabsList className="grid grid-cols-3 sm:grid-cols-5 gap-1">
+                  <div className="px-2 sm:px-4 py-2 border-b overflow-x-auto">
+                    <TabsList className="grid grid-cols-3 sm:grid-cols-5 gap-1 w-full min-w-[400px]">
                       {Object.keys(examples).map((category) => (
                         <TabsTrigger key={category} value={category} className="text-xs">
                           {category}
@@ -114,7 +116,7 @@ export default function Home() {
                   </div>
 
                   {Object.entries(examples).map(([category, expressions]) => (
-                    <TabsContent key={category} value={category} className="p-4">
+                    <TabsContent key={category} value={category} className="p-3 sm:p-4">
                       <p className="text-sm text-muted-foreground mb-3">
                         {category === "Simple" && "Basic date references that are easy to understand."}
                         {category === "Relative" && "Dates defined in relation to the current moment."}
@@ -122,14 +124,14 @@ export default function Home() {
                         {category === "Fractional" && "Precise date calculations using decimal values."}
                         {category === "Advanced" && "Complex expressions combining multiple concepts."}
                       </p>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      <div className="grid grid-cols-1 gap-2">
                         {expressions.map((expression) => (
                           <button
                             key={expression}
                             onClick={() => handleExampleClick(expression)}
                             className="text-left px-3 py-2 rounded-md
-                              bg-background hover:bg-primary/5 transition-colors
-                              border border-border hover:border-primary/30"
+                    bg-background hover:bg-primary/5 transition-colors
+                    border border-border hover:border-primary/30"
                           >
                             <span className="text-sm">{expression}</span>
                           </button>
