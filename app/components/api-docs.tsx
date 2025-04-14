@@ -318,7 +318,7 @@ export function ApiDocs() {
           <CardDescription>Test the date parsing API with different expressions</CardDescription>
         </CardHeader>
 
-        <CardContent className="space-y-4">
+        <CardContent className="space-y-4 relative min-h-[400px]">
           {/* Examples Bar */}
           <div className="mb-4">
             <h3 className="text-sm font-medium mb-2">Example Expressions</h3>
@@ -502,9 +502,19 @@ export function ApiDocs() {
             </div>
           )}
 
+          {isTesting && !testResult && (
+            <div className="rounded-lg border animate-pulse bg-muted/20 min-h-[200px] flex items-center justify-center">
+              <div className="text-muted-foreground">Processing request...</div>
+            </div>
+          )}
+
           {/* Success Result Display */}
           {testResult && !errorMessage && (
-            <div className="rounded-lg border animate-in fade-in duration-200" aria-live="polite" aria-atomic="true">
+            <div
+              className="rounded-lg border animate-in fade-in-50 duration-300 min-h-[200px]"
+              aria-live="polite"
+              aria-atomic="true"
+            >
               <div className="flex items-center justify-between p-3 sm:p-4 bg-muted/30 border-b">
                 <div className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-green-500" />
