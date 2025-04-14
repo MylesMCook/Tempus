@@ -94,42 +94,10 @@ const dateFormats = [
   { label: "Custom format...", value: "custom" },
 ]
 
-// Function to format JSON with syntax highlighting
+// Simple JSON formatter that prioritizes mobile compatibility
 function formatJSON(json: any): React.ReactNode {
-  // Convert the JSON to a string with proper indentation
   const jsonString = JSON.stringify(json, null, 2)
-
-  // Replace key-value pairs with styled spans
-  return (
-    <pre className="syntax-highlight">
-      {jsonString.split("\n").map((line, i) => {
-        // Match keys and values
-        const keyMatch = line.match(/^(\s*)(".*?"):/)
-        const valueMatch = line.match(/:\s*(.*?)$/)
-
-        if (keyMatch && valueMatch) {
-          const [, spaces, key] = keyMatch
-          const value = valueMatch[1]
-
-          return (
-            <div key={i}>
-              {spaces}
-              <span className="json-key">{key}</span>:
-              {value.includes('"') ? (
-                <span className="json-string">{value}</span>
-              ) : value.match(/^-?\d+(\.\d+)?$/) ? (
-                <span className="json-number">{value}</span>
-              ) : (
-                <span>{value}</span>
-              )}
-            </div>
-          )
-        }
-
-        return <div key={i}>{line}</div>
-      })}
-    </pre>
-  )
+  return jsonString
 }
 
 export function ApiDocs() {
@@ -312,7 +280,7 @@ export function ApiDocs() {
 
   return (
     <section className="w-full max-w-2xl mx-auto space-y-6">
-      <Card className="w-full overflow-hidden">
+      <Card className="w-full" style={{ maxWidth: "100%", overflowX: "hidden" }}>
         <CardHeader className="bg-muted/30 pb-4">
           <CardTitle>API Playground</CardTitle>
           <CardDescription>Test the date parsing API with different expressions</CardDescription>
@@ -542,20 +510,31 @@ export function ApiDocs() {
                 </div>
               </div>
 
-              <div className="p-3 max-h-[400px] overflow-auto bg-zinc-950 w-full">
-                <pre className="text-sm text-zinc-100 font-mono whitespace-pre-wrap break-all">{formattedJson}</pre>
+              <div className="p-3 max-h-[400px] bg-zinc-950 w-full">
+                <div className="overflow-x-auto">
+                  <pre
+                    className="text-sm text-zinc-100 font-mono whitespace-pre-wrap"
+                    style={{ maxWidth: "100%", wordBreak: "break-word" }}
+                  >
+                    {formattedJson}
+                  </pre>
+                </div>
               </div>
 
               <div className="p-3 sm:p-4 border-t bg-muted/20">
-                <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-0 sm:justify-between">
-                  <div className="flex-1 overflow-hidden">
+                <div className="flex flex-col gap-2">
+                  <div className="w-full">
                     <Label className="text-xs font-medium block text-muted-foreground">Request URL:</Label>
-                    <code className="text-xs block overflow-hidden text-ellipsis w-full">{testUrl}</code>
+                    <div className="overflow-hidden">
+                      <code className="text-xs block" style={{ wordBreak: "break-all" }}>
+                        {testUrl}
+                      </code>
+                    </div>
                   </div>
                   <Button
                     variant="outline"
                     size="sm"
-                    className="sm:ml-2 h-8 whitespace-nowrap w-full sm:w-auto flex-shrink-0"
+                    className="h-8 whitespace-nowrap w-full sm:w-auto"
                     onClick={() => copyToClipboard(testUrl, "url")}
                   >
                     {copied["url"] ? <CheckIcon className="h-3 w-3 mr-1" /> : <CopyIcon className="h-3 w-3 mr-1" />}
