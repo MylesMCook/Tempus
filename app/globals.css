@@ -113,13 +113,21 @@
   }
 }
 
-/* Add these styles to ensure proper overflow handling */
 @layer utilities {
   .break-all {
     word-break: break-all;
   }
 
-  .overflow-x-hidden {
-    overflow-x: hidden;
+  /* Improve code display on small screens */
+  @media (max-width: 640px) {
+    pre,
+    code {
+      font-size: 0.75rem; /* Slightly smaller font on mobile */
+    }
+
+    .syntax-highlight {
+      max-width: 100%;
+      overflow-x: auto;
+    }
   }
 }
