@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-import { useState } from "react"
+import { useState, useEffect, useMemo } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -94,6 +94,12 @@ const dateFormats = [
   { label: "Custom format...", value: "custom" },
 ]
 
+// Simple JSON formatter that prioritizes mobile compatibility
+function formatJSON(json: any): React.ReactNode {
+  // Simply return the stringified JSON with indentation
+  return JSON.stringify(json, null, 2)
+}
+
 export function ApiDocs() {
   const [testExpression, setTestExpression] = useState("")
   const [testResult, setTestResult] = useState<any>(null)
@@ -105,6 +111,19 @@ export function ApiDocs() {
   const [activeExample, setActiveExample] = useState<number | null>(null)
   const { toast } = useToast()
   const { settings, updateSettings } = useSettings()
+
+  // Track viewport width for responsive design
+  const [isSmallScreen, setIsSmallScreen] = useState<boolean>(false)
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsSmallScreen(window.innerWidth < 768)
+    }
+
+    checkScreenSize()
+    window.addEventListener("resize", checkScreenSize)
+    return () => window.removeEventListener("resize", checkScreenSize)
+  }, [])
 
   const copyToClipboard = async (text: string, id: string) => {
     try {
@@ -254,9 +273,14 @@ export function ApiDocs() {
     setTestExpression(example.expression)
   }
 
+  const formattedJson = useMemo(() => {
+    if (!testResult) return null
+    return formatJSON(testResult)
+  }, [testResult])
+
   return (
     <section className="w-full max-w-2xl mx-auto space-y-6">
-      <Card className="w-full">
+      <Card className="w-full" style={{ maxWidth: "100%", overflowX: "hidden" }}>
         <CardHeader className="bg-muted/30 pb-4">
           <CardTitle>API Playground</CardTitle>
           <CardDescription>Test the date parsing API with different expressions</CardDescription>
@@ -282,7 +306,13 @@ export function ApiDocs() {
                 </button>
               ))}
             </div>
-            <div className="border-b"></div>
+            {/* Fix for the divider - use relative positioning and width 100% */}
+            <div className="relative">
+              <div
+                className="absolute left-0 right-0 border-b w-full"
+                style={{ marginLeft: "-1rem", marginRight: "-1rem", width: "calc(100% + 2rem)" }}
+              ></div>
+            </div>
           </div>
 
           {/* Main Input Area */}
@@ -455,7 +485,7 @@ export function ApiDocs() {
           {/* Success Result Display */}
           {testResult && !errorMessage && (
             <div
-              className="rounded-lg border animate-in fade-in-50 duration-300 min-h-[200px]"
+              className="rounded-lg border animate-in fade-in-50 duration-300 min-h-[200px] overflow-hidden"
               aria-live="polite"
               aria-atomic="true"
             >
@@ -480,21 +510,23 @@ export function ApiDocs() {
                 </div>
               </div>
 
-              {/* JSON Response - Simple scrollable container */}
-              <div className="bg-zinc-950 w-full">
-                <div className="overflow-x-auto" style={{ maxWidth: "100%" }}>
-                  <pre className="text-sm text-zinc-100 font-mono p-3" style={{ minWidth: "max-content" }}>
-                    {JSON.stringify(testResult, null, 2)}
-                  </pre>
-                </div>
+              <div className="p-3 bg-zinc-950 w-full overflow-x-auto">
+                <pre
+                  className="text-sm text-zinc-100 font-mono whitespace-pre-wrap"
+                  style={{ maxWidth: "100%", wordBreak: "break-word" }}
+                >
+                  {formattedJson}
+                </pre>
               </div>
 
               <div className="p-3 sm:p-4 border-t bg-muted/20">
                 <div className="flex flex-col gap-2">
                   <div className="w-full">
                     <Label className="text-xs font-medium block text-muted-foreground">Request URL:</Label>
-                    <div className="overflow-x-auto">
-                      <code className="text-xs block">{testUrl}</code>
+                    <div className="overflow-hidden">
+                      <code className="text-xs block" style={{ wordBreak: "break-all" }}>
+                        {testUrl}
+                      </code>
                     </div>
                   </div>
                   <Button
@@ -512,6 +544,28 @@ export function ApiDocs() {
           )}
         </CardContent>
       </Card>
+
+      {/* Add CSS for syntax highlighting */}
+      <style jsx global>{`
+     .syntax-highlight .json-key {
+       color: #a626a4;
+     }
+     .syntax-highlight .json-string {
+       color: #50a14f;
+     }
+     .syntax-highlight .json-number {
+       color: #986801;
+     }
+     .dark .syntax-highlight .json-key {
+       color: #c678dd;
+     }
+     .dark .syntax-highlight .json-string {
+       color: #98c379;
+     }
+     .dark .syntax-highlight .json-number {
+       color: #d19a66;
+     }
+   `}</style>
     </section>
   )
 }
