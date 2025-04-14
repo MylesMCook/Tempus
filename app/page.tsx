@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Clock } from "lucide-react"
 import { DatePicker } from "./components/date-picker"
 import { ApiDocs } from "./components/api-docs"
@@ -9,6 +8,8 @@ import { SettingsProvider } from "./context/settings-context"
 import { formatInTimeZone } from "date-fns-tz"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import Link from "next/link"
+// Import the new DateExpressionTabs component
+import { DateExpressionTabs } from "./components/date-expression-tabs"
 
 const examples = {
   Simple: ["now", "today", "tomorrow", "yesterday", "next friday", "last monday"],
@@ -104,42 +105,7 @@ export default function Home() {
               </CardHeader>
 
               <CardContent className="p-0">
-                <Tabs defaultValue={activeCategory} onValueChange={setActiveCategory} className="w-full">
-                  <div className="px-2 sm:px-4 py-2 border-b overflow-x-auto">
-                    <TabsList className="grid grid-cols-3 sm:grid-cols-5 gap-1 w-full min-w-[400px]">
-                      {Object.keys(examples).map((category) => (
-                        <TabsTrigger key={category} value={category} className="text-xs">
-                          {category}
-                        </TabsTrigger>
-                      ))}
-                    </TabsList>
-                  </div>
-
-                  {Object.entries(examples).map(([category, expressions]) => (
-                    <TabsContent key={category} value={category} className="p-3 sm:p-4">
-                      <p className="text-sm text-muted-foreground mb-3">
-                        {category === "Simple" && "Basic date references that are easy to understand."}
-                        {category === "Relative" && "Dates defined in relation to the current moment."}
-                        {category === "Date Math" && "Expressions that perform calculations with dates."}
-                        {category === "Fractional" && "Precise date calculations using decimal values."}
-                        {category === "Advanced" && "Complex expressions combining multiple concepts."}
-                      </p>
-                      <div className="grid grid-cols-1 gap-2">
-                        {expressions.map((expression) => (
-                          <button
-                            key={expression}
-                            onClick={() => handleExampleClick(expression)}
-                            className="text-left px-3 py-2 rounded-md
-                    bg-background hover:bg-primary/5 transition-colors
-                    border border-border hover:border-primary/30"
-                          >
-                            <span className="text-sm">{expression}</span>
-                          </button>
-                        ))}
-                      </div>
-                    </TabsContent>
-                  ))}
-                </Tabs>
+                <DateExpressionTabs examples={examples} onExampleClick={handleExampleClick} />
               </CardContent>
             </Card>
           </section>
