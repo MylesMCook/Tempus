@@ -112,22 +112,3 @@
     @apply focus-visible:ring-1 focus-visible:ring-primary/30 focus-visible:border-primary/50;
   }
 }
-
-@layer utilities {
-  .break-all {
-    word-break: break-all;
-  }
-
-  /* Improve code display on small screens */
-  @media (max-width: 640px) {
-    pre,
-    code {
-      font-size: 0.75rem; /* Slightly smaller font on mobile */
-    }
-
-    .syntax-highlight {
-      max-width: 100%;
-      overflow-x: auto;
-    }
-  }
-}

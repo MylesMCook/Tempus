@@ -515,17 +515,15 @@ export function ApiDocs() {
                 </div>
               </div>
 
-              {/* Replace the JSON response display section with this improved version */}
-              <div className="p-3 max-h-[400px] overflow-auto bg-zinc-950 w-full">
-                <pre className="text-sm text-zinc-100 font-mono whitespace-pre-wrap break-all">{formattedJson}</pre>
+              <div className="p-3 max-h-[400px] overflow-auto bg-zinc-950">
+                <pre className="text-sm text-zinc-100 font-mono">{formattedJson}</pre>
               </div>
 
-              {/* Also update the URL display to prevent overflow */}
               <div className="p-3 sm:p-4 border-t bg-muted/20">
                 <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-0 sm:justify-between">
-                  <div className="flex-1 truncate max-w-full">
+                  <div className="flex-1 truncate">
                     <Label className="text-xs font-medium block text-muted-foreground">Request URL:</Label>
-                    <code className="text-xs block truncate max-w-full overflow-hidden">{testUrl}</code>
+                    <code className="text-xs block truncate max-w-[calc(100vw-3rem)] sm:max-w-md">{testUrl}</code>
                   </div>
                   <Button
                     variant="outline"
