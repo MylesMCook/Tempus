@@ -316,7 +316,7 @@ export function ApiDocs() {
           </div>
 
           {/* Main Input Area */}
-          <div className="space-y-2">
+          <div className="space-y-2 pt-4">
             <div className="flex flex-wrap items-center justify-between gap-2">
               <Label htmlFor="test-expression" className="text-sm font-medium">
                 Date Expression
