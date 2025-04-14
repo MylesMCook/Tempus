@@ -94,7 +94,7 @@ export function DatePickerModal({ date, previewDate, onSelect, open, setOpen }: 
               </Button>
             </PopoverTrigger>
           </TooltipTrigger>
-          <PopoverContent className="w-auto p-0" align="end">
+          <PopoverContent className="w-auto p-0 max-w-[calc(100vw-2rem)]" align="end">
             <div className="p-3 border-b">
               <div className="flex items-center justify-center mb-2">
                 <div className="flex items-center gap-1">

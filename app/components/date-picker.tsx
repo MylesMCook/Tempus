@@ -63,7 +63,7 @@ const lightBg = "bg-gray-50 border-gray-200 text-gray-800"
 const darkBg = "dark:bg-gray-900/20 dark:border-gray-700 dark:text-gray-200"
 const badgeStyle = "bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-200 border-gray-300 dark:border-gray-700"
 const stepStyle = "bg-gray-200 text-gray-800 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-200"
-const preStyle = "bg-gray-100 dark:bg-gray-900/50 text-gray-800 dark:text-gray-200"
+const preStyle = "bg-gray-gray-100 dark:bg-gray-900/50 text-gray-800 dark:text-gray-200"
 const highlightStyle = "text-gray-700 dark:text-gray-300"
 const buttonStyle = "bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-900/30 dark:text-gray-400"
 
@@ -94,7 +94,7 @@ function formatJSON(json: any, syntaxHighlighting: boolean): React.ReactNode {
 
   // Replace key-value pairs with styled spans
   return (
-    <pre className="syntax-highlight">
+    <pre className="syntax-highlight overflow-x-auto max-w-full">
       {jsonString.split("\n").map((line, i) => {
         // Match keys and values
         const keyMatch = line.match(/^(\s*)(".*?"):/)
@@ -391,7 +391,7 @@ export function DatePicker({ date, onDateChange, onFormattedDateChange, classNam
   }
 
   return (
-    <div className={cn("w-full flex flex-col max-w-full", className)}>
+    <div className={cn("w-full flex flex-col max-w-full overflow-hidden", className)}>
       <div className="relative group">
         <div className="absolute -inset-0.5 bg-gradient-to-r from-primary/20 via-primary/30 to-primary/20 rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-1000" />
         <div className="relative flex flex-col gap-1.5 bg-background rounded-lg p-1.5">
@@ -819,7 +819,7 @@ export function DatePicker({ date, onDateChange, onFormattedDateChange, classNam
           )}
 
           {debugMode && (
-            <div className={cn("px-4 py-3 rounded-md border", lightBg, darkBg)}>
+            <div className={cn("px-4 py-3 rounded-md border overflow-hidden", lightBg, darkBg)}>
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <Badge variant="outline" className={cn(badgeStyle)}>
@@ -954,7 +954,9 @@ export function DatePicker({ date, onDateChange, onFormattedDateChange, classNam
                         <p className={cn("text-sm", highlightStyle)}>Breaking "{inputValue}" into tokens</p>
                         {isStepActive("tokenization") && (
                           <>
-                            <div className={cn("mt-1 p-2 rounded text-xs font-mono overflow-x-auto", preStyle)}>
+                            <div
+                              className={cn("mt-1 p-2 rounded text-xs font-mono overflow-x-auto max-w-full", preStyle)}
+                            >
                               {formatJSON(debugInfo.tokens, settings.syntaxHighlighting)}
                             </div>
                             <div className="mt-2 text-xs text-muted-foreground">
@@ -1009,7 +1011,9 @@ export function DatePicker({ date, onDateChange, onFormattedDateChange, classNam
                         <p className={cn("text-sm", highlightStyle)}>Determining the reference date</p>
                         {isStepActive("baseDate") && (
                           <>
-                            <div className={cn("mt-1 p-2 rounded text-xs font-mono overflow-x-auto", preStyle)}>
+                            <div
+                              className={cn("mt-1 p-2 rounded text-xs font-mono overflow-x-auto max-w-full", preStyle)}
+                            >
                               {debugInfo.baseDate ? debugInfo.baseDate.toISOString() : "No base date identified"}
                             </div>
                             {debugInfo.baseDate && (
@@ -1046,7 +1050,9 @@ export function DatePicker({ date, onDateChange, onFormattedDateChange, classNam
                         <p className={cn("text-sm", highlightStyle)}>Calculating time adjustments</p>
                         {isStepActive("operations") && (
                           <>
-                            <div className={cn("mt-1 p-2 rounded text-xs font-mono overflow-x-auto", preStyle)}>
+                            <div
+                              className={cn("mt-1 p-2 rounded text-xs font-mono overflow-x-auto max-w-full", preStyle)}
+                            >
                               {formatJSON(debugInfo.operations, settings.syntaxHighlighting)}
                             </div>
                             <div className="mt-2 text-xs text-muted-foreground">
@@ -1082,7 +1088,9 @@ export function DatePicker({ date, onDateChange, onFormattedDateChange, classNam
                         <p className={cn("text-sm", highlightStyle)}>Applying operations to base date</p>
                         {isStepActive("result") && (
                           <>
-                            <div className={cn("mt-1 p-2 rounded text-xs font-mono overflow-x-auto", preStyle)}>
+                            <div
+                              className={cn("mt-1 p-2 rounded text-xs font-mono overflow-x-auto max-w-full", preStyle)}
+                            >
                               {debugInfo.result ? debugInfo.result.toISOString() : "No result"}
                             </div>
                             {debugInfo.result && (
