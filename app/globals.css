@@ -76,13 +76,6 @@
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
   }
-
-  html,
-  body {
-    overflow-x: hidden;
-    position: relative;
-    width: 100%;
-  }
 }
 
 @layer base {

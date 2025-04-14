@@ -63,15 +63,10 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
       <body
-        className={cn(
-          "min-h-screen bg-background antialiased overflow-x-hidden",
-          geist.variable,
-          geistMono.variable,
-          geist.className,
-        )}
+        className={cn("min-h-screen bg-background antialiased", geist.variable, geistMono.variable, geist.className)}
       >
         <ConsentProvider>
-          <div className="flex flex-col items-center w-full overflow-hidden">{children}</div>
+          <div className="flex flex-col items-center w-full">{children}</div>
           <ConditionalAnalytics />
           <CookieConsent />
         </ConsentProvider>

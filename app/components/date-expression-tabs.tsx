@@ -14,8 +14,8 @@ export function DateExpressionTabs({ examples, onExampleClick }: DateExpressionT
   const isDesktop = useMediaQuery("(min-width: 768px)")
 
   return (
-    <Tabs defaultValue={activeCategory} onValueChange={setActiveCategory} className="w-full overflow-hidden">
-      <div className="px-2 sm:px-4 py-2 border-b overflow-x-auto -mx-px">
+    <Tabs defaultValue={activeCategory} onValueChange={setActiveCategory} className="w-full">
+      <div className="px-2 sm:px-4 py-2 border-b overflow-x-auto">
         <div className="flex min-w-full pb-1">
           {isDesktop ? (
             // Desktop view - evenly distributed tabs

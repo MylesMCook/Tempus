@@ -338,7 +338,7 @@ export function ApiDocs() {
                 </button>
               ))}
             </div>
-            <div className="border-b -mx-6 w-full"></div>
+            <div className="border-b -mx-6 w-[calc(100%+3rem)]"></div>
           </div>
 
           {/* Main Input Area */}
@@ -347,22 +347,33 @@ export function ApiDocs() {
               <Label htmlFor="test-expression" className="text-sm font-medium">
                 Date Expression
               </Label>
-              <Button
-                variant="ghost"
-                size="sm"
-                className={cn(
-                  "text-xs h-8 px-3 transition-colors",
-                  showAdvancedOptions ? "bg-primary/10 text-primary" : "",
-                )}
-                onClick={() => setShowAdvancedOptions(!showAdvancedOptions)}
-              >
-                {showAdvancedOptions ? (
-                  <ChevronUp className="h-3.5 w-3.5 mr-1.5" />
-                ) : (
-                  <ChevronDown className="h-3.5 w-3.5 mr-1.5" />
-                )}
-                {showAdvancedOptions ? "Hide Options" : "Show Options"}
-              </Button>
+              <div className="flex items-center gap-2">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={resetForm}
+                  className="h-8 px-3 text-xs"
+                  disabled={isTesting}
+                >
+                  Reset Form
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className={cn(
+                    "text-xs h-8 px-3 transition-colors",
+                    showAdvancedOptions ? "bg-primary/10 text-primary" : "",
+                  )}
+                  onClick={() => setShowAdvancedOptions(!showAdvancedOptions)}
+                >
+                  {showAdvancedOptions ? (
+                    <ChevronUp className="h-3.5 w-3.5 mr-1.5" />
+                  ) : (
+                    <ChevronDown className="h-3.5 w-3.5 mr-1.5" />
+                  )}
+                  {showAdvancedOptions ? "Hide Options" : "Show Options"}
+                </Button>
+              </div>
             </div>
             <div className="flex flex-col sm:flex-row gap-3 items-start">
               <div className="relative flex-1 w-full">
@@ -515,15 +526,15 @@ export function ApiDocs() {
                 </div>
               </div>
 
-              <div className="p-3 max-h-[400px] overflow-auto bg-zinc-950 w-full">
-                <pre className="text-sm text-zinc-100 font-mono overflow-x-auto max-w-full">{formattedJson}</pre>
+              <div className="p-3 max-h-[400px] overflow-auto bg-zinc-950">
+                <pre className="text-sm text-zinc-100 font-mono">{formattedJson}</pre>
               </div>
 
               <div className="p-3 sm:p-4 border-t bg-muted/20">
                 <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-0 sm:justify-between">
-                  <div className="flex-1 truncate max-w-full">
+                  <div className="flex-1 truncate">
                     <Label className="text-xs font-medium block text-muted-foreground">Request URL:</Label>
-                    <code className="text-xs block truncate max-w-full">{testUrl}</code>
+                    <code className="text-xs block truncate max-w-[calc(100vw-3rem)] sm:max-w-md">{testUrl}</code>
                   </div>
                   <Button
                     variant="outline"
@@ -538,46 +549,30 @@ export function ApiDocs() {
               </div>
             </div>
           )}
-
-          <div className="flex justify-center sm:justify-end">
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={resetForm}
-              className="h-9 px-4 text-sm w-full sm:w-auto"
-              disabled={isTesting}
-            >
-              Reset Form
-            </Button>
-          </div>
         </CardContent>
       </Card>
 
       {/* Add CSS for syntax highlighting */}
       <style jsx global>{`
-  .syntax-highlight {
-    overflow-x: auto;
-    max-width: 100%;
-  }
-  .syntax-highlight .json-key {
-    color: #a626a4;
-  }
-  .syntax-highlight .json-string {
-    color: #50a14f;
-  }
-  .syntax-highlight .json-number {
-    color: #986801;
-  }
-  .dark .syntax-highlight .json-key {
-    color: #c678dd;
-  }
-  .dark .syntax-highlight .json-string {
-    color: #98c379;
-  }
-  .dark .syntax-highlight .json-number {
-    color: #d19a66;
-  }
-`}</style>
+     .syntax-highlight .json-key {
+       color: #a626a4;
+     }
+     .syntax-highlight .json-string {
+       color: #50a14f;
+     }
+     .syntax-highlight .json-number {
+       color: #986801;
+     }
+     .dark .syntax-highlight .json-key {
+       color: #c678dd;
+     }
+     .dark .syntax-highlight .json-string {
+       color: #98c379;
+     }
+     .dark .syntax-highlight .json-number {
+       color: #d19a66;
+     }
+   `}</style>
     </section>
   )
 }
