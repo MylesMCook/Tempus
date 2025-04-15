@@ -214,7 +214,17 @@ class DateExpressionParser {
     // Get the next occurrence of the weekday
     const nextDate = weekdayFn(baseDate)
 
-    // Return the next occurrence without adding an extra week
+    // If we're looking for "next" weekday and the next occurrence is this week,
+    // we should add 7 days to get to next week's occurrence
+    const today = new Date(baseDate)
+    const daysDiff = Math.round((nextDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24))
+
+    // If the next occurrence is within the current week (less than 7 days away),
+    // add 7 days to get to next week's occurrence
+    if (daysDiff < 7) {
+      return addDays(nextDate, 7)
+    }
+
     return nextDate
   }
 
@@ -305,10 +315,15 @@ class DateExpressionParser {
         const prevDate = this.getPreviousWeekday(weekday)
         return prevDate
       } else if (nextIndex !== -1 && nextIndex < weekdayIndex) {
-        return this.getNextWeekday(weekday)
+        // When explicitly using "next", always get next week's occurrence
+        const nextOccurrence = this.getNextWeekday(weekday)
+        return nextOccurrence
       } else {
-        // If no modifier, treat as next occurrence
-        return this.getNextWeekday(weekday)
+        // If no modifier, treat as upcoming occurrence (this week or next)
+        const now = new Date()
+        const weekdayFn = this.weekdayMap[weekday]
+        if (!weekdayFn) return now
+        return weekdayFn(now)
       }
     }
 
