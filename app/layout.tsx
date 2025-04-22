@@ -1,4 +1,5 @@
 import type React from "react"
+import { Suspense } from "react"
 import { Geist, Geist_Mono as GeistMono } from "next/font/google"
 import type { Metadata } from "next"
 import { cn } from "@/lib/utils"
@@ -66,7 +67,17 @@ export default function RootLayout({
         className={cn("min-h-screen bg-background antialiased", geist.variable, geistMono.variable, geist.className)}
       >
         <ConsentProvider>
-          <div className="flex flex-col items-center w-full">{children}</div>
+          <div className="flex flex-col items-center w-full">
+            <Suspense
+              fallback={
+                <div className="min-h-screen flex items-center justify-center">
+                  <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-primary"></div>
+                </div>
+              }
+            >
+              {children}
+            </Suspense>
+          </div>
           <ConditionalAnalytics />
           <CookieConsent />
         </ConsentProvider>
@@ -74,6 +85,3 @@ export default function RootLayout({
     </html>
   )
 }
-
-
-import './globals.css'

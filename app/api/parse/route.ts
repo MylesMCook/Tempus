@@ -83,7 +83,7 @@ export async function GET(request: NextRequest) {
     if (!isSameOrigin) {
       try {
         // More generous limit per IP - 200 requests per minute for external users
-        await publicLimiter.check(200, clientIp)
+        await publicLimiter.check(60, clientIp)
       } catch (rateLimitResult: any) {
         statusCode = 429
         const retryAfter = rateLimitResult.reset || 60
@@ -99,7 +99,7 @@ export async function GET(request: NextRequest) {
             status: statusCode,
             headers: {
               "Retry-After": retryAfter.toString(),
-              "X-RateLimit-Limit": rateLimitResult.limit?.toString() || "200",
+              "X-RateLimit-Limit": rateLimitResult.limit?.toString() || "60",
               "X-RateLimit-Remaining": "0",
               "X-RateLimit-Reset": retryAfter.toString(),
               "Access-Control-Allow-Origin": "*",
@@ -213,7 +213,7 @@ export async function GET(request: NextRequest) {
     let remainingRequests = 200
     if (!isSameOrigin) {
       try {
-        const rateLimitResult = await publicLimiter.check(200, clientIp)
+        const rateLimitResult = await publicLimiter.check(60, clientIp)
         remainingRequests = rateLimitResult.remaining
       } catch (e) {
         // If check fails, default to 0 remaining
@@ -228,7 +228,7 @@ export async function GET(request: NextRequest) {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "GET, OPTIONS",
         "Access-Control-Allow-Headers": "Content-Type",
-        "X-RateLimit-Limit": isSameOrigin ? "unlimited" : "200",
+        "X-RateLimit-Limit": isSameOrigin ? "unlimited" : "60",
         "X-RateLimit-Remaining": isSameOrigin ? "unlimited" : remainingRequests.toString(),
         "X-Content-Type-Options": "nosniff",
         "X-Frame-Options": "DENY",
