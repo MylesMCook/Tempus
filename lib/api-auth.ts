@@ -46,7 +46,16 @@ export class ApiKeyManager {
   }
 }
 
-// Initialize with environment variable
+// SECURITY: Require API_KEY_SALT in production to prevent predictable API keys
+const salt = process.env.API_KEY_SALT
+if (!salt && process.env.NODE_ENV === "production") {
+  throw new Error(
+    "API_KEY_SALT environment variable is required in production. " +
+      "Generate a secure random value: openssl rand -hex 32"
+  )
+}
+
+// Initialize with environment variable (fallback only for development)
 export const apiKeyManager = new ApiKeyManager({
-  salt: process.env.API_KEY_SALT || "default-salt-for-development",
+  salt: salt || "default-salt-for-development",
 })

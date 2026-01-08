@@ -41,23 +41,6 @@ interface TimeOperation {
   direction: 1 | -1
 }
 
-// Get the setting from localStorage if available
-function getPreserveDayOfMonthSetting(): boolean {
-  if (typeof window === "undefined") return true
-
-  try {
-    const settings = localStorage.getItem("parserSettings")
-    if (settings) {
-      const parsed = JSON.parse(settings)
-      return parsed.preserveDayOfMonth !== undefined ? parsed.preserveDayOfMonth : true
-    }
-  } catch (e) {
-    console.error("Error reading settings:", e)
-  }
-
-  return true // Default to true if setting not found
-}
-
 // Constants for time conversions
 const DAYS_PER_MONTH = 30.436875 // Average days per month
 const DAYS_PER_YEAR = 365.25 // Average days per year including leap years
@@ -75,12 +58,9 @@ class DateExpressionParser {
     this.preserveDayOfMonthOverride = value
   }
 
-  // Update the getPreserveDayOfMonth method to use the override if set
+  // Get preserveDayOfMonth setting - defaults to true when not explicitly set
   private getPreserveDayOfMonth(): boolean {
-    if (this.preserveDayOfMonthOverride !== null) {
-      return this.preserveDayOfMonthOverride
-    }
-    return getPreserveDayOfMonthSetting()
+    return this.preserveDayOfMonthOverride ?? true
   }
 
   private readonly monthMap: Record<string, number> = {
@@ -657,29 +637,25 @@ class DateExpressionParser {
       }
     } catch (error) {
       console.error("Error in debug:", error)
-      return { error: error.message }
+      const message = error instanceof Error ? error.message : "Unknown error"
+      return { error: message }
     }
   }
 }
 
 const parser = new DateExpressionParser()
 
-// Update the parseNaturalLanguageDate function to accept options
+// Parse natural language date expressions
+// All configuration must be passed explicitly via options - no browser dependencies
 export const parseNaturalLanguageDate = (expression: string, options?: { preserveDayOfMonth?: boolean }) => {
-  // Override the preserveDayOfMonth setting if provided in options
   if (options?.preserveDayOfMonth !== undefined) {
-    // Temporarily override the setting for this parse operation
-    const originalSetting = getPreserveDayOfMonthSetting()
-
     // Create a custom parser instance with the provided setting
     const customParser = new DateExpressionParser()
     customParser.setPreserveDayOfMonth(options.preserveDayOfMonth)
-
-    // Parse with custom settings
     return customParser.parse(expression)
   }
 
-  // Use default parser with settings from localStorage
+  // Use default parser (preserveDayOfMonth defaults to true)
   return parser.parse(expression)
 }
 

@@ -73,17 +73,19 @@ export async function GET(request: NextRequest) {
     const preserveDayOfMonth = searchParams.get("preserveDayOfMonth") || undefined
     const timezone = searchParams.get("timezone") || undefined
 
-    // Get client identifiers for rate limiting
-    const clientIp = publicLimiter.getClientIdentifier(request)
-    const uniqueClient = publicLimiter.getUniqueIdentifier(request)
-    const isSameOrigin = publicLimiter.isSameOrigin(request)
+    // Get client identifiers for rate limiting (await required for Next.js 15 headers())
+    const clientIp = await publicLimiter.getClientIdentifier(request)
+    const isSameOrigin = await publicLimiter.isSameOrigin(request)
+
+    // Store rate limit result to avoid calling check() twice (which would double-count requests)
+    let rateLimitInfo: { remaining: number; limit: number; reset: number } | null = null
 
     // Skip or apply very lenient rate limiting for same-origin requests
     // This ensures the API works smoothly during development and for UI components
     if (!isSameOrigin) {
       try {
-        // More generous limit per IP - 200 requests per minute for external users
-        await publicLimiter.check(60, clientIp)
+        // More generous limit per IP - 60 requests per minute for external users
+        rateLimitInfo = await publicLimiter.check(60, clientIp)
       } catch (rateLimitResult: any) {
         statusCode = 429
         const retryAfter = rateLimitResult.reset || 60
@@ -122,10 +124,15 @@ export async function GET(request: NextRequest) {
 
     if (!result.success) {
       statusCode = 400
+      // SECURITY: Sanitize validation errors to avoid exposing internal schema details
+      const sanitizedErrors = result.error.issues.map((issue) => ({
+        field: issue.path.join(".") || "expression",
+        message: issue.message,
+      }))
       return NextResponse.json(
         {
           error: "Invalid input",
-          details: result.error.issues,
+          details: sanitizedErrors,
           requestId,
         },
         {
@@ -209,17 +216,8 @@ export async function GET(request: NextRequest) {
 
     success = true
 
-    // Calculate remaining rate limit - skip for same-origin requests
-    let remainingRequests = 200
-    if (!isSameOrigin) {
-      try {
-        const rateLimitResult = await publicLimiter.check(60, clientIp)
-        remainingRequests = rateLimitResult.remaining
-      } catch (e) {
-        // If check fails, default to 0 remaining
-        remainingRequests = 0
-      }
-    }
+    // Use the stored rate limit result (avoid calling check() again which would double-count)
+    const remainingRequests = rateLimitInfo?.remaining ?? 60
 
     return NextResponse.json(response, {
       headers: {

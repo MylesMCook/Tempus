@@ -280,7 +280,7 @@ export function ApiDocs() {
 
   return (
     <section className="w-full max-w-2xl mx-auto space-y-6">
-      <Card className="w-full" style={{ maxWidth: "100%", overflowX: "hidden" }}>
+      <Card className="w-full max-w-full overflow-x-hidden">
         <CardHeader className="bg-muted/30 pb-4">
           <CardTitle>API Playground</CardTitle>
           <CardDescription>Test the date parsing API with different expressions</CardDescription>
@@ -306,12 +306,9 @@ export function ApiDocs() {
                 </button>
               ))}
             </div>
-            {/* Fix for the divider - use relative positioning and width 100% */}
+            {/* Full-width divider using negative margins */}
             <div className="relative">
-              <div
-                className="absolute left-0 right-0 border-b w-full"
-                style={{ marginLeft: "-1rem", marginRight: "-1rem", width: "calc(100% + 2rem)" }}
-              ></div>
+              <div className="absolute left-0 right-0 border-b -mx-4 sm:-mx-6 w-[calc(100%+2rem)] sm:w-[calc(100%+3rem)]" />
             </div>
           </div>
 
@@ -511,10 +508,7 @@ export function ApiDocs() {
               </div>
 
               <div className="p-3 bg-zinc-950 w-full overflow-x-auto">
-                <pre
-                  className="text-sm text-zinc-100 font-mono whitespace-pre-wrap"
-                  style={{ maxWidth: "100%", wordBreak: "break-word" }}
-                >
+                <pre className="text-sm text-zinc-100 font-mono whitespace-pre-wrap max-w-full break-words">
                   {formattedJson}
                 </pre>
               </div>
@@ -545,7 +539,9 @@ export function ApiDocs() {
         </CardContent>
       </Card>
 
-      {/* Add CSS for syntax highlighting */}
+      {/* TODO: Issue #10 - Move this CSS to globals.css
+          This style block is duplicated in date-picker.tsx.
+          Consolidate into a single location in app/globals.css for maintainability. */}
       <style jsx global>{`
      .syntax-highlight .json-key {
        color: #a626a4;

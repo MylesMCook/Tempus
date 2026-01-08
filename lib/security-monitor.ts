@@ -14,18 +14,17 @@ class SecurityMonitor {
   private readonly maxEvents = 100
   private suspiciousIPs = new Map<string, number>()
   private readonly suspicionThreshold = 5
-
-  constructor() {
-    // Clear old events periodically to prevent memory leaks
-    setInterval(
-      () => {
-        this.pruneOldEvents()
-      },
-      15 * 60 * 1000,
-    ) // 15 minutes
-  }
+  private lastPruneTime = Date.now()
+  private readonly pruneInterval = 15 * 60 * 1000 // 15 minutes
 
   addEvent(event: SecurityEvent) {
+    // Lazy pruning - only prune if enough time has passed
+    const now = Date.now()
+    if (now - this.lastPruneTime > this.pruneInterval) {
+      this.pruneOldEvents()
+      this.lastPruneTime = now
+    }
+
     this.events.push(event)
 
     // Keep only the most recent events

@@ -57,6 +57,11 @@ export default function Home() {
     }
   }
 
+  // TODO: Issue #3 - Replace direct DOM manipulation with React state
+  // This hack bypasses React's data flow and can break with React updates.
+  // Fix: Lift input value state to this component and pass as prop to DatePicker.
+  // Example: const [inputValue, setInputValue] = useState("")
+  //          <DatePicker value={inputValue} onChange={setInputValue} />
   const handleExampleClick = (expression: string) => {
     const input = document.querySelector("input")
     if (input) {

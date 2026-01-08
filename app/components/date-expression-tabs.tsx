@@ -51,8 +51,10 @@ export function DateExpressionTabs({ examples, onExampleClick }: DateExpressionT
           <div className="grid grid-cols-1 gap-2">
             {expressions.map((expression) => (
               <button
+                type="button"
                 key={expression}
                 onClick={() => onExampleClick(expression)}
+                aria-label={`Use example: ${expression}`}
                 className="text-left px-3 py-2 rounded-md
                 bg-background hover:bg-primary/5 transition-colors
                 border border-border hover:border-primary/30"

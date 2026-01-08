@@ -48,24 +48,28 @@ export default function rateLimit(options?: Options) {
         }
       }),
 
-    // Get client identifier from request
-    getClientIdentifier: (req: Request): string => {
-      const headersList = headers()
+    // Get client identifier from request (async due to Next.js 15 headers())
+    // SECURITY: Use the LAST IP in X-Forwarded-For (added by trusted proxy like Vercel)
+    // The first IP can be spoofed by attackers to bypass per-IP rate limits
+    getClientIdentifier: async (req: Request): Promise<string> => {
+      const headersList = await headers()
 
-      // Try to get real IP from Vercel-specific headers
+      // X-Forwarded-For format: "client, proxy1, proxy2, ..., trusted-proxy"
+      // In Vercel/production, the LAST IP is added by the trusted edge proxy
       const forwardedFor = headersList.get("x-forwarded-for")
       if (forwardedFor) {
-        // Get the first IP in the list (client IP)
-        return forwardedFor.split(",")[0].trim()
+        const ips = forwardedFor.split(",").map((ip) => ip.trim())
+        // Use LAST IP (added by trusted proxy) - first IPs can be attacker-controlled
+        return ips[ips.length - 1]
       }
 
-      // Fallback to other headers or a placeholder
+      // Fallback to other trusted headers or placeholder
       return headersList.get("x-real-ip") || headersList.get("cf-connecting-ip") || "anonymous"
     },
 
-    // Get a more unique identifier by combining IP with user agent
-    getUniqueIdentifier: (req: Request): string => {
-      const headersList = headers()
+    // Get a more unique identifier by combining IP with user agent (async due to Next.js 15 headers())
+    getUniqueIdentifier: async (req: Request): Promise<string> => {
+      const headersList = await headers()
       const ip = headersList.get("x-forwarded-for")?.split(",")[0].trim() || "anonymous"
       const userAgent = headersList.get("user-agent") || "unknown"
 
@@ -74,21 +78,18 @@ export default function rateLimit(options?: Options) {
       return `${ip}:${userAgent.substring(0, 20)}`
     },
 
-    // Check if request is from the same origin/local development
-    isSameOrigin: (req: Request): boolean => {
-      const headersList = headers()
-      const origin = headersList.get("origin")
-      const referer = headersList.get("referer")
-      const host = headersList.get("host")
+    // Check if request is from local development environment
+    // SECURITY: Only trust NODE_ENV - never trust client-supplied headers (Origin, Host, Referer)
+    // Attackers can spoof these headers to bypass rate limiting
+    isSameOrigin: async (req: Request): Promise<boolean> => {
+      // In development, skip rate limiting for easier testing
+      if (process.env.NODE_ENV === "development") {
+        return true
+      }
 
-      // Check if this is a local development environment
-      const isLocalDev =
-        process.env.NODE_ENV === "development" || host?.includes("localhost") || host?.includes("127.0.0.1")
-
-      // Check if the request is from the same origin
-      const isSameOriginRequest = origin ? origin.includes(host || "") : referer ? referer.includes(host || "") : false
-
-      return isLocalDev || isSameOriginRequest
+      // In production, apply rate limiting to ALL requests
+      // This prevents attackers from spoofing Origin/Host headers to bypass limits
+      return false
     },
   }
 }

@@ -1,3 +1,11 @@
+// TODO: Issue #7 - This component is 1274 lines and needs refactoring
+// Split into smaller, focused components:
+// - DatePickerInput: Input field and basic preview
+// - TimeSelector: Time adjustment sliders
+// - DebugPanel: The entire debug mode interface (5 collapsible sections)
+// - DatePickerSettings: The settings popover
+// This will improve maintainability, testability, and reasoning about state flow.
+
 "use client"
 
 import * as React from "react"
