@@ -267,10 +267,10 @@ class DateExpressionParser {
       .trim()
       .replace(/\s+/g, " ")
 
-    const tokens = processed
+    const tokens: Token[] = processed
       .split(" ")
       .filter(Boolean)
-      .map((word) => {
+      .map((word): Token => {
         // Match both integer and decimal numbers
         if (/^-?\d+(\.\d+)?$/.test(word)) {
           return { type: "number", value: word }
@@ -429,8 +429,8 @@ class DateExpressionParser {
     }
 
     // Handle other patterns
-    const defaultDirection = tokens.some((t) => t.value === "ago") ? -1 : 1
-    let currentDirection = defaultDirection
+    const defaultDirection: 1 | -1 = tokens.some((t) => t.value === "ago") ? -1 : 1
+    let currentDirection: 1 | -1 = defaultDirection
 
     for (let i = 0; i < tokens.length; i++) {
       const token = tokens[i]

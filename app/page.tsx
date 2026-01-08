@@ -1,15 +1,15 @@
 "use client"
 
 import { useState } from "react"
-import { Clock } from "lucide-react"
-import { DatePicker } from "./components/date-picker"
-import { ApiDocs } from "./components/api-docs"
-import { SettingsProvider } from "./context/settings-context"
-import { formatInTimeZone } from "date-fns-tz"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import Link from "next/link"
-// Import the new DateExpressionTabs component
+import { Clock } from "lucide-react"
+
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+
+import { ApiDocs } from "./components/api-docs"
 import { DateExpressionTabs } from "./components/date-expression-tabs"
+import { DatePicker } from "./components/date-picker"
+import { SettingsProvider } from "./context/settings-context"
 
 const examples = {
   Simple: ["now", "today", "tomorrow", "yesterday", "next friday", "last monday"],
@@ -40,21 +40,9 @@ const examples = {
 
 export default function Home() {
   const [date, setDate] = useState<Date>()
-  const [formattedDate, setFormattedDate] = useState<string>("")
-  const [activeCategory, setActiveCategory] = useState<string>("Simple")
 
-  // Update the handler to store both the Date object and its formatted representation
   const handleDateChange = (newDate: Date | undefined) => {
     setDate(newDate)
-    if (newDate) {
-      // Format the date according to the user's settings
-      const { dateFormat } = JSON.parse(localStorage.getItem("parserSettings") || '{"dateFormat":"EEEE, MMMM d, yyyy"}')
-      const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone
-      const formatted = formatInTimeZone(newDate, timezone, dateFormat)
-      setFormattedDate(formatted)
-    } else {
-      setFormattedDate("")
-    }
   }
 
   const handleExampleClick = (expression: string) => {

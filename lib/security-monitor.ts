@@ -1,57 +1,59 @@
-import { metrics } from "./monitoring"
+import { metrics } from "./monitoring";
 
 interface SecurityEvent {
-  type: "rate-limit" | "validation-error" | "suspicious-activity" | "error"
-  timestamp: number
-  clientIp: string
-  userAgent?: string
-  path: string
-  details?: any
+  type: "rate-limit" | "validation-error" | "suspicious-activity" | "error";
+  timestamp: number;
+  clientIp: string;
+  userAgent?: string;
+  path: string;
+  details?: unknown;
 }
 
 class SecurityMonitor {
-  private events: SecurityEvent[] = []
-  private readonly maxEvents = 100
-  private suspiciousIPs = new Map<string, number>()
-  private readonly suspicionThreshold = 5
+  private events: SecurityEvent[] = [];
+  private readonly maxEvents = 100;
+  private suspiciousIPs = new Map<string, number>();
+  private readonly suspicionThreshold = 5;
 
   constructor() {
     // Clear old events periodically to prevent memory leaks
-    setInterval(
-      () => {
-        this.pruneOldEvents()
-      },
-      15 * 60 * 1000,
-    ) // 15 minutes
+    if (typeof setInterval !== "undefined") {
+      setInterval(
+        () => {
+          this.pruneOldEvents();
+        },
+        15 * 60 * 1000
+      ); // 15 minutes
+    }
   }
 
   addEvent(event: SecurityEvent) {
-    this.events.push(event)
+    this.events.push(event);
 
     // Keep only the most recent events
     if (this.events.length > this.maxEvents) {
-      this.events = this.events.slice(-this.maxEvents)
+      this.events = this.events.slice(-this.maxEvents);
     }
 
     // Track suspicious activity
     if (event.type === "rate-limit" || event.type === "validation-error") {
-      const currentCount = this.suspiciousIPs.get(event.clientIp) || 0
-      this.suspiciousIPs.set(event.clientIp, currentCount + 1)
+      const currentCount = this.suspiciousIPs.get(event.clientIp) || 0;
+      this.suspiciousIPs.set(event.clientIp, currentCount + 1);
 
       // Check if IP has crossed the threshold
       if (currentCount + 1 >= this.suspicionThreshold) {
-        this.reportSuspiciousActivity(event.clientIp)
+        this.reportSuspiciousActivity(event.clientIp);
       }
     }
 
     // Log in development
     if (process.env.NODE_ENV === "development") {
-      console.log(`[Security] ${event.type} from ${event.clientIp}: ${JSON.stringify(event.details)}`)
+      console.warn(`[Security] ${event.type} from ${event.clientIp}: ${JSON.stringify(event.details)}`);
     }
   }
 
   isSuspicious(clientIp: string): boolean {
-    return (this.suspiciousIPs.get(clientIp) || 0) >= this.suspicionThreshold
+    return (this.suspiciousIPs.get(clientIp) || 0) >= this.suspicionThreshold;
   }
 
   private reportSuspiciousActivity(clientIp: string) {
@@ -61,34 +63,32 @@ class SecurityMonitor {
     // 3. Temporarily block the IP at the edge
 
     // For now, we'll just log it
-    console.warn(`[Security Alert] Suspicious activity detected from ${clientIp}`)
+    console.warn(`[Security Alert] Suspicious activity detected from ${clientIp}`);
 
-    // Add to metrics for monitoring
+    // Add to metrics for monitoring (using expression field to store security info)
     metrics.addMetric({
       timestamp: Date.now(),
       duration: 0,
       success: false,
-      expression: "SECURITY_ALERT",
+      expression: `SECURITY_ALERT:${clientIp}`,
       statusCode: 0,
-      clientIp,
-      eventType: "suspicious-activity",
-    })
+    });
   }
 
   private pruneOldEvents() {
-    const now = Date.now()
-    const oneHourAgo = now - 60 * 60 * 1000
+    const now = Date.now();
+    const oneHourAgo = now - 60 * 60 * 1000;
 
     // Remove events older than 1 hour
-    this.events = this.events.filter((event) => event.timestamp >= oneHourAgo)
+    this.events = this.events.filter((event) => event.timestamp >= oneHourAgo);
 
     // Reset suspicion counters periodically
-    this.suspiciousIPs.clear()
+    this.suspiciousIPs.clear();
   }
 
   getRecentEvents(): SecurityEvent[] {
-    return [...this.events]
+    return [...this.events];
   }
 }
 
-export const securityMonitor = new SecurityMonitor()
+export const securityMonitor = new SecurityMonitor();
