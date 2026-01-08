@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+.next/
+out/
+dist/
+build/
+
+# Cache
+.cache/
+*.tsbuildinfo
+
+# Coverage
+coverage/
+
+# Generated files
+*.min.js
+*.min.css
+
+# Package manager
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1101,7 +1101,7 @@ export function DatePicker({ date, onDateChange, onFormattedDateChange, classNam
                                 <div>
                                   <span className="font-medium">Day of Year:</span>{" "}
                                   {Math.floor(
-                                    (debugInfo.result - new Date(debugInfo.result.getFullYear(), 0, 0)) /
+                                    (debugInfo.result.getTime() - new Date(debugInfo.result.getFullYear(), 0, 0).getTime()) /
                                       (1000 * 60 * 60 * 24),
                                   )}
                                 </div>
@@ -1196,7 +1196,7 @@ export function DatePicker({ date, onDateChange, onFormattedDateChange, classNam
                                 <div>
                                   <span className="opacity-70">Day of Year:</span>{" "}
                                   {Math.floor(
-                                    (debugInfo.result - new Date(debugInfo.result.getFullYear(), 0, 0)) /
+                                    (debugInfo.result.getTime() - new Date(debugInfo.result.getFullYear(), 0, 0).getTime()) /
                                       (1000 * 60 * 60 * 24),
                                   )}
                                 </div>

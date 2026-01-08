@@ -1,13 +1,13 @@
-type EventOptions = {
+interface EventOptions {
   // Custom properties for the event
-  [key: string]: string | number | boolean
+  [key: string]: string | number | boolean | undefined;
 }
 
 export function trackEvent(eventName: string, options?: EventOptions) {
   // Google Analytics 4 tracking
   if (typeof window !== "undefined" && "gtag" in window) {
-    // @ts-ignore - GA4 global
-    window.gtag("event", eventName, options)
+    // @ts-expect-error - GA4 global is dynamically injected
+    window.gtag("event", eventName, options);
   }
 }
 
@@ -17,13 +17,13 @@ export function trackAPIUsage(expression: string, success: boolean, duration: nu
     success,
     duration_ms: duration,
     timestamp: new Date().toISOString(),
-  })
+  });
 }
 
-export function trackError(error: Error, context?: Record<string, any>) {
+export function trackError(error: Error, context?: Record<string, unknown>) {
   // Log to console in development
   if (process.env.NODE_ENV === "development") {
-    console.error("Error:", error, "Context:", context)
+    console.error("Error:", error, "Context:", context);
   }
 
   // Send to monitoring service in production
@@ -31,8 +31,8 @@ export function trackError(error: Error, context?: Record<string, any>) {
     trackEvent("error", {
       name: error.name,
       message: error.message,
-      stack: error.stack,
-      ...context,
-    })
+      stack: error.stack ?? "No stack trace",
+      ...(context as EventOptions),
+    });
   }
 }

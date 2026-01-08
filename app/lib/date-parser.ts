@@ -51,8 +51,8 @@ function getPreserveDayOfMonthSetting(): boolean {
       const parsed = JSON.parse(settings)
       return parsed.preserveDayOfMonth !== undefined ? parsed.preserveDayOfMonth : true
     }
-  } catch (e) {
-    console.error("Error reading settings:", e)
+  } catch {
+    // Silently fail if localStorage is unavailable or settings are invalid
   }
 
   return true // Default to true if setting not found
@@ -64,7 +64,6 @@ const DAYS_PER_YEAR = 365.25 // Average days per year including leap years
 const HOURS_PER_DAY = 24
 const MINUTES_PER_HOUR = 60
 const SECONDS_PER_MINUTE = 60
-const SECONDS_PER_HOUR = SECONDS_PER_MINUTE * MINUTES_PER_HOUR
 
 class DateExpressionParser {
   // Add this property to the class
@@ -268,10 +267,10 @@ class DateExpressionParser {
       .trim()
       .replace(/\s+/g, " ")
 
-    const tokens = processed
+    const tokens: Token[] = processed
       .split(" ")
       .filter(Boolean)
-      .map((word) => {
+      .map((word): Token => {
         // Match both integer and decimal numbers
         if (/^-?\d+(\.\d+)?$/.test(word)) {
           return { type: "number", value: word }
@@ -430,8 +429,8 @@ class DateExpressionParser {
     }
 
     // Handle other patterns
-    const defaultDirection = tokens.some((t) => t.value === "ago") ? -1 : 1
-    let currentDirection = defaultDirection
+    const defaultDirection: 1 | -1 = tokens.some((t) => t.value === "ago") ? -1 : 1
+    let currentDirection: 1 | -1 = defaultDirection
 
     for (let i = 0; i < tokens.length; i++) {
       const token = tokens[i]
@@ -464,7 +463,6 @@ class DateExpressionParser {
 
   private applyOperations(baseDate: Date, operations: TimeOperation[]): Date {
     let result = new Date(baseDate)
-    const originalDay = baseDate.getDate()
 
     // Sort operations to apply years first, then months, weeks, and days
     const sortOrder = { year: 0, month: 1, week: 2, day: 3, hour: 4, minute: 5, second: 6 }
@@ -629,8 +627,8 @@ class DateExpressionParser {
       const result = this.applyOperations(baseDate, operations)
 
       return result
-    } catch (error) {
-      console.error("Error parsing date expression:", error)
+    } catch {
+      // Return null for any parsing errors
       return null
     }
   }
@@ -656,31 +654,33 @@ class DateExpressionParser {
         result,
       }
     } catch (error) {
-      console.error("Error in debug:", error)
-      return { error: error.message }
+      const message = error instanceof Error ? error.message : "Unknown error";
+      return { error: message }
     }
   }
 }
 
 const parser = new DateExpressionParser()
 
-// Update the parseNaturalLanguageDate function to accept options
-export const parseNaturalLanguageDate = (expression: string, options?: { preserveDayOfMonth?: boolean }) => {
-  // Override the preserveDayOfMonth setting if provided in options
+/**
+ * Parse a natural language date expression into a Date object.
+ * @param expression - The natural language date expression to parse
+ * @param options - Optional configuration for parsing
+ * @returns Parsed Date object or null if parsing fails
+ */
+export const parseNaturalLanguageDate = (
+  expression: string,
+  options?: { preserveDayOfMonth?: boolean }
+): Date | null => {
   if (options?.preserveDayOfMonth !== undefined) {
-    // Temporarily override the setting for this parse operation
-    const originalSetting = getPreserveDayOfMonthSetting()
-
     // Create a custom parser instance with the provided setting
-    const customParser = new DateExpressionParser()
-    customParser.setPreserveDayOfMonth(options.preserveDayOfMonth)
-
-    // Parse with custom settings
-    return customParser.parse(expression)
+    const customParser = new DateExpressionParser();
+    customParser.setPreserveDayOfMonth(options.preserveDayOfMonth);
+    return customParser.parse(expression);
   }
 
   // Use default parser with settings from localStorage
-  return parser.parse(expression)
-}
+  return parser.parse(expression);
+};
 
 export const debugDateParser = parser.debug.bind(parser)

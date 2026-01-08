@@ -1,14 +1,29 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Enable strict ESLint checking during builds
   eslint: {
-    ignoreDuringBuilds: true,
+    ignoreDuringBuilds: false,
+    dirs: ["app", "components", "hooks", "lib"],
   },
+
+  // Enable TypeScript type checking during builds
   typescript: {
-    ignoreBuildErrors: true,
+    ignoreBuildErrors: false,
   },
+
+  // Image optimization settings
   images: {
     unoptimized: true,
   },
-}
 
-export default nextConfig
+  // Performance optimizations
+  reactStrictMode: true,
+  poweredByHeader: false,
+
+  // Experimental features
+  experimental: {
+    typedRoutes: true,
+  },
+};
+
+export default nextConfig;
