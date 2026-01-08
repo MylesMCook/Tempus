@@ -219,10 +219,19 @@ export async function GET(request: NextRequest) {
     // Use the stored rate limit result (avoid calling check() again which would double-count)
     const remainingRequests = rateLimitInfo?.remaining ?? 60
 
+    // Check if expression is relative (time-sensitive) - don't cache these
+    const expressionLower = result.data.expression.toLowerCase()
+    const isRelativeExpression =
+      expressionLower.includes("now") ||
+      expressionLower.includes("today") ||
+      expressionLower.includes("from") ||
+      expressionLower.includes("ago") ||
+      expressionLower.includes("in ") // "in 3 days"
+
     return NextResponse.json(response, {
       headers: {
-        // Use short cache for successful responses to reduce load
-        "Cache-Control": "public, max-age=60, s-maxage=300",
+        // Don't cache relative expressions as they change with time
+        "Cache-Control": isRelativeExpression ? "no-store" : "public, max-age=300, s-maxage=600",
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "GET, OPTIONS",
         "Access-Control-Allow-Headers": "Content-Type",

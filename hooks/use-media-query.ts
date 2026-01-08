@@ -3,12 +3,17 @@
 import { useState, useEffect } from "react"
 
 export function useMediaQuery(query: string): boolean {
-  const [matches, setMatches] = useState(false)
+  // Initialize with a function to avoid SSR hydration mismatch
+  // On server, assume desktop (most common case for responsive designs)
+  const [matches, setMatches] = useState<boolean>(() => {
+    if (typeof window === "undefined") return false
+    return window.matchMedia(query).matches
+  })
 
   useEffect(() => {
     const media = window.matchMedia(query)
 
-    // Set initial value
+    // Set initial value (handles SSR -> client transition)
     setMatches(media.matches)
 
     // Update the state when the media query changes

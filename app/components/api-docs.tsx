@@ -539,29 +539,6 @@ export function ApiDocs() {
         </CardContent>
       </Card>
 
-      {/* TODO: Issue #10 - Move this CSS to globals.css
-          This style block is duplicated in date-picker.tsx.
-          Consolidate into a single location in app/globals.css for maintainability. */}
-      <style jsx global>{`
-     .syntax-highlight .json-key {
-       color: #a626a4;
-     }
-     .syntax-highlight .json-string {
-       color: #50a14f;
-     }
-     .syntax-highlight .json-number {
-       color: #986801;
-     }
-     .dark .syntax-highlight .json-key {
-       color: #c678dd;
-     }
-     .dark .syntax-highlight .json-string {
-       color: #98c379;
-     }
-     .dark .syntax-highlight .json-number {
-       color: #d19a66;
-     }
-   `}</style>
     </section>
   )
 }

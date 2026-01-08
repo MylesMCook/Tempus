@@ -42,12 +42,17 @@ import { useSettings } from "../context/settings-context"
 import { formatInTimeZone } from "date-fns-tz"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Slider } from "@/components/ui/slider"
+import { TimeSelector } from "./date-picker/TimeSelector"
 
 interface DatePickerProps {
   date?: Date
   onDateChange?: (date: Date | undefined) => void
   onFormattedDateChange?: (formattedDate: string) => void
   className?: string
+  /** Controlled input value - if provided, the component becomes controlled */
+  inputValue?: string
+  /** Callback when input value changes (for controlled mode) */
+  onInputValueChange?: (value: string) => void
 }
 
 interface DateParserSettings {
@@ -133,9 +138,26 @@ function formatJSON(json: any, syntaxHighlighting: boolean): React.ReactNode {
   )
 }
 
-export function DatePicker({ date, onDateChange, onFormattedDateChange, className }: DatePickerProps) {
+export function DatePicker({
+  date,
+  onDateChange,
+  onFormattedDateChange,
+  className,
+  inputValue: controlledInputValue,
+  onInputValueChange,
+}: DatePickerProps) {
   const [open, setOpen] = React.useState(false)
-  const [inputValue, setInputValue] = React.useState("")
+  // Support both controlled and uncontrolled modes
+  const [internalInputValue, setInternalInputValue] = React.useState("")
+  const isControlled = controlledInputValue !== undefined
+  const inputValue = isControlled ? controlledInputValue : internalInputValue
+  const setInputValue = React.useCallback((value: string) => {
+    if (isControlled) {
+      onInputValueChange?.(value)
+    } else {
+      setInternalInputValue(value)
+    }
+  }, [isControlled, onInputValueChange])
   const [previewDate, setPreviewDate] = React.useState<Date | null>(null)
   const [copied, setCopied] = React.useState(false)
   const [debugMode, setDebugMode] = React.useState(false)
@@ -192,7 +214,7 @@ export function DatePicker({ date, onDateChange, onFormattedDateChange, classNam
     } else {
       setInputValue("")
     }
-  }, [date])
+  }, [date, setInputValue])
 
   React.useEffect(() => {
     if (copied) {
@@ -720,108 +742,16 @@ export function DatePicker({ date, onDateChange, onFormattedDateChange, classNam
               </div>
 
               {showTimeSelector && (
-                <div className="border-t pt-3 mt-1 overflow-x-hidden">
-                  <div className="flex items-center justify-between mb-2">
-                    <h4 className="text-sm font-medium flex items-center gap-1.5">
-                      <Clock3 className="size-3.5" />
-                      Time
-                    </h4>
-                    <div className="flex items-center gap-2">
-                      <span className="text-sm font-mono text-primary">{formatTime(previewDate)}</span>
-                      <Tabs value={timeFormat} onValueChange={(v) => setTimeFormat(v as "12h" | "24h")} className="h-7">
-                        <TabsList className="h-6 p-0">
-                          <TabsTrigger value="12h" className="text-xs px-2 h-6">
-                            12h
-                          </TabsTrigger>
-                          <TabsTrigger value="24h" className="text-xs px-2 h-6">
-                            24h
-                          </TabsTrigger>
-                        </TabsList>
-                      </Tabs>
-                    </div>
-                  </div>
-
-                  <div className="space-y-3">
-                    <div className="space-y-1">
-                      <div className="flex items-center justify-between">
-                        <Label className="text-xs">
-                          Hours: {timeFormat === "12h" ? previewDate.getHours() % 12 || 12 : previewDate.getHours()}
-                        </Label>
-                        <span className="text-xs text-muted-foreground">{timeFormat === "12h" ? "1-12" : "0-23"}</span>
-                      </div>
-                      <Slider
-                        value={[timeFormat === "12h" ? previewDate.getHours() % 12 || 12 : previewDate.getHours()]}
-                        min={timeFormat === "12h" ? 1 : 0}
-                        max={timeFormat === "12h" ? 12 : 23}
-                        step={1}
-                        onValueChange={(value) => {
-                          if (timeFormat === "12h") {
-                            // Preserve AM/PM when adjusting hours in 12h mode
-                            const isCurrentlyPM = previewDate.getHours() >= 12
-                            const newHour = value[0] + (isCurrentlyPM ? 12 : 0)
-                            adjustHours(newHour % 24)
-                          } else {
-                            adjustHours(value[0])
-                          }
-                        }}
-                        className="py-1"
-                      />
-                    </div>
-
-                    <div className="space-y-1">
-                      <div className="flex items-center justify-between">
-                        <Label className="text-xs">Minutes: {previewDate.getMinutes()}</Label>
-                        <span className="text-xs text-muted-foreground">0-59</span>
-                      </div>
-                      <Slider
-                        value={[previewDate.getMinutes()]}
-                        min={0}
-                        max={59}
-                        step={1}
-                        onValueChange={(value) => adjustMinutes(value[0])}
-                        className="py-1"
-                      />
-                    </div>
-
-                    <div className="space-y-1">
-                      <div className="flex items-center justify-between">
-                        <Label className="text-xs">Seconds: {previewDate.getSeconds()}</Label>
-                        <span className="text-xs text-muted-foreground">0-59</span>
-                      </div>
-                      <Slider
-                        value={[previewDate.getSeconds()]}
-                        min={0}
-                        max={59}
-                        step={1}
-                        onValueChange={(value) => adjustSeconds(value[0])}
-                        className="py-1"
-                      />
-                    </div>
-
-                    {timeFormat === "12h" && (
-                      <div className="flex justify-end mt-1">
-                        <Button
-                          size="sm"
-                          variant="outline"
-                          className={cn(
-                            "h-7 text-xs",
-                            previewDate.getHours() >= 12
-                              ? "bg-primary/10 border-primary/30 text-primary"
-                              : "hover:bg-primary/5 hover:border-primary/50",
-                          )}
-                          onClick={() => {
-                            const newDate = new Date(previewDate)
-                            const currentHours = newDate.getHours()
-                            newDate.setHours((currentHours + 12) % 24)
-                            setPreviewDate(newDate)
-                          }}
-                        >
-                          {previewDate.getHours() >= 12 ? "PM" : "AM"}
-                        </Button>
-                      </div>
-                    )}
-                  </div>
-                </div>
+                <TimeSelector
+                  previewDate={previewDate}
+                  timeFormat={timeFormat}
+                  onTimeFormatChange={setTimeFormat}
+                  onHoursChange={adjustHours}
+                  onMinutesChange={adjustMinutes}
+                  onSecondsChange={adjustSeconds}
+                  onDateChange={setPreviewDate}
+                  formatTime={formatTime}
+                />
               )}
             </div>
           )}
@@ -1255,27 +1185,6 @@ export function DatePicker({ date, onDateChange, onFormattedDateChange, classNam
         </div>
       </div>
 
-      {/* Add CSS for syntax highlighting */}
-      <style jsx global>{`
-        .syntax-highlight .json-key {
-          color: #a626a4;
-        }
-        .syntax-highlight .json-string {
-          color: #50a14f;
-        }
-        .syntax-highlight .json-number {
-          color: #986801;
-        }
-        .dark .syntax-highlight .json-key {
-          color: #c678dd;
-        }
-        .dark .syntax-highlight .json-string {
-          color: #98c379;
-        }
-        .dark .syntax-highlight .json-number {
-          color: #d19a66;
-        }
-      `}</style>
     </div>
   )
 }

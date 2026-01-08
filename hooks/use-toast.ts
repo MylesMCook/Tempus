@@ -182,7 +182,7 @@ function useToast() {
         listeners.splice(index, 1)
       }
     }
-  }, [state])
+  }, []) // Only run on mount/unmount - prevents memory leak from duplicate listeners
 
   return {
     ...state,

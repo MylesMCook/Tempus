@@ -8,7 +8,6 @@ import { SettingsProvider } from "./context/settings-context"
 import { formatInTimeZone } from "date-fns-tz"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import Link from "next/link"
-// Import the new DateExpressionTabs component
 import { DateExpressionTabs } from "./components/date-expression-tabs"
 
 const examples = {
@@ -42,13 +41,26 @@ export default function Home() {
   const [date, setDate] = useState<Date>()
   const [formattedDate, setFormattedDate] = useState<string>("")
   const [activeCategory, setActiveCategory] = useState<string>("Simple")
+  // Lifted state for controlled DatePicker input (fixes Issue #3)
+  const [dateExpression, setDateExpression] = useState<string>("")
 
   // Update the handler to store both the Date object and its formatted representation
   const handleDateChange = (newDate: Date | undefined) => {
     setDate(newDate)
     if (newDate) {
-      // Format the date according to the user's settings
-      const { dateFormat } = JSON.parse(localStorage.getItem("parserSettings") || '{"dateFormat":"EEEE, MMMM d, yyyy"}')
+      // Format the date according to the user's settings (with safe localStorage access)
+      let dateFormat = "EEEE, MMMM d, yyyy" // Safe default
+      try {
+        const stored = localStorage.getItem("parserSettings")
+        if (stored) {
+          const parsed = JSON.parse(stored)
+          if (typeof parsed.dateFormat === "string") {
+            dateFormat = parsed.dateFormat
+          }
+        }
+      } catch {
+        // localStorage unavailable or data corrupted - use default
+      }
       const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone
       const formatted = formatInTimeZone(newDate, timezone, dateFormat)
       setFormattedDate(formatted)
@@ -57,21 +69,9 @@ export default function Home() {
     }
   }
 
-  // TODO: Issue #3 - Replace direct DOM manipulation with React state
-  // This hack bypasses React's data flow and can break with React updates.
-  // Fix: Lift input value state to this component and pass as prop to DatePicker.
-  // Example: const [inputValue, setInputValue] = useState("")
-  //          <DatePicker value={inputValue} onChange={setInputValue} />
+  // Set the date expression when an example is clicked (Issue #3 fixed)
   const handleExampleClick = (expression: string) => {
-    const input = document.querySelector("input")
-    if (input) {
-      const nativeInputValueSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, "value")?.set
-      if (nativeInputValueSetter) {
-        nativeInputValueSetter.call(input, expression)
-        input.dispatchEvent(new Event("input", { bubbles: true }))
-        input.focus()
-      }
-    }
+    setDateExpression(expression)
   }
 
   return (
@@ -96,7 +96,12 @@ export default function Home() {
             <div className="relative">
               <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-primary/20 via-primary/30 rounded-xl blur-xl" />
               <div className="relative bg-background rounded-lg border shadow-sm">
-                <DatePicker date={date} onDateChange={handleDateChange} />
+                <DatePicker
+                  date={date}
+                  onDateChange={handleDateChange}
+                  inputValue={dateExpression}
+                  onInputValueChange={setDateExpression}
+                />
               </div>
             </div>
           </section>
