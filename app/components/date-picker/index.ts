@@ -2,8 +2,8 @@
 // These are extracted from the main DatePicker component for better maintainability
 
 export { TimeSelector } from "./TimeSelector"
-
-// Future extractions:
-// export { DebugPanel } from "./DebugPanel"
-// export { DatePickerSettings } from "./DatePickerSettings"
-// export { DatePickerPreview } from "./DatePickerPreview"
+export { DatePickerSettings } from "./DatePickerSettings"
+export { DatePickerResult } from "./DatePickerResult"
+export { DebugPanel } from "./DebugPanel"
+export * from "./types"
+export * from "./utils"
