@@ -91,11 +91,11 @@ These require more extensive refactoring. TODO comments added to relevant files:
 ## Verification Log
 
 | Issue | Fixed | Verified | Commit |
-|-------|-------|----------|--------|
-| #6 | | | |
-| #8 | | | |
-| #4 | | | |
-| #2 | | | |
-| #9 | | | |
-| #1 | | | |
-| #11 | | | |
+| ----- | ----- | -------- | ------ |
+| #6    |       |          |        |
+| #8    |       |          |        |
+| #4    |       |          |        |
+| #2    |       |          |        |
+| #9    |       |          |        |
+| #1    |       |          |        |
+| #11   |       |          |        |

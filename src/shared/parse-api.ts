@@ -1,0 +1,173 @@
+import { format } from "date-fns";
+import { z } from "zod";
+import { parseNaturalLanguageDate } from "@/shared/date-parser";
+
+const querySchema = z.object({
+  expression: z
+    .string()
+    .min(1, "Expression is required")
+    .max(200, "Expression is too long (max 200 characters)")
+    .trim()
+    .refine((value) => !/[<>{}]/.test(value), {
+      message: "Expression contains invalid characters",
+    }),
+  format: z.string().max(50).optional(),
+  preserveDayOfMonth: z
+    .enum(["true", "false"])
+    .optional()
+    .transform((value) => value === "true"),
+  timezone: z.string().max(50).optional().default("UTC"),
+});
+
+export type ParseExpressionType = "relative" | "weekday" | "date-math" | "advanced";
+
+export type ParseApiSuccessResponse = {
+  expression: string;
+  date: string;
+  timestamp: number;
+  formatted?: string;
+  meta?: {
+    type: ParseExpressionType;
+    components?: string[];
+    timezone?: string;
+  };
+  settings?: {
+    format?: string;
+    preserveDayOfMonth?: boolean;
+    timezone?: string;
+  };
+  requestId?: string;
+};
+
+export type ParseApiErrorResponse = {
+  error: string;
+  details?: unknown;
+  requestId?: string;
+};
+
+export function parseExpressionType(expression: string): ParseExpressionType {
+  const normalized = expression.toLowerCase();
+
+  if (
+    normalized.includes("before") ||
+    normalized.includes("after") ||
+    normalized.includes("plus") ||
+    normalized.includes("minus")
+  ) {
+    return "date-math";
+  }
+
+  if (normalized.includes("from now") || normalized.includes("ago")) {
+    return "relative";
+  }
+
+  if (normalized.includes("next") || normalized.includes("last")) {
+    return "weekday";
+  }
+
+  return "advanced";
+}
+
+export function extractComponents(expression: string): string[] {
+  const components: string[] = [];
+  const normalized = expression.toLowerCase();
+
+  for (const unit of ["day", "week", "month", "year"]) {
+    if (normalized.includes(unit) || normalized.includes(`${unit}s`)) {
+      components.push(unit);
+    }
+  }
+
+  for (const day of [
+    "monday",
+    "tuesday",
+    "wednesday",
+    "thursday",
+    "friday",
+    "saturday",
+    "sunday",
+  ]) {
+    if (normalized.includes(day)) {
+      components.push(day);
+    }
+  }
+
+  for (const operator of ["before", "after", "plus", "minus", "from now", "ago"]) {
+    if (normalized.includes(operator)) {
+      components.push(operator);
+    }
+  }
+
+  return components;
+}
+
+export function generateRequestId() {
+  return crypto.randomUUID().slice(0, 8);
+}
+
+export function buildParseResponse(
+  query: Record<string, string | undefined>,
+  requestId = generateRequestId(),
+) {
+  const parsedQuery = querySchema.safeParse(query);
+  if (!parsedQuery.success) {
+    return {
+      ok: false as const,
+      status: 400,
+      body: {
+        error: "Invalid input",
+        details: parsedQuery.error.issues,
+        requestId,
+      } satisfies ParseApiErrorResponse,
+    };
+  }
+
+  const parserOptions = {
+    preserveDayOfMonth: parsedQuery.data.preserveDayOfMonth,
+  };
+
+  const parsedDate = parseNaturalLanguageDate(parsedQuery.data.expression, parserOptions);
+  if (!parsedDate) {
+    return {
+      ok: false as const,
+      status: 400,
+      body: {
+        error: "Could not parse date expression",
+        requestId,
+      } satisfies ParseApiErrorResponse,
+    };
+  }
+
+  const response: ParseApiSuccessResponse = {
+    expression: parsedQuery.data.expression,
+    date: parsedDate.toISOString(),
+    timestamp: parsedDate.getTime(),
+    meta: {
+      type: parseExpressionType(parsedQuery.data.expression),
+      components: extractComponents(parsedQuery.data.expression),
+      timezone: parsedQuery.data.timezone || "UTC",
+    },
+    requestId,
+  };
+
+  if (parsedQuery.data.format) {
+    response.formatted = format(parsedDate, parsedQuery.data.format);
+  }
+
+  const settings: ParseApiSuccessResponse["settings"] = {};
+  if (parsedQuery.data.format !== undefined) settings.format = parsedQuery.data.format;
+  if (parsedQuery.data.preserveDayOfMonth !== undefined) {
+    settings.preserveDayOfMonth = parsedQuery.data.preserveDayOfMonth;
+  }
+  if (parsedQuery.data.timezone !== undefined) settings.timezone = parsedQuery.data.timezone;
+
+  if (Object.keys(settings).length > 0) {
+    response.settings = settings;
+  }
+
+  return {
+    ok: true as const,
+    status: 200,
+    body: response,
+  };
+}
