@@ -1,27 +1,26 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
 # dependencies
 /node_modules
 
-# next.js
-/.next/
-/out/
+# builds
+/dist
+/.next
+/.open-next
 
-# production
-/build
-
-# debug
+# temp and logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+.vite
+.vite-hooks
+.wrangler
 
 # env files
 .env*
 
-# vercel
-.vercel
-
 # typescript
 *.tsbuildinfo
-next-env.d.ts
+
+# local agent and generated files
+.claude
+.next-build.log
