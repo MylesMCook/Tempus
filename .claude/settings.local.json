@@ -9,19 +9,12 @@
       "Bash(findstr:*)",
       "Bash(npm install:*)",
       "Bash(npm run lint)",
-      "Bash(npx vercel build)",
       "Bash(git add:*)",
-      "mcp__vercel__list_teams",
-      "mcp__vercel__list_projects",
-      "mcp__vercel__list_deployments",
-      "mcp__vercel__get_deployment_build_logs",
       "Bash(ls:*)",
       "Bash(npx pnpm install)",
       "Bash(cat:*)",
       "Bash(pnpm install:*)",
-      "Bash(git commit -m \"$\\(cat <<''EOF''\nfix: update Next.js to 15.5.9 to fix CVE-2025-66478\n\nVercel deployment was blocked due to vulnerable Next.js version 15.2.4.\nUpdated to 15.5.9 which includes the security patch.\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
       "Bash(git push:*)",
-      "mcp__vercel__get_deployment",
       "Bash(npx next:*)"
     ]
   }
