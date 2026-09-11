@@ -1,4 +1,4 @@
-# Product pass — COMPLETE
+# Product pass — COMPLETE; deployment BLOCKED
 
 ## Objective and boundaries
 
@@ -39,8 +39,16 @@ Revisited after replay: all 27 advertised examples produce results; settings, AP
 ## Operational notes and remaining uncertainty
 
 - Cloudflare inspector initially attempted all-interface binding. Automatic review rejected it; config now disables inspector and binds app to loopback. Safe local server subsequently started.
-- Existing runtime warning: installed workerd supports 2026-03-17 while config requests 2026-03-29; local fallback used. No dependency or runtime upgrades performed. Exact production compatibility remains unverified.
+- Existing runtime warning: installed workerd supports 2026-03-17 while config requests 2026-03-29; local fallback used. No dependency or runtime upgrades performed. Exact production compatibility remains unverified; CI check, tests and build passed on Linux during closeout.
 - Browser clipboard-read permission was denied. Copy promises completed successfully and corresponding toasts appeared; clipboard readback not verified.
 - Relative calendar semantics and production timezone differences are unchanged and now explained. Parser-wide edge cases and policy prose remain outside this bounded pass.
 - Task-local pnpm store is ignored, not deleted. No lockfile changes. Local dev server remains available for review.
 - Closeout: user authorized mainline landing and the normal GitHub Actions deployment. Main requires linear history and conversation resolution, with no required PR or review gate. Deployment status is authoritative in the repository’s Deploy Cloudflare Worker workflow; live verification is reported in the closeout handoff.
+
+## Closeout result
+
+- Product commit `3618415` landed on `main` and was pushed.
+- [Deployment run 34654551112](https://github.com/MylesMCook/TempusTotal/actions/runs/34654551112) passed check, all 40 tests, and build. Deployment failed before upload: Cloudflare authentication error 10000 and invalid access token 9109.
+- Blocker: the GitHub Actions `CLOUDFLARE_API_TOKEN` secret is invalid. Credential replacement was not authorized and was not attempted.
+- Next action: provide an authorized valid deployment token, update the repository secret, and rerun the configured workflow. Then verify `/`, `/privacy`, and `/api/parse` on production.
+- This documentation-only closeout commit skips CI to avoid repeating a deployment with known-invalid credentials. It contains no application or workflow changes.
