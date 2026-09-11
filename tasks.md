@@ -1,4 +1,4 @@
-# Product pass — COMPLETE; deployment BLOCKED
+# Product pass — LIVE; GitHub deployment token pending
 
 ## Objective and boundaries
 
@@ -48,7 +48,10 @@ Revisited after replay: all 27 advertised examples produce results; settings, AP
 ## Closeout result
 
 - Product commit `3618415` landed on `main` and was pushed.
-- [Deployment run 34654551112](https://github.com/MylesMCook/TempusTotal/actions/runs/34654551112) passed check, all 40 tests, and build. Deployment failed before upload: Cloudflare authentication error 10000 and invalid access token 9109.
-- Blocker: the GitHub Actions `CLOUDFLARE_API_TOKEN` secret is invalid. Credential replacement was not authorized and was not attempted.
-- Next action: provide an authorized valid deployment token, update the repository secret, and rerun the configured workflow. Then verify `/`, `/privacy`, and `/api/parse` on production.
-- This documentation-only closeout commit skips CI to avoid repeating a deployment with known-invalid credentials. It contains no application or workflow changes.
+- [Deployment run 34654551112](https://github.com/MylesMCook/TempusTotal/actions/runs/34654551112) passed check, all 40 tests, and build. GitHub deployment failed before upload: invalid Cloudflare token (10000/9109).
+- User subsequently authorized token repair and completion. Existing local Wrangler OAuth login was valid; no OAuth credentials were copied into GitHub.
+- Documented manual fallback deployed the verified build successfully. Cloudflare version: `2ba1d02e-a3e8-4f8e-86ab-1d74a2f9d7eb`.
+- Production verification: new asset `index-wYGksTIy.js`; browser calculator tomorrow → September 12, 2026; `/privacy` renders; live playground returns HTTP 200; Tokyo formatting verified; invalid format returns HTTP 400; API responses use no-store.
+- Token summary prepared in Cloudflare: `TempusTotal GitHub Actions deploy`, Workers Scripts:Edit restricted to the existing account. Not created yet; browser credential policy requires user handoff at the final step.
+- Next action: finish token creation, install it as repository `CLOUDFLARE_API_TOKEN` without displaying its value, then run and verify the GitHub deployment workflow. Production is live; automatic deployment is still blocked by the old invalid secret.
+- Documentation-only closeout commits skip CI while the invalid secret remains. No app or workflow changes are included in those commits.
