@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Check, Copy, Play } from "lucide-react";
+import { LoaderCircle, Copy, Play } from "lucide-react";
 import { toast } from "sonner";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -28,8 +28,14 @@ async function copyToClipboard(value: string, label: string) {
   }
 }
 
-export function ApiDocs() {
-  const [expression, setExpression] = useState("");
+export function ApiDocs({
+  expression,
+  onExpressionChange,
+}: {
+  expression: string;
+  onExpressionChange: (value: string) => void;
+}) {
+  const [completedPath, setCompletedPath] = useState<string | null>(null);
   const [isRunning, setIsRunning] = useState(false);
   const [statusCode, setStatusCode] = useState<number | null>(null);
   const [responseBody, setResponseBody] = useState<unknown>(null);
@@ -61,12 +67,15 @@ export function ApiDocs() {
   }, [requestPath]);
 
   async function runRequest() {
+    if (isRunning) return;
     if (!expression.trim()) {
       toast.error("Enter an expression before hitting the API.");
       return;
     }
 
     setIsRunning(true);
+    setStatusCode(null);
+    setResponseBody(null);
     try {
       const response = await fetch(requestPath);
       const body = await response.json();
@@ -81,10 +90,11 @@ export function ApiDocs() {
       }
     } catch (error) {
       const message = error instanceof Error ? error.message : "Unknown request failure";
-      setStatusCode(500);
+      setStatusCode(0);
       setResponseBody({ error: message });
       toast.error("Request failed.");
     } finally {
+      setCompletedPath(requestPath);
       setIsRunning(false);
     }
   }
@@ -94,8 +104,8 @@ export function ApiDocs() {
       <CardHeader className="flex flex-col gap-2">
         <CardTitle>API playground</CardTitle>
         <CardDescription>
-          Verify the public contract with the same format, timezone, and preserve settings used by
-          the local parser.
+          Requests use the expression and display settings above. Relative calendar dates are
+          calculated in the server’s timezone, so they can differ from browser results.
         </CardDescription>
       </CardHeader>
       <CardContent className="flex flex-col gap-5">
@@ -106,7 +116,7 @@ export function ApiDocs() {
               type="button"
               variant="outline"
               size="sm"
-              onClick={() => setExpression(example)}
+              onClick={() => onExpressionChange(example)}
             >
               {example}
             </Button>
@@ -115,19 +125,30 @@ export function ApiDocs() {
 
         <div className="flex flex-col gap-2">
           <Label htmlFor="api-expression">Expression</Label>
-          <div className="flex flex-col gap-3 sm:flex-row">
+          <form
+            className="flex flex-col gap-3 sm:flex-row"
+            onSubmit={(event) => {
+              event.preventDefault();
+              void runRequest();
+            }}
+          >
             <Input
               id="api-expression"
               value={expression}
-              onChange={(event) => setExpression(event.target.value)}
-              placeholder="Try the public /api/parse contract"
+              onChange={(event) => onExpressionChange(event.target.value)}
+              placeholder="e.g. in 3 days"
+              maxLength={200}
               className="h-11 text-base"
             />
-            <Button type="button" onClick={runRequest} disabled={isRunning}>
-              {isRunning ? <Check data-icon="inline-start" /> : <Play data-icon="inline-start" />}
+            <Button type="submit" disabled={isRunning || !expression.trim()}>
+              {isRunning ? (
+                <LoaderCircle className="animate-spin" data-icon="inline-start" />
+              ) : (
+                <Play data-icon="inline-start" />
+              )}
               {isRunning ? "Running" : "Run request"}
             </Button>
-          </div>
+          </form>
         </div>
 
         <div className="grid gap-3 sm:grid-cols-3">
@@ -135,19 +156,19 @@ export function ApiDocs() {
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
               Format
             </p>
-            <p className="mt-1 text-sm">{effectiveDateFormat}</p>
+            <p className="mt-1 break-words text-sm">{effectiveDateFormat}</p>
           </div>
           <div className="rounded-lg border bg-muted/20 p-3">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
               Timezone
             </p>
-            <p className="mt-1 text-sm">{settings.timezone}</p>
+            <p className="mt-1 break-words text-sm">{settings.timezone}</p>
           </div>
           <div className="rounded-lg border bg-muted/20 p-3">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
               preserveDayOfMonth
             </p>
-            <p className="mt-1 text-sm">{String(settings.preserveDayOfMonth)}</p>
+            <p className="mt-1 break-words text-sm">{String(settings.preserveDayOfMonth)}</p>
           </div>
         </div>
 
@@ -181,14 +202,24 @@ export function ApiDocs() {
         </div>
 
         {statusCode !== null && responseBody !== null ? (
-          <div className="flex flex-col gap-3">
+          <div className="flex min-w-0 flex-col gap-3" aria-live="polite">
+            {completedPath !== requestPath ? (
+              <p role="status" className="text-sm text-muted-foreground">
+                Expression or settings changed. Run the request again to update this response.
+              </p>
+            ) : null}
             <div className="flex items-center justify-between gap-3">
-              <Label>Response</Label>
-              <Badge variant={statusCode >= 400 ? "destructive" : "secondary"}>
-                HTTP {statusCode}
+              <span className="text-sm font-medium">Response</span>
+              <Badge variant={statusCode === 0 || statusCode >= 400 ? "destructive" : "secondary"}>
+                {statusCode === 0 ? "Network error" : `HTTP ${statusCode}`}
               </Badge>
             </div>
-            <pre className="overflow-x-auto rounded-lg bg-slate-950 p-4 text-sm text-slate-50">
+            <pre
+              tabIndex={0}
+              role="region"
+              aria-label="API response JSON"
+              className="max-w-full overflow-x-auto rounded-lg bg-slate-950 p-4 text-sm text-slate-50"
+            >
               {JSON.stringify(responseBody, null, 2)}
             </pre>
           </div>

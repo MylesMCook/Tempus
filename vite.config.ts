@@ -8,13 +8,13 @@ export default defineConfig({
     "*": "vp check --fix",
   },
   lint: { options: { typeAware: true, typeCheck: true } },
-  plugins: [react(), cloudflare()],
+  plugins: [react(), cloudflare({ inspectorPort: false })],
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
     },
   },
   server: {
-    host: true,
+    host: "127.0.0.1",
   },
 });

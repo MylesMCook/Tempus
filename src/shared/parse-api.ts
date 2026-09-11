@@ -1,13 +1,13 @@
-import { format } from "date-fns";
+import { formatInTimeZone } from "date-fns-tz";
 import { z } from "zod";
 import { parseNaturalLanguageDate } from "@/shared/date-parser";
 
 const querySchema = z.object({
   expression: z
     .string()
+    .trim()
     .min(1, "Expression is required")
     .max(200, "Expression is too long (max 200 characters)")
-    .trim()
     .refine((value) => !/[<>{}]/.test(value), {
       message: "Expression contains invalid characters",
     }),
@@ -16,7 +16,19 @@ const querySchema = z.object({
     .enum(["true", "false"])
     .optional()
     .transform((value) => value === "true"),
-  timezone: z.string().max(50).optional().default("UTC"),
+  timezone: z
+    .string()
+    .max(50)
+    .refine((value) => {
+      try {
+        new Intl.DateTimeFormat("en", { timeZone: value });
+        return true;
+      } catch {
+        return false;
+      }
+    }, "Invalid timezone")
+    .optional()
+    .default("UTC"),
 });
 
 export type ParseExpressionType = "relative" | "weekday" | "date-math" | "advanced";
@@ -151,7 +163,19 @@ export function buildParseResponse(
   };
 
   if (parsedQuery.data.format) {
-    response.formatted = format(parsedDate, parsedQuery.data.format);
+    try {
+      response.formatted = formatInTimeZone(
+        parsedDate,
+        parsedQuery.data.timezone,
+        parsedQuery.data.format,
+      );
+    } catch {
+      return {
+        ok: false as const,
+        status: 400,
+        body: { error: "Invalid date format", requestId } satisfies ParseApiErrorResponse,
+      };
+    }
   }
 
   const settings: ParseApiSuccessResponse["settings"] = {};

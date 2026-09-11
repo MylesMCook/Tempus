@@ -4,7 +4,6 @@ import { useMemo } from "react";
 import { Copy, RotateCcw, Settings2 } from "lucide-react";
 import { toast } from "sonner";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -52,17 +51,26 @@ export function DatePicker({ expression, onExpressionChange }: DatePickerProps) 
   const formattedDate = parsedDate
     ? safeFormatDate(parsedDate, settings.timezone, effectiveDateFormat)
     : "";
+  const formatError = safeFormatDate(new Date(), settings.timezone, effectiveDateFormat) === null;
 
   return (
     <div className="flex flex-col gap-4">
       <Card className="border-border/70 shadow-sm">
         <CardContent className="flex flex-col gap-4 p-4 sm:p-5">
+          <Label htmlFor="date-expression" className="text-base">
+            What date are you looking for?
+          </Label>
           <div className="flex flex-col gap-3 sm:flex-row">
             <Input
               id="date-expression"
+              aria-describedby="expression-help"
+              aria-invalid={Boolean(expression.trim() && !parsedDate)}
+              autoComplete="off"
+              spellCheck={false}
+              maxLength={200}
               value={expression}
               onChange={(event) => onExpressionChange(event.target.value)}
-              placeholder="next friday, 2 weeks after may 1, 1.5 days from now"
+              placeholder="e.g. 2 weeks after may 1"
               className="h-11 text-base"
             />
 
@@ -74,16 +82,20 @@ export function DatePicker({ expression, onExpressionChange }: DatePickerProps) 
                     Settings
                   </Button>
                 </PopoverTrigger>
-                <PopoverContent align="end" className="flex w-80 flex-col gap-4">
+                <PopoverContent
+                  aria-label="Parser settings"
+                  align="end"
+                  className="flex w-80 max-w-[calc(100vw-2rem)] max-h-[80vh] overflow-y-auto flex-col gap-4"
+                >
                   <div className="flex flex-col gap-1">
                     <h2 className="font-semibold">Parser settings</h2>
                     <p className="text-sm text-muted-foreground">
-                      These settings affect both the local preview and the API playground.
+                      Choose how dates are displayed. Your preferences are saved in this browser.
                     </p>
                   </div>
 
                   <div className="flex flex-col gap-2">
-                    <Label htmlFor="timezone">Timezone</Label>
+                    <Label htmlFor="timezone">Display timezone</Label>
                     <Select
                       value={settings.timezone}
                       onValueChange={(value) => updateSettings({ timezone: value })}
@@ -124,11 +136,26 @@ export function DatePicker({ expression, onExpressionChange }: DatePickerProps) 
                       </SelectContent>
                     </Select>
                     {settings.isCustomFormat ? (
-                      <Input
-                        value={settings.customFormat}
-                        onChange={(event) => updateSettings({ customFormat: event.target.value })}
-                        placeholder="yyyy-MM-dd HH:mm"
-                      />
+                      <div className="flex flex-col gap-2">
+                        <Label htmlFor="custom-format">Custom format</Label>
+                        <Input
+                          id="custom-format"
+                          aria-describedby="format-help"
+                          aria-invalid={formatError}
+                          maxLength={50}
+                          value={settings.customFormat}
+                          onChange={(event) => updateSettings({ customFormat: event.target.value })}
+                          placeholder="yyyy-MM-dd HH:mm"
+                        />
+                        <p id="format-help" className="text-sm text-muted-foreground">
+                          Use yyyy for year, MM for month, dd for day, HH:mm for time.
+                        </p>
+                        {formatError ? (
+                          <p role="alert" className="text-sm text-destructive">
+                            Invalid format. Try yyyy-MM-dd or reset settings.
+                          </p>
+                        ) : null}
+                      </div>
                     ) : null}
                   </div>
 
@@ -164,10 +191,9 @@ export function DatePicker({ expression, onExpressionChange }: DatePickerProps) 
             </div>
           </div>
 
-          <p className="text-sm text-muted-foreground">
-            The preview updates as you type and uses the same settings the Worker playground will
-            send to
-            <code className="mx-1 rounded bg-muted px-1.5 py-0.5">/api/parse</code>.
+          <p id="expression-help" className="text-sm text-muted-foreground">
+            Calculates as you type, relative to today in your browser’s timezone. Timezone settings
+            change the display, not the calculation.
           </p>
         </CardContent>
       </Card>
@@ -179,64 +205,76 @@ export function DatePicker({ expression, onExpressionChange }: DatePickerProps) 
         </Alert>
       ) : null}
 
+      {!expression.trim() ? (
+        <div className="rounded-lg border border-dashed p-6 text-center text-sm text-muted-foreground">
+          Your date will appear here. Type a phrase above or choose an example below.
+        </div>
+      ) : null}
+
       {parsedDate ? (
         <Card className="border-border/70 shadow-sm">
-          <CardHeader className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <div className="flex flex-col gap-1">
-              <CardTitle>Preview</CardTitle>
-              <p className="text-sm text-muted-foreground">
-                This is the local parser result before you hit the API.
-              </p>
+          <CardHeader className="gap-2 pb-3">
+            <CardTitle className="text-sm font-medium text-muted-foreground">Your date</CardTitle>
+            <div role="status" aria-live="polite" aria-atomic="true">
+              {formattedDate === null ? (
+                <div className="flex flex-col items-start gap-2">
+                  <p className="text-destructive">
+                    This format or timezone is invalid. Update settings or reset them to show your
+                    date.
+                  </p>
+                  <Button variant="outline" onClick={resetSettings}>
+                    Reset settings
+                  </Button>
+                </div>
+              ) : (
+                <p className="break-words text-2xl font-semibold tracking-tight sm:text-3xl">
+                  {formattedDate}
+                </p>
+              )}
             </div>
-            <div className="flex flex-wrap gap-2">
-              <Badge variant="secondary">{settings.timezone}</Badge>
-              <Badge variant={settings.preserveDayOfMonth ? "default" : "outline"}>
-                preserveDayOfMonth={String(settings.preserveDayOfMonth)}
-              </Badge>
-            </div>
+            <p className="text-sm text-muted-foreground">
+              {settings.timezone} · {safeFormatDate(parsedDate, settings.timezone, "HH:mm zzz")}
+            </p>
           </CardHeader>
           <CardContent className="flex flex-col gap-4">
-            <div className="grid gap-4 sm:grid-cols-3">
-              <div className="flex flex-col gap-1 rounded-lg border bg-muted/20 p-3">
-                <span className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                  Formatted
-                </span>
-                <p className="text-sm font-medium break-words">{formattedDate}</p>
+            <Button
+              className="self-start"
+              disabled={formattedDate === null}
+              onClick={() => formattedDate !== null && copyToClipboard(formattedDate, "Date")}
+            >
+              <Copy data-icon="inline-start" /> Copy date
+            </Button>
+            <details className="border-t pt-4">
+              <summary className="cursor-pointer text-sm font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">
+                ISO date & timestamp
+              </summary>
+              <dl className="mt-4 grid gap-4 sm:grid-cols-2">
+                <div>
+                  <dt className="text-sm text-muted-foreground">ISO date (UTC)</dt>
+                  <dd className="break-all font-mono text-sm">{parsedDate.toISOString()}</dd>
+                </div>
+                <div>
+                  <dt className="text-sm text-muted-foreground">Unix timestamp (milliseconds)</dt>
+                  <dd className="break-all font-mono text-sm">{parsedDate.getTime()}</dd>
+                </div>
+              </dl>
+              <div className="mt-3 flex flex-wrap gap-2">
+                <Button
+                  variant="outline"
+                  onClick={() => copyToClipboard(parsedDate.toISOString(), "ISO date")}
+                >
+                  <Copy data-icon="inline-start" />
+                  Copy ISO
+                </Button>
+                <Button
+                  variant="outline"
+                  onClick={() => copyToClipboard(String(parsedDate.getTime()), "Timestamp")}
+                >
+                  <Copy data-icon="inline-start" />
+                  Copy timestamp
+                </Button>
               </div>
-
-              <div className="flex flex-col gap-1 rounded-lg border bg-muted/20 p-3">
-                <span className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                  ISO
-                </span>
-                <code className="text-sm break-all">{parsedDate.toISOString()}</code>
-              </div>
-
-              <div className="flex flex-col gap-1 rounded-lg border bg-muted/20 p-3">
-                <span className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                  Timestamp
-                </span>
-                <code className="text-sm break-all">{parsedDate.getTime()}</code>
-              </div>
-            </div>
-
-            <div className="flex flex-wrap gap-2">
-              <Button
-                type="button"
-                variant="outline"
-                onClick={() => copyToClipboard(formattedDate, "Formatted date")}
-              >
-                <Copy data-icon="inline-start" />
-                Copy formatted
-              </Button>
-              <Button
-                type="button"
-                variant="outline"
-                onClick={() => copyToClipboard(parsedDate.toISOString(), "ISO date")}
-              >
-                <Copy data-icon="inline-start" />
-                Copy ISO
-              </Button>
-            </div>
+            </details>
           </CardContent>
         </Card>
       ) : null}

@@ -39,12 +39,6 @@ export default {
       timezone: url.searchParams.get("timezone") ?? undefined,
     });
 
-    return json(
-      result.body,
-      result.status,
-      result.ok
-        ? { "Cache-Control": "public, max-age=60, s-maxage=300" }
-        : { "Cache-Control": "no-store" },
-    );
+    return json(result.body, result.status, { "Cache-Control": "no-store" });
   },
 };

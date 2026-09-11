@@ -9,20 +9,24 @@ export const dateFormatOptions = [
   { label: "Custom format", value: "custom" },
 ] as const;
 
+const browserTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone || "UTC";
+
 export const timezoneOptions = [
-  { label: "Browser default", value: Intl.DateTimeFormat().resolvedOptions().timeZone || "UTC" },
+  { label: `Browser default (${browserTimezone})`, value: browserTimezone },
   { label: "UTC", value: "UTC" },
   { label: "US Central", value: "America/Chicago" },
   { label: "US Eastern", value: "America/New_York" },
   { label: "US Pacific", value: "America/Los_Angeles" },
   { label: "London", value: "Europe/London" },
   { label: "Tokyo", value: "Asia/Tokyo" },
-] as const;
+].filter(
+  (option, index, options) => options.findIndex((entry) => entry.value === option.value) === index,
+);
 
 export function safeFormatDate(date: Date, timezone: string, format: string) {
   try {
     return formatInTimeZone(date, timezone, format);
   } catch {
-    return date.toISOString();
+    return null;
   }
 }

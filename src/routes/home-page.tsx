@@ -39,44 +39,57 @@ export function HomePage() {
   const [expression, setExpression] = useState("");
 
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_top,rgba(15,23,42,0.07),transparent_40%),linear-gradient(180deg,rgba(248,250,252,0.98),rgba(241,245,249,0.9))]">
-      <main className="container flex flex-col gap-8 px-4 py-10 sm:px-6 sm:py-14">
-        <section className="mx-auto flex w-full max-w-4xl flex-col gap-6 text-center">
+    <div className="min-h-screen bg-slate-50">
+      <main className="container flex flex-col gap-6 px-4 py-8 sm:px-6 sm:py-10">
+        <section className="mx-auto flex w-full max-w-3xl flex-col gap-6 text-center">
           <div className="inline-flex items-center justify-center gap-2 text-primary">
             <Clock3 className="size-5" />
             <span className="text-sm font-semibold uppercase tracking-[0.24em]">TempusTotal</span>
           </div>
           <div className="flex flex-col gap-4">
             <h1 className="text-3xl font-semibold tracking-tight sm:text-5xl">
-              Parse natural-language dates without the framework tax.
+              A phrase in. A date out.
             </h1>
             <p className="mx-auto max-w-2xl text-base text-muted-foreground sm:text-lg">
-              Check expressions locally, confirm the API contract, and ship the same parser through
-              a small React SPA plus a single Cloudflare Worker endpoint.
+              Find the date you mean. Try “next friday” or “in 3 days,” then copy the result.
             </p>
           </div>
         </section>
 
-        <section className="mx-auto flex w-full max-w-4xl flex-col gap-6">
+        <section className="mx-auto flex w-full max-w-3xl flex-col gap-6">
           <DatePicker expression={expression} onExpressionChange={setExpression} />
         </section>
 
-        <section className="mx-auto w-full max-w-4xl">
+        <section className="mx-auto w-full max-w-3xl">
           <Card className="border-border/70 shadow-sm">
             <CardHeader className="flex flex-col gap-2">
               <CardTitle>Examples</CardTitle>
               <CardDescription>
-                Pick one of the common expression patterns and drop it into the parser.
+                Choose a phrase to calculate, then edit it to make it yours.
               </CardDescription>
             </CardHeader>
             <CardContent className="p-0">
-              <DateExpressionTabs examples={examples} onExampleClick={setExpression} />
+              <DateExpressionTabs
+                examples={examples}
+                onExampleClick={(value) => {
+                  setExpression(value);
+                  document.getElementById("date-expression")?.focus();
+                }}
+              />
             </CardContent>
           </Card>
         </section>
 
-        <section className="mx-auto w-full max-w-4xl">
-          <ApiDocs />
+        <section className="mx-auto w-full max-w-3xl">
+          <details className="group rounded-lg border bg-background p-4 sm:p-5">
+            <summary className="cursor-pointer font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">
+              Use the API
+            </summary>
+            <p className="mb-4 mt-2 text-sm text-muted-foreground">
+              Test a request using your expression and settings.
+            </p>
+            <ApiDocs expression={expression} onExpressionChange={setExpression} />
+          </details>
         </section>
       </main>
 
@@ -87,7 +100,7 @@ export function HomePage() {
             <span>TempusTotal</span>
           </div>
           <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-4">
-            <span>Cloudflare-first SPA plus Worker API.</span>
+            <span>Dates calculated in your browser.</span>
             <Link
               to="/privacy"
               className="font-medium text-foreground underline-offset-4 hover:underline"
