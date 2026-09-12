@@ -109,8 +109,9 @@ export function ApiDocs({
         </p>
         <p className="mt-2">
           Whole days and weeks follow the calendar. Fractional days and weeks add elapsed time.
-          Months and years must be whole numbers; each step clamps to the last valid day. The
-          retired preserveDayOfMonth option is rejected.
+          Fractional years first become whole months. Remaining calendar fractions use labelled day
+          approximations. Each step clamps to the last valid day. The retired preserveDayOfMonth
+          option is rejected.
         </p>
       </details>
       <div aria-live="polite" aria-atomic="true">

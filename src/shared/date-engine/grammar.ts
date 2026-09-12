@@ -1,12 +1,5 @@
-import {
-  fail,
-  type Amount,
-  type Anchor,
-  type Operation,
-  type Plan,
-  type Token,
-  type Unit,
-} from "./types";
+import { timeUnit, weekdayAliases } from "./vocabulary";
+import { fail, type Amount, type Anchor, type Operation, type Plan, type Token } from "./types";
 
 const months: Record<string, number> = {
   jan: 1,
@@ -25,6 +18,7 @@ const months: Record<string, number> = {
   aug: 8,
   august: 8,
   sep: 9,
+  sept: 9,
   september: 9,
   oct: 10,
   october: 10,
@@ -34,7 +28,6 @@ const months: Record<string, number> = {
   december: 12,
 };
 const weekdays = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
-const units = new Set(["year", "month", "week", "day", "hour", "minute", "second", "millisecond"]);
 const numbers: Record<string, number> = {
   zero: 0,
   one: 1,
@@ -71,9 +64,9 @@ function tokenize(input: string): Token[] {
   if (input.length > 200) fail("range", "That phrase is too long.", "Use at most 200 characters.");
   const tokens: Token[] = [];
   const pattern =
-    /\d{4}-\d{2}-\d{2}|\d{1,2}:\d{2}(?::\d{2}(?:\.\d+)?)?|\d+\/\d+|\d+(?:\.\d+)?(?:st|nd|rd|th)?|[a-z]+|[+-]/iy;
+    /\d{4}-\d{2}-\d{2}|\d{1,2}:\d{2}(?::\d{2}(?:\.\d+)?)?|\d+\/\d+|\d+(?:\.\d+)?(?:st|nd|rd|th)?|[a-z]+\.?|[½¼¾]|[+-]/iy;
   for (let i = 0; i < input.length; ) {
-    if (/[\s,]/.test(input[i])) {
+    if (/[\s,;]/.test(input[i]) || (input[i] === "." && !input.slice(i + 1).trim())) {
       i++;
       continue;
     }
@@ -88,7 +81,9 @@ function tokenize(input: string): Token[] {
       );
     tokens.push({
       text: match[0],
-      value: match[0].toLowerCase(),
+      value:
+        ({ "½": "1/2", "¼": "1/4", "¾": "3/4" } as Record<string, string>)[match[0]] ??
+        match[0].toLowerCase().replace(/\.$/, ""),
       start: i,
       end: pattern.lastIndex,
     });
@@ -120,6 +115,7 @@ export function parseExpression(input: string): Plan {
     fail("syntax", message, hint, tokens[index] ?? { start: input.length, end: input.length });
   const integer = (): number => {
     const value = peek()?.replace(/(st|nd|rd|th)$/, "");
+    if (value && Object.hasOwn(numbers, value)) return underHundred()!;
     if (!value || !/^\d+$/.test(value)) return syntax("Expected a whole date number.");
     take();
     const result = Number(value);
@@ -127,8 +123,35 @@ export function parseExpression(input: string): Plan {
     return result;
   };
   const readAnchor = (): Anchor | null => {
+    if (peek() === "the" || peek() === "on") take();
     const value = peek();
     if (!value) return null;
+    if (value === "day" && ["before", "after"].includes(tokens[index + 1]?.value)) {
+      const relation = tokens[index + 1].value;
+      const relative = tokens[index + 2]?.value;
+      if (
+        (relation === "after" && relative === "tomorrow") ||
+        (relation === "before" && relative === "yesterday")
+      ) {
+        index += 3;
+        return {
+          kind: "relative",
+          value: relation === "after" ? "day-after-tomorrow" : "day-before-yesterday",
+        };
+      }
+    }
+    const dayFirst =
+      /^\d+(st|nd|rd|th)?$/.test(value) &&
+      (Object.hasOwn(months, tokens[index + 1]?.value ?? "") ||
+        (tokens[index + 1]?.value === "of" &&
+          Object.hasOwn(months, tokens[index + 2]?.value ?? "")));
+    if (dayFirst) {
+      const day = integer();
+      if (peek() === "of") take();
+      const month = months[take().value];
+      const year = peek() && /^\d{4}$/.test(peek()!) ? integer() : undefined;
+      return { kind: "date", month, day, year };
+    }
     if (["now", "today", "tomorrow", "yesterday"].includes(value)) {
       take();
       return { kind: "relative", value: value as "now" | "today" | "tomorrow" | "yesterday" };
@@ -141,19 +164,24 @@ export function parseExpression(input: string): Plan {
     if (Object.hasOwn(months, value)) {
       take();
       const day = integer();
-      const year = peek() && /^\d+$/.test(peek()!) ? integer() : undefined;
+      const year =
+        peek() && /^\d+$/.test(peek()!) && !["am", "pm"].includes(tokens[index + 1]?.value)
+          ? integer()
+          : undefined;
       return { kind: "date", month: months[value], day, year };
     }
-    const modifier = value === "next" || value === "last" ? value : null;
+    const modifier = ["next", "last", "this"].includes(value)
+      ? (value as "next" | "last" | "this")
+      : null;
     const weekday = modifier ? tokens[index + 1]?.value : value;
-    const day = weekdays.indexOf(weekday ?? "") + 1;
+    const day = weekdays.indexOf(weekdayAliases[weekday ?? ""] ?? weekday ?? "") + 1;
     if (day) {
       if (modifier) take();
       take();
-      let direction: "next" | "last" = modifier ?? "next";
+      let direction: "next" | "last" | "this" = modifier ?? "next";
       let week = false;
-      if (!modifier && (peek() === "next" || peek() === "last")) {
-        direction = take().value as "next" | "last";
+      if (!modifier && ["next", "last", "this"].includes(peek() ?? "")) {
+        direction = take().value as "next" | "last" | "this";
         if (peek() !== "week") syntax("Expected “week” after the weekday modifier.");
         take();
         week = true;
@@ -165,8 +193,17 @@ export function parseExpression(input: string): Plan {
     return null;
   };
   const readTime = (): string | undefined => {
-    if (peek() !== "at") return undefined;
-    take();
+    if (peek() === "at") take();
+    else if (
+      !(
+        ["noon", "midnight"].includes(peek() ?? "") ||
+        /^\d{1,2}:/.test(peek() ?? "") ||
+        (/^\d{1,2}$/.test(peek() ?? "") && ["am", "pm"].includes(tokens[index + 1]?.value))
+      )
+    )
+      return undefined;
+    if (peek() === "noon" || peek() === "midnight")
+      return take().value === "noon" ? "12:00:00" : "00:00:00";
     const value = peek();
     if (!value || !/^\d{1,2}(:\d{2}(:\d{2}(\.\d{1,3})?)?)?$/.test(value))
       syntax(
@@ -190,56 +227,115 @@ export function parseExpression(input: string): Plan {
       );
     return `${String(hour).padStart(2, "0")}:${parts[1] ?? "00"}:${parts[2] ?? "00"}`;
   };
-  const readAmount = (): Amount => {
+  const underHundred = (): number | undefined => {
     const value = peek();
-    if (!value) return syntax("Expected a number and time unit.");
-    if (/^\d+(\.\d+)?$/.test(value) || /^\d+\/\d+$/.test(value)) {
-      take();
-      return rational(value);
+    if (!value || !Object.hasOwn(numbers, value)) return undefined;
+    let n = numbers[take().value];
+    const hyphen = peek() === "-";
+    const next = tokens[index + (hyphen ? 1 : 0)]?.value;
+    if (
+      n >= 20 &&
+      n % 10 === 0 &&
+      next &&
+      Object.hasOwn(numbers, next) &&
+      numbers[next] > 0 &&
+      numbers[next] < 10
+    ) {
+      if (hyphen) take();
+      n += numbers[take().value];
     }
-    if (value === "half" || value === "quarter") {
+    return n;
+  };
+  const wordGroup = (): number | undefined => {
+    let n = underHundred();
+    if (peek() === "hundred" && (n === undefined || (n >= 1 && n <= 9))) {
       take();
+      n = (n ?? 1) * 100;
+      if (peek() === "and" && Object.hasOwn(numbers, tokens[index + 1]?.value ?? "")) take();
+      n += underHundred() ?? 0;
+    }
+    return n;
+  };
+  const fraction = (): Amount | undefined => {
+    const word = peek();
+    if (word === "half" || word === "quarter") {
+      take();
+      if (peek() === "of") take();
       if (peek() === "a" || peek() === "an") take();
-      return { numerator: 1n, denominator: value === "half" ? 2n : 4n };
+      return { numerator: 1n, denominator: word === "half" ? 2n : 4n };
     }
-    if (value === "a" || value === "an") {
+    if (/^\d+\/\d+$/.test(word ?? "")) {
       take();
-      return { numerator: 1n, denominator: 1n };
+      return rational(word!);
     }
-    if (Object.hasOwn(numbers, value)) {
+    return undefined;
+  };
+  const readAmount = (): Amount => {
+    if (
+      (peek() === "a" || peek() === "an") &&
+      (["half", "couple"].includes(tokens[index + 1]?.value) ||
+        (tokens[index + 1]?.value === "quarter" &&
+          (tokens[index + 2]?.value === "of" || timeUnit(tokens[index + 2]?.value))))
+    )
       take();
-      let number = numbers[value];
-      const next = peek();
-      if (
-        number >= 20 &&
-        number % 10 === 0 &&
-        next &&
-        Object.hasOwn(numbers, next) &&
-        numbers[next] > 0 &&
-        numbers[next] < 10
-      ) {
-        number += numbers[take().value];
+    if (peek() === "couple") {
+      take();
+      if (peek() === "of") take();
+      return { numerator: 2n, denominator: 1n };
+    }
+    const part = fraction();
+    if (part) return part;
+    let amount: Amount;
+    if (/^\d+(\.\d+)?$/.test(peek() ?? "")) amount = rational(take().value);
+    else if (peek() === "a" || peek() === "an") {
+      take();
+      amount = { numerator: 1n, denominator: 1n };
+    } else {
+      let total = 0;
+      let group = wordGroup();
+      let previousScale = Infinity;
+      const scales: Record<string, number> = { million: 1000000, thousand: 1000 };
+      while (Object.hasOwn(scales, peek() ?? "")) {
+        if (group === undefined && previousScale !== Infinity)
+          syntax("Expected a number between scales.");
+        const scale = scales[take().value];
+        if (scale >= previousScale) syntax("Number scales must run from largest to smallest.");
+        total += (group ?? 1) * scale;
+        previousScale = scale;
+        if (peek() === "and" && Object.hasOwn(numbers, tokens[index + 1]?.value ?? "")) take();
+        group = wordGroup();
       }
-      return { numerator: BigInt(number), denominator: 1n };
+      if (group === undefined && !total) syntax("Expected a number and time unit.");
+      amount = { numerator: BigInt(total + (group ?? 0)), denominator: 1n };
     }
-    return syntax(
-      `“${tokens[index].text}” is not a supported amount.`,
-      "Use a number, a word such as “three”, or a fraction such as “half”.",
-    );
+    const mixedStart = index;
+    const explicitMixed = peek() === "and";
+    if (explicitMixed) take();
+    if (peek() === "a" || peek() === "an") take();
+    const mixed = explicitMixed || peek() !== "quarter" ? fraction() : undefined;
+    if (mixed) {
+      if (amount.denominator !== 1n || mixed.numerator >= mixed.denominator)
+        syntax("Use a whole number followed by a fraction smaller than one.");
+      amount = {
+        numerator: amount.numerator * mixed.denominator + mixed.numerator,
+        denominator: mixed.denominator,
+      };
+    } else index = mixedStart;
+    return amount;
   };
   const readOperation = (sign: 1 | -1): Operation => {
     const start = tokens[index]?.start ?? input.length;
     const amount = readAmount();
-    const unit = peek()?.replace(/s$/, "");
-    if (!unit || !units.has(unit))
+    const parsedUnit = timeUnit(peek());
+    if (!parsedUnit)
       syntax(
         "Expected a time unit after the number.",
         "Use years, months, weeks, days, hours, minutes, seconds, or milliseconds.",
       );
     const end = take().end;
     return {
-      amount,
-      unit: unit as Unit,
+      amount: { ...amount, numerator: amount.numerator * parsedUnit!.factor },
+      unit: parsedUnit!.unit,
       sign,
       source: `${sign < 0 ? "Subtract" : "Add"} ${input.slice(start, end)}`,
       span: { start, end },
@@ -257,9 +353,13 @@ export function parseExpression(input: string): Plan {
       peek() === "+" ||
       peek() === "minus" ||
       peek() === "-" ||
-      peek() === "and"
+      peek() === "and" ||
+      /^\d/.test(peek() ?? "") ||
+      Object.hasOwn(numbers, peek() ?? "")
     ) {
-      const connector = take().value;
+      const connector = ["plus", "+", "minus", "-", "and"].includes(peek() ?? "")
+        ? take().value
+        : "plus";
       append(connector === "minus" || connector === "-" ? -1 : 1);
     }
   };
@@ -272,17 +372,21 @@ export function parseExpression(input: string): Plan {
   } else {
     const inPrefix = peek() === "in";
     if (inPrefix) take();
-    if ((peek() === "next" || peek() === "last") && units.has(tokens[index + 1]?.value)) {
+    if ((peek() === "next" || peek() === "last") && timeUnit(tokens[index + 1]?.value)) {
       const modifier = take();
       const unit = take();
       operations.push({
-        amount: { numerator: 1n, denominator: 1n },
-        unit: unit.value as Unit,
+        amount: { numerator: timeUnit(unit.value)!.factor, denominator: 1n },
+        unit: timeUnit(unit.value)!.unit,
         sign: modifier.value === "next" ? 1 : -1,
         source: `${modifier.value === "next" ? "Add" : "Subtract"} 1 ${unit.value}`,
         span: { start: modifier.start, end: unit.end },
       });
-    } else append(1);
+    } else {
+      const sign = peek() === "-" || peek() === "minus" ? -1 : 1;
+      if (["-", "+", "minus", "plus"].includes(peek() ?? "")) take();
+      append(sign);
+    }
     tail();
     const relation = peek();
     if (["before", "after", "from"].includes(relation ?? "")) {
@@ -299,17 +403,19 @@ export function parseExpression(input: string): Plan {
       tail();
     } else {
       anchor = { kind: "relative", value: "now" };
-      if (relation === "ago") {
+      if (relation === "ago" || relation === "earlier" || relation === "later") {
         if (inPrefix)
           syntax(
             "“In” and “ago” point in different directions.",
             "Use “in 2 days” or “2 days ago”.",
           );
         take();
-        operations.forEach((op) => {
-          op.sign = op.sign === 1 ? -1 : 1;
-          op.source = op.source.replace(/^(Add|Subtract)/, op.sign === 1 ? "Add" : "Subtract");
-        });
+        if (relation !== "later")
+          operations.forEach((op) => {
+            op.sign = op.sign === 1 ? -1 : 1;
+            op.source = op.source.replace(/^(Add|Subtract)/, op.sign === 1 ? "Add" : "Subtract");
+          });
+        tail();
       }
     }
   }

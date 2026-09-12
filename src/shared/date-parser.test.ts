@@ -10,6 +10,7 @@ function result(expression: string, opts = options) {
 }
 
 import { oracleCases } from "./date-engine/oracle-fixtures";
+import { compatibilityCases } from "./date-engine/compatibility-fixtures";
 import { examples } from "../features/parser/examples";
 
 describe("Phoenix independent date oracles", () => {
@@ -59,7 +60,7 @@ describe("No guessed or rounded answers", () => {
     "today at 0 pm",
     "today at 12:30:00.0001",
     "today + -3 days",
-    "in two hundred days",
+    "in two hundred hundred days",
   ])("rejects %s", (phrase) => {
     expect(calculateDate(phrase, options)).toMatchObject({
       ok: false,
@@ -67,7 +68,7 @@ describe("No guessed or rounded answers", () => {
       error: { message: expect.any(String), hint: expect.any(String) },
     });
   });
-  it.each(["1.5 months", "0.5 years", "0.333333333 days", "0.0001 seconds"])(
+  it.each(["0.333333333 days", "0.0001 seconds"])(
     "rejects ambiguous or sub-millisecond precision: %s",
     (phrase) => {
       expect(calculateDate(phrase, options)).toMatchObject({
@@ -145,7 +146,9 @@ describe("Timezone and DST semantics", () => {
 });
 
 it("covers every advertised example with an independent expected result", () => {
-  const covered = new Set<string>(oracleCases.map(([phrase]) => phrase));
+  const covered = new Set<string>(
+    [...oracleCases, ...compatibilityCases].map(([phrase]) => phrase),
+  );
   for (const phrase of Object.values(examples).flat())
     expect(covered.has(phrase), phrase).toBe(true);
 });

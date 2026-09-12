@@ -61,9 +61,18 @@ function resolveAnchor(anchor: Anchor, reference: Temporal.ZonedDateTime, time?:
       if (anchor.value === "now" && !time)
         return { date: reference, description: "Start at the captured reference time." };
       date = today.add({
-        days: anchor.value === "tomorrow" ? 1 : anchor.value === "yesterday" ? -1 : 0,
+        days:
+          anchor.value === "tomorrow"
+            ? 1
+            : anchor.value === "yesterday"
+              ? -1
+              : anchor.value === "day-after-tomorrow"
+                ? 2
+                : anchor.value === "day-before-yesterday"
+                  ? -2
+                  : 0,
       });
-      description = `Use ${anchor.value === "now" ? "today" : anchor.value} in ${reference.timeZoneId}.`;
+      description = `Use ${anchor.value === "now" ? "today" : anchor.value.replaceAll("-", " ")} in ${reference.timeZoneId}.`;
       break;
     case "date":
       try {
@@ -85,14 +94,21 @@ function resolveAnchor(anchor: Anchor, reference: Temporal.ZonedDateTime, time?:
       break;
     case "weekday": {
       const delta = anchor.week
-        ? (anchor.direction === "next" ? 7 : -7) + anchor.day - today.dayOfWeek
-        : anchor.direction === "next"
-          ? (anchor.day - today.dayOfWeek + 7) % 7 || 7
-          : -((today.dayOfWeek - anchor.day + 7) % 7 || 7);
+        ? (anchor.direction === "next" ? 7 : anchor.direction === "last" ? -7 : 0) +
+          anchor.day -
+          today.dayOfWeek
+        : anchor.direction === "this"
+          ? (anchor.day - today.dayOfWeek + 7) % 7
+          : anchor.direction === "next"
+            ? (anchor.day - today.dayOfWeek + 7) % 7 || 7
+            : -((today.dayOfWeek - anchor.day + 7) % 7 || 7);
       date = today.add({ days: delta });
-      description = anchor.week
-        ? `Use ${weekdayNames[anchor.day - 1]} in ${anchor.direction} week. Weeks start on Monday.`
-        : `Use the ${anchor.direction === "next" ? "next" : "previous"} ${weekdayNames[anchor.day - 1]}, excluding today.`;
+      description =
+        anchor.direction === "this" && !anchor.week
+          ? `Use the next ${weekdayNames[anchor.day - 1]}, including today.`
+          : anchor.week
+            ? `Use ${weekdayNames[anchor.day - 1]} in ${anchor.direction} week. Weeks start on Monday.`
+            : `Use the ${anchor.direction === "next" ? "next" : "previous"} ${weekdayNames[anchor.day - 1]}, excluding today.`;
       break;
     }
     case "day-number": {
@@ -138,6 +154,7 @@ function resolveAnchor(anchor: Anchor, reference: Temporal.ZonedDateTime, time?:
 function applyOperation(before: Temporal.ZonedDateTime, operation: Operation) {
   const { numerator, denominator } = operation.amount;
   const details: string[] = [];
+  const warnings: string[] = [];
   const sign = operation.sign;
   if (numerator > 1_000_000_000n * denominator)
     fail(
@@ -148,25 +165,46 @@ function applyOperation(before: Temporal.ZonedDateTime, operation: Operation) {
     );
   let after = before;
   if (operation.unit === "month" || operation.unit === "year") {
-    if (numerator % denominator !== 0n)
-      fail(
-        "precision",
-        "Months and years need whole numbers.",
-        "Their lengths vary. Use “6 months” instead of “0.5 years”, or specify the number of days.",
-        operation.span,
+    const whole = numerator / denominator;
+    let remainder = numerator % denominator;
+    let months = 0n;
+    if (operation.unit === "year") {
+      months = (remainder * 12n) / denominator;
+      remainder = (remainder * 12n) % denominator;
+    }
+    const count = Number(whole) * sign;
+    const calendar = (
+      date: Temporal.ZonedDateTime,
+      change: { years?: number; months?: number; days?: number },
+    ) => {
+      const after = zoned(
+        date.toPlainDateTime().add(change, { overflow: "constrain" }),
+        date.timeZoneId,
       );
-    const count = Number(numerator / denominator) * sign;
-    if (count !== 0) {
-      const local = before
-        .toPlainDateTime()
-        .add(operation.unit === "month" ? { months: count } : { years: count }, {
-          overflow: "constrain",
-        });
-      after = zoned(local, before.timeZoneId);
-      if (after.day !== before.day)
+      if ((change.years || change.months) && after.day !== date.day)
         details.push(
-          `Day ${before.day} does not exist in the destination month; clamp to day ${after.day}.`,
+          `Day ${date.day} does not exist in the destination month; clamp to day ${after.day}.`,
         );
+      return after;
+    };
+    if (count)
+      after = calendar(after, operation.unit === "month" ? { months: count } : { years: count });
+    if (months) {
+      after = calendar(after, { months: Number(months) * sign });
+      details.push(
+        `Convert the year fraction into ${months} whole calendar month${months === 1n ? "" : "s"}.`,
+      );
+    }
+    if (remainder) {
+      // Compatibility with the previous calculator: fractional months use 30.436875
+      // days; the remaining year fraction uses 365.25 days/year, after whole months.
+      const dayNumerator = remainder * (operation.unit === "month" ? 30_436875n : 36525n);
+      const dayDenominator = denominator * (operation.unit === "month" ? 1_000000n : 1200n);
+      const days = (2n * dayNumerator + dayDenominator) / (2n * dayDenominator);
+      if (days) after = calendar(after, { days: Number(days) * sign });
+      const warning = `Approximation: the remaining ${operation.unit} fraction becomes ${days} calendar day${days === 1n ? "" : "s"}, rounded to the nearest day using ${operation.unit === "month" ? "30.436875 days/month" : "365.25 days/year"}.`;
+      warnings.push(warning);
+      details.push(warning);
     }
     details.push("Calendar change, applied to this step’s starting date.");
   } else if (operation.unit === "day" || operation.unit === "week") {
@@ -215,7 +253,7 @@ function applyOperation(before: Temporal.ZonedDateTime, operation: Operation) {
   }
   if (before.offset !== after.offset)
     details.push(`The timezone offset changes from ${before.offset} to ${after.offset}.`);
-  return { after, details };
+  return { after, details, warnings };
 }
 
 /** Pure calculation: no clock reads, browser state, network, or host-zone assumptions. */
@@ -261,9 +299,11 @@ export function calculateDate(
     const start = snapshot(anchor.date);
     let current = anchor.date;
     const steps: CalculationStep[] = [];
+    const warnings: string[] = [];
     for (const operation of plan.operations) {
       const before = snapshot(current);
-      const { after, details } = applyOperation(current, operation);
+      const { after, details, warnings: stepWarnings } = applyOperation(current, operation);
+      warnings.push(...stepWarnings);
       steps.push({ source: operation.source, before, after: snapshot(after), details });
       current = after;
     }
@@ -277,6 +317,7 @@ export function calculateDate(
       anchor: start,
       anchorDescription: anchor.description,
       steps,
+      warnings: [...new Set(warnings)],
       result: snapshot(current),
     };
   } catch (error) {

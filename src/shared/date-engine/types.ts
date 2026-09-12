@@ -4,9 +4,18 @@ export type Token = Span & { text: string; value: string };
 export type Amount = { numerator: bigint; denominator: bigint };
 export type Operation = { amount: Amount; unit: Unit; sign: 1 | -1; source: string; span: Span };
 export type Anchor =
-  | { kind: "relative"; value: "now" | "today" | "tomorrow" | "yesterday" }
+  | {
+      kind: "relative";
+      value:
+        | "now"
+        | "today"
+        | "tomorrow"
+        | "yesterday"
+        | "day-after-tomorrow"
+        | "day-before-yesterday";
+    }
   | { kind: "date"; month: number; day: number; year?: number }
-  | { kind: "weekday"; day: number; direction: "next" | "last"; week: boolean }
+  | { kind: "weekday"; day: number; direction: "next" | "last" | "this"; week: boolean }
   | { kind: "day-number"; day: number };
 export type Plan = { anchor: Anchor; time?: string; operations: Operation[]; tokens: Token[] };
 export type CalculationIssue = {
@@ -32,6 +41,7 @@ export type CalculationSuccess = {
   anchor: DateSnapshot;
   anchorDescription: string;
   steps: CalculationStep[];
+  warnings: string[];
   result: DateSnapshot;
 };
 export type Calculation =

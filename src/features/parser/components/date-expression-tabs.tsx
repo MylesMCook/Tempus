@@ -13,7 +13,7 @@ const categoryDescriptions: Record<string, string> = {
   Simple: "Quick references like now, tomorrow, and next friday.",
   Relative: "Offsets from the current moment such as in 3 days or 5 days ago.",
   "Date Math": "Expressions that add or subtract time from another date.",
-  Fractional: "Decimal offsets such as 1.5 days. Open “See how it works” for each exact change.",
+  Fractional: "Decimals and mixed fractions. Any calendar approximation is shown with the result.",
   Advanced: "Combinations of weekdays, anchors, and longer chains of date math.",
 };
 

@@ -43,7 +43,7 @@ describe("API v2 calculation parity", () => {
     { expression: "now", preserveDayOfMonth: "false" },
     { expression: "now", unknown: "true" },
     { expression: "now", format: "x".repeat(51) },
-    { expression: "0.5 years" },
+    { expression: "0.0001 seconds" },
     { expression: "today garbage" },
   ])("rejects invalid requests: %j", (query) => {
     expect(buildParseResponse(query)).toMatchObject({

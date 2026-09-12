@@ -12,7 +12,7 @@ Clean baseline: `bf92c81` on main, 112 tests passed. Git history preserves the r
 2. Calendar anchors resolve in the selected timezone. Date-only and weekday anchors start at midnight. Offset-only phrases start at the reference instant.
 3. Operations apply in phrase order. Month/year changes clamp against each step's current date. Remove the preserve-day switch and reject its retired API parameter explicitly.
 4. Whole days/weeks are calendar arithmetic. Their fractional remainder is an exact elapsed duration (half a day is 12 hours). Hours/minutes/seconds are elapsed durations. No silent rounding; resolution is one millisecond.
-5. Month/year fractions are rejected with a useful alternative. Use explicit whole months or days. No average-month/year conversions.
+5. The compatibility follow-up restores month/year fractions. Whole year fractions become calendar months; remaining fractions follow the old day approximation, with a visible result warning and trace details. See `parser-compatibility.md`.
 6. Invalid dates, unknown text, ambiguous numeric dates, incomplete phrases, out-of-range values, and skipped/repeated local clock times are errors. No guessed partial result. ISO dates and named-month dates are supported; an explicit `at` time can be supplied.
 7. A typed parsed expression feeds one evaluator. Each executed step produces its own trace. UI/API results and trace use the same evaluator and captured reference.
 8. The API returns engine version, reference instant, timezone, and the trace. Passing the same inputs reproduces the same output. This is an intentional version-2 semantic change under the rebuild request.
@@ -23,16 +23,16 @@ Keep the existing framework, styling, and small utility identity. Put timezone b
 
 ## Workflow ledger
 
-| Journey                     | Baseline                                          | Required result                                        | Implementation                           |
-| --------------------------- | ------------------------------------------------- | ------------------------------------------------------ | ---------------------------------------- |
-| Named date + month, Chicago | UI Feb 28; API formatted Feb 27                   | Same Feb 28 and instant when inputs match              | Zoned engine + captured reference replay |
-| Jan 30 + 2 days + 1 month   | Months run first → Mar 2                          | Written order → Mar 1                                  | Sequential typed operations              |
-| 0.01 day                    | Rounded to zero hours                             | Exactly 14 minutes 24 seconds                          | Rational duration conversion             |
-| 1.5 months                  | Approximation using average month                 | Clear rejection and explicit alternative               | Calendar fraction validation             |
-| Debug/replay                | Separate debug path and dense implementation text | Same result, per-step evidence, compact readable trace | Evaluator-owned trace                    |
-| Invalid/ambiguous input     | Finite grammar but heuristic anchor selection     | Precise error, no partial answer, recovery             | Full-consumption parser and spans        |
-| Timezone/DST                | Host timezone decides arithmetic                  | Selected zone decides; invalid local time is explicit  | Temporal zoned/calendar operations       |
-| Preferences/reload          | Hidden arithmetic switch and display timezone     | Safe migration to timezone + formatting only           | Validated stored preferences             |
+| Journey                     | Baseline                                          | Required result                                             | Implementation                           |
+| --------------------------- | ------------------------------------------------- | ----------------------------------------------------------- | ---------------------------------------- |
+| Named date + month, Chicago | UI Feb 28; API formatted Feb 27                   | Same Feb 28 and instant when inputs match                   | Zoned engine + captured reference replay |
+| Jan 30 + 2 days + 1 month   | Months run first → Mar 2                          | Written order → Mar 1                                       | Sequential typed operations              |
+| 0.01 day                    | Rounded to zero hours                             | Exactly 14 minutes 24 seconds                               | Rational duration conversion             |
+| 1.5 months                  | Approximation using average month                 | Preserve compatibility with a visible approximation warning | Explicit calendar fraction conversion    |
+| Debug/replay                | Separate debug path and dense implementation text | Same result, per-step evidence, compact readable trace      | Evaluator-owned trace                    |
+| Invalid/ambiguous input     | Finite grammar but heuristic anchor selection     | Precise error, no partial answer, recovery                  | Full-consumption parser and spans        |
+| Timezone/DST                | Host timezone decides arithmetic                  | Selected zone decides; invalid local time is explicit       | Temporal zoned/calendar operations       |
+| Preferences/reload          | Hidden arithmetic switch and display timezone     | Safe migration to timezone + formatting only                | Validated stored preferences             |
 
 ## Verification plan
 

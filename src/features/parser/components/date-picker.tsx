@@ -51,7 +51,9 @@ export function DatePicker({
                   ? "phrase-help calculation-error"
                   : "phrase-help"
               }
-              aria-invalid={Boolean(expression.trim() && !calculation.ok)}
+              aria-invalid={Boolean(
+                expression.trim() && !calculation.ok && calculation.error.code !== "timezone",
+              )}
               value={expression}
               onChange={(event) => onExpressionChange(event.target.value)}
               maxLength={200}
@@ -71,7 +73,12 @@ export function DatePicker({
               value={settings.timezone}
               onChange={(event) => updateSettings({ timezone: event.target.value })}
               maxLength={64}
-              aria-describedby="timezone-help"
+              aria-describedby={
+                !calculation.ok && calculation.error.code === "timezone"
+                  ? "timezone-help calculation-error"
+                  : "timezone-help"
+              }
+              aria-invalid={!calculation.ok && calculation.error.code === "timezone"}
               autoComplete="off"
               spellCheck={false}
               className="h-12 text-base"
@@ -162,6 +169,15 @@ export function DatePicker({
               )}
             </p>
           </div>
+          {calculation.warnings.map((warning) => (
+            <p
+              key={warning}
+              className="mt-3 rounded-md border border-amber-300 bg-amber-50 p-3 text-sm text-amber-950"
+              role="note"
+            >
+              {warning}
+            </p>
+          ))}
           <div className="mt-4 flex flex-wrap items-end gap-3">
             <Button
               onClick={() => formatted !== null && copy(formatted, "Date")}
@@ -252,7 +268,33 @@ export function DatePicker({
           </details>
         </section>
       )}
-      {expression.trim() ? <CalculationTrace calculation={calculation} /> : null}
+      {expression.trim() ? (
+        <>
+          <CalculationTrace calculation={calculation} />
+          <Button
+            variant="outline"
+            className="justify-self-start"
+            onClick={() =>
+              copy(
+                JSON.stringify(
+                  {
+                    expression,
+                    timezone: settings.timezone,
+                    reference,
+                    format: effectiveDateFormat,
+                    calculation,
+                  },
+                  null,
+                  2,
+                ),
+                "Calculation details",
+              )
+            }
+          >
+            Copy calculation details
+          </Button>
+        </>
+      ) : null}
       <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-muted-foreground">
         <span>
           {settingsSaved

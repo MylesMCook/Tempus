@@ -1,6 +1,6 @@
 export const examples = {
   Simple: ["now", "today", "tomorrow", "yesterday", "next friday", "last monday"],
-  Relative: ["in 3 days", "2 weeks from now", "3 months ago", "1 year from now", "5 days ago"],
+  Relative: ["in 3 days", "2 weeks from now", "3 months ago", "1 year from now", "3 weeks ago"],
   "Date Math": [
     "today plus 2 weeks",
     "tomorrow minus 3 days",
@@ -11,8 +11,9 @@ export const examples = {
   Fractional: [
     "1.5 days from now",
     "2.5 weeks ago",
-    "half a day from today",
-    "quarter hour from now",
+    "one and a half weeks ago",
+    "0.5 years from now",
+    "6.5 months from today",
     "today plus 0.01 days",
   ],
   Advanced: [
