@@ -82,8 +82,8 @@ Scope: presentation and feedback only; parser and Cloudflare protections stay un
 
 Copy/formatting rollback: revert `220051f`, rebuild and deploy through the documented path. Existing Cloudflare account-review and automated-deployment credential handoffs remain unchanged.
 
-## Repository writing — active
+## Repository writing — complete
 
 - [x] Read Writer and I Have ADHD guidance; rewrite README, contribution/review guidance and feedback templates around the reader's next action. Move detailed date/API rules into linked reference pages.
 - [x] Validate formatting, relative links, preserved examples, GitHub Markdown rendering and issue-template YAML. GitHub About now has a plain description and the current calculator URL; visibility remains private.
-- [ ] Commit/push documentation and verify CI. No application deployment or repository-visibility change needed.
+- [x] Pushed `f3dd3a5`; CI `34703549046` passed checks, tests, build and dependency audit. GitHub serves the matching README. No application deployment or repository-visibility change needed.
