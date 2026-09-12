@@ -100,7 +100,7 @@ export function HomePage() {
             <span>TempusTotal</span>
           </div>
           <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-4">
-            <span>Dates calculated in your browser.</span>
+            <span>Plain-language date calculator.</span>
             <Link
               to="/privacy"
               className="font-medium text-foreground underline-offset-4 hover:underline"

@@ -10,15 +10,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useSettings } from "../context/settings-context";
 
-const apiExamples = [
-  "next friday",
-  "in 3 days",
-  "5 days ago",
-  "today plus 2 weeks",
-  "1.5 days from now",
-  "2 weeks after dec 25",
-];
-
 async function copyToClipboard(value: string, label: string) {
   try {
     await navigator.clipboard.writeText(value);
@@ -69,7 +60,7 @@ export function ApiDocs({
   async function runRequest() {
     if (isRunning) return;
     if (!expression.trim()) {
-      toast.error("Enter an expression before hitting the API.");
+      toast.error("Enter a date phrase first.");
       return;
     }
 
@@ -84,15 +75,15 @@ export function ApiDocs({
       setResponseBody(body);
 
       if (response.ok) {
-        toast.success("Parser API returned a response.");
+        toast.success("Response received.");
       } else {
-        toast.error(`Parser API returned ${response.status}.`);
+        toast.error(`Request returned HTTP ${response.status}. See the response for details.`);
       }
     } catch (error) {
       const message = error instanceof Error ? error.message : "Unknown request failure";
       setStatusCode(0);
       setResponseBody({ error: message });
-      toast.error("Request failed.");
+      toast.error("Couldn’t complete the request. Check your connection and try again.");
     } finally {
       setCompletedPath(requestPath);
       setIsRunning(false);
@@ -104,27 +95,13 @@ export function ApiDocs({
       <CardHeader className="flex flex-col gap-2">
         <CardTitle>API playground</CardTitle>
         <CardDescription>
-          Requests use the expression and display settings above. Relative calendar dates are
-          calculated in the server’s timezone, so they can differ from browser results.
+          The API uses the server’s timezone for calendar calculations, then applies your display
+          timezone. A phrase like “tomorrow” can give a different date from the calculator.
         </CardDescription>
       </CardHeader>
       <CardContent className="flex flex-col gap-5">
-        <div className="flex flex-wrap gap-2">
-          {apiExamples.map((example) => (
-            <Button
-              key={example}
-              type="button"
-              variant="outline"
-              size="sm"
-              onClick={() => onExpressionChange(example)}
-            >
-              {example}
-            </Button>
-          ))}
-        </div>
-
         <div className="flex flex-col gap-2">
-          <Label htmlFor="api-expression">Expression</Label>
+          <Label htmlFor="api-expression">Date phrase</Label>
           <form
             className="flex flex-col gap-3 sm:flex-row"
             onSubmit={(event) => {
@@ -134,6 +111,7 @@ export function ApiDocs({
           >
             <Input
               id="api-expression"
+              aria-describedby="api-request-help"
               value={expression}
               onChange={(event) => onExpressionChange(event.target.value)}
               placeholder="e.g. in 3 days"
@@ -146,9 +124,13 @@ export function ApiDocs({
               ) : (
                 <Play data-icon="inline-start" />
               )}
-              {isRunning ? "Running" : "Run request"}
+              {isRunning ? "Sending…" : "Run request"}
             </Button>
           </form>
+          <p id="api-request-help" className="text-sm text-muted-foreground">
+            Run request sends this phrase and your settings to the server. Request URLs may appear
+            in hosting logs; avoid confidential information.
+          </p>
         </div>
 
         <div className="grid gap-3 sm:grid-cols-3">

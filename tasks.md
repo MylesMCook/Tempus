@@ -55,3 +55,12 @@ Revisited after replay: all 27 advertised examples produce results; settings, AP
 - Token summary prepared in Cloudflare: `TempusTotal GitHub Actions deploy`, Workers Scripts:Edit restricted to the existing account. Not created yet; browser credential policy requires user handoff at the final step.
 - Next action: finish token creation, install it as repository `CLOUDFLARE_API_TOKEN` without displaying its value, then run and verify the GitHub deployment workflow. Production is live; automatic deployment is still blocked by the old invalid secret.
 - Documentation-only closeout commits skip CI while the invalid secret remains. No app or workflow changes are included in those commits.
+
+## Writer and Laws of UX follow-up
+
+- [x] Reviewed copy against browser behavior, source, and Cloudflare logging documentation.
+- [x] Selected Mental Model, Cognitive Load, and Law of Proximity; bounded fixes cover privacy claims, API consequences, duplicate examples, settings guidance, and error recovery.
+- [x] Critique validator, `vp check`, 40 tests, `tsc -b`, production build, and diff check passed.
+- [x] Browser: invalid phrase → example recovery; tomorrow result; settings guidance and Escape; API Enter → HTTP 200/400; privacy and return navigation. Desktop privacy and 390×844 mobile privacy/settings visually inspected; expanded API has no horizontal page overflow.
+- [ ] Land and deploy using the authorized Wrangler fallback; verify production.
+- Automatic GitHub deployment remains blocked by its invalid token. No credential changes in this pass.

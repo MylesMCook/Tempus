@@ -83,14 +83,15 @@ export function DatePicker({ expression, onExpressionChange }: DatePickerProps) 
                   </Button>
                 </PopoverTrigger>
                 <PopoverContent
-                  aria-label="Parser settings"
+                  aria-label="Date settings"
                   align="end"
                   className="flex w-80 max-w-[calc(100vw-2rem)] max-h-[80vh] overflow-y-auto flex-col gap-4"
                 >
                   <div className="flex flex-col gap-1">
-                    <h2 className="font-semibold">Parser settings</h2>
+                    <h2 className="font-semibold">Date settings</h2>
                     <p className="text-sm text-muted-foreground">
-                      Choose how dates are displayed. Your preferences are saved in this browser.
+                      Set the date display and month calculations. Preferences are saved in this
+                      browser.
                     </p>
                   </div>
 
@@ -100,7 +101,7 @@ export function DatePicker({ expression, onExpressionChange }: DatePickerProps) 
                       value={settings.timezone}
                       onValueChange={(value) => updateSettings({ timezone: value })}
                     >
-                      <SelectTrigger id="timezone">
+                      <SelectTrigger id="timezone" aria-describedby="timezone-help">
                         <SelectValue placeholder="Choose a timezone" />
                       </SelectTrigger>
                       <SelectContent>
@@ -111,6 +112,10 @@ export function DatePicker({ expression, onExpressionChange }: DatePickerProps) 
                         ))}
                       </SelectContent>
                     </Select>
+                    <p id="timezone-help" className="text-sm text-muted-foreground">
+                      Changes how the result is displayed. The calculator still uses your browser’s
+                      timezone for calendar calculations.
+                    </p>
                   </div>
 
                   <div className="flex flex-col gap-2">
@@ -192,16 +197,15 @@ export function DatePicker({ expression, onExpressionChange }: DatePickerProps) 
           </div>
 
           <p id="expression-help" className="text-sm text-muted-foreground">
-            Calculates as you type, relative to today in your browser’s timezone. Timezone settings
-            change the display, not the calculation.
+            Calculates as you type, using the current date and time in your browser’s timezone.
           </p>
         </CardContent>
       </Card>
 
       {expression.trim() && !parsedDate ? (
         <Alert variant="destructive">
-          <AlertTitle>Could not parse that expression</AlertTitle>
-          <AlertDescription>Try one of the examples below or simplify the phrase.</AlertDescription>
+          <AlertTitle>Couldn’t find a date</AlertTitle>
+          <AlertDescription>Try a phrase like “next friday” or “in 3 days.”</AlertDescription>
         </Alert>
       ) : null}
 
