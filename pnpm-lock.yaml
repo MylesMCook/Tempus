@@ -195,6 +195,9 @@ importers:
       globals:
         specifier: ^17.4.0
         version: 17.4.0
+      gpu-time:
+        specifier: 0.2.0
+        version: 0.2.0
       postcss:
         specifier: ^8.5.23
         version: 8.5.28
@@ -2691,6 +2694,9 @@ packages:
   globals@17.4.0:
     resolution: {integrity: sha512-hjrNztw/VajQwOLsMNT1cbJiH2muO3OROCHnbehc8eY5JyD2gqz4AcMHPqgaOR59DjgUjYAYLeH699g/eWi2jw==}
     engines: {node: '>=18'}
+
+  gpu-time@0.2.0:
+    resolution: {integrity: sha512-5fOnVro8kCdLX9Rw/JU41Viz2U+7o7ETCc7Lqh8nN15Fshm5VrlJexjj7vxBq8H6cL6Yb1Q6FXD2CPAcCg829A==}
 
   has-flag@4.0.0:
     resolution: {integrity: sha512-EykJT/Q1KjTWctppgIAgfSO0tKVuZUjhgMr17kqTumMl6Afv3EISleU7qZUzoXDFTAHTDC4NOoG/ZxU3EvlMPQ==}
@@ -5859,6 +5865,8 @@ snapshots:
   globals@14.0.0: {}
 
   globals@17.4.0: {}
+
+  gpu-time@0.2.0: {}
 
   has-flag@4.0.0: {}
 

@@ -87,3 +87,13 @@ Copy/formatting rollback: revert `220051f`, rebuild and deploy through the docum
 - [x] Read Writer and I Have ADHD guidance; rewrite README, contribution/review guidance and feedback templates around the reader's next action. Move detailed date/API rules into linked reference pages.
 - [x] Validate formatting, relative links, preserved examples, GitHub Markdown rendering and issue-template YAML. GitHub About now has a plain description and the current calculator URL; visibility remains private.
 - [x] Pushed `f3dd3a5`; CI `34703549046` passed checks, tests, build and dependency audit. GitHub serves the matching README. No application deployment or repository-visibility change needed.
+
+## Tempus comparison — verified locally
+
+- [x] Added `pnpm compare`: 26 authored semantic fixtures; gpu-time 0.2.0 pinned as a development dependency; both engines run locally on CPU. Reports include raw outputs, expectations, rationale, source hashes and runtime metadata.
+- [x] Verified scoring and protected existing date/arithmetic cases. All 270 tests, formatting, lint, types, build and dependency audit pass. Client bundle remains `index-D8Lsn2vx.js`. Per-family baseline and evaluation limits are in `comparison/README.md`.
+- [x] Documented the next milestone in `docs/tempus-roadmap.md`: a versioned interpretation contract and one complete sentence-to-date path.
+
+Next: implement that interpretation milestone. Independent holdout evaluation, calendar-export validation and device/user benchmarks remain open; this harness does not establish general language accuracy.
+
+Scope: development baseline only. Tempus is a working name; existing API, deployed behavior, repository name and domains stay unchanged. These inspected fixtures are development evidence, not an untouched accuracy benchmark.

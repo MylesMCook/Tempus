@@ -29,6 +29,8 @@ For UI changes, try a phone-width window and keyboard navigation. Check that err
 
 Pull requests run checks without Cloudflare credentials.
 
+For parser coverage work, run `pnpm compare` and inspect the [local comparison report](comparison/README.md). Known unsupported phrases stay visible there; protected arithmetic cases must keep passing.
+
 ## Find the code
 
 | To change…                           | Start here                                                                  |

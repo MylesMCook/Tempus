@@ -26,3 +26,4 @@ yarn-error.log*
 # local agent and generated files
 .claude
 .next-build.log
+/comparison/results/
