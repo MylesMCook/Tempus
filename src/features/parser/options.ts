@@ -25,6 +25,7 @@ export const timezoneOptions = [
 
 export function safeFormatDate(date: Date, timezone: string, format: string) {
   try {
+    if (!format.trim()) return null;
     return formatInTimeZone(date, timezone, format);
   } catch {
     return null;

@@ -1,311 +1,151 @@
-import { describe, it, expect, beforeEach, vi } from "vite-plus/test";
-import { addDays, subDays, addMonths, addYears, addWeeks } from "date-fns";
-import { parseNaturalLanguageDate, debugDateParser } from "@/shared/date-parser";
+import { describe, expect, it } from "vite-plus/test";
+import { calculateDate } from "./date-parser";
+import { parseExpression } from "./date-engine/grammar";
+const reference = "2026-01-26T19:30:00.000Z";
+const options = { timezone: "America/Chicago", reference };
+function result(expression: string, opts = options) {
+  const calculation = calculateDate(expression, opts);
+  if (!calculation.ok) throw new Error(JSON.stringify(calculation.error));
+  return calculation;
+}
 
-// Mock localStorage
-const localStorageMock = {
-  getItem: vi.fn(),
-  setItem: vi.fn(),
-  clear: vi.fn(),
-};
-vi.stubGlobal("localStorage", localStorageMock);
+import { oracleCases } from "./date-engine/oracle-fixtures";
+import { examples } from "../features/parser/examples";
 
-describe("DateExpressionParser", () => {
-  beforeEach(() => {
-    vi.clearAllMocks();
-    localStorageMock.getItem.mockReturnValue(null);
+describe("Phoenix independent date oracles", () => {
+  it.each(oracleCases)("%s → %s", (phrase, expected) => {
+    const calculation = result(phrase);
+    expect(calculation.result.iso).toBe(expected);
+    expect(calculation.steps.at(-1)?.after ?? calculation.anchor).toEqual(calculation.result);
+    calculation.steps.forEach((step, index) =>
+      expect(step.before).toEqual(index ? calculation.steps[index - 1].after : calculation.anchor),
+    );
   });
-
-  describe("Basic Expressions", () => {
-    it("should parse 'today'", () => {
-      const result = parseNaturalLanguageDate("today");
-      const today = new Date();
-      expect(result).not.toBeNull();
-      expect(result?.getFullYear()).toBe(today.getFullYear());
-      expect(result?.getMonth()).toBe(today.getMonth());
-      expect(result?.getDate()).toBe(today.getDate());
-    });
-
-    it("should parse 'tomorrow'", () => {
-      const result = parseNaturalLanguageDate("tomorrow");
-      const tomorrow = addDays(new Date(), 1);
-      expect(result).not.toBeNull();
-      expect(result?.getDate()).toBe(tomorrow.getDate());
-    });
-
-    it("should parse 'yesterday'", () => {
-      const result = parseNaturalLanguageDate("yesterday");
-      const yesterday = subDays(new Date(), 1);
-      expect(result).not.toBeNull();
-      expect(result?.getDate()).toBe(yesterday.getDate());
-    });
-
-    it("should parse 'now'", () => {
-      const before = new Date();
-      const result = parseNaturalLanguageDate("now");
-      const after = new Date();
-      expect(result).not.toBeNull();
-      expect(result?.getTime()).toBeGreaterThanOrEqual(before.getTime());
-      expect(result?.getTime()).toBeLessThanOrEqual(after.getTime());
-    });
+  it("exposes written operation order in the parsed plan", () => {
+    expect(
+      parseExpression("today plus 2 days plus 1 month").operations.map((op) => op.unit),
+    ).toEqual(["day", "month"]);
   });
+});
 
-  describe("Relative Time Expressions", () => {
-    it("should parse 'in 3 days'", () => {
-      const result = parseNaturalLanguageDate("in 3 days");
-      const expected = addDays(new Date(), 3);
-      expect(result).not.toBeNull();
-      expect(result?.getDate()).toBe(expected.getDate());
-    });
-
-    it("should parse '5 days ago'", () => {
-      const result = parseNaturalLanguageDate("5 days ago");
-      const expected = subDays(new Date(), 5);
-      expect(result).not.toBeNull();
-      expect(result?.getDate()).toBe(expected.getDate());
-    });
-
-    it("should parse 'in 2 weeks'", () => {
-      const result = parseNaturalLanguageDate("in 2 weeks");
-      const expected = addWeeks(new Date(), 2);
-      expect(result).not.toBeNull();
-      expect(result?.getDate()).toBe(expected.getDate());
-    });
-
-    it("should parse 'in 1 month'", () => {
-      const result = parseNaturalLanguageDate("in 1 month");
-      const expected = addMonths(new Date(), 1);
-      expect(result).not.toBeNull();
-      expect(result?.getMonth()).toBe(expected.getMonth());
-    });
-
-    it("should parse 'in 1 year'", () => {
-      const result = parseNaturalLanguageDate("in 1 year");
-      const expected = addYears(new Date(), 1);
-      expect(result).not.toBeNull();
-      expect(result?.getFullYear()).toBe(expected.getFullYear());
-    });
-
-    it("should parse '3 weeks from now'", () => {
-      const result = parseNaturalLanguageDate("3 weeks from now");
-      const expected = addWeeks(new Date(), 3);
-      expect(result).not.toBeNull();
-      expect(result?.getDate()).toBe(expected.getDate());
+describe("No guessed or rounded answers", () => {
+  it.each([
+    "",
+    "gibberish",
+    "today nonsense",
+    "in",
+    "in 3",
+    "today plus",
+    "2 days before",
+    "today tomorrow",
+    "today plus 2",
+    "1/0 days",
+    "12/25/2026",
+    "feb 30 2026",
+    "feb 29 2025",
+    "jan 0",
+    "jan 1.5",
+    "2026-13-01",
+    "2026-01-32",
+    "0",
+    "32",
+    "2 days before 31",
+    "in 2 days ago",
+    "today at 24:00",
+    "today at 12:60",
+    "today at 23:59:60",
+    "today at 12:30:60.001",
+    "today at 3",
+    "today at 0 pm",
+    "today at 12:30:00.0001",
+    "today + -3 days",
+    "in two hundred days",
+  ])("rejects %s", (phrase) => {
+    expect(calculateDate(phrase, options)).toMatchObject({
+      ok: false,
+      engineVersion: 2,
+      error: { message: expect.any(String), hint: expect.any(String) },
     });
   });
-
-  describe("Date Math with Reference Dates", () => {
-    it("should parse '2 weeks before May 15'", () => {
-      const result = parseNaturalLanguageDate("2 weeks before May 15");
-      expect(result).not.toBeNull();
-      // May 15 minus 14 days = May 1
-      expect(result?.getMonth()).toBe(4); // May is month 4 (0-indexed)
-      expect(result?.getDate()).toBe(1);
-    });
-
-    it("should parse '3 days after January 1'", () => {
-      const result = parseNaturalLanguageDate("3 days after January 1");
-      expect(result).not.toBeNull();
-      expect(result?.getMonth()).toBe(0); // January
-      expect(result?.getDate()).toBe(4);
-    });
-
-    it("should parse '1 month before December 25'", () => {
-      const result = parseNaturalLanguageDate("1 month before December 25");
-      expect(result).not.toBeNull();
-      expect(result?.getMonth()).toBe(10); // November
-      expect(result?.getDate()).toBe(25);
-    });
-  });
-
-  describe("Word Numbers", () => {
-    it("should parse 'in three days'", () => {
-      const result = parseNaturalLanguageDate("in three days");
-      const expected = addDays(new Date(), 3);
-      expect(result).not.toBeNull();
-      expect(result?.getDate()).toBe(expected.getDate());
-    });
-
-    it("should parse 'two weeks ago'", () => {
-      const result = parseNaturalLanguageDate("two weeks ago");
-      const expected = subDays(new Date(), 14);
-      expect(result).not.toBeNull();
-      expect(result?.getDate()).toBe(expected.getDate());
-    });
-
-    it("should parse 'in five months'", () => {
-      const result = parseNaturalLanguageDate("in five months");
-      const expected = addMonths(new Date(), 5);
-      expect(result).not.toBeNull();
-      expect(result?.getMonth()).toBe(expected.getMonth());
-    });
-  });
-
-  describe("Fractional Units", () => {
-    it("should parse 'in half a day'", () => {
-      const result = parseNaturalLanguageDate("in 0.5 day");
-      expect(result).not.toBeNull();
-      // Half a day = 12 hours from now
-      const now = new Date();
-      const diffHours = Math.round((result!.getTime() - now.getTime()) / (1000 * 60 * 60));
-      expect(diffHours).toBe(12);
-    });
-
-    it("should parse quarter values", () => {
-      const result = parseNaturalLanguageDate("in 0.25 day");
-      expect(result).not.toBeNull();
-      // Quarter of a day = 6 hours from now
-      const now = new Date();
-      const diffHours = Math.round((result!.getTime() - now.getTime()) / (1000 * 60 * 60));
-      expect(diffHours).toBe(6);
-    });
-  });
-
-  describe("Time Units", () => {
-    it("should parse 'in 2 hours'", () => {
-      const result = parseNaturalLanguageDate("in 2 hours");
-      expect(result).not.toBeNull();
-      const now = new Date();
-      const diffHours = Math.round((result!.getTime() - now.getTime()) / (1000 * 60 * 60));
-      expect(diffHours).toBe(2);
-    });
-
-    it("should parse 'in 30 minutes'", () => {
-      const result = parseNaturalLanguageDate("in 30 minutes");
-      expect(result).not.toBeNull();
-      const now = new Date();
-      const diffMinutes = Math.round((result!.getTime() - now.getTime()) / (1000 * 60));
-      expect(diffMinutes).toBe(30);
-    });
-
-    it("should parse 'in 45 seconds'", () => {
-      const result = parseNaturalLanguageDate("in 45 seconds");
-      expect(result).not.toBeNull();
-      const now = new Date();
-      const diffSeconds = Math.round((result!.getTime() - now.getTime()) / 1000);
-      expect(diffSeconds).toBeGreaterThanOrEqual(44);
-      expect(diffSeconds).toBeLessThanOrEqual(46);
-    });
-  });
-
-  describe("Combined Operations", () => {
-    it("should parse 'tomorrow plus 3 days'", () => {
-      const result = parseNaturalLanguageDate("tomorrow plus 3 days");
-      const expected = addDays(new Date(), 4);
-      expect(result).not.toBeNull();
-      expect(result?.getDate()).toBe(expected.getDate());
-    });
-
-    it("should parse 'today minus 1 week'", () => {
-      const result = parseNaturalLanguageDate("today minus 1 week");
-      const expected = subDays(new Date(), 7);
-      expect(result).not.toBeNull();
-      expect(result?.getDate()).toBe(expected.getDate());
-    });
-  });
-
-  describe("Edge Cases", () => {
-    it("should return null for empty input", () => {
-      expect(parseNaturalLanguageDate("")).toBeNull();
-      expect(parseNaturalLanguageDate("   ")).toBeNull();
-    });
-
-    it("should return null for invalid expressions", () => {
-      expect(parseNaturalLanguageDate("gibberish")).toBeNull();
-      expect(parseNaturalLanguageDate("hello world")).toBeNull();
-    });
-
-    it("should handle leading/trailing whitespace", () => {
-      const result = parseNaturalLanguageDate("  tomorrow  ");
-      const expected = addDays(new Date(), 1);
-      expect(result).not.toBeNull();
-      expect(result?.getDate()).toBe(expected.getDate());
-    });
-
-    it("should handle case insensitivity", () => {
-      const result1 = parseNaturalLanguageDate("TOMORROW");
-      const result2 = parseNaturalLanguageDate("Tomorrow");
-      const result3 = parseNaturalLanguageDate("tOmOrRoW");
-
-      expect(result1).not.toBeNull();
-      expect(result2).not.toBeNull();
-      expect(result3).not.toBeNull();
-
-      expect(result1?.getDate()).toBe(result2?.getDate());
-      expect(result2?.getDate()).toBe(result3?.getDate());
-    });
-  });
-
-  describe("Specific Month Dates", () => {
-    it("should parse 'May 15'", () => {
-      const result = parseNaturalLanguageDate("May 15");
-      expect(result).not.toBeNull();
-      expect(result?.getMonth()).toBe(4); // May is month 4 (0-indexed)
-      expect(result?.getDate()).toBe(15);
-    });
-
-    it("should parse 'January 1 2025'", () => {
-      const result = parseNaturalLanguageDate("January 1 2025");
-      expect(result).not.toBeNull();
-      expect(result?.getFullYear()).toBe(2025);
-      expect(result?.getMonth()).toBe(0); // January
-      expect(result?.getDate()).toBe(1);
-    });
-
-    it("should parse abbreviated months like 'Jan 15'", () => {
-      const result = parseNaturalLanguageDate("Jan 15");
-      expect(result).not.toBeNull();
-      expect(result?.getMonth()).toBe(0); // January
-      expect(result?.getDate()).toBe(15);
-    });
-  });
-
-  describe("Debug Function", () => {
-    it("should return debug info with tokens", () => {
-      const debug = debugDateParser("in 3 days");
-      expect(debug.tokens).toBeDefined();
-      expect(debug.tokens.length).toBeGreaterThan(0);
-    });
-
-    it("should return operations array", () => {
-      const debug = debugDateParser("in 3 days");
-      expect(debug.operations).toBeDefined();
-      expect(debug.operations.length).toBeGreaterThan(0);
-      expect(debug.operations[0]).toHaveProperty("amount");
-      expect(debug.operations[0]).toHaveProperty("unit");
-      expect(debug.operations[0]).toHaveProperty("direction");
-    });
-
-    it("should return baseDate and result", () => {
-      const debug = debugDateParser("in 3 days");
-      expect(debug.baseDate).not.toBeNull();
-      expect(debug.result).not.toBeNull();
-    });
-
-    it("should handle empty input gracefully", () => {
-      const debug = debugDateParser("");
-      expect(debug.tokens).toEqual([]);
-      expect(debug.baseDate).toBeNull();
-      expect(debug.operations).toEqual([]);
-      expect(debug.result).toBeNull();
-    });
-  });
-
-  describe("PreserveDayOfMonth Option", () => {
-    it("should preserve day of month when adding months", () => {
-      // Using Jan 31 as base
-      const result = parseNaturalLanguageDate("1 month after January 31", {
-        preserveDayOfMonth: true,
+  it.each(["1.5 months", "0.5 years", "0.333333333 days", "0.0001 seconds"])(
+    "rejects ambiguous or sub-millisecond precision: %s",
+    (phrase) => {
+      expect(calculateDate(phrase, options)).toMatchObject({
+        ok: false,
+        error: { code: "precision" },
       });
-      expect(result).not.toBeNull();
-      // With preserve, Feb should still show 31 (clamped to 28/29)
-    });
-
-    it("should not preserve day when option is false", () => {
-      const result = parseNaturalLanguageDate("1 month after January 31", {
-        preserveDayOfMonth: false,
-      });
-      expect(result).not.toBeNull();
+    },
+  );
+  it.each(["in 999999999 years", "today" + " ".repeat(200), "today " + "plus 1 day ".repeat(21)])(
+    "bounds %s",
+    (phrase) => {
+      expect(calculateDate(phrase, options).ok).toBe(false);
+    },
+  );
+  it("pinpoints unused input", () => {
+    expect(calculateDate("today nonsense", options)).toMatchObject({
+      ok: false,
+      error: { span: { start: 6, end: 14 } },
     });
   });
+  it("rejects invalid timezones and references", () => {
+    expect(calculateDate("now", { ...options, timezone: "Bad/Zone" })).toMatchObject({
+      ok: false,
+      error: { code: "timezone" },
+    });
+    expect(calculateDate("now", { ...options, reference: "2026-01-26T12:00" })).toMatchObject({
+      ok: false,
+      error: { code: "reference" },
+    });
+    expect(
+      calculateDate("now", { ...options, reference: "2026-01-26T12:00:00.0001Z" }),
+    ).toMatchObject({ ok: false, error: { code: "reference" } });
+  });
+});
+
+describe("Timezone and DST semantics", () => {
+  it.each([
+    ["America/Chicago", "2026-01-26T06:00:00.000Z"],
+    ["Asia/Tokyo", "2026-01-26T15:00:00.000Z"],
+    ["UTC", "2026-01-26T00:00:00.000Z"],
+    ["Asia/Kathmandu", "2026-01-26T18:15:00.000Z"],
+  ])("today uses %s", (timezone, expected) =>
+    expect(result("today", { timezone, reference }).result.iso).toBe(expected),
+  );
+  it.each([
+    ["2026-03-07T17:00:00Z", "in 1 day", "2026-03-08T16:00:00.000Z"],
+    ["2026-03-07T17:00:00Z", "in 24 hours", "2026-03-08T17:00:00.000Z"],
+    ["2026-10-31T16:00:00Z", "in 1 day", "2026-11-01T17:00:00.000Z"],
+    ["2026-10-31T16:00:00Z", "in 24 hours", "2026-11-01T16:00:00.000Z"],
+  ])("%s %s", (ref, phrase, expected) =>
+    expect(result(phrase, { timezone: "America/New_York", reference: ref }).result.iso).toBe(
+      expected,
+    ),
+  );
+  it.each(["2026-03-08 at 02:30", "2026-11-01 at 01:30", "2026-03-07 at 02:30 plus 1 day"])(
+    "rejects an ambiguous or skipped local time: %s",
+    (phrase) => {
+      expect(calculateDate(phrase, { ...options, timezone: "America/New_York" })).toMatchObject({
+        ok: false,
+        error: { code: "ambiguous-time" },
+      });
+    },
+  );
+  it("rejects a skipped calendar date", () =>
+    expect(calculateDate("2011-12-30", { ...options, timezone: "Pacific/Apia" })).toMatchObject({
+      ok: false,
+      error: { code: "ambiguous-time" },
+    }));
+  it("retains a known instant in the repeated hour for a zero-day change", () => {
+    expect(
+      result("in 0 days", { timezone: "America/New_York", reference: "2026-11-01T06:30:00Z" })
+        .result.iso,
+    ).toBe("2026-11-01T06:30:00.000Z");
+  });
+});
+
+it("covers every advertised example with an independent expected result", () => {
+  const covered = new Set<string>(oracleCases.map(([phrase]) => phrase));
+  for (const phrase of Object.values(examples).flat())
+    expect(covered.has(phrase), phrase).toBe(true);
 });

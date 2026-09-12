@@ -1,293 +1,268 @@
-"use client";
-
-import { useMemo } from "react";
-import { Copy, RotateCcw, Settings2 } from "lucide-react";
+import { Copy, RotateCcw } from "lucide-react";
 import { toast } from "sonner";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { Switch } from "@/components/ui/switch";
-import { debugDateParser } from "@/shared/date-parser";
+import type { Calculation } from "@/shared/date-parser";
 import { useSettings } from "../context/settings-context";
-import { CalculationTrace } from "./calculation-trace";
 import { dateFormatOptions, safeFormatDate, timezoneOptions } from "../options";
+import { CalculationTrace } from "./calculation-trace";
 
-interface DatePickerProps {
-  expression: string;
-  onExpressionChange: (expression: string) => void;
-}
-
-async function copyToClipboard(value: string, label: string) {
+async function copy(value: string, label: string) {
   try {
     await navigator.clipboard.writeText(value);
     toast.success(`${label} copied`);
   } catch {
-    toast.error(`Could not copy ${label.toLowerCase()}`);
+    toast.error("Copy was blocked. Select the value and copy it manually.");
   }
 }
-
-export function DatePicker({ expression, onExpressionChange }: DatePickerProps) {
-  const { settings, settingsSaved, effectiveDateFormat, resetSettings, updateSettings } =
+export function DatePicker({
+  expression,
+  onExpressionChange,
+  calculation,
+  reference,
+  onRefresh,
+}: {
+  expression: string;
+  onExpressionChange: (value: string) => void;
+  calculation: Calculation;
+  reference: string;
+  onRefresh: () => void;
+}) {
+  const { settings, settingsSaved, effectiveDateFormat, updateSettings, resetSettings } =
     useSettings();
-
-  const calculation = useMemo(
-    () => debugDateParser(expression, { preserveDayOfMonth: settings.preserveDayOfMonth }),
-    [expression, settings.preserveDayOfMonth],
-  );
-  const parsedDate = calculation.result;
-
-  const formattedDate = parsedDate
-    ? safeFormatDate(parsedDate, settings.timezone, effectiveDateFormat)
-    : "";
-  const formatError = safeFormatDate(new Date(), settings.timezone, effectiveDateFormat) === null;
-
+  const formatted = calculation.ok
+    ? safeFormatDate(new Date(calculation.result.timestamp), settings.timezone, effectiveDateFormat)
+    : null;
+  const clock =
+    safeFormatDate(new Date(reference), settings.timezone, "MMM d, yyyy HH:mm:ss zzz") ?? reference;
   return (
-    <div className="flex flex-col gap-4">
-      <Card className="border-border/70 shadow-sm">
-        <CardContent className="flex flex-col gap-4 p-4 sm:p-5">
-          <Label htmlFor="date-expression" className="text-base">
-            What date are you looking for?
-          </Label>
-          <div className="flex flex-col gap-3 sm:flex-row">
+    <div className="grid gap-4">
+      <section aria-label="Date calculator" className="rounded-xl border bg-background p-4 sm:p-6">
+        <div className="grid gap-4 sm:grid-cols-[minmax(0,1fr)_15rem]">
+          <div className="grid gap-2">
+            <Label htmlFor="date-expression" className="text-base">
+              What date are you looking for?
+            </Label>
             <Input
               id="date-expression"
-              aria-describedby="expression-help"
-              aria-invalid={Boolean(expression.trim() && !parsedDate)}
-              autoComplete="off"
-              spellCheck={false}
-              maxLength={200}
+              aria-describedby={
+                expression.trim() && !calculation.ok
+                  ? "phrase-help calculation-error"
+                  : "phrase-help"
+              }
+              aria-invalid={Boolean(expression.trim() && !calculation.ok)}
               value={expression}
               onChange={(event) => onExpressionChange(event.target.value)}
-              placeholder="e.g. 2 weeks after may 1"
-              className="h-11 text-base"
+              maxLength={200}
+              autoComplete="off"
+              spellCheck={false}
+              placeholder="e.g. tomorrow at 2 pm"
+              className="h-12 text-base"
             />
-
-            <div className="flex gap-2">
-              <Popover>
-                <PopoverTrigger asChild>
-                  <Button type="button" variant="outline">
-                    <Settings2 data-icon="inline-start" />
-                    Settings
-                  </Button>
-                </PopoverTrigger>
-                <PopoverContent
-                  aria-label="Date settings"
-                  align="end"
-                  className="flex w-80 max-w-[calc(100vw-2rem)] max-h-[80vh] overflow-y-auto flex-col gap-4"
-                >
-                  <div className="flex flex-col gap-1">
-                    <h2 className="font-semibold">Date settings</h2>
-                    <p className="text-sm text-muted-foreground">
-                      Set the date display and month calculations.{" "}
-                      {settingsSaved
-                        ? "Preferences are saved in this browser."
-                        : "Browser storage is unavailable. Preferences apply only until you reload."}
-                    </p>
-                  </div>
-
-                  <div className="flex flex-col gap-2">
-                    <Label htmlFor="timezone">Display timezone</Label>
-                    <Select
-                      value={settings.timezone}
-                      onValueChange={(value) => updateSettings({ timezone: value })}
-                    >
-                      <SelectTrigger id="timezone" aria-describedby="timezone-help">
-                        <SelectValue placeholder="Choose a timezone" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {timezoneOptions.map((option) => (
-                          <SelectItem key={option.value} value={option.value}>
-                            {option.label}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                    <p id="timezone-help" className="text-sm text-muted-foreground">
-                      Changes how the result is displayed. The calculator still uses your browser’s
-                      timezone for calendar calculations.
-                    </p>
-                  </div>
-
-                  <div className="flex flex-col gap-2">
-                    <Label htmlFor="date-format">Date format</Label>
-                    <Select
-                      value={settings.isCustomFormat ? "custom" : settings.dateFormat}
-                      onValueChange={(value) =>
-                        updateSettings({
-                          dateFormat: value === "custom" ? settings.dateFormat : value,
-                          isCustomFormat: value === "custom",
-                        })
-                      }
-                    >
-                      <SelectTrigger id="date-format">
-                        <SelectValue placeholder="Choose a format" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {dateFormatOptions.map((option) => (
-                          <SelectItem key={option.value} value={option.value}>
-                            {option.label}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                    {settings.isCustomFormat ? (
-                      <div className="flex flex-col gap-2">
-                        <Label htmlFor="custom-format">Custom format</Label>
-                        <Input
-                          id="custom-format"
-                          aria-describedby="format-help"
-                          aria-invalid={formatError}
-                          maxLength={50}
-                          value={settings.customFormat}
-                          onChange={(event) => updateSettings({ customFormat: event.target.value })}
-                          placeholder="yyyy-MM-dd HH:mm"
-                        />
-                        <p id="format-help" className="text-sm text-muted-foreground">
-                          Use yyyy for year, MM for month, dd for day, HH:mm for time.
-                        </p>
-                        {formatError ? (
-                          <p role="alert" className="text-sm text-destructive">
-                            Invalid format. Try yyyy-MM-dd or reset settings.
-                          </p>
-                        ) : null}
-                      </div>
-                    ) : null}
-                  </div>
-
-                  <div className="flex items-center justify-between gap-4 rounded-lg border p-3">
-                    <div className="flex flex-col gap-1">
-                      <Label htmlFor="preserve-day">Preserve day of month</Label>
-                      <p className="text-sm text-muted-foreground">
-                        Keep the same day number when adding months where possible.
-                      </p>
-                    </div>
-                    <Switch
-                      id="preserve-day"
-                      checked={settings.preserveDayOfMonth}
-                      onCheckedChange={(checked) => updateSettings({ preserveDayOfMonth: checked })}
-                    />
-                  </div>
-
-                  <Button type="button" variant="ghost" onClick={resetSettings}>
-                    <RotateCcw data-icon="inline-start" />
-                    Reset settings
-                  </Button>
-                </PopoverContent>
-              </Popover>
-
-              <Button
-                type="button"
-                variant="outline"
-                onClick={() => onExpressionChange("")}
-                disabled={!expression}
-              >
-                Clear
-              </Button>
-            </div>
           </div>
-
-          <p id="expression-help" className="text-sm text-muted-foreground">
-            Calculates as you type, using the current date and time in your browser’s timezone.
-          </p>
-        </CardContent>
-      </Card>
-
-      {expression.trim() && !parsedDate ? (
-        <Alert variant="destructive">
-          <AlertTitle>Couldn’t find a date</AlertTitle>
-          <AlertDescription>Try a phrase like “next friday” or “in 3 days.”</AlertDescription>
-        </Alert>
-      ) : null}
+          <div className="grid gap-2">
+            <Label htmlFor="calculation-timezone" className="text-base">
+              Timezone
+            </Label>
+            <Input
+              id="calculation-timezone"
+              list="timezone-options"
+              value={settings.timezone}
+              onChange={(event) => updateSettings({ timezone: event.target.value })}
+              maxLength={64}
+              aria-describedby="timezone-help"
+              autoComplete="off"
+              spellCheck={false}
+              className="h-12 text-base"
+            />
+            <datalist id="timezone-options">
+              {timezoneOptions.map((zone) => (
+                <option key={zone.value} value={zone.value}>
+                  {zone.label}
+                </option>
+              ))}
+            </datalist>
+          </div>
+        </div>
+        <div className="mt-3 flex flex-wrap items-center justify-between gap-2 text-sm text-muted-foreground">
+          <p id="phrase-help">Changes run in the order written.</p>
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => onExpressionChange("")}
+            disabled={!expression}
+          >
+            Clear
+          </Button>
+        </div>
+        <p id="timezone-help" className="text-xs text-muted-foreground">
+          Used for calculation and display. Choose a suggestion or enter an IANA timezone.
+        </p>
+        <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-2 border-t pt-3 text-xs text-muted-foreground">
+          <span>
+            Reference: <time dateTime={reference}>{clock}</time>
+          </span>
+          <Button variant="ghost" size="sm" onClick={onRefresh}>
+            <RotateCcw className="mr-1 size-3" />
+            Refresh now
+          </Button>
+          <span>Captured on edit. Refresh to use the current time.</span>
+        </div>
+      </section>
 
       {!expression.trim() ? (
-        <div className="rounded-lg border border-dashed p-6 text-center text-sm text-muted-foreground">
-          Your date will appear here. Type a phrase above or choose an example below.
+        <div className="rounded-xl border border-dashed p-6 text-center text-sm text-muted-foreground">
+          Enter a phrase or choose an example. Your date and its calculation will appear here.
         </div>
-      ) : null}
-
-      {parsedDate ? (
-        <Card className="border-border/70 shadow-sm">
-          <CardHeader className="gap-2 pb-3">
-            <CardTitle className="text-sm font-medium text-muted-foreground">Your date</CardTitle>
-            <div role="status" aria-live="polite" aria-atomic="true">
-              {formattedDate === null ? (
-                <div className="flex flex-col items-start gap-2">
-                  <p className="text-destructive">
-                    This format or timezone is invalid. Update settings or reset them to show your
-                    date.
-                  </p>
-                  <Button variant="outline" onClick={resetSettings}>
-                    Reset settings
-                  </Button>
-                </div>
-              ) : (
-                <p className="break-words text-2xl font-semibold tracking-tight sm:text-3xl">
-                  {formattedDate}
-                </p>
-              )}
-            </div>
-            <p className="text-sm text-muted-foreground">
-              {settings.timezone} · {safeFormatDate(parsedDate, settings.timezone, "HH:mm zzz")}
+      ) : !calculation.ok ? (
+        <section
+          id="calculation-error"
+          role="alert"
+          className="rounded-xl border border-destructive/40 bg-background p-4"
+        >
+          <h2 className="font-semibold text-destructive">{calculation.error.message}</h2>
+          <p className="mt-2 text-sm">{calculation.error.hint}</p>
+          {calculation.error.span && calculation.error.span.end > calculation.error.span.start ? (
+            <p className="mt-2 break-words text-sm text-muted-foreground">
+              Check:{" "}
+              <code>
+                {expression.slice(calculation.error.span.start, calculation.error.span.end)}
+              </code>
             </p>
-          </CardHeader>
-          <CardContent className="flex flex-col gap-4">
+          ) : null}
+          {calculation.error.code === "timezone" ? (
             <Button
-              className="self-start"
-              disabled={formattedDate === null}
-              onClick={() => formattedDate !== null && copyToClipboard(formattedDate, "Date")}
+              className="mt-3"
+              variant="outline"
+              onClick={() => updateSettings({ timezone: "UTC" })}
             >
-              <Copy data-icon="inline-start" /> Copy date
+              Use UTC
             </Button>
-            <details className="border-t pt-4">
-              <summary className="cursor-pointer text-sm font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">
-                ISO date & timestamp
-              </summary>
-              <dl className="mt-4 grid gap-4 sm:grid-cols-2">
-                <div>
-                  <dt className="text-sm text-muted-foreground">ISO date (UTC)</dt>
-                  <dd className="break-all font-mono text-sm">{parsedDate.toISOString()}</dd>
-                </div>
-                <div>
-                  <dt className="text-sm text-muted-foreground">Unix timestamp (milliseconds)</dt>
-                  <dd className="break-all font-mono text-sm">{parsedDate.getTime()}</dd>
-                </div>
-              </dl>
-              <div className="mt-3 flex flex-wrap gap-2">
-                <Button
-                  variant="outline"
-                  onClick={() => copyToClipboard(parsedDate.toISOString(), "ISO date")}
-                >
-                  <Copy data-icon="inline-start" />
-                  Copy ISO
-                </Button>
-                <Button
-                  variant="outline"
-                  onClick={() => copyToClipboard(String(parsedDate.getTime()), "Timestamp")}
-                >
-                  <Copy data-icon="inline-start" />
-                  Copy timestamp
-                </Button>
+          ) : null}
+        </section>
+      ) : (
+        <section
+          aria-label="Calculated date"
+          className="rounded-xl border bg-background p-4 sm:p-6"
+        >
+          <h2 className="text-sm text-muted-foreground">Your date</h2>
+          <div role="status" aria-live="polite" aria-atomic="true" className="mt-2">
+            <p
+              className={`break-words text-2xl font-semibold tracking-tight sm:text-3xl ${formatted === null ? "text-destructive" : ""}`}
+            >
+              {formatted ?? "Choose a valid date format."}
+            </p>
+            <p className="mt-2 text-sm text-muted-foreground">
+              {calculation.timezone} ·{" "}
+              {safeFormatDate(
+                new Date(calculation.result.timestamp),
+                calculation.timezone,
+                "HH:mm:ss.SSS zzz",
+              )}
+            </p>
+          </div>
+          <div className="mt-4 flex flex-wrap items-end gap-3">
+            <Button
+              onClick={() => formatted !== null && copy(formatted, "Date")}
+              disabled={formatted === null}
+            >
+              <Copy className="mr-2 size-4" />
+              Copy date
+            </Button>
+            <div className="grid max-w-full gap-2">
+              <Label htmlFor="date-format">Display format</Label>
+              <select
+                id="date-format"
+                value={settings.isCustomFormat ? "custom" : settings.dateFormat}
+                onChange={(event) =>
+                  updateSettings({
+                    isCustomFormat: event.target.value === "custom",
+                    ...(event.target.value === "custom" ? {} : { dateFormat: event.target.value }),
+                  })
+                }
+                className="h-10 max-w-full rounded-md border bg-background px-2 text-sm focus-visible:outline focus-visible:outline-2"
+              >
+                {dateFormatOptions.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+          {settings.isCustomFormat ? (
+            <div className="mt-4 grid gap-2">
+              <Label htmlFor="custom-format">Custom date format</Label>
+              <Input
+                id="custom-format"
+                value={settings.customFormat}
+                maxLength={50}
+                aria-invalid={formatted === null}
+                aria-describedby="format-help"
+                onChange={(event) => updateSettings({ customFormat: event.target.value })}
+              />
+              <p id="format-help" className="text-xs text-muted-foreground">
+                Use yyyy for year, MM for month, dd for day, HH:mm for time. Example: yyyy-MM-dd
+                HH:mm.
+              </p>
+            </div>
+          ) : null}
+          {formatted === null ? (
+            <Button
+              className="mt-3"
+              variant="outline"
+              onClick={() =>
+                updateSettings({ isCustomFormat: false, dateFormat: "EEEE, MMMM d, yyyy" })
+              }
+            >
+              Restore readable format
+            </Button>
+          ) : null}
+          <details className="mt-5 border-t pt-3 text-sm">
+            <summary className="cursor-pointer focus-visible:outline focus-visible:outline-2">
+              ISO date and timestamp
+            </summary>
+            <dl className="mt-3 grid gap-3 sm:grid-cols-2">
+              <div>
+                <dt className="text-muted-foreground">ISO date (UTC)</dt>
+                <dd className="break-all font-mono">{calculation.result.iso}</dd>
               </div>
-            </details>
-          </CardContent>
-        </Card>
-      ) : null}
-      <CalculationTrace
-        calculation={calculation}
-        timezone={settings.timezone}
-        dateFormat={effectiveDateFormat}
-        preserveDayOfMonth={settings.preserveDayOfMonth}
-      />
+              <div>
+                <dt className="text-muted-foreground">Unix milliseconds</dt>
+                <dd className="font-mono">{calculation.result.timestamp}</dd>
+              </div>
+            </dl>
+            <div className="mt-3 flex flex-wrap gap-2">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => copy(calculation.result.iso, "ISO date")}
+              >
+                Copy ISO
+              </Button>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => copy(String(calculation.result.timestamp), "Timestamp")}
+              >
+                Copy timestamp
+              </Button>
+            </div>
+          </details>
+        </section>
+      )}
+      {expression.trim() ? <CalculationTrace calculation={calculation} /> : null}
+      <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-muted-foreground">
+        <span>
+          {settingsSaved
+            ? "Timezone and display preferences stay in this browser."
+            : "Browser storage is unavailable. Preferences apply until you reload."}
+        </span>
+        <Button variant="ghost" size="sm" onClick={resetSettings}>
+          Reset preferences
+        </Button>
+      </div>
     </div>
   );
 }

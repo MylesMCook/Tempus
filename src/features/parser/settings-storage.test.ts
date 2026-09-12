@@ -6,7 +6,6 @@ const defaults = {
   customFormat: "",
   isCustomFormat: false,
   timezone: "UTC",
-  preserveDayOfMonth: true,
 };
 
 describe("Persisted settings", () => {
@@ -28,7 +27,7 @@ describe("Persisted settings", () => {
         }),
         defaults,
       ),
-    ).toEqual({ ...defaults, preserveDayOfMonth: false });
+    ).toEqual(defaults);
   });
   it("survives denied or full storage", () => {
     expect(
@@ -42,4 +41,42 @@ describe("Persisted settings", () => {
       ),
     ).toBe(false);
   });
+});
+
+it("migrates legacy preferences without retaining arithmetic switches or unknown fields", () => {
+  const migrated = decodeStoredSettings(
+    JSON.stringify({
+      dateFormat: "yyyy-MM-dd",
+      customFormat: "HH:mm",
+      timezone: "Asia/Tokyo",
+      isCustomFormat: true,
+      preserveDayOfMonth: true,
+      extra: "unused",
+    }),
+    defaults,
+  );
+  expect(migrated).toEqual({
+    dateFormat: "yyyy-MM-dd",
+    customFormat: "HH:mm",
+    timezone: "Asia/Tokyo",
+    isCustomFormat: true,
+  });
+  let raw = "";
+  expect(
+    saveSettings(
+      {
+        setItem(_key, value) {
+          raw = value;
+        },
+      },
+      migrated,
+    ),
+  ).toBe(true);
+  expect(decodeStoredSettings(raw, defaults)).toEqual(migrated);
+});
+it("restores a known display format when legacy data names an unavailable option", () => {
+  expect(
+    decodeStoredSettings(JSON.stringify({ dateFormat: "custom", timezone: "UTC" }), defaults)
+      .dateFormat,
+  ).toBe(defaults.dateFormat);
 });

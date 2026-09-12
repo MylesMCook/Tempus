@@ -1,5 +1,7 @@
 # Parser and system logic audit
 
+> Historical v1 review. The current engine and interaction contract is documented in [Phoenix](phoenix.md).
+
 ## Result
 
 The initial targeted audit reproduced 21 failures across 25 cases. The repairs retain the existing small parser and make its supported grammar explicit. The calculator now uses the debug calculation’s result directly, so its explanation cannot come from a second parse with a different clock or setting.

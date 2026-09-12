@@ -1,3 +1,4 @@
+import { dateFormatOptions } from "./options";
 import type { ParserSettings } from "./context/settings-context";
 
 export function decodeStoredSettings(raw: string | null, defaults: ParserSettings): ParserSettings {
@@ -6,7 +7,9 @@ export function decodeStoredSettings(raw: string | null, defaults: ParserSetting
     if (!value || typeof value !== "object" || Array.isArray(value)) return defaults;
     const stored = value as Record<string, unknown>;
     const text = (key: "dateFormat" | "customFormat" | "timezone") =>
-      typeof stored[key] === "string" && stored[key].length <= 50 ? stored[key] : defaults[key];
+      typeof stored[key] === "string" && stored[key].length <= (key === "timezone" ? 64 : 50)
+        ? stored[key]
+        : defaults[key];
     let timezone = text("timezone");
     try {
       new Intl.DateTimeFormat("en", { timeZone: timezone });
@@ -14,17 +17,17 @@ export function decodeStoredSettings(raw: string | null, defaults: ParserSetting
       timezone = defaults.timezone;
     }
     return {
-      dateFormat: text("dateFormat") || defaults.dateFormat,
+      dateFormat: dateFormatOptions.some(
+        (option) => option.value !== "custom" && option.value === text("dateFormat"),
+      )
+        ? text("dateFormat")
+        : defaults.dateFormat,
       customFormat: text("customFormat"),
       timezone,
       isCustomFormat:
         typeof stored.isCustomFormat === "boolean"
           ? stored.isCustomFormat
           : defaults.isCustomFormat,
-      preserveDayOfMonth:
-        typeof stored.preserveDayOfMonth === "boolean"
-          ? stored.preserveDayOfMonth
-          : defaults.preserveDayOfMonth,
     };
   } catch {
     return defaults;

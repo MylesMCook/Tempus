@@ -33,13 +33,11 @@ GitHub Actions is the source of truth for validation and deployment.
 - the Cloudflare Worker target hostname is `tempus-total.funnydomainname.com`
 - required repo secrets are `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN`
 
-## Manual steps still required
+## Current release boundary
 
-1. Create the `tempus-total` Worker target in Cloudflare.
-2. Add the repo secrets `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN`.
-3. Run `pnpm run cf-typegen` if you want regenerated Cloudflare type artifacts before deploy.
-4. Attach `tempus-total.funnydomainname.com` or the real production domain after preview verification.
-5. Verify `/`, `/privacy`, and `/api/parse` on the deployed hostname before retiring any legacy host.
+The Worker and hostname already exist. GitHub check/test/build work, but its deployment token is invalid. User-authorized releases currently use the existing local Wrangler OAuth session through `pnpm run deploy`. Do not copy OAuth credentials into GitHub. Replacing the GitHub token remains a separate credential handoff.
+
+Verify `/`, `/privacy`, and `/api/parse` on the deployed hostname after every release. Phoenix v2 has no database or server migration. Roll back by reverting the rebuild commit, installing its lockfile, rebuilding, and deploying through the same path.
 
 ## Notes
 

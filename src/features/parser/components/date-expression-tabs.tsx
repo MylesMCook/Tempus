@@ -13,13 +13,14 @@ const categoryDescriptions: Record<string, string> = {
   Simple: "Quick references like now, tomorrow, and next friday.",
   Relative: "Offsets from the current moment such as in 3 days or 5 days ago.",
   "Date Math": "Expressions that add or subtract time from another date.",
-  Fractional:
-    "Decimal offsets such as 1.5 days. Open “See how it works” for conversion and rounding rules.",
+  Fractional: "Decimal offsets such as 1.5 days. Open “See how it works” for each exact change.",
   Advanced: "Combinations of weekdays, anchors, and longer chains of date math.",
 };
 
 export function DateExpressionTabs({ examples, onExampleClick }: DateExpressionTabsProps) {
-  const [activeCategory, setActiveCategory] = useState(Object.keys(examples)[0] ?? "");
+  const [activeCategory, setActiveCategory] = useState(
+    (Object.keys(examples)[0] ?? "").replaceAll(" ", "-"),
+  );
 
   return (
     <Tabs className="w-full" value={activeCategory} onValueChange={setActiveCategory}>
@@ -41,7 +42,7 @@ export function DateExpressionTabs({ examples, onExampleClick }: DateExpressionT
         <TabsContent
           key={category}
           value={category.replaceAll(" ", "-")}
-          className="flex flex-col gap-4 px-4 pb-4 pt-3"
+          className="flex flex-col gap-4 px-4 pb-4 pt-3 data-[state=inactive]:hidden"
         >
           <p className="text-sm text-muted-foreground">
             {categoryDescriptions[category] ??

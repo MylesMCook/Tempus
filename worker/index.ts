@@ -32,12 +32,15 @@ export default {
       return json({ error: "Method not allowed" }, 405, { Allow: "GET, OPTIONS" });
     }
 
-    const result = buildParseResponse({
-      expression: url.searchParams.get("expression") ?? undefined,
-      format: url.searchParams.get("format") ?? undefined,
-      preserveDayOfMonth: url.searchParams.get("preserveDayOfMonth") ?? undefined,
-      timezone: url.searchParams.get("timezone") ?? undefined,
-    });
+    const query: Record<string, string> = {};
+    for (const [key, value] of url.searchParams) {
+      if (Object.hasOwn(query, key))
+        return json({ error: `Duplicate query parameter: ${key}` }, 400, {
+          "Cache-Control": "no-store",
+        });
+      Object.defineProperty(query, key, { value, enumerable: true });
+    }
+    const result = buildParseResponse(query);
 
     return json(result.body, result.status, { "Cache-Control": "no-store" });
   },

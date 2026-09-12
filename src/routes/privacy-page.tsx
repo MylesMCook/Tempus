@@ -23,22 +23,22 @@ export function PrivacyPage() {
           </h2>
           <p>
             Typing a phrase or choosing an example calculates a date on your device. The app does
-            not send that phrase to the API until you select Run request or submit the API form. It
-            does not save a history of your phrases.
+            not send that phrase to the API until you select Replay with API. It does not save a
+            history of your phrases.
           </p>
           <p className="mt-3">
-            Date format, display timezone, and month-calculation preferences are saved in your
-            browser’s local storage. They remain there until you clear this site’s data. Reset
-            settings restores the defaults. There are no accounts or settings synced across devices.
+            Date format and timezone preferences are saved in your browser’s local storage. They
+            remain there until you clear this site’s data. Reset preferences restores the defaults.
+            There are no accounts or settings synced across devices.
           </p>
         </section>
         <section>
           <h2 className="mb-2 text-lg font-semibold text-foreground">API requests and hosting</h2>
           <p>
-            An API request includes your phrase, date format, timezone, and month-calculation
-            setting in its URL. Cloudflare processes these requests and serves the website. Hosting
-            logs are enabled and may contain request URLs and other request metadata. Avoid
-            confidential information in API requests or URLs you share.
+            An API request includes your phrase, date format, timezone, and reference time in its
+            URL. Cloudflare processes these requests and serves the website. Hosting logs are
+            enabled and may contain request URLs and other request metadata. Avoid confidential
+            information in API requests or URLs you share.
           </p>
           <p className="mt-3">
             Hosting log retention depends on the Cloudflare plan. See{" "}

@@ -1,66 +1,39 @@
-"use client";
-
-import type { ReactNode } from "react";
-import { createContext, useContext, useEffect, useMemo, useState } from "react";
-
+import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
 import { decodeStoredSettings, saveSettings } from "../settings-storage";
 
 export interface ParserSettings {
   dateFormat: string;
   customFormat: string;
   isCustomFormat: boolean;
-  preserveDayOfMonth: boolean;
   timezone: string;
 }
-
-type SettingsContextValue = {
-  settings: ParserSettings;
-  settingsSaved: boolean;
-  effectiveDateFormat: string;
-  updateSettings: (settings: Partial<ParserSettings>) => void;
-  resetSettings: () => void;
-};
-
-function getDefaultTimezone() {
-  if (typeof Intl === "undefined") {
-    return "UTC";
-  }
-
+function defaultTimezone() {
   return Intl.DateTimeFormat().resolvedOptions().timeZone || "UTC";
 }
-
-const DEFAULT_SETTINGS: ParserSettings = {
+const defaults: ParserSettings = {
   dateFormat: "EEEE, MMMM d, yyyy",
-  customFormat: "",
+  customFormat: "yyyy-MM-dd HH:mm",
   isCustomFormat: false,
-  preserveDayOfMonth: true,
-  timezone: getDefaultTimezone(),
+  timezone: defaultTimezone(),
 };
-
-const STORAGE_KEY = "parserSettings";
-
-const SettingsContext = createContext<SettingsContextValue | undefined>(undefined);
-
-function readStoredSettings(): ParserSettings {
-  if (typeof window === "undefined") {
-    return DEFAULT_SETTINGS;
-  }
-
-  try {
-    const rawSettings = window.localStorage.getItem(STORAGE_KEY);
-    if (!rawSettings) {
-      return DEFAULT_SETTINGS;
+const SettingsContext = createContext<
+  | {
+      settings: ParserSettings;
+      settingsSaved: boolean;
+      effectiveDateFormat: string;
+      updateSettings: (change: Partial<ParserSettings>) => void;
+      resetSettings: () => void;
     }
-
-    return decodeStoredSettings(rawSettings, DEFAULT_SETTINGS);
-  } catch {
-    return DEFAULT_SETTINGS;
-  }
-}
-
+  | undefined
+>(undefined);
 export function SettingsProvider({ children }: { children: ReactNode }) {
-  const [settings, setSettings] = useState<ParserSettings>(readStoredSettings);
-
+  const [settings, setSettings] = useState(() => {
+    try {
+      return decodeStoredSettings(window.localStorage.getItem("parserSettings"), defaults);
+    } catch {
+      return defaults;
+    }
+  });
   const [settingsSaved, setSettingsSaved] = useState(true);
   useEffect(() => {
     try {
@@ -69,40 +42,23 @@ export function SettingsProvider({ children }: { children: ReactNode }) {
       setSettingsSaved(false);
     }
   }, [settings]);
-
-  const value = useMemo<SettingsContextValue>(() => {
-    const effectiveDateFormat =
-      settings.isCustomFormat && settings.customFormat.trim()
-        ? settings.customFormat.trim()
-        : settings.dateFormat;
-
-    return {
+  const value = useMemo(
+    () => ({
       settings,
       settingsSaved,
-      effectiveDateFormat,
-      updateSettings(nextSettings) {
-        setSettings((currentSettings) => ({
-          ...currentSettings,
-          ...nextSettings,
-        }));
-      },
-      resetSettings() {
-        setSettings({
-          ...DEFAULT_SETTINGS,
-          timezone: getDefaultTimezone(),
-        });
-      },
-    };
-  }, [settings, settingsSaved]);
-
+      effectiveDateFormat: settings.isCustomFormat
+        ? settings.customFormat.trim()
+        : settings.dateFormat,
+      updateSettings: (change: Partial<ParserSettings>) =>
+        setSettings((current) => ({ ...current, ...change })),
+      resetSettings: () => setSettings({ ...defaults, timezone: defaultTimezone() }),
+    }),
+    [settings, settingsSaved],
+  );
   return <SettingsContext.Provider value={value}>{children}</SettingsContext.Provider>;
 }
-
 export function useSettings() {
-  const context = useContext(SettingsContext);
-  if (!context) {
-    throw new Error("useSettings must be used within a SettingsProvider");
-  }
-
-  return context;
+  const value = useContext(SettingsContext);
+  if (!value) throw new Error("SettingsProvider is required");
+  return value;
 }

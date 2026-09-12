@@ -1,5 +1,7 @@
 ## Laws of UX critique
 
+> Historical v1 review. The current engine and interaction contract is documented in [Phoenix](phoenix.md).
+
 **Context read:** TempusTotal calculator, settings, examples, API playground, privacy page, and their source. Assumed primary reader: someone turning a date phrase into a usable date; developers use the disclosed API. This is an expert review, not user research.
 
 **Selected lenses:** Mental Model, Cognitive Load, Law of Proximity.

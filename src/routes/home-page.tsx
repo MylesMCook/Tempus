@@ -1,42 +1,29 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { Clock3 } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ApiDocs } from "@/features/parser/components/api-docs";
 import { DateExpressionTabs } from "@/features/parser/components/date-expression-tabs";
+import { calculateDate } from "@/shared/date-parser";
+import { useSettings } from "@/features/parser/context/settings-context";
 import { DatePicker } from "@/features/parser/components/date-picker";
 
-const examples = {
-  Simple: ["now", "today", "tomorrow", "yesterday", "next friday", "last monday"],
-  Relative: ["in 3 days", "2 weeks from now", "3 months ago", "1 year from now", "5 days ago"],
-  "Date Math": [
-    "today plus 2 weeks",
-    "tomorrow minus 3 days",
-    "2 weeks plus 3 days",
-    "1 month minus 1 week",
-    "6 months plus 2 weeks",
-  ],
-  Fractional: [
-    "1.5 days from now",
-    "2.5 weeks ago",
-    "6.5 months from today",
-    "0.5 years from now",
-    "today plus 0.25 years",
-  ],
-  Advanced: [
-    "6 months before sep 14",
-    "2 weeks after dec 25",
-    "3 days before next friday",
-    "1 month after last monday",
-    "2.5 weeks before may 1",
-    "friday next week",
-  ],
-};
+import { examples } from "@/features/parser/examples";
 
 export function HomePage() {
-  const [expression, setExpression] = useState("");
+  const [{ expression, reference }, setInput] = useState(() => ({
+    expression: "",
+    reference: new Date().toISOString(),
+  }));
+  const { settings } = useSettings();
+  const setExpression = (value: string) =>
+    setInput({ expression: value, reference: new Date().toISOString() });
+  const calculation = useMemo(
+    () => calculateDate(expression, { timezone: settings.timezone, reference }),
+    [expression, settings.timezone, reference],
+  );
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -57,13 +44,23 @@ export function HomePage() {
         </section>
 
         <section className="mx-auto flex w-full max-w-3xl flex-col gap-6">
-          <DatePicker expression={expression} onExpressionChange={setExpression} />
+          <DatePicker
+            expression={expression}
+            onExpressionChange={setExpression}
+            calculation={calculation}
+            reference={reference}
+            onRefresh={() =>
+              setInput((current) => ({ ...current, reference: new Date().toISOString() }))
+            }
+          />
         </section>
 
         <section className="mx-auto w-full max-w-3xl">
           <Card className="border-border/70 shadow-sm">
             <CardHeader className="flex flex-col gap-2">
-              <CardTitle>Examples</CardTitle>
+              <CardTitle>
+                <h2>Examples</h2>
+              </CardTitle>
               <CardDescription>
                 Choose a phrase to calculate, then edit it to make it yours.
               </CardDescription>
@@ -88,7 +85,7 @@ export function HomePage() {
             <p className="mb-4 mt-2 text-sm text-muted-foreground">
               Test a request using your expression and settings.
             </p>
-            <ApiDocs expression={expression} onExpressionChange={setExpression} />
+            <ApiDocs expression={expression} reference={reference} calculation={calculation} />
           </details>
         </section>
       </main>
