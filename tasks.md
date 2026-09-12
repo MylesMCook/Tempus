@@ -71,3 +71,11 @@ GitHub run `34700146532` passed check/test/build and failed automated deployment
 Evidence: `/Users/mylescook/Documents/Codex/2026-09-12-tempustotal-open-source/`. Formal scan ID `d759b8fa-a7c2-46aa-9d43-3616a58d3e67`. The scan predates hardening; focused regression/runtime checks cover this release separately. Query redaction does not erase old logs. Rate limits are approximate per edge location, not a global spending cap.
 
 Rollback: previous live version `3948799c-afe0-49b9-970c-2ec8997fe2ad`. Revert the hardening/toolchain commits together, restore that lockfile, rebuild, deploy, and verify both production addresses. No stateful data migration or shared host changes occurred.
+
+## Developer copy and formatting — active
+
+- [x] Replace API prose wall with a clear empty state, decoded request fields, structured reference, and concise comparison status. Preserve explicit request action and privacy disclosure.
+- [x] Writer pass complete. Verified 390px/320px/1280px containment, keyboard disclosures, empty state, decoded fields, URL/response copy feedback, stale status, HTTP 400 and successful recovery. No browser console errors; 260 tests, checks, types and build pass.
+- [ ] Commit, push main, deploy via the documented OAuth path, and verify production and CI.
+
+Scope: presentation and feedback only; parser and Cloudflare protections stay unchanged.

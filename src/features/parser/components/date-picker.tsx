@@ -323,9 +323,9 @@ export function DatePicker({
         <div className="mt-1 grid min-w-0 gap-5 rounded-xl border bg-background p-4 sm:p-5">
           {expression.trim() ? (
             <section aria-label="Calculation details" className="min-w-0">
-              <h2 className="font-semibold">Calculation details</h2>
-              <p className="mt-4 break-words text-muted-foreground">
-                Calculated from <time dateTime={reference}>{clock}</time>.
+              <h2 className="text-base font-semibold tracking-tight">Calculation details</h2>
+              <p className="mt-2 break-words leading-relaxed text-muted-foreground">
+                Reference time: <time dateTime={reference}>{clock}</time>
               </p>
               {calculation.ok ? (
                 <div className="mt-3 text-sm">
@@ -381,8 +381,11 @@ export function DatePicker({
               </Button>
             </section>
           ) : null}
-          <section aria-label="API replay" className="grid min-w-0 gap-3">
-            <h2 className="font-semibold">API replay</h2>
+          <section
+            aria-label="Compare with the API"
+            className={`grid min-w-0 gap-2 ${expression.trim() ? "border-t pt-5" : ""}`}
+          >
+            <h2 className="text-base font-semibold tracking-tight">Compare with the API</h2>
             <ApiDocs expression={expression} reference={reference} calculation={calculation} />
           </section>
         </div>

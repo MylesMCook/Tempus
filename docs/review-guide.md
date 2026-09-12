@@ -7,7 +7,7 @@ Focus on one question at a time:
 1. Can a first-time user enter a phrase, understand the result, and copy it without opening help? Are settings and explanations easy to find when needed?
 2. Does **See how it works** explain the actual calculation, including calendar clamping, written order, and approximation warnings?
 3. Do calendar and timezone rules match the documented behavior? Which useful phrases still fail?
-4. Does **Replay with API** return the same instant and a useful error when it cannot? Is it clear that this action sends the phrase to a server?
+4. Does **Check API result** return the same instant and a useful error when it cannot? Is it clear that this action sends the phrase to a server?
 5. Is the code easy to run, test, and change? Identify concrete complexity or missing regression coverage.
 
 ## Reproducible checks

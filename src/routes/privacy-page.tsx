@@ -23,7 +23,7 @@ export function PrivacyPage() {
           </h2>
           <p>
             Typing a phrase or choosing an example calculates a date on your device. The app does
-            not send that phrase to the API until you select Replay with API. It does not save a
+            not send that phrase to the API until you select Check API result. It does not save a
             history of your phrases.
           </p>
           <p className="mt-3">
