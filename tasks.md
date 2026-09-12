@@ -33,13 +33,15 @@ Current state: Phoenix rebuild complete and live. Remaining operational follow-u
 - [x] GitHub run `34674040184` passed check/test/build; its deploy failed. The manual release succeeded independently.
 - Remaining uncertainty: the original “3 weeks ago” failure has not been reproduced. The diagnostic copy action now captures the exact inputs and error/result for follow-up.
 
-## ADHD-oriented calculator — active
+## ADHD-oriented calculator — live
 
 - [x] Put the phrase and result first; offer three quick examples and disclose optional controls.
 - [x] Make copy completion visible; preserve live trace, warnings, errors, settings, and API replay.
 - [x] Verify desktop/mobile and keyboard paths, parser regression suite, types, and production build.
-- [ ] Commit, push, deploy through the established OAuth path, and verify the public calculator.
+- [x] Pushed `844f00d` to main; OAuth deployment `5176f388-7812-4330-8562-5ddc9d67dee9` is live with client `index-DqeNL3PR.js`. Public copy feedback, approximation trace, and API parity verified.
 
 Decision: apply the I Have ADHD plugin's low-distraction and visible-state guidance without storing phrases or changing calculation semantics.
 
 Verification: 255 tests; source/type/build checks; desktop, 390px and 320px browser paths, keyboard copy/example navigation, format/timezone/phrase recovery, approximation trace, and matching API replay. Details: [UX review](docs/phoenix-ux-review.md#adhd-oriented-follow-up--september-12-2026).
+
+GitHub run `34699827081` passed check/test/build and failed deployment. Manual deployment succeeded independently. Worktree closeout is documentation-only; the existing automated-deployment credential handoff remains open. Rollback: revert `844f00d`, rebuild, and deploy through the same path.
