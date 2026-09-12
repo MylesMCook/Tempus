@@ -17,8 +17,9 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
-import { parseNaturalLanguageDate } from "@/shared/date-parser";
+import { debugDateParser } from "@/shared/date-parser";
 import { useSettings } from "../context/settings-context";
+import { CalculationTrace } from "./calculation-trace";
 import { dateFormatOptions, safeFormatDate, timezoneOptions } from "../options";
 
 interface DatePickerProps {
@@ -36,17 +37,14 @@ async function copyToClipboard(value: string, label: string) {
 }
 
 export function DatePicker({ expression, onExpressionChange }: DatePickerProps) {
-  const { settings, effectiveDateFormat, resetSettings, updateSettings } = useSettings();
+  const { settings, settingsSaved, effectiveDateFormat, resetSettings, updateSettings } =
+    useSettings();
 
-  const parsedDate = useMemo(() => {
-    if (!expression.trim()) {
-      return null;
-    }
-
-    return parseNaturalLanguageDate(expression, {
-      preserveDayOfMonth: settings.preserveDayOfMonth,
-    });
-  }, [expression, settings.preserveDayOfMonth]);
+  const calculation = useMemo(
+    () => debugDateParser(expression, { preserveDayOfMonth: settings.preserveDayOfMonth }),
+    [expression, settings.preserveDayOfMonth],
+  );
+  const parsedDate = calculation.result;
 
   const formattedDate = parsedDate
     ? safeFormatDate(parsedDate, settings.timezone, effectiveDateFormat)
@@ -90,8 +88,10 @@ export function DatePicker({ expression, onExpressionChange }: DatePickerProps) 
                   <div className="flex flex-col gap-1">
                     <h2 className="font-semibold">Date settings</h2>
                     <p className="text-sm text-muted-foreground">
-                      Set the date display and month calculations. Preferences are saved in this
-                      browser.
+                      Set the date display and month calculations.{" "}
+                      {settingsSaved
+                        ? "Preferences are saved in this browser."
+                        : "Browser storage is unavailable. Preferences apply only until you reload."}
                     </p>
                   </div>
 
@@ -282,6 +282,12 @@ export function DatePicker({ expression, onExpressionChange }: DatePickerProps) 
           </CardContent>
         </Card>
       ) : null}
+      <CalculationTrace
+        calculation={calculation}
+        timezone={settings.timezone}
+        dateFormat={effectiveDateFormat}
+        preserveDayOfMonth={settings.preserveDayOfMonth}
+      />
     </div>
   );
 }

@@ -3,6 +3,8 @@
 import type { ReactNode } from "react";
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 
+import { decodeStoredSettings, saveSettings } from "../settings-storage";
+
 export interface ParserSettings {
   dateFormat: string;
   customFormat: string;
@@ -13,6 +15,7 @@ export interface ParserSettings {
 
 type SettingsContextValue = {
   settings: ParserSettings;
+  settingsSaved: boolean;
   effectiveDateFormat: string;
   updateSettings: (settings: Partial<ParserSettings>) => void;
   resetSettings: () => void;
@@ -49,10 +52,7 @@ function readStoredSettings(): ParserSettings {
       return DEFAULT_SETTINGS;
     }
 
-    return {
-      ...DEFAULT_SETTINGS,
-      ...JSON.parse(rawSettings),
-    };
+    return decodeStoredSettings(rawSettings, DEFAULT_SETTINGS);
   } catch {
     return DEFAULT_SETTINGS;
   }
@@ -61,8 +61,13 @@ function readStoredSettings(): ParserSettings {
 export function SettingsProvider({ children }: { children: ReactNode }) {
   const [settings, setSettings] = useState<ParserSettings>(readStoredSettings);
 
+  const [settingsSaved, setSettingsSaved] = useState(true);
   useEffect(() => {
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(settings));
+    try {
+      setSettingsSaved(saveSettings(window.localStorage, settings));
+    } catch {
+      setSettingsSaved(false);
+    }
   }, [settings]);
 
   const value = useMemo<SettingsContextValue>(() => {
@@ -73,6 +78,7 @@ export function SettingsProvider({ children }: { children: ReactNode }) {
 
     return {
       settings,
+      settingsSaved,
       effectiveDateFormat,
       updateSettings(nextSettings) {
         setSettings((currentSettings) => ({
@@ -87,7 +93,7 @@ export function SettingsProvider({ children }: { children: ReactNode }) {
         });
       },
     };
-  }, [settings]);
+  }, [settings, settingsSaved]);
 
   return <SettingsContext.Provider value={value}>{children}</SettingsContext.Provider>;
 }

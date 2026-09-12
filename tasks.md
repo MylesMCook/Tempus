@@ -66,3 +66,17 @@ Revisited after replay: all 27 advertised examples produce results; settings, AP
 - [x] Live browser verified updated calculator text, tomorrow result, simplified API form, HTTP 200, and revised privacy page.
 - [x] GitHub run `34668553448` passed check/test/build; deployment step failed. Manual deployment succeeded independently.
 - Automatic GitHub deployment remains blocked by its invalid token. No credential changes in this pass.
+
+## Live calculation explanation
+
+- [x] Extend parser debug output with actual operation snapshots and settings support; use the same result for the calculator and explanation.
+- [x] Add an accessible “See how it works” disclosure that updates with input and settings, including empty and invalid states.
+- [x] Trace correctness and local browser replay passed: keyboard disclosure, live edits, sorted operations, month setting changes, timezone display, invalid input/format recovery, and Clear. Desktop and 390×844 mobile inspected; expanded trace has no page overflow.
+- [x] `vp check`, 112 tests, `tsc -b`, production build, and diff check passed. Arithmetic suite also passed under UTC, America/New_York, and Asia/Tokyo.
+- [ ] Deploy through the authorized fallback and verify production.
+
+## Parser correctness and system audit
+
+- [x] Reproduced 21 failures in the initial 25-case audit; fixed month-end/leap-year rollover, weekday selection, explicit relative anchors, incomplete phrase acceptance, overflow, and debug settings/order.
+- [x] Added exact expectations for all 27 advertised examples, multi-timezone/DST coverage, storage corruption/write-failure handling, and Worker request-contract tests. See `docs/parser-system-audit.md` for defined semantics and remaining boundaries.
+- [ ] Complete browser replay and final checks; land and deploy, then verify the live feature and corrected API calculations.

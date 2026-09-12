@@ -59,24 +59,10 @@ export type ParseApiErrorResponse = {
 
 export function parseExpressionType(expression: string): ParseExpressionType {
   const normalized = expression.toLowerCase();
-
-  if (
-    normalized.includes("before") ||
-    normalized.includes("after") ||
-    normalized.includes("plus") ||
-    normalized.includes("minus")
-  ) {
-    return "date-math";
-  }
-
-  if (normalized.includes("from now") || normalized.includes("ago")) {
-    return "relative";
-  }
-
-  if (normalized.includes("next") || normalized.includes("last")) {
+  if (/\b(before|after|plus|minus)\b|[+-]/.test(normalized)) return "date-math";
+  if (/\b(monday|tuesday|wednesday|thursday|friday|saturday|sunday)\b/.test(normalized))
     return "weekday";
-  }
-
+  if (/\b(now|today|tomorrow|yesterday|in|ago|from)\b/.test(normalized)) return "relative";
   return "advanced";
 }
 
@@ -84,8 +70,8 @@ export function extractComponents(expression: string): string[] {
   const components: string[] = [];
   const normalized = expression.toLowerCase();
 
-  for (const unit of ["day", "week", "month", "year"]) {
-    if (normalized.includes(unit) || normalized.includes(`${unit}s`)) {
+  for (const unit of ["day", "week", "month", "year", "hour", "minute", "second"]) {
+    if (new RegExp(`\\b${unit}s?\\b`).test(normalized)) {
       components.push(unit);
     }
   }

@@ -20,6 +20,8 @@ import {
   previousTuesday,
   previousWednesday,
   setDate,
+  getDaysInMonth,
+  startOfWeek,
   addHours,
   subHours,
   addMinutes,
@@ -50,10 +52,12 @@ interface TimeOperation {
   direction: 1 | -1;
 }
 
-interface DebugParseResult {
+export interface DebugParseResult {
   tokens: Token[];
   baseDate: Date | null;
+  baseDescription?: string;
   operations: TimeOperation[];
+  steps: { operation: TimeOperation; before: Date; after: Date }[];
   result: Date | null;
   error?: string;
 }
@@ -66,7 +70,7 @@ function getPreserveDayOfMonthSetting(): boolean {
     const settings = localStorage.getItem("parserSettings");
     if (settings) {
       const parsed = JSON.parse(settings);
-      return parsed.preserveDayOfMonth !== undefined ? parsed.preserveDayOfMonth : true;
+      return typeof parsed?.preserveDayOfMonth === "boolean" ? parsed.preserveDayOfMonth : true;
     }
   } catch (e) {
     console.error("Error reading settings:", e);
@@ -83,6 +87,8 @@ const MINUTES_PER_HOUR = 60;
 const SECONDS_PER_MINUTE = 60;
 
 class DateExpressionParser {
+  private now = new Date();
+  private baseDescription = "";
   // Add this property to the class
   private preserveDayOfMonthOverride: boolean | null = null;
 
@@ -200,15 +206,22 @@ class DateExpressionParser {
     const year =
       yearToken && yearToken.type === "number"
         ? Number.parseFloat(yearToken.value)
-        : new Date().getFullYear();
+        : new Date(this.now).getFullYear();
 
-    if (!month || isNaN(day) || isNaN(year)) return null;
-
-    return new Date(year, month - 1, day);
+    if (!month || !Number.isInteger(day) || !Number.isInteger(year) || day < 1 || day > 31)
+      return null;
+    const result = new Date(0);
+    result.setFullYear(year, month - 1, day);
+    result.setHours(0, 0, 0, 0);
+    return result.getFullYear() === year &&
+      result.getMonth() === month - 1 &&
+      result.getDate() === day
+      ? result
+      : null;
   }
 
   private getRelativeDate(input: string): Date | null {
-    const now = new Date();
+    const now = new Date(this.now);
     const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
 
     switch (input.toLowerCase()) {
@@ -225,28 +238,14 @@ class DateExpressionParser {
     }
   }
 
-  private getNextWeekday(weekday: string, baseDate: Date = new Date()): Date {
+  private getNextWeekday(weekday: string, baseDate: Date = new Date(this.now)): Date {
     const weekdayFn = this.weekdayMap[weekday];
     if (!weekdayFn) return baseDate;
 
-    // Get the next occurrence of the weekday
-    const nextDate = weekdayFn(baseDate);
-
-    // If we're looking for "next" weekday and the next occurrence is this week,
-    // we should add 7 days to get to next week's occurrence
-    const today = new Date(baseDate);
-    const daysDiff = Math.round((nextDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
-
-    // If the next occurrence is within the current week (less than 7 days away),
-    // add 7 days to get to next week's occurrence
-    if (daysDiff < 7) {
-      return addDays(nextDate, 7);
-    }
-
-    return nextDate;
+    return weekdayFn(baseDate);
   }
 
-  private getPreviousWeekday(weekday: string, baseDate: Date = new Date()): Date {
+  private getPreviousWeekday(weekday: string, baseDate: Date = new Date(this.now)): Date {
     const weekdayFn = this.previousWeekdayMap[weekday];
     if (!weekdayFn) return baseDate;
 
@@ -273,6 +272,7 @@ class DateExpressionParser {
         /\b(one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundred|thousand|million|half|quarter)\b/g,
         (match) => this.numberWords[match]?.toString() || match,
       )
+      .replace(/\b(0\.5|0\.25) a (?=day|week|month|year|hour|minute|second)/g, "$1 ")
       // Handle fractions like "1/2" or "1/4"
       .replace(/(\d+)\/(\d+)/g, (_, numerator, denominator) => {
         return (Number.parseFloat(numerator) / Number.parseFloat(denominator)).toString();
@@ -319,10 +319,24 @@ class DateExpressionParser {
     return tokens;
   }
 
+  private isSupportedExpression(tokens: Token[]): boolean {
+    const phrase = tokens.map((token) => token.value).join(" ");
+    const number = String.raw`\d+(?:\.\d+)?`;
+    const weekdays = Object.keys(this.weekdayMap).join("|");
+    const months = Object.keys(this.monthMap).join("|");
+    const anchor = `(?:now|today|tomorrow|yesterday|(?:(?:next|last) )?(?:${weekdays})|(?:${weekdays}) (?:next|last) week|(?:${months}) \\d+(?: \\d+)?)`;
+    const amount = `${number} (?:year|month|week|day|hour|minute|second)`;
+    const offsets = `${amount}(?: (?:plus|minus|and) ${amount})*`;
+    return new RegExp(
+      `^(?:\\d+|${anchor}|${anchor} (?:plus|minus) ${offsets}|in ${offsets}|${offsets}(?: ago)?|${offsets} (?:before|after|from) ${anchor})$`,
+    ).test(phrase);
+  }
+
   private findBaseDate(tokens: Token[]): Date | null {
     // Check for reference date patterns (e.g., "may 1")
     const monthIndex = tokens.findIndex((t) => t.type === "month");
     if (monthIndex !== -1 && tokens[monthIndex + 1]?.type === "number") {
+      this.baseDescription = "Use the named calendar date; an omitted year means the current year.";
       return this.parseReferenceDate(tokens);
     }
 
@@ -332,21 +346,50 @@ class DateExpressionParser {
       const lastWeekdayIndex = tokens.findIndex((t) => t.value === "last");
       const weekday = tokens[weekdayIndex].value;
 
+      const weekModifier = tokens[weekdayIndex + 1]?.value;
+      if (
+        (weekModifier === "next" || weekModifier === "last") &&
+        tokens[weekdayIndex + 2]?.value === "week"
+      ) {
+        this.baseDescription = `Find ${weekday} in ${weekModifier} week, with Monday as the start of the week. Keep the current time.`;
+        const monday = startOfWeek(new Date(this.now), { weekStartsOn: 1 });
+        const weekdayNumber = Object.keys(this.weekdayMap).indexOf(weekday);
+        const target = addDays(
+          monday,
+          (weekModifier === "next" ? 7 : -7) + ((weekdayNumber + 6) % 7),
+        );
+        const now = new Date(this.now);
+        target.setHours(now.getHours(), now.getMinutes(), now.getSeconds(), now.getMilliseconds());
+        return target;
+      }
+
       // Handle "last" weekday first as it's more specific
       if (lastWeekdayIndex !== -1 && lastWeekdayIndex < weekdayIndex) {
+        this.baseDescription = `Find the most recent ${weekday} before today. Keep the current time.`;
         const prevDate = this.getPreviousWeekday(weekday);
         return prevDate;
       } else if (nextIndex !== -1 && nextIndex < weekdayIndex) {
-        // When explicitly using "next", always get next week's occurrence
+        // "Next" means the nearest future occurrence, excluding today.
+        this.baseDescription = `Find the nearest ${weekday} after today. Keep the current time.`;
         const nextOccurrence = this.getNextWeekday(weekday);
         return nextOccurrence;
       } else {
+        this.baseDescription = `Find the nearest ${weekday} after today. Keep the current time.`;
         // If no modifier, treat as upcoming occurrence (this week or next)
-        const now = new Date();
+        const now = new Date(this.now);
         const weekdayFn = this.weekdayMap[weekday];
         if (!weekdayFn) return now;
         return weekdayFn(now);
       }
+    }
+
+    const relativeAnchor = tokens.find((token) => token.type === "relative");
+    if (relativeAnchor) {
+      this.baseDescription =
+        relativeAnchor.value === "now"
+          ? "Capture the current date and time."
+          : `Use midnight at the start of ${relativeAnchor.value}.`;
+      return this.getRelativeDate(relativeAnchor.value);
     }
 
     // Handle other cases
@@ -354,57 +397,31 @@ class DateExpressionParser {
     if (firstToken?.type === "number") {
       // If it's just a number with no unit, we should interpret it as a day of the current month
       if (tokens.length === 1) {
-        const now = new Date();
+        const now = new Date(this.now);
         const day = Number.parseFloat(firstToken.value);
 
         // Validate the day number
-        if (isNaN(day) || day < 1 || day > 31) return null;
+        if (!Number.isInteger(day) || day < 1 || day > 31) return null;
 
-        // Create a date with the specified day in the current month
-        const result = new Date(now.getFullYear(), now.getMonth(), day);
-
-        // If the day is in the past this month, move to next month
-        if (result < now) {
-          result.setMonth(result.getMonth() + 1);
+        this.baseDescription = `Find the next valid occurrence of day ${day}, at midnight.`;
+        let result = new Date(now.getFullYear(), now.getMonth(), day);
+        let monthOffset = 0;
+        while (result < now || result.getDate() !== day) {
+          monthOffset += 1;
+          result = new Date(now.getFullYear(), now.getMonth() + monthOffset, day);
         }
 
         return result;
       }
 
       // Otherwise, use current date as base for operations
-      return new Date();
+      this.baseDescription = "Start at the current date and time.";
+      return new Date(this.now);
     }
 
-    const lastIndex = tokens.findIndex((t) => t.value === "last");
-    if (lastIndex !== -1 && tokens[lastIndex + 1]?.value === "month") {
-      return new Date();
-    }
-
-    if (tokens.some((t) => t.value === "ago")) {
-      return new Date();
-    }
-
-    const fromIndex = tokens.findIndex((t) => t.value === "from");
-    const nowIndex = tokens.findIndex((t) => t.value === "now");
-    if (fromIndex !== -1 && nowIndex !== -1 && nowIndex === fromIndex + 1) {
-      return new Date();
-    }
-
-    if (tokens.some((t) => t.value === "in")) {
-      return new Date();
-    }
-
-    const relativeToken = tokens.find((t) => t.type === "relative");
-    if (relativeToken) {
-      return this.getRelativeDate(relativeToken.value);
-    }
-
-    // Special case for standalone "now"
-    if (tokens.length === 1 && tokens[0].value === "now") {
-      return new Date();
-    }
-
-    return null;
+    // Only validated offset expressions reach this fallback.
+    this.baseDescription = "Start at the current date and time.";
+    return new Date(this.now);
   }
 
   private preserveDateOfMonth(originalDate: Date, newDate: Date): Date {
@@ -417,7 +434,7 @@ class DateExpressionParser {
     const originalDay = originalDate.getDate();
 
     // Create a new date with the same day of month
-    return setDate(newDate, originalDay);
+    return setDate(newDate, Math.min(originalDay, getDaysInMonth(newDate)));
   }
 
   private parseTimeOperations(tokens: Token[]): TimeOperation[] {
@@ -432,17 +449,22 @@ class DateExpressionParser {
       const direction: TimeOperation["direction"] = beforeIndex !== -1 ? -1 : 1;
       const splitIndex = beforeIndex !== -1 ? beforeIndex : afterIndex;
       const relevantTokens = tokens.slice(0, splitIndex);
+      let operationDirection = direction;
 
       // Process all number-unit pairs before the before/after token
       for (let i = 0; i < relevantTokens.length; i++) {
         const token = relevantTokens[i];
-        if (token.type === "number") {
+        if (token.value === "minus") {
+          operationDirection = direction === 1 ? -1 : 1;
+        } else if (token.value === "plus" || token.value === "and") {
+          operationDirection = direction;
+        } else if (token.type === "number") {
           currentAmount = Number.parseFloat(token.value);
         } else if (token.type === "unit" && currentAmount !== null) {
           operations.push({
             amount: currentAmount,
             unit: token.value,
-            direction: direction,
+            direction: operationDirection,
           });
           currentAmount = null;
         }
@@ -461,11 +483,11 @@ class DateExpressionParser {
       const token = tokens[i];
 
       if (token.value === "minus") {
-        currentDirection = -1;
+        currentDirection = defaultDirection === 1 ? -1 : 1;
         continue;
       }
       if (token.value === "plus") {
-        currentDirection = 1;
+        currentDirection = defaultDirection;
         continue;
       }
       if (token.type === "number") {
@@ -486,7 +508,11 @@ class DateExpressionParser {
     return operations;
   }
 
-  private applyOperations(baseDate: Date, operations: TimeOperation[]): Date {
+  private applyOperations(
+    baseDate: Date,
+    operations: TimeOperation[],
+    steps?: DebugParseResult["steps"],
+  ): Date {
     let result = new Date(baseDate);
 
     // Sort operations to apply years first, then months, weeks, and days
@@ -497,6 +523,7 @@ class DateExpressionParser {
     );
 
     for (const op of sortedOperations) {
+      const before = new Date(result);
       // Handle fractional values by splitting into whole and fractional parts
       const wholePart = Math.floor(op.amount);
       const fractionalPart = op.amount - wholePart;
@@ -641,17 +668,20 @@ class DateExpressionParser {
           break;
         }
       }
+      steps?.push({ operation: op, before, after: new Date(result) });
     }
 
     return result;
   }
 
   parse = (input: string): Date | null => {
+    this.now = new Date();
+    this.baseDescription = "";
     try {
-      if (!input?.trim()) return null;
+      if (!input?.trim() || input.length > 200) return null;
 
       const tokens = this.tokenize(input);
-      if (!tokens.length) return null;
+      if (!tokens.length || !this.isSupportedExpression(tokens)) return null;
 
       const baseDate = this.findBaseDate(tokens);
       if (!baseDate) {
@@ -661,7 +691,7 @@ class DateExpressionParser {
       const operations = this.parseTimeOperations(tokens);
       const result = this.applyOperations(baseDate, operations);
 
-      return result;
+      return Number.isFinite(result.getTime()) ? result : null;
     } catch (error) {
       console.error("Error parsing date expression:", error);
       return null;
@@ -670,23 +700,40 @@ class DateExpressionParser {
 
   // Expose internal methods for debugging
   debug = (input: string): DebugParseResult => {
+    this.now = new Date();
+    this.baseDescription = "";
     try {
-      if (!input?.trim()) return { tokens: [], baseDate: null, operations: [], result: null };
+      if (!input?.trim())
+        return { tokens: [], baseDate: null, operations: [], steps: [], result: null };
 
       const tokens = this.tokenize(input);
-      if (!tokens.length) return { tokens, baseDate: null, operations: [], result: null };
+      if (input.length > 200 || !tokens.length || !this.isSupportedExpression(tokens))
+        return {
+          tokens,
+          baseDate: null,
+          operations: [],
+          steps: [],
+          result: null,
+          error: "This phrase is incomplete or unsupported.",
+        };
 
       const baseDate = this.findBaseDate(tokens);
-      if (!baseDate) return { tokens, baseDate: null, operations: [], result: null };
+      if (!baseDate) return { tokens, baseDate: null, operations: [], steps: [], result: null };
 
       const operations = this.parseTimeOperations(tokens);
-      const result = this.applyOperations(baseDate, operations);
+      const steps: DebugParseResult["steps"] = [];
+      const result = this.applyOperations(baseDate, operations, steps);
 
       return {
         tokens,
         baseDate,
+        baseDescription: this.baseDescription,
         operations,
-        result,
+        steps,
+        result: Number.isFinite(result.getTime()) ? result : null,
+        ...(!Number.isFinite(result.getTime())
+          ? { error: "The result is outside the supported date range." }
+          : {}),
       };
     } catch (error) {
       console.error("Error in debug:", error);
@@ -694,6 +741,7 @@ class DateExpressionParser {
         tokens: [],
         baseDate: null,
         operations: [],
+        steps: [],
         result: null,
         error: error instanceof Error ? error.message : String(error),
       };
@@ -722,4 +770,14 @@ export const parseNaturalLanguageDate = (
   return parser.parse(expression);
 };
 
-export const debugDateParser = parser.debug.bind(parser);
+export const debugDateParser = (
+  expression: string,
+  options?: { preserveDayOfMonth?: boolean },
+): DebugParseResult => {
+  if (options?.preserveDayOfMonth !== undefined) {
+    const customParser = new DateExpressionParser();
+    customParser.setPreserveDayOfMonth(options.preserveDayOfMonth);
+    return customParser.debug(expression);
+  }
+  return parser.debug(expression);
+};

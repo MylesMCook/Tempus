@@ -45,3 +45,38 @@ describe("Date API output", () => {
     expect(b.timestamp - a.timestamp).toBe(60000);
   });
 });
+
+describe("Worker request contract", () => {
+  it("rejects unsupported methods and paths", async () => {
+    const post = await worker.fetch(new Request("http://localhost/api/parse", { method: "POST" }));
+    expect(post.status).toBe(405);
+    expect(post.headers.get("Allow")).toBe("GET, OPTIONS");
+    expect((await worker.fetch(new Request("http://localhost/api/missing"))).status).toBe(404);
+  });
+  it("allows preflight and rejects invalid boolean settings", async () => {
+    expect(
+      (await worker.fetch(new Request("http://localhost/api/parse", { method: "OPTIONS" }))).status,
+    ).toBe(200);
+    expect(buildParseResponse({ expression: "now", preserveDayOfMonth: "yes" }).status).toBe(400);
+  });
+  it("returns a JSON error rather than throwing for dates outside the valid range", async () => {
+    const response = await worker.fetch(
+      new Request("http://localhost/api/parse?expression=in%20999999999%20years"),
+    );
+    expect(response.status).toBe(400);
+    expect(response.headers.get("Cache-Control")).toBe("no-store");
+    expect(await response.json()).toMatchObject({ error: "Could not parse date expression" });
+  });
+});
+
+it("labels API metadata using whole words and includes sub-day units", () => {
+  expect(buildParseResponse({ expression: "yesterday" }).body).toMatchObject({
+    meta: { type: "relative", components: [] },
+  });
+  expect(buildParseResponse({ expression: "in 2 hours" }).body).toMatchObject({
+    meta: { type: "relative", components: ["hour"] },
+  });
+  expect(buildParseResponse({ expression: "friday" }).body).toMatchObject({
+    meta: { type: "weekday" },
+  });
+});
