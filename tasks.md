@@ -46,8 +46,12 @@ Verification: 255 tests; source/type/build checks; desktop, 390px and 320px brow
 
 GitHub run `34699827081` passed check/test/build and failed deployment. Manual deployment succeeded independently. Worktree closeout is documentation-only; the existing automated-deployment credential handoff remains open. Rollback: revert `844f00d`, rebuild, and deploy through the same path.
 
-## Secondary controls — active
+## Secondary controls — live
 
 - [x] Replace five competing cards with controls grouped by task: examples at input, settings and explanation at result, developer tools below.
 - [x] Verified 390px/320px containment, keyboard disclosures, example-to-result focus, copy feedback, settings, error diagnostics, live approximation trace, API parity, 255 tests, checks, types, and build.
-- [ ] Commit, push, deploy, and verify the public page.
+- [x] Pushed `1fea2d2`; deployed `3948799c-afe0-49b9-970c-2ec8997fe2ad` with client `index-CytiqxH9.js`. Public grouped controls, trace, copy feedback, and HTTP 200 API parity verified.
+
+Secondary-controls rollback: revert `1fea2d2`, rebuild, and deploy through the existing OAuth path. No parser, preference-storage, dependency, or hosting configuration changes.
+
+GitHub run `34700146532` passed check/test/build and failed automated deployment. The verified manual release succeeded independently.
