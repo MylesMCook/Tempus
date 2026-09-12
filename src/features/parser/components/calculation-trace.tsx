@@ -6,9 +6,9 @@ function timestamp(date: DateSnapshot) {
 
 export function CalculationTrace({ calculation }: { calculation: Calculation }) {
   return (
-    <details className="rounded-xl border bg-background p-4 sm:p-5">
-      <summary className="cursor-pointer font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">
-        See how it works
+    <details className="border-t">
+      <summary className="cursor-pointer py-3 text-sm font-medium focus-visible:outline focus-visible:outline-2">
+        Show calculation steps
       </summary>
       {!calculation.ok ? (
         <p className="mt-3 text-sm text-muted-foreground">

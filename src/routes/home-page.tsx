@@ -3,13 +3,9 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { Clock3 } from "lucide-react";
-import { ApiDocs } from "@/features/parser/components/api-docs";
-import { DateExpressionTabs } from "@/features/parser/components/date-expression-tabs";
 import { calculateDate } from "@/shared/date-parser";
 import { useSettings } from "@/features/parser/context/settings-context";
 import { DatePicker } from "@/features/parser/components/date-picker";
-
-import { examples } from "@/features/parser/examples";
 
 export function HomePage() {
   const [{ expression, reference }, setInput] = useState(() => ({
@@ -49,56 +45,17 @@ export function HomePage() {
             }
           />
         </section>
-
-        <section className="mx-auto w-full max-w-2xl">
-          <details className="rounded-xl border bg-background p-4 sm:p-5">
-            <summary className="cursor-pointer font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">
-              More examples
-            </summary>
-            <div className="mt-3">
-              <DateExpressionTabs
-                examples={examples}
-                onExampleClick={(value) => {
-                  setExpression(value);
-                  requestAnimationFrame(() => {
-                    const result = document.getElementById("calculated-date");
-                    result?.focus({ preventScroll: true });
-                    result?.scrollIntoView({ block: "nearest" });
-                  });
-                }}
-              />
-            </div>
-          </details>
-        </section>
-
-        <section className="mx-auto w-full max-w-2xl">
-          <details className="group rounded-lg border bg-background p-4 sm:p-5">
-            <summary className="cursor-pointer font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">
-              Use the API
-            </summary>
-            <p className="mb-4 mt-2 text-sm text-muted-foreground">
-              Test a request using your expression and settings.
-            </p>
-            <ApiDocs expression={expression} reference={reference} calculation={calculation} />
-          </details>
-        </section>
       </main>
 
       <footer className="border-t border-border/60 bg-background/80">
-        <div className="container flex flex-col gap-3 px-4 py-5 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between sm:px-6">
-          <div className="flex items-center gap-2">
-            <Clock3 className="size-4" />
-            <span>TempusTotal</span>
-          </div>
-          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-4">
-            <span>Plain-language date calculator.</span>
-            <Link
-              to="/privacy"
-              className="font-medium text-foreground underline-offset-4 hover:underline"
-            >
-              Privacy policy
-            </Link>
-          </div>
+        <div className="mx-auto flex max-w-2xl items-center justify-between gap-4 px-4 py-4 text-xs text-muted-foreground sm:px-6">
+          <span>TempusTotal</span>
+          <Link
+            to="/privacy"
+            className="inline-flex min-h-11 items-center underline-offset-4 hover:underline"
+          >
+            Privacy policy
+          </Link>
         </div>
       </footer>
     </div>

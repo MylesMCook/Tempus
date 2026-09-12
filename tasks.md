@@ -45,3 +45,9 @@ Decision: apply the I Have ADHD plugin's low-distraction and visible-state guida
 Verification: 255 tests; source/type/build checks; desktop, 390px and 320px browser paths, keyboard copy/example navigation, format/timezone/phrase recovery, approximation trace, and matching API replay. Details: [UX review](docs/phoenix-ux-review.md#adhd-oriented-follow-up--september-12-2026).
 
 GitHub run `34699827081` passed check/test/build and failed deployment. Manual deployment succeeded independently. Worktree closeout is documentation-only; the existing automated-deployment credential handoff remains open. Rollback: revert `844f00d`, rebuild, and deploy through the same path.
+
+## Secondary controls — active
+
+- [x] Replace five competing cards with controls grouped by task: examples at input, settings and explanation at result, developer tools below.
+- [x] Verified 390px/320px containment, keyboard disclosures, example-to-result focus, copy feedback, settings, error diagnostics, live approximation trace, API parity, 255 tests, checks, types, and build.
+- [ ] Commit, push, deploy, and verify the public page.

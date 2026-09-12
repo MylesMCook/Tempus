@@ -40,3 +40,9 @@ The I Have ADHD plugin's communication guidance informed this UI pass: lower sta
 - Keep approximations and recovery actions visible. Preserve the live trace, diagnostic copy, precise timestamps, all examples, and API replay behind disclosures. Selecting a detailed example focuses and reveals the result without focusing the text field.
 
 Verified in the browser: desktop, 390px and 320px widths, first-screen result/copy visibility at 320px, no horizontal overflow, keyboard tab-to-copy and activation, example category arrow keys, result focus after example selection, invalid phrase/timezone/format recovery, approximation trace, and HTTP 200 API parity. The final preview emitted no console warnings or errors. All 255 engine/API/storage tests, source checks, TypeScript build, and production build passed. No parser, storage, dependencies, or API semantics changed. Physical phone keyboards and assistive-technology announcements were not directly tested.
+
+### Follow-up from the circled mobile screenshot
+
+The five equally weighted disclosure cards still made optional work look like a task list. Grouped the same capabilities by purpose: Browse examples inside the input card; Change timezone or format and Show calculation steps inside the result card; exact values, diagnostic copy, and API replay in one subdued Developer tools disclosure below. Removed the repeated footer description. This supersedes the earlier stack of standalone cards.
+
+Verified at 390px and 320px without horizontal overflow, including expanded API output. Native disclosures respond to Enter; example selection focuses the result (or the error if the timezone is invalid); copy completion, settings, invalid-phrase diagnostics, live approximation steps, and API parity remain available. All 255 tests, source/type checks, and production build pass.
