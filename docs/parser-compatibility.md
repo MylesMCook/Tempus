@@ -81,3 +81,9 @@ Reference: `2026-01-26T19:30:00.000Z`, timezone `America/Chicago`. Dates below a
 - Source/type/build checks pass; no dependencies changed. Existing Vite chunk advisory and local workerd compatibility-date fallback remain unchanged.
 - Local browser: exact reported phrase, mixed fractions, abbreviations/earlier, restored calendar fractions, API match, full-input rejection, zero warnings for exact half years, diagnostic copy feedback, and error recovery verified.
 - The original user failure remains unreproduced. Clipboard writes returned successful feedback; no clipboard readback or physical screen-reader test was performed.
+
+## Release
+
+Implementation `ad5355e` is pushed on main. Wrangler deployed version `60fd1a59-ae81-4628-96a9-7e2f1080ea48`, client `index-8bf3uT5u.js`, with a reported 5 ms Worker startup. Live browser and direct HTTP verified the reported phrase, abbreviated earlier, mixed fractions, exact half years, labelled fractional months, and rejection of unused trailing text. Checked API responses use no-store. Temporary browser emulation was cleared.
+
+[GitHub run 34674040184](https://github.com/MylesMCook/TempusTotal/actions/runs/34674040184) passed check/test/build and failed deployment. The authenticated manual fallback deployed successfully. No credentials, host services, networking, dependencies, or server data changed. Roll back by reverting `ad5355e`, rebuilding, and deploying through the same path.

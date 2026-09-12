@@ -23,10 +23,12 @@ Release: `868ac2ab-b176-4063-8fee-0e602449436f`; client `index-DBLeC7iA.js`. Git
 
 Current state: Phoenix rebuild complete and live. Remaining operational follow-up: replace the GitHub deployment token through the required credential handoff. No further app changes are pending.
 
-## Compatibility follow-up — active
+## Compatibility follow-up — live
 
 - [x] Live “3 weeks ago” returns August 21 from September 11 in Chicago, with a 21-day subtraction and matching API replay. User-reported failure not yet reproduced; requested observed error/date.
 - [x] Compare pre-audit and pre-Phoenix implementations; research Chrono and GNU date's documented language and edge cases.
-- [x] Measured 44 phrases across original, audited v1, and initial Phoenix; added 58 independent compatibility oracles. Restored useful grammar and labelled calendar approximations. See `docs/parser-compatibility.md`.
+- [x] Measured 47 phrases across original, audited v1, and initial Phoenix; added 58 independent compatibility oracles. Restored useful grammar and labelled calendar approximations. See `docs/parser-compatibility.md`.
 - [x] 255 tests, source/type/build checks, three-host-timezone suite, browser/API match, visible approximations, error recovery, and diagnostic copy feedback. Narrow-screen DOM measured no horizontal overflow.
-- [ ] Push, deploy, and verify the compatibility release on the public site.
+- [x] Pushed `ad5355e`; deployed version `60fd1a59-ae81-4628-96a9-7e2f1080ea48`, client `index-8bf3uT5u.js`. Public browser and fixed-reference API checks passed for ago, mixed fractions, aliases, exact half years, labelled month approximations, and trailing-text rejection.
+- [x] GitHub run `34674040184` passed check/test/build; its deploy failed. The manual release succeeded independently.
+- Remaining uncertainty: the original “3 weeks ago” failure has not been reproduced. The diagnostic copy action now captures the exact inputs and error/result for follow-up.
