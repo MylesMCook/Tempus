@@ -3,7 +3,8 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { Clock3 } from "lucide-react";
-import { calculateDate } from "@/shared/date-parser";
+import type { Calculation } from "@/shared/date-parser";
+import { interpretDate } from "@/shared/interpret-date";
 import { useSettings } from "@/features/parser/context/settings-context";
 import { DatePicker } from "@/features/parser/components/date-picker";
 
@@ -15,10 +16,14 @@ export function HomePage() {
   const { settings } = useSettings();
   const setExpression = (value: string) =>
     setInput({ expression: value, reference: new Date().toISOString() });
-  const calculation = useMemo(
-    () => calculateDate(expression, { timezone: settings.timezone, reference }),
+  const interpretation = useMemo(
+    () => interpretDate(expression, { timezone: settings.timezone, reference }),
     [expression, settings.timezone, reference],
   );
+  const calculation: Calculation =
+    interpretation.status === "resolved"
+      ? interpretation.value.calculation
+      : { ok: false, engineVersion: 2, error: interpretation.error };
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -39,6 +44,7 @@ export function HomePage() {
             expression={expression}
             onExpressionChange={setExpression}
             calculation={calculation}
+            interpretation={interpretation}
             reference={reference}
             onRefresh={() =>
               setInput((current) => ({ ...current, reference: new Date().toISOString() }))

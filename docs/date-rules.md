@@ -49,7 +49,11 @@ Other abbreviations include sec, ms, mo, and yr. A fortnight is 14 days; a quart
 
 ## Unsupported input and limits
 
-The parser must understand the whole phrase. It uses a fixed English grammar. Surrounding prose, vague amounts such as “a few,” ambiguous numeric dates, and date ranges are unsupported.
+The browser also recognizes a few short sentence forms: `Remind me to call Sam tomorrow at noon`, `Can we talk tomorrow at noon?`, and `The meeting is on September 18, 2026 at 2 pm.` It highlights the date phrase and keeps the event label. This previews a date; it does not create or deliver a reminder.
+
+Reminder labels currently require one supported action and a single-word name or item. Longer labels, corrections, conditions, multiple dates and recurring schedules remain unsupported. Names that look like dates, such as May, may require entering just the date phrase. The browser declines these cases rather than discarding words to produce a result. This is limited sentence recognition, not general prose extraction.
+
+The strict calculator and API must understand the whole date phrase. They use a fixed English grammar. Surrounding prose, vague amounts such as “a few,” ambiguous numeric dates, and date ranges are unsupported by the API.
 
 Invalid dates, unsupported words, and incomplete phrases return an error instead of a partial answer. Supported years are 0001–9999, with up to 200 characters and 20 changes per phrase.
 

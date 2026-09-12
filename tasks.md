@@ -97,3 +97,13 @@ Copy/formatting rollback: revert `220051f`, rebuild and deploy through the docum
 Next: implement that interpretation milestone. Independent holdout evaluation, calendar-export validation and device/user benchmarks remain open; this harness does not establish general language accuracy.
 
 Scope: development baseline only. Tempus is a working name; existing API, deployed behavior, repository name and domains stay unchanged. These inspected fixtures are development evidence, not an untouched accuracy benchmark.
+
+## Sentence interpretation — verified locally
+
+- [x] Added interpretation v1 with a point result, source/event spans and explicit unresolved outcomes. Strict evaluator/API v2 remain unchanged. Reminder labels require a supported action and a single-word target.
+- [x] Added 28 sentence/regression checks. A test caught recurrence being discarded from the event label; the corrected recognizer evaluates the complete suffix. All 298 tests, formatting, lint, types and build pass. The unchanged comparison corpus now reports strict v2, interpretation and gpu-time separately: interpretation resolves 3/4 sentence cases, preserves 11/11 date/arithmetic cases and resolves 0/5 schedule cases.
+- [x] Verified 320px/390px containment, desktop API replay, highlighted phrase, event label, copy contents/feedback, keyboard trace, recurrence/cancellation rejection and successful recovery. No browser console errors. API replay sends only the highlighted phrase and labels this distinction. Agent-browser screenshot capture stalled; verification completed in the Codex browser.
+
+Release pending. Previous live Worker: `adf61c72-542b-4578-bb90-c297fdb2ab91`. New client: `index-PCguxmMf.js`. No server contract, binding, credential or domain changes.
+
+Constraint: no claim of arbitrary prose understanding or reminder delivery. Intervals and recurrence remain unsupported until their own contracts and tests exist.

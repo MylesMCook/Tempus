@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import type { Calculation } from "@/shared/date-parser";
+import type { Interpretation } from "@/shared/interpret-date";
 import { useSettings } from "../context/settings-context";
 import { dateFormatOptions, safeFormatDate, timezoneOptions } from "../options";
 import { CalculationTrace } from "./calculation-trace";
@@ -43,12 +44,14 @@ export function DatePicker({
   expression,
   onExpressionChange,
   calculation,
+  interpretation,
   reference,
   onRefresh,
 }: {
   expression: string;
   onExpressionChange: (value: string) => void;
   calculation: Calculation;
+  interpretation: Interpretation;
   reference: string;
   onRefresh: () => void;
 }) {
@@ -125,6 +128,10 @@ export function DatePicker({
               });
             }}
           />
+          <p className="pb-3 text-sm text-muted-foreground">
+            You can also try “Remind me to call Sam tomorrow at noon”. Short reminder and meeting
+            forms are supported; other sentences may need just the date phrase.
+          </p>
         </details>
       </section>
 
@@ -180,6 +187,24 @@ export function DatePicker({
                 )}
               </p>
             </div>
+            {interpretation.status === "resolved" && interpretation.event ? (
+              <div className="mt-4 grid gap-2 border-t pt-4 text-sm">
+                <p className="break-words">
+                  <span className="font-medium">Event: </span>
+                  {interpretation.event.text}
+                </p>
+                <p className="break-words" aria-label="Recognized date phrase">
+                  {expression.slice(0, interpretation.source.span.start)}
+                  <mark className="rounded bg-amber-100 px-1 text-amber-950">
+                    {interpretation.source.text}
+                  </mark>
+                  {expression.slice(interpretation.source.span.end)}
+                </p>
+                <p className="text-muted-foreground">
+                  Date preview only. No reminder has been created.
+                </p>
+              </div>
+            ) : null}
             {calculation.warnings.map((warning) => (
               <p
                 key={warning}
@@ -369,6 +394,7 @@ export function DatePicker({
                         reference,
                         format: effectiveDateFormat,
                         calculation,
+                        interpretation,
                       },
                       null,
                       2,
@@ -386,7 +412,17 @@ export function DatePicker({
             className={`grid min-w-0 gap-2 ${expression.trim() ? "border-t pt-5" : ""}`}
           >
             <h2 className="text-base font-semibold tracking-tight">Compare with the API</h2>
-            <ApiDocs expression={expression} reference={reference} calculation={calculation} />
+            {interpretation.status === "resolved" && interpretation.event ? (
+              <p className="text-sm text-muted-foreground">
+                This sends only the highlighted date phrase. The API does not interpret the full
+                sentence.
+              </p>
+            ) : null}
+            <ApiDocs
+              expression={calculation.ok ? calculation.expression : expression}
+              reference={reference}
+              calculation={calculation}
+            />
           </section>
         </div>
       </details>

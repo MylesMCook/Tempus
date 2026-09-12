@@ -9,6 +9,8 @@ Open [the generated report](results/report.md). [report.json](results/report.jso
 
 Both parsers run in the same Node process, without HTTP requests or a GPU. gpu-time 0.2.0 is pinned in the development dependencies and lockfile; it is not imported by the app. The tests also run under `pnpm test` in CI.
 
+The report now keeps three entries: `tempus` is the unchanged strict v2 evaluator, `interpretation` is the browser's bounded sentence recognizer, and `gpu` is gpu-time. On the unchanged four sentence fixtures, interpretation resolves three and abstains on the correction. It preserves the eleven protected date/arithmetic cases and still abstains on all five schedule fixtures. This improvement on inspected templates does not establish general sentence accuracy.
+
 ## What the score means
 
 | Grade             | Meaning                                                                                           |

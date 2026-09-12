@@ -2,6 +2,8 @@
 
 Send a phrase to `GET /api/parse`. No API key is needed.
 
+This v2 endpoint accepts date expressions, not full reminder sentences. The browser's sentence recognizer runs locally; **Check API result** sends its highlighted date phrase. The event label is not included in that request.
+
 ```sh
 curl --get 'https://tempus-total.funnydomainname.com/api/parse' \
   --data-urlencode 'expression=jan 31 2026 plus 1 month' \

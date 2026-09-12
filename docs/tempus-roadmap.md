@@ -1,10 +1,12 @@
 # Tempus development
 
-Current milestone: establish a repeatable [local comparison](../comparison/README.md). Tempus is a working name; this plan does not change the repository, package or domain names.
+The [local comparison](../comparison/README.md) is running. A bounded sentence recognizer now resolves three of the four existing sentence fixtures while the strict evaluator remains available unchanged. Tempus is a working name; this plan does not change the repository, package or domain names.
 
-## Next: one sentence to one date
+## Current: one sentence to one date
 
 Make `Remind me to call Sam tomorrow at noon` return the intended date and highlight the words that determined it. Keep `call Sam` as event text. This interprets a reminder; it does not deliver one.
+
+Implemented contract: interpretation version 1 returns a resolved point with source/event spans, or an explicit unresolved status. Interval and recurrence variants are not exposed until their resolvers exist. Reminder labels are intentionally limited to a supported verb and single-word target; corrections, conditions, longer labels and recurring schedules remain open. The first negative test pass caught `every Monday` being misread as one Monday; the recognizer now preserves the entire suffix after the event target.
 
 1. Define a new interpretation contract alongside the existing v2 calculator: resolved, needs clarification, no expression, or unsupported. Resolved values must distinguish points, intervals and recurring schedules. Include source spans and explicit assumptions.
 2. Implement one sentence-to-date path with the current calendar evaluator. Preserve strict arithmetic behavior and source spans. Compare recognition approaches against the same fixtures before adding a model or another parsing dependency.

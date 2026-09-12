@@ -4,6 +4,7 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { defineParser } from "gpu-time";
 import { expect, it } from "vite-plus/test";
 import { calculateDate } from "../src/shared/date-parser";
+import { interpretDate } from "../src/shared/interpret-date";
 import { context, fixtures, type Fixture } from "./fixtures";
 import { score, validateFixtures, type Grade, type Observed } from "./scoring";
 
@@ -15,6 +16,7 @@ it("records the local development comparison and protects existing arithmetic", 
     fixture: Fixture;
     context: typeof context;
     tempus: Evaluation;
+    interpretation: Evaluation;
     gpu: Evaluation;
   }[] = [];
   try {
@@ -28,6 +30,21 @@ it("records the local development comparison and protects existing arithmetic", 
         occurrences: tempus.ok ? [{ start: tempus.result.iso }] : [],
         recurring: false,
         diagnostics: tempus.ok ? tempus.warnings : [tempus.error.code, tempus.error.message],
+      };
+      const interpretation = interpretDate(fixture.text, {
+        reference: inputContext.reference,
+        timezone: inputContext.timeZone,
+      });
+      const observedInterpretation: Observed = {
+        occurrences:
+          interpretation.status === "resolved"
+            ? [{ start: interpretation.value.calculation.result.iso }]
+            : [],
+        recurring: false,
+        diagnostics:
+          interpretation.status === "resolved"
+            ? interpretation.assumptions
+            : [interpretation.status, interpretation.error.message],
       };
       let gpu: unknown;
       let observedGpu: Observed;
@@ -60,6 +77,11 @@ it("records the local development comparison and protects existing arithmetic", 
           raw: tempus,
         },
         gpu: { grade: score(fixture.expected, observedGpu), observed: observedGpu, raw: gpu },
+        interpretation: {
+          grade: score(fixture.expected, observedInterpretation),
+          observed: observedInterpretation,
+          raw: interpretation,
+        },
       });
     }
   } finally {
@@ -69,7 +91,7 @@ it("records the local development comparison and protects existing arithmetic", 
   const grades: Grade[] = ["correct", "correct-rejection", "abstained", "incorrect", "error"];
   const families = [...new Set(fixtures.map((f) => f.family))];
   const summary = families.flatMap((family) =>
-    (["tempus", "gpu"] as const).map((engine) => ({
+    (["tempus", "interpretation", "gpu"] as const).map((engine) => ({
       family,
       engine,
       total: results.filter((r) => r.fixture.family === family).length,
@@ -91,6 +113,7 @@ it("records the local development comparison and protects existing arithmetic", 
     await Promise.all(
       [
         "src/shared/date-parser.ts",
+        "src/shared/interpret-date.ts",
         "src/shared/date-engine/grammar.ts",
         "src/shared/date-engine/types.ts",
         "comparison/scoring.ts",
@@ -145,9 +168,12 @@ it("records the local development comparison and protects existing arithmetic", 
     "",
     "## Cases",
     "",
-    "| Case | Tempus | gpu-time |",
-    "| --- | --- | --- |",
-    ...results.map((row) => `| ${row.fixture.id} | ${row.tempus.grade} | ${row.gpu.grade} |`),
+    "| Case | Tempus v2 | Interpretation | gpu-time |",
+    "| --- | --- | --- | --- |",
+    ...results.map(
+      (row) =>
+        `| ${row.fixture.id} | ${row.tempus.grade} | ${row.interpretation.grade} | ${row.gpu.grade} |`,
+    ),
     "",
     "Full inputs, expectations, rationale, context and raw responses are in report.json.",
     "",
@@ -161,6 +187,7 @@ it("records the local development comparison and protects existing arithmetic", 
   // Existing supported cases are release gates: a new recognizer cannot sacrifice arithmetic.
   for (const result of results.filter((r) => r.fixture.preserve)) {
     expect(result.tempus.grade, result.fixture.id).toBe("correct");
+    expect(result.interpretation.grade, result.fixture.id).toBe("correct");
   }
   for (const result of results) {
     expect(result.gpu.grade, `${result.fixture.id}: gpu-time runtime exception`).not.toBe("error");
