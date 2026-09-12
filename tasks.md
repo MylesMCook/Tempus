@@ -11,7 +11,7 @@ Rebuild TempusTotal around explicit timezone/reference inputs, sequential calend
 - [x] Rebuild calculator, display preferences, examples, and API replay; migrate stored preferences without the retired arithmetic switch.
 - [x] 183 tests, source/type/build checks, frozen install, three-host-timezone suite, and browser replay at desktop/tablet/mobile. Fixed observed mobile overflow and grouping issues.
 - [x] Update API migration documentation, privacy copy, and Writer/Laws of UX critique. Historical v1 audits marked superseded.
-- [ ] Land on main, push, deploy through authorized Wrangler OAuth fallback, and verify the public client/API.
+- [x] Landed `e1eb6ce` on main and pushed. Wrangler OAuth deployment succeeded; public calculator, trace, API parity, HTTP errors/no-store, asset, and privacy navigation verified.
 
 ## Operational boundary
 
@@ -19,4 +19,6 @@ No database, host service, DNS, or credential changes. Existing GitHub Cloudflar
 
 Rollback: revert the Phoenix implementation commit, install the resulting lockfile, rebuild, and deploy through the same path. Existing timezone/date-format storage remains compatible with v1.
 
-Next action: mainline closeout and live verification. Do not mark the deployment complete before checking the actual public calculator and API.
+Release: `868ac2ab-b176-4063-8fee-0e602449436f`; client `index-DBLeC7iA.js`. GitHub run `34673173157` passed check/test/build and failed deployment; manual deployment succeeded independently. See the release evidence in `docs/phoenix.md`.
+
+Current state: Phoenix rebuild complete and live. Remaining operational follow-up: replace the GitHub deployment token through the required credential handoff. No further app changes are pending.
