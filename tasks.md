@@ -72,10 +72,12 @@ Evidence: `/Users/mylescook/Documents/Codex/2026-09-12-tempustotal-open-source/`
 
 Rollback: previous live version `3948799c-afe0-49b9-970c-2ec8997fe2ad`. Revert the hardening/toolchain commits together, restore that lockfile, rebuild, deploy, and verify both production addresses. No stateful data migration or shared host changes occurred.
 
-## Developer copy and formatting — active
+## Developer copy and formatting — live
 
 - [x] Replace API prose wall with a clear empty state, decoded request fields, structured reference, and concise comparison status. Preserve explicit request action and privacy disclosure.
 - [x] Writer pass complete. Verified 390px/320px/1280px containment, keyboard disclosures, empty state, decoded fields, URL/response copy feedback, stale status, HTTP 400 and successful recovery. No browser console errors; 260 tests, checks, types and build pass.
-- [ ] Commit, push main, deploy via the documented OAuth path, and verify production and CI.
+- [x] Pushed `220051f`; GitHub CI `34702768861` passed. Deployed `adf61c72-542b-4578-bb90-c297fdb2ab91`, client `index-D8Lsn2vx.js`. Both production hosts serve the current client/security headers; live 390px layout, empty state, request details, copy feedback and API parity verified.
 
 Scope: presentation and feedback only; parser and Cloudflare protections stay unchanged.
+
+Copy/formatting rollback: revert `220051f`, rebuild and deploy through the documented path. Existing Cloudflare account-review and automated-deployment credential handoffs remain unchanged.
