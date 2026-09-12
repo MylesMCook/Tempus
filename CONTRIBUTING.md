@@ -1,21 +1,41 @@
 # Contributing
 
-Start with the [README](README.md#development). Local development needs Node.js 22.12 or newer and pnpm 10.33.0; it needs no Cloudflare account or API token.
+[Run the app locally](README.md#run-locally), then make one small change.
 
-Before a pull request, run:
+## Report a problem
+
+[Open an issue](https://github.com/MylesMCook/TempusTotal/issues/new/choose) with what you tried, what you expected, and what happened. A screenshot helps with layout problems.
+
+For a wrong date, open **Developer tools → Copy calculation details** in the app. This includes the phrase, timezone, and starting time needed to repeat it. Remove anything private before posting.
+
+You can report confusing behavior without proposing a fix. If you want a few things to try, use the [review guide](docs/review-guide.md).
+
+For a vulnerability, use the [private reporting instructions](SECURITY.md).
+
+## Submit a change
+
+1. Make the change. For date calculations, add a test with a fixed timezone, starting time, and an expected date calculated separately from the parser.
+2. Run the checks below.
+3. Open a pull request explaining the problem and what changed. Call out any change to existing date behavior.
 
 ```sh
-pnpm install --frozen-lockfile
 pnpm check
 pnpm test
 pnpm build
 pnpm audit --audit-level=high
 ```
 
-Keep each change focused. Parser changes need an independently calculated expected date and a regression test with an explicit reference and timezone. Preserve browser/API parity. Explain deliberate changes to calendar, DST, approximation, or error semantics.
+For UI changes, try a phone-width window and keyboard navigation. Check that errors explain what to do next. Typing a phrase must keep working locally; sending it to the API must remain a separate action.
 
-For interface changes, check the complete path at narrow and wide widths, keyboard access, visible focus, loading/error recovery, and whether the next action is clear. Preserve local calculation and require an explicit action to send a phrase to the API.
+Pull requests run checks without Cloudflare credentials.
 
-Report bugs with the phrase, timezone, captured reference, expected result, and actual result. **Copy calculation details** supplies the inputs; remove anything private before posting. Screenshots help with layout problems. Use the [review guide](docs/review-guide.md) for broader critique.
+## Find the code
 
-Do not post credentials or vulnerability details in public issues. Follow [SECURITY.md](SECURITY.md) for security reports. Pull requests run validation without deployment credentials; deployment is an opt-in maintainer operation.
+| To change…                           | Start here                                                                  |
+| ------------------------------------ | --------------------------------------------------------------------------- |
+| Which phrases are accepted           | [grammar.ts](src/shared/date-engine/grammar.ts)                             |
+| Date arithmetic or calculation steps | [date-parser.ts](src/shared/date-parser.ts)                                 |
+| API validation and HTTP responses    | [parse-api.ts](src/shared/parse-api.ts), [worker/index.ts](worker/index.ts) |
+| The interface and saved preferences  | [src/features/parser](src/features/parser/)                                 |
+
+The app uses React and TypeScript, with Tailwind/Radix components and a Cloudflare Worker. Temporal handles timezone arithmetic; date-fns-tz formats dates. See [deployment notes](docs/cloudflare-workers.md) when you need to publish a build.

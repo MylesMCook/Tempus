@@ -1,18 +1,18 @@
-# Review TempusTotal
+# Feedback
 
-[Try the calculator](https://tempus-total.funnydomainname.com/), or run it locally from the README. Critique is welcome, including confusing behavior and features that should be removed.
+[Open the calculator](https://tempus-total.funnydomainname.com/) and try one phrase you would actually use.
 
-Focus on one question at a time:
+1. Enter the phrase and check the date.
+2. Open **Show calculation steps**. Can you tell why it returned that date?
+3. [Open an issue](https://github.com/MylesMCook/TempusTotal/issues/new/choose) if something is wrong or confusing. Say what you expected and what happened.
 
-1. Can a first-time user enter a phrase, understand the result, and copy it without opening help? Are settings and explanations easy to find when needed?
-2. Does **See how it works** explain the actual calculation, including calendar clamping, written order, and approximation warnings?
-3. Do calendar and timezone rules match the documented behavior? Which useful phrases still fail?
-4. Does **Check API result** return the same instant and a useful error when it cannot? Is it clear that this action sends the phrase to a server?
-5. Is the code easy to run, test, and change? Identify concrete complexity or missing regression coverage.
+You do not need to review the whole app or suggest a fix.
 
-## Reproducible checks
+## Checking a wrong date
 
-Use reference `2026-01-26T19:30:00.000Z` and timezone `America/Chicago` in the API or unit tests:
+Choose **Developer tools → Copy calculation details**. This captures the exact starting time and timezone, so someone else can repeat the calculation. Remove anything private before posting.
+
+For a code or API review, use reference `2026-01-26T19:30:00.000Z` and timezone `America/Chicago`:
 
 | Phrase                     | Expected UTC instant       |
 | -------------------------- | -------------------------- |
@@ -20,6 +20,6 @@ Use reference `2026-01-26T19:30:00.000Z` and timezone `America/Chicago` in the A
 | `tomorrow`                 | `2026-01-27T06:00:00.000Z` |
 | `jan 31 2026 plus 1 month` | `2026-02-28T06:00:00.000Z` |
 
-Also check an invalid phrase, a fractional month with its warning, and recovery after changing a timezone or format. The [oracle fixtures](../src/shared/date-engine/oracle-fixtures.ts) and [compatibility tests](../src/shared/compatibility.test.ts) cover more calendar cases.
+**Check API result** should return the same instant as the calculator. That action sends the phrase to the server.
 
-Report what you tried, what you expected, and what happened. Include the captured reference and timezone for date issues. Remove personal information from copied diagnostics. Report vulnerabilities privately using [SECURITY.md](../SECURITY.md).
+More cases are in the [oracle fixtures](../src/shared/date-engine/oracle-fixtures.ts) and [compatibility tests](../src/shared/compatibility.test.ts). Use [SECURITY.md](../SECURITY.md) for private vulnerability reports.

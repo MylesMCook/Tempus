@@ -1,11 +1,11 @@
-## Change
+## What changed?
 
-Describe the problem and resulting behavior.
+Explain the problem and the change.
 
-## Verification
+## How did you check it?
 
-List relevant checks and results. For parser changes, include a fixed reference, timezone, and independent expected date. For UI changes, include keyboard and narrow-screen checks.
+List the checks you ran and their results. For date changes, include an expected date, timezone, and starting time. For UI changes, check a phone-width window and keyboard navigation.
 
-## Risks
+## Anything that could break?
 
-Describe any compatibility, privacy, or deployment impact. Do not include secrets or private diagnostics.
+Mention changes to existing behavior, privacy, or deployment. Remove this section if there are none. Do not include secrets or private diagnostics.

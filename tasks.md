@@ -81,3 +81,9 @@ Rollback: previous live version `3948799c-afe0-49b9-970c-2ec8997fe2ad`. Revert t
 Scope: presentation and feedback only; parser and Cloudflare protections stay unchanged.
 
 Copy/formatting rollback: revert `220051f`, rebuild and deploy through the documented path. Existing Cloudflare account-review and automated-deployment credential handoffs remain unchanged.
+
+## Repository writing — active
+
+- [x] Read Writer and I Have ADHD guidance; rewrite README, contribution/review guidance and feedback templates around the reader's next action. Move detailed date/API rules into linked reference pages.
+- [x] Validate formatting, relative links, preserved examples, GitHub Markdown rendering and issue-template YAML. GitHub About now has a plain description and the current calculator URL; visibility remains private.
+- [ ] Commit/push documentation and verify CI. No application deployment or repository-visibility change needed.
