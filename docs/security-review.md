@@ -20,6 +20,10 @@ The formal scan predates the hardening patch. Its result does not certify the pa
 - Worker observability remains enabled with query-string redaction. Version preview URLs are disabled. The custom domain and production workers.dev endpoint use the same Worker protections.
 - CI uses pinned action commits, read-only repository permissions, frozen installation, checks, tests, build/type validation, and dependency auditing. Deployment requires an explicit repository opt-in and `main`; pull requests do not receive deployment credentials.
 
+## Live verification
+
+Release commit `ebef472` deployed as Worker version `e385941f-1556-4e6e-81a3-3048c91ac257`, with client `index-BAk8XBE-.js`. A fresh checkout passed frozen installation, checks, all 260 tests, and build. The account API read back the rate limiter, CPU budget, query redaction, and disabled preview URLs. Both production hostnames returned the expected page/API/status responses and security headers. The live browser verified calculation, copy feedback, matching API replay, error recovery, and approximation trace. Limiter denial and failure were tested locally with mocks, not by exhausting production allowances.
+
 ## Operational boundaries
 
 The account API confirmed the production custom domain and Worker mapping. HTTPS redirects work. The current Wrangler session cannot read the zone's TLS settings or managed WAF rules, and the dashboard is signed out. Zone configuration and account security policies therefore remain unverified. Do not infer account-wide MFA status from the account's MFA-enforcement setting.

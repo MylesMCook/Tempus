@@ -56,16 +56,18 @@ Secondary-controls rollback: revert `1fea2d2`, rebuild, and deploy through the e
 
 GitHub run `34700146532` passed check/test/build and failed automated deployment. The verified manual release succeeded independently.
 
-## Open-source and security readiness — active
+## Open-source and security readiness — release verified
 
-- [x] Inspect private repository/license status; scan full reachable history for secrets (Gitleaks 8.30.1, no detections); inspect historical personal-path/network metadata (no matches).
-- [x] Complete Codex Security standard source scan at `81dce96`: independent baseline, architecture, HTTP and UI-support reviews; 97 files fully audited, no source-backed vulnerabilities. Scan `d759b8fa-a7c2-46aa-9d43-3616a58d3e67`; deployment/dependencies were explicit follow-ups.
-- [ ] Fix package advisories; add request limits and browser/API headers; verify and update the existing Cloudflare Worker/domain configuration.
-- [x] Prepare MIT license, attribution, setup/contribution/security docs, critique issue forms and fork-safe CI.
-- [ ] Verify fresh setup, regression checks, live runtime/configuration, then commit/push. Keep repository private until publication/license approval.
+- [x] Codex Security standard source scan at `81dce96`: 97 files reviewed, no confirmed source-backed vulnerabilities. History secret/metadata scans found no detections. See [security review](docs/security-review.md) for scope and limits.
+- [x] Patched dependencies; final audit reports zero advisories. Vite+ 0.3.1 resolves the intermittent type-checker failure found during clean-install verification.
+- [x] Prepared MIT license, third-party attribution, contributor/security docs, critique issue forms, review guide, and credential-free CI with opt-in deployment.
+- [x] Fresh `ebef472` checkout passed frozen install, checks, 260 tests, and build. Tests also passed under UTC, America/New_York, and Asia/Tokyo during hardening. Main checkout checks, tests, build, and deploy dry run passed before release.
+- [x] Deployed `e385941f-1556-4e6e-81a3-3048c91ac257`; client `index-BAk8XBE-.js`. Read back Cloudflare's 120/minute per-IP limiter, 100 ms CPU budget, query redaction, preview URLs disabled, and unchanged production domain mapping.
+- [x] Both custom domain and workers.dev: home/privacy/API 200, unknown API route 404, unsupported method 405, and preflight 200; security headers and no-store API responses verified. Fixed-reference API returned February 28 from January 31 plus one month. Live browser copy, API parity, error recovery, and approximation trace passed.
+- [ ] Push release commits and verify GitHub CI. Automated deployment stays skipped until its credential handoff is complete and deployment is explicitly enabled.
+- [ ] Cloudflare zone-wide TLS/WAF and account access-policy review: existing OAuth lacks read permissions; dashboard is signed out. HTTPS redirect and valid certificate are observed, but these do not prove zone configuration.
+- [ ] Confirm MIT/publication and enable private vulnerability reporting when publishing. Repository remains private.
 
-Evidence scratch: `/Users/mylescook/Documents/Codex/2026-09-12-tempustotal-open-source/`. Existing OAuth deployment is authorized; do not rotate or publish credentials. User explicitly added Cloudflare configuration verification/updates.
+Evidence: `/Users/mylescook/Documents/Codex/2026-09-12-tempustotal-open-source/`. Formal scan ID `d759b8fa-a7c2-46aa-9d43-3616a58d3e67`. The scan predates hardening; focused regression/runtime checks cover this release separately. Query redaction does not erase old logs. Rate limits are approximate per edge location, not a global spending cap.
 
-Hardening validation: 260 tests pass under UTC, America/New_York and Asia/Tokyo; source/type/build checks and deployment dry run pass. Local production browser calculation, copy feedback and API parity pass. Dependency audit reports zero advisories. Clean-checkout and live deployment verification remain next.
-
-Clean-checkout follow-up: Vite+ 0.1.24 intermittently reported missing installed modules, matching upstream tsgolint issue 987. Updated the toolchain to 0.3.1, removed its retired Vitest alias, and fixed one newly reported unused tuple binding. A new clean checkout must pass before release.
+Rollback: previous live version `3948799c-afe0-49b9-970c-2ec8997fe2ad`. Revert the hardening/toolchain commits together, restore that lockfile, rebuild, deploy, and verify both production addresses. No stateful data migration or shared host changes occurred.
