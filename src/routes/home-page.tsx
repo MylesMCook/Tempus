@@ -3,7 +3,6 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { Clock3 } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ApiDocs } from "@/features/parser/components/api-docs";
 import { DateExpressionTabs } from "@/features/parser/components/date-expression-tabs";
 import { calculateDate } from "@/shared/date-parser";
@@ -27,23 +26,19 @@ export function HomePage() {
 
   return (
     <div className="min-h-screen bg-slate-50">
-      <main className="container flex flex-col gap-6 px-4 py-8 sm:px-6 sm:py-10">
-        <section className="mx-auto flex w-full max-w-3xl flex-col gap-6 text-center">
-          <div className="inline-flex items-center justify-center gap-2 text-primary">
+      <main className="container flex flex-col gap-2 px-4 py-6 sm:px-6 sm:py-8">
+        <section className="mx-auto flex w-full max-w-2xl flex-col gap-3 text-left">
+          <div className="inline-flex items-center gap-2 text-primary">
             <Clock3 className="size-5" />
-            <span className="text-sm font-semibold uppercase tracking-[0.24em]">TempusTotal</span>
+            <span className="text-sm font-semibold">TempusTotal</span>
           </div>
-          <div className="flex flex-col gap-4">
-            <h1 className="text-3xl font-semibold tracking-tight sm:text-5xl">
-              A phrase in. A date out.
-            </h1>
-            <p className="mx-auto max-w-2xl text-base text-muted-foreground sm:text-lg">
-              Find the date you mean. Try “next friday” or “in 3 days,” then copy the result.
-            </p>
+          <div className="flex flex-col gap-2">
+            <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">Find a date.</h1>
+            <p className="text-base text-muted-foreground">Type it. See the date. Copy it.</p>
           </div>
         </section>
 
-        <section className="mx-auto flex w-full max-w-3xl flex-col gap-6">
+        <section className="mx-auto flex w-full max-w-2xl flex-col gap-6">
           <DatePicker
             expression={expression}
             onExpressionChange={setExpression}
@@ -55,31 +50,30 @@ export function HomePage() {
           />
         </section>
 
-        <section className="mx-auto w-full max-w-3xl">
-          <Card className="border-border/70 shadow-sm">
-            <CardHeader className="flex flex-col gap-2">
-              <CardTitle>
-                <h2>Examples</h2>
-              </CardTitle>
-              <CardDescription>
-                Choose a phrase to calculate, then edit it to make it yours.
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="p-0">
+        <section className="mx-auto w-full max-w-2xl">
+          <details className="rounded-xl border bg-background p-4 sm:p-5">
+            <summary className="cursor-pointer font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">
+              More examples
+            </summary>
+            <div className="mt-3">
               <DateExpressionTabs
                 examples={examples}
                 onExampleClick={(value) => {
                   setExpression(value);
-                  document.getElementById("date-expression")?.focus();
+                  requestAnimationFrame(() => {
+                    const result = document.getElementById("calculated-date");
+                    result?.focus({ preventScroll: true });
+                    result?.scrollIntoView({ block: "nearest" });
+                  });
                 }}
               />
-            </CardContent>
-          </Card>
+            </div>
+          </details>
         </section>
 
-        <section className="mx-auto w-full max-w-3xl">
+        <section className="mx-auto w-full max-w-2xl">
           <details className="group rounded-lg border bg-background p-4 sm:p-5">
-            <summary className="cursor-pointer font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">
+            <summary className="cursor-pointer font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">
               Use the API
             </summary>
             <p className="mb-4 mt-2 text-sm text-muted-foreground">

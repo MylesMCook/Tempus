@@ -21,7 +21,7 @@ Rollback: revert the Phoenix implementation commit, install the resulting lockfi
 
 Release: `868ac2ab-b176-4063-8fee-0e602449436f`; client `index-DBLeC7iA.js`. GitHub run `34673173157` passed check/test/build and failed deployment; manual deployment succeeded independently. See the release evidence in `docs/phoenix.md`.
 
-Current state: Phoenix rebuild complete and live. Remaining operational follow-up: replace the GitHub deployment token through the required credential handoff. No further app changes are pending.
+Current state: Phoenix rebuild complete and live. Remaining operational follow-up: replace the GitHub deployment token through the required credential handoff. Parser rebuild is complete; current UI work is tracked below.
 
 ## Compatibility follow-up — live
 
@@ -32,3 +32,14 @@ Current state: Phoenix rebuild complete and live. Remaining operational follow-u
 - [x] Pushed `ad5355e`; deployed version `60fd1a59-ae81-4628-96a9-7e2f1080ea48`, client `index-8bf3uT5u.js`. Public browser and fixed-reference API checks passed for ago, mixed fractions, aliases, exact half years, labelled month approximations, and trailing-text rejection.
 - [x] GitHub run `34674040184` passed check/test/build; its deploy failed. The manual release succeeded independently.
 - Remaining uncertainty: the original “3 weeks ago” failure has not been reproduced. The diagnostic copy action now captures the exact inputs and error/result for follow-up.
+
+## ADHD-oriented calculator — active
+
+- [x] Put the phrase and result first; offer three quick examples and disclose optional controls.
+- [x] Make copy completion visible; preserve live trace, warnings, errors, settings, and API replay.
+- [x] Verify desktop/mobile and keyboard paths, parser regression suite, types, and production build.
+- [ ] Commit, push, deploy through the established OAuth path, and verify the public calculator.
+
+Decision: apply the I Have ADHD plugin's low-distraction and visible-state guidance without storing phrases or changing calculation semantics.
+
+Verification: 255 tests; source/type/build checks; desktop, 390px and 320px browser paths, keyboard copy/example navigation, format/timezone/phrase recovery, approximation trace, and matching API replay. Details: [UX review](docs/phoenix-ux-review.md#adhd-oriented-follow-up--september-12-2026).

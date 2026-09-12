@@ -29,3 +29,14 @@
 1. Preserve shared-input API parity and exact-result regression tests as release gates.
 2. Recheck expanded trace/API states whenever layout or response shape changes.
 3. Validate comprehension with actual users before expanding the finite phrase grammar.
+
+## ADHD-oriented follow-up — September 12, 2026
+
+The I Have ADHD plugin's communication guidance informed this UI pass: lower starting friction, a small visible choice set, and visible completion. This is a usability adaptation, not a claim of clinical benefit.
+
+- Start with one phrase field and three quick examples. A shorter heading keeps the working area near the top.
+- Put the result and primary copy action together. The button reads “Date copied” after success, without a duplicate toast, and resets when the calculation or format changes.
+- Group timezone and formatting in a native disclosure below the result. Keep the selected timezone visible while collapsed. This replaces the always-visible placement described in the original proximity review above.
+- Keep approximations and recovery actions visible. Preserve the live trace, diagnostic copy, precise timestamps, all examples, and API replay behind disclosures. Selecting a detailed example focuses and reveals the result without focusing the text field.
+
+Verified in the browser: desktop, 390px and 320px widths, first-screen result/copy visibility at 320px, no horizontal overflow, keyboard tab-to-copy and activation, example category arrow keys, result focus after example selection, invalid phrase/timezone/format recovery, approximation trace, and HTTP 200 API parity. The final preview emitted no console warnings or errors. All 255 engine/API/storage tests, source checks, TypeScript build, and production build passed. No parser, storage, dependencies, or API semantics changed. Physical phone keyboards and assistive-technology announcements were not directly tested.
