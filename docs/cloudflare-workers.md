@@ -1,45 +1,36 @@
 # Cloudflare deployment
 
-`TempusTotal` now uses Cloudflare's documented React SPA plus Worker API pattern.
+The client is a static SPA; `worker/index.ts` handles `/api/*`. The existing production Worker is `tempus-total`, serving `tempus-total.funnydomainname.com`. Local development uses Cloudflare's Vite plugin and simulated bindings on loopback.
 
-## Runtime shape
+## Reproducible configuration
 
-- `src/` builds the client SPA.
-- `worker/index.ts` serves the `/api/parse` endpoint.
-- `wrangler.jsonc` uses `assets.not_found_handling = "single-page-application"` so client routes resolve to the SPA.
-- `wrangler.jsonc` uses `run_worker_first = ["/api/*"]` so the parser API is handled by the Worker.
+`wrangler.jsonc` controls the Worker, compatibility date, API routing, logging, 100 ms CPU budget, and `PARSE_RATE_LIMITER` binding (120 requests per 60 seconds). The namespace `2026091201` is reserved for this application; choose a distinct namespace for another application in the same account. Keys include an application prefix and the Cloudflare-provided client IP.
 
-## Commands
+Limits apply per IP and Cloudflare location with eventual consistency. They are an abuse guard, not a global quota or spending cap. Shared networks share a limit. A denied request returns 429 with `Retry-After: 60`; a missing or unavailable limiter returns 503. Normal browser calculations do not call this API.
+
+`public/_headers` protects static responses. Worker responses set their own headers because Cloudflare does not apply `_headers` to them. The browser policy allows same-origin scripts and connections, forbids embedding, and retains inline styles required by the existing components. HSTS applies only to the current hostname, without subdomain or preload directives.
+
+The compatibility date remains pinned to preserve date behavior. Observability remains enabled with `redact_query_string=true` to strip query strings from Worker logs and traces. This does not erase historical logs or control other hosting records. Version preview URLs are disabled; both existing production hostnames remain enabled. Account plan, log retention, WAF, zone-wide TLS configuration, and account access policies are separate Cloudflare settings.
+
+## Release
 
 ```sh
-vp install
-vp dev
-vp check
-vp test
-vp build
+pnpm install --frozen-lockfile
 pnpm run deploy
 ```
 
-GitHub Actions is the normal deploy path. Keep `pnpm run deploy` as a manual
-fallback for an intentional local `wrangler deploy`, not as the primary release
-flow.
+The deploy script checks, tests, type-checks, builds, and deploys using the existing Wrangler authentication. For a different account, authenticate with `pnpm exec wrangler login` and choose your own Worker name. Do not copy OAuth tokens into GitHub or source files. Development does not require login.
 
-## GitHub Actions
+Pull requests and `main` pushes run `.github/workflows/ci.yml`. Automatic deployment is opt-in: set repository variable `CLOUDFLARE_DEPLOY_ENABLED=true` only after configuring valid `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` secrets. Use a token scoped to the intended account's Worker deployment permissions. The deploy workflow also restricts itself to `main` and validates before deploying. Forks do not deploy by default.
 
-GitHub Actions is the source of truth for validation and deployment.
+The original repository's GitHub deployment credential needs replacement through its credential handoff. Manual OAuth deployment works independently; it is not evidence that automated deployment works.
 
-- pull requests run `vp check`, `vp test`, and `vp build`
-- pushes to `main` run `.github/workflows/deploy-cloudflare.yml` on Linux runners
-- the Cloudflare Worker target hostname is `tempus-total.funnydomainname.com`
-- required repo secrets are `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN`
+## Verify and recover
 
-## Current release boundary
+Before deployment, run `pnpm exec wrangler deploy --dry-run` after building. Regenerate environment types with `pnpm cf-typegen` when bindings change and compare them with the narrow `Env` interface in `worker/index.ts`.
 
-The Worker and hostname already exist. GitHub check/test/build work, but its deployment token is invalid. User-authorized releases currently use the existing local Wrangler OAuth session through `pnpm run deploy`. Do not copy OAuth credentials into GitHub. Replacing the GitHub token remains a separate credential handoff.
+After deployment, inspect the new version's settings and bindings, then verify `/`, `/privacy`, and a fixed-reference `/api/parse` request on both the custom domain and workers.dev endpoint. Confirm HTTPS, response headers, result/API parity, and browser operation. Test 429 and 503 using the local mocked limiter tests, without flooding production.
 
-Verify `/`, `/privacy`, and `/api/parse` on the deployed hostname after every release. Phoenix v2 has no database or server migration. Roll back by reverting the rebuild commit, installing its lockfile, rebuilding, and deploying through the same path.
+Record the previous version before a release. There is no database migration. For rollback, revert the affected commit, install its lockfile, rebuild, and deploy through the same path. A rollback that removes the limiter must restore the matching Worker code and configuration together.
 
-## Notes
-
-- This repo no longer depends on `Next.js`, `OpenNext`, or Vercel-specific runtime integrations.
-- Local development now runs through the Cloudflare Vite plugin instead of a split SPA plus proxy setup.
+References: [rate limiting](https://developers.cloudflare.com/workers/runtime-apis/bindings/rate-limit/), [static response headers](https://developers.cloudflare.com/workers/static-assets/headers/), [Wrangler limits](https://developers.cloudflare.com/workers/wrangler/configuration/#limits).

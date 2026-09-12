@@ -55,3 +55,15 @@ GitHub run `34699827081` passed check/test/build and failed deployment. Manual d
 Secondary-controls rollback: revert `1fea2d2`, rebuild, and deploy through the existing OAuth path. No parser, preference-storage, dependency, or hosting configuration changes.
 
 GitHub run `34700146532` passed check/test/build and failed automated deployment. The verified manual release succeeded independently.
+
+## Open-source and security readiness — active
+
+- [x] Inspect private repository/license status; scan full reachable history for secrets (Gitleaks 8.30.1, no detections); inspect historical personal-path/network metadata (no matches).
+- [x] Complete Codex Security standard source scan at `81dce96`: independent baseline, architecture, HTTP and UI-support reviews; 97 files fully audited, no source-backed vulnerabilities. Scan `d759b8fa-a7c2-46aa-9d43-3616a58d3e67`; deployment/dependencies were explicit follow-ups.
+- [ ] Fix package advisories; add request limits and browser/API headers; verify and update the existing Cloudflare Worker/domain configuration.
+- [x] Prepare MIT license, attribution, setup/contribution/security docs, critique issue forms and fork-safe CI.
+- [ ] Verify fresh setup, regression checks, live runtime/configuration, then commit/push. Keep repository private until publication/license approval.
+
+Evidence scratch: `/Users/mylescook/Documents/Codex/2026-09-12-tempustotal-open-source/`. Existing OAuth deployment is authorized; do not rotate or publish credentials. User explicitly added Cloudflare configuration verification/updates.
+
+Hardening validation: 260 tests pass under UTC, America/New_York and Asia/Tokyo; source/type/build checks and deployment dry run pass. Local production browser calculation, copy feedback and API parity pass. Dependency audit reports zero advisories. Clean-checkout and live deployment verification remain next.

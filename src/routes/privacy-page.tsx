@@ -37,8 +37,13 @@ export function PrivacyPage() {
           <p>
             An API request includes your phrase, date format, timezone, and reference time in its
             URL. Cloudflare processes these requests and serves the website. Hosting logs are
-            enabled and may contain request URLs and other request metadata. Avoid confidential
+            enabled. Worker logs are configured to remove query strings; older logs and other
+            hosting records may still contain request URLs and metadata. Avoid confidential
             information in API requests or URLs you share.
+          </p>
+          <p className="mt-3">
+            Cloudflare also uses your IP address to limit API requests. People sharing a network may
+            share that limit. This does not limit calculations on your device.
           </p>
           <p className="mt-3">
             Hosting log retention depends on the Cloudflare plan. See{" "}

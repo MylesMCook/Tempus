@@ -1,27 +1,36 @@
 name: CI
 
 on:
+  push:
+    branches: [main]
   pull_request:
   workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   validate:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
-
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
       - name: Setup Vite+
-        uses: voidzero-dev/setup-vp@v1
-
+        uses: voidzero-dev/setup-vp@250f29ce396baf5e8f24498e17c0dfdebabc26eb # v1
+        with:
+          version: "0.1.24"
+          node-version: "24"
+          run-install: false
       - name: Install dependencies
-        run: vp install
-
+        run: vp install --frozen-lockfile
       - name: Check
-        run: vp check
-
+        run: pnpm check
       - name: Test
-        run: vp test
-
-      - name: Build
-        run: vp build
+        run: pnpm test
+      - name: Build and type-check
+        run: pnpm build
+      - name: Audit dependencies
+        run: pnpm audit --audit-level=high

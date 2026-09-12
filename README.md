@@ -2,6 +2,8 @@
 
 A phrase in, a date out. TempusTotal calculates dates locally in your browser and shows each step. The Cloudflare API runs the same TypeScript engine.
 
+[Try the calculator](https://tempus-total.funnydomainname.com/) · [Review guide](docs/review-guide.md) · [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md)
+
 ## Calculation rules
 
 - The chosen IANA timezone controls calculation and display. Browser default: your timezone. API default: UTC.
@@ -23,7 +25,7 @@ The parser consumes the whole phrase. Vague quantities such as “few”, arbitr
 
 ## API v2
 
-`GET /api/parse` accepts `expression` (required), `timezone`, `reference` (an ISO instant with offset), and `format` (a date-fns format). Omit reference to use the request time; pass it to reproduce a result. Unknown or repeated parameters return HTTP 400. Responses use `Cache-Control: no-store`.
+`GET /api/parse` accepts `expression` (required), `timezone`, `reference` (an ISO instant with offset), and `format` (a date-fns format). Omit reference to use the request time; pass it to reproduce a result. Unknown or repeated parameters return HTTP 400. Responses use `Cache-Control: no-store`. The public endpoint allows approximately 120 requests per minute per IP at each Cloudflare location. HTTP 429 asks you to retry after 60 seconds; HTTP 503 means the limiter is unavailable. URLs over 4,096 characters return HTTP 414. Browser calculations do not use this allowance.
 
 ```bash
 curl --get 'https://tempus-total.funnydomainname.com/api/parse' \
@@ -39,15 +41,20 @@ The result includes `engineVersion: 2`, `date: "2026-02-28T06:00:00.000Z"`, Unix
 
 ## Development
 
+Requires Node.js 22.12 or newer and pnpm 10.33.0. No Cloudflare account, token, database, or global Vite+ installation is needed for local development.
+
 Stack: React, TypeScript, Vite+, existing Tailwind/Radix components, and a stateless Cloudflare Worker. Temporal polyfill 0.5.1 handles zoned arithmetic; date-fns-tz handles display formatting. No database or accounts. Browser preferences are validated on load; retired fields are discarded.
 
 ```bash
-vp install --frozen-lockfile
-vp dev
-vp check
-vp test
-pnpm exec tsc -b
-vp build
+git clone https://github.com/MylesMCook/TempusTotal.git
+cd TempusTotal
+pnpm install --frozen-lockfile
+pnpm dev
+
+# Before submitting a change
+pnpm check
+pnpm test
+pnpm build
 ```
 
 - `src/shared/date-engine/grammar.ts`: full-consumption parser and typed operations.
@@ -59,10 +66,8 @@ vp build
 
 ## Deployment
 
-The configured [GitHub Actions workflow](.github/workflows/deploy-cloudflare.yml) checks, tests, builds, and deploys to `tempus-total.funnydomainname.com`. Its Cloudflare token is currently invalid. The user-authorized recovery path uses the existing local Wrangler OAuth session after validation:
+Cloudflare deployment is optional and requires your own account. CI validates pull requests without credentials; deployment is opt-in for maintainers. See the [Cloudflare deployment notes](docs/cloudflare-workers.md) for configuration, checks, and rollback.
 
-```bash
-pnpm run deploy
-```
+## License
 
-See [Cloudflare deployment notes](docs/cloudflare-workers.md). No server data migration is needed. To roll back Phoenix, revert the rebuild commit, install its lockfile, rebuild, and redeploy through the same path. Browser format/timezone preferences remain compatible with v1.
+[MIT](LICENSE). Adapted UI components retain their [third-party notices](THIRD_PARTY_NOTICES.md).
