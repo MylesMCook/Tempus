@@ -87,8 +87,8 @@
     "tailwindcss": "^3.4.17",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.57.0",
-    "vite": "npm:@voidzero-dev/vite-plus-core@0.1.24",
-    "vite-plus": "0.1.24",
+    "vite": "npm:@voidzero-dev/vite-plus-core@0.3.1",
+    "vite-plus": "0.3.1",
     "wrangler": "4.131.1"
   },
   "engines": {

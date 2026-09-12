@@ -65,7 +65,7 @@ function tokenize(input: string): Token[] {
   const tokens: Token[] = [];
   const pattern =
     /\d{4}-\d{2}-\d{2}|\d{1,2}:\d{2}(?::\d{2}(?:\.\d+)?)?|\d+\/\d+|\d+(?:\.\d+)?(?:st|nd|rd|th)?|[a-z]+\.?|[½¼¾]|[+-]/iy;
-  for (let i = 0; i < input.length; ) {
+  for (let i = 0; i < input.length;) {
     if (/[\s,;]/.test(input[i]) || (input[i] === "." && !input.slice(i + 1).trim())) {
       i++;
       continue;

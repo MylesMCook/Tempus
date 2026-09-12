@@ -67,3 +67,5 @@ GitHub run `34700146532` passed check/test/build and failed automated deployment
 Evidence scratch: `/Users/mylescook/Documents/Codex/2026-09-12-tempustotal-open-source/`. Existing OAuth deployment is authorized; do not rotate or publish credentials. User explicitly added Cloudflare configuration verification/updates.
 
 Hardening validation: 260 tests pass under UTC, America/New_York and Asia/Tokyo; source/type/build checks and deployment dry run pass. Local production browser calculation, copy feedback and API parity pass. Dependency audit reports zero advisories. Clean-checkout and live deployment verification remain next.
+
+Clean-checkout follow-up: Vite+ 0.1.24 intermittently reported missing installed modules, matching upstream tsgolint issue 987. Updated the toolchain to 0.3.1, removed its retired Vitest alias, and fixed one newly reported unused tuple binding. A new clean checkout must pass before release.
