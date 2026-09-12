@@ -40,3 +40,5 @@ The existing GitHub deployment secret is still invalid. The user-authorized Wran
 - Fixed-clock tests cover every advertised example, invalid inputs, month-end/leap-year behavior, exact trace continuity, settings, metadata, and Worker responses.
 - The arithmetic suite passed under UTC, America/New_York, and Asia/Tokyo. The daylight-saving test distinguishes calendar-day arithmetic from a fixed 24-hour duration.
 - Browser and final deployment verification are recorded in `tasks.md`.
+
+Release `30f4dd9` passed 112 tests, type checking, linting, and production build. Browser replay verified keyboard opening, live edits, reordered steps, preserve-day changes, timezone formatting, invalid input/format recovery, Clear, and desktop/mobile layout without page overflow. Cloudflare version `b8416345-67d7-4991-b2fc-1589b67defc8` was verified live: month-end calculation, step trace, API result, and overflow JSON 400. GitHub validation passed; its deploy step remains blocked by the existing credential.

@@ -73,10 +73,12 @@ Revisited after replay: all 27 advertised examples produce results; settings, AP
 - [x] Add an accessible “See how it works” disclosure that updates with input and settings, including empty and invalid states.
 - [x] Trace correctness and local browser replay passed: keyboard disclosure, live edits, sorted operations, month setting changes, timezone display, invalid input/format recovery, and Clear. Desktop and 390×844 mobile inspected; expanded trace has no page overflow.
 - [x] `vp check`, 112 tests, `tsc -b`, production build, and diff check passed. Arithmetic suite also passed under UTC, America/New_York, and Asia/Tokyo.
-- [ ] Deploy through the authorized fallback and verify production.
+- [x] Landed `30f4dd9`; Wrangler OAuth deployment succeeded. Version `b8416345-67d7-4991-b2fc-1589b67defc8`; client `index-zTWUnGxm.js`.
 
 ## Parser correctness and system audit
 
 - [x] Reproduced 21 failures in the initial 25-case audit; fixed month-end/leap-year rollover, weekday selection, explicit relative anchors, incomplete phrase acceptance, overflow, and debug settings/order.
 - [x] Added exact expectations for all 27 advertised examples, multi-timezone/DST coverage, storage corruption/write-failure handling, and Worker request-contract tests. See `docs/parser-system-audit.md` for defined semantics and remaining boundaries.
-- [ ] Complete browser replay and final checks; land and deploy, then verify the live feature and corrected API calculations.
+- [x] Live browser verified trace disclosure, reordered operations, January 31 → February 28 correction, API UTC result, and overflow → HTTP 400. No captured browser errors.
+- [x] GitHub run `34669453354` passed check/test/build; deployment still fails with the existing invalid credential. Manual release verified independently.
+- Rollback: revert `30f4dd9`, rebuild and redeploy; no data migration or host-service changes. Remaining semantic boundaries are recorded in `docs/parser-system-audit.md`.
