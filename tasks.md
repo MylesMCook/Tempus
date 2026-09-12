@@ -62,5 +62,7 @@ Revisited after replay: all 27 advertised examples produce results; settings, AP
 - [x] Selected Mental Model, Cognitive Load, and Law of Proximity; bounded fixes cover privacy claims, API consequences, duplicate examples, settings guidance, and error recovery.
 - [x] Critique validator, `vp check`, 40 tests, `tsc -b`, production build, and diff check passed.
 - [x] Browser: invalid phrase → example recovery; tomorrow result; settings guidance and Escape; API Enter → HTTP 200/400; privacy and return navigation. Desktop privacy and 390×844 mobile privacy/settings visually inspected; expanded API has no horizontal page overflow.
-- [ ] Land and deploy using the authorized Wrangler fallback; verify production.
+- [x] Landed `90ba06b` on main; deployed with Wrangler OAuth. Version `c3526ca2-368d-42a7-a4f1-26f75685946d`, client asset `index-DA5_1BFx.js`.
+- [x] Live browser verified updated calculator text, tomorrow result, simplified API form, HTTP 200, and revised privacy page.
+- [x] GitHub run `34668553448` passed check/test/build; deployment step failed. Manual deployment succeeded independently.
 - Automatic GitHub deployment remains blocked by its invalid token. No credential changes in this pass.

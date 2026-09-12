@@ -34,3 +34,7 @@
 ## Writer findings
 
 Removed unsupported promises about cookies, request use, update notifications, and an unspecified contact channel. Replaced vague parser errors with example-based recovery. Kept the existing concise hero and developer response labels. Logging claims were checked against the enabled Wrangler observability configuration and [Cloudflare Workers Logs](https://developers.cloudflare.com/workers/observability/logs/workers-logs/).
+
+## Verification
+
+Implemented in `90ba06b`. Critique validator, source checks, type checking, all 40 tests, and production build passed. Browser replay covered invalid-input recovery, settings guidance and Escape, API success and HTTP 400 via Enter, and privacy navigation. Desktop and mobile privacy/settings were visually checked; the expanded mobile API had no horizontal page overflow. The deployed calculator, API HTTP 200, and privacy page were verified on the public domain. No user study or screen-reader device testing was performed.
