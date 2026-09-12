@@ -64,7 +64,7 @@ GitHub run `34700146532` passed check/test/build and failed automated deployment
 - [x] Fresh `ebef472` checkout passed frozen install, checks, 260 tests, and build. Tests also passed under UTC, America/New_York, and Asia/Tokyo during hardening. Main checkout checks, tests, build, and deploy dry run passed before release.
 - [x] Deployed `e385941f-1556-4e6e-81a3-3048c91ac257`; client `index-BAk8XBE-.js`. Read back Cloudflare's 120/minute per-IP limiter, 100 ms CPU budget, query redaction, preview URLs disabled, and unchanged production domain mapping.
 - [x] Both custom domain and workers.dev: home/privacy/API 200, unknown API route 404, unsupported method 405, and preflight 200; security headers and no-store API responses verified. Fixed-reference API returned February 28 from January 31 plus one month. Live browser copy, API parity, error recovery, and approximation trace passed.
-- [ ] Push release commits and verify GitHub CI. Automated deployment stays skipped until its credential handoff is complete and deployment is explicitly enabled.
+- [x] Release commits pushed to main; GitHub CI run `34702196985` passed on `832c39a`. Automated deployment was intentionally skipped and stays disabled until its credential handoff is complete and deployment is explicitly enabled.
 - [ ] Cloudflare zone-wide TLS/WAF and account access-policy review: existing OAuth lacks read permissions; dashboard is signed out. HTTPS redirect and valid certificate are observed, but these do not prove zone configuration.
 - [ ] Confirm MIT/publication and enable private vulnerability reporting when publishing. Repository remains private.
 
