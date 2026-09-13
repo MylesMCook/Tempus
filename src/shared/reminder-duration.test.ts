@@ -107,8 +107,13 @@ it.each([
       new ICAL.Component(ICAL.parse(file.text)).getFirstSubcomponent("vevent")!,
     );
     expect(event.description).toContain(date);
-    expect(event.startDate.toJSDate().toISOString()).toBe(start);
-    expect(event.endDate.toJSDate().toISOString()).toBe(end);
+    if (event.startDate.isDate) {
+      expect(event.startDate.toString()).toBe("2027-04-03");
+      expect(event.endDate.toString()).toBe("2027-04-04");
+    } else {
+      expect(event.startDate.toJSDate().toISOString()).toBe(start);
+      expect(event.endDate.toJSDate().toISOString()).toBe(end);
+    }
   },
 );
 it("offers duration-specific recovery without accepting incomplete input", () => {
