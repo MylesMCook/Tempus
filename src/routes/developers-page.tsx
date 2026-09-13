@@ -30,7 +30,12 @@ export function DevelopersPage() {
             exposes parsing, batches and reusable parsers; calendar-file preparation is an optional
             entry point.
           </p>
-          <pre className="mt-4 overflow-x-auto rounded-lg border bg-background p-4 text-sm">
+          <pre
+            tabIndex={0}
+            role="region"
+            aria-label="TypeScript package example"
+            className="mt-4 overflow-x-auto rounded-lg border bg-background p-4 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+          >
             <code>{`import { parse } from "@tempus-date/core";
 
 const result = parse("Call Sam tomorrow at noon", {

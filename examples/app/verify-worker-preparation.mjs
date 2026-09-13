@@ -3,6 +3,7 @@ import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { createHash } from "node:crypto";
 import { resolve, join } from "node:path";
 import { pathToFileURL } from "node:url";
+import ICAL from "ical.js";
 const [playwrightArg, outputArg] = process.argv.slice(2);
 assert.ok(playwrightArg && outputArg && process.argv.length === 4);
 const baseURL = process.env.TEMPUS_APP_URL ?? "http://127.0.0.1:5174";
@@ -13,6 +14,7 @@ const engines = await import(pathToFileURL(resolve(playwrightArg)).href);
 const report = {
   status: "running",
   runs: [],
+  offlineRuns: [],
   sourceHashes: Object.fromEntries(
     [
       "src/features/parser/calendar-preparation.worker.ts",
@@ -28,6 +30,88 @@ const report = {
 try {
   for (const name of ["chromium", "firefox", "webkit"]) {
     const browser = await engines[name].launch(name === "chromium" ? { channel: "chrome" } : {});
+    for (const width of [320, 1280]) {
+      const offlinePage = await browser.newPage({
+        viewport: { width, height: 950 },
+        timezoneId: "America/Chicago",
+      });
+      const errors = [];
+      offlinePage.on("pageerror", (error) => errors.push(error.message));
+      try {
+        await offlinePage.addInitScript(() => {
+          const NativeWorker = globalThis.Worker;
+          globalThis.workerStarts = 0;
+          globalThis.Worker = class extends NativeWorker {
+            constructor(...args) {
+              super(...args);
+              globalThis.workerStarts++;
+            }
+          };
+        });
+        await offlinePage.goto(baseURL);
+        await offlinePage.waitForLoadState("networkidle");
+        assert.equal(await offlinePage.evaluate(() => globalThis.workerStarts), 0);
+        await offlinePage.context().setOffline(true);
+        const input = offlinePage.locator("#date-expression");
+        await input.fill("Call Sam every day at noon for 1 occurrence");
+        await offlinePage
+          .getByText("1 date ready. Copy includes the complete upcoming set.")
+          .waitFor();
+        const copy = offlinePage.getByRole("button", { name: "Copy all 1 date", exact: true });
+        assert.equal(await copy.isEnabled(), true);
+        await copy.focus();
+        await offlinePage.keyboard.press("Enter");
+        await offlinePage.getByText("1 date copied", { exact: true }).waitFor();
+        await offlinePage.locator("#calendar-export-toggle").focus();
+        await offlinePage.keyboard.press("Enter");
+        const download = offlinePage.getByRole("button", {
+          name: "Download calendar file",
+          exact: true,
+        });
+        await offlinePage.waitForFunction(() =>
+          [...document.querySelectorAll("button")].some(
+            (button) => button.textContent.trim() === "Download calendar file" && !button.disabled,
+          ),
+        );
+        const [file] = await Promise.all([offlinePage.waitForEvent("download"), download.click()]);
+        const filename = `${name}-offline-${width}.ics`;
+        await file.saveAs(join(output, filename));
+        const bytes = readFileSync(join(output, filename));
+        const events = new ICAL.Component(ICAL.parse(bytes.toString())).getAllSubcomponents(
+          "vevent",
+        );
+        assert.equal(events.length, 1);
+        assert.equal(new ICAL.Event(events[0]).summary, "Call Sam");
+        // A second preparation must work offline too, without exposing the old file.
+        await input.fill("Call Jo every day at noon for 2 occurrences");
+        await offlinePage
+          .getByText("2 dates ready. Copy includes the complete upcoming set.")
+          .waitFor();
+        assert.equal(await offlinePage.locator("#calendar-title").count(), 0);
+        await offlinePage.context().setOffline(false);
+        await input.fill("Call Jo every day at noon for 3 occurrences");
+        await offlinePage
+          .getByText("3 dates ready. Copy includes the complete upcoming set.")
+          .waitFor();
+        assert.equal(
+          await offlinePage.evaluate(() => document.documentElement.scrollWidth > innerWidth),
+          false,
+        );
+        assert.deepEqual(errors, []);
+        report.offlineRuns.push({
+          browser: name,
+          width,
+          status: "passed",
+          filename,
+          sha256: createHash("sha256").update(bytes).digest("hex"),
+        });
+      } catch (error) {
+        await browser.close();
+        throw error;
+      } finally {
+        await offlinePage.close();
+      }
+    }
     const page = await browser.newPage({
       viewport: { width: 320, height: 950 },
       timezoneId: "America/Chicago",

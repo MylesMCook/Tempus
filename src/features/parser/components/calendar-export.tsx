@@ -7,6 +7,7 @@ import { prepareCalendarFile } from "@/shared/calendar-file";
 import { useRecurrenceDecisions } from "../context/recurrence-decisions-context";
 import { useCalendarPreparation } from "../use-calendar-preparation";
 import { safeFormatDate } from "../options";
+import { scheduleQuantity } from "../schedule-labels";
 import { retainOccurrenceDecisions } from "@/shared/clarify-numeric-date";
 
 /** Remount for every input, context or interpretation change. */
@@ -47,14 +48,14 @@ export function CalendarExport({
     value.kind === "point" ? (value.precision === "date" ? "date" : "instant") : undefined;
   const description =
     value.kind === "recurrence"
-      ? `${value.rule.countPast === "consume" ? `${value.rule.count} scheduled dates from the written start${value.rule.countExclusions === "consume" ? ", before exclusions" : ""}. Only future events are included.` : value.rule.count ? `${value.rule.count} ${value.rule.countExclusions === "consume" ? "scheduled dates before exclusions" : "occurrences in total"}.` : value.rule.until ? `Every upcoming occurrence through ${value.rule.until}.` : "Repeats without an end date."} Times follow the timezone rules used for this file.${!value.rule.duration && !value.rule.endClock ? " No duration is added; your calendar may display its own default." : ""}`
+      ? `${value.rule.countPast === "consume" && value.rule.count ? `${scheduleQuantity(value.rule.count, "scheduled date")} from the written start${value.rule.countExclusions === "consume" ? ", before exclusions" : ""}. Only future events are included.` : value.rule.count ? `${value.rule.countExclusions === "consume" ? `${scheduleQuantity(value.rule.count, "scheduled date")} before exclusions` : `${scheduleQuantity(value.rule.count, "occurrence")} in total`}.` : value.rule.until ? `Every upcoming occurrence through ${value.rule.until}.` : "Repeats without an end date."} Times follow the timezone rules used for this file.${!value.rule.duration && !value.rule.endClock ? " No duration is added; your calendar may display its own default." : ""}`
       : value.kind === "point"
         ? pointMode === "date"
           ? "One all-day event on the date shown above."
           : "One event at the time shown above. No duration is added; your calendar may display its own default."
         : value.kind === "interval"
           ? "One event with the start and end shown above."
-          : `${value.occurrences.length} separate events, in listed order. No repetition.${value.occurrences.some((row) => row.allDay) ? " Dates without times become all-day events." : ""}${value.occurrences.some((row) => !row.allDay && !row.end) ? " No duration is added to timed points; your calendar may display a default." : ""}`;
+          : `${scheduleQuantity(value.occurrences.length, "separate event")}, in listed order. No repetition.${value.occurrences.some((row) => row.allDay) ? " Dates without times become all-day events." : ""}${value.occurrences.some((row) => !row.allDay && !row.end) ? " No duration is added to timed points; your calendar may display a default." : ""}`;
   const events =
     value.kind === "point"
       ? [{ start: value.calculation, end: undefined, allDay: pointMode === "date" }]
@@ -96,8 +97,8 @@ export function CalendarExport({
                 ? preparation.error
                 : plan?.ok
                   ? plan.exportRule
-                    ? `Repeating rule. The next ${plan.occurrences.length} occurrences are shown below; the file keeps repeating.`
-                    : `${plan.occurrences.length} occurrences in the complete file.`
+                    ? `Repeating rule. The next ${scheduleQuantity(plan.occurrences.length, "occurrence")} ${plan.occurrences.length === 1 ? "is" : "are"} shown below; the file keeps repeating.`
+                    : `${scheduleQuantity(plan.occurrences.length, "occurrence")} in the complete file.`
                   : plan && !plan.ok
                     ? plan.error.message
                     : "Checking the complete schedule…"}
@@ -194,8 +195,8 @@ export function CalendarExport({
           start={pageStart + 1}
           aria-label={
             plan?.ok && plan.exportRule
-              ? "Next occurrences of the repeating rule"
-              : "Events in this file"
+              ? `Next occurrence${events.length === 1 ? "" : "s"} of the repeating rule`
+              : `Event${events.length === 1 ? "" : "s"} in this file`
           }
           className="grid gap-3 text-sm"
         >

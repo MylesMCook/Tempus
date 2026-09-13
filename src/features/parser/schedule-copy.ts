@@ -1,4 +1,5 @@
 import type { Interpretation } from "@/shared/interpret-date";
+import { scheduleQuantity } from "./schedule-labels";
 
 export type Schedule = Extract<
   Extract<Interpretation, { status: "resolved" }>["value"],
@@ -57,8 +58,8 @@ export function scheduleCopy(
     return `${start}${end ? ` → ${end} (end not included)` : ""}`;
   });
   const summary = bounded
-    ? `${rows.length} dates · all upcoming occurrences within the supplied boundaries`
-    : "Open-ended rule · the dates below are only a preview";
+    ? `${scheduleQuantity(rows.length, "date")} · ${rows.length === 1 ? "the upcoming occurrence" : "all upcoming occurrences"} within the supplied boundaries`
+    : `Open-ended rule · the ${rows.length === 1 ? "date below is" : "dates below are"} only a preview`;
   const notes =
     schedule.kind === "recurrence"
       ? [
@@ -72,7 +73,7 @@ export function scheduleCopy(
             ? `Excluded dates: ${schedule.rule.countExclusions === "consume" ? "use count slots" : "are replaced"}`
             : undefined,
           schedule.rule.exceptions.length
-            ? `Excluded start dates: ${schedule.rule.exceptions.join(", ")}`
+            ? `Excluded start date${schedule.rule.exceptions.length === 1 ? "" : "s"}: ${schedule.rule.exceptions.join(", ")}`
             : undefined,
           ...(schedule.rule.clockOverrides ?? []).map((choice) => choice.label),
         ].filter(Boolean)
@@ -80,7 +81,7 @@ export function scheduleCopy(
   const escape = (text: string) => text.replace(/[\\`*_{}[\]()#+.!|<>~-]/g, "\\$&");
   if (format === "markdown")
     return [
-      `## ${escape(interpretation.event?.text ?? "Dates")}`,
+      `## ${escape(interpretation.event?.text ?? (rows.length === 1 ? "Date" : "Dates"))}`,
       "",
       escape(summary),
       "",

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { startCalendarPreparation } from "./start-calendar-preparation";
 import type {
   CalendarPreparationRequest,
   CalendarPreparationResponse,
@@ -23,46 +24,21 @@ export function useCalendarPreparation(request: CalendarPreparationRequest | und
       previous.current.decisions === request.decisions &&
       previous.current.title !== request.title;
     previous.current = request;
-    let worker: Worker | undefined;
+    let stop: (() => void) | undefined;
     let cancelled = false;
-    const fail = () => {
-      if (!cancelled)
-        setCompleted({
-          request,
-          response: {
-            ok: false,
-            error:
-              request.output === "occurrences"
-                ? "The full schedule could not be prepared. Try again or use another browser."
-                : "The calendar file could not be prepared. Try again or use another browser.",
-          },
-        });
-      worker?.terminate();
-    };
     // Avoid starting a fresh computation for every title keystroke.
     const timer = setTimeout(
       () => {
-        try {
-          worker = new Worker(new URL("./calendar-preparation.worker.ts", import.meta.url), {
-            type: "module",
-          });
-          worker.onmessage = (event: MessageEvent<CalendarPreparationResponse>) => {
-            if (!cancelled) setCompleted({ request, response: event.data });
-            worker?.terminate();
-          };
-          worker.onerror = fail;
-          worker.onmessageerror = fail;
-          worker.postMessage(request);
-        } catch {
-          fail();
-        }
+        stop = startCalendarPreparation(request, (response) => {
+          if (!cancelled) setCompleted({ request, response });
+        });
       },
       editingTitle ? 150 : 0,
     );
     return () => {
       cancelled = true;
       clearTimeout(timer);
-      worker?.terminate();
+      stop?.();
     };
   }, [request]);
   return completed?.request === request ? completed?.response : undefined;

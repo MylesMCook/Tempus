@@ -52,6 +52,26 @@ it("labels an open-ended rule as incomplete", () => {
   expect(data.rule).toEqual(interpretation.value.rule);
   expect(data.scope).toBe("open-ended-rule-with-preview");
 });
+it.each([0, 1, 2])("uses correct date labels for %i occurrences without changing JSON", (count) => {
+  const input = "every Monday at noon for 2 occurrences";
+  const interpretation = result(input);
+  const plan = resolveRecurringExport(interpretation, options.reference);
+  if (!plan?.ok) throw new Error("Expected complete schedule");
+  const schedule = { ...plan, occurrences: plan.occurrences.slice(0, count) };
+  for (const format of ["text", "markdown"] as const) {
+    const text = scheduleCopy(interpretation, schedule, input, options.reference, format);
+    expect(text).toContain(`${count} date${count === 1 ? "" : "s"}`);
+    if (count === 1) {
+      expect(text).not.toContain("1 dates");
+      expect(text).toContain("the upcoming occurrence within");
+    }
+  }
+  const json = JSON.parse(scheduleCopy(interpretation, schedule, input, options.reference, "json"));
+  expect(json.schemaVersion).toBe(1);
+  expect(json.occurrenceCount).toBe(count);
+  expect(json.occurrencesComplete).toBe(true);
+  expect(json.occurrences).toEqual(schedule.occurrences);
+});
 it("requires a future clock choice and carries the selected offset into complete output", () => {
   const input = "every Sunday at 1:30am until 2026-11-15";
   const interpretation = result(input);

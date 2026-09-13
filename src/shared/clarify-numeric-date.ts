@@ -10,6 +10,15 @@ export type ClarificationSelection = { contextKey: string; id: string; previous?
  * Other occurrences remain independent and retain their explicit answers.
  */
 export function retainOccurrenceDecisions(history: string[], next: string): string[] {
+  const recurrenceBoundary = /^boundary:(starting|until):date:/.exec(next);
+  if (recurrenceBoundary)
+    return history.filter(
+      (id) =>
+        !id.startsWith(`boundary:${recurrenceBoundary[1]}:date:`) &&
+        !id.startsWith("monthly:") &&
+        !id.startsWith("count:") &&
+        !id.startsWith("recurrence:"),
+    );
   if (/^list:year:\d{4}$/.test(next))
     return history.filter((id) => !id.startsWith("list:") || /^list:\d+:month:/.test(id));
   if (next === "monthly:skip" || next === "monthly:last-day")

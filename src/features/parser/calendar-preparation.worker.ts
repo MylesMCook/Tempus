@@ -32,7 +32,11 @@ globalThis.onmessage = (event: MessageEvent<CalendarPreparationRequest>) => {
       ...(plan?.ok ? { file } : {}),
     };
   } catch {
-    response = { ok: false, error: "The calendar file could not be prepared. Try again." };
+    response = {
+      ok: false,
+      reason: "computation",
+      error: `${event.data.output === "occurrences" ? "The full schedule" : "The calendar file"} could not be calculated. Try preparing again or edit the schedule.`,
+    };
   }
   globalThis.postMessage(response);
 };

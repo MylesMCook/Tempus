@@ -101,3 +101,33 @@ it("keeps the year limit unresolved instead of overflowing the file date", () =>
   ]);
   expect(result.status).not.toBe("resolved");
 });
+
+it.each([
+  ["exclusive", "2026-09-21"],
+  ["inclusive", "2026-09-22"],
+])("retains the %s boundary choice after resolving Friday to Monday", (policy, end) => {
+  const input = "Time off from Friday to Monday";
+  const { result } = choose(input, [`interval:end:boundary:${policy}`]);
+  if (result.status !== "resolved" || result.value.kind !== "interval")
+    throw Error(JSON.stringify(result));
+  const file = prepareCalendarFile(result, metadata);
+  if (!file.ok) throw Error(file.reason);
+  const event = new ICAL.Event(
+    new ICAL.Component(ICAL.parse(file.text)).getFirstSubcomponent("vevent")!,
+  );
+  expect(event.startDate.isDate).toBe(true);
+  expect(event.endDate.isDate).toBe(true);
+  expect(event.startDate.toString()).toBe("2026-09-18");
+  expect(event.endDate.toString()).toBe(end);
+});
+
+it("treats equal weekdays as the same date and still requires a boundary decision", () => {
+  const input = "Time off from Friday to Friday";
+  const exclusive = choose(input, ["interval:end:boundary:exclusive"]).result;
+  expect(exclusive.status).not.toBe("resolved");
+  const inclusive = choose(input, ["interval:end:boundary:inclusive"]).result;
+  if (inclusive.status !== "resolved" || inclusive.value.kind !== "interval")
+    throw Error(JSON.stringify(inclusive));
+  expect(inclusive.value.start.result.local.slice(0, 10)).toBe("2026-09-18");
+  expect(inclusive.value.end.result.local.slice(0, 10)).toBe("2026-09-19");
+});

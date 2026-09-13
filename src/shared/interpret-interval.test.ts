@@ -76,4 +76,118 @@ describe("complete interval candidates", () => {
       expect(interpretInterval("Friday 10pm-12am", options)?.ok).toBe(false);
     }
   });
+
+  it.each([
+    "from 9am to 5pm tomorrow",
+    "9am–5pm tomorrow",
+    "9am—5pm tomorrow",
+    "between 9am and 5pm tomorrow",
+    "tomorrow between 9am and 5pm",
+    "tomorrow 9am—5pm",
+    "tomorrow from 9am to 5pm",
+  ])("resolves a shared date without changing the clocks: %s", (input) => {
+    const result = interpretInterval(input, context);
+    expect(result).toMatchObject({
+      ok: true,
+      start: { result: { iso: "2026-09-13T14:00:00.000Z" } },
+      end: { result: { iso: "2026-09-13T22:00:00.000Z" } },
+      allDay: false,
+      overnight: false,
+    });
+  });
+
+  it.each([
+    "from Friday at 9am to Monday at 5pm",
+    "from Fri at 9am until Mon at 5pm",
+    "from Friday at 9am to on Monday at 5pm",
+  ])("resolves only an unqualified ending weekday relative to the start: %s", (input) => {
+    expect(interpretInterval(input, context)).toMatchObject({
+      ok: true,
+      start: { result: { local: "2026-09-18T09:00:00.000" } },
+      end: { result: { local: "2026-09-21T17:00:00.000" } },
+    });
+  });
+
+  it.each([
+    ["from 2026-12-31 at 9am to Monday at 5pm", "2027-01-04T17:00:00.000"],
+    ["from 2026-09-30 at 9am to Friday at 5pm", "2026-10-02T17:00:00.000"],
+    ["from Friday at 9am to Friday at 5pm", "2026-09-18T17:00:00.000"],
+  ])("uses civil weekday rollover, keeping equal weekdays on the same date: %s", (input, end) => {
+    expect(interpretInterval(input, context)).toMatchObject({
+      ok: true,
+      end: { result: { local: end } },
+    });
+  });
+
+  it.each([
+    "from Friday at 9am to next Monday at 5pm",
+    "from Friday at 9am to this Monday at 5pm",
+    "from Friday at 9am to last Monday at 5pm",
+    "from Friday at 9am to on next Monday at 5pm",
+    "from Friday at 9am to Monday this week at 5pm",
+    "from Friday at 9am to 2026-09-14 at 5pm",
+    "from Friday at 9am to Friday at 9am",
+    "from Friday at 9am to Friday at 8am",
+  ])("never moves a qualified, explicit, or equal-weekday end: %s", (input) => {
+    expect(interpretInterval(input, context)).toMatchObject({
+      ok: false,
+      error: { message: "The end must follow the start." },
+    });
+  });
+
+  it.each([
+    "from 9am to 5pm tomorrow plus 1 day",
+    "9am–5pm tomorrow or Friday",
+    "between 9am and 5pm tomorrow except holidays",
+    "tomorrow between 9am and 5pm and 7pm",
+    "between 9am and 5pm tomorrow unless it rains",
+    "every Friday between 9am and 5pm",
+    "from Friday at 9am to Monday at 5pm plus 1 day",
+    "from Friday at 9am to Monday at 5pm or Tuesday",
+  ])("fully consumes new range forms without swallowing constraints: %s", (input) => {
+    expect(interpretInterval(input, context)?.ok).not.toBe(true);
+  });
+
+  it("preserves structured clock, timezone, and reference errors in clock-first forms", () => {
+    expect(interpretInterval("from 25:00 to 26:00 tomorrow", context)).toMatchObject({
+      ok: false,
+      error: { code: "syntax" },
+    });
+    expect(
+      interpretInterval("between 9am and 5pm tomorrow", { ...context, timezone: "Invalid/Zone" }),
+    ).toMatchObject({ ok: false, error: { code: "timezone" } });
+    expect(interpretInterval("9am—5pm tomorrow", { ...context, reference: "bad" })).toMatchObject({
+      ok: false,
+      error: { code: "reference" },
+    });
+  });
+
+  it.each([
+    "from Friday through Monday",
+    "from 9am through 5pm tomorrow",
+    "between Friday and Monday",
+    "between 9 and 5 tomorrow",
+    "tomorrow between 9 and 5",
+    "Friday from 9 through 5",
+  ])("offers range-specific recovery for unsupported wording: %s", (input) => {
+    expect(interpretInterval(input, context)).toMatchObject({
+      ok: false,
+      error: {
+        code: "syntax",
+        message: "That range wording is not supported.",
+        hint: expect.stringContaining("tomorrow between 9am and 5pm"),
+      },
+    });
+  });
+
+  it.each([
+    "3 days from today",
+    "3 days from 9 May",
+    "two weeks from tomorrow",
+    "today plus 2 days",
+    "now plus 1 hour",
+    "tomorrow and Friday",
+  ])("does not mistake arithmetic or lists for unsupported ranges: %s", (input) => {
+    expect(interpretInterval(input, context)).toBeNull();
+  });
 });

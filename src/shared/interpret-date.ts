@@ -48,7 +48,7 @@ export type Interpretation =
     };
 
 const temporalStart =
-  /\b(?:every|for|noon|midnight|today|tomorrow|yesterday|next|last|this|in|on|at|monday|tuesday|wednesday|thursday|friday|saturday|sunday|mon|tue|wed|thu|fri|sat|sun|jan(?:uary)?|feb(?:ruary)?|mar(?:ch)?|apr(?:il)?|may|jun(?:e)?|jul(?:y)?|aug(?:ust)?|sep(?:tember)?|oct(?:ober)?|nov(?:ember)?|dec(?:ember)?|days?|weeks?|months?|years?|hours?|minutes?|seconds?|\d+)\b/i;
+  /\b(?:every|for|noon|midnight|today|tomorrow|yesterday|next|last|this|in|on|at|monday|tuesday|wednesday|thursday|friday|saturday|sunday|mon|tue|wed|thu|fri|sat|sun|jan(?:uary)?|feb(?:ruary)?|mar(?:ch)?|apr(?:il)?|may|jun(?:e)?|jul(?:y)?|aug(?:ust)?|sep(?:tember)?|oct(?:ober)?|nov(?:ember)?|dec(?:ember)?|days?|weeks?|months?|years?|hours?|minutes?|seconds?|\d+(?:[ap]m)?)\b/i;
 
 // These words can constrain the date even when the resolver does not yet
 // support them. Never absorb them into a longer reminder label.
@@ -77,9 +77,7 @@ function labelBoundary(text: string): number {
   return -1;
 }
 function validEventLabel(text: string): boolean {
-  return /^[\p{L}][\p{L}'’-]*(?:\s+[\p{L}][\p{L}'’-]*)*$/u.test(
-    text.replace(labelIdentifier, "$1"),
-  );
+  return /^[\p{L}"“][\p{L}\s.'’"“”,:;!?&/()–—-]*$/u.test(text.replace(labelIdentifier, "$1"));
 }
 
 /** A quantity is event text only after explicit title confirmation. */
@@ -680,6 +678,18 @@ export function interpretDate(
       "no-expression",
       "No date selected from this instruction.",
       "It contains a cancellation or negative instruction. Enter only the date you want to calculate.",
+    );
+  }
+  const inlineZone = [
+    ...text.matchAll(
+      /\b(?:(?:Africa|America|Antarctica|Arctic|Asia|Atlantic|Australia|Europe|Indian|Pacific|Etc)\/[a-z_+-]+(?:\/[a-z_]+)?|(?:UTC|GMT)(?:[+-]\d{1,2}(?::?\d{2})?)?|[ECMP][SD]T|[ECPM]T|BST|IST|CET|CEST|JST|AEST|AEDT)\b/gi,
+    ),
+  ].find((match) => temporalStart.test(text.slice(0, match.index)));
+  if (inlineZone) {
+    return unresolved(
+      "unsupported",
+      "Choose the timezone in the timezone setting.",
+      `The written timezone “${inlineZone[0]}” has not been applied. Select an IANA timezone such as “America/Chicago”, then remove the timezone from the phrase. Abbreviations can be ambiguous.`,
     );
   }
   const alternatives = /^(?:(meet)\s+)?(.+?)\s+or\s+(.+)$/i.exec(text);

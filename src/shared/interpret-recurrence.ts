@@ -6,6 +6,8 @@ import { CalculationFailure, type CalculationIssue } from "./date-engine/types.j
 import { parseExpression } from "./date-engine/grammar.js";
 import { normalizeHalfHour, interpretInterval } from "./interpret-interval.js";
 import { clockChoices } from "./clarify-clock.js";
+import { calculateScheduleDate } from "./calculate-schedule-date.js";
+import { numericDateChoices } from "./clarify-numeric-date.js";
 
 type ClockOverride = { date: string; endpoint: "start" | "end"; instant: string; label: string };
 type OccurrencePrompt = NonNullable<ReturnType<typeof clockChoices>>;
@@ -15,11 +17,15 @@ const weekdayName = `(?:${weekdays.join("|")})s?`;
 const weekdayList = `${weekdayName}(?:(?:,\\s*(?:and\\s+)?|\\s+and\\s+)${weekdayName}){0,6}`;
 const cadence = `(?:${weekdayList}|days?|weekdays?|weekends?)`;
 const weeklyPrefix = new RegExp(`^weekly on (?=${weekdayName}\\b)`, "i");
-const missingClock = new RegExp("^every (" + cadence + ")$", "i");
-const clock = String.raw`(?:\d{1,2}(?::\d{2})?\s*[ap]m|\d{1,2}:\d{2}|noon|midnight)`;
+const pluralPrefix = new RegExp(`^(?:${weekdays.join("|")})s\\b`, "i");
+const recurrencePrefix =
+  /^(?:every|each|daily|weekly|monthly|yearly|annually|hourly|nightly|quarterly|biweekly|fortnightly|weekdays?|weekends?|alternate|alternating|repeat|repeating|recurring)\b/i;
 const isoDate = String.raw`\d{4}-\d{2}-\d{2}`;
+const boundaries = String.raw`(?: starting (.+?))?(?: until (.+?))?(?: except (${isoDate}(?:,\s*${isoDate})*))?`;
+const missingClock = new RegExp("^every (" + cadence + ")" + boundaries + "$", "i");
+const clock = String.raw`(?:\d{1,2}(?::\d{2})?\s*[ap]m|\d{1,2}:\d{2}|noon|midnight)`;
 const weekly = new RegExp(
-  `^every (${cadence}) (?:(?:at (${clock})(?: for (\\d+) (days?|weeks?|hours?|minutes?|seconds?))?)|(?:from (${clock}) to (${clock})))(?: starting (${isoDate}))?(?: until (${isoDate}))?(?: except (${isoDate}(?:,\\s*${isoDate})*))?$`,
+  `^every (${cadence}) (?:(?:at (${clock})(?: for (\\d+) (days?|weeks?|hours?|minutes?|seconds?))?)|(?:from (${clock}) to (${clock})))${boundaries}$`,
   "i",
 );
 
@@ -67,9 +73,67 @@ const invalid = (message: string): RecurrenceFailure => ({
   error: {
     code: "range",
     message,
-    hint: "Use a valid weekly schedule, 1–100 preview occurrences and at most 10 excluded dates.",
+    hint: "Use a valid weekly or monthly schedule, 1–100 preview occurrences and at most 10 excluded dates.",
   },
 });
+
+function resolveBoundary(
+  expression: string,
+  endpoint: "starting" | "until",
+  options: RecurrenceOptions,
+): { ok: true; date: string } | RecurrenceFailure {
+  const alternatives = numericDateChoices(expression);
+  if (alternatives?.length) {
+    const prefix = `boundary:${endpoint}:date:`;
+    const answers = [...new Set(options.policyDecisions?.filter((id) => id.startsWith(prefix)))];
+    const selected =
+      answers.length === 1
+        ? alternatives.find((choice) => `${prefix}${choice.id}` === answers[0])
+        : undefined;
+    if (alternatives.length > 1 && !selected) {
+      return {
+        ok: false,
+        error: {
+          code: "syntax",
+          message: `Which date does the ${endpoint} boundary mean?`,
+          hint: "Choose the date order. The boundary is an inclusive local calendar date.",
+        },
+        policyPrompt: {
+          question: `Which date does the ${endpoint} boundary mean?`,
+          choices: alternatives.map((choice) => ({ ...choice, id: `${prefix}${choice.id}` })),
+        },
+      };
+    }
+    expression = (selected ?? alternatives[0]).expression;
+  }
+  try {
+    const plan = parseExpression(expression);
+    if (
+      plan.time ||
+      (plan.anchor.kind === "relative" && plan.anchor.value === "now" && !plan.operations.length) ||
+      plan.operations.some(
+        (operation) => !["day", "week", "month", "year"].includes(operation.unit),
+      )
+    )
+      return invalid(
+        `The recurrence ${endpoint} boundary must be a calendar date, not a clock or elapsed time.`,
+      );
+    const resolved = calculateScheduleDate(expression, options);
+    if (!resolved.ok)
+      return {
+        ok: false,
+        error: {
+          ...resolved.error,
+          message: `Recurrence ${endpoint} boundary: ${resolved.error.message}`,
+        },
+      };
+    return { ok: true, date: resolved.result.local.slice(0, 10) };
+  } catch (error) {
+    return invalid(
+      `The recurrence ${endpoint} boundary is not a supported date${error instanceof CalculationFailure ? `: ${error.issue.message}` : "."}`,
+    );
+  }
+}
 
 /** Resolve one selected date; cadence selection and past-date filtering belong to the caller. */
 function resolveOccurrence(
@@ -185,6 +249,7 @@ export function interpretRecurrence(
     .replace(/\s+/g, " ")
     .replace(/^daily(?= |$)/i, "every day")
     .replace(weeklyPrefix, "every ");
+  if (pluralPrefix.test(normalized)) normalized = `every ${normalized}`;
   let interval = 1;
   const counted = /\s+for (\S+) (?:occurrences?|times?)(?= starting | until | except |$)/i.exec(
     normalized,
@@ -218,7 +283,8 @@ export function interpretRecurrence(
   const alternateWeekday = new RegExp(`^every other (?=${weekdayName}(?: (?:at|from)\\b|$))`, "i");
   if (spacedWeeks) {
     interval = Number(spacedWeeks[1]);
-    if (!Number.isInteger(interval) || interval < 1 || interval > 52) return null;
+    if (!Number.isInteger(interval) || interval < 1 || interval > 52)
+      return invalid("A repeating weekly interval must be from 1 to 52 weeks.");
     normalized = normalized.replace(/^every \d+ weeks? on /i, "every ");
   } else if (alternateWeekday.test(normalized)) {
     interval = 2;
@@ -238,23 +304,22 @@ export function interpretRecurrence(
     const day = dayOfMonth!;
     const expected =
       day >= 11 && day <= 13 ? "th" : ({ 1: "st", 2: "nd", 3: "rd" }[day % 10] ?? "th");
-    if (suffix && suffix !== expected) return null;
+    if (suffix && suffix !== expected)
+      return invalid("The monthly recurrence day has an invalid ordinal suffix.");
   }
   const match = weekly.exec(monthly ? normalized.replace(monthly[0], "every day") : normalized);
   if (!match) {
-    // A repetition count is not an event duration. Keep the whole request unresolved
-    // until count, exclusion and starting-boundary semantics are implemented.
-    if (/^every\b/i.test(normalized) && /\bfor\s+\S+\s+(?:occurrences?|times?)\b/i.test(normalized))
-      return {
-        ok: false,
-        error: {
-          code: "syntax",
-          message: "Repeating a set number of times is not supported yet.",
-          hint: "Your requested count has not been applied. No schedule or calendar file has been created.",
-        },
-      };
     if (!missingClock.test(monthly ? normalized.replace(monthly[0], "every day") : normalized))
-      return null;
+      return recurrencePrefix.test(normalized)
+        ? {
+            ok: false,
+            error: {
+              code: "syntax",
+              message: "This repeating schedule wording is not supported yet.",
+              hint: "Use full weekdays with a shared clock, or “every month on the 15th at noon”. Boundaries may be named, relative or ISO dates; use exact excluded dates in ISO format. No recurrence qualifier has been discarded.",
+            },
+          }
+        : null;
     const validated = calculateDate("now", options);
     if (!validated.ok) return validated;
     return {
@@ -273,38 +338,37 @@ export function interpretRecurrence(
   // Validate the supplied instant and zone, without inventing a midnight appointment.
   const validated = calculateDate("now", options);
   if (!validated.ok) return validated;
-  let monthlyRule: MonthlyCadence | undefined;
-  if (dayOfMonth !== undefined) {
-    const policies = [
-      ...new Set(
-        (options.policyDecisions ?? []).filter(
-          (id) => id === "monthly:skip" || id === "monthly:last-day",
-        ),
+  const policies = [
+    ...new Set(
+      (options.policyDecisions ?? []).filter(
+        (id) => id === "monthly:skip" || id === "monthly:last-day",
       ),
-    ];
-    if (dayOfMonth > 28 && policies.length !== 1) {
-      return {
-        ok: false,
-        error: {
-          code: "syntax",
-          message: "Some months do not have that date.",
-          hint: "Choose what happens in those months. Your original text stays unchanged.",
-        },
-        policyPrompt: {
-          question: `What happens in months without day ${dayOfMonth}?`,
-          choices: [
-            { id: "monthly:skip", label: "Skip that month", expression: text },
-            { id: "monthly:last-day", label: "Use the last day of that month", expression: text },
-          ],
-        },
-      };
-    }
-    monthlyRule = {
-      frequency: "monthly",
-      dayOfMonth,
-      shortMonth: policies[0] === "monthly:last-day" ? "last-day" : "skip",
-    };
-  }
+    ),
+  ];
+  const monthlyPrompt = (): RecurrenceFailure => ({
+    ok: false,
+    error: {
+      code: "syntax",
+      message: "Some months do not have that date.",
+      hint: "Choose what happens in those months. Your original text stays unchanged.",
+    },
+    policyPrompt: {
+      question: `What happens in months without day ${dayOfMonth}?`,
+      choices: [
+        { id: "monthly:skip", label: "Skip that month", expression: text },
+        { id: "monthly:last-day", label: "Use the last day of that month", expression: text },
+      ],
+    },
+  });
+  const monthlyRule: MonthlyCadence | undefined =
+    dayOfMonth === undefined
+      ? undefined
+      : {
+          frequency: "monthly",
+          dayOfMonth,
+          shortMonth:
+            policies.length === 1 && policies[0] === "monthly:last-day" ? "last-day" : "skip",
+        };
   const [
     ,
     weekday,
@@ -370,10 +434,14 @@ export function interpretRecurrence(
         ? ("consume" as const)
         : ("replace" as const)
       : undefined;
+  const startBoundary = starting ? resolveBoundary(starting, "starting", options) : undefined;
+  if (startBoundary && !startBoundary.ok) return startBoundary;
+  const endBoundary = until ? resolveBoundary(until, "until", options) : undefined;
+  if (endBoundary && !endBoundary.ok) return endBoundary;
   try {
     const today = Temporal.PlainDate.from(validated.result.local.slice(0, 10));
-    let beginning = starting ? Temporal.PlainDate.from(starting) : today;
-    const ending = until ? Temporal.PlainDate.from(until) : undefined;
+    let beginning = startBoundary ? Temporal.PlainDate.from(startBoundary.date) : today;
+    const ending = endBoundary ? Temporal.PlainDate.from(endBoundary.date) : undefined;
     const pastStart =
       count &&
       starting &&
@@ -414,6 +482,77 @@ export function interpretRecurrence(
     }
     if (ending && Temporal.PlainDate.compare(ending, beginning) < 0)
       return invalid("The last schedule date precedes its start.");
+    if (monthlyRule && dayOfMonth! > 28 && policies.length !== 1) {
+      if (!ending && !count) return monthlyPrompt();
+      // Compare the entire finite schedule, not the preview. Unknown count policies
+      // remain alternatives; an answered policy must constrain this comparison.
+      const scheduleFor = (
+        shortMonth: MonthlyCadence["shortMonth"],
+        past: "consume" | "upcoming" | undefined,
+        excluded: "consume" | "replace" | undefined,
+      ): { ok: true; dates: string[]; fulfilled: boolean } | RecurrenceFailure => {
+        const rule = { ...monthlyRule, shortMonth };
+        const from =
+          past === "consume" || Temporal.PlainDate.compare(beginning, today) > 0
+            ? beginning
+            : today;
+        let candidate = nextMonthlyDate(from, rule);
+        let slots = 0;
+        const dates: string[] = [];
+        while (
+          (!ending || Temporal.PlainDate.compare(candidate, ending) <= 0) &&
+          candidate.year <= 9999
+        ) {
+          const key = candidate.toString();
+          const isExcluded = exceptions.includes(key);
+          let isPast = Temporal.PlainDate.compare(candidate, today) < 0;
+          if (candidate.equals(today) && (!isExcluded || excluded === "consume")) {
+            const instants = (["earlier", "later"] as const).map(
+              (policy) =>
+                zonedLocal(candidate.toPlainDateTime(startTime), options.timezone, policy)
+                  .epochMilliseconds,
+            );
+            if (instants.every((instant) => instant < validated.result.timestamp)) isPast = true;
+            else if (instants.some((instant) => instant < validated.result.timestamp)) {
+              const resolved = resolveOccurrence(
+                candidate,
+                { pointClock: pointClock ?? rangeStart },
+                options,
+              );
+              if (!resolved.ok) return resolved;
+              isPast = resolved.occurrence.start.result.timestamp < validated.result.timestamp;
+            }
+          }
+          if ((!isPast || past === "consume") && (!isExcluded || excluded === "consume")) {
+            slots++;
+            if (!isPast && !isExcluded) dates.push(key);
+            if (count && slots === count) break;
+          }
+          candidate = nextMonthlyDate(candidate.add({ days: 1 }), rule);
+        }
+        return { ok: true, dates, fulfilled: !count || slots === count };
+      };
+      const pastPolicies =
+        pastStart && !countPast ? (["consume", "upcoming"] as const) : [countPast];
+      const exclusionPolicies =
+        count && exceptions.length && !countExclusions
+          ? (["consume", "replace"] as const)
+          : [countExclusions];
+      for (const past of pastPolicies) {
+        for (const excluded of exclusionPolicies) {
+          const skipped = scheduleFor("skip", past, excluded);
+          if (!skipped.ok) return skipped;
+          const clamped = scheduleFor("last-day", past, excluded);
+          if (!clamped.ok) return clamped;
+          if (
+            skipped.fulfilled !== clamped.fulfilled ||
+            skipped.dates.length !== clamped.dates.length ||
+            skipped.dates.some((date, index) => date !== clamped.dates[index])
+          )
+            return monthlyPrompt();
+        }
+      }
+    }
     if (pastStart && !countPast) {
       return {
         ok: false,
