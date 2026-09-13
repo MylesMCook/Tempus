@@ -65,3 +65,12 @@ No product code was changed during this audit. Physical phones, real calendar cl
 - [x] Replace the textarea with a keyboard-focusable code viewer. JSON retains indentation and uses syntax colors; source strings render as React text, never HTML. Long code lines scroll inside the viewer. Datasets over 100,000 characters retain complete formatted output without syntax spans.
 - [x] Build, scoped lint, preview/copy equality and existing complete-output browser journeys pass locally in Chrome, Firefox and WebKit. Visually inspected the 390px JSON preview. Desktop keyboard access uses Option-Tab in WebKit.
 - [x] Deployed `cb3fc196-18f6-455e-85b8-acb087157130`; all three browser replays pass on the live site, including exact preview/copy equality and syntax highlighting. Rollback: `53bb72bd-bb30-47fa-a363-e27f07739708`.
+
+## Public release closeout
+
+- [x] Publish the source, SDK preview, product matrix, dogfood findings and retained evidence to the public GitHub repository. Keep the SDK package private and unpublished until its compatibility contract is final.
+- [x] Pass full formatting, lint, type checks, 1,015 tests plus one expected failure, production build, dependency audit, packed-file inspection, 99 evidence manifests and Cloudflare dry run.
+- [x] Correct the calendar-reader test that depended on the host timezone. Its all-day file assertions now compare calendar dates; the focused test passes under `TZ=UTC`, and GitHub CI passes on Linux.
+- [x] Deploy Cloudflare version `69c24d73-8e0f-4296-914e-5aa27f50380b`. Both hostnames return the expected routes, headers and fixed-reference API result. The live browser resolves all five dates, shows complete pretty JSON, reports copy success and logs no warnings or errors.
+
+Remaining evidence gaps stay open: physical phones, actual calendar-client imports, assistive-technology sessions, energy measurements and independently authored user evaluation.
