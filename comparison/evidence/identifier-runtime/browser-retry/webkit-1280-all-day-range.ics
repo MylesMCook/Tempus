@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tempus//Calendar Export//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:ba33facf-d59a-45f9-bc08-09085c41fa54-0@tempus.invalid
+DTSTAMP:20260913T164347Z
+SUMMARY:Call Sam
+DESCRIPTION:Date phrase: Call Sam tomorrow for 2 days or Friday at midnight
+  for 2 days\nTimezone: America/Chicago\nThe interval end is exclusive.\nYo
+ u selected the first written alternative.
+DTSTART;VALUE=DATE:20260913
+DTEND;VALUE=DATE:20260915
+END:VEVENT
+END:VCALENDAR

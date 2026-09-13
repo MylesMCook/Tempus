@@ -1,0 +1,36 @@
+{
+  "versions": {
+    "icalendar": "7.3.0",
+    "recurring-ical-events": "3.8.2"
+  },
+  "cases": [
+    {
+      "name": "utc-day-29",
+      "sha256": "70b8495a303e4460013e9b78d11689df7604e250c21a3a03cbe94397c25ce23d",
+      "status": "passed",
+      "observedCount": 4798,
+      "firstMismatch": null
+    },
+    {
+      "name": "utc-day-30",
+      "sha256": "6b0f56951e738ee4e0e29cf306488d171aede4cd5fd8e6f4031532052a9b1352",
+      "status": "passed",
+      "observedCount": 4798,
+      "firstMismatch": null
+    },
+    {
+      "name": "chicago-day-29",
+      "sha256": "f1ec0cd64f105a5b9ff1a7690a10aac58c79e0269476faea257df7aa4585b641",
+      "status": "passed",
+      "observedCount": 4798,
+      "firstMismatch": null
+    },
+    {
+      "name": "chicago-day-30",
+      "sha256": "73a39074943fa6baa70b4df0ef8cf49e8a5e8ecdf38ef02e13512f415e316b0e",
+      "status": "passed",
+      "observedCount": 4798,
+      "firstMismatch": null
+    }
+  ]
+}

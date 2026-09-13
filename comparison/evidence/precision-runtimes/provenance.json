@@ -1,0 +1,13 @@
+{
+  "archiveSha256": "7d1907c6674485eee8d1df072f5d4b6138a949e88a1f71999377a29f67d8255a",
+  "sourceHashes": {
+    "examples/sdk/verify-browser.mjs": "ff05694902420daf9a5ebf6137e22ac4fb04e92ae5aa073ef1699605c4618e6a",
+    "examples/sdk/verification-worker.ts": "9d5fc18ad2461db50c663462e60a3890e46614a358b3fc54e7e446a4c7047cb3",
+    "examples/sdk/read-browser-files.py": "ec5c663dba8e04d274108cef0724066e5a37b71bbaece168a9d08ae10f73f9e7",
+    "examples/sdk/read-worker-files.py": "2f728c272852973d460149dff09466f32f94c0495e084e13c2556d4c77905679"
+  },
+  "workerTypeCheck": "passed",
+  "wrangler": "4.131.1",
+  "workerResponse": 200,
+  "scope": "Current installed archive, local runtime checks; no deployment or calendar-client import."
+}

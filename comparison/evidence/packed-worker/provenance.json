@@ -1,0 +1,18 @@
+{
+  "archiveSha256": "4ec180308a16144daa73f3c154d22868f8f47fcd9c4bcebf81d2be2ec1b452df",
+  "wrangler": "4.131.1",
+  "runtime": "local workerd via wrangler dev --local",
+  "typecheck": "passed: strict NodeNext ES2023 DOM installed declarations",
+  "routes": {
+    "GET /verify": 200,
+    "GET /": 404,
+    "POST /verify": 404
+  },
+  "sourceHashes": {
+    "examples/sdk/verification-worker.ts": "be166fa3a1c2dbe4a3738c6af7eb7437e4fe80692199accae09833bda658a869",
+    "examples/sdk/wrangler.verify.jsonc": "c08fac53a5b06c33b8269230f3dd4ef2fc678ade2f4918cadd88febd2307d223",
+    "examples/sdk/read-worker-files.py": "3a78ae9cf9ce0eee85ca496b14d9226db0efe7239a7aa7be3b3712124d75ebc0",
+    "examples/sdk/read-worker-files.py.lock": "25321ad7e67ccbc618b94ba12fdfc25f3d5cc3d7ba775ee1ef6b06cab5e63751"
+  },
+  "scope": "Authored development checks only. No deployment, client import, device or independent evaluation."
+}

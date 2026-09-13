@@ -1,0 +1,7 @@
+{
+  "before": "a7f9e298c3c3152e0cddc7e439819ed0aba83a2471e81adc78a646e9737ca21b",
+  "after": "b1cbd22abe5d87385eb47dcfd3d8528ca6c38206250e6112f12774bc0f5d3395",
+  "changedPackageFiles": [
+    "dist/sdk.js"
+  ]
+}

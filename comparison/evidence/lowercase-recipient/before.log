@@ -1,0 +1,48 @@
+
+> tempus-total@0.1.0 test /Users/mylescook/Code/MylesMCook/TempusTotal
+> vp test --run src/shared/recipient-label.test.ts
+
+
+ RUN  v4.1.11 /Users/mylescook/Code/MylesMCook/TempusTotal
+
+ ❯ src/shared/recipient-label.test.ts (29 tests | 4 failed) 39ms
+   × confirms the complete recipient title: Buy groceries for mom 1ms
+   × confirms the complete recipient title: Send flowers for jo smith 0ms
+   × confirms the complete recipient title: Remind me to buy apples for o’toole 0ms
+   × completes mom recipient correction, file output and edit 0ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/shared/recipient-label.test.ts > confirms the complete recipient title: Buy groceries for mom
+ FAIL  src/shared/recipient-label.test.ts > confirms the complete recipient title: Send flowers for jo smith
+ FAIL  src/shared/recipient-label.test.ts > confirms the complete recipient title: Remind me to buy apples for o’toole
+Error: Missing title question
+ ❯ src/shared/recipient-label.test.ts:16:13
+     14|     const question = parse(input, context);
+     15|     if (question.status !== "needs-clarification" || !question.clarifi…
+     16|       throw Error("Missing title question");
+       |             ^
+     17|     expect(prepareCalendarFile(question, metadata).ok).toBe(false);
+     18|     const result = parse(input, {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  src/shared/recipient-label.test.ts > completes mom recipient correction, file output and edit
+Error: Missing question
+ ❯ src/shared/recipient-label.test.ts:38:13
+     36|     const result = parse(input, { ...context, selection });
+     37|     if (result.status !== "needs-clarification" || !result.clarificati…
+     38|       throw Error("Missing question");
+       |             ^
+     39|     expect(result.clarification.choices.some((choice) => choice.id ===…
+     40|     expect(prepareCalendarFile(result, metadata).ok).toBe(false);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  4 failed | 25 passed (29)
+   Start at  14:28:15
+   Duration  220ms (transform 81ms, setup 0ms, import 115ms, tests 39ms, environment 0ms)
+
+ ELIFECYCLE  Test failed. See above for more details.

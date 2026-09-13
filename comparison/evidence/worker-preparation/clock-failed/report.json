@@ -1,0 +1,36 @@
+{
+  "status": "failed",
+  "browser": "153.0.8010.36",
+  "runs": [
+    {
+      "id": "fold-earlier",
+      "width": 320,
+      "status": "passed",
+      "file": "fold-earlier-320.ics",
+      "sha256": "565755c2a25c1ab0f18b029545000d4c39b0cab58136ce664004d71fc144b60b"
+    },
+    {
+      "id": "fold-later",
+      "width": 320,
+      "status": "passed",
+      "file": "fold-later-320.ics",
+      "sha256": "f2c2d084098301431c94e63d02e1ef0b2a48698286cb3da0aa810699088cf00a"
+    },
+    {
+      "id": "gap-earlier",
+      "width": 320,
+      "status": "passed",
+      "file": "gap-earlier-320.ics",
+      "sha256": "3d098cc8e66534514365b0d49cb541d0b992a93bc583e416114cfc0d210dba47"
+    }
+  ],
+  "sourceHashes": {
+    "src/shared/interpret-recurrence.ts": "231e414092457b65540f9dd23d44e02a02aed62e5ef1870bac2b1c152982ad66",
+    "src/shared/interpret-date.ts": "c18131427c89a3e726f7188d879a461f156e8635a83dc64cdcc2992af46cf95e",
+    "src/shared/clarify-numeric-date.ts": "9a5821d435503e81e2c74e44dbcf49d7360985353b1c608bfd924b9d650dc000",
+    "src/shared/recurring-calendar-file.ts": "77acb98b991deddae5c88e0a9cdd40e225e083ec02d7e28ead674f8aa835de8d",
+    "examples/app/verify-excluded-clock.mjs": "237289d41eb92456d97d0372b002eb8cf5b9b18c870cdaf878345ee623ca56b1"
+  },
+  "scope": "Desktop Chrome direct focus/Enter, excluded-clock count clarification, download and edit invalidation. Not full keyboard traversal, physical devices or calendar-client imports.",
+  "error": "TimeoutError: page.waitForFunction: Timeout 30000ms exceeded."
+}

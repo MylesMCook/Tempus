@@ -1,0 +1,68 @@
+{
+  "files": [
+    {
+      "filename": "chromium-retry.ics",
+      "sha256": "6f00bfe946bb6f480e33d8355349a376e3547a02861f08fa56b56ea1763ed76f",
+      "count": 5,
+      "title": "Call Sam",
+      "status": "passed"
+    },
+    {
+      "filename": "chromium-edited.ics",
+      "sha256": "aeaf9a1dc65675564396eb6af3f31c93f163ef6a0813102519287b0dff8a5bae",
+      "count": 3,
+      "title": "Call Jo",
+      "status": "passed"
+    },
+    {
+      "filename": "chromium-title.ics",
+      "sha256": "e8758252a27c246638716b9727150ad3175e187a6783d457b47e3d1a3feb4cba",
+      "count": 3,
+      "title": "Final title",
+      "status": "passed"
+    },
+    {
+      "filename": "firefox-retry.ics",
+      "sha256": "37666aa5232d04cd2678f6795605d505b424f6e49d12fb206f1f8d5ac45c7dd4",
+      "count": 5,
+      "title": "Call Sam",
+      "status": "passed"
+    },
+    {
+      "filename": "firefox-edited.ics",
+      "sha256": "9953b728e6e47f9d3cad298f36af6521cbf39048bc5ab1812882b23af0bf7483",
+      "count": 3,
+      "title": "Call Jo",
+      "status": "passed"
+    },
+    {
+      "filename": "firefox-title.ics",
+      "sha256": "49fa05a09b8bee79516c7407729a021acf18f1683403e59638fc3ea10825243c",
+      "count": 3,
+      "title": "Final title",
+      "status": "passed"
+    },
+    {
+      "filename": "webkit-retry.ics",
+      "sha256": "d2c06ed3052fc0f469fca289f0cc7195f9189c53966ebde06f22236340dc24ba",
+      "count": 5,
+      "title": "Call Sam",
+      "status": "passed"
+    },
+    {
+      "filename": "webkit-edited.ics",
+      "sha256": "8eb281774ac7f1d3534e27cb67910916bb445e987da270c078842530b598c47c",
+      "count": 3,
+      "title": "Call Jo",
+      "status": "passed"
+    },
+    {
+      "filename": "webkit-title.ics",
+      "sha256": "fe593c3f149ad63c658ffee0bfe693070598c23573d9dde974f0478e71cf55af",
+      "count": 3,
+      "title": "Final title",
+      "status": "passed"
+    }
+  ],
+  "scope": "Separate readers check actual lifecycle downloads, counts, identity, titles and daily starts; no independent captured-reference oracle or calendar-client import."
+}

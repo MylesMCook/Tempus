@@ -1,0 +1,13 @@
+# Clock-first reminder completion
+
+The failing task Buy apples for Sam At noon tomorrow now resolves after title confirmation. Scheduling interpretation can evaluate one explicit clock followed by one date anchor, such as at noon tomorrow, 10 pm next Friday or at 1:30am on 11/01/2026. Original input and source spans remain intact; the result explains the normalized date-first wording. Strict calculator/API v2 grammar is unchanged and strict replay is disabled for this scheduling form.
+
+Numeric-date and DST ambiguity retain their choices. The transformation rejects arithmetic, an additional clock, durations, recurrence and unsupported qualifiers rather than moving a clock across them. Bare hours without AM/PM or colon notation remain unsupported. This is bounded point interpretation, not arbitrary word-order normalization.
+
+All 979 source/comparison tests pass with one pre-existing expected failure across 58 files. The previous clock-first assertion passes without weakening its expectation. Build, type checking and scoped lint pass; the large-chunk warning remains. Initial file tests omitted the required exact-time point mode and failed. The fixture now supplies that explicit mode; the export guard was not changed. The initial failure is retained.
+
+Archive b8ffb7e04e46eeaaf1e1dcf6c07875b2f805e2497dee50f03280ec0afd14e051 passes seven Node26 package examples, installed types and all 56 installed-file checks. Targeted installed probes complete the original recipient task and a numeric-date/repeated-clock task on Node22.12 and Node26.8.1. The retained 31-case/25-journey replay matches all outputs and file hashes; the clock-first cases do not change that comparison denominator.
+
+The first built-app Chrome run passed eight journeys, then timed out waiting for the existing recipient-case download at 1280px. It had already completed the new clock-first case at 320px. The unchanged retry passes all twelve journeys at widths 320 and 1280, with twelve separate file readbacks. The first timeout is unexplained; retry success does not close download reliability. Both reports are retained. These checks use direct focus/Enter, not sequential keyboard traversal or physical phones. They do not verify actual calendar-client imports or independent user completion.
+
+Current full Worker, offline-browser and performance refresh remain unrun for this archive. Earlier reports retain their artifact identities. The task-local built server was stopped and the main development server preserved. No package publication, push, deployment or calendar-account write occurred. The matrix requirements are unchanged; overall release readiness and competitive superiority remain unproved.

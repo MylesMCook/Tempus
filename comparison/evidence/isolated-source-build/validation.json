@@ -1,0 +1,40 @@
+{
+  "archiveBytesEqual": true,
+  "archiveSha256": "5866c6b3c4048852dae4f9595bdb47396e512c71aba9623966c808161a970162",
+  "comparisonSemanticResultsEqual": true,
+  "comparisonOmittedFields": [
+    "results[*].gpu.raw.timings"
+  ],
+  "isolatedGitMetadata": {
+    "tempusCommit": null,
+    "workingTreeDirty": null,
+    "gitMetadataStatus": "absent"
+  },
+  "clientAssetsEqual": true,
+  "currentClientFiles": {
+    "placeholder-logo.svg": "19a9e968f4656d52a4c249b4056117ad109370ba9da51cdc630ddded74cec73b",
+    "index.html": "392b630b186985f3c99fd9d3a7de66e36db2a4949db5e3934b0c85946925dd2d",
+    "placeholder-logo.png": "f69904843a317ebf9606f73ffeff29753bdffe9796706308ecd1966a4b8b1fcf",
+    "_headers": "c551696324b38b5fb63980772f32cae743f0d7349139c851f44b2357394b8671",
+    "placeholder-user.jpg": "f31f308b3361e89c50c9572e877e6c763f85f35e325b5c6a571e9903d779b5dc",
+    "placeholder.jpg": "02f2628ee3e0413d4c848784810bd36592a33984572c91623a0ae6bdbc8d85e9",
+    ".assetsignore": "4f83140d5f4293ab55bd1207327e995c83258f1e7d3145b1b5d7a3d17fdfe0a7",
+    "placeholder.svg": "64badf7aabda0b9630b87020ffb6095cb858ccbcf66b355c2aa08b1063954d3b",
+    "assets/calendar-preparation.worker-k1B3UWDT.js": "82883cbbc754b7f9392b4940297ce9e6dc5e88b6db5cc8bed873a8a9b2e8772a",
+    "assets/index-BZuWK7jr.css": "50d3a8525e2af63b0bd7bce83d88fc20ed440300508ec1c05f0e4f91beee5c61",
+    "assets/index-C7XlNycq.js": "d268ced154793d63aefe5773b3f4e99e6704f922db8d669300bcaada05c28b3c"
+  },
+  "isolatedClientFiles": {
+    "placeholder-logo.svg": "19a9e968f4656d52a4c249b4056117ad109370ba9da51cdc630ddded74cec73b",
+    "index.html": "392b630b186985f3c99fd9d3a7de66e36db2a4949db5e3934b0c85946925dd2d",
+    "placeholder-logo.png": "f69904843a317ebf9606f73ffeff29753bdffe9796706308ecd1966a4b8b1fcf",
+    "_headers": "c551696324b38b5fb63980772f32cae743f0d7349139c851f44b2357394b8671",
+    "placeholder-user.jpg": "f31f308b3361e89c50c9572e877e6c763f85f35e325b5c6a571e9903d779b5dc",
+    "placeholder.jpg": "02f2628ee3e0413d4c848784810bd36592a33984572c91623a0ae6bdbc8d85e9",
+    ".assetsignore": "4f83140d5f4293ab55bd1207327e995c83258f1e7d3145b1b5d7a3d17fdfe0a7",
+    "placeholder.svg": "64badf7aabda0b9630b87020ffb6095cb858ccbcf66b355c2aa08b1063954d3b",
+    "assets/calendar-preparation.worker-k1B3UWDT.js": "82883cbbc754b7f9392b4940297ce9e6dc5e88b6db5cc8bed873a8a9b2e8772a",
+    "assets/index-BZuWK7jr.css": "50d3a8525e2af63b0bd7bce83d88fc20ed440300508ec1c05f0e4f91beee5c61",
+    "assets/index-C7XlNycq.js": "d268ced154793d63aefe5773b3f4e99e6704f922db8d669300bcaada05c28b3c"
+  }
+}

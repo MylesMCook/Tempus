@@ -1,0 +1,133 @@
+{
+  "status": "passed",
+  "archiveSha256": "4ec180308a16144daa73f3c154d22868f8f47fcd9c4bcebf81d2be2ec1b452df",
+  "sourceHashes": {
+    "calendar.html": "b65eaa9dcf388e52d950c8f67cb12c116e7283aa48919842d7c12cf73edc2eb8",
+    "calendar-browser.ts": "13a74bdf7d32f36c2fc9dab9e1eb618e10960c21820a3c78764a26f8d02e7637",
+    "vite.config.mjs": "737f9e6f36206b44d99a9f64774a5f82f2afcbd62f34d58148d6748c3fdb1274"
+  },
+  "runnerSha256": "32eb85b82f067562b70881d729cd3cebe268c549fa623ecb786cea8c0ae4742a",
+  "runs": [
+    {
+      "browser": "chromium",
+      "version": "153.0.8010.36",
+      "width": 320,
+      "status": "passed",
+      "files": [
+        {
+          "filename": "chromium-320-weekly.ics",
+          "sha256": "c74a423f1b3455cf75f048a3f7f46efba749a93366f11fbecce4a0d8e8c8a119",
+          "events": 9
+        },
+        {
+          "filename": "chromium-320-list.ics",
+          "sha256": "de48cbc0981afd3a46ccc57598900435a1ea3170b6a756238865da251f13d36a",
+          "events": 2
+        }
+      ],
+      "errors": [],
+      "externalRequests": []
+    },
+    {
+      "browser": "chromium",
+      "version": "153.0.8010.36",
+      "width": 1280,
+      "status": "passed",
+      "files": [
+        {
+          "filename": "chromium-1280-weekly.ics",
+          "sha256": "983e3d5e6539001f88bbf41bc78e38897b2be00b710fe59529397ea9f83f012d",
+          "events": 9
+        },
+        {
+          "filename": "chromium-1280-list.ics",
+          "sha256": "4150422e09be010bbb3e97c01a427768d75c6eec9cea434024b534312c38d294",
+          "events": 2
+        }
+      ],
+      "errors": [],
+      "externalRequests": []
+    },
+    {
+      "browser": "firefox",
+      "version": "148.0.2",
+      "width": 320,
+      "status": "passed",
+      "files": [
+        {
+          "filename": "firefox-320-weekly.ics",
+          "sha256": "e5e0d7b2d3b43894cf5e146d90474d74fae43baa78454ffa5c75afcd3bad846b",
+          "events": 9
+        },
+        {
+          "filename": "firefox-320-list.ics",
+          "sha256": "ac757825ddde5b08d5c703d26be3e0927d69e5d16ab54039bd17de40d2e92a7b",
+          "events": 2
+        }
+      ],
+      "errors": [],
+      "externalRequests": []
+    },
+    {
+      "browser": "firefox",
+      "version": "148.0.2",
+      "width": 1280,
+      "status": "passed",
+      "files": [
+        {
+          "filename": "firefox-1280-weekly.ics",
+          "sha256": "87fccfb7b5320116dd0ec37ff3ee5bd3f21558ce07ac96d9908484488d516894",
+          "events": 9
+        },
+        {
+          "filename": "firefox-1280-list.ics",
+          "sha256": "5476ce2c3a2d1ae5c1fc2c1da793151d5cfaf80694a83f0f18340418b5ef2b73",
+          "events": 2
+        }
+      ],
+      "errors": [],
+      "externalRequests": []
+    },
+    {
+      "browser": "webkit",
+      "version": "26.4",
+      "width": 320,
+      "status": "passed",
+      "files": [
+        {
+          "filename": "webkit-320-weekly.ics",
+          "sha256": "c4c0b28f02165fee4c3f7d9f3a7883ac876b04a4e8b97a1fef5cd1b7a42b9e12",
+          "events": 9
+        },
+        {
+          "filename": "webkit-320-list.ics",
+          "sha256": "1e1ed5ddcfc6426826af9a761ccefee4621a9de5e47c09ee35fcba3ff19352bb",
+          "events": 2
+        }
+      ],
+      "errors": [],
+      "externalRequests": []
+    },
+    {
+      "browser": "webkit",
+      "version": "26.4",
+      "width": 1280,
+      "status": "passed",
+      "files": [
+        {
+          "filename": "webkit-1280-weekly.ics",
+          "sha256": "646198df1c612c552501b6518250d97ad22b6b9dd6ea75dfb1c57f1e64761ad0",
+          "events": 9
+        },
+        {
+          "filename": "webkit-1280-list.ics",
+          "sha256": "fffda082b8c90dbbce0284e925435bb2371d12a72ac505176dd2721aa9a1aa4c",
+          "events": 2
+        }
+      ],
+      "errors": [],
+      "externalRequests": []
+    }
+  ],
+  "scope": "Authored packed SDK browser journeys. Desktop viewport resizing is not physical-device testing. Downloads are not calendar-client imports."
+}

@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tempus//Calendar Export//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:11111111-2222-4333-8444-555555555555-0@tempus.invalid
+DTSTAMP:20260912T160000Z
+SUMMARY:call Sam
+DESCRIPTION:Date phrase: Remind me to call Sam tomorrow at noon for 30 minu
+ tes or Friday at 2pm for 30 seconds\nTimezone: America/Chicago\nThe interv
+ al end is exclusive.\nYou selected the second written alternative.
+DTSTART:20260918T190000Z
+DTEND:20260918T190030Z
+END:VEVENT
+END:VCALENDAR

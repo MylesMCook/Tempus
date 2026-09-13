@@ -1,0 +1,18 @@
+{
+  "archiveSha256": "e33ab0ca30d3670a2bd47928bc403872a5ca4c9c92408923461c9a94afe1fe53",
+  "originalReportHashes": {
+    "node": "8397451755e34f99ff599f118d89a769862c3c124839a55be623a8f0a0a82165",
+    "chrome": "fcb0abfc9837aa19ce108c0b764d69cacfa13c5c19413cc5cc83a4234769bd72",
+    "calendar": "ce1f8c4c659a79522db7bc219786b8d0ec0e9fad38fdb00da7601806c8ec7a61"
+  },
+  "redaction": "Home path only",
+  "summaryMethod": "Nearest-rank empirical p50/p95; Chrome samples pooled per engine and batch size. Memory is median post-work minus pre-import snapshots after explicit GC, not peak allocation.",
+  "sourceHashes": {
+    "comparison/performance/run.mjs": "a211a7b7451204b516f09bc0069f6006e3a3169e01b03e22ce35bd643920a984",
+    "comparison/performance/measure.mjs": "6d570df09fa7251d14a7de81a4af8ef466889df4bdd2063a6b836e4a1c9c431c",
+    "comparison/performance/browser.mjs": "19c0af3800cbeaa6eda18609b777cf4af0fb1ac032b5f54801cdb147ca2c3640",
+    "comparison/performance/verify.mjs": "1fddee704630801e1fa4e76653835f8b207241983364d61b24bf54594349f317",
+    "comparison/performance/preview.mjs": "8753c220b4931714f35d84bd12f889581ed67afb51e36a2c5d5997f4a7ba7ef9",
+    "comparison/performance/calendar-bundle.mjs": "00dc1795f3725fad1ea14c12ce38a03fffaa9bf940da399528729a34a0aae45d"
+  }
+}

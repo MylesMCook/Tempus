@@ -1,0 +1,13 @@
+# Mixed-precision range journeys
+
+A range with one missing clock now asks which time belongs on that endpoint. It offers the other endpoint's written clock and midnight at the start of the date; if the written time is already midnight, it offers only midnight. Another clock can be written in the original input. No time is selected automatically and the written clock is retained. A selected shared clock is resolved on its own endpoint date, with a further DST question where necessary.
+
+Five tasks pass at desktop Chrome 153 widths 320 and 1280: missing start/end with the shared clock or midnight, plus numeric-date → missing-time → repeated-clock correction. Each reaches the visible interval and actual download, preserves input/title, fits the viewport and invalidates export after an edit. The runner waits for Download to be enabled. All ten runs passed on the first attempt. It uses direct focus and Enter, not full Tab traversal; no physical-device or accessibility-user claim is made.
+
+Locked Python icalendar 7.3.0 and recurring-ical-events 3.8.2 validate all ten downloaded files. Fixed expectations check exact UTC endpoints, timed precision, title, one event, no rule/duration field and no extra events over ten years. No calendar-client import occurred.
+
+All 818 shared tests pass. The eight new tests cover four basic policy combinations, source spans, numeric/DST choice composition, input/reference/timezone invalidation, conflicting and unoffered answers, and refusing to move an invalid end. A spring-gap test proves that sharing written 2:30 AM does not copy its selected 3:30 AM replacement onto another date. Changing a time choice clears its clock answer while retaining its date choice. Production build and task-owned lint pass; the existing client-size warning remains at 910.85 kB minified / 267.85 kB gzip.
+
+Reproduce against the main app at loopback 5174 with `node examples/app/verify-mixed-range.mjs PLAYWRIGHT-ENTRY NEW-output-directory`, then `uv run --locked examples/app/read-mixed-range.py NEW-output-directory`. Reports identify source/runner hashes; the reader has a pinned script lockfile. Original calculator and strict API grammar were not changed.
+
+This completes the declared source/app mixed-precision path with the offered choices, not all English interval forms. Arbitrary clocks still require editing the input. Archive 7fa6dd57 and its retained package replay predate both date-only and mixed-range source changes. Current packed verification, broader conflict journeys, devices, actual imports, independent evaluation and accumulated post-scan review remain open. No push, publication, deployment, cloud mutation or calendar write occurred.

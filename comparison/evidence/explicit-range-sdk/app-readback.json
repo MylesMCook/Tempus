@@ -1,0 +1,38 @@
+[
+  {
+    "file": "relative-320.ics",
+    "sha256": "6bcad137cc341e0168be77b88be0618043d08b69d51b8a23e02e84685d76ceb8",
+    "times": [
+      "2026-09-13T17:00:00+00:00",
+      "2026-09-18T17:00:00+00:00"
+    ],
+    "status": "passed"
+  },
+  {
+    "file": "corrected-320.ics",
+    "sha256": "b2e844e428cd7e48e10191fa5bcc0618adb0101984c3b81e207e8797adbd3ae3",
+    "times": [
+      "2026-11-01T07:30:00+00:00",
+      "2026-11-02T18:00:00+00:00"
+    ],
+    "status": "passed"
+  },
+  {
+    "file": "relative-1280.ics",
+    "sha256": "8b41e96ed396c7d8a5c8f06211c72d6fc9398d43e1be21935a93f08e0a4c2baa",
+    "times": [
+      "2026-09-13T17:00:00+00:00",
+      "2026-09-18T17:00:00+00:00"
+    ],
+    "status": "passed"
+  },
+  {
+    "file": "corrected-1280.ics",
+    "sha256": "332c9e3434b6a05ee0598251589df75b72886f3f4eed50cddb4837d1af5fa24f",
+    "times": [
+      "2026-11-01T07:30:00+00:00",
+      "2026-11-02T18:00:00+00:00"
+    ],
+    "status": "passed"
+  }
+]

@@ -1,0 +1,11 @@
+# Omitted-month SDK: browser and local Worker
+
+Archive `8d0c279183fba267c0e4d97441a8159d126b068838ad9f9b186c4ae146602f7b`, September 13, 2026. All 56 installed files match the verified archive. This extends its [Node/TypeScript/import checks](../omitted-month-sdk/README.md) with direct runtime execution; package bytes did not change.
+
+Chrome 153.0.8010.36, Firefox 148.0.2 and WebKit 26.4 each pass at 320/1280 px. The keyboard runner completes omitted-month → shared-year → two time choices → three-event download → edit invalidation, retaining source input and readable results. Weekly recurrence, date-only corrections, all-day alternatives, restart and blocked-output recovery also pass. All 24 actual downloads pass the locked independent reader. No unexpected external requests or browser errors were recorded. WebKit uses explicit Option-Tab; this does not close the ordinary-Tab, Safari.app or physical-device gates.
+
+Local Wrangler 4.131.1/workerd passes the installed diagnostic Worker, including seven failure codes, metadata/stale recovery, three listed dates, weekly/monthly export and date-precision paths. Installed Worker TypeScript checks pass. The independent reader verifies its five file strings. The three listed dates are September 30, October 2 and October 4, 2026 at 17:00 UTC, without invented endpoints or durations.
+
+Browser readback and Worker readback are separate from actual calendar-client import. These authored desktop/local checks do not establish independent evaluation, physical-device usability, deployed Worker behavior or competitive superiority. The separate duration-rule conformance failure remains open. No package publication, deployment or calendar write occurred.
+
+Use the repository `examples/sdk/verify-browser.mjs` runner with the verified installation, a new output directory, Playwright entry path and `--webkit-option-tab`. It requires the copied example running at loopback port 5184. Use `verification-worker.ts` and `wrangler.verify.jsonc` from the source hashes recorded here for local workerd; GET `/verify` returns the diagnostic and file strings. The two locked Python readers validate their respective outputs. Never overwrite older evidence.

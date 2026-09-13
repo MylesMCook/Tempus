@@ -1,0 +1,183 @@
+[1m[2mnote:[0m[0m You are running [94m`vp test`[39m as a Vite+ built-in command. If you meant to run the test npm script, use [94m`vpr test`[39m instead.
+
+ RUN  v4.1.11 /Users/mylescook/Code/MylesMCook/TempusTotal
+
+ ❯ src/shared/recipient-label.test.ts (20 tests | 9 failed) 36ms
+   × keeps date words out of a recipient proposal: Buy apples for Sam Tomorrow at noon 1ms
+   × keeps date words out of a recipient proposal: Buy apples For Sam tomorrow at noon 0ms
+   × keeps date words out of a recipient proposal: Buy apples for Sam May 5, 2027 0ms
+   × keeps date words out of a recipient proposal: Buy apples for Sam At noon tomorrow 0ms
+   × does not turn indefinite duration into a recipient: A Long Time 1ms
+   × does not turn indefinite duration into a recipient: Ever 0ms
+   × does not turn indefinite duration into a recipient: Life 0ms
+   × does not turn indefinite duration into a recipient: An Eternity 0ms
+   × does not turn indefinite duration into a recipient: The Foreseeable Future 0ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 9 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/shared/recipient-label.test.ts > keeps date words out of a recipient proposal: Buy apples for Sam Tomorrow at noon
+ FAIL  src/shared/recipient-label.test.ts > keeps date words out of a recipient proposal: Buy apples For Sam tomorrow at noon
+ FAIL  src/shared/recipient-label.test.ts > keeps date words out of a recipient proposal: Buy apples for Sam May 5, 2027
+ FAIL  src/shared/recipient-label.test.ts > keeps date words out of a recipient proposal: Buy apples for Sam At noon tomorrow
+Error: Missing recipient title confirmation
+ ❯ src/shared/recipient-label.test.ts:77:11
+     75|   const question = parse(input, context);
+     76|   if (question.status !== "needs-clarification" || !question.clarifica…
+     77|     throw Error("Missing recipient title confirmation");
+       |           ^
+     78|   expect(question.clarification.question).toMatch(/Buy apples [Ff]or S…
+     79|   const result = parse(input, {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/9]⎯
+
+ FAIL  src/shared/recipient-label.test.ts > does not turn indefinite duration into a recipient: A Long Time
+AssertionError: expected { …(3) } to be undefined
+
+- Expected:
+undefined
+
++ Received:
+{
+  "choices": [
+    {
+      "expression": "tomorrow at noon",
+      "id": "event:title",
+      "label": "Use “Buy apples for A Long Time”",
+    },
+  ],
+  "contextKey": "[\"Buy apples for A Long Time tomorrow at noon\",\"America/Chicago\",\"2026-09-12T16:00:00Z\"]",
+  "question": "Use “Buy apples for A Long Time” as the event title?",
+}
+
+ ❯ src/shared/recipient-label.test.ts:93:68
+     91|     const result = parse(`Buy apples for ${duration} tomorrow at noon`…
+     92|     expect(result.status).not.toBe("resolved");
+     93|     if (result.status !== "resolved") expect(result.clarification).toB…
+       |                                                                    ^
+     94|   },
+     95| );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/9]⎯
+
+ FAIL  src/shared/recipient-label.test.ts > does not turn indefinite duration into a recipient: Ever
+AssertionError: expected { …(3) } to be undefined
+
+- Expected:
+undefined
+
++ Received:
+{
+  "choices": [
+    {
+      "expression": "tomorrow at noon",
+      "id": "event:title",
+      "label": "Use “Buy apples for Ever”",
+    },
+  ],
+  "contextKey": "[\"Buy apples for Ever tomorrow at noon\",\"America/Chicago\",\"2026-09-12T16:00:00Z\"]",
+  "question": "Use “Buy apples for Ever” as the event title?",
+}
+
+ ❯ src/shared/recipient-label.test.ts:93:68
+     91|     const result = parse(`Buy apples for ${duration} tomorrow at noon`…
+     92|     expect(result.status).not.toBe("resolved");
+     93|     if (result.status !== "resolved") expect(result.clarification).toB…
+       |                                                                    ^
+     94|   },
+     95| );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/9]⎯
+
+ FAIL  src/shared/recipient-label.test.ts > does not turn indefinite duration into a recipient: Life
+AssertionError: expected { …(3) } to be undefined
+
+- Expected:
+undefined
+
++ Received:
+{
+  "choices": [
+    {
+      "expression": "tomorrow at noon",
+      "id": "event:title",
+      "label": "Use “Buy apples for Life”",
+    },
+  ],
+  "contextKey": "[\"Buy apples for Life tomorrow at noon\",\"America/Chicago\",\"2026-09-12T16:00:00Z\"]",
+  "question": "Use “Buy apples for Life” as the event title?",
+}
+
+ ❯ src/shared/recipient-label.test.ts:93:68
+     91|     const result = parse(`Buy apples for ${duration} tomorrow at noon`…
+     92|     expect(result.status).not.toBe("resolved");
+     93|     if (result.status !== "resolved") expect(result.clarification).toB…
+       |                                                                    ^
+     94|   },
+     95| );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/9]⎯
+
+ FAIL  src/shared/recipient-label.test.ts > does not turn indefinite duration into a recipient: An Eternity
+AssertionError: expected { …(3) } to be undefined
+
+- Expected:
+undefined
+
++ Received:
+{
+  "choices": [
+    {
+      "expression": "tomorrow at noon",
+      "id": "event:title",
+      "label": "Use “Buy apples for An Eternity”",
+    },
+  ],
+  "contextKey": "[\"Buy apples for An Eternity tomorrow at noon\",\"America/Chicago\",\"2026-09-12T16:00:00Z\"]",
+  "question": "Use “Buy apples for An Eternity” as the event title?",
+}
+
+ ❯ src/shared/recipient-label.test.ts:93:68
+     91|     const result = parse(`Buy apples for ${duration} tomorrow at noon`…
+     92|     expect(result.status).not.toBe("resolved");
+     93|     if (result.status !== "resolved") expect(result.clarification).toB…
+       |                                                                    ^
+     94|   },
+     95| );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/9]⎯
+
+ FAIL  src/shared/recipient-label.test.ts > does not turn indefinite duration into a recipient: The Foreseeable Future
+AssertionError: expected { …(3) } to be undefined
+
+- Expected:
+undefined
+
++ Received:
+{
+  "choices": [
+    {
+      "expression": "tomorrow at noon",
+      "id": "event:title",
+      "label": "Use “Buy apples for The Foreseeable Future”",
+    },
+  ],
+  "contextKey": "[\"Buy apples for The Foreseeable Future tomorrow at noon\",\"America/Chicago\",\"2026-09-12T16:00:00Z\"]",
+  "question": "Use “Buy apples for The Foreseeable Future” as the event title?",
+}
+
+ ❯ src/shared/recipient-label.test.ts:93:68
+     91|     const result = parse(`Buy apples for ${duration} tomorrow at noon`…
+     92|     expect(result.status).not.toBe("resolved");
+     93|     if (result.status !== "resolved") expect(result.clarification).toB…
+       |                                                                    ^
+     94|   },
+     95| );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/9]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  9 failed | 11 passed (20)
+   Start at  12:57:32
+   Duration  209ms (transform 76ms, setup 0ms, import 107ms, tests 36ms, environment 0ms)
+

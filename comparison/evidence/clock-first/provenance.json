@@ -1,0 +1,12 @@
+{
+  "archiveSha256": "b8ffb7e04e46eeaaf1e1dcf6c07875b2f805e2497dee50f03280ec0afd14e051",
+  "sourceHashes": {
+    "src/shared/interpret-date.ts": "4fdec03c29dab9dfe9190d5e12c554669d8faa32ebf3eb5921fc9cd0780dabd2",
+    "src/shared/clock-first.test.ts": "18eb3ac39351b96dd4fd4d0b08cade344ad60d8b643889eefbf87b84a76258e9",
+    "src/shared/recipient-label.test.ts": "81f0d3b801a0b4281d7860c63dc4c911cd36053d2c8c35ae9911c644fcf1e89a",
+    "examples/app/verify-event-identifiers.mjs": "02a7e118b8e8bcf0f32000c8df951a833fe2abc3ba955a17964cf7e0b0f3eabe",
+    "examples/app/read-event-identifiers.py": "efbaef5ce89cc5840f6869ea96a33c4ddec531c655ab7e7eb1c1b9aeffab0bd6",
+    "examples/app/read-event-identifiers.py.lock": "25321ad7e67ccbc618b94ba12fdfc25f3d5cc3d7ba775ee1ef6b06cab5e63751"
+  },
+  "scope": "Source and built-app; Node26 package and targeted Node22/26. Browser first run failed at download, unchanged retry passed. No full current Worker/offline/performance or physical-device/import claim."
+}

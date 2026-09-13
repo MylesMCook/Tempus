@@ -1,0 +1,15 @@
+# Written past-start count journeys
+
+Current source asks whether a recurrence count includes starts before the reference or counts only upcoming starts. Both choices retain the written start as the cadence anchor. For three Mondays starting September 7 with a September 12 reference, consuming past starts leaves September 14 and 21; upcoming-only also includes September 28. Choice labels show the future dates before selection.
+
+The app passes six tasks at desktop Chrome widths 320 and 1280: weekly count, monthly count, both exclusion policies and both past-count policies. Input/title remain intact; requested slots are distinguished from future event totals; the complete finite file downloads; editing the written start invalidates the past-count answer and export state. The runner uses direct focus/Enter and waits for the app's post-choice focus update. This is not full keyboard traversal or physical-device evidence.
+
+Python icalendar 7.3.0 and recurring-ical-events 3.8.2 independently read all twelve actual downloads. Checks require exact scenario identities, hashes, future UTC starts, title and selected policy in the file description, with no ongoing rule or invented duration. Expansion spans ten years to detect extra events. Successful file reading is not actual calendar-client import.
+
+All 804 shared tests pass. New source checks include both policies, an unchanged two-week cadence anchor, exclusion interaction, exhausted counts, insufficient boundaries, a 1,000-slot exhausted history, a selected past fold, conflicting answers and dependent-history invalidation. The previous past-fold rejection test now verifies that a clock answer alone cannot bypass the new required count-policy question; separate tests verify both explicit policies. App TypeScript, task-owned lint and production build pass. Client bundle retains the existing warning at 908.76 kB minified / 267.34 kB gzip.
+
+Past slots whose clock interpretations are both before the reference can be counted without selecting an irrelevant instant or end. A clock straddling the reference still requires a concrete answer. Only future events appear in output; exhausted counts remain empty and insufficient boundaries are not extended. This does not add arbitrary past-event export or broaden the ISO start-boundary grammar.
+
+Reproduce with `node examples/app/verify-count.mjs PLAYWRIGHT-ENTRY NEW-output-directory` against the main app on loopback port 5174, then `uv run examples/app/read-count.py NEW-output-directory`. Reports and all twelve files are retained here. Source hashes identify the code executed; these are authored development checks, not independent language evaluation or competitive superiority.
+
+Archive `36928444` predates the count-exclusion, excluded-clock and past-count changes. A new packed SDK and runtime verification, refreshed comparison replay, remaining range precision/conflict journeys, actual calendar imports, physical devices and independent evaluation remain open. No push, publication, deployment, cloud mutation or calendar write occurred.

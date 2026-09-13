@@ -1,0 +1,5698 @@
+{
+  "metadata": {
+    "corpus": "development-v4-precision",
+    "fixtureSha256": "32865b030a5ad98d695fbc65fd9397ddf523a463021daee3be5917464c064a6f",
+    "sourceHashes": {
+      "comparison/comparison.test.ts": "17b32e2cd8fddd63b30d74f0da3726f35ddf86a05ae8972b0b2508ec0df9d19c",
+      "comparison/fixtures.ts": "32865b030a5ad98d695fbc65fd9397ddf523a463021daee3be5917464c064a6f",
+      "comparison/provenance.ts": "ee1ac9777c921a3a4f044eedd68a8dc028c7d2b6221b4d7ce9cf57491791d05f",
+      "comparison/scoring.ts": "10a7f0bf1362565e5886438ef264763a5817dcf16a967a145398aaad704b9f2b",
+      "package.json": "196d3ac64ac812a7f6bebf0df79437e6137a1aade2a1914afd5592bda085ce20",
+      "pnpm-lock.yaml": "efd381779c7426cdf686f8563545d66fb58b0b0fa3afcd2c32a46eeed2afa553",
+      "pnpm-workspace.yaml": "d5836a2c0de092c439be31a55f4fd3057703ab63f553af43b4f69a4ce2a6e0c3",
+      "src/shared/calculate-schedule-date.ts": "c6906a7b521fe28928104557b39d26a54797190aed80a97f7d71a191fbc865e6",
+      "src/shared/calendar-file.ts": "48b0513de440323d682be3c99aaabc716644b626dca18dce344acb6721785d03",
+      "src/shared/calendar-timezone-ongoing.ts": "84a9538cce27060557d1a7ad62cb34150656b5c36ebee517ce08fbd1fa178520",
+      "src/shared/calendar-timezone.ts": "75fadd69cc02911185ebd78f9af097104b492bd17c5db5540a563cfb2ffdf733",
+      "src/shared/calendar-transition-rule.ts": "4d878af2f8777ea2353760852dde4765b0d1acf0eb9bcdf84b5580c6302f1f65",
+      "src/shared/clarify-arithmetic.ts": "f80cb5ac21989e00f01a2a6891a731c4592d92056aaaaf8019da41790d98e10f",
+      "src/shared/clarify-clock.ts": "84837f4f55ef13906711f8f985e5296f6324292929c233295e91a64fd8bc8a85",
+      "src/shared/clarify-numeric-date.ts": "d3743a725b3025f390197ae9e58fb2d9d8fd359c9b897534cfd746565ca22929",
+      "src/shared/date-engine/compatibility-fixtures.ts": "dca209c9a1648217cc204dab5fa03a0f59ebc53a67b57d733c00e4d8b0ae3445",
+      "src/shared/date-engine/format-zoned.ts": "95857eaa7808474672ecd2206cf5c68eee9a0044a1e8f42ccffddab74baa136e",
+      "src/shared/date-engine/grammar.ts": "2dea7a50ce29604a1a67d653f06824ba002f7837d6d996d8525dc6ab058cf241",
+      "src/shared/date-engine/oracle-fixtures.ts": "355364009d014a37e61c516874cb732ef255a98421e8fde0f5ea6e705aa75ec8",
+      "src/shared/date-engine/timezone-LICENSE.txt": "0613408568889f5739e5ae252b722a2659c02002839ad970a63dc5e9174b27cf",
+      "src/shared/date-engine/timezone-data.ts": "9e0012bdaeefcd776c5c53d55f728e85bbddf7e5cfec83a72ce5667758430d2e",
+      "src/shared/date-engine/timezone-database.ts": "2a8e52b1cbc0dda843f083ce51096805a89e76dc167d2c352c5ff9b472396e75",
+      "src/shared/date-engine/timezone-reader.ts": "92e736a7a0c75c110f38197090b8961800b1de6b8556398a710990538aaf3f49",
+      "src/shared/date-engine/types.ts": "47d2308495c1820731c8d8e63f52321de1c2ba72866ffe8ea70e13035ed4ef8a",
+      "src/shared/date-engine/vocabulary.ts": "67776aa0c586248375193cb576c62a397a25cf13c926afbd09090ee308dffb11",
+      "src/shared/date-engine/zoned-date.ts": "a2dff366c661b103844263e3fe5436d8ac3a380cc4c490e029ebaeba5d3748ac",
+      "src/shared/date-parser.ts": "1cb8481c6fe442fb4d6f3edec5273be9b50cc0ca010393f5f751ca1988e2a208",
+      "src/shared/format-date.ts": "d97194d06892fd41d18c43777ce425784d86e5b89cb042a7769001eb8a34db96",
+      "src/shared/interpret-date-list.ts": "34aacc77bf5c39107f35abfa2ffd25bcc595c4ec7a4c88abb93059363b65af4e",
+      "src/shared/interpret-date.ts": "31f2bf0a3feb9f8f8b6e30cb83e1650ff64e0a39f4103140487fdbedf8ec2007",
+      "src/shared/interpret-groups.ts": "d1d5a61376f275d7065bd2fe22cddc89de245b80a043bc68b70ccb39b0bdba58",
+      "src/shared/interpret-interval.ts": "1511e1d19adf1508f77ec07bbae283f664fe9c6589bc8cf40c1d093da33f8791",
+      "src/shared/interpret-recurrence.ts": "1383229ae15ee7a2abb8330a5eafcfb27966c8b789339dbcf87b4d96af3a86df",
+      "src/shared/monthly-date.ts": "4f2326166845df95da07231cd3c544d950517dd42f26c63cc25fd3f8942e188b",
+      "src/shared/parse-api.ts": "12f2e7177e74570c701f24797482eab67f2333e40e76922df7544a32035743e8",
+      "src/shared/recurrence-clock-conflicts.ts": "4af99807fd330ca4d281eec8f9989d7eec8ca9ce57c929125eaa7af2f4f61d8d",
+      "src/shared/recurring-calendar-file.ts": "967c4848e6008226ee3f6f5f3e9c8421b0663bd452ad3259e609fcfc863c5106",
+      "src/shared/sdk-calendar.ts": "3393a99bcaa9180add02542e22ce5255286c046b585ebb38fa240a760d79cb33",
+      "src/shared/sdk.ts": "f8178ff6f93d33c1ddeadb28cd6350d7202027dfee0e57cdfe7820c285a51e8e"
+    },
+    "tempusCommit": "d91a7ca0e67f7f2cf5661e9674901201e8039610",
+    "workingTreeDirty": true,
+    "gpuTimeVersion": "0.2.1",
+    "backend": "cpu",
+    "node": "v26.8.1",
+    "platform": "darwin",
+    "architecture": "arm64",
+    "limitations": [
+      "Development fixtures; not an independent holdout or general accuracy estimate.",
+      "Legacy grade scores preview timestamps/recurrence flag only. Value grade additionally checks explicit all-day flags; missing precision is not success. Event text/spans, full RRULE semantics and recurrence beyond the preview remain unscored.",
+      "No browser, GPU, task-completion or performance benchmark.",
+      "Ambiguity and negation follow the explicitly stated Tempus product policy; policy disagreements are not automatically parser bugs."
+    ]
+  },
+  "summary": [
+    {
+      "family": "dates",
+      "engine": "tempus",
+      "total": 6,
+      "counts": {
+        "correct": 6,
+        "correct-rejection": 0,
+        "abstained": 0,
+        "incorrect": 0,
+        "error": 0
+      }
+    },
+    {
+      "family": "dates",
+      "engine": "interpretation",
+      "total": 6,
+      "counts": {
+        "correct": 6,
+        "correct-rejection": 0,
+        "abstained": 0,
+        "incorrect": 0,
+        "error": 0
+      }
+    },
+    {
+      "family": "dates",
+      "engine": "gpu",
+      "total": 6,
+      "counts": {
+        "correct": 6,
+        "correct-rejection": 0,
+        "abstained": 0,
+        "incorrect": 0,
+        "error": 0
+      }
+    },
+    {
+      "family": "arithmetic",
+      "engine": "tempus",
+      "total": 5,
+      "counts": {
+        "correct": 5,
+        "correct-rejection": 0,
+        "abstained": 0,
+        "incorrect": 0,
+        "error": 0
+      }
+    },
+    {
+      "family": "arithmetic",
+      "engine": "interpretation",
+      "total": 5,
+      "counts": {
+        "correct": 5,
+        "correct-rejection": 0,
+        "abstained": 0,
+        "incorrect": 0,
+        "error": 0
+      }
+    },
+    {
+      "family": "arithmetic",
+      "engine": "gpu",
+      "total": 5,
+      "counts": {
+        "correct": 0,
+        "correct-rejection": 0,
+        "abstained": 4,
+        "incorrect": 1,
+        "error": 0
+      }
+    },
+    {
+      "family": "sentences",
+      "engine": "tempus",
+      "total": 5,
+      "counts": {
+        "correct": 0,
+        "correct-rejection": 0,
+        "abstained": 5,
+        "incorrect": 0,
+        "error": 0
+      }
+    },
+    {
+      "family": "sentences",
+      "engine": "interpretation",
+      "total": 5,
+      "counts": {
+        "correct": 4,
+        "correct-rejection": 0,
+        "abstained": 1,
+        "incorrect": 0,
+        "error": 0
+      }
+    },
+    {
+      "family": "sentences",
+      "engine": "gpu",
+      "total": 5,
+      "counts": {
+        "correct": 4,
+        "correct-rejection": 0,
+        "abstained": 1,
+        "incorrect": 0,
+        "error": 0
+      }
+    },
+    {
+      "family": "schedules",
+      "engine": "tempus",
+      "total": 6,
+      "counts": {
+        "correct": 0,
+        "correct-rejection": 0,
+        "abstained": 6,
+        "incorrect": 0,
+        "error": 0
+      }
+    },
+    {
+      "family": "schedules",
+      "engine": "interpretation",
+      "total": 6,
+      "counts": {
+        "correct": 6,
+        "correct-rejection": 0,
+        "abstained": 0,
+        "incorrect": 0,
+        "error": 0
+      }
+    },
+    {
+      "family": "schedules",
+      "engine": "gpu",
+      "total": 6,
+      "counts": {
+        "correct": 4,
+        "correct-rejection": 0,
+        "abstained": 1,
+        "incorrect": 1,
+        "error": 0
+      }
+    },
+    {
+      "family": "recovery",
+      "engine": "tempus",
+      "total": 9,
+      "counts": {
+        "correct": 0,
+        "correct-rejection": 5,
+        "abstained": 4,
+        "incorrect": 0,
+        "error": 0
+      }
+    },
+    {
+      "family": "recovery",
+      "engine": "interpretation",
+      "total": 9,
+      "counts": {
+        "correct": 0,
+        "correct-rejection": 5,
+        "abstained": 4,
+        "incorrect": 0,
+        "error": 0
+      }
+    },
+    {
+      "family": "recovery",
+      "engine": "gpu",
+      "total": 9,
+      "counts": {
+        "correct": 0,
+        "correct-rejection": 3,
+        "abstained": 1,
+        "incorrect": 5,
+        "error": 0
+      }
+    }
+  ],
+  "valueSummary": [
+    {
+      "family": "dates",
+      "engine": "tempus",
+      "total": 6,
+      "counts": {
+        "correct": 0,
+        "correct-rejection": 0,
+        "abstained": 0,
+        "incorrect": 0,
+        "error": 0,
+        "not-exposed": 6,
+        "not-specified": 0
+      }
+    },
+    {
+      "family": "dates",
+      "engine": "interpretation",
+      "total": 6,
+      "counts": {
+        "correct": 6,
+        "correct-rejection": 0,
+        "abstained": 0,
+        "incorrect": 0,
+        "error": 0,
+        "not-exposed": 0,
+        "not-specified": 0
+      }
+    },
+    {
+      "family": "dates",
+      "engine": "gpu",
+      "total": 6,
+      "counts": {
+        "correct": 6,
+        "correct-rejection": 0,
+        "abstained": 0,
+        "incorrect": 0,
+        "error": 0,
+        "not-exposed": 0,
+        "not-specified": 0
+      }
+    },
+    {
+      "family": "arithmetic",
+      "engine": "tempus",
+      "total": 5,
+      "counts": {
+        "correct": 0,
+        "correct-rejection": 0,
+        "abstained": 0,
+        "incorrect": 0,
+        "error": 0,
+        "not-exposed": 5,
+        "not-specified": 0
+      }
+    },
+    {
+      "family": "arithmetic",
+      "engine": "interpretation",
+      "total": 5,
+      "counts": {
+        "correct": 5,
+        "correct-rejection": 0,
+        "abstained": 0,
+        "incorrect": 0,
+        "error": 0,
+        "not-exposed": 0,
+        "not-specified": 0
+      }
+    },
+    {
+      "family": "arithmetic",
+      "engine": "gpu",
+      "total": 5,
+      "counts": {
+        "correct": 0,
+        "correct-rejection": 0,
+        "abstained": 4,
+        "incorrect": 1,
+        "error": 0,
+        "not-exposed": 0,
+        "not-specified": 0
+      }
+    },
+    {
+      "family": "sentences",
+      "engine": "tempus",
+      "total": 5,
+      "counts": {
+        "correct": 0,
+        "correct-rejection": 0,
+        "abstained": 5,
+        "incorrect": 0,
+        "error": 0,
+        "not-exposed": 0,
+        "not-specified": 0
+      }
+    },
+    {
+      "family": "sentences",
+      "engine": "interpretation",
+      "total": 5,
+      "counts": {
+        "correct": 4,
+        "correct-rejection": 0,
+        "abstained": 1,
+        "incorrect": 0,
+        "error": 0,
+        "not-exposed": 0,
+        "not-specified": 0
+      }
+    },
+    {
+      "family": "sentences",
+      "engine": "gpu",
+      "total": 5,
+      "counts": {
+        "correct": 4,
+        "correct-rejection": 0,
+        "abstained": 1,
+        "incorrect": 0,
+        "error": 0,
+        "not-exposed": 0,
+        "not-specified": 0
+      }
+    },
+    {
+      "family": "schedules",
+      "engine": "tempus",
+      "total": 6,
+      "counts": {
+        "correct": 0,
+        "correct-rejection": 0,
+        "abstained": 6,
+        "incorrect": 0,
+        "error": 0,
+        "not-exposed": 0,
+        "not-specified": 0
+      }
+    },
+    {
+      "family": "schedules",
+      "engine": "interpretation",
+      "total": 6,
+      "counts": {
+        "correct": 6,
+        "correct-rejection": 0,
+        "abstained": 0,
+        "incorrect": 0,
+        "error": 0,
+        "not-exposed": 0,
+        "not-specified": 0
+      }
+    },
+    {
+      "family": "schedules",
+      "engine": "gpu",
+      "total": 6,
+      "counts": {
+        "correct": 4,
+        "correct-rejection": 0,
+        "abstained": 1,
+        "incorrect": 1,
+        "error": 0,
+        "not-exposed": 0,
+        "not-specified": 0
+      }
+    },
+    {
+      "family": "recovery",
+      "engine": "tempus",
+      "total": 9,
+      "counts": {
+        "correct": 0,
+        "correct-rejection": 5,
+        "abstained": 4,
+        "incorrect": 0,
+        "error": 0,
+        "not-exposed": 0,
+        "not-specified": 0
+      }
+    },
+    {
+      "family": "recovery",
+      "engine": "interpretation",
+      "total": 9,
+      "counts": {
+        "correct": 0,
+        "correct-rejection": 5,
+        "abstained": 4,
+        "incorrect": 0,
+        "error": 0,
+        "not-exposed": 0,
+        "not-specified": 0
+      }
+    },
+    {
+      "family": "recovery",
+      "engine": "gpu",
+      "total": 9,
+      "counts": {
+        "correct": 0,
+        "correct-rejection": 3,
+        "abstained": 1,
+        "incorrect": 5,
+        "error": 0,
+        "not-exposed": 0,
+        "not-specified": 0
+      }
+    }
+  ],
+  "results": [
+    {
+      "fixture": {
+        "id": "date-ago",
+        "family": "dates",
+        "text": "3 weeks ago",
+        "expected": {
+          "kind": "resolved",
+          "occurrences": [
+            {
+              "start": "2026-08-22T16:00:00Z",
+              "allDay": false
+            }
+          ],
+          "recurring": false
+        },
+        "rationale": "Subtract 21 calendar days from September 12 at 11:00 CDT.",
+        "preserve": true
+      },
+      "context": {
+        "reference": "2026-09-12T16:00:00.000Z",
+        "timeZone": "America/Chicago",
+        "limit": 3
+      },
+      "tempus": {
+        "grade": "correct",
+        "valueGrade": "not-exposed",
+        "observed": {
+          "occurrences": [
+            {
+              "start": "2026-08-22T16:00:00.000Z"
+            }
+          ],
+          "recurring": false,
+          "diagnostics": []
+        },
+        "raw": {
+          "ok": true,
+          "engineVersion": 2,
+          "expression": "3 weeks ago",
+          "timezone": "America/Chicago",
+          "reference": "2026-09-12T16:00:00.000Z",
+          "normalized": "3 weeks ago",
+          "anchor": {
+            "iso": "2026-09-12T16:00:00.000Z",
+            "local": "2026-09-12T11:00:00.000",
+            "offset": "-05:00",
+            "timestamp": 1789228800000
+          },
+          "anchorDescription": "Start at the captured reference time.",
+          "steps": [
+            {
+              "source": "Subtract 3 weeks",
+              "before": {
+                "iso": "2026-09-12T16:00:00.000Z",
+                "local": "2026-09-12T11:00:00.000",
+                "offset": "-05:00",
+                "timestamp": 1789228800000
+              },
+              "after": {
+                "iso": "2026-08-22T16:00:00.000Z",
+                "local": "2026-08-22T11:00:00.000",
+                "offset": "-05:00",
+                "timestamp": 1787414400000
+              },
+              "details": [
+                "21 calendar days. No rounding."
+              ]
+            }
+          ],
+          "warnings": [],
+          "result": {
+            "iso": "2026-08-22T16:00:00.000Z",
+            "local": "2026-08-22T11:00:00.000",
+            "offset": "-05:00",
+            "timestamp": 1787414400000
+          }
+        }
+      },
+      "gpu": {
+        "grade": "correct",
+        "valueGrade": "correct",
+        "observed": {
+          "occurrences": [
+            {
+              "start": "2026-08-22T11:00:00-05:00",
+              "allDay": false
+            }
+          ],
+          "recurring": false,
+          "diagnostics": []
+        },
+        "raw": {
+          "occurrences": [
+            {
+              "start": "2026-08-22T11:00:00-05:00",
+              "allDay": false
+            }
+          ],
+          "rrules": [],
+          "truncated": false,
+          "diagnostics": [],
+          "backend": "cpu",
+          "timings": {
+            "tokenizeMs": 0.40720699999999965,
+            "inferMs": 2.030875000000009,
+            "resolveMs": 1.1839580000000183
+          }
+        }
+      },
+      "interpretation": {
+        "grade": "correct",
+        "valueGrade": "correct",
+        "observed": {
+          "occurrences": [
+            {
+              "start": "2026-08-22T16:00:00.000Z",
+              "allDay": false
+            }
+          ],
+          "recurring": false,
+          "diagnostics": []
+        },
+        "raw": {
+          "interpretationVersion": 1,
+          "status": "resolved",
+          "value": {
+            "kind": "point",
+            "calculation": {
+              "ok": true,
+              "engineVersion": 2,
+              "expression": "3 weeks ago",
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00.000Z",
+              "normalized": "3 weeks ago",
+              "anchor": {
+                "iso": "2026-09-12T16:00:00.000Z",
+                "local": "2026-09-12T11:00:00.000",
+                "offset": "-05:00",
+                "timestamp": 1789228800000
+              },
+              "anchorDescription": "Start at the captured reference time.",
+              "steps": [
+                {
+                  "source": "Subtract 3 weeks",
+                  "before": {
+                    "iso": "2026-09-12T16:00:00.000Z",
+                    "local": "2026-09-12T11:00:00.000",
+                    "offset": "-05:00",
+                    "timestamp": 1789228800000
+                  },
+                  "after": {
+                    "iso": "2026-08-22T16:00:00.000Z",
+                    "local": "2026-08-22T11:00:00.000",
+                    "offset": "-05:00",
+                    "timestamp": 1787414400000
+                  },
+                  "details": [
+                    "21 calendar days. No rounding."
+                  ]
+                }
+              ],
+              "warnings": [],
+              "result": {
+                "iso": "2026-08-22T16:00:00.000Z",
+                "local": "2026-08-22T11:00:00.000",
+                "offset": "-05:00",
+                "timestamp": 1787414400000
+              }
+            },
+            "precision": "time",
+            "clockSource": "reference"
+          },
+          "source": {
+            "text": "3 weeks ago",
+            "span": {
+              "start": 0,
+              "end": 11
+            }
+          },
+          "assumptions": []
+        }
+      }
+    },
+    {
+      "fixture": {
+        "id": "date-noon",
+        "family": "dates",
+        "text": "tomorrow at noon",
+        "expected": {
+          "kind": "resolved",
+          "occurrences": [
+            {
+              "start": "2026-09-13T17:00:00Z",
+              "allDay": false
+            }
+          ],
+          "recurring": false
+        },
+        "rationale": "September 13 noon CDT is 17:00 UTC.",
+        "preserve": true
+      },
+      "context": {
+        "reference": "2026-09-12T16:00:00.000Z",
+        "timeZone": "America/Chicago",
+        "limit": 3
+      },
+      "tempus": {
+        "grade": "correct",
+        "valueGrade": "not-exposed",
+        "observed": {
+          "occurrences": [
+            {
+              "start": "2026-09-13T17:00:00.000Z"
+            }
+          ],
+          "recurring": false,
+          "diagnostics": []
+        },
+        "raw": {
+          "ok": true,
+          "engineVersion": 2,
+          "expression": "tomorrow at noon",
+          "timezone": "America/Chicago",
+          "reference": "2026-09-12T16:00:00.000Z",
+          "normalized": "tomorrow at noon",
+          "anchor": {
+            "iso": "2026-09-13T17:00:00.000Z",
+            "local": "2026-09-13T12:00:00.000",
+            "offset": "-05:00",
+            "timestamp": 1789318800000
+          },
+          "anchorDescription": "Use tomorrow in America/Chicago. Set the clock to 12:00:00.",
+          "steps": [],
+          "warnings": [],
+          "result": {
+            "iso": "2026-09-13T17:00:00.000Z",
+            "local": "2026-09-13T12:00:00.000",
+            "offset": "-05:00",
+            "timestamp": 1789318800000
+          }
+        }
+      },
+      "gpu": {
+        "grade": "correct",
+        "valueGrade": "correct",
+        "observed": {
+          "occurrences": [
+            {
+              "start": "2026-09-13T12:00:00-05:00",
+              "allDay": false
+            }
+          ],
+          "recurring": false,
+          "diagnostics": []
+        },
+        "raw": {
+          "occurrences": [
+            {
+              "start": "2026-09-13T12:00:00-05:00",
+              "allDay": false
+            }
+          ],
+          "rrules": [],
+          "truncated": false,
+          "diagnostics": [],
+          "backend": "cpu",
+          "timings": {
+            "tokenizeMs": 0.09166600000000358,
+            "inferMs": 1.052583999999996,
+            "resolveMs": 0.4181250000000034
+          }
+        }
+      },
+      "interpretation": {
+        "grade": "correct",
+        "valueGrade": "correct",
+        "observed": {
+          "occurrences": [
+            {
+              "start": "2026-09-13T17:00:00.000Z",
+              "allDay": false
+            }
+          ],
+          "recurring": false,
+          "diagnostics": []
+        },
+        "raw": {
+          "interpretationVersion": 1,
+          "status": "resolved",
+          "value": {
+            "kind": "point",
+            "calculation": {
+              "ok": true,
+              "engineVersion": 2,
+              "expression": "tomorrow at noon",
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00.000Z",
+              "normalized": "tomorrow at noon",
+              "anchor": {
+                "iso": "2026-09-13T17:00:00.000Z",
+                "local": "2026-09-13T12:00:00.000",
+                "offset": "-05:00",
+                "timestamp": 1789318800000
+              },
+              "anchorDescription": "Use tomorrow in America/Chicago. Set the clock to 12:00:00.",
+              "steps": [],
+              "warnings": [],
+              "result": {
+                "iso": "2026-09-13T17:00:00.000Z",
+                "local": "2026-09-13T12:00:00.000",
+                "offset": "-05:00",
+                "timestamp": 1789318800000
+              }
+            },
+            "precision": "time",
+            "clockSource": "explicit"
+          },
+          "source": {
+            "text": "tomorrow at noon",
+            "span": {
+              "start": 0,
+              "end": 16
+            }
+          },
+          "assumptions": []
+        }
+      }
+    },
+    {
+      "fixture": {
+        "id": "date-friday",
+        "family": "dates",
+        "text": "next Friday",
+        "expected": {
+          "kind": "resolved",
+          "occurrences": [
+            {
+              "start": "2026-09-18T05:00:00Z",
+              "allDay": true
+            }
+          ],
+          "recurring": false
+        },
+        "rationale": "The next Friday after Saturday September 12 is September 18, at midnight CDT.",
+        "preserve": true
+      },
+      "context": {
+        "reference": "2026-09-12T16:00:00.000Z",
+        "timeZone": "America/Chicago",
+        "limit": 3
+      },
+      "tempus": {
+        "grade": "correct",
+        "valueGrade": "not-exposed",
+        "observed": {
+          "occurrences": [
+            {
+              "start": "2026-09-18T05:00:00.000Z"
+            }
+          ],
+          "recurring": false,
+          "diagnostics": []
+        },
+        "raw": {
+          "ok": true,
+          "engineVersion": 2,
+          "expression": "next Friday",
+          "timezone": "America/Chicago",
+          "reference": "2026-09-12T16:00:00.000Z",
+          "normalized": "next friday",
+          "anchor": {
+            "iso": "2026-09-18T05:00:00.000Z",
+            "local": "2026-09-18T00:00:00.000",
+            "offset": "-05:00",
+            "timestamp": 1789707600000
+          },
+          "anchorDescription": "Use the next Friday, excluding today. Start at midnight.",
+          "steps": [],
+          "warnings": [],
+          "result": {
+            "iso": "2026-09-18T05:00:00.000Z",
+            "local": "2026-09-18T00:00:00.000",
+            "offset": "-05:00",
+            "timestamp": 1789707600000
+          }
+        }
+      },
+      "gpu": {
+        "grade": "correct",
+        "valueGrade": "correct",
+        "observed": {
+          "occurrences": [
+            {
+              "start": "2026-09-18T00:00:00-05:00",
+              "allDay": true
+            }
+          ],
+          "recurring": false,
+          "diagnostics": []
+        },
+        "raw": {
+          "occurrences": [
+            {
+              "start": "2026-09-18T00:00:00-05:00",
+              "allDay": true
+            }
+          ],
+          "rrules": [],
+          "truncated": false,
+          "diagnostics": [],
+          "backend": "cpu",
+          "timings": {
+            "tokenizeMs": 0.01849999999998886,
+            "inferMs": 0.8882080000000201,
+            "resolveMs": 0.19829199999998082
+          }
+        }
+      },
+      "interpretation": {
+        "grade": "correct",
+        "valueGrade": "correct",
+        "observed": {
+          "occurrences": [
+            {
+              "start": "2026-09-18T05:00:00.000Z",
+              "allDay": true
+            }
+          ],
+          "recurring": false,
+          "diagnostics": []
+        },
+        "raw": {
+          "interpretationVersion": 1,
+          "status": "resolved",
+          "value": {
+            "kind": "point",
+            "calculation": {
+              "ok": true,
+              "engineVersion": 2,
+              "expression": "next Friday",
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00.000Z",
+              "normalized": "next friday",
+              "anchor": {
+                "iso": "2026-09-18T05:00:00.000Z",
+                "local": "2026-09-18T00:00:00.000",
+                "offset": "-05:00",
+                "timestamp": 1789707600000
+              },
+              "anchorDescription": "Use the next Friday, excluding today. Start at midnight.",
+              "steps": [],
+              "warnings": [],
+              "result": {
+                "iso": "2026-09-18T05:00:00.000Z",
+                "local": "2026-09-18T00:00:00.000",
+                "offset": "-05:00",
+                "timestamp": 1789707600000
+              }
+            },
+            "precision": "date",
+            "clockSource": "default"
+          },
+          "source": {
+            "text": "next Friday",
+            "span": {
+              "start": 0,
+              "end": 11
+            }
+          },
+          "assumptions": []
+        }
+      }
+    },
+    {
+      "fixture": {
+        "id": "date-yesterday",
+        "family": "dates",
+        "text": "yesterday",
+        "expected": {
+          "kind": "resolved",
+          "occurrences": [
+            {
+              "start": "2026-09-11T05:00:00Z",
+              "allDay": true
+            }
+          ],
+          "recurring": false
+        },
+        "rationale": "The preceding civil date starts at midnight CDT.",
+        "preserve": true
+      },
+      "context": {
+        "reference": "2026-09-12T16:00:00.000Z",
+        "timeZone": "America/Chicago",
+        "limit": 3
+      },
+      "tempus": {
+        "grade": "correct",
+        "valueGrade": "not-exposed",
+        "observed": {
+          "occurrences": [
+            {
+              "start": "2026-09-11T05:00:00.000Z"
+            }
+          ],
+          "recurring": false,
+          "diagnostics": []
+        },
+        "raw": {
+          "ok": true,
+          "engineVersion": 2,
+          "expression": "yesterday",
+          "timezone": "America/Chicago",
+          "reference": "2026-09-12T16:00:00.000Z",
+          "normalized": "yesterday",
+          "anchor": {
+            "iso": "2026-09-11T05:00:00.000Z",
+            "local": "2026-09-11T00:00:00.000",
+            "offset": "-05:00",
+            "timestamp": 1789102800000
+          },
+          "anchorDescription": "Use yesterday in America/Chicago. Start at midnight.",
+          "steps": [],
+          "warnings": [],
+          "result": {
+            "iso": "2026-09-11T05:00:00.000Z",
+            "local": "2026-09-11T00:00:00.000",
+            "offset": "-05:00",
+            "timestamp": 1789102800000
+          }
+        }
+      },
+      "gpu": {
+        "grade": "correct",
+        "valueGrade": "correct",
+        "observed": {
+          "occurrences": [
+            {
+              "start": "2026-09-11T00:00:00-05:00",
+              "allDay": true
+            }
+          ],
+          "recurring": false,
+          "diagnostics": []
+        },
+        "raw": {
+          "occurrences": [
+            {
+              "start": "2026-09-11T00:00:00-05:00",
+              "allDay": true
+            }
+          ],
+          "rrules": [],
+          "truncated": false,
+          "diagnostics": [],
+          "backend": "cpu",
+          "timings": {
+            "tokenizeMs": 0.018916999999987638,
+            "inferMs": 0.25324999999998,
+            "resolveMs": 0.0907489999999882
+          }
+        }
+      },
+      "interpretation": {
+        "grade": "correct",
+        "valueGrade": "correct",
+        "observed": {
+          "occurrences": [
+            {
+              "start": "2026-09-11T05:00:00.000Z",
+              "allDay": true
+            }
+          ],
+          "recurring": false,
+          "diagnostics": []
+        },
+        "raw": {
+          "interpretationVersion": 1,
+          "status": "resolved",
+          "value": {
+            "kind": "point",
+            "calculation": {
+              "ok": true,
+              "engineVersion": 2,
+              "expression": "yesterday",
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00.000Z",
+              "normalized": "yesterday",
+              "anchor": {
+                "iso": "2026-09-11T05:00:00.000Z",
+                "local": "2026-09-11T00:00:00.000",
+                "offset": "-05:00",
+                "timestamp": 1789102800000
+              },
+              "anchorDescription": "Use yesterday in America/Chicago. Start at midnight.",
+              "steps": [],
+              "warnings": [],
+              "result": {
+                "iso": "2026-09-11T05:00:00.000Z",
+                "local": "2026-09-11T00:00:00.000",
+                "offset": "-05:00",
+                "timestamp": 1789102800000
+              }
+            },
+            "precision": "date",
+            "clockSource": "default"
+          },
+          "source": {
+            "text": "yesterday",
+            "span": {
+              "start": 0,
+              "end": 9
+            }
+          },
+          "assumptions": []
+        }
+      }
+    },
+    {
+      "fixture": {
+        "id": "date-spring-day",
+        "family": "dates",
+        "text": "in 1 day",
+        "reference": "2026-03-07T18:00:00Z",
+        "expected": {
+          "kind": "resolved",
+          "occurrences": [
+            {
+              "start": "2026-03-08T17:00:00Z",
+              "allDay": false
+            }
+          ],
+          "recurring": false
+        },
+        "rationale": "Noon CST plus a calendar day is noon CDT: 23 elapsed hours.",
+        "preserve": true
+      },
+      "context": {
+        "reference": "2026-03-07T18:00:00Z",
+        "timeZone": "America/Chicago",
+        "limit": 3
+      },
+      "tempus": {
+        "grade": "correct",
+        "valueGrade": "not-exposed",
+        "observed": {
+          "occurrences": [
+            {
+              "start": "2026-03-08T17:00:00.000Z"
+            }
+          ],
+          "recurring": false,
+          "diagnostics": []
+        },
+        "raw": {
+          "ok": true,
+          "engineVersion": 2,
+          "expression": "in 1 day",
+          "timezone": "America/Chicago",
+          "reference": "2026-03-07T18:00:00.000Z",
+          "normalized": "in 1 day",
+          "anchor": {
+            "iso": "2026-03-07T18:00:00.000Z",
+            "local": "2026-03-07T12:00:00.000",
+            "offset": "-06:00",
+            "timestamp": 1772906400000
+          },
+          "anchorDescription": "Start at the captured reference time.",
+          "steps": [
+            {
+              "source": "Add 1 day",
+              "before": {
+                "iso": "2026-03-07T18:00:00.000Z",
+                "local": "2026-03-07T12:00:00.000",
+                "offset": "-06:00",
+                "timestamp": 1772906400000
+              },
+              "after": {
+                "iso": "2026-03-08T17:00:00.000Z",
+                "local": "2026-03-08T12:00:00.000",
+                "offset": "-05:00",
+                "timestamp": 1772989200000
+              },
+              "details": [
+                "1 calendar day. No rounding.",
+                "The timezone offset changes from -06:00 to -05:00."
+              ]
+            }
+          ],
+          "warnings": [],
+          "result": {
+            "iso": "2026-03-08T17:00:00.000Z",
+            "local": "2026-03-08T12:00:00.000",
+            "offset": "-05:00",
+            "timestamp": 1772989200000
+          }
+        }
+      },
+      "gpu": {
+        "grade": "correct",
+        "valueGrade": "correct",
+        "observed": {
+          "occurrences": [
+            {
+              "start": "2026-03-08T12:00:00-05:00",
+              "allDay": false
+            }
+          ],
+          "recurring": false,
+          "diagnostics": []
+        },
+        "raw": {
+          "occurrences": [
+            {
+              "start": "2026-03-08T12:00:00-05:00",
+              "allDay": false
+            }
+          ],
+          "rrules": [],
+          "truncated": false,
+          "diagnostics": [],
+          "backend": "cpu",
+          "timings": {
+            "tokenizeMs": 0.013626000000016347,
+            "inferMs": 0.7588329999999814,
+            "resolveMs": 0.17749999999998067
+          }
+        }
+      },
+      "interpretation": {
+        "grade": "correct",
+        "valueGrade": "correct",
+        "observed": {
+          "occurrences": [
+            {
+              "start": "2026-03-08T17:00:00.000Z",
+              "allDay": false
+            }
+          ],
+          "recurring": false,
+          "diagnostics": []
+        },
+        "raw": {
+          "interpretationVersion": 1,
+          "status": "resolved",
+          "value": {
+            "kind": "point",
+            "calculation": {
+              "ok": true,
+              "engineVersion": 2,
+              "expression": "in 1 day",
+              "timezone": "America/Chicago",
+              "reference": "2026-03-07T18:00:00.000Z",
+              "normalized": "in 1 day",
+              "anchor": {
+                "iso": "2026-03-07T18:00:00.000Z",
+                "local": "2026-03-07T12:00:00.000",
+                "offset": "-06:00",
+                "timestamp": 1772906400000
+              },
+              "anchorDescription": "Start at the captured reference time.",
+              "steps": [
+                {
+                  "source": "Add 1 day",
+                  "before": {
+                    "iso": "2026-03-07T18:00:00.000Z",
+                    "local": "2026-03-07T12:00:00.000",
+                    "offset": "-06:00",
+                    "timestamp": 1772906400000
+                  },
+                  "after": {
+                    "iso": "2026-03-08T17:00:00.000Z",
+                    "local": "2026-03-08T12:00:00.000",
+                    "offset": "-05:00",
+                    "timestamp": 1772989200000
+                  },
+                  "details": [
+                    "1 calendar day. No rounding.",
+                    "The timezone offset changes from -06:00 to -05:00."
+                  ]
+                }
+              ],
+              "warnings": [],
+              "result": {
+                "iso": "2026-03-08T17:00:00.000Z",
+                "local": "2026-03-08T12:00:00.000",
+                "offset": "-05:00",
+                "timestamp": 1772989200000
+              }
+            },
+            "precision": "time",
+            "clockSource": "reference"
+          },
+          "source": {
+            "text": "in 1 day",
+            "span": {
+              "start": 0,
+              "end": 8
+            }
+          },
+          "assumptions": []
+        }
+      }
+    },
+    {
+      "fixture": {
+        "id": "date-spring-hours",
+        "family": "dates",
+        "text": "in 24 hours",
+        "reference": "2026-03-07T18:00:00Z",
+        "expected": {
+          "kind": "resolved",
+          "occurrences": [
+            {
+              "start": "2026-03-08T18:00:00Z",
+              "allDay": false
+            }
+          ],
+          "recurring": false
+        },
+        "rationale": "24 elapsed hours from March 7 at 18:00 UTC is March 8 at 18:00 UTC.",
+        "preserve": true
+      },
+      "context": {
+        "reference": "2026-03-07T18:00:00Z",
+        "timeZone": "America/Chicago",
+        "limit": 3
+      },
+      "tempus": {
+        "grade": "correct",
+        "valueGrade": "not-exposed",
+        "observed": {
+          "occurrences": [
+            {
+              "start": "2026-03-08T18:00:00.000Z"
+            }
+          ],
+          "recurring": false,
+          "diagnostics": []
+        },
+        "raw": {
+          "ok": true,
+          "engineVersion": 2,
+          "expression": "in 24 hours",
+          "timezone": "America/Chicago",
+          "reference": "2026-03-07T18:00:00.000Z",
+          "normalized": "in 24 hours",
+          "anchor": {
+            "iso": "2026-03-07T18:00:00.000Z",
+            "local": "2026-03-07T12:00:00.000",
+            "offset": "-06:00",
+            "timestamp": 1772906400000
+          },
+          "anchorDescription": "Start at the captured reference time.",
+          "steps": [
+            {
+              "source": "Add 24 hours",
+              "before": {
+                "iso": "2026-03-07T18:00:00.000Z",
+                "local": "2026-03-07T12:00:00.000",
+                "offset": "-06:00",
+                "timestamp": 1772906400000
+              },
+              "after": {
+                "iso": "2026-03-08T18:00:00.000Z",
+                "local": "2026-03-08T13:00:00.000",
+                "offset": "-05:00",
+                "timestamp": 1772992800000
+              },
+              "details": [
+                "86,400,000 elapsed milliseconds. No rounding.",
+                "The timezone offset changes from -06:00 to -05:00."
+              ]
+            }
+          ],
+          "warnings": [],
+          "result": {
+            "iso": "2026-03-08T18:00:00.000Z",
+            "local": "2026-03-08T13:00:00.000",
+            "offset": "-05:00",
+            "timestamp": 1772992800000
+          }
+        }
+      },
+      "gpu": {
+        "grade": "correct",
+        "valueGrade": "correct",
+        "observed": {
+          "occurrences": [
+            {
+              "start": "2026-03-08T13:00:00-05:00",
+              "allDay": false
+            }
+          ],
+          "recurring": false,
+          "diagnostics": []
+        },
+        "raw": {
+          "occurrences": [
+            {
+              "start": "2026-03-08T13:00:00-05:00",
+              "allDay": false
+            }
+          ],
+          "rrules": [],
+          "truncated": false,
+          "diagnostics": [],
+          "backend": "cpu",
+          "timings": {
+            "tokenizeMs": 0.010958999999985508,
+            "inferMs": 0.2255830000000003,
+            "resolveMs": 0.05429200000000378
+          }
+        }
+      },
+      "interpretation": {
+        "grade": "correct",
+        "valueGrade": "correct",
+        "observed": {
+          "occurrences": [
+            {
+              "start": "2026-03-08T18:00:00.000Z",
+              "allDay": false
+            }
+          ],
+          "recurring": false,
+          "diagnostics": []
+        },
+        "raw": {
+          "interpretationVersion": 1,
+          "status": "resolved",
+          "value": {
+            "kind": "point",
+            "calculation": {
+              "ok": true,
+              "engineVersion": 2,
+              "expression": "in 24 hours",
+              "timezone": "America/Chicago",
+              "reference": "2026-03-07T18:00:00.000Z",
+              "normalized": "in 24 hours",
+              "anchor": {
+                "iso": "2026-03-07T18:00:00.000Z",
+                "local": "2026-03-07T12:00:00.000",
+                "offset": "-06:00",
+                "timestamp": 1772906400000
+              },
+              "anchorDescription": "Start at the captured reference time.",
+              "steps": [
+                {
+                  "source": "Add 24 hours",
+                  "before": {
+                    "iso": "2026-03-07T18:00:00.000Z",
+                    "local": "2026-03-07T12:00:00.000",
+                    "offset": "-06:00",
+                    "timestamp": 1772906400000
+                  },
+                  "after": {
+                    "iso": "2026-03-08T18:00:00.000Z",
+                    "local": "2026-03-08T13:00:00.000",
+                    "offset": "-05:00",
+                    "timestamp": 1772992800000
+                  },
+                  "details": [
+                    "86,400,000 elapsed milliseconds. No rounding.",
+                    "The timezone offset changes from -06:00 to -05:00."
+                  ]
+                }
+              ],
+              "warnings": [],
+              "result": {
+                "iso": "2026-03-08T18:00:00.000Z",
+                "local": "2026-03-08T13:00:00.000",
+                "offset": "-05:00",
+                "timestamp": 1772992800000
+              }
+            },
+            "precision": "time",
+            "clockSource": "reference"
+          },
+          "source": {
+            "text": "in 24 hours",
+            "span": {
+              "start": 0,
+              "end": 11
+            }
+          },
+          "assumptions": []
+        }
+      }
+    },
+    {
+      "fixture": {
+        "id": "math-days-first",
+        "family": "arithmetic",
+        "text": "jan 30 2026 plus 2 days plus 1 month",
+        "expected": {
+          "kind": "resolved",
+          "occurrences": [
+            {
+              "start": "2026-03-01T06:00:00Z",
+              "allDay": true
+            }
+          ],
+          "recurring": false
+        },
+        "rationale": "January 30 plus two days is February 1; one month later is March 1, midnight CST.",
+        "preserve": true
+      },
+      "context": {
+        "reference": "2026-09-12T16:00:00.000Z",
+        "timeZone": "America/Chicago",
+        "limit": 3
+      },
+      "tempus": {
+        "grade": "correct",
+        "valueGrade": "not-exposed",
+        "observed": {
+          "occurrences": [
+            {
+              "start": "2026-03-01T06:00:00.000Z"
+            }
+          ],
+          "recurring": false,
+          "diagnostics": []
+        },
+        "raw": {
+          "ok": true,
+          "engineVersion": 2,
+          "expression": "jan 30 2026 plus 2 days plus 1 month",
+          "timezone": "America/Chicago",
+          "reference": "2026-09-12T16:00:00.000Z",
+          "normalized": "jan 30 2026 plus 2 days plus 1 month",
+          "anchor": {
+            "iso": "2026-01-30T06:00:00.000Z",
+            "local": "2026-01-30T00:00:00.000",
+            "offset": "-06:00",
+            "timestamp": 1769752800000
+          },
+          "anchorDescription": "Use the exact calendar date. Start at midnight.",
+          "steps": [
+            {
+              "source": "Add 2 days",
+              "before": {
+                "iso": "2026-01-30T06:00:00.000Z",
+                "local": "2026-01-30T00:00:00.000",
+                "offset": "-06:00",
+                "timestamp": 1769752800000
+              },
+              "after": {
+                "iso": "2026-02-01T06:00:00.000Z",
+                "local": "2026-02-01T00:00:00.000",
+                "offset": "-06:00",
+                "timestamp": 1769925600000
+              },
+              "details": [
+                "2 calendar days. No rounding."
+              ]
+            },
+            {
+              "source": "Add 1 month",
+              "before": {
+                "iso": "2026-02-01T06:00:00.000Z",
+                "local": "2026-02-01T00:00:00.000",
+                "offset": "-06:00",
+                "timestamp": 1769925600000
+              },
+              "after": {
+                "iso": "2026-03-01T06:00:00.000Z",
+                "local": "2026-03-01T00:00:00.000",
+                "offset": "-06:00",
+                "timestamp": 1772344800000
+              },
+              "details": [
+                "Calendar change, applied to this step’s starting date."
+              ]
+            }
+          ],
+          "warnings": [],
+          "result": {
+            "iso": "2026-03-01T06:00:00.000Z",
+            "local": "2026-03-01T00:00:00.000",
+            "offset": "-06:00",
+            "timestamp": 1772344800000
+          }
+        }
+      },
+      "gpu": {
+        "grade": "abstained",
+        "valueGrade": "abstained",
+        "observed": {
+          "occurrences": [],
+          "recurring": false,
+          "diagnostics": [
+            "conflicting-duration: A clause has more than one occurrence duration.",
+            "filler-ignored: Ignored plus inside the expression."
+          ]
+        },
+        "raw": {
+          "occurrences": [],
+          "rrules": [],
+          "truncated": false,
+          "diagnostics": [
+            {
+              "code": "conflicting-duration",
+              "message": "A clause has more than one occurrence duration.",
+              "start": 29,
+              "end": 30,
+              "severity": "error"
+            },
+            {
+              "code": "filler-ignored",
+              "message": "Ignored plus inside the expression.",
+              "start": 12,
+              "end": 16,
+              "severity": "warning"
+            }
+          ],
+          "backend": "cpu",
+          "timings": {
+            "tokenizeMs": 0.018250000000023192,
+            "inferMs": 0.5316249999999911,
+            "resolveMs": 0.08008399999997096
+          }
+        }
+      },
+      "interpretation": {
+        "grade": "correct",
+        "valueGrade": "correct",
+        "observed": {
+          "occurrences": [
+            {
+              "start": "2026-03-01T06:00:00.000Z",
+              "allDay": true
+            }
+          ],
+          "recurring": false,
+          "diagnostics": []
+        },
+        "raw": {
+          "interpretationVersion": 1,
+          "status": "resolved",
+          "value": {
+            "kind": "point",
+            "calculation": {
+              "ok": true,
+              "engineVersion": 2,
+              "expression": "jan 30 2026 plus 2 days plus 1 month",
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00.000Z",
+              "normalized": "jan 30 2026 plus 2 days plus 1 month",
+              "anchor": {
+                "iso": "2026-01-30T06:00:00.000Z",
+                "local": "2026-01-30T00:00:00.000",
+                "offset": "-06:00",
+                "timestamp": 1769752800000
+              },
+              "anchorDescription": "Use the exact calendar date. Start at midnight.",
+              "steps": [
+                {
+                  "source": "Add 2 days",
+                  "before": {
+                    "iso": "2026-01-30T06:00:00.000Z",
+                    "local": "2026-01-30T00:00:00.000",
+                    "offset": "-06:00",
+                    "timestamp": 1769752800000
+                  },
+                  "after": {
+                    "iso": "2026-02-01T06:00:00.000Z",
+                    "local": "2026-02-01T00:00:00.000",
+                    "offset": "-06:00",
+                    "timestamp": 1769925600000
+                  },
+                  "details": [
+                    "2 calendar days. No rounding."
+                  ]
+                },
+                {
+                  "source": "Add 1 month",
+                  "before": {
+                    "iso": "2026-02-01T06:00:00.000Z",
+                    "local": "2026-02-01T00:00:00.000",
+                    "offset": "-06:00",
+                    "timestamp": 1769925600000
+                  },
+                  "after": {
+                    "iso": "2026-03-01T06:00:00.000Z",
+                    "local": "2026-03-01T00:00:00.000",
+                    "offset": "-06:00",
+                    "timestamp": 1772344800000
+                  },
+                  "details": [
+                    "Calendar change, applied to this step’s starting date."
+                  ]
+                }
+              ],
+              "warnings": [],
+              "result": {
+                "iso": "2026-03-01T06:00:00.000Z",
+                "local": "2026-03-01T00:00:00.000",
+                "offset": "-06:00",
+                "timestamp": 1772344800000
+              }
+            },
+            "precision": "date",
+            "clockSource": "default"
+          },
+          "source": {
+            "text": "jan 30 2026 plus 2 days plus 1 month",
+            "span": {
+              "start": 0,
+              "end": 36
+            }
+          },
+          "assumptions": []
+        }
+      }
+    },
+    {
+      "fixture": {
+        "id": "math-month-first",
+        "family": "arithmetic",
+        "text": "jan 30 2026 plus 1 month plus 2 days",
+        "expected": {
+          "kind": "resolved",
+          "occurrences": [
+            {
+              "start": "2026-03-02T06:00:00Z",
+              "allDay": true
+            }
+          ],
+          "recurring": false
+        },
+        "rationale": "January 30 clamps to February 28; two days later is March 2, midnight CST.",
+        "preserve": true
+      },
+      "context": {
+        "reference": "2026-09-12T16:00:00.000Z",
+        "timeZone": "America/Chicago",
+        "limit": 3
+      },
+      "tempus": {
+        "grade": "correct",
+        "valueGrade": "not-exposed",
+        "observed": {
+          "occurrences": [
+            {
+              "start": "2026-03-02T06:00:00.000Z"
+            }
+          ],
+          "recurring": false,
+          "diagnostics": []
+        },
+        "raw": {
+          "ok": true,
+          "engineVersion": 2,
+          "expression": "jan 30 2026 plus 1 month plus 2 days",
+          "timezone": "America/Chicago",
+          "reference": "2026-09-12T16:00:00.000Z",
+          "normalized": "jan 30 2026 plus 1 month plus 2 days",
+          "anchor": {
+            "iso": "2026-01-30T06:00:00.000Z",
+            "local": "2026-01-30T00:00:00.000",
+            "offset": "-06:00",
+            "timestamp": 1769752800000
+          },
+          "anchorDescription": "Use the exact calendar date. Start at midnight.",
+          "steps": [
+            {
+              "source": "Add 1 month",
+              "before": {
+                "iso": "2026-01-30T06:00:00.000Z",
+                "local": "2026-01-30T00:00:00.000",
+                "offset": "-06:00",
+                "timestamp": 1769752800000
+              },
+              "after": {
+                "iso": "2026-02-28T06:00:00.000Z",
+                "local": "2026-02-28T00:00:00.000",
+                "offset": "-06:00",
+                "timestamp": 1772258400000
+              },
+              "details": [
+                "Day 30 does not exist in the destination month; clamp to day 28.",
+                "Calendar change, applied to this step’s starting date."
+              ]
+            },
+            {
+              "source": "Add 2 days",
+              "before": {
+                "iso": "2026-02-28T06:00:00.000Z",
+                "local": "2026-02-28T00:00:00.000",
+                "offset": "-06:00",
+                "timestamp": 1772258400000
+              },
+              "after": {
+                "iso": "2026-03-02T06:00:00.000Z",
+                "local": "2026-03-02T00:00:00.000",
+                "offset": "-06:00",
+                "timestamp": 1772431200000
+              },
+              "details": [
+                "2 calendar days. No rounding."
+              ]
+            }
+          ],
+          "warnings": [],
+          "result": {
+            "iso": "2026-03-02T06:00:00.000Z",
+            "local": "2026-03-02T00:00:00.000",
+            "offset": "-06:00",
+            "timestamp": 1772431200000
+          }
+        }
+      },
+      "gpu": {
+        "grade": "incorrect",
+        "valueGrade": "incorrect",
+        "observed": {
+          "occurrences": [
+            {
+              "start": "2025-12-30T00:00:00-06:00",
+              "allDay": true,
+              "end": "2026-01-01T00:00:00-06:00"
+            }
+          ],
+          "recurring": false,
+          "diagnostics": [
+            "filler-ignored: Ignored plus inside the expression.",
+            "low-confidence: The model is uncertain about this expression."
+          ]
+        },
+        "raw": {
+          "occurrences": [
+            {
+              "start": "2025-12-30T00:00:00-06:00",
+              "allDay": true,
+              "end": "2026-01-01T00:00:00-06:00"
+            }
+          ],
+          "rrules": [],
+          "truncated": false,
+          "diagnostics": [
+            {
+              "code": "filler-ignored",
+              "message": "Ignored plus inside the expression.",
+              "start": 12,
+              "end": 16,
+              "severity": "warning"
+            },
+            {
+              "code": "low-confidence",
+              "message": "The model is uncertain about this expression.",
+              "start": 0,
+              "end": 3,
+              "severity": "warning"
+            }
+          ],
+          "backend": "cpu",
+          "timings": {
+            "tokenizeMs": 0.015583000000020775,
+            "inferMs": 0.4651670000000081,
+            "resolveMs": 0.2166260000000193
+          }
+        }
+      },
+      "interpretation": {
+        "grade": "correct",
+        "valueGrade": "correct",
+        "observed": {
+          "occurrences": [
+            {
+              "start": "2026-03-02T06:00:00.000Z",
+              "allDay": true
+            }
+          ],
+          "recurring": false,
+          "diagnostics": []
+        },
+        "raw": {
+          "interpretationVersion": 1,
+          "status": "resolved",
+          "value": {
+            "kind": "point",
+            "calculation": {
+              "ok": true,
+              "engineVersion": 2,
+              "expression": "jan 30 2026 plus 1 month plus 2 days",
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00.000Z",
+              "normalized": "jan 30 2026 plus 1 month plus 2 days",
+              "anchor": {
+                "iso": "2026-01-30T06:00:00.000Z",
+                "local": "2026-01-30T00:00:00.000",
+                "offset": "-06:00",
+                "timestamp": 1769752800000
+              },
+              "anchorDescription": "Use the exact calendar date. Start at midnight.",
+              "steps": [
+                {
+                  "source": "Add 1 month",
+                  "before": {
+                    "iso": "2026-01-30T06:00:00.000Z",
+                    "local": "2026-01-30T00:00:00.000",
+                    "offset": "-06:00",
+                    "timestamp": 1769752800000
+                  },
+                  "after": {
+                    "iso": "2026-02-28T06:00:00.000Z",
+                    "local": "2026-02-28T00:00:00.000",
+                    "offset": "-06:00",
+                    "timestamp": 1772258400000
+                  },
+                  "details": [
+                    "Day 30 does not exist in the destination month; clamp to day 28.",
+                    "Calendar change, applied to this step’s starting date."
+                  ]
+                },
+                {
+                  "source": "Add 2 days",
+                  "before": {
+                    "iso": "2026-02-28T06:00:00.000Z",
+                    "local": "2026-02-28T00:00:00.000",
+                    "offset": "-06:00",
+                    "timestamp": 1772258400000
+                  },
+                  "after": {
+                    "iso": "2026-03-02T06:00:00.000Z",
+                    "local": "2026-03-02T00:00:00.000",
+                    "offset": "-06:00",
+                    "timestamp": 1772431200000
+                  },
+                  "details": [
+                    "2 calendar days. No rounding."
+                  ]
+                }
+              ],
+              "warnings": [],
+              "result": {
+                "iso": "2026-03-02T06:00:00.000Z",
+                "local": "2026-03-02T00:00:00.000",
+                "offset": "-06:00",
+                "timestamp": 1772431200000
+              }
+            },
+            "precision": "date",
+            "clockSource": "default"
+          },
+          "source": {
+            "text": "jan 30 2026 plus 1 month plus 2 days",
+            "span": {
+              "start": 0,
+              "end": 36
+            }
+          },
+          "assumptions": []
+        }
+      }
+    },
+    {
+      "fixture": {
+        "id": "math-step-clamp",
+        "family": "arithmetic",
+        "text": "jan 31 2026 plus 1 month plus 1 month",
+        "expected": {
+          "kind": "resolved",
+          "occurrences": [
+            {
+              "start": "2026-03-28T05:00:00Z",
+              "allDay": true
+            }
+          ],
+          "recurring": false
+        },
+        "rationale": "January 31 clamps to February 28, then advances to March 28, midnight CDT.",
+        "preserve": true
+      },
+      "context": {
+        "reference": "2026-09-12T16:00:00.000Z",
+        "timeZone": "America/Chicago",
+        "limit": 3
+      },
+      "tempus": {
+        "grade": "correct",
+        "valueGrade": "not-exposed",
+        "observed": {
+          "occurrences": [
+            {
+              "start": "2026-03-28T05:00:00.000Z"
+            }
+          ],
+          "recurring": false,
+          "diagnostics": []
+        },
+        "raw": {
+          "ok": true,
+          "engineVersion": 2,
+          "expression": "jan 31 2026 plus 1 month plus 1 month",
+          "timezone": "America/Chicago",
+          "reference": "2026-09-12T16:00:00.000Z",
+          "normalized": "jan 31 2026 plus 1 month plus 1 month",
+          "anchor": {
+            "iso": "2026-01-31T06:00:00.000Z",
+            "local": "2026-01-31T00:00:00.000",
+            "offset": "-06:00",
+            "timestamp": 1769839200000
+          },
+          "anchorDescription": "Use the exact calendar date. Start at midnight.",
+          "steps": [
+            {
+              "source": "Add 1 month",
+              "before": {
+                "iso": "2026-01-31T06:00:00.000Z",
+                "local": "2026-01-31T00:00:00.000",
+                "offset": "-06:00",
+                "timestamp": 1769839200000
+              },
+              "after": {
+                "iso": "2026-02-28T06:00:00.000Z",
+                "local": "2026-02-28T00:00:00.000",
+                "offset": "-06:00",
+                "timestamp": 1772258400000
+              },
+              "details": [
+                "Day 31 does not exist in the destination month; clamp to day 28.",
+                "Calendar change, applied to this step’s starting date."
+              ]
+            },
+            {
+              "source": "Add 1 month",
+              "before": {
+                "iso": "2026-02-28T06:00:00.000Z",
+                "local": "2026-02-28T00:00:00.000",
+                "offset": "-06:00",
+                "timestamp": 1772258400000
+              },
+              "after": {
+                "iso": "2026-03-28T05:00:00.000Z",
+                "local": "2026-03-28T00:00:00.000",
+                "offset": "-05:00",
+                "timestamp": 1774674000000
+              },
+              "details": [
+                "Calendar change, applied to this step’s starting date.",
+                "The timezone offset changes from -06:00 to -05:00."
+              ]
+            }
+          ],
+          "warnings": [],
+          "result": {
+            "iso": "2026-03-28T05:00:00.000Z",
+            "local": "2026-03-28T00:00:00.000",
+            "offset": "-05:00",
+            "timestamp": 1774674000000
+          }
+        }
+      },
+      "gpu": {
+        "grade": "abstained",
+        "valueGrade": "abstained",
+        "observed": {
+          "occurrences": [],
+          "recurring": false,
+          "diagnostics": [
+            "conflicting-duration: A clause has more than one occurrence duration.",
+            "filler-ignored: Ignored plus inside the expression."
+          ]
+        },
+        "raw": {
+          "occurrences": [],
+          "rrules": [],
+          "truncated": false,
+          "diagnostics": [
+            {
+              "code": "conflicting-duration",
+              "message": "A clause has more than one occurrence duration.",
+              "start": 30,
+              "end": 31,
+              "severity": "error"
+            },
+            {
+              "code": "filler-ignored",
+              "message": "Ignored plus inside the expression.",
+              "start": 12,
+              "end": 16,
+              "severity": "warning"
+            }
+          ],
+          "backend": "cpu",
+          "timings": {
+            "tokenizeMs": 0.011916999999982636,
+            "inferMs": 0.7650830000000042,
+            "resolveMs": 0.059499999999985675
+          }
+        }
+      },
+      "interpretation": {
+        "grade": "correct",
+        "valueGrade": "correct",
+        "observed": {
+          "occurrences": [
+            {
+              "start": "2026-03-28T05:00:00.000Z",
+              "allDay": true
+            }
+          ],
+          "recurring": false,
+          "diagnostics": []
+        },
+        "raw": {
+          "interpretationVersion": 1,
+          "status": "resolved",
+          "value": {
+            "kind": "point",
+            "calculation": {
+              "ok": true,
+              "engineVersion": 2,
+              "expression": "jan 31 2026 plus 1 month plus 1 month",
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00.000Z",
+              "normalized": "jan 31 2026 plus 1 month plus 1 month",
+              "anchor": {
+                "iso": "2026-01-31T06:00:00.000Z",
+                "local": "2026-01-31T00:00:00.000",
+                "offset": "-06:00",
+                "timestamp": 1769839200000
+              },
+              "anchorDescription": "Use the exact calendar date. Start at midnight.",
+              "steps": [
+                {
+                  "source": "Add 1 month",
+                  "before": {
+                    "iso": "2026-01-31T06:00:00.000Z",
+                    "local": "2026-01-31T00:00:00.000",
+                    "offset": "-06:00",
+                    "timestamp": 1769839200000
+                  },
+                  "after": {
+                    "iso": "2026-02-28T06:00:00.000Z",
+                    "local": "2026-02-28T00:00:00.000",
+                    "offset": "-06:00",
+                    "timestamp": 1772258400000
+                  },
+                  "details": [
+                    "Day 31 does not exist in the destination month; clamp to day 28.",
+                    "Calendar change, applied to this step’s starting date."
+                  ]
+                },
+                {
+                  "source": "Add 1 month",
+                  "before": {
+                    "iso": "2026-02-28T06:00:00.000Z",
+                    "local": "2026-02-28T00:00:00.000",
+                    "offset": "-06:00",
+                    "timestamp": 1772258400000
+                  },
+                  "after": {
+                    "iso": "2026-03-28T05:00:00.000Z",
+                    "local": "2026-03-28T00:00:00.000",
+                    "offset": "-05:00",
+                    "timestamp": 1774674000000
+                  },
+                  "details": [
+                    "Calendar change, applied to this step’s starting date.",
+                    "The timezone offset changes from -06:00 to -05:00."
+                  ]
+                }
+              ],
+              "warnings": [],
+              "result": {
+                "iso": "2026-03-28T05:00:00.000Z",
+                "local": "2026-03-28T00:00:00.000",
+                "offset": "-05:00",
+                "timestamp": 1774674000000
+              }
+            },
+            "precision": "date",
+            "clockSource": "default"
+          },
+          "source": {
+            "text": "jan 31 2026 plus 1 month plus 1 month",
+            "span": {
+              "start": 0,
+              "end": 37
+            }
+          },
+          "assumptions": []
+        }
+      }
+    },
+    {
+      "fixture": {
+        "id": "math-fraction-week",
+        "family": "arithmetic",
+        "text": "one and a half weeks ago",
+        "expected": {
+          "kind": "resolved",
+          "occurrences": [
+            {
+              "start": "2026-09-02T04:00:00Z",
+              "allDay": false
+            }
+          ],
+          "recurring": false
+        },
+        "rationale": "10.5 days before September 12 at 16:00 UTC is September 2 at 04:00 UTC; no DST transition intervenes.",
+        "preserve": true
+      },
+      "context": {
+        "reference": "2026-09-12T16:00:00.000Z",
+        "timeZone": "America/Chicago",
+        "limit": 3
+      },
+      "tempus": {
+        "grade": "correct",
+        "valueGrade": "not-exposed",
+        "observed": {
+          "occurrences": [
+            {
+              "start": "2026-09-02T04:00:00.000Z"
+            }
+          ],
+          "recurring": false,
+          "diagnostics": []
+        },
+        "raw": {
+          "ok": true,
+          "engineVersion": 2,
+          "expression": "one and a half weeks ago",
+          "timezone": "America/Chicago",
+          "reference": "2026-09-12T16:00:00.000Z",
+          "normalized": "one and a half weeks ago",
+          "anchor": {
+            "iso": "2026-09-12T16:00:00.000Z",
+            "local": "2026-09-12T11:00:00.000",
+            "offset": "-05:00",
+            "timestamp": 1789228800000
+          },
+          "anchorDescription": "Start at the captured reference time.",
+          "steps": [
+            {
+              "source": "Subtract one and a half weeks",
+              "before": {
+                "iso": "2026-09-12T16:00:00.000Z",
+                "local": "2026-09-12T11:00:00.000",
+                "offset": "-05:00",
+                "timestamp": 1789228800000
+              },
+              "after": {
+                "iso": "2026-09-02T04:00:00.000Z",
+                "local": "2026-09-01T23:00:00.000",
+                "offset": "-05:00",
+                "timestamp": 1788321600000
+              },
+              "details": [
+                "10 calendar days and 43,200,000 elapsed milliseconds. No rounding."
+              ]
+            }
+          ],
+          "warnings": [],
+          "result": {
+            "iso": "2026-09-02T04:00:00.000Z",
+            "local": "2026-09-01T23:00:00.000",
+            "offset": "-05:00",
+            "timestamp": 1788321600000
+          }
+        }
+      },
+      "gpu": {
+        "grade": "abstained",
+        "valueGrade": "abstained",
+        "observed": {
+          "occurrences": [],
+          "recurring": false,
+          "diagnostics": [
+            "unsupported: Unsupported token role NUM."
+          ]
+        },
+        "raw": {
+          "occurrences": [],
+          "rrules": [],
+          "truncated": false,
+          "diagnostics": [
+            {
+              "code": "unsupported",
+              "message": "Unsupported token role NUM.",
+              "start": 10,
+              "end": 14,
+              "severity": "error"
+            }
+          ],
+          "backend": "cpu",
+          "timings": {
+            "tokenizeMs": 0.01708399999998278,
+            "inferMs": 0.359375,
+            "resolveMs": 0.13450000000000273
+          }
+        }
+      },
+      "interpretation": {
+        "grade": "correct",
+        "valueGrade": "correct",
+        "observed": {
+          "occurrences": [
+            {
+              "start": "2026-09-02T04:00:00.000Z",
+              "allDay": false
+            }
+          ],
+          "recurring": false,
+          "diagnostics": []
+        },
+        "raw": {
+          "interpretationVersion": 1,
+          "status": "resolved",
+          "value": {
+            "kind": "point",
+            "calculation": {
+              "ok": true,
+              "engineVersion": 2,
+              "expression": "one and a half weeks ago",
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00.000Z",
+              "normalized": "one and a half weeks ago",
+              "anchor": {
+                "iso": "2026-09-12T16:00:00.000Z",
+                "local": "2026-09-12T11:00:00.000",
+                "offset": "-05:00",
+                "timestamp": 1789228800000
+              },
+              "anchorDescription": "Start at the captured reference time.",
+              "steps": [
+                {
+                  "source": "Subtract one and a half weeks",
+                  "before": {
+                    "iso": "2026-09-12T16:00:00.000Z",
+                    "local": "2026-09-12T11:00:00.000",
+                    "offset": "-05:00",
+                    "timestamp": 1789228800000
+                  },
+                  "after": {
+                    "iso": "2026-09-02T04:00:00.000Z",
+                    "local": "2026-09-01T23:00:00.000",
+                    "offset": "-05:00",
+                    "timestamp": 1788321600000
+                  },
+                  "details": [
+                    "10 calendar days and 43,200,000 elapsed milliseconds. No rounding."
+                  ]
+                }
+              ],
+              "warnings": [],
+              "result": {
+                "iso": "2026-09-02T04:00:00.000Z",
+                "local": "2026-09-01T23:00:00.000",
+                "offset": "-05:00",
+                "timestamp": 1788321600000
+              }
+            },
+            "precision": "time",
+            "clockSource": "reference"
+          },
+          "source": {
+            "text": "one and a half weeks ago",
+            "span": {
+              "start": 0,
+              "end": 24
+            }
+          },
+          "assumptions": []
+        }
+      }
+    },
+    {
+      "fixture": {
+        "id": "math-fraction-day",
+        "family": "arithmetic",
+        "text": "0.01 days",
+        "expected": {
+          "kind": "resolved",
+          "occurrences": [
+            {
+              "start": "2026-09-12T16:14:24Z",
+              "allDay": false
+            }
+          ],
+          "recurring": false
+        },
+        "rationale": "0.01 times 86,400 seconds is 864 seconds.",
+        "preserve": true
+      },
+      "context": {
+        "reference": "2026-09-12T16:00:00.000Z",
+        "timeZone": "America/Chicago",
+        "limit": 3
+      },
+      "tempus": {
+        "grade": "correct",
+        "valueGrade": "not-exposed",
+        "observed": {
+          "occurrences": [
+            {
+              "start": "2026-09-12T16:14:24.000Z"
+            }
+          ],
+          "recurring": false,
+          "diagnostics": []
+        },
+        "raw": {
+          "ok": true,
+          "engineVersion": 2,
+          "expression": "0.01 days",
+          "timezone": "America/Chicago",
+          "reference": "2026-09-12T16:00:00.000Z",
+          "normalized": "0.01 days",
+          "anchor": {
+            "iso": "2026-09-12T16:00:00.000Z",
+            "local": "2026-09-12T11:00:00.000",
+            "offset": "-05:00",
+            "timestamp": 1789228800000
+          },
+          "anchorDescription": "Start at the captured reference time.",
+          "steps": [
+            {
+              "source": "Add 0.01 days",
+              "before": {
+                "iso": "2026-09-12T16:00:00.000Z",
+                "local": "2026-09-12T11:00:00.000",
+                "offset": "-05:00",
+                "timestamp": 1789228800000
+              },
+              "after": {
+                "iso": "2026-09-12T16:14:24.000Z",
+                "local": "2026-09-12T11:14:24.000",
+                "offset": "-05:00",
+                "timestamp": 1789229664000
+              },
+              "details": [
+                "0 calendar days and 864,000 elapsed milliseconds. No rounding."
+              ]
+            }
+          ],
+          "warnings": [],
+          "result": {
+            "iso": "2026-09-12T16:14:24.000Z",
+            "local": "2026-09-12T11:14:24.000",
+            "offset": "-05:00",
+            "timestamp": 1789229664000
+          }
+        }
+      },
+      "gpu": {
+        "grade": "abstained",
+        "valueGrade": "abstained",
+        "observed": {
+          "occurrences": [],
+          "recurring": false,
+          "diagnostics": [
+            "unsupported: Unsupported token role NUM."
+          ]
+        },
+        "raw": {
+          "occurrences": [],
+          "rrules": [],
+          "truncated": false,
+          "diagnostics": [
+            {
+              "code": "unsupported",
+              "message": "Unsupported token role NUM.",
+              "start": 1,
+              "end": 2,
+              "severity": "error"
+            }
+          ],
+          "backend": "cpu",
+          "timings": {
+            "tokenizeMs": 0.019167000000010148,
+            "inferMs": 0.2650830000000042,
+            "resolveMs": 0.04179200000001515
+          }
+        }
+      },
+      "interpretation": {
+        "grade": "correct",
+        "valueGrade": "correct",
+        "observed": {
+          "occurrences": [
+            {
+              "start": "2026-09-12T16:14:24.000Z",
+              "allDay": false
+            }
+          ],
+          "recurring": false,
+          "diagnostics": []
+        },
+        "raw": {
+          "interpretationVersion": 1,
+          "status": "resolved",
+          "value": {
+            "kind": "point",
+            "calculation": {
+              "ok": true,
+              "engineVersion": 2,
+              "expression": "0.01 days",
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00.000Z",
+              "normalized": "0.01 days",
+              "anchor": {
+                "iso": "2026-09-12T16:00:00.000Z",
+                "local": "2026-09-12T11:00:00.000",
+                "offset": "-05:00",
+                "timestamp": 1789228800000
+              },
+              "anchorDescription": "Start at the captured reference time.",
+              "steps": [
+                {
+                  "source": "Add 0.01 days",
+                  "before": {
+                    "iso": "2026-09-12T16:00:00.000Z",
+                    "local": "2026-09-12T11:00:00.000",
+                    "offset": "-05:00",
+                    "timestamp": 1789228800000
+                  },
+                  "after": {
+                    "iso": "2026-09-12T16:14:24.000Z",
+                    "local": "2026-09-12T11:14:24.000",
+                    "offset": "-05:00",
+                    "timestamp": 1789229664000
+                  },
+                  "details": [
+                    "0 calendar days and 864,000 elapsed milliseconds. No rounding."
+                  ]
+                }
+              ],
+              "warnings": [],
+              "result": {
+                "iso": "2026-09-12T16:14:24.000Z",
+                "local": "2026-09-12T11:14:24.000",
+                "offset": "-05:00",
+                "timestamp": 1789229664000
+              }
+            },
+            "precision": "time",
+            "clockSource": "reference"
+          },
+          "source": {
+            "text": "0.01 days",
+            "span": {
+              "start": 0,
+              "end": 9
+            }
+          },
+          "assumptions": []
+        }
+      }
+    },
+    {
+      "fixture": {
+        "id": "sentence-reminder",
+        "family": "sentences",
+        "text": "Remind me to call Sam tomorrow at noon",
+        "expected": {
+          "kind": "resolved",
+          "occurrences": [
+            {
+              "start": "2026-09-13T17:00:00Z",
+              "allDay": false
+            }
+          ],
+          "recurring": false
+        },
+        "rationale": "The reminder's time is tomorrow at noon; calling Sam is event text."
+      },
+      "context": {
+        "reference": "2026-09-12T16:00:00.000Z",
+        "timeZone": "America/Chicago",
+        "limit": 3
+      },
+      "tempus": {
+        "grade": "abstained",
+        "valueGrade": "abstained",
+        "observed": {
+          "occurrences": [],
+          "recurring": false,
+          "diagnostics": [
+            "syntax",
+            "Expected a number and time unit."
+          ]
+        },
+        "raw": {
+          "ok": false,
+          "engineVersion": 2,
+          "error": {
+            "code": "syntax",
+            "message": "Expected a number and time unit.",
+            "hint": "Try “today plus 2 days” or “2 weeks before may 1”.",
+            "span": {
+              "text": "Remind",
+              "value": "remind",
+              "start": 0,
+              "end": 6
+            }
+          }
+        }
+      },
+      "gpu": {
+        "grade": "correct",
+        "valueGrade": "correct",
+        "observed": {
+          "occurrences": [
+            {
+              "start": "2026-09-13T12:00:00-05:00",
+              "allDay": false
+            }
+          ],
+          "recurring": false,
+          "diagnostics": []
+        },
+        "raw": {
+          "occurrences": [
+            {
+              "start": "2026-09-13T12:00:00-05:00",
+              "allDay": false
+            }
+          ],
+          "rrules": [],
+          "truncated": false,
+          "diagnostics": [],
+          "backend": "cpu",
+          "timings": {
+            "tokenizeMs": 0.015957000000014432,
+            "inferMs": 0.48629099999999426,
+            "resolveMs": 0.05741700000001515
+          }
+        }
+      },
+      "interpretation": {
+        "grade": "correct",
+        "valueGrade": "correct",
+        "observed": {
+          "occurrences": [
+            {
+              "start": "2026-09-13T17:00:00.000Z",
+              "allDay": false
+            }
+          ],
+          "recurring": false,
+          "diagnostics": [
+            "The event text is a label only; no reminder has been created."
+          ]
+        },
+        "raw": {
+          "interpretationVersion": 1,
+          "status": "resolved",
+          "value": {
+            "kind": "point",
+            "calculation": {
+              "ok": true,
+              "engineVersion": 2,
+              "expression": "tomorrow at noon",
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00.000Z",
+              "normalized": "tomorrow at noon",
+              "anchor": {
+                "iso": "2026-09-13T17:00:00.000Z",
+                "local": "2026-09-13T12:00:00.000",
+                "offset": "-05:00",
+                "timestamp": 1789318800000
+              },
+              "anchorDescription": "Use tomorrow in America/Chicago. Set the clock to 12:00:00.",
+              "steps": [],
+              "warnings": [],
+              "result": {
+                "iso": "2026-09-13T17:00:00.000Z",
+                "local": "2026-09-13T12:00:00.000",
+                "offset": "-05:00",
+                "timestamp": 1789318800000
+              }
+            },
+            "precision": "time",
+            "clockSource": "explicit"
+          },
+          "source": {
+            "text": "tomorrow at noon",
+            "span": {
+              "start": 22,
+              "end": 38
+            }
+          },
+          "event": {
+            "text": "call Sam",
+            "span": {
+              "start": 13,
+              "end": 21
+            }
+          },
+          "assumptions": [
+            "The event text is a label only; no reminder has been created."
+          ]
+        }
+      }
+    },
+    {
+      "fixture": {
+        "id": "sentence-meeting",
+        "family": "sentences",
+        "text": "The meeting is on September 18, 2026 at 2 pm.",
+        "expected": {
+          "kind": "resolved",
+          "occurrences": [
+            {
+              "start": "2026-09-18T19:00:00Z",
+              "allDay": false
+            }
+          ],
+          "recurring": false
+        },
+        "rationale": "September 18 at 14:00 CDT is 19:00 UTC."
+      },
+      "context": {
+        "reference": "2026-09-12T16:00:00.000Z",
+        "timeZone": "America/Chicago",
+        "limit": 3
+      },
+      "tempus": {
+        "grade": "abstained",
+        "valueGrade": "abstained",
+        "observed": {
+          "occurrences": [],
+          "recurring": false,
+          "diagnostics": [
+            "syntax",
+            "Expected a number and time unit."
+          ]
+        },
+        "raw": {
+          "ok": false,
+          "engineVersion": 2,
+          "error": {
+            "code": "syntax",
+            "message": "Expected a number and time unit.",
+            "hint": "Try “today plus 2 days” or “2 weeks before may 1”.",
+            "span": {
+              "text": "meeting",
+              "value": "meeting",
+              "start": 4,
+              "end": 11
+            }
+          }
+        }
+      },
+      "gpu": {
+        "grade": "correct",
+        "valueGrade": "correct",
+        "observed": {
+          "occurrences": [
+            {
+              "start": "2026-09-18T14:00:00-05:00",
+              "allDay": false
+            }
+          ],
+          "recurring": false,
+          "diagnostics": []
+        },
+        "raw": {
+          "occurrences": [
+            {
+              "start": "2026-09-18T14:00:00-05:00",
+              "allDay": false
+            }
+          ],
+          "rrules": [],
+          "truncated": false,
+          "diagnostics": [],
+          "backend": "cpu",
+          "timings": {
+            "tokenizeMs": 0.023249999999990223,
+            "inferMs": 0.7276249999999891,
+            "resolveMs": 0.11274900000000798
+          }
+        }
+      },
+      "interpretation": {
+        "grade": "correct",
+        "valueGrade": "correct",
+        "observed": {
+          "occurrences": [
+            {
+              "start": "2026-09-18T19:00:00.000Z",
+              "allDay": false
+            }
+          ],
+          "recurring": false,
+          "diagnostics": [
+            "The event text is a label only; no reminder has been created."
+          ]
+        },
+        "raw": {
+          "interpretationVersion": 1,
+          "status": "resolved",
+          "value": {
+            "kind": "point",
+            "calculation": {
+              "ok": true,
+              "engineVersion": 2,
+              "expression": "September 18, 2026 at 2 pm",
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00.000Z",
+              "normalized": "september 18 2026 at 2 pm",
+              "anchor": {
+                "iso": "2026-09-18T19:00:00.000Z",
+                "local": "2026-09-18T14:00:00.000",
+                "offset": "-05:00",
+                "timestamp": 1789758000000
+              },
+              "anchorDescription": "Use the exact calendar date. Set the clock to 14:00:00.",
+              "steps": [],
+              "warnings": [],
+              "result": {
+                "iso": "2026-09-18T19:00:00.000Z",
+                "local": "2026-09-18T14:00:00.000",
+                "offset": "-05:00",
+                "timestamp": 1789758000000
+              }
+            },
+            "precision": "time",
+            "clockSource": "explicit"
+          },
+          "source": {
+            "text": "September 18, 2026 at 2 pm",
+            "span": {
+              "start": 18,
+              "end": 44
+            }
+          },
+          "event": {
+            "text": "meeting",
+            "span": {
+              "start": 4,
+              "end": 11
+            }
+          },
+          "assumptions": [
+            "The event text is a label only; no reminder has been created."
+          ]
+        }
+      }
+    },
+    {
+      "fixture": {
+        "id": "sentence-question",
+        "family": "sentences",
+        "text": "Can we talk tomorrow at noon?",
+        "expected": {
+          "kind": "resolved",
+          "occurrences": [
+            {
+              "start": "2026-09-13T17:00:00Z",
+              "allDay": false
+            }
+          ],
+          "recurring": false
+        },
+        "rationale": "A question about availability still names tomorrow at noon."
+      },
+      "context": {
+        "reference": "2026-09-12T16:00:00.000Z",
+        "timeZone": "America/Chicago",
+        "limit": 3
+      },
+      "tempus": {
+        "grade": "abstained",
+        "valueGrade": "abstained",
+        "observed": {
+          "occurrences": [],
+          "recurring": false,
+          "diagnostics": [
+            "syntax",
+            "Unexpected character “?”."
+          ]
+        },
+        "raw": {
+          "ok": false,
+          "engineVersion": 2,
+          "error": {
+            "code": "syntax",
+            "message": "Unexpected character “?”.",
+            "hint": "Use a named date, ISO date, or a date phrase.",
+            "span": {
+              "start": 28,
+              "end": 29
+            }
+          }
+        }
+      },
+      "gpu": {
+        "grade": "correct",
+        "valueGrade": "correct",
+        "observed": {
+          "occurrences": [
+            {
+              "start": "2026-09-13T12:00:00-05:00",
+              "allDay": false
+            }
+          ],
+          "recurring": false,
+          "diagnostics": []
+        },
+        "raw": {
+          "occurrences": [
+            {
+              "start": "2026-09-13T12:00:00-05:00",
+              "allDay": false
+            }
+          ],
+          "rrules": [],
+          "truncated": false,
+          "diagnostics": [],
+          "backend": "cpu",
+          "timings": {
+            "tokenizeMs": 0.010416999999989685,
+            "inferMs": 0.40166600000000585,
+            "resolveMs": 0.054833999999999605
+          }
+        }
+      },
+      "interpretation": {
+        "grade": "correct",
+        "valueGrade": "correct",
+        "observed": {
+          "occurrences": [
+            {
+              "start": "2026-09-13T17:00:00.000Z",
+              "allDay": false
+            }
+          ],
+          "recurring": false,
+          "diagnostics": [
+            "The event text is a label only; no reminder has been created."
+          ]
+        },
+        "raw": {
+          "interpretationVersion": 1,
+          "status": "resolved",
+          "value": {
+            "kind": "point",
+            "calculation": {
+              "ok": true,
+              "engineVersion": 2,
+              "expression": "tomorrow at noon",
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00.000Z",
+              "normalized": "tomorrow at noon",
+              "anchor": {
+                "iso": "2026-09-13T17:00:00.000Z",
+                "local": "2026-09-13T12:00:00.000",
+                "offset": "-05:00",
+                "timestamp": 1789318800000
+              },
+              "anchorDescription": "Use tomorrow in America/Chicago. Set the clock to 12:00:00.",
+              "steps": [],
+              "warnings": [],
+              "result": {
+                "iso": "2026-09-13T17:00:00.000Z",
+                "local": "2026-09-13T12:00:00.000",
+                "offset": "-05:00",
+                "timestamp": 1789318800000
+              }
+            },
+            "precision": "time",
+            "clockSource": "explicit"
+          },
+          "source": {
+            "text": "tomorrow at noon",
+            "span": {
+              "start": 12,
+              "end": 28
+            }
+          },
+          "event": {
+            "text": "talk",
+            "span": {
+              "start": 7,
+              "end": 11
+            }
+          },
+          "assumptions": [
+            "The event text is a label only; no reminder has been created."
+          ]
+        }
+      }
+    },
+    {
+      "fixture": {
+        "id": "sentence-correction",
+        "family": "sentences",
+        "text": "Meet Friday at noon, actually Saturday at noon instead",
+        "expected": {
+          "kind": "ambiguous"
+        },
+        "rationale": "Scheduling-intent policy requires confirmation that Saturday replaces Friday. Neither date is an approved event until that choice is made."
+      },
+      "context": {
+        "reference": "2026-09-12T16:00:00.000Z",
+        "timeZone": "America/Chicago",
+        "limit": 3
+      },
+      "tempus": {
+        "grade": "abstained",
+        "valueGrade": "abstained",
+        "observed": {
+          "occurrences": [],
+          "recurring": false,
+          "diagnostics": [
+            "syntax",
+            "Expected a number and time unit."
+          ]
+        },
+        "raw": {
+          "ok": false,
+          "engineVersion": 2,
+          "error": {
+            "code": "syntax",
+            "message": "Expected a number and time unit.",
+            "hint": "Try “today plus 2 days” or “2 weeks before may 1”.",
+            "span": {
+              "text": "Meet",
+              "value": "meet",
+              "start": 0,
+              "end": 4
+            }
+          }
+        }
+      },
+      "gpu": {
+        "grade": "abstained",
+        "valueGrade": "abstained",
+        "observed": {
+          "occurrences": [],
+          "recurring": false,
+          "diagnostics": [
+            "unlinked-times: Two clocks need a range separator or separate clauses.",
+            "filler-ignored: Ignored actually inside the expression."
+          ]
+        },
+        "raw": {
+          "occurrences": [],
+          "rrules": [],
+          "truncated": false,
+          "diagnostics": [
+            {
+              "code": "unlinked-times",
+              "message": "Two clocks need a range separator or separate clauses.",
+              "start": 42,
+              "end": 46,
+              "severity": "error"
+            },
+            {
+              "code": "filler-ignored",
+              "message": "Ignored actually inside the expression.",
+              "start": 21,
+              "end": 29,
+              "severity": "warning"
+            }
+          ],
+          "backend": "cpu",
+          "timings": {
+            "tokenizeMs": 0.014416000000011309,
+            "inferMs": 0.4460409999999797,
+            "resolveMs": 0.07887400000001321
+          }
+        }
+      },
+      "interpretation": {
+        "grade": "abstained",
+        "valueGrade": "abstained",
+        "observed": {
+          "occurrences": [],
+          "recurring": false,
+          "diagnostics": [
+            "needs-clarification",
+            "Did the second date replace the first?"
+          ]
+        },
+        "raw": {
+          "interpretationVersion": 1,
+          "status": "needs-clarification",
+          "error": {
+            "code": "syntax",
+            "message": "Did the second date replace the first?",
+            "hint": "Choose the date or range to use. Your original text stays here."
+          },
+          "clarification": {
+            "contextKey": "[\"Meet Friday at noon, actually Saturday at noon instead\",\"America/Chicago\",\"2026-09-12T16:00:00.000Z\"]",
+            "question": "Did the second date replace the first?",
+            "choices": [
+              {
+                "id": "keep",
+                "expression": "Friday at noon",
+                "label": "Keep September 18, 2026 at 12:00 PM CDT"
+              },
+              {
+                "id": "replace",
+                "expression": "Saturday at noon",
+                "label": "Use September 12, 2026 at 12:00 PM CDT"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "fixture": {
+        "id": "schedule-weekly",
+        "family": "schedules",
+        "text": "every Monday from 8 pm to 10 pm",
+        "expected": {
+          "kind": "resolved",
+          "recurring": true,
+          "occurrences": [
+            {
+              "start": "2026-09-15T01:00:00Z",
+              "end": "2026-09-15T03:00:00Z",
+              "allDay": false
+            },
+            {
+              "start": "2026-09-22T01:00:00Z",
+              "end": "2026-09-22T03:00:00Z",
+              "allDay": false
+            },
+            {
+              "start": "2026-09-29T01:00:00Z",
+              "end": "2026-09-29T03:00:00Z",
+              "allDay": false
+            }
+          ]
+        },
+        "rationale": "Next Mondays are September 14, 21 and 28; 20:00–22:00 CDT crosses into the following UTC date."
+      },
+      "context": {
+        "reference": "2026-09-12T16:00:00.000Z",
+        "timeZone": "America/Chicago",
+        "limit": 3
+      },
+      "tempus": {
+        "grade": "abstained",
+        "valueGrade": "abstained",
+        "observed": {
+          "occurrences": [],
+          "recurring": false,
+          "diagnostics": [
+            "syntax",
+            "Expected a number and time unit."
+          ]
+        },
+        "raw": {
+          "ok": false,
+          "engineVersion": 2,
+          "error": {
+            "code": "syntax",
+            "message": "Expected a number and time unit.",
+            "hint": "Try “today plus 2 days” or “2 weeks before may 1”.",
+            "span": {
+              "text": "every",
+              "value": "every",
+              "start": 0,
+              "end": 5
+            }
+          }
+        }
+      },
+      "gpu": {
+        "grade": "correct",
+        "valueGrade": "correct",
+        "observed": {
+          "occurrences": [
+            {
+              "start": "2026-09-14T20:00:00-05:00",
+              "allDay": false,
+              "end": "2026-09-14T22:00:00-05:00"
+            },
+            {
+              "start": "2026-09-21T20:00:00-05:00",
+              "allDay": false,
+              "end": "2026-09-21T22:00:00-05:00"
+            },
+            {
+              "start": "2026-09-28T20:00:00-05:00",
+              "allDay": false,
+              "end": "2026-09-28T22:00:00-05:00"
+            }
+          ],
+          "recurring": true,
+          "diagnostics": []
+        },
+        "raw": {
+          "occurrences": [
+            {
+              "start": "2026-09-14T20:00:00-05:00",
+              "allDay": false,
+              "end": "2026-09-14T22:00:00-05:00"
+            },
+            {
+              "start": "2026-09-21T20:00:00-05:00",
+              "allDay": false,
+              "end": "2026-09-21T22:00:00-05:00"
+            },
+            {
+              "start": "2026-09-28T20:00:00-05:00",
+              "allDay": false,
+              "end": "2026-09-28T22:00:00-05:00"
+            }
+          ],
+          "rrules": [
+            "DTSTART;TZID=America/Chicago:20260914T200000\nDTEND;TZID=America/Chicago:20260914T220000\nRRULE:FREQ=WEEKLY;INTERVAL=1;BYDAY=MO"
+          ],
+          "truncated": true,
+          "diagnostics": [],
+          "backend": "cpu",
+          "timings": {
+            "tokenizeMs": 0.015290999999990618,
+            "inferMs": 0.6547089999999969,
+            "resolveMs": 0.8025410000000193
+          }
+        }
+      },
+      "interpretation": {
+        "grade": "correct",
+        "valueGrade": "correct",
+        "observed": {
+          "occurrences": [
+            {
+              "start": "2026-09-15T01:00:00.000Z",
+              "end": "2026-09-15T03:00:00.000Z",
+              "allDay": false
+            },
+            {
+              "start": "2026-09-22T01:00:00.000Z",
+              "end": "2026-09-22T03:00:00.000Z",
+              "allDay": false
+            },
+            {
+              "start": "2026-09-29T01:00:00.000Z",
+              "end": "2026-09-29T03:00:00.000Z",
+              "allDay": false
+            }
+          ],
+          "recurring": true,
+          "diagnostics": [
+            "Only upcoming occurrence starts appear in the preview.",
+            "Recurrence export has not been validated."
+          ]
+        },
+        "raw": {
+          "interpretationVersion": 1,
+          "status": "resolved",
+          "value": {
+            "ok": true,
+            "kind": "recurrence",
+            "timezone": "America/Chicago",
+            "rule": {
+              "frequency": "weekly",
+              "weekdays": [
+                1
+              ],
+              "startClock": "8 pm",
+              "endClock": "10 pm",
+              "starting": "2026-09-12",
+              "exceptions": []
+            },
+            "occurrences": [
+              {
+                "start": {
+                  "ok": true,
+                  "engineVersion": 2,
+                  "expression": "2026-09-14 at 8 pm",
+                  "timezone": "America/Chicago",
+                  "reference": "2026-09-12T16:00:00.000Z",
+                  "normalized": "2026-09-14 at 8 pm",
+                  "anchor": {
+                    "iso": "2026-09-15T01:00:00.000Z",
+                    "local": "2026-09-14T20:00:00.000",
+                    "offset": "-05:00",
+                    "timestamp": 1789434000000
+                  },
+                  "anchorDescription": "Use the exact calendar date. Set the clock to 20:00:00.",
+                  "steps": [],
+                  "warnings": [],
+                  "result": {
+                    "iso": "2026-09-15T01:00:00.000Z",
+                    "local": "2026-09-14T20:00:00.000",
+                    "offset": "-05:00",
+                    "timestamp": 1789434000000
+                  }
+                },
+                "end": {
+                  "ok": true,
+                  "engineVersion": 2,
+                  "expression": "2026-09-14 at 10 pm",
+                  "timezone": "America/Chicago",
+                  "reference": "2026-09-12T16:00:00.000Z",
+                  "normalized": "2026-09-14 at 10 pm",
+                  "anchor": {
+                    "iso": "2026-09-15T03:00:00.000Z",
+                    "local": "2026-09-14T22:00:00.000",
+                    "offset": "-05:00",
+                    "timestamp": 1789441200000
+                  },
+                  "anchorDescription": "Use the exact calendar date. Set the clock to 22:00:00.",
+                  "steps": [],
+                  "warnings": [],
+                  "result": {
+                    "iso": "2026-09-15T03:00:00.000Z",
+                    "local": "2026-09-14T22:00:00.000",
+                    "offset": "-05:00",
+                    "timestamp": 1789441200000
+                  }
+                }
+              },
+              {
+                "start": {
+                  "ok": true,
+                  "engineVersion": 2,
+                  "expression": "2026-09-21 at 8 pm",
+                  "timezone": "America/Chicago",
+                  "reference": "2026-09-12T16:00:00.000Z",
+                  "normalized": "2026-09-21 at 8 pm",
+                  "anchor": {
+                    "iso": "2026-09-22T01:00:00.000Z",
+                    "local": "2026-09-21T20:00:00.000",
+                    "offset": "-05:00",
+                    "timestamp": 1790038800000
+                  },
+                  "anchorDescription": "Use the exact calendar date. Set the clock to 20:00:00.",
+                  "steps": [],
+                  "warnings": [],
+                  "result": {
+                    "iso": "2026-09-22T01:00:00.000Z",
+                    "local": "2026-09-21T20:00:00.000",
+                    "offset": "-05:00",
+                    "timestamp": 1790038800000
+                  }
+                },
+                "end": {
+                  "ok": true,
+                  "engineVersion": 2,
+                  "expression": "2026-09-21 at 10 pm",
+                  "timezone": "America/Chicago",
+                  "reference": "2026-09-12T16:00:00.000Z",
+                  "normalized": "2026-09-21 at 10 pm",
+                  "anchor": {
+                    "iso": "2026-09-22T03:00:00.000Z",
+                    "local": "2026-09-21T22:00:00.000",
+                    "offset": "-05:00",
+                    "timestamp": 1790046000000
+                  },
+                  "anchorDescription": "Use the exact calendar date. Set the clock to 22:00:00.",
+                  "steps": [],
+                  "warnings": [],
+                  "result": {
+                    "iso": "2026-09-22T03:00:00.000Z",
+                    "local": "2026-09-21T22:00:00.000",
+                    "offset": "-05:00",
+                    "timestamp": 1790046000000
+                  }
+                }
+              },
+              {
+                "start": {
+                  "ok": true,
+                  "engineVersion": 2,
+                  "expression": "2026-09-28 at 8 pm",
+                  "timezone": "America/Chicago",
+                  "reference": "2026-09-12T16:00:00.000Z",
+                  "normalized": "2026-09-28 at 8 pm",
+                  "anchor": {
+                    "iso": "2026-09-29T01:00:00.000Z",
+                    "local": "2026-09-28T20:00:00.000",
+                    "offset": "-05:00",
+                    "timestamp": 1790643600000
+                  },
+                  "anchorDescription": "Use the exact calendar date. Set the clock to 20:00:00.",
+                  "steps": [],
+                  "warnings": [],
+                  "result": {
+                    "iso": "2026-09-29T01:00:00.000Z",
+                    "local": "2026-09-28T20:00:00.000",
+                    "offset": "-05:00",
+                    "timestamp": 1790643600000
+                  }
+                },
+                "end": {
+                  "ok": true,
+                  "engineVersion": 2,
+                  "expression": "2026-09-28 at 10 pm",
+                  "timezone": "America/Chicago",
+                  "reference": "2026-09-12T16:00:00.000Z",
+                  "normalized": "2026-09-28 at 10 pm",
+                  "anchor": {
+                    "iso": "2026-09-29T03:00:00.000Z",
+                    "local": "2026-09-28T22:00:00.000",
+                    "offset": "-05:00",
+                    "timestamp": 1790650800000
+                  },
+                  "anchorDescription": "Use the exact calendar date. Set the clock to 22:00:00.",
+                  "steps": [],
+                  "warnings": [],
+                  "result": {
+                    "iso": "2026-09-29T03:00:00.000Z",
+                    "local": "2026-09-28T22:00:00.000",
+                    "offset": "-05:00",
+                    "timestamp": 1790650800000
+                  }
+                }
+              }
+            ],
+            "truncated": true,
+            "validation": "preview-only"
+          },
+          "source": {
+            "text": "every Monday from 8 pm to 10 pm",
+            "span": {
+              "start": 0,
+              "end": 31
+            }
+          },
+          "apiReplay": false,
+          "assumptions": [
+            "Only upcoming occurrence starts appear in the preview.",
+            "Recurrence export has not been validated."
+          ]
+        }
+      }
+    },
+    {
+      "fixture": {
+        "id": "schedule-multiple",
+        "family": "schedules",
+        "text": "Sat Sun 1pm-8pm Mon 10pm-12am",
+        "expected": {
+          "kind": "resolved",
+          "recurring": false,
+          "occurrences": [
+            {
+              "start": "2026-09-12T18:00:00Z",
+              "end": "2026-09-13T01:00:00Z",
+              "allDay": false
+            },
+            {
+              "start": "2026-09-13T18:00:00Z",
+              "end": "2026-09-14T01:00:00Z",
+              "allDay": false
+            },
+            {
+              "start": "2026-09-15T03:00:00Z",
+              "end": "2026-09-15T05:00:00Z",
+              "allDay": false
+            }
+          ]
+        },
+        "rationale": "Each upcoming named day has its own interval; Monday's interval ends at Tuesday midnight."
+      },
+      "context": {
+        "reference": "2026-09-12T16:00:00.000Z",
+        "timeZone": "America/Chicago",
+        "limit": 3
+      },
+      "tempus": {
+        "grade": "abstained",
+        "valueGrade": "abstained",
+        "observed": {
+          "occurrences": [],
+          "recurring": false,
+          "diagnostics": [
+            "syntax",
+            "Couldn’t use “Sun 1pm-8pm Mon 10pm-12am”."
+          ]
+        },
+        "raw": {
+          "ok": false,
+          "engineVersion": 2,
+          "error": {
+            "code": "syntax",
+            "message": "Couldn’t use “Sun 1pm-8pm Mon 10pm-12am”.",
+            "hint": "Every part of the phrase must describe the date. Use plus or minus between changes.",
+            "span": {
+              "text": "Sun",
+              "value": "sun",
+              "start": 4,
+              "end": 7
+            }
+          }
+        }
+      },
+      "gpu": {
+        "grade": "correct",
+        "valueGrade": "correct",
+        "observed": {
+          "occurrences": [
+            {
+              "start": "2026-09-12T13:00:00-05:00",
+              "allDay": false,
+              "end": "2026-09-12T20:00:00-05:00"
+            },
+            {
+              "start": "2026-09-13T13:00:00-05:00",
+              "allDay": false,
+              "end": "2026-09-13T20:00:00-05:00"
+            },
+            {
+              "start": "2026-09-14T22:00:00-05:00",
+              "allDay": false,
+              "end": "2026-09-15T00:00:00-05:00"
+            }
+          ],
+          "recurring": false,
+          "diagnostics": []
+        },
+        "raw": {
+          "occurrences": [
+            {
+              "start": "2026-09-12T13:00:00-05:00",
+              "allDay": false,
+              "end": "2026-09-12T20:00:00-05:00"
+            },
+            {
+              "start": "2026-09-13T13:00:00-05:00",
+              "allDay": false,
+              "end": "2026-09-13T20:00:00-05:00"
+            },
+            {
+              "start": "2026-09-14T22:00:00-05:00",
+              "allDay": false,
+              "end": "2026-09-15T00:00:00-05:00"
+            }
+          ],
+          "rrules": [],
+          "truncated": false,
+          "diagnostics": [],
+          "backend": "cpu",
+          "timings": {
+            "tokenizeMs": 0.019042000000013104,
+            "inferMs": 0.5457079999999905,
+            "resolveMs": 0.16987499999999045
+          }
+        }
+      },
+      "interpretation": {
+        "grade": "correct",
+        "valueGrade": "correct",
+        "observed": {
+          "occurrences": [
+            {
+              "start": "2026-09-12T18:00:00.000Z",
+              "end": "2026-09-13T01:00:00.000Z",
+              "allDay": false
+            },
+            {
+              "start": "2026-09-13T18:00:00.000Z",
+              "end": "2026-09-14T01:00:00.000Z",
+              "allDay": false
+            },
+            {
+              "start": "2026-09-15T03:00:00.000Z",
+              "end": "2026-09-15T05:00:00.000Z",
+              "allDay": false
+            }
+          ],
+          "recurring": false,
+          "diagnostics": [
+            "Each listed date or range occurs once; this is not a repeating rule."
+          ]
+        },
+        "raw": {
+          "interpretationVersion": 1,
+          "status": "resolved",
+          "value": {
+            "ok": true,
+            "kind": "collection",
+            "timezone": "America/Chicago",
+            "truncated": false,
+            "occurrences": [
+              {
+                "start": {
+                  "ok": true,
+                  "engineVersion": 2,
+                  "expression": "this Sat at 1pm",
+                  "timezone": "America/Chicago",
+                  "reference": "2026-09-12T16:00:00.000Z",
+                  "normalized": "this sat at 1 pm",
+                  "anchor": {
+                    "iso": "2026-09-12T18:00:00.000Z",
+                    "local": "2026-09-12T13:00:00.000",
+                    "offset": "-05:00",
+                    "timestamp": 1789236000000
+                  },
+                  "anchorDescription": "Use the next Saturday, including today. Set the clock to 13:00:00.",
+                  "steps": [],
+                  "warnings": [],
+                  "result": {
+                    "iso": "2026-09-12T18:00:00.000Z",
+                    "local": "2026-09-12T13:00:00.000",
+                    "offset": "-05:00",
+                    "timestamp": 1789236000000
+                  }
+                },
+                "end": {
+                  "ok": true,
+                  "engineVersion": 2,
+                  "expression": "2026-09-12 at 8pm",
+                  "timezone": "America/Chicago",
+                  "reference": "2026-09-12T16:00:00.000Z",
+                  "normalized": "2026-09-12 at 8 pm",
+                  "anchor": {
+                    "iso": "2026-09-13T01:00:00.000Z",
+                    "local": "2026-09-12T20:00:00.000",
+                    "offset": "-05:00",
+                    "timestamp": 1789261200000
+                  },
+                  "anchorDescription": "Use the exact calendar date. Set the clock to 20:00:00.",
+                  "steps": [],
+                  "warnings": [],
+                  "result": {
+                    "iso": "2026-09-13T01:00:00.000Z",
+                    "local": "2026-09-12T20:00:00.000",
+                    "offset": "-05:00",
+                    "timestamp": 1789261200000
+                  }
+                },
+                "source": {
+                  "text": "Sat Sun 1pm-8pm",
+                  "span": {
+                    "start": 0,
+                    "end": 15
+                  }
+                },
+                "allDay": false
+              },
+              {
+                "start": {
+                  "ok": true,
+                  "engineVersion": 2,
+                  "expression": "Sun at 1pm",
+                  "timezone": "America/Chicago",
+                  "reference": "2026-09-12T16:00:00.000Z",
+                  "normalized": "sun at 1 pm",
+                  "anchor": {
+                    "iso": "2026-09-13T18:00:00.000Z",
+                    "local": "2026-09-13T13:00:00.000",
+                    "offset": "-05:00",
+                    "timestamp": 1789322400000
+                  },
+                  "anchorDescription": "Use the next Sunday, excluding today. Set the clock to 13:00:00.",
+                  "steps": [],
+                  "warnings": [],
+                  "result": {
+                    "iso": "2026-09-13T18:00:00.000Z",
+                    "local": "2026-09-13T13:00:00.000",
+                    "offset": "-05:00",
+                    "timestamp": 1789322400000
+                  }
+                },
+                "end": {
+                  "ok": true,
+                  "engineVersion": 2,
+                  "expression": "2026-09-13 at 8pm",
+                  "timezone": "America/Chicago",
+                  "reference": "2026-09-12T16:00:00.000Z",
+                  "normalized": "2026-09-13 at 8 pm",
+                  "anchor": {
+                    "iso": "2026-09-14T01:00:00.000Z",
+                    "local": "2026-09-13T20:00:00.000",
+                    "offset": "-05:00",
+                    "timestamp": 1789347600000
+                  },
+                  "anchorDescription": "Use the exact calendar date. Set the clock to 20:00:00.",
+                  "steps": [],
+                  "warnings": [],
+                  "result": {
+                    "iso": "2026-09-14T01:00:00.000Z",
+                    "local": "2026-09-13T20:00:00.000",
+                    "offset": "-05:00",
+                    "timestamp": 1789347600000
+                  }
+                },
+                "source": {
+                  "text": "Sat Sun 1pm-8pm",
+                  "span": {
+                    "start": 0,
+                    "end": 15
+                  }
+                },
+                "allDay": false
+              },
+              {
+                "start": {
+                  "ok": true,
+                  "engineVersion": 2,
+                  "expression": "Mon at 10pm",
+                  "timezone": "America/Chicago",
+                  "reference": "2026-09-12T16:00:00.000Z",
+                  "normalized": "mon at 10 pm",
+                  "anchor": {
+                    "iso": "2026-09-15T03:00:00.000Z",
+                    "local": "2026-09-14T22:00:00.000",
+                    "offset": "-05:00",
+                    "timestamp": 1789441200000
+                  },
+                  "anchorDescription": "Use the next Monday, excluding today. Set the clock to 22:00:00.",
+                  "steps": [],
+                  "warnings": [],
+                  "result": {
+                    "iso": "2026-09-15T03:00:00.000Z",
+                    "local": "2026-09-14T22:00:00.000",
+                    "offset": "-05:00",
+                    "timestamp": 1789441200000
+                  }
+                },
+                "end": {
+                  "ok": true,
+                  "engineVersion": 2,
+                  "expression": "2026-09-15 at 12am",
+                  "timezone": "America/Chicago",
+                  "reference": "2026-09-12T16:00:00.000Z",
+                  "normalized": "2026-09-15 at 12 am",
+                  "anchor": {
+                    "iso": "2026-09-15T05:00:00.000Z",
+                    "local": "2026-09-15T00:00:00.000",
+                    "offset": "-05:00",
+                    "timestamp": 1789448400000
+                  },
+                  "anchorDescription": "Use the exact calendar date. Set the clock to 00:00:00.",
+                  "steps": [],
+                  "warnings": [],
+                  "result": {
+                    "iso": "2026-09-15T05:00:00.000Z",
+                    "local": "2026-09-15T00:00:00.000",
+                    "offset": "-05:00",
+                    "timestamp": 1789448400000
+                  }
+                },
+                "source": {
+                  "text": "Mon 10pm-12am",
+                  "span": {
+                    "start": 16,
+                    "end": 29
+                  }
+                },
+                "allDay": false
+              }
+            ]
+          },
+          "source": {
+            "text": "Sat Sun 1pm-8pm Mon 10pm-12am",
+            "span": {
+              "start": 0,
+              "end": 29
+            }
+          },
+          "apiReplay": false,
+          "assumptions": [
+            "Each listed date or range occurs once; this is not a repeating rule."
+          ]
+        }
+      }
+    },
+    {
+      "fixture": {
+        "id": "schedule-duration",
+        "family": "schedules",
+        "text": "set OOO for 3 days from today",
+        "expected": {
+          "kind": "resolved",
+          "occurrences": [
+            {
+              "start": "2026-09-12T05:00:00Z",
+              "end": "2026-09-15T05:00:00Z",
+              "allDay": true
+            }
+          ],
+          "recurring": false
+        },
+        "rationale": "A three-day all-day absence starts today and ends at exclusive midnight three days later."
+      },
+      "context": {
+        "reference": "2026-09-12T16:00:00.000Z",
+        "timeZone": "America/Chicago",
+        "limit": 3
+      },
+      "tempus": {
+        "grade": "abstained",
+        "valueGrade": "abstained",
+        "observed": {
+          "occurrences": [],
+          "recurring": false,
+          "diagnostics": [
+            "syntax",
+            "Expected a number and time unit."
+          ]
+        },
+        "raw": {
+          "ok": false,
+          "engineVersion": 2,
+          "error": {
+            "code": "syntax",
+            "message": "Expected a number and time unit.",
+            "hint": "Try “today plus 2 days” or “2 weeks before may 1”.",
+            "span": {
+              "text": "set",
+              "value": "set",
+              "start": 0,
+              "end": 3
+            }
+          }
+        }
+      },
+      "gpu": {
+        "grade": "incorrect",
+        "valueGrade": "incorrect",
+        "observed": {
+          "occurrences": [
+            {
+              "start": "2026-09-15T00:00:00-05:00",
+              "allDay": true
+            }
+          ],
+          "recurring": false,
+          "diagnostics": []
+        },
+        "raw": {
+          "occurrences": [
+            {
+              "start": "2026-09-15T00:00:00-05:00",
+              "allDay": true
+            }
+          ],
+          "rrules": [],
+          "truncated": false,
+          "diagnostics": [],
+          "backend": "cpu",
+          "timings": {
+            "tokenizeMs": 0.01799999999997226,
+            "inferMs": 0.36874999999997726,
+            "resolveMs": 0.04795799999999417
+          }
+        }
+      },
+      "interpretation": {
+        "grade": "correct",
+        "valueGrade": "correct",
+        "observed": {
+          "occurrences": [
+            {
+              "start": "2026-09-12T05:00:00.000Z",
+              "end": "2026-09-15T05:00:00.000Z",
+              "allDay": true
+            }
+          ],
+          "recurring": false,
+          "diagnostics": [
+            "The interval end is exclusive."
+          ]
+        },
+        "raw": {
+          "interpretationVersion": 1,
+          "status": "resolved",
+          "value": {
+            "ok": true,
+            "kind": "interval",
+            "start": {
+              "ok": true,
+              "engineVersion": 2,
+              "expression": "today",
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00.000Z",
+              "normalized": "today",
+              "anchor": {
+                "iso": "2026-09-12T05:00:00.000Z",
+                "local": "2026-09-12T00:00:00.000",
+                "offset": "-05:00",
+                "timestamp": 1789189200000
+              },
+              "anchorDescription": "Use today in America/Chicago. Start at midnight.",
+              "steps": [],
+              "warnings": [],
+              "result": {
+                "iso": "2026-09-12T05:00:00.000Z",
+                "local": "2026-09-12T00:00:00.000",
+                "offset": "-05:00",
+                "timestamp": 1789189200000
+              }
+            },
+            "end": {
+              "ok": true,
+              "engineVersion": 2,
+              "expression": "2026-09-15",
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00.000Z",
+              "normalized": "2026-09-15",
+              "anchor": {
+                "iso": "2026-09-15T05:00:00.000Z",
+                "local": "2026-09-15T00:00:00.000",
+                "offset": "-05:00",
+                "timestamp": 1789448400000
+              },
+              "anchorDescription": "Use the exact calendar date. Start at midnight.",
+              "steps": [],
+              "warnings": [],
+              "result": {
+                "iso": "2026-09-15T05:00:00.000Z",
+                "local": "2026-09-15T00:00:00.000",
+                "offset": "-05:00",
+                "timestamp": 1789448400000
+              }
+            },
+            "allDay": true,
+            "endExclusive": true,
+            "overnight": false
+          },
+          "source": {
+            "text": "for 3 days from today",
+            "span": {
+              "start": 8,
+              "end": 29
+            }
+          },
+          "event": {
+            "text": "OOO",
+            "span": {
+              "start": 4,
+              "end": 7
+            }
+          },
+          "assumptions": [
+            "The interval end is exclusive."
+          ]
+        }
+      }
+    },
+    {
+      "fixture": {
+        "id": "schedule-range",
+        "family": "schedules",
+        "text": "September 14, 2026 from 9 am to 11 am",
+        "expected": {
+          "kind": "resolved",
+          "occurrences": [
+            {
+              "start": "2026-09-14T14:00:00Z",
+              "end": "2026-09-14T16:00:00Z",
+              "allDay": false
+            }
+          ],
+          "recurring": false
+        },
+        "rationale": "September 14 09:00–11:00 CDT converts to 14:00–16:00 UTC."
+      },
+      "context": {
+        "reference": "2026-09-12T16:00:00.000Z",
+        "timeZone": "America/Chicago",
+        "limit": 3
+      },
+      "tempus": {
+        "grade": "abstained",
+        "valueGrade": "abstained",
+        "observed": {
+          "occurrences": [],
+          "recurring": false,
+          "diagnostics": [
+            "syntax",
+            "Couldn’t use “from 9 am to 11 am”."
+          ]
+        },
+        "raw": {
+          "ok": false,
+          "engineVersion": 2,
+          "error": {
+            "code": "syntax",
+            "message": "Couldn’t use “from 9 am to 11 am”.",
+            "hint": "Every part of the phrase must describe the date. Use plus or minus between changes.",
+            "span": {
+              "text": "from",
+              "value": "from",
+              "start": 19,
+              "end": 23
+            }
+          }
+        }
+      },
+      "gpu": {
+        "grade": "correct",
+        "valueGrade": "correct",
+        "observed": {
+          "occurrences": [
+            {
+              "start": "2026-09-14T09:00:00-05:00",
+              "allDay": false,
+              "end": "2026-09-14T11:00:00-05:00"
+            }
+          ],
+          "recurring": false,
+          "diagnostics": []
+        },
+        "raw": {
+          "occurrences": [
+            {
+              "start": "2026-09-14T09:00:00-05:00",
+              "allDay": false,
+              "end": "2026-09-14T11:00:00-05:00"
+            }
+          ],
+          "rrules": [],
+          "truncated": false,
+          "diagnostics": [],
+          "backend": "cpu",
+          "timings": {
+            "tokenizeMs": 0.010792000000009239,
+            "inferMs": 0.490791999999999,
+            "resolveMs": 0.08991699999998559
+          }
+        }
+      },
+      "interpretation": {
+        "grade": "correct",
+        "valueGrade": "correct",
+        "observed": {
+          "occurrences": [
+            {
+              "start": "2026-09-14T14:00:00.000Z",
+              "end": "2026-09-14T16:00:00.000Z",
+              "allDay": false
+            }
+          ],
+          "recurring": false,
+          "diagnostics": [
+            "The interval end is exclusive."
+          ]
+        },
+        "raw": {
+          "interpretationVersion": 1,
+          "status": "resolved",
+          "value": {
+            "ok": true,
+            "kind": "interval",
+            "start": {
+              "ok": true,
+              "engineVersion": 2,
+              "expression": "September 14, 2026 at 9 am",
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00.000Z",
+              "normalized": "september 14 2026 at 9 am",
+              "anchor": {
+                "iso": "2026-09-14T14:00:00.000Z",
+                "local": "2026-09-14T09:00:00.000",
+                "offset": "-05:00",
+                "timestamp": 1789394400000
+              },
+              "anchorDescription": "Use the exact calendar date. Set the clock to 09:00:00.",
+              "steps": [],
+              "warnings": [],
+              "result": {
+                "iso": "2026-09-14T14:00:00.000Z",
+                "local": "2026-09-14T09:00:00.000",
+                "offset": "-05:00",
+                "timestamp": 1789394400000
+              }
+            },
+            "end": {
+              "ok": true,
+              "engineVersion": 2,
+              "expression": "2026-09-14 at 11 am",
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00.000Z",
+              "normalized": "2026-09-14 at 11 am",
+              "anchor": {
+                "iso": "2026-09-14T16:00:00.000Z",
+                "local": "2026-09-14T11:00:00.000",
+                "offset": "-05:00",
+                "timestamp": 1789401600000
+              },
+              "anchorDescription": "Use the exact calendar date. Set the clock to 11:00:00.",
+              "steps": [],
+              "warnings": [],
+              "result": {
+                "iso": "2026-09-14T16:00:00.000Z",
+                "local": "2026-09-14T11:00:00.000",
+                "offset": "-05:00",
+                "timestamp": 1789401600000
+              }
+            },
+            "allDay": false,
+            "endExclusive": true,
+            "overnight": false
+          },
+          "source": {
+            "text": "September 14, 2026 from 9 am to 11 am",
+            "span": {
+              "start": 0,
+              "end": 37
+            }
+          },
+          "assumptions": [
+            "The interval end is exclusive."
+          ]
+        }
+      }
+    },
+    {
+      "fixture": {
+        "id": "schedule-overnight",
+        "family": "schedules",
+        "text": "Friday 10pm-12am",
+        "expected": {
+          "kind": "resolved",
+          "occurrences": [
+            {
+              "start": "2026-09-19T03:00:00Z",
+              "end": "2026-09-19T05:00:00Z",
+              "allDay": false
+            }
+          ],
+          "recurring": false
+        },
+        "rationale": "Next Friday at 22:00 CDT ends at Saturday midnight CDT."
+      },
+      "context": {
+        "reference": "2026-09-12T16:00:00.000Z",
+        "timeZone": "America/Chicago",
+        "limit": 3
+      },
+      "tempus": {
+        "grade": "abstained",
+        "valueGrade": "abstained",
+        "observed": {
+          "occurrences": [],
+          "recurring": false,
+          "diagnostics": [
+            "syntax",
+            "Expected a time unit after the number."
+          ]
+        },
+        "raw": {
+          "ok": false,
+          "engineVersion": 2,
+          "error": {
+            "code": "syntax",
+            "message": "Expected a time unit after the number.",
+            "hint": "Use years, months, weeks, days, hours, minutes, seconds, or milliseconds.",
+            "span": {
+              "text": "am",
+              "value": "am",
+              "start": 14,
+              "end": 16
+            }
+          }
+        }
+      },
+      "gpu": {
+        "grade": "correct",
+        "valueGrade": "correct",
+        "observed": {
+          "occurrences": [
+            {
+              "start": "2026-09-18T22:00:00-05:00",
+              "allDay": false,
+              "end": "2026-09-19T00:00:00-05:00"
+            }
+          ],
+          "recurring": false,
+          "diagnostics": []
+        },
+        "raw": {
+          "occurrences": [
+            {
+              "start": "2026-09-18T22:00:00-05:00",
+              "allDay": false,
+              "end": "2026-09-19T00:00:00-05:00"
+            }
+          ],
+          "rrules": [],
+          "truncated": false,
+          "diagnostics": [],
+          "backend": "cpu",
+          "timings": {
+            "tokenizeMs": 0.004249999999984766,
+            "inferMs": 0.21733299999999645,
+            "resolveMs": 0.055375000000026375
+          }
+        }
+      },
+      "interpretation": {
+        "grade": "correct",
+        "valueGrade": "correct",
+        "observed": {
+          "occurrences": [
+            {
+              "start": "2026-09-19T03:00:00.000Z",
+              "end": "2026-09-19T05:00:00.000Z",
+              "allDay": false
+            }
+          ],
+          "recurring": false,
+          "diagnostics": [
+            "The interval end is exclusive.",
+            "The end clock falls on the following date."
+          ]
+        },
+        "raw": {
+          "interpretationVersion": 1,
+          "status": "resolved",
+          "value": {
+            "ok": true,
+            "kind": "interval",
+            "start": {
+              "ok": true,
+              "engineVersion": 2,
+              "expression": "Friday at 10pm",
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00.000Z",
+              "normalized": "friday at 10 pm",
+              "anchor": {
+                "iso": "2026-09-19T03:00:00.000Z",
+                "local": "2026-09-18T22:00:00.000",
+                "offset": "-05:00",
+                "timestamp": 1789786800000
+              },
+              "anchorDescription": "Use the next Friday, excluding today. Set the clock to 22:00:00.",
+              "steps": [],
+              "warnings": [],
+              "result": {
+                "iso": "2026-09-19T03:00:00.000Z",
+                "local": "2026-09-18T22:00:00.000",
+                "offset": "-05:00",
+                "timestamp": 1789786800000
+              }
+            },
+            "end": {
+              "ok": true,
+              "engineVersion": 2,
+              "expression": "2026-09-19 at 12am",
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00.000Z",
+              "normalized": "2026-09-19 at 12 am",
+              "anchor": {
+                "iso": "2026-09-19T05:00:00.000Z",
+                "local": "2026-09-19T00:00:00.000",
+                "offset": "-05:00",
+                "timestamp": 1789794000000
+              },
+              "anchorDescription": "Use the exact calendar date. Set the clock to 00:00:00.",
+              "steps": [],
+              "warnings": [],
+              "result": {
+                "iso": "2026-09-19T05:00:00.000Z",
+                "local": "2026-09-19T00:00:00.000",
+                "offset": "-05:00",
+                "timestamp": 1789794000000
+              }
+            },
+            "allDay": false,
+            "endExclusive": true,
+            "overnight": true
+          },
+          "source": {
+            "text": "Friday 10pm-12am",
+            "span": {
+              "start": 0,
+              "end": 16
+            }
+          },
+          "assumptions": [
+            "The interval end is exclusive.",
+            "The end clock falls on the following date."
+          ]
+        }
+      }
+    },
+    {
+      "fixture": {
+        "id": "negative-counts",
+        "family": "recovery",
+        "text": "I have 3 cats and 2 dogs",
+        "expected": {
+          "kind": "no-expression"
+        },
+        "rationale": "Counts of animals contain no calendar or scheduling expression."
+      },
+      "context": {
+        "reference": "2026-09-12T16:00:00.000Z",
+        "timeZone": "America/Chicago",
+        "limit": 3
+      },
+      "tempus": {
+        "grade": "correct-rejection",
+        "valueGrade": "correct-rejection",
+        "observed": {
+          "occurrences": [],
+          "recurring": false,
+          "diagnostics": [
+            "syntax",
+            "Expected a number and time unit."
+          ]
+        },
+        "raw": {
+          "ok": false,
+          "engineVersion": 2,
+          "error": {
+            "code": "syntax",
+            "message": "Expected a number and time unit.",
+            "hint": "Try “today plus 2 days” or “2 weeks before may 1”.",
+            "span": {
+              "text": "I",
+              "value": "i",
+              "start": 0,
+              "end": 1
+            }
+          }
+        }
+      },
+      "gpu": {
+        "grade": "correct-rejection",
+        "valueGrade": "correct-rejection",
+        "observed": {
+          "occurrences": [],
+          "recurring": false,
+          "diagnostics": [
+            "no-expression: No time expression was recognized in \"I have 3 cats and 2 dogs\"."
+          ]
+        },
+        "raw": {
+          "occurrences": [],
+          "rrules": [],
+          "truncated": false,
+          "diagnostics": [
+            {
+              "code": "no-expression",
+              "severity": "warning",
+              "message": "No time expression was recognized in \"I have 3 cats and 2 dogs\".",
+              "start": 0,
+              "end": 24
+            }
+          ],
+          "backend": "cpu",
+          "timings": {
+            "tokenizeMs": 0.010625000000004547,
+            "inferMs": 0.34541699999999764,
+            "resolveMs": 0.45937399999999684
+          }
+        }
+      },
+      "interpretation": {
+        "grade": "correct-rejection",
+        "valueGrade": "correct-rejection",
+        "observed": {
+          "occurrences": [],
+          "recurring": false,
+          "diagnostics": [
+            "unsupported",
+            "Expected a number and time unit."
+          ]
+        },
+        "raw": {
+          "interpretationVersion": 1,
+          "status": "unsupported",
+          "error": {
+            "code": "syntax",
+            "message": "Expected a number and time unit.",
+            "hint": "Try “today plus 2 days” or “2 weeks before may 1”.",
+            "span": {
+              "start": 0,
+              "end": 1
+            }
+          }
+        }
+      }
+    },
+    {
+      "fixture": {
+        "id": "negative-name",
+        "family": "recovery",
+        "text": "May sent the third edition",
+        "expected": {
+          "kind": "no-expression"
+        },
+        "rationale": "May is a person's name here; third describes an edition."
+      },
+      "context": {
+        "reference": "2026-09-12T16:00:00.000Z",
+        "timeZone": "America/Chicago",
+        "limit": 3
+      },
+      "tempus": {
+        "grade": "correct-rejection",
+        "valueGrade": "correct-rejection",
+        "observed": {
+          "occurrences": [],
+          "recurring": false,
+          "diagnostics": [
+            "syntax",
+            "Expected a whole date number."
+          ]
+        },
+        "raw": {
+          "ok": false,
+          "engineVersion": 2,
+          "error": {
+            "code": "syntax",
+            "message": "Expected a whole date number.",
+            "hint": "Try “today plus 2 days” or “2 weeks before may 1”.",
+            "span": {
+              "text": "sent",
+              "value": "sent",
+              "start": 4,
+              "end": 8
+            }
+          }
+        }
+      },
+      "gpu": {
+        "grade": "correct-rejection",
+        "valueGrade": "correct-rejection",
+        "observed": {
+          "occurrences": [],
+          "recurring": false,
+          "diagnostics": [
+            "no-expression: No time expression was recognized in \"May sent the third edition\"."
+          ]
+        },
+        "raw": {
+          "occurrences": [],
+          "rrules": [],
+          "truncated": false,
+          "diagnostics": [
+            {
+              "code": "no-expression",
+              "severity": "warning",
+              "message": "No time expression was recognized in \"May sent the third edition\".",
+              "start": 0,
+              "end": 26
+            }
+          ],
+          "backend": "cpu",
+          "timings": {
+            "tokenizeMs": 0.021374999999977717,
+            "inferMs": 0.27062499999999545,
+            "resolveMs": 0.011291999999968994
+          }
+        }
+      },
+      "interpretation": {
+        "grade": "correct-rejection",
+        "valueGrade": "correct-rejection",
+        "observed": {
+          "occurrences": [],
+          "recurring": false,
+          "diagnostics": [
+            "unsupported",
+            "Expected a whole date number."
+          ]
+        },
+        "raw": {
+          "interpretationVersion": 1,
+          "status": "unsupported",
+          "error": {
+            "code": "syntax",
+            "message": "Expected a whole date number.",
+            "hint": "Try “today plus 2 days” or “2 weeks before may 1”.",
+            "span": {
+              "start": 4,
+              "end": 8
+            }
+          }
+        }
+      }
+    },
+    {
+      "fixture": {
+        "id": "negative-cancelled",
+        "family": "recovery",
+        "text": "Do not schedule anything tomorrow",
+        "expected": {
+          "kind": "no-expression"
+        },
+        "rationale": "For scheduling intent, a prohibition must not become an event. A mention-only extractor has a different contract."
+      },
+      "context": {
+        "reference": "2026-09-12T16:00:00.000Z",
+        "timeZone": "America/Chicago",
+        "limit": 3
+      },
+      "tempus": {
+        "grade": "correct-rejection",
+        "valueGrade": "correct-rejection",
+        "observed": {
+          "occurrences": [],
+          "recurring": false,
+          "diagnostics": [
+            "syntax",
+            "Expected a number and time unit."
+          ]
+        },
+        "raw": {
+          "ok": false,
+          "engineVersion": 2,
+          "error": {
+            "code": "syntax",
+            "message": "Expected a number and time unit.",
+            "hint": "Try “today plus 2 days” or “2 weeks before may 1”.",
+            "span": {
+              "text": "Do",
+              "value": "do",
+              "start": 0,
+              "end": 2
+            }
+          }
+        }
+      },
+      "gpu": {
+        "grade": "incorrect",
+        "valueGrade": "incorrect",
+        "observed": {
+          "occurrences": [
+            {
+              "start": "2026-09-13T00:00:00-05:00",
+              "allDay": true
+            }
+          ],
+          "recurring": false,
+          "diagnostics": []
+        },
+        "raw": {
+          "occurrences": [
+            {
+              "start": "2026-09-13T00:00:00-05:00",
+              "allDay": true
+            }
+          ],
+          "rrules": [],
+          "truncated": false,
+          "diagnostics": [],
+          "backend": "cpu",
+          "timings": {
+            "tokenizeMs": 0.010667000000012195,
+            "inferMs": 0.2589580000000069,
+            "resolveMs": 0.05024900000000798
+          }
+        }
+      },
+      "interpretation": {
+        "grade": "correct-rejection",
+        "valueGrade": "correct-rejection",
+        "observed": {
+          "occurrences": [],
+          "recurring": false,
+          "diagnostics": [
+            "no-expression",
+            "No date selected from this instruction."
+          ]
+        },
+        "raw": {
+          "interpretationVersion": 1,
+          "status": "no-expression",
+          "error": {
+            "code": "syntax",
+            "message": "No date selected from this instruction.",
+            "hint": "It contains a cancellation or negative instruction. Enter only the date you want to calculate."
+          }
+        }
+      }
+    },
+    {
+      "fixture": {
+        "id": "invalid-date",
+        "family": "recovery",
+        "text": "feb 30 2026",
+        "expected": {
+          "kind": "invalid"
+        },
+        "rationale": "February has only 28 days in 2026."
+      },
+      "context": {
+        "reference": "2026-09-12T16:00:00.000Z",
+        "timeZone": "America/Chicago",
+        "limit": 3
+      },
+      "tempus": {
+        "grade": "correct-rejection",
+        "valueGrade": "correct-rejection",
+        "observed": {
+          "occurrences": [],
+          "recurring": false,
+          "diagnostics": [
+            "date",
+            "That calendar date does not exist."
+          ]
+        },
+        "raw": {
+          "ok": false,
+          "engineVersion": 2,
+          "error": {
+            "code": "date",
+            "message": "That calendar date does not exist.",
+            "hint": "Check the day, month, and leap year; for example, February 30 is never valid."
+          }
+        }
+      },
+      "gpu": {
+        "grade": "correct-rejection",
+        "valueGrade": "correct-rejection",
+        "observed": {
+          "occurrences": [],
+          "recurring": false,
+          "diagnostics": [
+            "resolution-error: The expression names an invalid calendar date."
+          ]
+        },
+        "raw": {
+          "occurrences": [],
+          "rrules": [],
+          "truncated": false,
+          "diagnostics": [
+            {
+              "code": "resolution-error",
+              "severity": "error",
+              "message": "The expression names an invalid calendar date.",
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "backend": "cpu",
+          "timings": {
+            "tokenizeMs": 0.00612499999996885,
+            "inferMs": 0.15162499999999568,
+            "resolveMs": 0.03458299999999781
+          }
+        }
+      },
+      "interpretation": {
+        "grade": "correct-rejection",
+        "valueGrade": "correct-rejection",
+        "observed": {
+          "occurrences": [],
+          "recurring": false,
+          "diagnostics": [
+            "unsupported",
+            "That calendar date does not exist."
+          ]
+        },
+        "raw": {
+          "interpretationVersion": 1,
+          "status": "unsupported",
+          "error": {
+            "code": "date",
+            "message": "That calendar date does not exist.",
+            "hint": "Check the day, month, and leap year; for example, February 30 is never valid."
+          }
+        }
+      }
+    },
+    {
+      "fixture": {
+        "id": "ambiguous-clock",
+        "family": "recovery",
+        "text": "nov 1 2026 at 1:30 am",
+        "expected": {
+          "kind": "ambiguous"
+        },
+        "rationale": "Chicago repeats 01:30 at both -05:00 and -06:00. This corpus requires clarification, not a default offset."
+      },
+      "context": {
+        "reference": "2026-09-12T16:00:00.000Z",
+        "timeZone": "America/Chicago",
+        "limit": 3
+      },
+      "tempus": {
+        "grade": "abstained",
+        "valueGrade": "abstained",
+        "observed": {
+          "occurrences": [],
+          "recurring": false,
+          "diagnostics": [
+            "ambiguous-time",
+            "That local time is skipped or occurs twice in this timezone."
+          ]
+        },
+        "raw": {
+          "ok": false,
+          "engineVersion": 2,
+          "error": {
+            "code": "ambiguous-time",
+            "message": "That local time is skipped or occurs twice in this timezone.",
+            "hint": "Choose a different clock time. For elapsed time across a clock change, use hours instead of calendar days."
+          }
+        }
+      },
+      "gpu": {
+        "grade": "incorrect",
+        "valueGrade": "incorrect",
+        "observed": {
+          "occurrences": [
+            {
+              "start": "2026-11-01T01:30:00-05:00",
+              "allDay": false
+            }
+          ],
+          "recurring": false,
+          "diagnostics": []
+        },
+        "raw": {
+          "occurrences": [
+            {
+              "start": "2026-11-01T01:30:00-05:00",
+              "allDay": false
+            }
+          ],
+          "rrules": [],
+          "truncated": false,
+          "diagnostics": [],
+          "backend": "cpu",
+          "timings": {
+            "tokenizeMs": 0.015749999999997044,
+            "inferMs": 0.3788330000000144,
+            "resolveMs": 0.07745800000003555
+          }
+        }
+      },
+      "interpretation": {
+        "grade": "abstained",
+        "valueGrade": "abstained",
+        "observed": {
+          "occurrences": [],
+          "recurring": false,
+          "diagnostics": [
+            "needs-clarification",
+            "Which occurrence of this time?"
+          ]
+        },
+        "raw": {
+          "interpretationVersion": 1,
+          "status": "needs-clarification",
+          "error": {
+            "code": "ambiguous-time",
+            "message": "Which occurrence of this time?",
+            "hint": "Choose an explicit time and UTC offset, or edit the original phrase."
+          },
+          "clarification": {
+            "contextKey": "[\"nov 1 2026 at 1:30 am\",\"America/Chicago\",\"2026-09-12T16:00:00.000Z\"]",
+            "question": "Which occurrence of this time?",
+            "choices": [
+              {
+                "id": "2026-11-01T06:30:00Z",
+                "expression": "nov 1 2026 at 1:30 am",
+                "label": "First: November 1, 2026 at 1:30 AM CDT (UTC-05:00)"
+              },
+              {
+                "id": "2026-11-01T07:30:00Z",
+                "expression": "nov 1 2026 at 1:30 am",
+                "label": "Second: November 1, 2026 at 1:30 AM CST (UTC-06:00)"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "fixture": {
+        "id": "ambiguous-numeric",
+        "family": "recovery",
+        "text": "03/04/2027",
+        "expected": {
+          "kind": "ambiguous"
+        },
+        "rationale": "No date-order preference was supplied. March 4 and April 3 are both valid; this corpus requires clarification."
+      },
+      "context": {
+        "reference": "2026-09-12T16:00:00.000Z",
+        "timeZone": "America/Chicago",
+        "limit": 3
+      },
+      "tempus": {
+        "grade": "abstained",
+        "valueGrade": "abstained",
+        "observed": {
+          "occurrences": [],
+          "recurring": false,
+          "diagnostics": [
+            "syntax",
+            "Unexpected character “/”."
+          ]
+        },
+        "raw": {
+          "ok": false,
+          "engineVersion": 2,
+          "error": {
+            "code": "syntax",
+            "message": "Unexpected character “/”.",
+            "hint": "Use a named date, ISO date, or a date phrase.",
+            "span": {
+              "start": 5,
+              "end": 6
+            }
+          }
+        }
+      },
+      "gpu": {
+        "grade": "incorrect",
+        "valueGrade": "incorrect",
+        "observed": {
+          "occurrences": [
+            {
+              "start": "2027-03-04T00:00:00-06:00",
+              "allDay": true
+            }
+          ],
+          "recurring": false,
+          "diagnostics": []
+        },
+        "raw": {
+          "occurrences": [
+            {
+              "start": "2027-03-04T00:00:00-06:00",
+              "allDay": true
+            }
+          ],
+          "rrules": [],
+          "truncated": false,
+          "diagnostics": [],
+          "backend": "cpu",
+          "timings": {
+            "tokenizeMs": 0.011709000000024616,
+            "inferMs": 0.18650000000002365,
+            "resolveMs": 0.06925000000001091
+          }
+        }
+      },
+      "interpretation": {
+        "grade": "abstained",
+        "valueGrade": "abstained",
+        "observed": {
+          "occurrences": [],
+          "recurring": false,
+          "diagnostics": [
+            "needs-clarification",
+            "Which date do you mean?"
+          ]
+        },
+        "raw": {
+          "interpretationVersion": 1,
+          "status": "needs-clarification",
+          "error": {
+            "code": "syntax",
+            "message": "Which date do you mean?",
+            "hint": "Choose the month and day. Your original text stays here."
+          },
+          "clarification": {
+            "contextKey": "[\"03/04/2027\",\"America/Chicago\",\"2026-09-12T16:00:00.000Z\"]",
+            "question": "Which date do you mean?",
+            "choices": [
+              {
+                "id": "2027-03-04",
+                "expression": "2027-03-04",
+                "label": "March 4, 2027"
+              },
+              {
+                "id": "2027-04-03",
+                "expression": "2027-04-03",
+                "label": "April 3, 2027"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "fixture": {
+        "id": "sentence-duration-suffix",
+        "family": "sentences",
+        "text": "Remind me to call Sam tomorrow at noon for 30 minutes",
+        "expected": {
+          "kind": "resolved",
+          "occurrences": [
+            {
+              "start": "2026-09-13T17:00:00Z",
+              "end": "2026-09-13T17:30:00Z",
+              "allDay": false
+            }
+          ],
+          "recurring": false
+        },
+        "rationale": "Tomorrow is September 13; Chicago noon is 17:00Z. Thirty elapsed minutes ends at 17:30Z; a point is incomplete."
+      },
+      "context": {
+        "reference": "2026-09-12T16:00:00.000Z",
+        "timeZone": "America/Chicago",
+        "limit": 3
+      },
+      "tempus": {
+        "grade": "abstained",
+        "valueGrade": "abstained",
+        "observed": {
+          "occurrences": [],
+          "recurring": false,
+          "diagnostics": [
+            "syntax",
+            "Expected a number and time unit."
+          ]
+        },
+        "raw": {
+          "ok": false,
+          "engineVersion": 2,
+          "error": {
+            "code": "syntax",
+            "message": "Expected a number and time unit.",
+            "hint": "Try “today plus 2 days” or “2 weeks before may 1”.",
+            "span": {
+              "text": "Remind",
+              "value": "remind",
+              "start": 0,
+              "end": 6
+            }
+          }
+        }
+      },
+      "gpu": {
+        "grade": "correct",
+        "valueGrade": "correct",
+        "observed": {
+          "occurrences": [
+            {
+              "start": "2026-09-13T12:00:00-05:00",
+              "allDay": false,
+              "end": "2026-09-13T12:30:00-05:00"
+            }
+          ],
+          "recurring": false,
+          "diagnostics": []
+        },
+        "raw": {
+          "occurrences": [
+            {
+              "start": "2026-09-13T12:00:00-05:00",
+              "allDay": false,
+              "end": "2026-09-13T12:30:00-05:00"
+            }
+          ],
+          "rrules": [],
+          "truncated": false,
+          "diagnostics": [],
+          "backend": "cpu",
+          "timings": {
+            "tokenizeMs": 0.010957999999988033,
+            "inferMs": 0.5452920000000177,
+            "resolveMs": 0.04312500000000341
+          }
+        }
+      },
+      "interpretation": {
+        "grade": "correct",
+        "valueGrade": "correct",
+        "observed": {
+          "occurrences": [
+            {
+              "start": "2026-09-13T17:00:00.000Z",
+              "end": "2026-09-13T17:30:00.000Z",
+              "allDay": false
+            }
+          ],
+          "recurring": false,
+          "diagnostics": [
+            "The interval end is exclusive."
+          ]
+        },
+        "raw": {
+          "interpretationVersion": 1,
+          "status": "resolved",
+          "value": {
+            "ok": true,
+            "kind": "interval",
+            "start": {
+              "ok": true,
+              "engineVersion": 2,
+              "expression": "tomorrow at noon",
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00.000Z",
+              "normalized": "tomorrow at noon",
+              "anchor": {
+                "iso": "2026-09-13T17:00:00.000Z",
+                "local": "2026-09-13T12:00:00.000",
+                "offset": "-05:00",
+                "timestamp": 1789318800000
+              },
+              "anchorDescription": "Use tomorrow in America/Chicago. Set the clock to 12:00:00.",
+              "steps": [],
+              "warnings": [],
+              "result": {
+                "iso": "2026-09-13T17:00:00.000Z",
+                "local": "2026-09-13T12:00:00.000",
+                "offset": "-05:00",
+                "timestamp": 1789318800000
+              }
+            },
+            "end": {
+              "ok": true,
+              "engineVersion": 2,
+              "expression": "now plus 30 minutes",
+              "timezone": "America/Chicago",
+              "reference": "2026-09-13T17:00:00.000Z",
+              "normalized": "now plus 30 minutes",
+              "anchor": {
+                "iso": "2026-09-13T17:00:00.000Z",
+                "local": "2026-09-13T12:00:00.000",
+                "offset": "-05:00",
+                "timestamp": 1789318800000
+              },
+              "anchorDescription": "Start at the captured reference time.",
+              "steps": [
+                {
+                  "source": "Add 30 minutes",
+                  "before": {
+                    "iso": "2026-09-13T17:00:00.000Z",
+                    "local": "2026-09-13T12:00:00.000",
+                    "offset": "-05:00",
+                    "timestamp": 1789318800000
+                  },
+                  "after": {
+                    "iso": "2026-09-13T17:30:00.000Z",
+                    "local": "2026-09-13T12:30:00.000",
+                    "offset": "-05:00",
+                    "timestamp": 1789320600000
+                  },
+                  "details": [
+                    "1,800,000 elapsed milliseconds. No rounding."
+                  ]
+                }
+              ],
+              "warnings": [],
+              "result": {
+                "iso": "2026-09-13T17:30:00.000Z",
+                "local": "2026-09-13T12:30:00.000",
+                "offset": "-05:00",
+                "timestamp": 1789320600000
+              }
+            },
+            "allDay": false,
+            "endExclusive": true,
+            "overnight": false
+          },
+          "source": {
+            "text": "tomorrow at noon for 30 minutes",
+            "span": {
+              "start": 22,
+              "end": 53
+            }
+          },
+          "event": {
+            "text": "call Sam",
+            "span": {
+              "start": 13,
+              "end": 21
+            }
+          },
+          "assumptions": [
+            "The interval end is exclusive."
+          ]
+        }
+      }
+    },
+    {
+      "fixture": {
+        "id": "schedule-duration-exclusion",
+        "family": "schedules",
+        "text": "every Monday at 9am for 30 minutes until 2026-10-05 except 2026-09-21",
+        "expected": {
+          "kind": "resolved",
+          "recurring": true,
+          "occurrences": [
+            {
+              "start": "2026-09-14T14:00:00Z",
+              "end": "2026-09-14T14:30:00Z",
+              "allDay": false
+            },
+            {
+              "start": "2026-09-28T14:00:00Z",
+              "end": "2026-09-28T14:30:00Z",
+              "allDay": false
+            },
+            {
+              "start": "2026-10-05T14:00:00Z",
+              "end": "2026-10-05T14:30:00Z",
+              "allDay": false
+            }
+          ]
+        },
+        "rationale": "The excluded September 21 start is omitted. The inclusive last start date is October 5; all three retained starts are 9 AM CDT with 30-minute ends."
+      },
+      "context": {
+        "reference": "2026-09-12T16:00:00.000Z",
+        "timeZone": "America/Chicago",
+        "limit": 3
+      },
+      "tempus": {
+        "grade": "abstained",
+        "valueGrade": "abstained",
+        "observed": {
+          "occurrences": [],
+          "recurring": false,
+          "diagnostics": [
+            "syntax",
+            "Expected a number and time unit."
+          ]
+        },
+        "raw": {
+          "ok": false,
+          "engineVersion": 2,
+          "error": {
+            "code": "syntax",
+            "message": "Expected a number and time unit.",
+            "hint": "Try “today plus 2 days” or “2 weeks before may 1”.",
+            "span": {
+              "text": "every",
+              "value": "every",
+              "start": 0,
+              "end": 5
+            }
+          }
+        }
+      },
+      "gpu": {
+        "grade": "abstained",
+        "valueGrade": "abstained",
+        "observed": {
+          "occurrences": [],
+          "recurring": false,
+          "diagnostics": [
+            "unsupported: Expected an hourly, daily, weekly, monthly, or yearly period."
+          ]
+        },
+        "raw": {
+          "occurrences": [],
+          "rrules": [],
+          "truncated": false,
+          "diagnostics": [
+            {
+              "code": "unsupported",
+              "message": "Expected an hourly, daily, weekly, monthly, or yearly period.",
+              "start": 27,
+              "end": 34,
+              "severity": "error"
+            }
+          ],
+          "backend": "cpu",
+          "timings": {
+            "tokenizeMs": 0.016499000000010255,
+            "inferMs": 0.9028749999999945,
+            "resolveMs": 0.06449999999998113
+          }
+        }
+      },
+      "interpretation": {
+        "grade": "correct",
+        "valueGrade": "correct",
+        "observed": {
+          "occurrences": [
+            {
+              "start": "2026-09-14T14:00:00.000Z",
+              "end": "2026-09-14T14:30:00.000Z",
+              "allDay": false
+            },
+            {
+              "start": "2026-09-28T14:00:00.000Z",
+              "end": "2026-09-28T14:30:00.000Z",
+              "allDay": false
+            },
+            {
+              "start": "2026-10-05T14:00:00.000Z",
+              "end": "2026-10-05T14:30:00.000Z",
+              "allDay": false
+            }
+          ],
+          "recurring": true,
+          "diagnostics": [
+            "Only upcoming occurrence starts appear in the preview.",
+            "Recurrence export has not been validated."
+          ]
+        },
+        "raw": {
+          "interpretationVersion": 1,
+          "status": "resolved",
+          "value": {
+            "ok": true,
+            "kind": "recurrence",
+            "timezone": "America/Chicago",
+            "rule": {
+              "frequency": "weekly",
+              "weekdays": [
+                1
+              ],
+              "startClock": "9am",
+              "duration": {
+                "amount": 30,
+                "unit": "minutes"
+              },
+              "starting": "2026-09-12",
+              "until": "2026-10-05",
+              "exceptions": [
+                "2026-09-21"
+              ]
+            },
+            "occurrences": [
+              {
+                "start": {
+                  "ok": true,
+                  "engineVersion": 2,
+                  "expression": "2026-09-14 at 9am",
+                  "timezone": "America/Chicago",
+                  "reference": "2026-09-12T16:00:00.000Z",
+                  "normalized": "2026-09-14 at 9 am",
+                  "anchor": {
+                    "iso": "2026-09-14T14:00:00.000Z",
+                    "local": "2026-09-14T09:00:00.000",
+                    "offset": "-05:00",
+                    "timestamp": 1789394400000
+                  },
+                  "anchorDescription": "Use the exact calendar date. Set the clock to 09:00:00.",
+                  "steps": [],
+                  "warnings": [],
+                  "result": {
+                    "iso": "2026-09-14T14:00:00.000Z",
+                    "local": "2026-09-14T09:00:00.000",
+                    "offset": "-05:00",
+                    "timestamp": 1789394400000
+                  }
+                },
+                "end": {
+                  "ok": true,
+                  "engineVersion": 2,
+                  "expression": "now plus 30 minutes",
+                  "timezone": "America/Chicago",
+                  "reference": "2026-09-14T14:00:00.000Z",
+                  "normalized": "now plus 30 minutes",
+                  "anchor": {
+                    "iso": "2026-09-14T14:00:00.000Z",
+                    "local": "2026-09-14T09:00:00.000",
+                    "offset": "-05:00",
+                    "timestamp": 1789394400000
+                  },
+                  "anchorDescription": "Start at the captured reference time.",
+                  "steps": [
+                    {
+                      "source": "Add 30 minutes",
+                      "before": {
+                        "iso": "2026-09-14T14:00:00.000Z",
+                        "local": "2026-09-14T09:00:00.000",
+                        "offset": "-05:00",
+                        "timestamp": 1789394400000
+                      },
+                      "after": {
+                        "iso": "2026-09-14T14:30:00.000Z",
+                        "local": "2026-09-14T09:30:00.000",
+                        "offset": "-05:00",
+                        "timestamp": 1789396200000
+                      },
+                      "details": [
+                        "1,800,000 elapsed milliseconds. No rounding."
+                      ]
+                    }
+                  ],
+                  "warnings": [],
+                  "result": {
+                    "iso": "2026-09-14T14:30:00.000Z",
+                    "local": "2026-09-14T09:30:00.000",
+                    "offset": "-05:00",
+                    "timestamp": 1789396200000
+                  }
+                }
+              },
+              {
+                "start": {
+                  "ok": true,
+                  "engineVersion": 2,
+                  "expression": "2026-09-28 at 9am",
+                  "timezone": "America/Chicago",
+                  "reference": "2026-09-12T16:00:00.000Z",
+                  "normalized": "2026-09-28 at 9 am",
+                  "anchor": {
+                    "iso": "2026-09-28T14:00:00.000Z",
+                    "local": "2026-09-28T09:00:00.000",
+                    "offset": "-05:00",
+                    "timestamp": 1790604000000
+                  },
+                  "anchorDescription": "Use the exact calendar date. Set the clock to 09:00:00.",
+                  "steps": [],
+                  "warnings": [],
+                  "result": {
+                    "iso": "2026-09-28T14:00:00.000Z",
+                    "local": "2026-09-28T09:00:00.000",
+                    "offset": "-05:00",
+                    "timestamp": 1790604000000
+                  }
+                },
+                "end": {
+                  "ok": true,
+                  "engineVersion": 2,
+                  "expression": "now plus 30 minutes",
+                  "timezone": "America/Chicago",
+                  "reference": "2026-09-28T14:00:00.000Z",
+                  "normalized": "now plus 30 minutes",
+                  "anchor": {
+                    "iso": "2026-09-28T14:00:00.000Z",
+                    "local": "2026-09-28T09:00:00.000",
+                    "offset": "-05:00",
+                    "timestamp": 1790604000000
+                  },
+                  "anchorDescription": "Start at the captured reference time.",
+                  "steps": [
+                    {
+                      "source": "Add 30 minutes",
+                      "before": {
+                        "iso": "2026-09-28T14:00:00.000Z",
+                        "local": "2026-09-28T09:00:00.000",
+                        "offset": "-05:00",
+                        "timestamp": 1790604000000
+                      },
+                      "after": {
+                        "iso": "2026-09-28T14:30:00.000Z",
+                        "local": "2026-09-28T09:30:00.000",
+                        "offset": "-05:00",
+                        "timestamp": 1790605800000
+                      },
+                      "details": [
+                        "1,800,000 elapsed milliseconds. No rounding."
+                      ]
+                    }
+                  ],
+                  "warnings": [],
+                  "result": {
+                    "iso": "2026-09-28T14:30:00.000Z",
+                    "local": "2026-09-28T09:30:00.000",
+                    "offset": "-05:00",
+                    "timestamp": 1790605800000
+                  }
+                }
+              },
+              {
+                "start": {
+                  "ok": true,
+                  "engineVersion": 2,
+                  "expression": "2026-10-05 at 9am",
+                  "timezone": "America/Chicago",
+                  "reference": "2026-09-12T16:00:00.000Z",
+                  "normalized": "2026-10-05 at 9 am",
+                  "anchor": {
+                    "iso": "2026-10-05T14:00:00.000Z",
+                    "local": "2026-10-05T09:00:00.000",
+                    "offset": "-05:00",
+                    "timestamp": 1791208800000
+                  },
+                  "anchorDescription": "Use the exact calendar date. Set the clock to 09:00:00.",
+                  "steps": [],
+                  "warnings": [],
+                  "result": {
+                    "iso": "2026-10-05T14:00:00.000Z",
+                    "local": "2026-10-05T09:00:00.000",
+                    "offset": "-05:00",
+                    "timestamp": 1791208800000
+                  }
+                },
+                "end": {
+                  "ok": true,
+                  "engineVersion": 2,
+                  "expression": "now plus 30 minutes",
+                  "timezone": "America/Chicago",
+                  "reference": "2026-10-05T14:00:00.000Z",
+                  "normalized": "now plus 30 minutes",
+                  "anchor": {
+                    "iso": "2026-10-05T14:00:00.000Z",
+                    "local": "2026-10-05T09:00:00.000",
+                    "offset": "-05:00",
+                    "timestamp": 1791208800000
+                  },
+                  "anchorDescription": "Start at the captured reference time.",
+                  "steps": [
+                    {
+                      "source": "Add 30 minutes",
+                      "before": {
+                        "iso": "2026-10-05T14:00:00.000Z",
+                        "local": "2026-10-05T09:00:00.000",
+                        "offset": "-05:00",
+                        "timestamp": 1791208800000
+                      },
+                      "after": {
+                        "iso": "2026-10-05T14:30:00.000Z",
+                        "local": "2026-10-05T09:30:00.000",
+                        "offset": "-05:00",
+                        "timestamp": 1791210600000
+                      },
+                      "details": [
+                        "1,800,000 elapsed milliseconds. No rounding."
+                      ]
+                    }
+                  ],
+                  "warnings": [],
+                  "result": {
+                    "iso": "2026-10-05T14:30:00.000Z",
+                    "local": "2026-10-05T09:30:00.000",
+                    "offset": "-05:00",
+                    "timestamp": 1791210600000
+                  }
+                }
+              }
+            ],
+            "truncated": false,
+            "validation": "preview-only"
+          },
+          "source": {
+            "text": "every Monday at 9am for 30 minutes until 2026-10-05 except 2026-09-21",
+            "span": {
+              "start": 0,
+              "end": 69
+            }
+          },
+          "apiReplay": false,
+          "assumptions": [
+            "Only upcoming occurrence starts appear in the preview.",
+            "Recurrence export has not been validated."
+          ]
+        }
+      }
+    },
+    {
+      "fixture": {
+        "id": "duration-calendar-end-ambiguity",
+        "family": "recovery",
+        "text": "October 31, 2026 at 1:30am for 1 day",
+        "expected": {
+          "kind": "ambiguous"
+        },
+        "rationale": "The next civil day's 1:30 AM occurs twice in Chicago. Calendar duration does not authorize choosing either endpoint offset."
+      },
+      "context": {
+        "reference": "2026-09-12T16:00:00.000Z",
+        "timeZone": "America/Chicago",
+        "limit": 3
+      },
+      "tempus": {
+        "grade": "abstained",
+        "valueGrade": "abstained",
+        "observed": {
+          "occurrences": [],
+          "recurring": false,
+          "diagnostics": [
+            "syntax",
+            "Couldn’t use “for 1 day”."
+          ]
+        },
+        "raw": {
+          "ok": false,
+          "engineVersion": 2,
+          "error": {
+            "code": "syntax",
+            "message": "Couldn’t use “for 1 day”.",
+            "hint": "Every part of the phrase must describe the date. Use plus or minus between changes.",
+            "span": {
+              "text": "for",
+              "value": "for",
+              "start": 27,
+              "end": 30
+            }
+          }
+        }
+      },
+      "gpu": {
+        "grade": "incorrect",
+        "valueGrade": "incorrect",
+        "observed": {
+          "occurrences": [
+            {
+              "start": "2026-10-31T01:30:00-05:00",
+              "allDay": false,
+              "end": "2026-11-01T01:30:00-05:00"
+            }
+          ],
+          "recurring": false,
+          "diagnostics": []
+        },
+        "raw": {
+          "occurrences": [
+            {
+              "start": "2026-10-31T01:30:00-05:00",
+              "allDay": false,
+              "end": "2026-11-01T01:30:00-05:00"
+            }
+          ],
+          "rrules": [],
+          "truncated": false,
+          "diagnostics": [],
+          "backend": "cpu",
+          "timings": {
+            "tokenizeMs": 0.010874999999998636,
+            "inferMs": 0.4182919999999797,
+            "resolveMs": 0.06087499999998158
+          }
+        }
+      },
+      "interpretation": {
+        "grade": "abstained",
+        "valueGrade": "abstained",
+        "observed": {
+          "occurrences": [],
+          "recurring": false,
+          "diagnostics": [
+            "needs-clarification",
+            "End: That local time is skipped or occurs twice in this timezone."
+          ]
+        },
+        "raw": {
+          "interpretationVersion": 1,
+          "status": "needs-clarification",
+          "error": {
+            "code": "ambiguous-time",
+            "message": "End: That local time is skipped or occurs twice in this timezone.",
+            "hint": "Choose a different clock time. For elapsed time across a clock change, use hours instead of calendar days."
+          },
+          "clarification": {
+            "contextKey": "[\"October 31, 2026 at 1:30am for 1 day\",\"America/Chicago\",\"2026-09-12T16:00:00.000Z\"]",
+            "question": "End: Which occurrence of this time?",
+            "choices": [
+              {
+                "id": "interval:end:2026-11-01T06:30:00Z",
+                "expression": "2026-11-01 at 01:30:00.000",
+                "label": "First: November 1, 2026 at 1:30 AM CDT (UTC-05:00)"
+              },
+              {
+                "id": "interval:end:2026-11-01T07:30:00Z",
+                "expression": "2026-11-01 at 01:30:00.000",
+                "label": "Second: November 1, 2026 at 1:30 AM CST (UTC-06:00)"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "fixture": {
+        "id": "group-equal-clock",
+        "family": "recovery",
+        "text": "Sat 9am-9am Mon 9am-10am",
+        "expected": {
+          "kind": "ambiguous"
+        },
+        "rationale": "Matching Saturday clocks need confirmation of a next-day end under Tempus policy; silently accepting a zero-length or full-day event is not a complete interpretation."
+      },
+      "context": {
+        "reference": "2026-09-12T16:00:00.000Z",
+        "timeZone": "America/Chicago",
+        "limit": 3
+      },
+      "tempus": {
+        "grade": "abstained",
+        "valueGrade": "abstained",
+        "observed": {
+          "occurrences": [],
+          "recurring": false,
+          "diagnostics": [
+            "syntax",
+            "Expected a time unit after the number."
+          ]
+        },
+        "raw": {
+          "ok": false,
+          "engineVersion": 2,
+          "error": {
+            "code": "syntax",
+            "message": "Expected a time unit after the number.",
+            "hint": "Use years, months, weeks, days, hours, minutes, seconds, or milliseconds.",
+            "span": {
+              "text": "am",
+              "value": "am",
+              "start": 9,
+              "end": 11
+            }
+          }
+        }
+      },
+      "gpu": {
+        "grade": "abstained",
+        "valueGrade": "abstained",
+        "observed": {
+          "occurrences": [],
+          "recurring": false,
+          "diagnostics": [
+            "end-equals-start: Start and end times are equal."
+          ]
+        },
+        "raw": {
+          "occurrences": [],
+          "rrules": [],
+          "truncated": false,
+          "diagnostics": [
+            {
+              "code": "end-equals-start",
+              "message": "Start and end times are equal.",
+              "start": 8,
+              "end": 9,
+              "severity": "error"
+            }
+          ],
+          "backend": "cpu",
+          "timings": {
+            "tokenizeMs": 0.0057490000000370856,
+            "inferMs": 0.34900000000001796,
+            "resolveMs": 0.054541000000000395
+          }
+        }
+      },
+      "interpretation": {
+        "grade": "abstained",
+        "valueGrade": "abstained",
+        "observed": {
+          "occurrences": [],
+          "recurring": false,
+          "diagnostics": [
+            "needs-clarification",
+            "Range 1 (Sat): should this end on the next date?"
+          ]
+        },
+        "raw": {
+          "interpretationVersion": 1,
+          "status": "needs-clarification",
+          "error": {
+            "code": "syntax",
+            "message": "Range 1 (Sat): should this end on the next date?",
+            "hint": "Do you mean a full day? This choice affects only this listed date or range."
+          },
+          "clarification": {
+            "contextKey": "[\"Sat 9am-9am Mon 9am-10am\",\"America/Chicago\",\"2026-09-12T16:00:00.000Z\"]",
+            "question": "Range 1 (Sat): should this end on the next date?",
+            "choices": [
+              {
+                "id": "group:0:end-next-day",
+                "label": "End on 2026-09-20 at 09:00 (America/Chicago, UTC-05:00)",
+                "expression": "Sat 9am-9am"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "fixture": {
+        "id": "duration-incomplete",
+        "family": "recovery",
+        "text": "Remind me to call Sam tomorrow at noon for",
+        "expected": {
+          "kind": "invalid"
+        },
+        "rationale": "The duration is unfinished. Returning only the noon point would discard a meaningful qualifier."
+      },
+      "context": {
+        "reference": "2026-09-12T16:00:00.000Z",
+        "timeZone": "America/Chicago",
+        "limit": 3
+      },
+      "tempus": {
+        "grade": "correct-rejection",
+        "valueGrade": "correct-rejection",
+        "observed": {
+          "occurrences": [],
+          "recurring": false,
+          "diagnostics": [
+            "syntax",
+            "Expected a number and time unit."
+          ]
+        },
+        "raw": {
+          "ok": false,
+          "engineVersion": 2,
+          "error": {
+            "code": "syntax",
+            "message": "Expected a number and time unit.",
+            "hint": "Try “today plus 2 days” or “2 weeks before may 1”.",
+            "span": {
+              "text": "Remind",
+              "value": "remind",
+              "start": 0,
+              "end": 6
+            }
+          }
+        }
+      },
+      "gpu": {
+        "grade": "incorrect",
+        "valueGrade": "incorrect",
+        "observed": {
+          "occurrences": [
+            {
+              "start": "2026-09-13T12:00:00-05:00",
+              "allDay": false
+            }
+          ],
+          "recurring": false,
+          "diagnostics": []
+        },
+        "raw": {
+          "occurrences": [
+            {
+              "start": "2026-09-13T12:00:00-05:00",
+              "allDay": false
+            }
+          ],
+          "rrules": [],
+          "truncated": false,
+          "diagnostics": [],
+          "backend": "cpu",
+          "timings": {
+            "tokenizeMs": 0.0060840000000155214,
+            "inferMs": 0.3345000000000198,
+            "resolveMs": 0.019583999999980506
+          }
+        }
+      },
+      "interpretation": {
+        "grade": "correct-rejection",
+        "valueGrade": "correct-rejection",
+        "observed": {
+          "occurrences": [],
+          "recurring": false,
+          "diagnostics": [
+            "unsupported",
+            "How long should this event last?"
+          ]
+        },
+        "raw": {
+          "interpretationVersion": 1,
+          "status": "unsupported",
+          "error": {
+            "code": "syntax",
+            "message": "How long should this event last?",
+            "hint": "Use a positive whole number and seconds, minutes, hours, days or weeks, such as “tomorrow at noon for 30 minutes”."
+          }
+        }
+      }
+    }
+  ]
+}

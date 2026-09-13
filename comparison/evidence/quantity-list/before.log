@@ -1,0 +1,18 @@
+
+> tempus-total@0.1.0 test /Users/mylescook/Code/MylesMCook/TempusTotal
+> vp test --run src/shared/quantity-label.test.ts
+
+
+ RUN  v4.1.11 /Users/mylescook/Code/MylesMCook/TempusTotal
+
+ ❯ src/shared/quantity-label.test.ts (28 tests | 3 failed) 31ms
+   × requires confirmation for Buy 3 apples and 2 pears 2ms
+   × requires confirmation for Pick up three parcels and two letters and one box 0ms
+   × completes a quantified list through correction, file preparation and edit 0ms
+
+ Test Files  1 failed (1)
+      Tests  3 failed | 25 passed (28)
+   Start at  13:34:35
+   Duration  209ms (transform 80ms, setup 0ms, import 113ms, tests 31ms, environment 0ms)
+
+ ELIFECYCLE  Test failed. See above for more details.

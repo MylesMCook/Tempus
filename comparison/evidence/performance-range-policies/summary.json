@@ -1,0 +1,48 @@
+{
+  "tempus": {
+    "nodeReadyP50": 24.954208000000005,
+    "chromeReadyP50": 17.800000071525574,
+    "nodeBatch1P50": 0.1340410000000034,
+    "nodeBatch1P95": 1.453833000000003,
+    "chromeBatch1P50": 0.20000004768371582,
+    "chromeBatch1P95": 2,
+    "nodeBatch10P50": 2.807457999999997,
+    "nodeBatch10P95": 3.4097090000000065,
+    "chromeBatch10P50": 3.600000023841858,
+    "chromeBatch10P95": 4.600000023841858,
+    "nodeBatch100P50": 21.491457999999966,
+    "nodeBatch100P95": 23.801917000000003,
+    "chromeBatch100P50": 28.5,
+    "chromeBatch100P95": 32.09999990463257,
+    "rssGrowthMiB": 95.140625,
+    "heapUsedGrowthMiB": 4.6497650146484375,
+    "bundle": {
+      "minifiedBytes": 525209,
+      "gzipBytes": 149116,
+      "sha256": "b15f07235a767070400c8414dc1cf0b4c97b30f3b170e786ad257cc3fbcd2502"
+    }
+  },
+  "gpu-time": {
+    "nodeReadyP50": 17.034625,
+    "chromeReadyP50": 14,
+    "nodeBatch1P50": 0.1974169999999944,
+    "nodeBatch1P95": 0.43970900000000057,
+    "chromeBatch1P50": 0.20000004768371582,
+    "chromeBatch1P95": 0.7999999523162842,
+    "nodeBatch10P50": 1.2252500000000026,
+    "nodeBatch10P95": 1.8726249999999993,
+    "chromeBatch10P50": 1,
+    "chromeBatch10P95": 1.399999976158142,
+    "nodeBatch100P50": 10.721542,
+    "nodeBatch100P95": 11.13554099999999,
+    "chromeBatch100P50": 8.100000023841858,
+    "chromeBatch100P95": 9.200000047683716,
+    "rssGrowthMiB": 30.6875,
+    "heapUsedGrowthMiB": 1.4977493286132812,
+    "bundle": {
+      "minifiedBytes": 110286,
+      "gzipBytes": 52903,
+      "sha256": "928660046ac9e5ad55a39bcdd7c08ddca17e40b9ea06e7763f2afe2e4ed942d6"
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "status": "passed",
+  "browser": "153.0.8010.36",
+  "scope": "Desktop Chrome, direct focus/Enter, count preview, monthly correction, actual file download and edit invalidation. Not physical-device or calendar-client import evidence.",
+  "runs": [
+    {
+      "id": "weekly",
+      "width": 320,
+      "status": "passed",
+      "file": "weekly-320.ics",
+      "sha256": "a19e77675436f7a5d0db71f7682884a38f538c0f4a09f59d3a3511d8490ad0be"
+    },
+    {
+      "id": "monthly",
+      "width": 320,
+      "status": "passed",
+      "file": "monthly-320.ics",
+      "sha256": "88ce90f53fe61be4b0897f5fdc66110b0fde38d23eeab720eaac884fc49eab78"
+    },
+    {
+      "id": "weekly",
+      "width": 1280,
+      "status": "passed",
+      "file": "weekly-1280.ics",
+      "sha256": "fc2054ec12ee3d69c7da3a14a8a0039517b14b563e8279523b7759dcf43def8a"
+    },
+    {
+      "id": "monthly",
+      "width": 1280,
+      "status": "passed",
+      "file": "monthly-1280.ics",
+      "sha256": "399e7a6a4d79785f16bda1ea2b21e282dbd7a47d11c308828171f0f482b8c757"
+    }
+  ],
+  "sourceHashes": {
+    "src/shared/interpret-recurrence.ts": "9747c385f5e99023022739ce830da7f6e69b5aab3d7c1b11f748ba8db0a38634",
+    "src/shared/recurring-calendar-file.ts": "fbc0935a0c434383c44196ea155e09f1c515e892e43570020caf87e446c4c40e",
+    "src/features/parser/components/occurrence-result.tsx": "132428b5ace355037a7bae1c76057abc512996de011dfd71bdff3bf65e979758",
+    "src/features/parser/components/calendar-export.tsx": "736a81223b1ee7c7104d26b321144bd860f39210b3225fb7022867e653f35122",
+    "examples/app/verify-count.mjs": "500b7875b734dfed2b217d0b540fdb6b3d4bfa3b3745ea83912385ef22600dbd"
+  }
+}

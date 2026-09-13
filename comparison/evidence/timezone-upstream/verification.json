@@ -1,0 +1,19 @@
+{
+  "zones": 597,
+  "uniqueFiles": 344,
+  "payloadSha256": "d80dfea2b792c207cf64a85bd9be4866f16c6b42f20025f28e6cbe97803f55d6",
+  "sourceSha256": "9e0012bdaeefcd776c5c53d55f728e85bbddf7e5cfec83a72ce5667758430d2e",
+  "buildManifestSha256": "6653758c5e9a3abfcd9927b882dafc6b71aa9dfc47dc25f7ea9b093c05cad8a6",
+  "checks": [
+    "inert literals",
+    "declared payload digest",
+    "all base64 decoded",
+    "all unique files read by Python ZoneInfo",
+    "all compiled zone bytes",
+    "license"
+  ],
+  "limitations": [
+    "Retained-build identity, not independent upstream authentication or hermetic compiler proof.",
+    "Reader acceptance does not prove every calendar value or client import."
+  ]
+}

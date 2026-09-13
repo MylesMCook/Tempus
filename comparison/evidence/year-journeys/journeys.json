@@ -1,0 +1,4655 @@
+{
+  "corpus": "correction-journeys-development-v1",
+  "node": "v26.8.1",
+  "sourceHashes": {
+    "comparison/journeys.test.ts": "2cff20f4047f1c7633e936a44f9724149bc25c2c2df40f286b4aa529add959fa",
+    "comparison/provenance.ts": "ee1ac9777c921a3a4f044eedd68a8dc028c7d2b6221b4d7ce9cf57491791d05f",
+    "package.json": "196d3ac64ac812a7f6bebf0df79437e6137a1aade2a1914afd5592bda085ce20",
+    "pnpm-lock.yaml": "efd381779c7426cdf686f8563545d66fb58b0b0fa3afcd2c32a46eeed2afa553",
+    "pnpm-workspace.yaml": "d5836a2c0de092c439be31a55f4fd3057703ab63f553af43b4f69a4ce2a6e0c3",
+    "src/shared/calculate-schedule-date.ts": "c6906a7b521fe28928104557b39d26a54797190aed80a97f7d71a191fbc865e6",
+    "src/shared/calendar-file.ts": "48b0513de440323d682be3c99aaabc716644b626dca18dce344acb6721785d03",
+    "src/shared/calendar-timezone-ongoing.ts": "84a9538cce27060557d1a7ad62cb34150656b5c36ebee517ce08fbd1fa178520",
+    "src/shared/calendar-timezone.ts": "75fadd69cc02911185ebd78f9af097104b492bd17c5db5540a563cfb2ffdf733",
+    "src/shared/calendar-transition-rule.ts": "4d878af2f8777ea2353760852dde4765b0d1acf0eb9bcdf84b5580c6302f1f65",
+    "src/shared/clarify-arithmetic.ts": "f80cb5ac21989e00f01a2a6891a731c4592d92056aaaaf8019da41790d98e10f",
+    "src/shared/clarify-clock.ts": "84837f4f55ef13906711f8f985e5296f6324292929c233295e91a64fd8bc8a85",
+    "src/shared/clarify-numeric-date.ts": "d3743a725b3025f390197ae9e58fb2d9d8fd359c9b897534cfd746565ca22929",
+    "src/shared/date-engine/compatibility-fixtures.ts": "dca209c9a1648217cc204dab5fa03a0f59ebc53a67b57d733c00e4d8b0ae3445",
+    "src/shared/date-engine/format-zoned.ts": "95857eaa7808474672ecd2206cf5c68eee9a0044a1e8f42ccffddab74baa136e",
+    "src/shared/date-engine/grammar.ts": "2dea7a50ce29604a1a67d653f06824ba002f7837d6d996d8525dc6ab058cf241",
+    "src/shared/date-engine/oracle-fixtures.ts": "355364009d014a37e61c516874cb732ef255a98421e8fde0f5ea6e705aa75ec8",
+    "src/shared/date-engine/timezone-LICENSE.txt": "0613408568889f5739e5ae252b722a2659c02002839ad970a63dc5e9174b27cf",
+    "src/shared/date-engine/timezone-data.ts": "9e0012bdaeefcd776c5c53d55f728e85bbddf7e5cfec83a72ce5667758430d2e",
+    "src/shared/date-engine/timezone-database.ts": "2a8e52b1cbc0dda843f083ce51096805a89e76dc167d2c352c5ff9b472396e75",
+    "src/shared/date-engine/timezone-reader.ts": "92e736a7a0c75c110f38197090b8961800b1de6b8556398a710990538aaf3f49",
+    "src/shared/date-engine/types.ts": "47d2308495c1820731c8d8e63f52321de1c2ba72866ffe8ea70e13035ed4ef8a",
+    "src/shared/date-engine/vocabulary.ts": "67776aa0c586248375193cb576c62a397a25cf13c926afbd09090ee308dffb11",
+    "src/shared/date-engine/zoned-date.ts": "a2dff366c661b103844263e3fe5436d8ac3a380cc4c490e029ebaeba5d3748ac",
+    "src/shared/date-parser.ts": "1cb8481c6fe442fb4d6f3edec5273be9b50cc0ca010393f5f751ca1988e2a208",
+    "src/shared/format-date.ts": "d97194d06892fd41d18c43777ce425784d86e5b89cb042a7769001eb8a34db96",
+    "src/shared/interpret-date-list.ts": "34aacc77bf5c39107f35abfa2ffd25bcc595c4ec7a4c88abb93059363b65af4e",
+    "src/shared/interpret-date.ts": "31f2bf0a3feb9f8f8b6e30cb83e1650ff64e0a39f4103140487fdbedf8ec2007",
+    "src/shared/interpret-groups.ts": "d1d5a61376f275d7065bd2fe22cddc89de245b80a043bc68b70ccb39b0bdba58",
+    "src/shared/interpret-interval.ts": "1511e1d19adf1508f77ec07bbae283f664fe9c6589bc8cf40c1d093da33f8791",
+    "src/shared/interpret-recurrence.ts": "1383229ae15ee7a2abb8330a5eafcfb27966c8b789339dbcf87b4d96af3a86df",
+    "src/shared/monthly-date.ts": "4f2326166845df95da07231cd3c544d950517dd42f26c63cc25fd3f8942e188b",
+    "src/shared/parse-api.ts": "12f2e7177e74570c701f24797482eab67f2333e40e76922df7544a32035743e8",
+    "src/shared/recurrence-clock-conflicts.ts": "4af99807fd330ca4d281eec8f9989d7eec8ca9ce57c929125eaa7af2f4f61d8d",
+    "src/shared/recurring-calendar-file.ts": "967c4848e6008226ee3f6f5f3e9c8421b0663bd452ad3259e609fcfc863c5106",
+    "src/shared/sdk-calendar.ts": "3393a99bcaa9180add02542e22ce5255286c046b585ebb38fa240a760d79cb33",
+    "src/shared/sdk.ts": "f8178ff6f93d33c1ddeadb28cd6350d7202027dfee0e57cdfe7820c285a51e8e"
+  },
+  "limitations": [
+    "Inspected development tasks with scripted decisions; not an independent holdout or human task-completion study.",
+    "Tempus-only integration replay; no gpu-time interaction adapter or comparative completion claim.",
+    "Source parser and independent file reader only; no browser download, calendar-client import or external write."
+  ],
+  "records": [
+    {
+      "id": "shared-year-reminder-list",
+      "input": "Call Sam September 14 and 16 at noon",
+      "event": "Call Sam",
+      "reference": "2026-09-12T16:00:00Z",
+      "decisions": [
+        "list:year:2026",
+        "list:0:time:0"
+      ],
+      "expected": [
+        [
+          "2026-09-14T17:00:00.000Z",
+          "2026-09-14T17:00:00.000Z"
+        ],
+        [
+          "2026-09-16T17:00:00.000Z",
+          "2026-09-16T17:00:00.000Z"
+        ]
+      ],
+      "rationale": "Explicitly choose a shared year, then share noon with the first date. Preserve both points, title and source spans without adding duration; editing invalidates the answers.",
+      "context": {
+        "timezone": "America/Chicago",
+        "reference": "2026-09-12T16:00:00Z"
+      },
+      "steps": [
+        {
+          "action": "input",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "needs-clarification",
+            "error": {
+              "code": "syntax",
+              "message": "Which year applies to all these dates?",
+              "hint": "Choose a year, or write another year in the input. No year has been assumed."
+            },
+            "clarification": {
+              "contextKey": "[\"Call Sam September 14 and 16 at noon\",\"America/Chicago\",\"2026-09-12T16:00:00Z\"]",
+              "question": "Which year applies to all these dates?",
+              "choices": [
+                {
+                  "id": "list:year:2026",
+                  "label": "2026",
+                  "expression": "2026"
+                },
+                {
+                  "id": "list:year:2027",
+                  "label": "2027",
+                  "expression": "2027"
+                }
+              ]
+            },
+            "sdkVersion": "0.1.0",
+            "input": "Call Sam September 14 and 16 at noon",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        },
+        {
+          "action": "choice",
+          "id": "list:year:2026",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "needs-clarification",
+            "error": {
+              "code": "syntax",
+              "message": "Date 1 (September 14): What time applies to this date?",
+              "hint": "What time applies to this date? This choice affects only this listed date or range."
+            },
+            "clarification": {
+              "contextKey": "[\"Call Sam September 14 and 16 at noon\",\"America/Chicago\",\"2026-09-12T16:00:00Z\"]",
+              "question": "Date 1 (September 14): What time applies to this date?",
+              "choices": [
+                {
+                  "id": "list:0:time:0",
+                  "label": "At noon",
+                  "expression": "september 14, 2026 at noon"
+                },
+                {
+                  "id": "list:0:time:date-only",
+                  "label": "Keep this date without a time",
+                  "expression": "september 14, 2026"
+                }
+              ]
+            },
+            "sdkVersion": "0.1.0",
+            "input": "Call Sam September 14 and 16 at noon",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        },
+        {
+          "action": "choice",
+          "id": "list:0:time:0",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "resolved",
+            "value": {
+              "ok": true,
+              "kind": "collection",
+              "timezone": "America/Chicago",
+              "truncated": false,
+              "occurrences": [
+                {
+                  "start": {
+                    "ok": true,
+                    "engineVersion": 2,
+                    "expression": "september 14, 2026 at noon",
+                    "timezone": "America/Chicago",
+                    "reference": "2026-09-12T16:00:00.000Z",
+                    "normalized": "september 14 2026 at noon",
+                    "anchor": {
+                      "iso": "2026-09-14T17:00:00.000Z",
+                      "local": "2026-09-14T12:00:00.000",
+                      "offset": "-05:00",
+                      "timestamp": 1789405200000
+                    },
+                    "anchorDescription": "Use the exact calendar date. Set the clock to 12:00:00.",
+                    "steps": [],
+                    "warnings": [],
+                    "result": {
+                      "iso": "2026-09-14T17:00:00.000Z",
+                      "local": "2026-09-14T12:00:00.000",
+                      "offset": "-05:00",
+                      "timestamp": 1789405200000
+                    }
+                  },
+                  "allDay": false,
+                  "source": {
+                    "text": "September 14",
+                    "span": {
+                      "start": 9,
+                      "end": 21
+                    }
+                  }
+                },
+                {
+                  "start": {
+                    "ok": true,
+                    "engineVersion": 2,
+                    "expression": "september 16, 2026 at noon",
+                    "timezone": "America/Chicago",
+                    "reference": "2026-09-12T16:00:00.000Z",
+                    "normalized": "september 16 2026 at noon",
+                    "anchor": {
+                      "iso": "2026-09-16T17:00:00.000Z",
+                      "local": "2026-09-16T12:00:00.000",
+                      "offset": "-05:00",
+                      "timestamp": 1789578000000
+                    },
+                    "anchorDescription": "Use the exact calendar date. Set the clock to 12:00:00.",
+                    "steps": [],
+                    "warnings": [],
+                    "result": {
+                      "iso": "2026-09-16T17:00:00.000Z",
+                      "local": "2026-09-16T12:00:00.000",
+                      "offset": "-05:00",
+                      "timestamp": 1789578000000
+                    }
+                  },
+                  "allDay": false,
+                  "source": {
+                    "text": "16 at noon",
+                    "span": {
+                      "start": 26,
+                      "end": 36
+                    }
+                  }
+                }
+              ],
+              "selectedClocks": [
+                "2026 for every listed date",
+                "Date 1: At noon"
+              ]
+            },
+            "source": {
+              "text": "September 14 and 16 at noon",
+              "span": {
+                "start": 9,
+                "end": 36
+              }
+            },
+            "event": {
+              "text": "Call Sam",
+              "span": {
+                "start": 0,
+                "end": 8
+              }
+            },
+            "apiReplay": false,
+            "assumptions": [
+              "Each listed date or range occurs once; this is not a repeating rule.",
+              "You selected 2026 for every listed date.",
+              "You selected Date 1: At noon."
+            ],
+            "sdkVersion": "0.1.0",
+            "input": "Call Sam September 14 and 16 at noon",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        },
+        {
+          "action": "file-validation",
+          "exported": [
+            [
+              "2026-09-14T17:00:00.000Z",
+              "2026-09-14T17:00:00.000Z"
+            ],
+            [
+              "2026-09-16T17:00:00.000Z",
+              "2026-09-16T17:00:00.000Z"
+            ]
+          ],
+          "fileSha256": "1260f703c74a5d55f51ca1dc0c3182409b2300993705b4242bce4e81fc4e6247"
+        },
+        {
+          "action": "edit",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "needs-clarification",
+            "error": {
+              "code": "syntax",
+              "message": "Which year applies to all these dates?",
+              "hint": "Choose a year, or write another year in the input. No year has been assumed."
+            },
+            "clarification": {
+              "contextKey": "[\"Call Sam September 14 and 16 at noon \",\"America/Chicago\",\"2026-09-12T16:00:00Z\"]",
+              "question": "Which year applies to all these dates?",
+              "choices": [
+                {
+                  "id": "list:year:2026",
+                  "label": "2026",
+                  "expression": "2026"
+                },
+                {
+                  "id": "list:year:2027",
+                  "label": "2027",
+                  "expression": "2027"
+                }
+              ]
+            },
+            "sdkVersion": "0.1.0",
+            "input": "Call Sam September 14 and 16 at noon ",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "id": "spring-gap-fortnight-reminder",
+      "input": "Remind me to call Sam every other Sunday at 2:30am for half an hour starting 2026-03-08 until 2026-04-19 except 2026-04-05",
+      "reference": "2026-03-07T12:00:00Z",
+      "decisions": [
+        "recurrence:2026-03-08:start:2026-03-08T08:30:00Z"
+      ],
+      "expected": [
+        [
+          "2026-03-08T08:30:00.000Z",
+          "2026-03-08T09:00:00.000Z"
+        ],
+        [
+          "2026-03-22T07:30:00.000Z",
+          "2026-03-22T08:00:00.000Z"
+        ],
+        [
+          "2026-04-19T07:30:00.000Z",
+          "2026-04-19T08:00:00.000Z"
+        ]
+      ],
+      "rationale": "Move only the missing March 8 clock to 3:30 AM. Keep later active Sundays at 2:30 AM, preserve the half-hour duration and fortnight anchor, and omit April 5 from the complete file.",
+      "context": {
+        "timezone": "America/Chicago",
+        "reference": "2026-03-07T12:00:00Z"
+      },
+      "steps": [
+        {
+          "action": "input",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "needs-clarification",
+            "error": {
+              "code": "ambiguous-time",
+              "message": "2026-03-08 start: That clock time does not exist. Which time should replace it?",
+              "hint": "That local time is skipped or occurs twice in this timezone. Your choice applies only to this occurrence. Other dates keep their written local clocks."
+            },
+            "clarification": {
+              "contextKey": "[\"Remind me to call Sam every other Sunday at 2:30am for half an hour starting 2026-03-08 until 2026-04-19 except 2026-04-05\",\"America/Chicago\",\"2026-03-07T12:00:00Z\"]",
+              "question": "2026-03-08 start: That clock time does not exist. Which time should replace it?",
+              "choices": [
+                {
+                  "id": "recurrence:2026-03-08:start:2026-03-08T07:30:00Z",
+                  "expression": "2026-03-08 at 2:30am",
+                  "label": "Use March 8, 2026 at 1:30 AM CST (UTC-06:00)"
+                },
+                {
+                  "id": "recurrence:2026-03-08:start:2026-03-08T08:30:00Z",
+                  "expression": "2026-03-08 at 2:30am",
+                  "label": "Use March 8, 2026 at 3:30 AM CDT (UTC-05:00)"
+                }
+              ]
+            },
+            "sdkVersion": "0.1.0",
+            "input": "Remind me to call Sam every other Sunday at 2:30am for half an hour starting 2026-03-08 until 2026-04-19 except 2026-04-05",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-03-07T12:00:00Z"
+            }
+          }
+        },
+        {
+          "action": "choice",
+          "id": "recurrence:2026-03-08:start:2026-03-08T08:30:00Z",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "resolved",
+            "value": {
+              "ok": true,
+              "kind": "recurrence",
+              "timezone": "America/Chicago",
+              "rule": {
+                "frequency": "weekly",
+                "interval": 2,
+                "weekdays": [
+                  7
+                ],
+                "startClock": "2:30am",
+                "duration": {
+                  "amount": 30,
+                  "unit": "minutes"
+                },
+                "starting": "2026-03-08",
+                "until": "2026-04-19",
+                "exceptions": [
+                  "2026-04-05"
+                ],
+                "clockOverrides": [
+                  {
+                    "date": "2026-03-08",
+                    "endpoint": "start",
+                    "instant": "2026-03-08T08:30:00Z",
+                    "label": "Start: Use March 8, 2026 at 3:30 AM CDT (UTC-05:00)"
+                  }
+                ]
+              },
+              "occurrences": [
+                {
+                  "start": {
+                    "ok": true,
+                    "engineVersion": 2,
+                    "expression": "now",
+                    "timezone": "America/Chicago",
+                    "reference": "2026-03-08T08:30:00.000Z",
+                    "normalized": "now",
+                    "anchor": {
+                      "iso": "2026-03-08T08:30:00.000Z",
+                      "local": "2026-03-08T03:30:00.000",
+                      "offset": "-05:00",
+                      "timestamp": 1772958600000
+                    },
+                    "anchorDescription": "Use the explicitly selected start: Use March 8, 2026 at 3:30 AM CDT (UTC-05:00)",
+                    "steps": [],
+                    "warnings": [],
+                    "result": {
+                      "iso": "2026-03-08T08:30:00.000Z",
+                      "local": "2026-03-08T03:30:00.000",
+                      "offset": "-05:00",
+                      "timestamp": 1772958600000
+                    }
+                  },
+                  "end": {
+                    "ok": true,
+                    "engineVersion": 2,
+                    "expression": "now plus 30 minutes",
+                    "timezone": "America/Chicago",
+                    "reference": "2026-03-08T08:30:00.000Z",
+                    "normalized": "now plus 30 minutes",
+                    "anchor": {
+                      "iso": "2026-03-08T08:30:00.000Z",
+                      "local": "2026-03-08T03:30:00.000",
+                      "offset": "-05:00",
+                      "timestamp": 1772958600000
+                    },
+                    "anchorDescription": "Start at the captured reference time.",
+                    "steps": [
+                      {
+                        "source": "Add 30 minutes",
+                        "before": {
+                          "iso": "2026-03-08T08:30:00.000Z",
+                          "local": "2026-03-08T03:30:00.000",
+                          "offset": "-05:00",
+                          "timestamp": 1772958600000
+                        },
+                        "after": {
+                          "iso": "2026-03-08T09:00:00.000Z",
+                          "local": "2026-03-08T04:00:00.000",
+                          "offset": "-05:00",
+                          "timestamp": 1772960400000
+                        },
+                        "details": [
+                          "1,800,000 elapsed milliseconds. No rounding."
+                        ]
+                      }
+                    ],
+                    "warnings": [],
+                    "result": {
+                      "iso": "2026-03-08T09:00:00.000Z",
+                      "local": "2026-03-08T04:00:00.000",
+                      "offset": "-05:00",
+                      "timestamp": 1772960400000
+                    }
+                  }
+                },
+                {
+                  "start": {
+                    "ok": true,
+                    "engineVersion": 2,
+                    "expression": "2026-03-22 at 2:30am",
+                    "timezone": "America/Chicago",
+                    "reference": "2026-03-07T12:00:00.000Z",
+                    "normalized": "2026-03-22 at 2:30 am",
+                    "anchor": {
+                      "iso": "2026-03-22T07:30:00.000Z",
+                      "local": "2026-03-22T02:30:00.000",
+                      "offset": "-05:00",
+                      "timestamp": 1774164600000
+                    },
+                    "anchorDescription": "Use the exact calendar date. Set the clock to 02:30:00.",
+                    "steps": [],
+                    "warnings": [],
+                    "result": {
+                      "iso": "2026-03-22T07:30:00.000Z",
+                      "local": "2026-03-22T02:30:00.000",
+                      "offset": "-05:00",
+                      "timestamp": 1774164600000
+                    }
+                  },
+                  "end": {
+                    "ok": true,
+                    "engineVersion": 2,
+                    "expression": "now plus 30 minutes",
+                    "timezone": "America/Chicago",
+                    "reference": "2026-03-22T07:30:00.000Z",
+                    "normalized": "now plus 30 minutes",
+                    "anchor": {
+                      "iso": "2026-03-22T07:30:00.000Z",
+                      "local": "2026-03-22T02:30:00.000",
+                      "offset": "-05:00",
+                      "timestamp": 1774164600000
+                    },
+                    "anchorDescription": "Start at the captured reference time.",
+                    "steps": [
+                      {
+                        "source": "Add 30 minutes",
+                        "before": {
+                          "iso": "2026-03-22T07:30:00.000Z",
+                          "local": "2026-03-22T02:30:00.000",
+                          "offset": "-05:00",
+                          "timestamp": 1774164600000
+                        },
+                        "after": {
+                          "iso": "2026-03-22T08:00:00.000Z",
+                          "local": "2026-03-22T03:00:00.000",
+                          "offset": "-05:00",
+                          "timestamp": 1774166400000
+                        },
+                        "details": [
+                          "1,800,000 elapsed milliseconds. No rounding."
+                        ]
+                      }
+                    ],
+                    "warnings": [],
+                    "result": {
+                      "iso": "2026-03-22T08:00:00.000Z",
+                      "local": "2026-03-22T03:00:00.000",
+                      "offset": "-05:00",
+                      "timestamp": 1774166400000
+                    }
+                  }
+                },
+                {
+                  "start": {
+                    "ok": true,
+                    "engineVersion": 2,
+                    "expression": "2026-04-19 at 2:30am",
+                    "timezone": "America/Chicago",
+                    "reference": "2026-03-07T12:00:00.000Z",
+                    "normalized": "2026-04-19 at 2:30 am",
+                    "anchor": {
+                      "iso": "2026-04-19T07:30:00.000Z",
+                      "local": "2026-04-19T02:30:00.000",
+                      "offset": "-05:00",
+                      "timestamp": 1776583800000
+                    },
+                    "anchorDescription": "Use the exact calendar date. Set the clock to 02:30:00.",
+                    "steps": [],
+                    "warnings": [],
+                    "result": {
+                      "iso": "2026-04-19T07:30:00.000Z",
+                      "local": "2026-04-19T02:30:00.000",
+                      "offset": "-05:00",
+                      "timestamp": 1776583800000
+                    }
+                  },
+                  "end": {
+                    "ok": true,
+                    "engineVersion": 2,
+                    "expression": "now plus 30 minutes",
+                    "timezone": "America/Chicago",
+                    "reference": "2026-04-19T07:30:00.000Z",
+                    "normalized": "now plus 30 minutes",
+                    "anchor": {
+                      "iso": "2026-04-19T07:30:00.000Z",
+                      "local": "2026-04-19T02:30:00.000",
+                      "offset": "-05:00",
+                      "timestamp": 1776583800000
+                    },
+                    "anchorDescription": "Start at the captured reference time.",
+                    "steps": [
+                      {
+                        "source": "Add 30 minutes",
+                        "before": {
+                          "iso": "2026-04-19T07:30:00.000Z",
+                          "local": "2026-04-19T02:30:00.000",
+                          "offset": "-05:00",
+                          "timestamp": 1776583800000
+                        },
+                        "after": {
+                          "iso": "2026-04-19T08:00:00.000Z",
+                          "local": "2026-04-19T03:00:00.000",
+                          "offset": "-05:00",
+                          "timestamp": 1776585600000
+                        },
+                        "details": [
+                          "1,800,000 elapsed milliseconds. No rounding."
+                        ]
+                      }
+                    ],
+                    "warnings": [],
+                    "result": {
+                      "iso": "2026-04-19T08:00:00.000Z",
+                      "local": "2026-04-19T03:00:00.000",
+                      "offset": "-05:00",
+                      "timestamp": 1776585600000
+                    }
+                  }
+                }
+              ],
+              "truncated": false,
+              "validation": "preview-only"
+            },
+            "source": {
+              "text": "every other Sunday at 2:30am for half an hour starting 2026-03-08 until 2026-04-19 except 2026-04-05",
+              "span": {
+                "start": 22,
+                "end": 122
+              }
+            },
+            "event": {
+              "text": "call Sam",
+              "span": {
+                "start": 13,
+                "end": 21
+              }
+            },
+            "apiReplay": false,
+            "assumptions": [
+              "Only upcoming occurrence starts appear in the preview.",
+              "Recurrence export has not been validated.",
+              "For 2026-03-08 start only, you selected Start: Use March 8, 2026 at 3:30 AM CDT (UTC-05:00). Other occurrences keep their written local clocks."
+            ],
+            "sdkVersion": "0.1.0",
+            "input": "Remind me to call Sam every other Sunday at 2:30am for half an hour starting 2026-03-08 until 2026-04-19 except 2026-04-05",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-03-07T12:00:00Z"
+            }
+          }
+        },
+        {
+          "action": "file-validation",
+          "exported": [
+            [
+              "2026-03-08T08:30:00.000Z",
+              "2026-03-08T09:00:00.000Z"
+            ],
+            [
+              "2026-03-22T07:30:00.000Z",
+              "2026-03-22T08:00:00.000Z"
+            ],
+            [
+              "2026-04-19T07:30:00.000Z",
+              "2026-04-19T08:00:00.000Z"
+            ]
+          ],
+          "fileSha256": "1d72dce87386fe6eb3cf3635113ac2152bb5d1b41cf847dbd1e9b4496440c0af"
+        },
+        {
+          "action": "edit",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "needs-clarification",
+            "error": {
+              "code": "ambiguous-time",
+              "message": "2026-03-08 start: That clock time does not exist. Which time should replace it?",
+              "hint": "That local time is skipped or occurs twice in this timezone. Your choice applies only to this occurrence. Other dates keep their written local clocks."
+            },
+            "clarification": {
+              "contextKey": "[\"Remind me to call Sam every other Sunday at 2:30am for half an hour starting 2026-03-08 until 2026-04-19 except 2026-04-05 \",\"America/Chicago\",\"2026-03-07T12:00:00Z\"]",
+              "question": "2026-03-08 start: That clock time does not exist. Which time should replace it?",
+              "choices": [
+                {
+                  "id": "recurrence:2026-03-08:start:2026-03-08T07:30:00Z",
+                  "expression": "2026-03-08 at 2:30am",
+                  "label": "Use March 8, 2026 at 1:30 AM CST (UTC-06:00)"
+                },
+                {
+                  "id": "recurrence:2026-03-08:start:2026-03-08T08:30:00Z",
+                  "expression": "2026-03-08 at 2:30am",
+                  "label": "Use March 8, 2026 at 3:30 AM CDT (UTC-05:00)"
+                }
+              ]
+            },
+            "sdkVersion": "0.1.0",
+            "input": "Remind me to call Sam every other Sunday at 2:30am for half an hour starting 2026-03-08 until 2026-04-19 except 2026-04-05 ",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-03-07T12:00:00Z"
+            }
+          }
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "id": "confirmed-appointment-title",
+      "input": "Dentist appointment 01/11/2026 at 1:30am for half an hour",
+      "event": "Dentist appointment",
+      "reference": "2026-09-12T16:00:00Z",
+      "decisions": [
+        "event:title",
+        "2026-11-01",
+        "interval:start:2026-11-01T07:30:00Z"
+      ],
+      "expected": [
+        [
+          "2026-11-01T07:30:00.000Z",
+          "2026-11-01T08:00:00.000Z"
+        ]
+      ],
+      "rationale": "Confirm the proposed title, choose November 1 and the second repeated start; retain the title and complete half-hour interval in the file.",
+      "context": {
+        "timezone": "America/Chicago",
+        "reference": "2026-09-12T16:00:00Z"
+      },
+      "steps": [
+        {
+          "action": "input",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "needs-clarification",
+            "error": {
+              "code": "syntax",
+              "message": "Use “Dentist appointment” as the event title?",
+              "hint": "Date phrase: 01/11/2026 at 1:30am for half an hour. Confirm the title or edit your input."
+            },
+            "clarification": {
+              "contextKey": "[\"Dentist appointment 01/11/2026 at 1:30am for half an hour\",\"America/Chicago\",\"2026-09-12T16:00:00Z\"]",
+              "question": "Use “Dentist appointment” as the event title?",
+              "choices": [
+                {
+                  "id": "event:title",
+                  "label": "Use “Dentist appointment”",
+                  "expression": "01/11/2026 at 1:30am for half an hour"
+                }
+              ]
+            },
+            "sdkVersion": "0.1.0",
+            "input": "Dentist appointment 01/11/2026 at 1:30am for half an hour",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        },
+        {
+          "action": "choice",
+          "id": "event:title",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "needs-clarification",
+            "error": {
+              "code": "syntax",
+              "message": "Which date do you mean?",
+              "hint": "Choose the month and day. Your original text stays here."
+            },
+            "clarification": {
+              "contextKey": "[\"Dentist appointment 01/11/2026 at 1:30am for half an hour\",\"America/Chicago\",\"2026-09-12T16:00:00Z\"]",
+              "question": "Which date do you mean?",
+              "choices": [
+                {
+                  "id": "2026-01-11",
+                  "expression": "2026-01-11 at 1:30am for half an hour",
+                  "label": "January 11, 2026"
+                },
+                {
+                  "id": "2026-11-01",
+                  "expression": "2026-11-01 at 1:30am for half an hour",
+                  "label": "November 1, 2026"
+                }
+              ]
+            },
+            "sdkVersion": "0.1.0",
+            "input": "Dentist appointment 01/11/2026 at 1:30am for half an hour",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        },
+        {
+          "action": "choice",
+          "id": "2026-11-01",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "needs-clarification",
+            "error": {
+              "code": "ambiguous-time",
+              "message": "Start: That local time is skipped or occurs twice in this timezone.",
+              "hint": "Choose a different clock time. For elapsed time across a clock change, use hours instead of calendar days."
+            },
+            "clarification": {
+              "contextKey": "[\"Dentist appointment 01/11/2026 at 1:30am for half an hour\",\"America/Chicago\",\"2026-09-12T16:00:00Z\"]",
+              "question": "Start: Which occurrence of this time?",
+              "choices": [
+                {
+                  "id": "interval:start:2026-11-01T06:30:00Z",
+                  "expression": "2026-11-01 at 1:30am",
+                  "label": "First: November 1, 2026 at 1:30 AM CDT (UTC-05:00)"
+                },
+                {
+                  "id": "interval:start:2026-11-01T07:30:00Z",
+                  "expression": "2026-11-01 at 1:30am",
+                  "label": "Second: November 1, 2026 at 1:30 AM CST (UTC-06:00)"
+                }
+              ]
+            },
+            "sdkVersion": "0.1.0",
+            "input": "Dentist appointment 01/11/2026 at 1:30am for half an hour",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        },
+        {
+          "action": "choice",
+          "id": "interval:start:2026-11-01T07:30:00Z",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "resolved",
+            "value": {
+              "ok": true,
+              "kind": "interval",
+              "start": {
+                "ok": true,
+                "engineVersion": 2,
+                "expression": "now",
+                "timezone": "America/Chicago",
+                "reference": "2026-11-01T07:30:00.000Z",
+                "normalized": "now",
+                "anchor": {
+                  "iso": "2026-11-01T07:30:00.000Z",
+                  "local": "2026-11-01T01:30:00.000",
+                  "offset": "-06:00",
+                  "timestamp": 1793518200000
+                },
+                "anchorDescription": "Use the explicitly selected start: Second: November 1, 2026 at 1:30 AM CST (UTC-06:00)",
+                "steps": [],
+                "warnings": [],
+                "result": {
+                  "iso": "2026-11-01T07:30:00.000Z",
+                  "local": "2026-11-01T01:30:00.000",
+                  "offset": "-06:00",
+                  "timestamp": 1793518200000
+                }
+              },
+              "end": {
+                "ok": true,
+                "engineVersion": 2,
+                "expression": "now plus 30 minutes",
+                "timezone": "America/Chicago",
+                "reference": "2026-11-01T07:30:00.000Z",
+                "normalized": "now plus 30 minutes",
+                "anchor": {
+                  "iso": "2026-11-01T07:30:00.000Z",
+                  "local": "2026-11-01T01:30:00.000",
+                  "offset": "-06:00",
+                  "timestamp": 1793518200000
+                },
+                "anchorDescription": "Start at the captured reference time.",
+                "steps": [
+                  {
+                    "source": "Add 30 minutes",
+                    "before": {
+                      "iso": "2026-11-01T07:30:00.000Z",
+                      "local": "2026-11-01T01:30:00.000",
+                      "offset": "-06:00",
+                      "timestamp": 1793518200000
+                    },
+                    "after": {
+                      "iso": "2026-11-01T08:00:00.000Z",
+                      "local": "2026-11-01T02:00:00.000",
+                      "offset": "-06:00",
+                      "timestamp": 1793520000000
+                    },
+                    "details": [
+                      "1,800,000 elapsed milliseconds. No rounding."
+                    ]
+                  }
+                ],
+                "warnings": [],
+                "result": {
+                  "iso": "2026-11-01T08:00:00.000Z",
+                  "local": "2026-11-01T02:00:00.000",
+                  "offset": "-06:00",
+                  "timestamp": 1793520000000
+                }
+              },
+              "allDay": false,
+              "endExclusive": true,
+              "overnight": false,
+              "selectedClocks": [
+                "Start: Second: November 1, 2026 at 1:30 AM CST (UTC-06:00)"
+              ]
+            },
+            "source": {
+              "text": "01/11/2026 at 1:30am for half an hour",
+              "span": {
+                "start": 20,
+                "end": 57
+              }
+            },
+            "event": {
+              "text": "Dentist appointment",
+              "span": {
+                "start": 0,
+                "end": 19
+              }
+            },
+            "selectedChoice": "Title: Dentist appointment; November 1, 2026; Start: Second: November 1, 2026 at 1:30 AM CST (UTC-06:00)",
+            "apiReplay": false,
+            "assumptions": [
+              "The interval end is exclusive.",
+              "You selected Start: Second: November 1, 2026 at 1:30 AM CST (UTC-06:00).",
+              "Date interpreted as November 1, 2026."
+            ],
+            "sdkVersion": "0.1.0",
+            "input": "Dentist appointment 01/11/2026 at 1:30am for half an hour",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        },
+        {
+          "action": "file-validation",
+          "exported": [
+            [
+              "2026-11-01T07:30:00.000Z",
+              "2026-11-01T08:00:00.000Z"
+            ]
+          ],
+          "fileSha256": "cca45ca4dab6b62070b174a367bc0631c3d14c770b05bf69fca59236dd38bc76"
+        },
+        {
+          "action": "edit",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "needs-clarification",
+            "error": {
+              "code": "syntax",
+              "message": "Use “Dentist appointment” as the event title?",
+              "hint": "Date phrase: 01/11/2026 at 1:30am for half an hour. Confirm the title or edit your input."
+            },
+            "clarification": {
+              "contextKey": "[\"Dentist appointment 01/11/2026 at 1:30am for half an hour \",\"America/Chicago\",\"2026-09-12T16:00:00Z\"]",
+              "question": "Use “Dentist appointment” as the event title?",
+              "choices": [
+                {
+                  "id": "event:title",
+                  "label": "Use “Dentist appointment”",
+                  "expression": "01/11/2026 at 1:30am for half an hour"
+                }
+              ]
+            },
+            "sdkVersion": "0.1.0",
+            "input": "Dentist appointment 01/11/2026 at 1:30am for half an hour ",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "id": "half-hour-clock-reminder",
+      "input": "call Sam 01/11/2026 at 1:30am for half an hour",
+      "reference": "2026-09-12T16:00:00Z",
+      "decisions": [
+        "2026-11-01",
+        "interval:start:2026-11-01T07:30:00Z"
+      ],
+      "expected": [
+        [
+          "2026-11-01T07:30:00.000Z",
+          "2026-11-01T08:00:00.000Z"
+        ]
+      ],
+      "rationale": "Choose November 1 and its second repeated start. Half an hour is thirty elapsed minutes, retained through clarification and exact calendar output.",
+      "context": {
+        "timezone": "America/Chicago",
+        "reference": "2026-09-12T16:00:00Z"
+      },
+      "steps": [
+        {
+          "action": "input",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "needs-clarification",
+            "error": {
+              "code": "syntax",
+              "message": "Which date do you mean?",
+              "hint": "Choose the month and day. Your original text stays here."
+            },
+            "clarification": {
+              "contextKey": "[\"call Sam 01/11/2026 at 1:30am for half an hour\",\"America/Chicago\",\"2026-09-12T16:00:00Z\"]",
+              "question": "Which date do you mean?",
+              "choices": [
+                {
+                  "id": "2026-01-11",
+                  "expression": "2026-01-11 at 1:30am for half an hour",
+                  "label": "January 11, 2026"
+                },
+                {
+                  "id": "2026-11-01",
+                  "expression": "2026-11-01 at 1:30am for half an hour",
+                  "label": "November 1, 2026"
+                }
+              ]
+            },
+            "sdkVersion": "0.1.0",
+            "input": "call Sam 01/11/2026 at 1:30am for half an hour",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        },
+        {
+          "action": "choice",
+          "id": "2026-11-01",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "needs-clarification",
+            "error": {
+              "code": "ambiguous-time",
+              "message": "Start: That local time is skipped or occurs twice in this timezone.",
+              "hint": "Choose a different clock time. For elapsed time across a clock change, use hours instead of calendar days."
+            },
+            "clarification": {
+              "contextKey": "[\"call Sam 01/11/2026 at 1:30am for half an hour\",\"America/Chicago\",\"2026-09-12T16:00:00Z\"]",
+              "question": "Start: Which occurrence of this time?",
+              "choices": [
+                {
+                  "id": "interval:start:2026-11-01T06:30:00Z",
+                  "expression": "2026-11-01 at 1:30am",
+                  "label": "First: November 1, 2026 at 1:30 AM CDT (UTC-05:00)"
+                },
+                {
+                  "id": "interval:start:2026-11-01T07:30:00Z",
+                  "expression": "2026-11-01 at 1:30am",
+                  "label": "Second: November 1, 2026 at 1:30 AM CST (UTC-06:00)"
+                }
+              ]
+            },
+            "sdkVersion": "0.1.0",
+            "input": "call Sam 01/11/2026 at 1:30am for half an hour",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        },
+        {
+          "action": "choice",
+          "id": "interval:start:2026-11-01T07:30:00Z",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "resolved",
+            "value": {
+              "ok": true,
+              "kind": "interval",
+              "start": {
+                "ok": true,
+                "engineVersion": 2,
+                "expression": "now",
+                "timezone": "America/Chicago",
+                "reference": "2026-11-01T07:30:00.000Z",
+                "normalized": "now",
+                "anchor": {
+                  "iso": "2026-11-01T07:30:00.000Z",
+                  "local": "2026-11-01T01:30:00.000",
+                  "offset": "-06:00",
+                  "timestamp": 1793518200000
+                },
+                "anchorDescription": "Use the explicitly selected start: Second: November 1, 2026 at 1:30 AM CST (UTC-06:00)",
+                "steps": [],
+                "warnings": [],
+                "result": {
+                  "iso": "2026-11-01T07:30:00.000Z",
+                  "local": "2026-11-01T01:30:00.000",
+                  "offset": "-06:00",
+                  "timestamp": 1793518200000
+                }
+              },
+              "end": {
+                "ok": true,
+                "engineVersion": 2,
+                "expression": "now plus 30 minutes",
+                "timezone": "America/Chicago",
+                "reference": "2026-11-01T07:30:00.000Z",
+                "normalized": "now plus 30 minutes",
+                "anchor": {
+                  "iso": "2026-11-01T07:30:00.000Z",
+                  "local": "2026-11-01T01:30:00.000",
+                  "offset": "-06:00",
+                  "timestamp": 1793518200000
+                },
+                "anchorDescription": "Start at the captured reference time.",
+                "steps": [
+                  {
+                    "source": "Add 30 minutes",
+                    "before": {
+                      "iso": "2026-11-01T07:30:00.000Z",
+                      "local": "2026-11-01T01:30:00.000",
+                      "offset": "-06:00",
+                      "timestamp": 1793518200000
+                    },
+                    "after": {
+                      "iso": "2026-11-01T08:00:00.000Z",
+                      "local": "2026-11-01T02:00:00.000",
+                      "offset": "-06:00",
+                      "timestamp": 1793520000000
+                    },
+                    "details": [
+                      "1,800,000 elapsed milliseconds. No rounding."
+                    ]
+                  }
+                ],
+                "warnings": [],
+                "result": {
+                  "iso": "2026-11-01T08:00:00.000Z",
+                  "local": "2026-11-01T02:00:00.000",
+                  "offset": "-06:00",
+                  "timestamp": 1793520000000
+                }
+              },
+              "allDay": false,
+              "endExclusive": true,
+              "overnight": false,
+              "selectedClocks": [
+                "Start: Second: November 1, 2026 at 1:30 AM CST (UTC-06:00)"
+              ]
+            },
+            "source": {
+              "text": "01/11/2026 at 1:30am for half an hour",
+              "span": {
+                "start": 9,
+                "end": 46
+              }
+            },
+            "event": {
+              "text": "call Sam",
+              "span": {
+                "start": 0,
+                "end": 8
+              }
+            },
+            "selectedChoice": "November 1, 2026; Start: Second: November 1, 2026 at 1:30 AM CST (UTC-06:00)",
+            "apiReplay": false,
+            "assumptions": [
+              "The interval end is exclusive.",
+              "You selected Start: Second: November 1, 2026 at 1:30 AM CST (UTC-06:00).",
+              "Date interpreted as November 1, 2026."
+            ],
+            "sdkVersion": "0.1.0",
+            "input": "call Sam 01/11/2026 at 1:30am for half an hour",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        },
+        {
+          "action": "file-validation",
+          "exported": [
+            [
+              "2026-11-01T07:30:00.000Z",
+              "2026-11-01T08:00:00.000Z"
+            ]
+          ],
+          "fileSha256": "a34031d2d5d510f77937fbc39d06af985b749592aa69e174ebceb1d9429e4e86"
+        },
+        {
+          "action": "edit",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "needs-clarification",
+            "error": {
+              "code": "syntax",
+              "message": "Which date do you mean?",
+              "hint": "Choose the month and day. Your original text stays here."
+            },
+            "clarification": {
+              "contextKey": "[\"call Sam 01/11/2026 at 1:30am for half an hour \",\"America/Chicago\",\"2026-09-12T16:00:00Z\"]",
+              "question": "Which date do you mean?",
+              "choices": [
+                {
+                  "id": "2026-01-11",
+                  "expression": "2026-01-11 at 1:30am for half an hour",
+                  "label": "January 11, 2026"
+                },
+                {
+                  "id": "2026-11-01",
+                  "expression": "2026-11-01 at 1:30am for half an hour",
+                  "label": "November 1, 2026"
+                }
+              ]
+            },
+            "sdkVersion": "0.1.0",
+            "input": "call Sam 01/11/2026 at 1:30am for half an hour ",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "id": "direct-command-correction",
+      "input": "call Sam Friday at noon for 30 minutes, actually 01/11/2026 at 1:30am for 30 seconds instead",
+      "reference": "2026-09-12T16:00:00Z",
+      "decisions": [
+        "correction:branch:1:2026-11-01",
+        "correction:branch:1:interval:start:2026-11-01T07:30:00Z",
+        "replace"
+      ],
+      "expected": [
+        [
+          "2026-11-01T07:30:00.000Z",
+          "2026-11-01T07:30:30.000Z"
+        ]
+      ],
+      "rationale": "A direct command retains its event without requiring the reminder prefix. Date, repeated-clock and replacement choices must preserve the complete thirty-second interval.",
+      "context": {
+        "timezone": "America/Chicago",
+        "reference": "2026-09-12T16:00:00Z"
+      },
+      "steps": [
+        {
+          "action": "input",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "needs-clarification",
+            "error": {
+              "code": "syntax",
+              "message": "Replacement date: Which date do you mean?",
+              "hint": "Choose the month and day. Your original text stays here."
+            },
+            "clarification": {
+              "contextKey": "[\"call Sam Friday at noon for 30 minutes, actually 01/11/2026 at 1:30am for 30 seconds instead\",\"America/Chicago\",\"2026-09-12T16:00:00Z\"]",
+              "question": "Replacement date: Which date do you mean?",
+              "choices": [
+                {
+                  "id": "correction:branch:1:2026-01-11",
+                  "expression": "2026-01-11 at 1:30am for 30 seconds",
+                  "label": "January 11, 2026"
+                },
+                {
+                  "id": "correction:branch:1:2026-11-01",
+                  "expression": "2026-11-01 at 1:30am for 30 seconds",
+                  "label": "November 1, 2026"
+                }
+              ]
+            },
+            "sdkVersion": "0.1.0",
+            "input": "call Sam Friday at noon for 30 minutes, actually 01/11/2026 at 1:30am for 30 seconds instead",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        },
+        {
+          "action": "choice",
+          "id": "correction:branch:1:2026-11-01",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "needs-clarification",
+            "error": {
+              "code": "ambiguous-time",
+              "message": "Replacement date: Start: Which occurrence of this time?",
+              "hint": "Choose a different clock time. For elapsed time across a clock change, use hours instead of calendar days."
+            },
+            "clarification": {
+              "contextKey": "[\"call Sam Friday at noon for 30 minutes, actually 01/11/2026 at 1:30am for 30 seconds instead\",\"America/Chicago\",\"2026-09-12T16:00:00Z\"]",
+              "question": "Replacement date: Start: Which occurrence of this time?",
+              "choices": [
+                {
+                  "id": "correction:branch:1:interval:start:2026-11-01T06:30:00Z",
+                  "expression": "2026-11-01 at 1:30am",
+                  "label": "First: November 1, 2026 at 1:30 AM CDT (UTC-05:00)"
+                },
+                {
+                  "id": "correction:branch:1:interval:start:2026-11-01T07:30:00Z",
+                  "expression": "2026-11-01 at 1:30am",
+                  "label": "Second: November 1, 2026 at 1:30 AM CST (UTC-06:00)"
+                }
+              ]
+            },
+            "sdkVersion": "0.1.0",
+            "input": "call Sam Friday at noon for 30 minutes, actually 01/11/2026 at 1:30am for 30 seconds instead",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        },
+        {
+          "action": "choice",
+          "id": "correction:branch:1:interval:start:2026-11-01T07:30:00Z",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "needs-clarification",
+            "error": {
+              "code": "syntax",
+              "message": "Did the second date replace the first?",
+              "hint": "Choose the date or range to use. Your original text stays here."
+            },
+            "clarification": {
+              "contextKey": "[\"call Sam Friday at noon for 30 minutes, actually 01/11/2026 at 1:30am for 30 seconds instead\",\"America/Chicago\",\"2026-09-12T16:00:00Z\"]",
+              "question": "Did the second date replace the first?",
+              "choices": [
+                {
+                  "id": "keep",
+                  "expression": "call Sam Friday at noon for 30 minutes",
+                  "label": "Keep September 18, 2026 at 12:00 PM CDT to September 18, 2026 at 12:30 PM CDT (exclusive end)"
+                },
+                {
+                  "id": "replace",
+                  "expression": "01/11/2026 at 1:30am for 30 seconds",
+                  "label": "Use November 1, 2026 at 1:30 AM CST to November 1, 2026 at 1:30:30 AM CST (exclusive end)"
+                }
+              ]
+            },
+            "sdkVersion": "0.1.0",
+            "input": "call Sam Friday at noon for 30 minutes, actually 01/11/2026 at 1:30am for 30 seconds instead",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        },
+        {
+          "action": "choice",
+          "id": "replace",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "resolved",
+            "value": {
+              "ok": true,
+              "kind": "interval",
+              "start": {
+                "ok": true,
+                "engineVersion": 2,
+                "expression": "now",
+                "timezone": "America/Chicago",
+                "reference": "2026-11-01T07:30:00.000Z",
+                "normalized": "now",
+                "anchor": {
+                  "iso": "2026-11-01T07:30:00.000Z",
+                  "local": "2026-11-01T01:30:00.000",
+                  "offset": "-06:00",
+                  "timestamp": 1793518200000
+                },
+                "anchorDescription": "Use the explicitly selected start: Second: November 1, 2026 at 1:30 AM CST (UTC-06:00)",
+                "steps": [],
+                "warnings": [],
+                "result": {
+                  "iso": "2026-11-01T07:30:00.000Z",
+                  "local": "2026-11-01T01:30:00.000",
+                  "offset": "-06:00",
+                  "timestamp": 1793518200000
+                }
+              },
+              "end": {
+                "ok": true,
+                "engineVersion": 2,
+                "expression": "now plus 30 seconds",
+                "timezone": "America/Chicago",
+                "reference": "2026-11-01T07:30:00.000Z",
+                "normalized": "now plus 30 seconds",
+                "anchor": {
+                  "iso": "2026-11-01T07:30:00.000Z",
+                  "local": "2026-11-01T01:30:00.000",
+                  "offset": "-06:00",
+                  "timestamp": 1793518200000
+                },
+                "anchorDescription": "Start at the captured reference time.",
+                "steps": [
+                  {
+                    "source": "Add 30 seconds",
+                    "before": {
+                      "iso": "2026-11-01T07:30:00.000Z",
+                      "local": "2026-11-01T01:30:00.000",
+                      "offset": "-06:00",
+                      "timestamp": 1793518200000
+                    },
+                    "after": {
+                      "iso": "2026-11-01T07:30:30.000Z",
+                      "local": "2026-11-01T01:30:30.000",
+                      "offset": "-06:00",
+                      "timestamp": 1793518230000
+                    },
+                    "details": [
+                      "30,000 elapsed milliseconds. No rounding."
+                    ]
+                  }
+                ],
+                "warnings": [],
+                "result": {
+                  "iso": "2026-11-01T07:30:30.000Z",
+                  "local": "2026-11-01T01:30:30.000",
+                  "offset": "-06:00",
+                  "timestamp": 1793518230000
+                }
+              },
+              "allDay": false,
+              "endExclusive": true,
+              "overnight": false,
+              "selectedClocks": [
+                "Start: Second: November 1, 2026 at 1:30 AM CST (UTC-06:00)"
+              ]
+            },
+            "source": {
+              "text": "call Sam Friday at noon for 30 minutes, actually 01/11/2026 at 1:30am for 30 seconds instead",
+              "span": {
+                "start": 0,
+                "end": 92
+              }
+            },
+            "selectedChoice": "November 1, 2026 at 1:30 AM CST to November 1, 2026 at 1:30:30 AM CST (exclusive end)",
+            "apiReplay": false,
+            "assumptions": [
+              "The interval end is exclusive.",
+              "You selected Start: Second: November 1, 2026 at 1:30 AM CST (UTC-06:00).",
+              "Date interpreted as November 1, 2026.",
+              "You confirmed that the second date replaces the first."
+            ],
+            "event": {
+              "text": "call Sam",
+              "span": {
+                "start": 0,
+                "end": 8
+              }
+            },
+            "sdkVersion": "0.1.0",
+            "input": "call Sam Friday at noon for 30 minutes, actually 01/11/2026 at 1:30am for 30 seconds instead",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        },
+        {
+          "action": "file-validation",
+          "exported": [
+            [
+              "2026-11-01T07:30:00.000Z",
+              "2026-11-01T07:30:30.000Z"
+            ]
+          ],
+          "fileSha256": "79bc5b7c87fee790fdbc86a67bf37e0c987b56a9d48e607d9dfaad14ad505995"
+        },
+        {
+          "action": "edit",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "needs-clarification",
+            "error": {
+              "code": "syntax",
+              "message": "Replacement date: Which date do you mean?",
+              "hint": "Choose the month and day. Your original text stays here."
+            },
+            "clarification": {
+              "contextKey": "[\"call Sam Friday at noon for 30 minutes, actually 01/11/2026 at 1:30am for 30 seconds instead \",\"America/Chicago\",\"2026-09-12T16:00:00Z\"]",
+              "question": "Replacement date: Which date do you mean?",
+              "choices": [
+                {
+                  "id": "correction:branch:1:2026-01-11",
+                  "expression": "2026-01-11 at 1:30am for 30 seconds",
+                  "label": "January 11, 2026"
+                },
+                {
+                  "id": "correction:branch:1:2026-11-01",
+                  "expression": "2026-11-01 at 1:30am for 30 seconds",
+                  "label": "November 1, 2026"
+                }
+              ]
+            },
+            "sdkVersion": "0.1.0",
+            "input": "call Sam Friday at noon for 30 minutes, actually 01/11/2026 at 1:30am for 30 seconds instead ",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "id": "staged-correction-reminder",
+      "input": "Remind me to call Sam Friday at noon for 30 minutes, actually 01/11/2026 at 1:30am for 30 seconds instead",
+      "reference": "2026-09-12T16:00:00Z",
+      "decisions": [
+        "correction:branch:1:2026-11-01",
+        "correction:branch:1:interval:start:2026-11-01T07:30:00Z",
+        "replace"
+      ],
+      "expected": [
+        [
+          "2026-11-01T07:30:00.000Z",
+          "2026-11-01T07:30:30.000Z"
+        ]
+      ],
+      "rationale": "Resolve November 1 and its second repeated clock in the replacement, then explicitly replace Friday. Do not export an intermediate answer or retain Friday's thirty-minute duration.",
+      "context": {
+        "timezone": "America/Chicago",
+        "reference": "2026-09-12T16:00:00Z"
+      },
+      "steps": [
+        {
+          "action": "input",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "needs-clarification",
+            "error": {
+              "code": "syntax",
+              "message": "Replacement date: Which date do you mean?",
+              "hint": "Choose the month and day. Your original text stays here."
+            },
+            "clarification": {
+              "contextKey": "[\"Remind me to call Sam Friday at noon for 30 minutes, actually 01/11/2026 at 1:30am for 30 seconds instead\",\"America/Chicago\",\"2026-09-12T16:00:00Z\"]",
+              "question": "Replacement date: Which date do you mean?",
+              "choices": [
+                {
+                  "id": "correction:branch:1:2026-01-11",
+                  "expression": "2026-01-11 at 1:30am for 30 seconds",
+                  "label": "January 11, 2026"
+                },
+                {
+                  "id": "correction:branch:1:2026-11-01",
+                  "expression": "2026-11-01 at 1:30am for 30 seconds",
+                  "label": "November 1, 2026"
+                }
+              ]
+            },
+            "sdkVersion": "0.1.0",
+            "input": "Remind me to call Sam Friday at noon for 30 minutes, actually 01/11/2026 at 1:30am for 30 seconds instead",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        },
+        {
+          "action": "choice",
+          "id": "correction:branch:1:2026-11-01",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "needs-clarification",
+            "error": {
+              "code": "ambiguous-time",
+              "message": "Replacement date: Start: Which occurrence of this time?",
+              "hint": "Choose a different clock time. For elapsed time across a clock change, use hours instead of calendar days."
+            },
+            "clarification": {
+              "contextKey": "[\"Remind me to call Sam Friday at noon for 30 minutes, actually 01/11/2026 at 1:30am for 30 seconds instead\",\"America/Chicago\",\"2026-09-12T16:00:00Z\"]",
+              "question": "Replacement date: Start: Which occurrence of this time?",
+              "choices": [
+                {
+                  "id": "correction:branch:1:interval:start:2026-11-01T06:30:00Z",
+                  "expression": "2026-11-01 at 1:30am",
+                  "label": "First: November 1, 2026 at 1:30 AM CDT (UTC-05:00)"
+                },
+                {
+                  "id": "correction:branch:1:interval:start:2026-11-01T07:30:00Z",
+                  "expression": "2026-11-01 at 1:30am",
+                  "label": "Second: November 1, 2026 at 1:30 AM CST (UTC-06:00)"
+                }
+              ]
+            },
+            "sdkVersion": "0.1.0",
+            "input": "Remind me to call Sam Friday at noon for 30 minutes, actually 01/11/2026 at 1:30am for 30 seconds instead",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        },
+        {
+          "action": "choice",
+          "id": "correction:branch:1:interval:start:2026-11-01T07:30:00Z",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "needs-clarification",
+            "error": {
+              "code": "syntax",
+              "message": "Did the second date replace the first?",
+              "hint": "Choose the date or range to use. Your original text stays here."
+            },
+            "clarification": {
+              "contextKey": "[\"Remind me to call Sam Friday at noon for 30 minutes, actually 01/11/2026 at 1:30am for 30 seconds instead\",\"America/Chicago\",\"2026-09-12T16:00:00Z\"]",
+              "question": "Did the second date replace the first?",
+              "choices": [
+                {
+                  "id": "keep",
+                  "expression": "Remind me to call Sam Friday at noon for 30 minutes",
+                  "label": "Keep September 18, 2026 at 12:00 PM CDT to September 18, 2026 at 12:30 PM CDT (exclusive end)"
+                },
+                {
+                  "id": "replace",
+                  "expression": "01/11/2026 at 1:30am for 30 seconds",
+                  "label": "Use November 1, 2026 at 1:30 AM CST to November 1, 2026 at 1:30:30 AM CST (exclusive end)"
+                }
+              ]
+            },
+            "sdkVersion": "0.1.0",
+            "input": "Remind me to call Sam Friday at noon for 30 minutes, actually 01/11/2026 at 1:30am for 30 seconds instead",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        },
+        {
+          "action": "choice",
+          "id": "replace",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "resolved",
+            "value": {
+              "ok": true,
+              "kind": "interval",
+              "start": {
+                "ok": true,
+                "engineVersion": 2,
+                "expression": "now",
+                "timezone": "America/Chicago",
+                "reference": "2026-11-01T07:30:00.000Z",
+                "normalized": "now",
+                "anchor": {
+                  "iso": "2026-11-01T07:30:00.000Z",
+                  "local": "2026-11-01T01:30:00.000",
+                  "offset": "-06:00",
+                  "timestamp": 1793518200000
+                },
+                "anchorDescription": "Use the explicitly selected start: Second: November 1, 2026 at 1:30 AM CST (UTC-06:00)",
+                "steps": [],
+                "warnings": [],
+                "result": {
+                  "iso": "2026-11-01T07:30:00.000Z",
+                  "local": "2026-11-01T01:30:00.000",
+                  "offset": "-06:00",
+                  "timestamp": 1793518200000
+                }
+              },
+              "end": {
+                "ok": true,
+                "engineVersion": 2,
+                "expression": "now plus 30 seconds",
+                "timezone": "America/Chicago",
+                "reference": "2026-11-01T07:30:00.000Z",
+                "normalized": "now plus 30 seconds",
+                "anchor": {
+                  "iso": "2026-11-01T07:30:00.000Z",
+                  "local": "2026-11-01T01:30:00.000",
+                  "offset": "-06:00",
+                  "timestamp": 1793518200000
+                },
+                "anchorDescription": "Start at the captured reference time.",
+                "steps": [
+                  {
+                    "source": "Add 30 seconds",
+                    "before": {
+                      "iso": "2026-11-01T07:30:00.000Z",
+                      "local": "2026-11-01T01:30:00.000",
+                      "offset": "-06:00",
+                      "timestamp": 1793518200000
+                    },
+                    "after": {
+                      "iso": "2026-11-01T07:30:30.000Z",
+                      "local": "2026-11-01T01:30:30.000",
+                      "offset": "-06:00",
+                      "timestamp": 1793518230000
+                    },
+                    "details": [
+                      "30,000 elapsed milliseconds. No rounding."
+                    ]
+                  }
+                ],
+                "warnings": [],
+                "result": {
+                  "iso": "2026-11-01T07:30:30.000Z",
+                  "local": "2026-11-01T01:30:30.000",
+                  "offset": "-06:00",
+                  "timestamp": 1793518230000
+                }
+              },
+              "allDay": false,
+              "endExclusive": true,
+              "overnight": false,
+              "selectedClocks": [
+                "Start: Second: November 1, 2026 at 1:30 AM CST (UTC-06:00)"
+              ]
+            },
+            "source": {
+              "text": "Remind me to call Sam Friday at noon for 30 minutes, actually 01/11/2026 at 1:30am for 30 seconds instead",
+              "span": {
+                "start": 0,
+                "end": 105
+              }
+            },
+            "selectedChoice": "November 1, 2026 at 1:30 AM CST to November 1, 2026 at 1:30:30 AM CST (exclusive end)",
+            "apiReplay": false,
+            "assumptions": [
+              "The interval end is exclusive.",
+              "You selected Start: Second: November 1, 2026 at 1:30 AM CST (UTC-06:00).",
+              "Date interpreted as November 1, 2026.",
+              "You confirmed that the second date replaces the first."
+            ],
+            "event": {
+              "text": "call Sam",
+              "span": {
+                "start": 13,
+                "end": 21
+              }
+            },
+            "sdkVersion": "0.1.0",
+            "input": "Remind me to call Sam Friday at noon for 30 minutes, actually 01/11/2026 at 1:30am for 30 seconds instead",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        },
+        {
+          "action": "file-validation",
+          "exported": [
+            [
+              "2026-11-01T07:30:00.000Z",
+              "2026-11-01T07:30:30.000Z"
+            ]
+          ],
+          "fileSha256": "dc6f62937981275e037c54425c81e157fca8f63886ab46af42bd6a66451f037a"
+        },
+        {
+          "action": "edit",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "needs-clarification",
+            "error": {
+              "code": "syntax",
+              "message": "Replacement date: Which date do you mean?",
+              "hint": "Choose the month and day. Your original text stays here."
+            },
+            "clarification": {
+              "contextKey": "[\"Remind me to call Sam Friday at noon for 30 minutes, actually 01/11/2026 at 1:30am for 30 seconds instead \",\"America/Chicago\",\"2026-09-12T16:00:00Z\"]",
+              "question": "Replacement date: Which date do you mean?",
+              "choices": [
+                {
+                  "id": "correction:branch:1:2026-01-11",
+                  "expression": "2026-01-11 at 1:30am for 30 seconds",
+                  "label": "January 11, 2026"
+                },
+                {
+                  "id": "correction:branch:1:2026-11-01",
+                  "expression": "2026-11-01 at 1:30am for 30 seconds",
+                  "label": "November 1, 2026"
+                }
+              ]
+            },
+            "sdkVersion": "0.1.0",
+            "input": "Remind me to call Sam Friday at noon for 30 minutes, actually 01/11/2026 at 1:30am for 30 seconds instead ",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "id": "staged-alternative-reminder",
+      "input": "Remind me to call Sam tomorrow at noon or 01/11/2026 at 1:30am for 30 seconds",
+      "reference": "2026-09-12T16:00:00Z",
+      "decisions": [
+        "alternative:branch:1:2026-11-01",
+        "alternative:branch:1:interval:start:2026-11-01T07:30:00Z",
+        "alternative:second"
+      ],
+      "expected": [
+        [
+          "2026-11-01T07:30:00.000Z",
+          "2026-11-01T07:30:30.000Z"
+        ]
+      ],
+      "rationale": "Interpret the second branch as November 1, choose the second repeated 1:30 AM, then explicitly select that alternative. Preserve the thirty-second interval and event; no intermediate answer permits export.",
+      "context": {
+        "timezone": "America/Chicago",
+        "reference": "2026-09-12T16:00:00Z"
+      },
+      "steps": [
+        {
+          "action": "input",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "needs-clarification",
+            "error": {
+              "code": "syntax",
+              "message": "Second alternative: Which date do you mean?",
+              "hint": "Choose the month and day. Your original text stays here."
+            },
+            "clarification": {
+              "contextKey": "[\"Remind me to call Sam tomorrow at noon or 01/11/2026 at 1:30am for 30 seconds\",\"America/Chicago\",\"2026-09-12T16:00:00Z\"]",
+              "question": "Second alternative: Which date do you mean?",
+              "choices": [
+                {
+                  "id": "alternative:branch:1:2026-01-11",
+                  "expression": "2026-01-11 at 1:30am for 30 seconds",
+                  "label": "January 11, 2026"
+                },
+                {
+                  "id": "alternative:branch:1:2026-11-01",
+                  "expression": "2026-11-01 at 1:30am for 30 seconds",
+                  "label": "November 1, 2026"
+                }
+              ]
+            },
+            "sdkVersion": "0.1.0",
+            "input": "Remind me to call Sam tomorrow at noon or 01/11/2026 at 1:30am for 30 seconds",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        },
+        {
+          "action": "choice",
+          "id": "alternative:branch:1:2026-11-01",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "needs-clarification",
+            "error": {
+              "code": "ambiguous-time",
+              "message": "Second alternative: Start: Which occurrence of this time?",
+              "hint": "Choose a different clock time. For elapsed time across a clock change, use hours instead of calendar days."
+            },
+            "clarification": {
+              "contextKey": "[\"Remind me to call Sam tomorrow at noon or 01/11/2026 at 1:30am for 30 seconds\",\"America/Chicago\",\"2026-09-12T16:00:00Z\"]",
+              "question": "Second alternative: Start: Which occurrence of this time?",
+              "choices": [
+                {
+                  "id": "alternative:branch:1:interval:start:2026-11-01T06:30:00Z",
+                  "expression": "2026-11-01 at 1:30am",
+                  "label": "First: November 1, 2026 at 1:30 AM CDT (UTC-05:00)"
+                },
+                {
+                  "id": "alternative:branch:1:interval:start:2026-11-01T07:30:00Z",
+                  "expression": "2026-11-01 at 1:30am",
+                  "label": "Second: November 1, 2026 at 1:30 AM CST (UTC-06:00)"
+                }
+              ]
+            },
+            "sdkVersion": "0.1.0",
+            "input": "Remind me to call Sam tomorrow at noon or 01/11/2026 at 1:30am for 30 seconds",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        },
+        {
+          "action": "choice",
+          "id": "alternative:branch:1:interval:start:2026-11-01T07:30:00Z",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "needs-clarification",
+            "error": {
+              "code": "syntax",
+              "message": "Which date do you want?",
+              "hint": "Choose the date or range to use. Your original text stays here."
+            },
+            "clarification": {
+              "contextKey": "[\"Remind me to call Sam tomorrow at noon or 01/11/2026 at 1:30am for 30 seconds\",\"America/Chicago\",\"2026-09-12T16:00:00Z\"]",
+              "question": "Which date do you want?",
+              "choices": [
+                {
+                  "id": "alternative:first",
+                  "expression": "Remind me to call Sam tomorrow at noon",
+                  "label": "Use September 13, 2026 at 12:00 PM CDT"
+                },
+                {
+                  "id": "alternative:second",
+                  "expression": "01/11/2026 at 1:30am for 30 seconds",
+                  "label": "Use November 1, 2026 at 1:30 AM CST to November 1, 2026 at 1:30:30 AM CST (exclusive end)"
+                }
+              ]
+            },
+            "sdkVersion": "0.1.0",
+            "input": "Remind me to call Sam tomorrow at noon or 01/11/2026 at 1:30am for 30 seconds",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        },
+        {
+          "action": "choice",
+          "id": "alternative:second",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "resolved",
+            "value": {
+              "ok": true,
+              "kind": "interval",
+              "start": {
+                "ok": true,
+                "engineVersion": 2,
+                "expression": "now",
+                "timezone": "America/Chicago",
+                "reference": "2026-11-01T07:30:00.000Z",
+                "normalized": "now",
+                "anchor": {
+                  "iso": "2026-11-01T07:30:00.000Z",
+                  "local": "2026-11-01T01:30:00.000",
+                  "offset": "-06:00",
+                  "timestamp": 1793518200000
+                },
+                "anchorDescription": "Use the explicitly selected start: Second: November 1, 2026 at 1:30 AM CST (UTC-06:00)",
+                "steps": [],
+                "warnings": [],
+                "result": {
+                  "iso": "2026-11-01T07:30:00.000Z",
+                  "local": "2026-11-01T01:30:00.000",
+                  "offset": "-06:00",
+                  "timestamp": 1793518200000
+                }
+              },
+              "end": {
+                "ok": true,
+                "engineVersion": 2,
+                "expression": "now plus 30 seconds",
+                "timezone": "America/Chicago",
+                "reference": "2026-11-01T07:30:00.000Z",
+                "normalized": "now plus 30 seconds",
+                "anchor": {
+                  "iso": "2026-11-01T07:30:00.000Z",
+                  "local": "2026-11-01T01:30:00.000",
+                  "offset": "-06:00",
+                  "timestamp": 1793518200000
+                },
+                "anchorDescription": "Start at the captured reference time.",
+                "steps": [
+                  {
+                    "source": "Add 30 seconds",
+                    "before": {
+                      "iso": "2026-11-01T07:30:00.000Z",
+                      "local": "2026-11-01T01:30:00.000",
+                      "offset": "-06:00",
+                      "timestamp": 1793518200000
+                    },
+                    "after": {
+                      "iso": "2026-11-01T07:30:30.000Z",
+                      "local": "2026-11-01T01:30:30.000",
+                      "offset": "-06:00",
+                      "timestamp": 1793518230000
+                    },
+                    "details": [
+                      "30,000 elapsed milliseconds. No rounding."
+                    ]
+                  }
+                ],
+                "warnings": [],
+                "result": {
+                  "iso": "2026-11-01T07:30:30.000Z",
+                  "local": "2026-11-01T01:30:30.000",
+                  "offset": "-06:00",
+                  "timestamp": 1793518230000
+                }
+              },
+              "allDay": false,
+              "endExclusive": true,
+              "overnight": false,
+              "selectedClocks": [
+                "Start: Second: November 1, 2026 at 1:30 AM CST (UTC-06:00)"
+              ]
+            },
+            "source": {
+              "text": "Remind me to call Sam tomorrow at noon or 01/11/2026 at 1:30am for 30 seconds",
+              "span": {
+                "start": 0,
+                "end": 77
+              }
+            },
+            "selectedChoice": "November 1, 2026 at 1:30 AM CST to November 1, 2026 at 1:30:30 AM CST (exclusive end)",
+            "apiReplay": false,
+            "assumptions": [
+              "The interval end is exclusive.",
+              "You selected Start: Second: November 1, 2026 at 1:30 AM CST (UTC-06:00).",
+              "Date interpreted as November 1, 2026.",
+              "You selected the second written alternative."
+            ],
+            "event": {
+              "text": "call Sam",
+              "span": {
+                "start": 13,
+                "end": 21
+              }
+            },
+            "sdkVersion": "0.1.0",
+            "input": "Remind me to call Sam tomorrow at noon or 01/11/2026 at 1:30am for 30 seconds",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        },
+        {
+          "action": "file-validation",
+          "exported": [
+            [
+              "2026-11-01T07:30:00.000Z",
+              "2026-11-01T07:30:30.000Z"
+            ]
+          ],
+          "fileSha256": "c3335064ff7b1ab1995ecb4f496980ecf71256823316e8215d2d115b4c653bf0"
+        },
+        {
+          "action": "edit",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "needs-clarification",
+            "error": {
+              "code": "syntax",
+              "message": "Second alternative: Which date do you mean?",
+              "hint": "Choose the month and day. Your original text stays here."
+            },
+            "clarification": {
+              "contextKey": "[\"Remind me to call Sam tomorrow at noon or 01/11/2026 at 1:30am for 30 seconds \",\"America/Chicago\",\"2026-09-12T16:00:00Z\"]",
+              "question": "Second alternative: Which date do you mean?",
+              "choices": [
+                {
+                  "id": "alternative:branch:1:2026-01-11",
+                  "expression": "2026-01-11 at 1:30am for 30 seconds",
+                  "label": "January 11, 2026"
+                },
+                {
+                  "id": "alternative:branch:1:2026-11-01",
+                  "expression": "2026-11-01 at 1:30am for 30 seconds",
+                  "label": "November 1, 2026"
+                }
+              ]
+            },
+            "sdkVersion": "0.1.0",
+            "input": "Remind me to call Sam tomorrow at noon or 01/11/2026 at 1:30am for 30 seconds ",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "id": "alternative-reminder-duration",
+      "input": "Remind me to call Sam tomorrow at noon for 30 minutes or Friday at 2pm for 30 seconds",
+      "reference": "2026-09-12T16:00:00Z",
+      "decisions": [
+        "alternative:second"
+      ],
+      "expected": [
+        [
+          "2026-09-18T19:00:00.000Z",
+          "2026-09-18T19:00:30.000Z"
+        ]
+      ],
+      "rationale": "Explicitly choose the complete second interval. Retain its thirty seconds and event text; do not combine it with the first alternative's duration.",
+      "context": {
+        "timezone": "America/Chicago",
+        "reference": "2026-09-12T16:00:00Z"
+      },
+      "steps": [
+        {
+          "action": "input",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "needs-clarification",
+            "error": {
+              "code": "syntax",
+              "message": "Which date do you want?",
+              "hint": "Choose the date or range to use. Your original text stays here."
+            },
+            "clarification": {
+              "contextKey": "[\"Remind me to call Sam tomorrow at noon for 30 minutes or Friday at 2pm for 30 seconds\",\"America/Chicago\",\"2026-09-12T16:00:00Z\"]",
+              "question": "Which date do you want?",
+              "choices": [
+                {
+                  "id": "alternative:first",
+                  "expression": "Remind me to call Sam tomorrow at noon for 30 minutes",
+                  "label": "Use September 13, 2026 at 12:00 PM CDT to September 13, 2026 at 12:30 PM CDT (exclusive end)"
+                },
+                {
+                  "id": "alternative:second",
+                  "expression": "Friday at 2pm for 30 seconds",
+                  "label": "Use September 18, 2026 at 2:00 PM CDT to September 18, 2026 at 2:00:30 PM CDT (exclusive end)"
+                }
+              ]
+            },
+            "sdkVersion": "0.1.0",
+            "input": "Remind me to call Sam tomorrow at noon for 30 minutes or Friday at 2pm for 30 seconds",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        },
+        {
+          "action": "choice",
+          "id": "alternative:second",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "resolved",
+            "value": {
+              "ok": true,
+              "kind": "interval",
+              "start": {
+                "ok": true,
+                "engineVersion": 2,
+                "expression": "Friday at 2pm",
+                "timezone": "America/Chicago",
+                "reference": "2026-09-12T16:00:00.000Z",
+                "normalized": "friday at 2 pm",
+                "anchor": {
+                  "iso": "2026-09-18T19:00:00.000Z",
+                  "local": "2026-09-18T14:00:00.000",
+                  "offset": "-05:00",
+                  "timestamp": 1789758000000
+                },
+                "anchorDescription": "Use the next Friday, excluding today. Set the clock to 14:00:00.",
+                "steps": [],
+                "warnings": [],
+                "result": {
+                  "iso": "2026-09-18T19:00:00.000Z",
+                  "local": "2026-09-18T14:00:00.000",
+                  "offset": "-05:00",
+                  "timestamp": 1789758000000
+                }
+              },
+              "end": {
+                "ok": true,
+                "engineVersion": 2,
+                "expression": "now plus 30 seconds",
+                "timezone": "America/Chicago",
+                "reference": "2026-09-18T19:00:00.000Z",
+                "normalized": "now plus 30 seconds",
+                "anchor": {
+                  "iso": "2026-09-18T19:00:00.000Z",
+                  "local": "2026-09-18T14:00:00.000",
+                  "offset": "-05:00",
+                  "timestamp": 1789758000000
+                },
+                "anchorDescription": "Start at the captured reference time.",
+                "steps": [
+                  {
+                    "source": "Add 30 seconds",
+                    "before": {
+                      "iso": "2026-09-18T19:00:00.000Z",
+                      "local": "2026-09-18T14:00:00.000",
+                      "offset": "-05:00",
+                      "timestamp": 1789758000000
+                    },
+                    "after": {
+                      "iso": "2026-09-18T19:00:30.000Z",
+                      "local": "2026-09-18T14:00:30.000",
+                      "offset": "-05:00",
+                      "timestamp": 1789758030000
+                    },
+                    "details": [
+                      "30,000 elapsed milliseconds. No rounding."
+                    ]
+                  }
+                ],
+                "warnings": [],
+                "result": {
+                  "iso": "2026-09-18T19:00:30.000Z",
+                  "local": "2026-09-18T14:00:30.000",
+                  "offset": "-05:00",
+                  "timestamp": 1789758030000
+                }
+              },
+              "allDay": false,
+              "endExclusive": true,
+              "overnight": false
+            },
+            "source": {
+              "text": "Remind me to call Sam tomorrow at noon for 30 minutes or Friday at 2pm for 30 seconds",
+              "span": {
+                "start": 0,
+                "end": 85
+              }
+            },
+            "assumptions": [
+              "The interval end is exclusive.",
+              "You selected the second written alternative."
+            ],
+            "apiReplay": false,
+            "event": {
+              "text": "call Sam",
+              "span": {
+                "start": 13,
+                "end": 21
+              }
+            },
+            "selectedChoice": "September 18, 2026 at 2:00 PM CDT to September 18, 2026 at 2:00:30 PM CDT (exclusive end)",
+            "sdkVersion": "0.1.0",
+            "input": "Remind me to call Sam tomorrow at noon for 30 minutes or Friday at 2pm for 30 seconds",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        },
+        {
+          "action": "file-validation",
+          "exported": [
+            [
+              "2026-09-18T19:00:00.000Z",
+              "2026-09-18T19:00:30.000Z"
+            ]
+          ],
+          "fileSha256": "5e272e135712463285745f8cba09597bc7c9cac4e192aac1959d4fedbaf3e58a"
+        },
+        {
+          "action": "edit",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "needs-clarification",
+            "error": {
+              "code": "syntax",
+              "message": "Which date do you want?",
+              "hint": "Choose the date or range to use. Your original text stays here."
+            },
+            "clarification": {
+              "contextKey": "[\"Remind me to call Sam tomorrow at noon for 30 minutes or Friday at 2pm for 30 seconds \",\"America/Chicago\",\"2026-09-12T16:00:00Z\"]",
+              "question": "Which date do you want?",
+              "choices": [
+                {
+                  "id": "alternative:first",
+                  "expression": "Remind me to call Sam tomorrow at noon for 30 minutes",
+                  "label": "Use September 13, 2026 at 12:00 PM CDT to September 13, 2026 at 12:30 PM CDT (exclusive end)"
+                },
+                {
+                  "id": "alternative:second",
+                  "expression": "Friday at 2pm for 30 seconds",
+                  "label": "Use September 18, 2026 at 2:00 PM CDT to September 18, 2026 at 2:00:30 PM CDT (exclusive end)"
+                }
+              ]
+            },
+            "sdkVersion": "0.1.0",
+            "input": "Remind me to call Sam tomorrow at noon for 30 minutes or Friday at 2pm for 30 seconds ",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "id": "short-reminder",
+      "input": "Remind me to call Sam 03/04/2027 at noon for 30 seconds",
+      "reference": "2026-09-12T16:00:00Z",
+      "decisions": [
+        "2027-04-03"
+      ],
+      "expected": [
+        [
+          "2027-04-03T17:00:00.000Z",
+          "2027-04-03T17:00:30.000Z"
+        ]
+      ],
+      "rationale": "Choose April 3 and preserve all thirty elapsed seconds through the complete interval and file.",
+      "context": {
+        "timezone": "America/Chicago",
+        "reference": "2026-09-12T16:00:00Z"
+      },
+      "steps": [
+        {
+          "action": "input",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "needs-clarification",
+            "error": {
+              "code": "syntax",
+              "message": "Which date do you mean?",
+              "hint": "Choose the month and day. Your original text stays here."
+            },
+            "clarification": {
+              "contextKey": "[\"Remind me to call Sam 03/04/2027 at noon for 30 seconds\",\"America/Chicago\",\"2026-09-12T16:00:00Z\"]",
+              "question": "Which date do you mean?",
+              "choices": [
+                {
+                  "id": "2027-03-04",
+                  "expression": "2027-03-04 at noon for 30 seconds",
+                  "label": "March 4, 2027"
+                },
+                {
+                  "id": "2027-04-03",
+                  "expression": "2027-04-03 at noon for 30 seconds",
+                  "label": "April 3, 2027"
+                }
+              ]
+            },
+            "sdkVersion": "0.1.0",
+            "input": "Remind me to call Sam 03/04/2027 at noon for 30 seconds",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        },
+        {
+          "action": "choice",
+          "id": "2027-04-03",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "resolved",
+            "value": {
+              "ok": true,
+              "kind": "interval",
+              "start": {
+                "ok": true,
+                "engineVersion": 2,
+                "expression": "2027-04-03 at noon",
+                "timezone": "America/Chicago",
+                "reference": "2026-09-12T16:00:00.000Z",
+                "normalized": "2027-04-03 at noon",
+                "anchor": {
+                  "iso": "2027-04-03T17:00:00.000Z",
+                  "local": "2027-04-03T12:00:00.000",
+                  "offset": "-05:00",
+                  "timestamp": 1806771600000
+                },
+                "anchorDescription": "Use the exact calendar date. Set the clock to 12:00:00.",
+                "steps": [],
+                "warnings": [],
+                "result": {
+                  "iso": "2027-04-03T17:00:00.000Z",
+                  "local": "2027-04-03T12:00:00.000",
+                  "offset": "-05:00",
+                  "timestamp": 1806771600000
+                }
+              },
+              "end": {
+                "ok": true,
+                "engineVersion": 2,
+                "expression": "now plus 30 seconds",
+                "timezone": "America/Chicago",
+                "reference": "2027-04-03T17:00:00.000Z",
+                "normalized": "now plus 30 seconds",
+                "anchor": {
+                  "iso": "2027-04-03T17:00:00.000Z",
+                  "local": "2027-04-03T12:00:00.000",
+                  "offset": "-05:00",
+                  "timestamp": 1806771600000
+                },
+                "anchorDescription": "Start at the captured reference time.",
+                "steps": [
+                  {
+                    "source": "Add 30 seconds",
+                    "before": {
+                      "iso": "2027-04-03T17:00:00.000Z",
+                      "local": "2027-04-03T12:00:00.000",
+                      "offset": "-05:00",
+                      "timestamp": 1806771600000
+                    },
+                    "after": {
+                      "iso": "2027-04-03T17:00:30.000Z",
+                      "local": "2027-04-03T12:00:30.000",
+                      "offset": "-05:00",
+                      "timestamp": 1806771630000
+                    },
+                    "details": [
+                      "30,000 elapsed milliseconds. No rounding."
+                    ]
+                  }
+                ],
+                "warnings": [],
+                "result": {
+                  "iso": "2027-04-03T17:00:30.000Z",
+                  "local": "2027-04-03T12:00:30.000",
+                  "offset": "-05:00",
+                  "timestamp": 1806771630000
+                }
+              },
+              "allDay": false,
+              "endExclusive": true,
+              "overnight": false
+            },
+            "source": {
+              "text": "03/04/2027 at noon for 30 seconds",
+              "span": {
+                "start": 22,
+                "end": 55
+              }
+            },
+            "event": {
+              "text": "call Sam",
+              "span": {
+                "start": 13,
+                "end": 21
+              }
+            },
+            "assumptions": [
+              "The interval end is exclusive.",
+              "Date interpreted as April 3, 2027."
+            ],
+            "selectedChoice": "April 3, 2027",
+            "sdkVersion": "0.1.0",
+            "input": "Remind me to call Sam 03/04/2027 at noon for 30 seconds",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        },
+        {
+          "action": "file-validation",
+          "exported": [
+            [
+              "2027-04-03T17:00:00.000Z",
+              "2027-04-03T17:00:30.000Z"
+            ]
+          ],
+          "fileSha256": "da940211e8e948e5b165b3bcb33c672789e5d4598ca503023beb01bc6b5538bd"
+        },
+        {
+          "action": "edit",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "needs-clarification",
+            "error": {
+              "code": "syntax",
+              "message": "Which date do you mean?",
+              "hint": "Choose the month and day. Your original text stays here."
+            },
+            "clarification": {
+              "contextKey": "[\"Remind me to call Sam 03/04/2027 at noon for 30 seconds \",\"America/Chicago\",\"2026-09-12T16:00:00Z\"]",
+              "question": "Which date do you mean?",
+              "choices": [
+                {
+                  "id": "2027-03-04",
+                  "expression": "2027-03-04 at noon for 30 seconds",
+                  "label": "March 4, 2027"
+                },
+                {
+                  "id": "2027-04-03",
+                  "expression": "2027-04-03 at noon for 30 seconds",
+                  "label": "April 3, 2027"
+                }
+              ]
+            },
+            "sdkVersion": "0.1.0",
+            "input": "Remind me to call Sam 03/04/2027 at noon for 30 seconds ",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "id": "short-recurring-reminder",
+      "input": "Remind me to call Sam every Sunday at 1:30am for 30 seconds starting 2026-11-01 until 2026-11-08",
+      "reference": "2026-09-12T16:00:00Z",
+      "decisions": [
+        "recurrence:2026-11-01:start:2026-11-01T07:30:00Z"
+      ],
+      "expected": [
+        [
+          "2026-11-01T07:30:00.000Z",
+          "2026-11-01T07:30:30.000Z"
+        ],
+        [
+          "2026-11-08T07:30:00.000Z",
+          "2026-11-08T07:30:30.000Z"
+        ]
+      ],
+      "rationale": "Select the second repeated clock; retain thirty seconds on both bounded Sunday occurrences.",
+      "context": {
+        "timezone": "America/Chicago",
+        "reference": "2026-09-12T16:00:00Z"
+      },
+      "steps": [
+        {
+          "action": "input",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "needs-clarification",
+            "error": {
+              "code": "ambiguous-time",
+              "message": "2026-11-01 start: Which occurrence of this time?",
+              "hint": "That local time is skipped or occurs twice in this timezone. Your choice applies only to this occurrence. Other dates keep their written local clocks."
+            },
+            "clarification": {
+              "contextKey": "[\"Remind me to call Sam every Sunday at 1:30am for 30 seconds starting 2026-11-01 until 2026-11-08\",\"America/Chicago\",\"2026-09-12T16:00:00Z\"]",
+              "question": "2026-11-01 start: Which occurrence of this time?",
+              "choices": [
+                {
+                  "id": "recurrence:2026-11-01:start:2026-11-01T06:30:00Z",
+                  "expression": "2026-11-01 at 1:30am",
+                  "label": "First: November 1, 2026 at 1:30 AM CDT (UTC-05:00)"
+                },
+                {
+                  "id": "recurrence:2026-11-01:start:2026-11-01T07:30:00Z",
+                  "expression": "2026-11-01 at 1:30am",
+                  "label": "Second: November 1, 2026 at 1:30 AM CST (UTC-06:00)"
+                }
+              ]
+            },
+            "sdkVersion": "0.1.0",
+            "input": "Remind me to call Sam every Sunday at 1:30am for 30 seconds starting 2026-11-01 until 2026-11-08",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        },
+        {
+          "action": "choice",
+          "id": "recurrence:2026-11-01:start:2026-11-01T07:30:00Z",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "resolved",
+            "value": {
+              "ok": true,
+              "kind": "recurrence",
+              "timezone": "America/Chicago",
+              "rule": {
+                "frequency": "weekly",
+                "weekdays": [
+                  7
+                ],
+                "startClock": "1:30am",
+                "duration": {
+                  "amount": 30,
+                  "unit": "seconds"
+                },
+                "starting": "2026-11-01",
+                "until": "2026-11-08",
+                "exceptions": [],
+                "clockOverrides": [
+                  {
+                    "date": "2026-11-01",
+                    "endpoint": "start",
+                    "instant": "2026-11-01T07:30:00Z",
+                    "label": "Start: Second: November 1, 2026 at 1:30 AM CST (UTC-06:00)"
+                  }
+                ]
+              },
+              "occurrences": [
+                {
+                  "start": {
+                    "ok": true,
+                    "engineVersion": 2,
+                    "expression": "now",
+                    "timezone": "America/Chicago",
+                    "reference": "2026-11-01T07:30:00.000Z",
+                    "normalized": "now",
+                    "anchor": {
+                      "iso": "2026-11-01T07:30:00.000Z",
+                      "local": "2026-11-01T01:30:00.000",
+                      "offset": "-06:00",
+                      "timestamp": 1793518200000
+                    },
+                    "anchorDescription": "Use the explicitly selected start: Second: November 1, 2026 at 1:30 AM CST (UTC-06:00)",
+                    "steps": [],
+                    "warnings": [],
+                    "result": {
+                      "iso": "2026-11-01T07:30:00.000Z",
+                      "local": "2026-11-01T01:30:00.000",
+                      "offset": "-06:00",
+                      "timestamp": 1793518200000
+                    }
+                  },
+                  "end": {
+                    "ok": true,
+                    "engineVersion": 2,
+                    "expression": "now plus 30 seconds",
+                    "timezone": "America/Chicago",
+                    "reference": "2026-11-01T07:30:00.000Z",
+                    "normalized": "now plus 30 seconds",
+                    "anchor": {
+                      "iso": "2026-11-01T07:30:00.000Z",
+                      "local": "2026-11-01T01:30:00.000",
+                      "offset": "-06:00",
+                      "timestamp": 1793518200000
+                    },
+                    "anchorDescription": "Start at the captured reference time.",
+                    "steps": [
+                      {
+                        "source": "Add 30 seconds",
+                        "before": {
+                          "iso": "2026-11-01T07:30:00.000Z",
+                          "local": "2026-11-01T01:30:00.000",
+                          "offset": "-06:00",
+                          "timestamp": 1793518200000
+                        },
+                        "after": {
+                          "iso": "2026-11-01T07:30:30.000Z",
+                          "local": "2026-11-01T01:30:30.000",
+                          "offset": "-06:00",
+                          "timestamp": 1793518230000
+                        },
+                        "details": [
+                          "30,000 elapsed milliseconds. No rounding."
+                        ]
+                      }
+                    ],
+                    "warnings": [],
+                    "result": {
+                      "iso": "2026-11-01T07:30:30.000Z",
+                      "local": "2026-11-01T01:30:30.000",
+                      "offset": "-06:00",
+                      "timestamp": 1793518230000
+                    }
+                  }
+                },
+                {
+                  "start": {
+                    "ok": true,
+                    "engineVersion": 2,
+                    "expression": "2026-11-08 at 1:30am",
+                    "timezone": "America/Chicago",
+                    "reference": "2026-09-12T16:00:00.000Z",
+                    "normalized": "2026-11-08 at 1:30 am",
+                    "anchor": {
+                      "iso": "2026-11-08T07:30:00.000Z",
+                      "local": "2026-11-08T01:30:00.000",
+                      "offset": "-06:00",
+                      "timestamp": 1794123000000
+                    },
+                    "anchorDescription": "Use the exact calendar date. Set the clock to 01:30:00.",
+                    "steps": [],
+                    "warnings": [],
+                    "result": {
+                      "iso": "2026-11-08T07:30:00.000Z",
+                      "local": "2026-11-08T01:30:00.000",
+                      "offset": "-06:00",
+                      "timestamp": 1794123000000
+                    }
+                  },
+                  "end": {
+                    "ok": true,
+                    "engineVersion": 2,
+                    "expression": "now plus 30 seconds",
+                    "timezone": "America/Chicago",
+                    "reference": "2026-11-08T07:30:00.000Z",
+                    "normalized": "now plus 30 seconds",
+                    "anchor": {
+                      "iso": "2026-11-08T07:30:00.000Z",
+                      "local": "2026-11-08T01:30:00.000",
+                      "offset": "-06:00",
+                      "timestamp": 1794123000000
+                    },
+                    "anchorDescription": "Start at the captured reference time.",
+                    "steps": [
+                      {
+                        "source": "Add 30 seconds",
+                        "before": {
+                          "iso": "2026-11-08T07:30:00.000Z",
+                          "local": "2026-11-08T01:30:00.000",
+                          "offset": "-06:00",
+                          "timestamp": 1794123000000
+                        },
+                        "after": {
+                          "iso": "2026-11-08T07:30:30.000Z",
+                          "local": "2026-11-08T01:30:30.000",
+                          "offset": "-06:00",
+                          "timestamp": 1794123030000
+                        },
+                        "details": [
+                          "30,000 elapsed milliseconds. No rounding."
+                        ]
+                      }
+                    ],
+                    "warnings": [],
+                    "result": {
+                      "iso": "2026-11-08T07:30:30.000Z",
+                      "local": "2026-11-08T01:30:30.000",
+                      "offset": "-06:00",
+                      "timestamp": 1794123030000
+                    }
+                  }
+                }
+              ],
+              "truncated": false,
+              "validation": "preview-only"
+            },
+            "source": {
+              "text": "every Sunday at 1:30am for 30 seconds starting 2026-11-01 until 2026-11-08",
+              "span": {
+                "start": 22,
+                "end": 96
+              }
+            },
+            "event": {
+              "text": "call Sam",
+              "span": {
+                "start": 13,
+                "end": 21
+              }
+            },
+            "apiReplay": false,
+            "assumptions": [
+              "Only upcoming occurrence starts appear in the preview.",
+              "Recurrence export has not been validated.",
+              "For 2026-11-01 start only, you selected Start: Second: November 1, 2026 at 1:30 AM CST (UTC-06:00). Other occurrences keep their written local clocks."
+            ],
+            "sdkVersion": "0.1.0",
+            "input": "Remind me to call Sam every Sunday at 1:30am for 30 seconds starting 2026-11-01 until 2026-11-08",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        },
+        {
+          "action": "file-validation",
+          "exported": [
+            [
+              "2026-11-01T07:30:00.000Z",
+              "2026-11-01T07:30:30.000Z"
+            ],
+            [
+              "2026-11-08T07:30:00.000Z",
+              "2026-11-08T07:30:30.000Z"
+            ]
+          ],
+          "fileSha256": "4cc1d231cd5bf85a016b9b13a88f8c57d461d75a9f5e8ddf4cebb297bb743769"
+        },
+        {
+          "action": "edit",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "needs-clarification",
+            "error": {
+              "code": "ambiguous-time",
+              "message": "2026-11-01 start: Which occurrence of this time?",
+              "hint": "That local time is skipped or occurs twice in this timezone. Your choice applies only to this occurrence. Other dates keep their written local clocks."
+            },
+            "clarification": {
+              "contextKey": "[\"Remind me to call Sam every Sunday at 1:30am for 30 seconds starting 2026-11-01 until 2026-11-08 \",\"America/Chicago\",\"2026-09-12T16:00:00Z\"]",
+              "question": "2026-11-01 start: Which occurrence of this time?",
+              "choices": [
+                {
+                  "id": "recurrence:2026-11-01:start:2026-11-01T06:30:00Z",
+                  "expression": "2026-11-01 at 1:30am",
+                  "label": "First: November 1, 2026 at 1:30 AM CDT (UTC-05:00)"
+                },
+                {
+                  "id": "recurrence:2026-11-01:start:2026-11-01T07:30:00Z",
+                  "expression": "2026-11-01 at 1:30am",
+                  "label": "Second: November 1, 2026 at 1:30 AM CST (UTC-06:00)"
+                }
+              ]
+            },
+            "sdkVersion": "0.1.0",
+            "input": "Remind me to call Sam every Sunday at 1:30am for 30 seconds starting 2026-11-01 until 2026-11-08 ",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "id": "all-day-reminder",
+      "input": "Remind me to call Sam 03/04/2027",
+      "reference": "2026-09-12T16:00:00Z",
+      "decisions": [
+        "2027-04-03"
+      ],
+      "expected": [
+        [
+          "2027-04-03T05:00:00.000Z",
+          "2027-04-03T05:00:00.000Z"
+        ]
+      ],
+      "calendarDates": [
+        [
+          "2027-04-03",
+          "2027-04-04"
+        ]
+      ],
+      "rationale": "Choose April 3. Export a civil all-day date with an implicit exclusive next-day end, not a midnight instant.",
+      "context": {
+        "timezone": "America/Chicago",
+        "reference": "2026-09-12T16:00:00Z"
+      },
+      "steps": [
+        {
+          "action": "input",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "needs-clarification",
+            "error": {
+              "code": "syntax",
+              "message": "Which date do you mean?",
+              "hint": "Choose the month and day. Your original text stays here."
+            },
+            "clarification": {
+              "contextKey": "[\"Remind me to call Sam 03/04/2027\",\"America/Chicago\",\"2026-09-12T16:00:00Z\"]",
+              "question": "Which date do you mean?",
+              "choices": [
+                {
+                  "id": "2027-03-04",
+                  "expression": "2027-03-04",
+                  "label": "March 4, 2027"
+                },
+                {
+                  "id": "2027-04-03",
+                  "expression": "2027-04-03",
+                  "label": "April 3, 2027"
+                }
+              ]
+            },
+            "sdkVersion": "0.1.0",
+            "input": "Remind me to call Sam 03/04/2027",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        },
+        {
+          "action": "choice",
+          "id": "2027-04-03",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "resolved",
+            "value": {
+              "kind": "point",
+              "calculation": {
+                "ok": true,
+                "engineVersion": 2,
+                "expression": "2027-04-03",
+                "timezone": "America/Chicago",
+                "reference": "2026-09-12T16:00:00.000Z",
+                "normalized": "2027-04-03",
+                "anchor": {
+                  "iso": "2027-04-03T05:00:00.000Z",
+                  "local": "2027-04-03T00:00:00.000",
+                  "offset": "-05:00",
+                  "timestamp": 1806728400000
+                },
+                "anchorDescription": "Use the exact calendar date. Start at midnight.",
+                "steps": [],
+                "warnings": [],
+                "result": {
+                  "iso": "2027-04-03T05:00:00.000Z",
+                  "local": "2027-04-03T00:00:00.000",
+                  "offset": "-05:00",
+                  "timestamp": 1806728400000
+                }
+              },
+              "precision": "date",
+              "clockSource": "default"
+            },
+            "source": {
+              "text": "03/04/2027",
+              "span": {
+                "start": 22,
+                "end": 32
+              }
+            },
+            "event": {
+              "text": "call Sam",
+              "span": {
+                "start": 13,
+                "end": 21
+              }
+            },
+            "assumptions": [
+              "The event text is a label only; no reminder has been created.",
+              "Date interpreted as April 3, 2027."
+            ],
+            "selectedChoice": "April 3, 2027",
+            "sdkVersion": "0.1.0",
+            "input": "Remind me to call Sam 03/04/2027",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        },
+        {
+          "action": "file-validation",
+          "exported": [
+            [
+              "2027-04-03",
+              "2027-04-04"
+            ]
+          ],
+          "fileSha256": "6744099b7f91b044fab272608105ef79c071c2fa1411d466f1b12ef298fbcc08"
+        },
+        {
+          "action": "edit",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "needs-clarification",
+            "error": {
+              "code": "syntax",
+              "message": "Which date do you mean?",
+              "hint": "Choose the month and day. Your original text stays here."
+            },
+            "clarification": {
+              "contextKey": "[\"Remind me to call Sam 03/04/2027 \",\"America/Chicago\",\"2026-09-12T16:00:00Z\"]",
+              "question": "Which date do you mean?",
+              "choices": [
+                {
+                  "id": "2027-03-04",
+                  "expression": "2027-03-04",
+                  "label": "March 4, 2027"
+                },
+                {
+                  "id": "2027-04-03",
+                  "expression": "2027-04-03",
+                  "label": "April 3, 2027"
+                }
+              ]
+            },
+            "sdkVersion": "0.1.0",
+            "input": "Remind me to call Sam 03/04/2027 ",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "id": "midnight-reminder",
+      "input": "Remind me to call Sam 03/04/2027 at midnight",
+      "reference": "2026-09-12T16:00:00Z",
+      "decisions": [
+        "2027-04-03"
+      ],
+      "expected": [
+        [
+          "2027-04-03T05:00:00.000Z",
+          "2027-04-03T05:00:00.000Z"
+        ]
+      ],
+      "rationale": "Choose April 3 at midnight CDT. Keep the exact 05:00Z instant without inventing a duration; do not turn it into an all-day date.",
+      "context": {
+        "timezone": "America/Chicago",
+        "reference": "2026-09-12T16:00:00Z"
+      },
+      "steps": [
+        {
+          "action": "input",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "needs-clarification",
+            "error": {
+              "code": "syntax",
+              "message": "Which date do you mean?",
+              "hint": "Choose the month and day. Your original text stays here."
+            },
+            "clarification": {
+              "contextKey": "[\"Remind me to call Sam 03/04/2027 at midnight\",\"America/Chicago\",\"2026-09-12T16:00:00Z\"]",
+              "question": "Which date do you mean?",
+              "choices": [
+                {
+                  "id": "2027-03-04",
+                  "expression": "2027-03-04 at midnight",
+                  "label": "March 4, 2027"
+                },
+                {
+                  "id": "2027-04-03",
+                  "expression": "2027-04-03 at midnight",
+                  "label": "April 3, 2027"
+                }
+              ]
+            },
+            "sdkVersion": "0.1.0",
+            "input": "Remind me to call Sam 03/04/2027 at midnight",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        },
+        {
+          "action": "choice",
+          "id": "2027-04-03",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "resolved",
+            "value": {
+              "kind": "point",
+              "calculation": {
+                "ok": true,
+                "engineVersion": 2,
+                "expression": "2027-04-03 at midnight",
+                "timezone": "America/Chicago",
+                "reference": "2026-09-12T16:00:00.000Z",
+                "normalized": "2027-04-03 at midnight",
+                "anchor": {
+                  "iso": "2027-04-03T05:00:00.000Z",
+                  "local": "2027-04-03T00:00:00.000",
+                  "offset": "-05:00",
+                  "timestamp": 1806728400000
+                },
+                "anchorDescription": "Use the exact calendar date. Set the clock to 00:00:00.",
+                "steps": [],
+                "warnings": [],
+                "result": {
+                  "iso": "2027-04-03T05:00:00.000Z",
+                  "local": "2027-04-03T00:00:00.000",
+                  "offset": "-05:00",
+                  "timestamp": 1806728400000
+                }
+              },
+              "precision": "time",
+              "clockSource": "explicit"
+            },
+            "source": {
+              "text": "03/04/2027 at midnight",
+              "span": {
+                "start": 22,
+                "end": 44
+              }
+            },
+            "event": {
+              "text": "call Sam",
+              "span": {
+                "start": 13,
+                "end": 21
+              }
+            },
+            "assumptions": [
+              "The event text is a label only; no reminder has been created.",
+              "Date interpreted as April 3, 2027."
+            ],
+            "selectedChoice": "April 3, 2027",
+            "sdkVersion": "0.1.0",
+            "input": "Remind me to call Sam 03/04/2027 at midnight",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        },
+        {
+          "action": "file-validation",
+          "exported": [
+            [
+              "2027-04-03T05:00:00.000Z",
+              "2027-04-03T05:00:00.000Z"
+            ]
+          ],
+          "fileSha256": "840a1fca64f0dfe23f1bc43511d097dffa62abdf847d830b3b0682351b95fec5"
+        },
+        {
+          "action": "edit",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "needs-clarification",
+            "error": {
+              "code": "syntax",
+              "message": "Which date do you mean?",
+              "hint": "Choose the month and day. Your original text stays here."
+            },
+            "clarification": {
+              "contextKey": "[\"Remind me to call Sam 03/04/2027 at midnight \",\"America/Chicago\",\"2026-09-12T16:00:00Z\"]",
+              "question": "Which date do you mean?",
+              "choices": [
+                {
+                  "id": "2027-03-04",
+                  "expression": "2027-03-04 at midnight",
+                  "label": "March 4, 2027"
+                },
+                {
+                  "id": "2027-04-03",
+                  "expression": "2027-04-03 at midnight",
+                  "label": "April 3, 2027"
+                }
+              ]
+            },
+            "sdkVersion": "0.1.0",
+            "input": "Remind me to call Sam 03/04/2027 at midnight ",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "id": "fortnightly-reminder",
+      "input": "Remind me to call Sam every other Sunday at 1:30am for 30 minutes starting 2026-10-18 until 2026-11-29 except 2026-11-15",
+      "reference": "2026-09-12T16:00:00Z",
+      "decisions": [
+        "recurrence:2026-11-01:start:2026-11-01T07:30:00Z"
+      ],
+      "expected": [
+        [
+          "2026-10-18T06:30:00.000Z",
+          "2026-10-18T07:00:00.000Z"
+        ],
+        [
+          "2026-11-01T07:30:00.000Z",
+          "2026-11-01T08:00:00.000Z"
+        ],
+        [
+          "2026-11-29T07:30:00.000Z",
+          "2026-11-29T08:00:00.000Z"
+        ]
+      ],
+      "rationale": "Retain alternate Sundays anchored October 18; choose the second repeated clock on November 1, omit November 15, and retain November 29.",
+      "context": {
+        "timezone": "America/Chicago",
+        "reference": "2026-09-12T16:00:00Z"
+      },
+      "steps": [
+        {
+          "action": "input",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "needs-clarification",
+            "error": {
+              "code": "ambiguous-time",
+              "message": "2026-11-01 start: Which occurrence of this time?",
+              "hint": "That local time is skipped or occurs twice in this timezone. Your choice applies only to this occurrence. Other dates keep their written local clocks."
+            },
+            "clarification": {
+              "contextKey": "[\"Remind me to call Sam every other Sunday at 1:30am for 30 minutes starting 2026-10-18 until 2026-11-29 except 2026-11-15\",\"America/Chicago\",\"2026-09-12T16:00:00Z\"]",
+              "question": "2026-11-01 start: Which occurrence of this time?",
+              "choices": [
+                {
+                  "id": "recurrence:2026-11-01:start:2026-11-01T06:30:00Z",
+                  "expression": "2026-11-01 at 1:30am",
+                  "label": "First: November 1, 2026 at 1:30 AM CDT (UTC-05:00)"
+                },
+                {
+                  "id": "recurrence:2026-11-01:start:2026-11-01T07:30:00Z",
+                  "expression": "2026-11-01 at 1:30am",
+                  "label": "Second: November 1, 2026 at 1:30 AM CST (UTC-06:00)"
+                }
+              ]
+            },
+            "sdkVersion": "0.1.0",
+            "input": "Remind me to call Sam every other Sunday at 1:30am for 30 minutes starting 2026-10-18 until 2026-11-29 except 2026-11-15",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        },
+        {
+          "action": "choice",
+          "id": "recurrence:2026-11-01:start:2026-11-01T07:30:00Z",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "resolved",
+            "value": {
+              "ok": true,
+              "kind": "recurrence",
+              "timezone": "America/Chicago",
+              "rule": {
+                "frequency": "weekly",
+                "interval": 2,
+                "weekdays": [
+                  7
+                ],
+                "startClock": "1:30am",
+                "duration": {
+                  "amount": 30,
+                  "unit": "minutes"
+                },
+                "starting": "2026-10-18",
+                "until": "2026-11-29",
+                "exceptions": [
+                  "2026-11-15"
+                ],
+                "clockOverrides": [
+                  {
+                    "date": "2026-11-01",
+                    "endpoint": "start",
+                    "instant": "2026-11-01T07:30:00Z",
+                    "label": "Start: Second: November 1, 2026 at 1:30 AM CST (UTC-06:00)"
+                  }
+                ]
+              },
+              "occurrences": [
+                {
+                  "start": {
+                    "ok": true,
+                    "engineVersion": 2,
+                    "expression": "2026-10-18 at 1:30am",
+                    "timezone": "America/Chicago",
+                    "reference": "2026-09-12T16:00:00.000Z",
+                    "normalized": "2026-10-18 at 1:30 am",
+                    "anchor": {
+                      "iso": "2026-10-18T06:30:00.000Z",
+                      "local": "2026-10-18T01:30:00.000",
+                      "offset": "-05:00",
+                      "timestamp": 1792305000000
+                    },
+                    "anchorDescription": "Use the exact calendar date. Set the clock to 01:30:00.",
+                    "steps": [],
+                    "warnings": [],
+                    "result": {
+                      "iso": "2026-10-18T06:30:00.000Z",
+                      "local": "2026-10-18T01:30:00.000",
+                      "offset": "-05:00",
+                      "timestamp": 1792305000000
+                    }
+                  },
+                  "end": {
+                    "ok": true,
+                    "engineVersion": 2,
+                    "expression": "now plus 30 minutes",
+                    "timezone": "America/Chicago",
+                    "reference": "2026-10-18T06:30:00.000Z",
+                    "normalized": "now plus 30 minutes",
+                    "anchor": {
+                      "iso": "2026-10-18T06:30:00.000Z",
+                      "local": "2026-10-18T01:30:00.000",
+                      "offset": "-05:00",
+                      "timestamp": 1792305000000
+                    },
+                    "anchorDescription": "Start at the captured reference time.",
+                    "steps": [
+                      {
+                        "source": "Add 30 minutes",
+                        "before": {
+                          "iso": "2026-10-18T06:30:00.000Z",
+                          "local": "2026-10-18T01:30:00.000",
+                          "offset": "-05:00",
+                          "timestamp": 1792305000000
+                        },
+                        "after": {
+                          "iso": "2026-10-18T07:00:00.000Z",
+                          "local": "2026-10-18T02:00:00.000",
+                          "offset": "-05:00",
+                          "timestamp": 1792306800000
+                        },
+                        "details": [
+                          "1,800,000 elapsed milliseconds. No rounding."
+                        ]
+                      }
+                    ],
+                    "warnings": [],
+                    "result": {
+                      "iso": "2026-10-18T07:00:00.000Z",
+                      "local": "2026-10-18T02:00:00.000",
+                      "offset": "-05:00",
+                      "timestamp": 1792306800000
+                    }
+                  }
+                },
+                {
+                  "start": {
+                    "ok": true,
+                    "engineVersion": 2,
+                    "expression": "now",
+                    "timezone": "America/Chicago",
+                    "reference": "2026-11-01T07:30:00.000Z",
+                    "normalized": "now",
+                    "anchor": {
+                      "iso": "2026-11-01T07:30:00.000Z",
+                      "local": "2026-11-01T01:30:00.000",
+                      "offset": "-06:00",
+                      "timestamp": 1793518200000
+                    },
+                    "anchorDescription": "Use the explicitly selected start: Second: November 1, 2026 at 1:30 AM CST (UTC-06:00)",
+                    "steps": [],
+                    "warnings": [],
+                    "result": {
+                      "iso": "2026-11-01T07:30:00.000Z",
+                      "local": "2026-11-01T01:30:00.000",
+                      "offset": "-06:00",
+                      "timestamp": 1793518200000
+                    }
+                  },
+                  "end": {
+                    "ok": true,
+                    "engineVersion": 2,
+                    "expression": "now plus 30 minutes",
+                    "timezone": "America/Chicago",
+                    "reference": "2026-11-01T07:30:00.000Z",
+                    "normalized": "now plus 30 minutes",
+                    "anchor": {
+                      "iso": "2026-11-01T07:30:00.000Z",
+                      "local": "2026-11-01T01:30:00.000",
+                      "offset": "-06:00",
+                      "timestamp": 1793518200000
+                    },
+                    "anchorDescription": "Start at the captured reference time.",
+                    "steps": [
+                      {
+                        "source": "Add 30 minutes",
+                        "before": {
+                          "iso": "2026-11-01T07:30:00.000Z",
+                          "local": "2026-11-01T01:30:00.000",
+                          "offset": "-06:00",
+                          "timestamp": 1793518200000
+                        },
+                        "after": {
+                          "iso": "2026-11-01T08:00:00.000Z",
+                          "local": "2026-11-01T02:00:00.000",
+                          "offset": "-06:00",
+                          "timestamp": 1793520000000
+                        },
+                        "details": [
+                          "1,800,000 elapsed milliseconds. No rounding."
+                        ]
+                      }
+                    ],
+                    "warnings": [],
+                    "result": {
+                      "iso": "2026-11-01T08:00:00.000Z",
+                      "local": "2026-11-01T02:00:00.000",
+                      "offset": "-06:00",
+                      "timestamp": 1793520000000
+                    }
+                  }
+                },
+                {
+                  "start": {
+                    "ok": true,
+                    "engineVersion": 2,
+                    "expression": "2026-11-29 at 1:30am",
+                    "timezone": "America/Chicago",
+                    "reference": "2026-09-12T16:00:00.000Z",
+                    "normalized": "2026-11-29 at 1:30 am",
+                    "anchor": {
+                      "iso": "2026-11-29T07:30:00.000Z",
+                      "local": "2026-11-29T01:30:00.000",
+                      "offset": "-06:00",
+                      "timestamp": 1795937400000
+                    },
+                    "anchorDescription": "Use the exact calendar date. Set the clock to 01:30:00.",
+                    "steps": [],
+                    "warnings": [],
+                    "result": {
+                      "iso": "2026-11-29T07:30:00.000Z",
+                      "local": "2026-11-29T01:30:00.000",
+                      "offset": "-06:00",
+                      "timestamp": 1795937400000
+                    }
+                  },
+                  "end": {
+                    "ok": true,
+                    "engineVersion": 2,
+                    "expression": "now plus 30 minutes",
+                    "timezone": "America/Chicago",
+                    "reference": "2026-11-29T07:30:00.000Z",
+                    "normalized": "now plus 30 minutes",
+                    "anchor": {
+                      "iso": "2026-11-29T07:30:00.000Z",
+                      "local": "2026-11-29T01:30:00.000",
+                      "offset": "-06:00",
+                      "timestamp": 1795937400000
+                    },
+                    "anchorDescription": "Start at the captured reference time.",
+                    "steps": [
+                      {
+                        "source": "Add 30 minutes",
+                        "before": {
+                          "iso": "2026-11-29T07:30:00.000Z",
+                          "local": "2026-11-29T01:30:00.000",
+                          "offset": "-06:00",
+                          "timestamp": 1795937400000
+                        },
+                        "after": {
+                          "iso": "2026-11-29T08:00:00.000Z",
+                          "local": "2026-11-29T02:00:00.000",
+                          "offset": "-06:00",
+                          "timestamp": 1795939200000
+                        },
+                        "details": [
+                          "1,800,000 elapsed milliseconds. No rounding."
+                        ]
+                      }
+                    ],
+                    "warnings": [],
+                    "result": {
+                      "iso": "2026-11-29T08:00:00.000Z",
+                      "local": "2026-11-29T02:00:00.000",
+                      "offset": "-06:00",
+                      "timestamp": 1795939200000
+                    }
+                  }
+                }
+              ],
+              "truncated": false,
+              "validation": "preview-only"
+            },
+            "source": {
+              "text": "every other Sunday at 1:30am for 30 minutes starting 2026-10-18 until 2026-11-29 except 2026-11-15",
+              "span": {
+                "start": 22,
+                "end": 120
+              }
+            },
+            "event": {
+              "text": "call Sam",
+              "span": {
+                "start": 13,
+                "end": 21
+              }
+            },
+            "apiReplay": false,
+            "assumptions": [
+              "Only upcoming occurrence starts appear in the preview.",
+              "Recurrence export has not been validated.",
+              "For 2026-11-01 start only, you selected Start: Second: November 1, 2026 at 1:30 AM CST (UTC-06:00). Other occurrences keep their written local clocks."
+            ],
+            "sdkVersion": "0.1.0",
+            "input": "Remind me to call Sam every other Sunday at 1:30am for 30 minutes starting 2026-10-18 until 2026-11-29 except 2026-11-15",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        },
+        {
+          "action": "file-validation",
+          "exported": [
+            [
+              "2026-10-18T06:30:00.000Z",
+              "2026-10-18T07:00:00.000Z"
+            ],
+            [
+              "2026-11-01T07:30:00.000Z",
+              "2026-11-01T08:00:00.000Z"
+            ],
+            [
+              "2026-11-29T07:30:00.000Z",
+              "2026-11-29T08:00:00.000Z"
+            ]
+          ],
+          "fileSha256": "7dadc18b0f3123259a520836bb89db5fda57cafa81f184cdfcf16fb4ef438ffd"
+        },
+        {
+          "action": "edit",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "needs-clarification",
+            "error": {
+              "code": "ambiguous-time",
+              "message": "2026-11-01 start: Which occurrence of this time?",
+              "hint": "That local time is skipped or occurs twice in this timezone. Your choice applies only to this occurrence. Other dates keep their written local clocks."
+            },
+            "clarification": {
+              "contextKey": "[\"Remind me to call Sam every other Sunday at 1:30am for 30 minutes starting 2026-10-18 until 2026-11-29 except 2026-11-15 \",\"America/Chicago\",\"2026-09-12T16:00:00Z\"]",
+              "question": "2026-11-01 start: Which occurrence of this time?",
+              "choices": [
+                {
+                  "id": "recurrence:2026-11-01:start:2026-11-01T06:30:00Z",
+                  "expression": "2026-11-01 at 1:30am",
+                  "label": "First: November 1, 2026 at 1:30 AM CDT (UTC-05:00)"
+                },
+                {
+                  "id": "recurrence:2026-11-01:start:2026-11-01T07:30:00Z",
+                  "expression": "2026-11-01 at 1:30am",
+                  "label": "Second: November 1, 2026 at 1:30 AM CST (UTC-06:00)"
+                }
+              ]
+            },
+            "sdkVersion": "0.1.0",
+            "input": "Remind me to call Sam every other Sunday at 1:30am for 30 minutes starting 2026-10-18 until 2026-11-29 except 2026-11-15 ",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "id": "group-clock-reminder",
+      "input": "Remind me to call Sam Sun 1:15am-1:45am Mon 9am-10am",
+      "reference": "2026-10-31T12:00:00Z",
+      "decisions": [
+        "group:0:start:2026-11-01T07:15:00Z",
+        "group:0:end:2026-11-01T07:45:00Z"
+      ],
+      "expected": [
+        [
+          "2026-11-01T07:15:00.000Z",
+          "2026-11-01T07:45:00.000Z"
+        ],
+        [
+          "2026-11-02T15:00:00.000Z",
+          "2026-11-02T16:00:00.000Z"
+        ]
+      ],
+      "rationale": "Choose the second repeated start and end for Sunday; retain Monday's complete interval and the reminder text.",
+      "context": {
+        "timezone": "America/Chicago",
+        "reference": "2026-10-31T12:00:00Z"
+      },
+      "steps": [
+        {
+          "action": "input",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "needs-clarification",
+            "error": {
+              "code": "ambiguous-time",
+              "message": "Range 1 (Sun), start: Which occurrence of this time?",
+              "hint": "That local time is skipped or occurs twice in this timezone. This choice affects only this listed date or range."
+            },
+            "clarification": {
+              "contextKey": "[\"Remind me to call Sam Sun 1:15am-1:45am Mon 9am-10am\",\"America/Chicago\",\"2026-10-31T12:00:00Z\"]",
+              "question": "Range 1 (Sun), start: Which occurrence of this time?",
+              "choices": [
+                {
+                  "id": "group:0:start:2026-11-01T06:15:00Z",
+                  "expression": "Sun at 1:15am",
+                  "label": "First: November 1, 2026 at 1:15 AM CDT (UTC-05:00)"
+                },
+                {
+                  "id": "group:0:start:2026-11-01T07:15:00Z",
+                  "expression": "Sun at 1:15am",
+                  "label": "Second: November 1, 2026 at 1:15 AM CST (UTC-06:00)"
+                }
+              ]
+            },
+            "sdkVersion": "0.1.0",
+            "input": "Remind me to call Sam Sun 1:15am-1:45am Mon 9am-10am",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-10-31T12:00:00Z"
+            }
+          }
+        },
+        {
+          "action": "choice",
+          "id": "group:0:start:2026-11-01T07:15:00Z",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "needs-clarification",
+            "error": {
+              "code": "ambiguous-time",
+              "message": "Range 1 (Sun), end: Which occurrence of this time?",
+              "hint": "That local time is skipped or occurs twice in this timezone. This choice affects only this listed date or range."
+            },
+            "clarification": {
+              "contextKey": "[\"Remind me to call Sam Sun 1:15am-1:45am Mon 9am-10am\",\"America/Chicago\",\"2026-10-31T12:00:00Z\"]",
+              "question": "Range 1 (Sun), end: Which occurrence of this time?",
+              "choices": [
+                {
+                  "id": "group:0:end:2026-11-01T06:45:00Z",
+                  "expression": "2026-11-01 at 1:45am",
+                  "label": "First: November 1, 2026 at 1:45 AM CDT (UTC-05:00)"
+                },
+                {
+                  "id": "group:0:end:2026-11-01T07:45:00Z",
+                  "expression": "2026-11-01 at 1:45am",
+                  "label": "Second: November 1, 2026 at 1:45 AM CST (UTC-06:00)"
+                }
+              ]
+            },
+            "sdkVersion": "0.1.0",
+            "input": "Remind me to call Sam Sun 1:15am-1:45am Mon 9am-10am",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-10-31T12:00:00Z"
+            }
+          }
+        },
+        {
+          "action": "choice",
+          "id": "group:0:end:2026-11-01T07:45:00Z",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "resolved",
+            "value": {
+              "ok": true,
+              "kind": "collection",
+              "timezone": "America/Chicago",
+              "truncated": false,
+              "occurrences": [
+                {
+                  "start": {
+                    "ok": true,
+                    "engineVersion": 2,
+                    "expression": "now",
+                    "timezone": "America/Chicago",
+                    "reference": "2026-11-01T07:15:00.000Z",
+                    "normalized": "now",
+                    "anchor": {
+                      "iso": "2026-11-01T07:15:00.000Z",
+                      "local": "2026-11-01T01:15:00.000",
+                      "offset": "-06:00",
+                      "timestamp": 1793517300000
+                    },
+                    "anchorDescription": "Use the explicitly selected start: Second: November 1, 2026 at 1:15 AM CST (UTC-06:00)",
+                    "steps": [],
+                    "warnings": [],
+                    "result": {
+                      "iso": "2026-11-01T07:15:00.000Z",
+                      "local": "2026-11-01T01:15:00.000",
+                      "offset": "-06:00",
+                      "timestamp": 1793517300000
+                    }
+                  },
+                  "end": {
+                    "ok": true,
+                    "engineVersion": 2,
+                    "expression": "now",
+                    "timezone": "America/Chicago",
+                    "reference": "2026-11-01T07:45:00.000Z",
+                    "normalized": "now",
+                    "anchor": {
+                      "iso": "2026-11-01T07:45:00.000Z",
+                      "local": "2026-11-01T01:45:00.000",
+                      "offset": "-06:00",
+                      "timestamp": 1793519100000
+                    },
+                    "anchorDescription": "Use the explicitly selected end: Second: November 1, 2026 at 1:45 AM CST (UTC-06:00)",
+                    "steps": [],
+                    "warnings": [],
+                    "result": {
+                      "iso": "2026-11-01T07:45:00.000Z",
+                      "local": "2026-11-01T01:45:00.000",
+                      "offset": "-06:00",
+                      "timestamp": 1793519100000
+                    }
+                  },
+                  "source": {
+                    "text": "Sun 1:15am-1:45am",
+                    "span": {
+                      "start": 22,
+                      "end": 39
+                    }
+                  },
+                  "allDay": false
+                },
+                {
+                  "start": {
+                    "ok": true,
+                    "engineVersion": 2,
+                    "expression": "Mon at 9am",
+                    "timezone": "America/Chicago",
+                    "reference": "2026-10-31T12:00:00.000Z",
+                    "normalized": "mon at 9 am",
+                    "anchor": {
+                      "iso": "2026-11-02T15:00:00.000Z",
+                      "local": "2026-11-02T09:00:00.000",
+                      "offset": "-06:00",
+                      "timestamp": 1793631600000
+                    },
+                    "anchorDescription": "Use the next Monday, excluding today. Set the clock to 09:00:00.",
+                    "steps": [],
+                    "warnings": [],
+                    "result": {
+                      "iso": "2026-11-02T15:00:00.000Z",
+                      "local": "2026-11-02T09:00:00.000",
+                      "offset": "-06:00",
+                      "timestamp": 1793631600000
+                    }
+                  },
+                  "end": {
+                    "ok": true,
+                    "engineVersion": 2,
+                    "expression": "2026-11-02 at 10am",
+                    "timezone": "America/Chicago",
+                    "reference": "2026-10-31T12:00:00.000Z",
+                    "normalized": "2026-11-02 at 10 am",
+                    "anchor": {
+                      "iso": "2026-11-02T16:00:00.000Z",
+                      "local": "2026-11-02T10:00:00.000",
+                      "offset": "-06:00",
+                      "timestamp": 1793635200000
+                    },
+                    "anchorDescription": "Use the exact calendar date. Set the clock to 10:00:00.",
+                    "steps": [],
+                    "warnings": [],
+                    "result": {
+                      "iso": "2026-11-02T16:00:00.000Z",
+                      "local": "2026-11-02T10:00:00.000",
+                      "offset": "-06:00",
+                      "timestamp": 1793635200000
+                    }
+                  },
+                  "source": {
+                    "text": "Mon 9am-10am",
+                    "span": {
+                      "start": 40,
+                      "end": 52
+                    }
+                  },
+                  "allDay": false
+                }
+              ],
+              "selectedClocks": [
+                "Range 1 (Sun): Start: Second: November 1, 2026 at 1:15 AM CST (UTC-06:00)",
+                "Range 1 (Sun): End: Second: November 1, 2026 at 1:45 AM CST (UTC-06:00)"
+              ]
+            },
+            "source": {
+              "text": "Sun 1:15am-1:45am Mon 9am-10am",
+              "span": {
+                "start": 22,
+                "end": 52
+              }
+            },
+            "event": {
+              "text": "call Sam",
+              "span": {
+                "start": 13,
+                "end": 21
+              }
+            },
+            "apiReplay": false,
+            "assumptions": [
+              "Each listed date or range occurs once; this is not a repeating rule.",
+              "You selected Range 1 (Sun): Start: Second: November 1, 2026 at 1:15 AM CST (UTC-06:00).",
+              "You selected Range 1 (Sun): End: Second: November 1, 2026 at 1:45 AM CST (UTC-06:00)."
+            ],
+            "sdkVersion": "0.1.0",
+            "input": "Remind me to call Sam Sun 1:15am-1:45am Mon 9am-10am",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-10-31T12:00:00Z"
+            }
+          }
+        },
+        {
+          "action": "file-validation",
+          "exported": [
+            [
+              "2026-11-01T07:15:00.000Z",
+              "2026-11-01T07:45:00.000Z"
+            ],
+            [
+              "2026-11-02T15:00:00.000Z",
+              "2026-11-02T16:00:00.000Z"
+            ]
+          ],
+          "fileSha256": "9a61c4eaf69981f1f3883489fbbbf92668d7af6a23165f9b3f7c54ce7de7eb4f"
+        },
+        {
+          "action": "edit",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "needs-clarification",
+            "error": {
+              "code": "ambiguous-time",
+              "message": "Range 1 (Sun), start: Which occurrence of this time?",
+              "hint": "That local time is skipped or occurs twice in this timezone. This choice affects only this listed date or range."
+            },
+            "clarification": {
+              "contextKey": "[\"Remind me to call Sam Sun 1:15am-1:45am Mon 9am-10am \",\"America/Chicago\",\"2026-10-31T12:00:00Z\"]",
+              "question": "Range 1 (Sun), start: Which occurrence of this time?",
+              "choices": [
+                {
+                  "id": "group:0:start:2026-11-01T06:15:00Z",
+                  "expression": "Sun at 1:15am",
+                  "label": "First: November 1, 2026 at 1:15 AM CDT (UTC-05:00)"
+                },
+                {
+                  "id": "group:0:start:2026-11-01T07:15:00Z",
+                  "expression": "Sun at 1:15am",
+                  "label": "Second: November 1, 2026 at 1:15 AM CST (UTC-06:00)"
+                }
+              ]
+            },
+            "sdkVersion": "0.1.0",
+            "input": "Remind me to call Sam Sun 1:15am-1:45am Mon 9am-10am ",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-10-31T12:00:00Z"
+            }
+          }
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "id": "arithmetic-clock-reminder",
+      "input": "Remind me to call Sam October 31, 2026 at 1:30am plus 1 day plus 2 hours",
+      "reference": "2026-09-12T16:00:00Z",
+      "decisions": [
+        "arithmetic:1:2026-11-01T01:30:00:2026-11-01T07:30:00Z"
+      ],
+      "expected": [
+        [
+          "2026-11-01T09:30:00.000Z",
+          "2026-11-01T09:30:00.000Z"
+        ]
+      ],
+      "rationale": "Select the second 1:30 AM, then add two elapsed hours. Export a point without inventing an event duration.",
+      "context": {
+        "timezone": "America/Chicago",
+        "reference": "2026-09-12T16:00:00Z"
+      },
+      "steps": [
+        {
+          "action": "input",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "needs-clarification",
+            "error": {
+              "code": "ambiguous-time",
+              "message": "Which clock time should the calculation use before continuing?",
+              "hint": "Choose a clock time to continue the remaining arithmetic."
+            },
+            "clarification": {
+              "contextKey": "[\"Remind me to call Sam October 31, 2026 at 1:30am plus 1 day plus 2 hours\",\"America/Chicago\",\"2026-09-12T16:00:00Z\"]",
+              "question": "Which clock time should the calculation use before continuing?",
+              "choices": [
+                {
+                  "id": "arithmetic:1:2026-11-01T01:30:00:2026-11-01T06:30:00Z",
+                  "expression": "October 31, 2026 at 1:30am plus 1 day plus 2 hours",
+                  "label": "November 1, 2026 at 1:30 AM CDT (UTC-05:00)"
+                },
+                {
+                  "id": "arithmetic:1:2026-11-01T01:30:00:2026-11-01T07:30:00Z",
+                  "expression": "October 31, 2026 at 1:30am plus 1 day plus 2 hours",
+                  "label": "November 1, 2026 at 1:30 AM CST (UTC-06:00)"
+                }
+              ]
+            },
+            "sdkVersion": "0.1.0",
+            "input": "Remind me to call Sam October 31, 2026 at 1:30am plus 1 day plus 2 hours",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        },
+        {
+          "action": "choice",
+          "id": "arithmetic:1:2026-11-01T01:30:00:2026-11-01T07:30:00Z",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "resolved",
+            "value": {
+              "kind": "point",
+              "calculation": {
+                "ok": true,
+                "engineVersion": 2,
+                "expression": "October 31, 2026 at 1:30am plus 1 day plus 2 hours",
+                "timezone": "America/Chicago",
+                "reference": "2026-09-12T16:00:00.000Z",
+                "normalized": "october 31 2026 at 1:30 am plus 1 day plus 2 hours",
+                "anchor": {
+                  "iso": "2026-10-31T06:30:00.000Z",
+                  "local": "2026-10-31T01:30:00.000",
+                  "offset": "-05:00",
+                  "timestamp": 1793428200000
+                },
+                "anchorDescription": "Use the exact calendar date. Set the clock to 01:30:00.",
+                "steps": [
+                  {
+                    "source": "Add 1 day",
+                    "before": {
+                      "iso": "2026-10-31T06:30:00.000Z",
+                      "local": "2026-10-31T01:30:00.000",
+                      "offset": "-05:00",
+                      "timestamp": 1793428200000
+                    },
+                    "after": {
+                      "iso": "2026-11-01T07:30:00.000Z",
+                      "local": "2026-11-01T01:30:00.000",
+                      "offset": "-06:00",
+                      "timestamp": 1793518200000
+                    },
+                    "details": [
+                      "1 calendar day. No rounding.",
+                      "The timezone offset changes from -05:00 to -06:00."
+                    ]
+                  },
+                  {
+                    "source": "Add 2 hours",
+                    "before": {
+                      "iso": "2026-11-01T07:30:00.000Z",
+                      "local": "2026-11-01T01:30:00.000",
+                      "offset": "-06:00",
+                      "timestamp": 1793518200000
+                    },
+                    "after": {
+                      "iso": "2026-11-01T09:30:00.000Z",
+                      "local": "2026-11-01T03:30:00.000",
+                      "offset": "-06:00",
+                      "timestamp": 1793525400000
+                    },
+                    "details": [
+                      "7,200,000 elapsed milliseconds. No rounding."
+                    ]
+                  }
+                ],
+                "warnings": [
+                  "At 2026-11-01T01:30:00, you selected November 1, 2026 at 1:30 AM CST (UTC-06:00). Remaining operations retain their written order."
+                ],
+                "result": {
+                  "iso": "2026-11-01T09:30:00.000Z",
+                  "local": "2026-11-01T03:30:00.000",
+                  "offset": "-06:00",
+                  "timestamp": 1793525400000
+                }
+              },
+              "precision": "time",
+              "clockSource": "explicit"
+            },
+            "source": {
+              "text": "October 31, 2026 at 1:30am plus 1 day plus 2 hours",
+              "span": {
+                "start": 22,
+                "end": 72
+              }
+            },
+            "event": {
+              "text": "call Sam",
+              "span": {
+                "start": 13,
+                "end": 21
+              }
+            },
+            "assumptions": [
+              "The event text is a label only; no reminder has been created.",
+              "At 2026-11-01T01:30:00, you selected November 1, 2026 at 1:30 AM CST (UTC-06:00). Remaining operations retain their written order."
+            ],
+            "apiReplay": false,
+            "selectedChoice": "November 1, 2026 at 1:30 AM CST (UTC-06:00)",
+            "sdkVersion": "0.1.0",
+            "input": "Remind me to call Sam October 31, 2026 at 1:30am plus 1 day plus 2 hours",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        },
+        {
+          "action": "file-validation",
+          "exported": [
+            [
+              "2026-11-01T09:30:00.000Z",
+              "2026-11-01T09:30:00.000Z"
+            ]
+          ],
+          "fileSha256": "cfab826e305aa65b8f0900c45fd26e500a65ec14a9cbef402bfc3cc921164e58"
+        },
+        {
+          "action": "edit",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "needs-clarification",
+            "error": {
+              "code": "ambiguous-time",
+              "message": "Which clock time should the calculation use before continuing?",
+              "hint": "Choose a clock time to continue the remaining arithmetic."
+            },
+            "clarification": {
+              "contextKey": "[\"Remind me to call Sam October 31, 2026 at 1:30am plus 1 day plus 2 hours \",\"America/Chicago\",\"2026-09-12T16:00:00Z\"]",
+              "question": "Which clock time should the calculation use before continuing?",
+              "choices": [
+                {
+                  "id": "arithmetic:1:2026-11-01T01:30:00:2026-11-01T06:30:00Z",
+                  "expression": "October 31, 2026 at 1:30am plus 1 day plus 2 hours",
+                  "label": "November 1, 2026 at 1:30 AM CDT (UTC-05:00)"
+                },
+                {
+                  "id": "arithmetic:1:2026-11-01T01:30:00:2026-11-01T07:30:00Z",
+                  "expression": "October 31, 2026 at 1:30am plus 1 day plus 2 hours",
+                  "label": "November 1, 2026 at 1:30 AM CST (UTC-06:00)"
+                }
+              ]
+            },
+            "sdkVersion": "0.1.0",
+            "input": "Remind me to call Sam October 31, 2026 at 1:30am plus 1 day plus 2 hours ",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "id": "numeric-reminder-duration",
+      "input": "Remind me to call Sam 03/04/2027 at noon for 30 minutes",
+      "reference": "2026-09-12T16:00:00Z",
+      "decisions": [
+        "2027-04-03"
+      ],
+      "expected": [
+        [
+          "2027-04-03T17:00:00.000Z",
+          "2027-04-03T17:30:00.000Z"
+        ]
+      ],
+      "rationale": "April 3 noon CDT is 17:00Z; thirty elapsed minutes end at 17:30Z.",
+      "context": {
+        "timezone": "America/Chicago",
+        "reference": "2026-09-12T16:00:00Z"
+      },
+      "steps": [
+        {
+          "action": "input",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "needs-clarification",
+            "error": {
+              "code": "syntax",
+              "message": "Which date do you mean?",
+              "hint": "Choose the month and day. Your original text stays here."
+            },
+            "clarification": {
+              "contextKey": "[\"Remind me to call Sam 03/04/2027 at noon for 30 minutes\",\"America/Chicago\",\"2026-09-12T16:00:00Z\"]",
+              "question": "Which date do you mean?",
+              "choices": [
+                {
+                  "id": "2027-03-04",
+                  "expression": "2027-03-04 at noon for 30 minutes",
+                  "label": "March 4, 2027"
+                },
+                {
+                  "id": "2027-04-03",
+                  "expression": "2027-04-03 at noon for 30 minutes",
+                  "label": "April 3, 2027"
+                }
+              ]
+            },
+            "sdkVersion": "0.1.0",
+            "input": "Remind me to call Sam 03/04/2027 at noon for 30 minutes",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        },
+        {
+          "action": "choice",
+          "id": "2027-04-03",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "resolved",
+            "value": {
+              "ok": true,
+              "kind": "interval",
+              "start": {
+                "ok": true,
+                "engineVersion": 2,
+                "expression": "2027-04-03 at noon",
+                "timezone": "America/Chicago",
+                "reference": "2026-09-12T16:00:00.000Z",
+                "normalized": "2027-04-03 at noon",
+                "anchor": {
+                  "iso": "2027-04-03T17:00:00.000Z",
+                  "local": "2027-04-03T12:00:00.000",
+                  "offset": "-05:00",
+                  "timestamp": 1806771600000
+                },
+                "anchorDescription": "Use the exact calendar date. Set the clock to 12:00:00.",
+                "steps": [],
+                "warnings": [],
+                "result": {
+                  "iso": "2027-04-03T17:00:00.000Z",
+                  "local": "2027-04-03T12:00:00.000",
+                  "offset": "-05:00",
+                  "timestamp": 1806771600000
+                }
+              },
+              "end": {
+                "ok": true,
+                "engineVersion": 2,
+                "expression": "now plus 30 minutes",
+                "timezone": "America/Chicago",
+                "reference": "2027-04-03T17:00:00.000Z",
+                "normalized": "now plus 30 minutes",
+                "anchor": {
+                  "iso": "2027-04-03T17:00:00.000Z",
+                  "local": "2027-04-03T12:00:00.000",
+                  "offset": "-05:00",
+                  "timestamp": 1806771600000
+                },
+                "anchorDescription": "Start at the captured reference time.",
+                "steps": [
+                  {
+                    "source": "Add 30 minutes",
+                    "before": {
+                      "iso": "2027-04-03T17:00:00.000Z",
+                      "local": "2027-04-03T12:00:00.000",
+                      "offset": "-05:00",
+                      "timestamp": 1806771600000
+                    },
+                    "after": {
+                      "iso": "2027-04-03T17:30:00.000Z",
+                      "local": "2027-04-03T12:30:00.000",
+                      "offset": "-05:00",
+                      "timestamp": 1806773400000
+                    },
+                    "details": [
+                      "1,800,000 elapsed milliseconds. No rounding."
+                    ]
+                  }
+                ],
+                "warnings": [],
+                "result": {
+                  "iso": "2027-04-03T17:30:00.000Z",
+                  "local": "2027-04-03T12:30:00.000",
+                  "offset": "-05:00",
+                  "timestamp": 1806773400000
+                }
+              },
+              "allDay": false,
+              "endExclusive": true,
+              "overnight": false
+            },
+            "source": {
+              "text": "03/04/2027 at noon for 30 minutes",
+              "span": {
+                "start": 22,
+                "end": 55
+              }
+            },
+            "event": {
+              "text": "call Sam",
+              "span": {
+                "start": 13,
+                "end": 21
+              }
+            },
+            "assumptions": [
+              "The interval end is exclusive.",
+              "Date interpreted as April 3, 2027."
+            ],
+            "selectedChoice": "April 3, 2027",
+            "sdkVersion": "0.1.0",
+            "input": "Remind me to call Sam 03/04/2027 at noon for 30 minutes",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        },
+        {
+          "action": "file-validation",
+          "exported": [
+            [
+              "2027-04-03T17:00:00.000Z",
+              "2027-04-03T17:30:00.000Z"
+            ]
+          ],
+          "fileSha256": "67d446e8c6ac89ebb8e970db150e977a08f7fecac5d6c6d46ba07b0b7e976b55"
+        },
+        {
+          "action": "edit",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "needs-clarification",
+            "error": {
+              "code": "syntax",
+              "message": "Which date do you mean?",
+              "hint": "Choose the month and day. Your original text stays here."
+            },
+            "clarification": {
+              "contextKey": "[\"Remind me to call Sam 03/04/2027 at noon for 30 minutes \",\"America/Chicago\",\"2026-09-12T16:00:00Z\"]",
+              "question": "Which date do you mean?",
+              "choices": [
+                {
+                  "id": "2027-03-04",
+                  "expression": "2027-03-04 at noon for 30 minutes",
+                  "label": "March 4, 2027"
+                },
+                {
+                  "id": "2027-04-03",
+                  "expression": "2027-04-03 at noon for 30 minutes",
+                  "label": "April 3, 2027"
+                }
+              ]
+            },
+            "sdkVersion": "0.1.0",
+            "input": "Remind me to call Sam 03/04/2027 at noon for 30 minutes ",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "id": "replace-reminder-range",
+      "input": "Remind me to call Sam Friday 9am-11am, actually Saturday 1pm-2pm instead",
+      "reference": "2026-09-12T16:00:00Z",
+      "decisions": [
+        "replace"
+      ],
+      "expected": [
+        [
+          "2026-09-12T18:00:00.000Z",
+          "2026-09-12T19:00:00.000Z"
+        ]
+      ],
+      "rationale": "Saturday includes today because 1 PM is still ahead; replace the Friday range entirely.",
+      "context": {
+        "timezone": "America/Chicago",
+        "reference": "2026-09-12T16:00:00Z"
+      },
+      "steps": [
+        {
+          "action": "input",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "needs-clarification",
+            "error": {
+              "code": "syntax",
+              "message": "Did the second date replace the first?",
+              "hint": "Choose the date or range to use. Your original text stays here."
+            },
+            "clarification": {
+              "contextKey": "[\"Remind me to call Sam Friday 9am-11am, actually Saturday 1pm-2pm instead\",\"America/Chicago\",\"2026-09-12T16:00:00Z\"]",
+              "question": "Did the second date replace the first?",
+              "choices": [
+                {
+                  "id": "keep",
+                  "expression": "Remind me to call Sam Friday 9am-11am",
+                  "label": "Keep September 18, 2026 at 9:00 AM CDT to September 18, 2026 at 11:00 AM CDT (exclusive end)"
+                },
+                {
+                  "id": "replace",
+                  "expression": "Saturday 1pm-2pm",
+                  "label": "Use September 12, 2026 at 1:00 PM CDT to September 12, 2026 at 2:00 PM CDT (exclusive end)"
+                }
+              ]
+            },
+            "sdkVersion": "0.1.0",
+            "input": "Remind me to call Sam Friday 9am-11am, actually Saturday 1pm-2pm instead",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        },
+        {
+          "action": "choice",
+          "id": "replace",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "resolved",
+            "value": {
+              "ok": true,
+              "kind": "interval",
+              "start": {
+                "ok": true,
+                "engineVersion": 2,
+                "expression": "this Saturday at 1pm",
+                "timezone": "America/Chicago",
+                "reference": "2026-09-12T16:00:00.000Z",
+                "normalized": "this saturday at 1 pm",
+                "anchor": {
+                  "iso": "2026-09-12T18:00:00.000Z",
+                  "local": "2026-09-12T13:00:00.000",
+                  "offset": "-05:00",
+                  "timestamp": 1789236000000
+                },
+                "anchorDescription": "Use the next Saturday, including today. Set the clock to 13:00:00.",
+                "steps": [],
+                "warnings": [],
+                "result": {
+                  "iso": "2026-09-12T18:00:00.000Z",
+                  "local": "2026-09-12T13:00:00.000",
+                  "offset": "-05:00",
+                  "timestamp": 1789236000000
+                }
+              },
+              "end": {
+                "ok": true,
+                "engineVersion": 2,
+                "expression": "2026-09-12 at 2pm",
+                "timezone": "America/Chicago",
+                "reference": "2026-09-12T16:00:00.000Z",
+                "normalized": "2026-09-12 at 2 pm",
+                "anchor": {
+                  "iso": "2026-09-12T19:00:00.000Z",
+                  "local": "2026-09-12T14:00:00.000",
+                  "offset": "-05:00",
+                  "timestamp": 1789239600000
+                },
+                "anchorDescription": "Use the exact calendar date. Set the clock to 14:00:00.",
+                "steps": [],
+                "warnings": [],
+                "result": {
+                  "iso": "2026-09-12T19:00:00.000Z",
+                  "local": "2026-09-12T14:00:00.000",
+                  "offset": "-05:00",
+                  "timestamp": 1789239600000
+                }
+              },
+              "allDay": false,
+              "endExclusive": true,
+              "overnight": false
+            },
+            "source": {
+              "text": "Remind me to call Sam Friday 9am-11am, actually Saturday 1pm-2pm instead",
+              "span": {
+                "start": 0,
+                "end": 72
+              }
+            },
+            "assumptions": [
+              "The interval end is exclusive.",
+              "You confirmed that the second date replaces the first."
+            ],
+            "apiReplay": false,
+            "event": {
+              "text": "call Sam",
+              "span": {
+                "start": 13,
+                "end": 21
+              }
+            },
+            "selectedChoice": "September 12, 2026 at 1:00 PM CDT to September 12, 2026 at 2:00 PM CDT (exclusive end)",
+            "sdkVersion": "0.1.0",
+            "input": "Remind me to call Sam Friday 9am-11am, actually Saturday 1pm-2pm instead",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        },
+        {
+          "action": "file-validation",
+          "exported": [
+            [
+              "2026-09-12T18:00:00.000Z",
+              "2026-09-12T19:00:00.000Z"
+            ]
+          ],
+          "fileSha256": "d25785abbe55a2fa69657a913632a8164fb1699d1eb8a2428a88950164aa2747"
+        },
+        {
+          "action": "edit",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "needs-clarification",
+            "error": {
+              "code": "syntax",
+              "message": "Did the second date replace the first?",
+              "hint": "Choose the date or range to use. Your original text stays here."
+            },
+            "clarification": {
+              "contextKey": "[\"Remind me to call Sam Friday 9am-11am, actually Saturday 1pm-2pm instead \",\"America/Chicago\",\"2026-09-12T16:00:00Z\"]",
+              "question": "Did the second date replace the first?",
+              "choices": [
+                {
+                  "id": "keep",
+                  "expression": "Remind me to call Sam Friday 9am-11am",
+                  "label": "Keep September 18, 2026 at 9:00 AM CDT to September 18, 2026 at 11:00 AM CDT (exclusive end)"
+                },
+                {
+                  "id": "replace",
+                  "expression": "Saturday 1pm-2pm",
+                  "label": "Use September 12, 2026 at 1:00 PM CDT to September 12, 2026 at 2:00 PM CDT (exclusive end)"
+                }
+              ]
+            },
+            "sdkVersion": "0.1.0",
+            "input": "Remind me to call Sam Friday 9am-11am, actually Saturday 1pm-2pm instead ",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-09-12T16:00:00Z"
+            }
+          }
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "id": "repeated-recurring-reminder",
+      "input": "Remind me to call Sam every Sunday from 1:30am to 3am until 2026-11-15 except 2026-11-08",
+      "reference": "2026-10-31T12:00:00Z",
+      "decisions": [
+        "recurrence:2026-11-01:start:2026-11-01T07:30:00Z"
+      ],
+      "expected": [
+        [
+          "2026-11-01T07:30:00.000Z",
+          "2026-11-01T09:00:00.000Z"
+        ],
+        [
+          "2026-11-15T07:30:00.000Z",
+          "2026-11-15T09:00:00.000Z"
+        ]
+      ],
+      "rationale": "Choose the second 1:30 AM CST; retain both complete ranges and exclude November 8.",
+      "context": {
+        "timezone": "America/Chicago",
+        "reference": "2026-10-31T12:00:00Z"
+      },
+      "steps": [
+        {
+          "action": "input",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "needs-clarification",
+            "error": {
+              "code": "ambiguous-time",
+              "message": "2026-11-01 start: Which occurrence of this time?",
+              "hint": "That local time is skipped or occurs twice in this timezone. Your choice applies only to this occurrence. Other dates keep their written local clocks."
+            },
+            "clarification": {
+              "contextKey": "[\"Remind me to call Sam every Sunday from 1:30am to 3am until 2026-11-15 except 2026-11-08\",\"America/Chicago\",\"2026-10-31T12:00:00Z\"]",
+              "question": "2026-11-01 start: Which occurrence of this time?",
+              "choices": [
+                {
+                  "id": "recurrence:2026-11-01:start:2026-11-01T06:30:00Z",
+                  "expression": "2026-11-01 at 1:30am",
+                  "label": "First: November 1, 2026 at 1:30 AM CDT (UTC-05:00)"
+                },
+                {
+                  "id": "recurrence:2026-11-01:start:2026-11-01T07:30:00Z",
+                  "expression": "2026-11-01 at 1:30am",
+                  "label": "Second: November 1, 2026 at 1:30 AM CST (UTC-06:00)"
+                }
+              ]
+            },
+            "sdkVersion": "0.1.0",
+            "input": "Remind me to call Sam every Sunday from 1:30am to 3am until 2026-11-15 except 2026-11-08",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-10-31T12:00:00Z"
+            }
+          }
+        },
+        {
+          "action": "choice",
+          "id": "recurrence:2026-11-01:start:2026-11-01T07:30:00Z",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "resolved",
+            "value": {
+              "ok": true,
+              "kind": "recurrence",
+              "timezone": "America/Chicago",
+              "rule": {
+                "frequency": "weekly",
+                "weekdays": [
+                  7
+                ],
+                "startClock": "1:30am",
+                "endClock": "3am",
+                "starting": "2026-10-31",
+                "until": "2026-11-15",
+                "exceptions": [
+                  "2026-11-08"
+                ],
+                "clockOverrides": [
+                  {
+                    "date": "2026-11-01",
+                    "endpoint": "start",
+                    "instant": "2026-11-01T07:30:00Z",
+                    "label": "Start: Second: November 1, 2026 at 1:30 AM CST (UTC-06:00)"
+                  }
+                ]
+              },
+              "occurrences": [
+                {
+                  "start": {
+                    "ok": true,
+                    "engineVersion": 2,
+                    "expression": "now",
+                    "timezone": "America/Chicago",
+                    "reference": "2026-11-01T07:30:00.000Z",
+                    "normalized": "now",
+                    "anchor": {
+                      "iso": "2026-11-01T07:30:00.000Z",
+                      "local": "2026-11-01T01:30:00.000",
+                      "offset": "-06:00",
+                      "timestamp": 1793518200000
+                    },
+                    "anchorDescription": "Use the explicitly selected start: Second: November 1, 2026 at 1:30 AM CST (UTC-06:00)",
+                    "steps": [],
+                    "warnings": [],
+                    "result": {
+                      "iso": "2026-11-01T07:30:00.000Z",
+                      "local": "2026-11-01T01:30:00.000",
+                      "offset": "-06:00",
+                      "timestamp": 1793518200000
+                    }
+                  },
+                  "end": {
+                    "ok": true,
+                    "engineVersion": 2,
+                    "expression": "2026-11-01 at 3am",
+                    "timezone": "America/Chicago",
+                    "reference": "2026-10-31T12:00:00.000Z",
+                    "normalized": "2026-11-01 at 3 am",
+                    "anchor": {
+                      "iso": "2026-11-01T09:00:00.000Z",
+                      "local": "2026-11-01T03:00:00.000",
+                      "offset": "-06:00",
+                      "timestamp": 1793523600000
+                    },
+                    "anchorDescription": "Use the exact calendar date. Set the clock to 03:00:00.",
+                    "steps": [],
+                    "warnings": [],
+                    "result": {
+                      "iso": "2026-11-01T09:00:00.000Z",
+                      "local": "2026-11-01T03:00:00.000",
+                      "offset": "-06:00",
+                      "timestamp": 1793523600000
+                    }
+                  }
+                },
+                {
+                  "start": {
+                    "ok": true,
+                    "engineVersion": 2,
+                    "expression": "2026-11-15 at 1:30am",
+                    "timezone": "America/Chicago",
+                    "reference": "2026-10-31T12:00:00.000Z",
+                    "normalized": "2026-11-15 at 1:30 am",
+                    "anchor": {
+                      "iso": "2026-11-15T07:30:00.000Z",
+                      "local": "2026-11-15T01:30:00.000",
+                      "offset": "-06:00",
+                      "timestamp": 1794727800000
+                    },
+                    "anchorDescription": "Use the exact calendar date. Set the clock to 01:30:00.",
+                    "steps": [],
+                    "warnings": [],
+                    "result": {
+                      "iso": "2026-11-15T07:30:00.000Z",
+                      "local": "2026-11-15T01:30:00.000",
+                      "offset": "-06:00",
+                      "timestamp": 1794727800000
+                    }
+                  },
+                  "end": {
+                    "ok": true,
+                    "engineVersion": 2,
+                    "expression": "2026-11-15 at 3am",
+                    "timezone": "America/Chicago",
+                    "reference": "2026-10-31T12:00:00.000Z",
+                    "normalized": "2026-11-15 at 3 am",
+                    "anchor": {
+                      "iso": "2026-11-15T09:00:00.000Z",
+                      "local": "2026-11-15T03:00:00.000",
+                      "offset": "-06:00",
+                      "timestamp": 1794733200000
+                    },
+                    "anchorDescription": "Use the exact calendar date. Set the clock to 03:00:00.",
+                    "steps": [],
+                    "warnings": [],
+                    "result": {
+                      "iso": "2026-11-15T09:00:00.000Z",
+                      "local": "2026-11-15T03:00:00.000",
+                      "offset": "-06:00",
+                      "timestamp": 1794733200000
+                    }
+                  }
+                }
+              ],
+              "truncated": false,
+              "validation": "preview-only"
+            },
+            "source": {
+              "text": "every Sunday from 1:30am to 3am until 2026-11-15 except 2026-11-08",
+              "span": {
+                "start": 22,
+                "end": 88
+              }
+            },
+            "event": {
+              "text": "call Sam",
+              "span": {
+                "start": 13,
+                "end": 21
+              }
+            },
+            "apiReplay": false,
+            "assumptions": [
+              "Only upcoming occurrence starts appear in the preview.",
+              "Recurrence export has not been validated.",
+              "For 2026-11-01 start only, you selected Start: Second: November 1, 2026 at 1:30 AM CST (UTC-06:00). Other occurrences keep their written local clocks."
+            ],
+            "sdkVersion": "0.1.0",
+            "input": "Remind me to call Sam every Sunday from 1:30am to 3am until 2026-11-15 except 2026-11-08",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-10-31T12:00:00Z"
+            }
+          }
+        },
+        {
+          "action": "file-validation",
+          "exported": [
+            [
+              "2026-11-01T07:30:00.000Z",
+              "2026-11-01T09:00:00.000Z"
+            ],
+            [
+              "2026-11-15T07:30:00.000Z",
+              "2026-11-15T09:00:00.000Z"
+            ]
+          ],
+          "fileSha256": "e5e90f911ef1b07dab98f21f4813eda8b2be7c980f48dd1410d812f6c28bd112"
+        },
+        {
+          "action": "edit",
+          "result": {
+            "interpretationVersion": 1,
+            "status": "needs-clarification",
+            "error": {
+              "code": "ambiguous-time",
+              "message": "2026-11-01 start: Which occurrence of this time?",
+              "hint": "That local time is skipped or occurs twice in this timezone. Your choice applies only to this occurrence. Other dates keep their written local clocks."
+            },
+            "clarification": {
+              "contextKey": "[\"Remind me to call Sam every Sunday from 1:30am to 3am until 2026-11-15 except 2026-11-08 \",\"America/Chicago\",\"2026-10-31T12:00:00Z\"]",
+              "question": "2026-11-01 start: Which occurrence of this time?",
+              "choices": [
+                {
+                  "id": "recurrence:2026-11-01:start:2026-11-01T06:30:00Z",
+                  "expression": "2026-11-01 at 1:30am",
+                  "label": "First: November 1, 2026 at 1:30 AM CDT (UTC-05:00)"
+                },
+                {
+                  "id": "recurrence:2026-11-01:start:2026-11-01T07:30:00Z",
+                  "expression": "2026-11-01 at 1:30am",
+                  "label": "Second: November 1, 2026 at 1:30 AM CST (UTC-06:00)"
+                }
+              ]
+            },
+            "sdkVersion": "0.1.0",
+            "input": "Remind me to call Sam every Sunday from 1:30am to 3am until 2026-11-15 except 2026-11-08 ",
+            "context": {
+              "timezone": "America/Chicago",
+              "reference": "2026-10-31T12:00:00Z"
+            }
+          }
+        }
+      ],
+      "status": "passed"
+    }
+  ]
+}

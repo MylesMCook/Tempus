@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tempus//Calendar Export//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:91d2b0d9-af3d-4251-ad90-db53e5ed95ed-0@tempus.invalid
+DTSTAMP:20260912T160000Z
+SUMMARY:Buy apples for Sam
+DESCRIPTION:Date phrase: at 1:30am on 11/01/2026\nTimezone: America/Chicago
+ \nThe event text is a label only\; no reminder has been created.\nThe user
+  selected this clock occurrence or replacement. Strict API v2 does not res
+ olve this ambiguity.\nClock-first wording was evaluated as “11/01/2026 a
+ t 1:30am”.
+DTSTART:20261101T073000Z
+END:VEVENT
+END:VCALENDAR

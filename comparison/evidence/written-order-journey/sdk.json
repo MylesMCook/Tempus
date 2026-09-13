@@ -1,0 +1,109 @@
+{
+  "status": "passed",
+  "result": {
+    "interpretationVersion": 1,
+    "status": "resolved",
+    "value": {
+      "ok": true,
+      "kind": "collection",
+      "timezone": "America/Chicago",
+      "truncated": false,
+      "occurrences": [
+        {
+          "start": {
+            "ok": true,
+            "engineVersion": 2,
+            "expression": "now",
+            "timezone": "America/Chicago",
+            "reference": "2026-11-01T07:30:00.000Z",
+            "normalized": "now",
+            "anchor": {
+              "iso": "2026-11-01T07:30:00.000Z",
+              "local": "2026-11-01T01:30:00.000",
+              "offset": "-06:00",
+              "timestamp": 1793518200000
+            },
+            "anchorDescription": "Use the explicitly selected time for listed date 1: Second: November 1, 2026 at 1:30 AM CST (UTC-06:00)",
+            "steps": [],
+            "warnings": [],
+            "result": {
+              "iso": "2026-11-01T07:30:00.000Z",
+              "local": "2026-11-01T01:30:00.000",
+              "offset": "-06:00",
+              "timestamp": 1793518200000
+            }
+          },
+          "allDay": false,
+          "source": {
+            "text": "2026-11-01 at 1:30am",
+            "span": {
+              "start": 9,
+              "end": 29
+            }
+          }
+        },
+        {
+          "start": {
+            "ok": true,
+            "engineVersion": 2,
+            "expression": "2026-09-30 at noon",
+            "timezone": "America/Chicago",
+            "reference": "2026-09-12T16:00:00.000Z",
+            "normalized": "2026-09-30 at noon",
+            "anchor": {
+              "iso": "2026-09-30T17:00:00.000Z",
+              "local": "2026-09-30T12:00:00.000",
+              "offset": "-05:00",
+              "timestamp": 1790787600000
+            },
+            "anchorDescription": "Use the exact calendar date. Set the clock to 12:00:00.",
+            "steps": [],
+            "warnings": [],
+            "result": {
+              "iso": "2026-09-30T17:00:00.000Z",
+              "local": "2026-09-30T12:00:00.000",
+              "offset": "-05:00",
+              "timestamp": 1790787600000
+            }
+          },
+          "allDay": false,
+          "source": {
+            "text": "2026-09-30 at noon",
+            "span": {
+              "start": 34,
+              "end": 52
+            }
+          }
+        }
+      ],
+      "selectedClocks": [
+        "Date 1: Second: November 1, 2026 at 1:30 AM CST (UTC-06:00)"
+      ]
+    },
+    "source": {
+      "text": "2026-11-01 at 1:30am and 2026-09-30 at noon",
+      "span": {
+        "start": 9,
+        "end": 52
+      }
+    },
+    "event": {
+      "text": "Call Sam",
+      "span": {
+        "start": 0,
+        "end": 8
+      }
+    },
+    "apiReplay": false,
+    "assumptions": [
+      "Each listed date or range occurs once; this is not a repeating rule.",
+      "You selected Date 1: Second: November 1, 2026 at 1:30 AM CST (UTC-06:00)."
+    ],
+    "sdkVersion": "0.1.0",
+    "input": "Call Sam 2026-11-01 at 1:30am and 2026-09-30 at noon",
+    "context": {
+      "timezone": "America/Chicago",
+      "reference": "2026-09-12T16:00:00Z"
+    }
+  }
+}

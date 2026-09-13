@@ -1,0 +1,258 @@
+{
+  "paired": {
+    "before": {
+      "preview": {
+        "p50": 1.0991249999999866,
+        "p95": 1.427708999999993,
+        "samples": 500
+      },
+      "calculatorTrace": {
+        "p50": 0.09095800000000054,
+        "p95": 0.1234579999999994,
+        "samples": 500
+      },
+      "correction": {
+        "p50": 1.3255829999999946,
+        "p95": 1.8799999999999955,
+        "samples": 500
+      },
+      "export": {
+        "p50": 2.175166000000104,
+        "p95": 2.69399999999996,
+        "samples": 500
+      }
+    },
+    "after": {
+      "preview": {
+        "p50": 1.128707999999989,
+        "p95": 1.522291999999993,
+        "samples": 500
+      },
+      "calculatorTrace": {
+        "p50": 0.09270900000001348,
+        "p95": 0.12158300000001532,
+        "samples": 500
+      },
+      "correction": {
+        "p50": 1.1497919999999908,
+        "p95": 1.6505409999999756,
+        "samples": 500
+      },
+      "export": {
+        "p50": 2.0657919999999876,
+        "p95": 2.627291000000014,
+        "samples": 500
+      }
+    }
+  },
+  "shared": {
+    "tempus": {
+      "node": {
+        "ready": {
+          "p50": 25.001292,
+          "p95": 25.593416999999995,
+          "samples": 5
+        },
+        "rssGrowthMiB": {
+          "p50": 95.015625,
+          "p95": 95.421875,
+          "samples": 5
+        },
+        "heapGrowthMiB": {
+          "p50": 4.6533203125,
+          "p95": 5.0776214599609375,
+          "samples": 5
+        },
+        "batch1": {
+          "p50": 0.25491699999999895,
+          "p95": 1.433208999999998,
+          "samples": 100
+        },
+        "batch10": {
+          "p50": 2.7930000000000064,
+          "p95": 3.441999999999979,
+          "samples": 100
+        },
+        "batch100": {
+          "p50": 21.483791999999994,
+          "p95": 24.08804200000003,
+          "samples": 100,
+          "medianInputsPerSecond": 4654.6717637184365
+        }
+      },
+      "chrome": {
+        "ready": {
+          "p50": 18,
+          "p95": 19.40000009536743,
+          "samples": 5
+        },
+        "batch1": {
+          "p50": 0.20000004768371582,
+          "p95": 1.899999976158142,
+          "samples": 100
+        },
+        "batch10": {
+          "p50": 4,
+          "p95": 4.700000047683716,
+          "samples": 100
+        },
+        "batch100": {
+          "p50": 27.899999976158142,
+          "p95": 34,
+          "samples": 100,
+          "medianInputsPerSecond": 3584.229393743896
+        }
+      }
+    },
+    "gpu-time": {
+      "node": {
+        "ready": {
+          "p50": 16.609833000000002,
+          "p95": 17.183208999999998,
+          "samples": 5
+        },
+        "rssGrowthMiB": {
+          "p50": 30.296875,
+          "p95": 30.484375,
+          "samples": 5
+        },
+        "heapGrowthMiB": {
+          "p50": 1.4977874755859375,
+          "p95": 1.9238662719726562,
+          "samples": 5
+        },
+        "batch1": {
+          "p50": 0.20016700000000043,
+          "p95": 0.4435000000000002,
+          "samples": 100
+        },
+        "batch10": {
+          "p50": 1.2310409999999976,
+          "p95": 1.926833000000002,
+          "samples": 100
+        },
+        "batch100": {
+          "p50": 10.713833000000022,
+          "p95": 11.093291000000022,
+          "samples": 100,
+          "medianInputsPerSecond": 9333.727714441675
+        }
+      },
+      "chrome": {
+        "ready": {
+          "p50": 14,
+          "p95": 14.899999976158142,
+          "samples": 5
+        },
+        "batch1": {
+          "p50": 0.20000004768371582,
+          "p95": 0.5999999046325684,
+          "samples": 100
+        },
+        "batch10": {
+          "p50": 1,
+          "p95": 1.5,
+          "samples": 100
+        },
+        "batch100": {
+          "p50": 8.100000023841858,
+          "p95": 9.100000023841858,
+          "samples": 100,
+          "medianInputsPerSecond": 12345.678976006922
+        }
+      }
+    }
+  },
+  "profiles": {
+    "before": {
+      "preview": {
+        "sampledEstimatedAllocationBytes": 385070656,
+        "iterations": 300
+      },
+      "calculatorTrace": {
+        "sampledEstimatedAllocationBytes": 47325944,
+        "iterations": 300
+      },
+      "correction": {
+        "sampledEstimatedAllocationBytes": 300145280,
+        "iterations": 300
+      },
+      "export": {
+        "sampledEstimatedAllocationBytes": 979064208,
+        "iterations": 300
+      }
+    },
+    "after": {
+      "preview": {
+        "sampledEstimatedAllocationBytes": 390242008,
+        "iterations": 300
+      },
+      "calculatorTrace": {
+        "sampledEstimatedAllocationBytes": 49640568,
+        "iterations": 300
+      },
+      "correction": {
+        "sampledEstimatedAllocationBytes": 301011176,
+        "iterations": 300
+      },
+      "export": {
+        "sampledEstimatedAllocationBytes": 981173512,
+        "iterations": 300
+      }
+    }
+  },
+  "perFamily": {
+    "tempus": [
+      {
+        "input": "tomorrow at noon",
+        "p50": 0.10779199999999634,
+        "p95": 0.1289160000000038,
+        "samples": 25
+      },
+      {
+        "input": "next Friday",
+        "p50": 0.09520799999999952,
+        "p95": 0.11495800000000145,
+        "samples": 25
+      },
+      {
+        "input": "Friday 10pm-12am",
+        "p50": 0.32874999999999943,
+        "p95": 0.439707999999996,
+        "samples": 25
+      },
+      {
+        "input": "every Monday from 8 pm to 10 pm",
+        "p50": 1.1867090000000005,
+        "p95": 1.475834000000006,
+        "samples": 25
+      }
+    ],
+    "gpu-time": [
+      {
+        "input": "tomorrow at noon",
+        "p50": 0.14987500000000153,
+        "p95": 0.3076250000000016,
+        "samples": 25
+      },
+      {
+        "input": "next Friday",
+        "p50": 0.09533400000000114,
+        "p95": 0.12166700000000219,
+        "samples": 25
+      },
+      {
+        "input": "Friday 10pm-12am",
+        "p50": 0.23233300000000412,
+        "p95": 0.26370799999999406,
+        "samples": 25
+      },
+      {
+        "input": "every Monday from 8 pm to 10 pm",
+        "p50": 0.4143749999999997,
+        "p95": 0.48824999999999363,
+        "samples": 25
+      }
+    ]
+  }
+}

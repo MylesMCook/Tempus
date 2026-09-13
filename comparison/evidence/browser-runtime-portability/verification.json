@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "scriptSha256": "2e7ba53b23a97024f1156da36133970265aa65b574e9148feb8f72d5ffbed76a",
+  "playwrightVersion": "1.59.1",
+  "playwrightManifestSha256": "d4b8727c495ff2632084e922ee1c7f19a608ed23d86e8f3b0ba0ff317eea58ec",
+  "playwrightEntrySha256": "3d36e2132d3c8b62397d23f0bb4177336aaee503203ae2a2c90fbeb5bf3317dd",
+  "negativeChecks": [
+    "Missing third argument rejects before creating output",
+    "Nonexistent explicit module rejects without parent-directory fallback"
+  ],
+  "lint": "Scoped lint passed",
+  "scope": "Explicit existing runtime installation; no clean-machine install or complete transitive dependency attestation."
+}

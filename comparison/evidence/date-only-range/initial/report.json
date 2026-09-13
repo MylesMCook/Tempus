@@ -1,0 +1,39 @@
+{
+  "status": "failed",
+  "browser": "153.0.8010.36",
+  "sourceHashes": {
+    "src/shared/interpret-interval.ts": "e1bb5999e761d36e2235c39c841a56b575e87bb7e128070d827425e1d0e07eda",
+    "src/shared/interpret-date.ts": "cd846ef49b2987cba74d9d4dec8c78d9a5ec1f288c54e0950459fef3be527add",
+    "src/shared/clarify-numeric-date.ts": "e95d385b5b69e6b10f3b66e4561fb064d879a99a7b532148800ddd6e295ac302",
+    "examples/app/verify-date-only-range.mjs": "3e8f8cf538b5f9a8c5f584db93d71c0b6fa4a0b723427b607526270b13a8bcc0"
+  },
+  "runs": [
+    {
+      "width": 320,
+      "id": "exclusive",
+      "status": "failed",
+      "error": "TimeoutError: page.waitForEvent: Timeout 30000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================"
+    },
+    {
+      "width": 320,
+      "id": "inclusive",
+      "status": "failed",
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n1 !== 0\n"
+    },
+    {
+      "width": 1280,
+      "id": "exclusive",
+      "status": "passed",
+      "file": "exclusive-1280.ics",
+      "sha256": "0dacfadca1a82f31b487adb990c1c97279949ed05dcd81bfed0818f18afc18ee"
+    },
+    {
+      "width": 1280,
+      "id": "inclusive",
+      "status": "passed",
+      "file": "inclusive-1280.ics",
+      "sha256": "0cab1f86cd7ba015ba40bd38c3f6c4454a0a284c3a786cade0cda2c3913735f5"
+    }
+  ],
+  "scope": "Desktop direct focus/Enter and actual downloads, not full Tab traversal, devices or calendar import."
+}

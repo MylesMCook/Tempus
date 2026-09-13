@@ -1,0 +1,23 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tempus//Calendar Export//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:368e3f75-9f76-4a83-8b62-f544b9156aad-0@tempus.invalid
+DTSTAMP:20260913T114936Z
+SUMMARY:Call Sam
+DESCRIPTION:Date phrase: September 14 and 16 at noon\nTimezone: America/Chi
+ cago\nEach listed date or range occurs once\; this is not a repeating rule
+ .\nYou selected 2026 for every listed date.\nYou selected Date 1: At noon.
+DTSTART:20260914T170000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:368e3f75-9f76-4a83-8b62-f544b9156aad-1@tempus.invalid
+DTSTAMP:20260913T114936Z
+SUMMARY:Call Sam
+DESCRIPTION:Date phrase: September 14 and 16 at noon\nTimezone: America/Chi
+ cago\nEach listed date or range occurs once\; this is not a repeating rule
+ .\nYou selected 2026 for every listed date.\nYou selected Date 1: At noon.
+DTSTART:20260916T170000Z
+END:VEVENT
+END:VCALENDAR

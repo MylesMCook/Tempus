@@ -1,0 +1,26 @@
+{
+  "status": "passed",
+  "rows": [
+    {
+      "width": 320,
+      "status": "passed",
+      "requestBoundary": [],
+      "storedKeys": [
+        "parserSettings"
+      ],
+      "inputClearedAfterReload": true,
+      "privacyOverflow": false
+    },
+    {
+      "width": 1280,
+      "status": "passed",
+      "requestBoundary": [],
+      "storedKeys": [
+        "parserSettings"
+      ],
+      "inputClearedAfterReload": true,
+      "privacyOverflow": false
+    }
+  ],
+  "scope": "Fresh desktop Chrome contexts; local typing/clarification/export preparation, not download/import, live Cloudflare settings or operating-system clipboard policy."
+}

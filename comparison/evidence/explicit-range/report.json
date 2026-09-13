@@ -1,0 +1,35 @@
+{
+  "status": "passed",
+  "browser": "153.0.8010.36",
+  "runs": [
+    {
+      "width": 320,
+      "id": "relative",
+      "status": "passed",
+      "file": "relative-320.ics",
+      "sha256": "3fe9b3deb1538efedac397951fa6960266bd04bc5dea36b19696f799d574bacb"
+    },
+    {
+      "width": 320,
+      "id": "corrected",
+      "status": "passed",
+      "file": "corrected-320.ics",
+      "sha256": "b3ab8e41edd16a1c1055ee38af49cd8705d6bd66e0b9e1a1cc6cacd91d3b2f06"
+    },
+    {
+      "width": 1280,
+      "id": "relative",
+      "status": "passed",
+      "file": "relative-1280.ics",
+      "sha256": "fb9abf095a24d6c07a2e360b2b0d2fe479c0f210df9d9a6345467568201ed9ed"
+    },
+    {
+      "width": 1280,
+      "id": "corrected",
+      "status": "passed",
+      "file": "corrected-1280.ics",
+      "sha256": "630a90522e5b42a8b02df0309392a93b2dba71438a0a6a1c482181cf2a765ea2"
+    }
+  ],
+  "scope": "Desktop direct focus/Enter and actual downloads, not full Tab traversal, devices or calendar import."
+}

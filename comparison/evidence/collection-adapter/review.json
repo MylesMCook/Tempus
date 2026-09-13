@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "sourceHashes": {
+    "comparison/observe-tempus.ts": "ccceeaebb43a36d87af4a2b152706ee49f48106194d8b2fa87082d2b4c1998fb",
+    "comparison/observe-tempus.test.ts": "84596f1c6e47281a6147aee72067795d7d90c4c6f837d5539f9bef70cfa2f1c9",
+    "comparison/comparison.test.ts": "573d05517f543bef2774f5bc0b7110724e06fd4188acf7f3d3f80564406c4b6a",
+    "comparison/scoring.ts": "10a7f0bf1362565e5886438ef264763a5817dcf16a967a145398aaad704b9f2b",
+    "comparison/fixtures.ts": "32865b030a5ad98d695fbc65fd9397ddf523a463021daee3be5917464c064a6f"
+  },
+  "tests": 16,
+  "testFiles": 4,
+  "adapterTypeCheck": "passed",
+  "developmentCases": 31,
+  "journeys": 19,
+  "summaryUnchanged": true,
+  "valueSummaryUnchanged": true,
+  "strictReaderExitCode": 1,
+  "scope": "Harness precision fix with authored controls; no independent evaluation or superiority claim."
+}

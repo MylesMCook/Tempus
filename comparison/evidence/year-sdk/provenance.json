@@ -1,0 +1,14 @@
+{
+  "sourceHashes": {
+    "examples/sdk/date-list.mjs": "471cb8142f2f235ab63f44c10354993f2dfda5101e02f0ca355dde28cc3147c4",
+    "examples/sdk/verify-browser.mjs": "4ff53fec7fd3583cd6bb95af14093b79aec724e25149a6b2002dd70eaebf11bb",
+    "examples/sdk/verification-worker.ts": "7f225609428cbe85cb43daf11ed7bdc96797ddc53a1a20a8fcb6b01969985e5b",
+    "examples/sdk/read-worker-files.py": "3a78ae9cf9ce0eee85ca496b14d9226db0efe7239a7aa7be3b3712124d75ebc0",
+    "examples/sdk/read-browser-files.py": "adf2281207893fc9a4836d44a8fa034d34cca1e7e61f28ef5601b3731d0be823"
+  },
+  "wrangler": "4.131.1",
+  "runtime": "local workerd",
+  "workerStatus": 200,
+  "independentFiles": 15,
+  "scope": "Twelve browser downloads and three Worker strings; no real calendar import."
+}

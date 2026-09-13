@@ -1,0 +1,13 @@
+
+> tempus-total@0.1.0 test /Users/mylescook/Code/MylesMCook/TempusTotal
+> vp test --run src/shared/date-parser.test.ts
+
+
+ RUN  v4.1.11 /Users/mylescook/Code/MylesMCook/TempusTotal
+
+
+ Test Files  1 passed (1)
+      Tests  104 passed (104)
+   Start at  14:01:42
+   Duration  174ms (transform 49ms, setup 0ms, import 77ms, tests 33ms, environment 0ms)
+

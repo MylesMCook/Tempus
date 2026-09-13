@@ -1,0 +1,55 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tempus//Calendar Export//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:11111111-2222-4333-8444-555555555555-0@tempus.invalid
+DTSTAMP:20260307T120000Z
+SUMMARY:call Sam
+DESCRIPTION:Date phrase: every other Sunday at 2:30am for half an hour star
+ ting 2026-03-08 until 2026-04-19 except 2026-04-05\nTimezone: America/Chic
+ ago\nOnly upcoming occurrence starts appear in the preview.\nFor 2026-03-0
+ 8 start only\, you selected Start: Use March 8\, 2026 at 3:30 AM CDT (UTC-
+ 05:00). Other occurrences keep their written local clocks.\nComplete bound
+ ed recurrence set\; dates are fixed to the timezone rules used when this f
+ ile was generated.\n2026-03-08 start: Start: Use March 8\, 2026 at 3:30 AM
+  CDT (UTC-05:00)
+DTSTART:20260308T083000Z
+DTEND:20260308T090000Z
+RDATE:20260308T083000Z
+RDATE:20260322T073000Z
+RDATE:20260419T073000Z
+END:VEVENT
+BEGIN:VEVENT
+RECURRENCE-ID:20260322T073000Z
+UID:11111111-2222-4333-8444-555555555555-0@tempus.invalid
+DTSTAMP:20260307T120000Z
+SUMMARY:call Sam
+DESCRIPTION:Date phrase: every other Sunday at 2:30am for half an hour star
+ ting 2026-03-08 until 2026-04-19 except 2026-04-05\nTimezone: America/Chic
+ ago\nOnly upcoming occurrence starts appear in the preview.\nFor 2026-03-0
+ 8 start only\, you selected Start: Use March 8\, 2026 at 3:30 AM CDT (UTC-
+ 05:00). Other occurrences keep their written local clocks.\nComplete bound
+ ed recurrence set\; dates are fixed to the timezone rules used when this f
+ ile was generated.\n2026-03-08 start: Start: Use March 8\, 2026 at 3:30 AM
+  CDT (UTC-05:00)
+DTSTART:20260322T073000Z
+DTEND:20260322T080000Z
+END:VEVENT
+BEGIN:VEVENT
+RECURRENCE-ID:20260419T073000Z
+UID:11111111-2222-4333-8444-555555555555-0@tempus.invalid
+DTSTAMP:20260307T120000Z
+SUMMARY:call Sam
+DESCRIPTION:Date phrase: every other Sunday at 2:30am for half an hour star
+ ting 2026-03-08 until 2026-04-19 except 2026-04-05\nTimezone: America/Chic
+ ago\nOnly upcoming occurrence starts appear in the preview.\nFor 2026-03-0
+ 8 start only\, you selected Start: Use March 8\, 2026 at 3:30 AM CDT (UTC-
+ 05:00). Other occurrences keep their written local clocks.\nComplete bound
+ ed recurrence set\; dates are fixed to the timezone rules used when this f
+ ile was generated.\n2026-03-08 start: Start: Use March 8\, 2026 at 3:30 AM
+  CDT (UTC-05:00)
+DTSTART:20260419T073000Z
+DTEND:20260419T080000Z
+END:VEVENT
+END:VCALENDAR

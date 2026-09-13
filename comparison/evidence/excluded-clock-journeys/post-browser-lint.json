@@ -1,0 +1,5 @@
+{
+  "file": "src/shared/interpret-recurrence.ts",
+  "change": "Explicit date.toString() in place of implicit interpolation; displayed question unchanged.",
+  "sha256": "67b773408565fd660eaad29ab6300c529180c5bb00ee1c22c91637f1d3cbc0c1"
+}

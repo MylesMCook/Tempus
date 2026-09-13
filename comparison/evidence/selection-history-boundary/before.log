@@ -1,0 +1,31 @@
+
+> tempus-total@0.1.0 test /Users/mylescook/Code/MylesMCook/TempusTotal
+> vp test --run src/shared/sdk.test.ts
+
+
+ RUN  v4.1.11 /Users/mylescook/Code/MylesMCook/TempusTotal
+
+ ❯ src/shared/sdk.test.ts (5 tests | 1 failed) 23ms
+   × rejects sparse clarification history consistently at every SDK entry point 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/shared/sdk.test.ts > rejects sparse clarification history consistently at every SDK entry point
+AssertionError: expected function to throw an error, but it didn't
+ ❯ src/shared/sdk.test.ts:40:43
+     38|     selection: { contextKey: "unused", id: "unused", previous: Array<s…
+     39|   };
+     40|   expect(() => parse("today", malformed)).toThrow(TypeError);
+       |                                           ^
+     41|   expect(() => parseMany(["today"], malformed)).toThrow(TypeError);
+     42|   expect(() => parseMany([], malformed)).toThrow(TypeError);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 4 passed (5)
+   Start at  14:56:23
+   Duration  205ms (transform 79ms, setup 0ms, import 111ms, tests 23ms, environment 0ms)
+
+ ELIFECYCLE  Test failed. See above for more details.

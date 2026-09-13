@@ -1,0 +1,70 @@
+{
+  "status": "passed",
+  "browser": "153.0.8010.36",
+  "runs": [
+    {
+      "id": "fold-earlier",
+      "width": 320,
+      "status": "passed",
+      "file": "fold-earlier-320.ics",
+      "sha256": "d1b2db14981634962bcb8b5ef936dac52ec38eb84d59cafe3a2b366b68ee5fcf"
+    },
+    {
+      "id": "fold-later",
+      "width": 320,
+      "status": "passed",
+      "file": "fold-later-320.ics",
+      "sha256": "20f07eca5b9202ed1bb43fd2ab09287a31eedc6707bd2c01f8196a1dd932f410"
+    },
+    {
+      "id": "gap-earlier",
+      "width": 320,
+      "status": "passed",
+      "file": "gap-earlier-320.ics",
+      "sha256": "f3d485b6cf7ae4ac3fae5289043d837fab634e7b9bf6e2746efe3b46e4b5b9bf"
+    },
+    {
+      "id": "gap-later",
+      "width": 320,
+      "status": "passed",
+      "file": "gap-later-320.ics",
+      "sha256": "10a6481a3cbdfcbab7e487a919d651ea01483e79fcb4958cf46d6683579bd5d6"
+    },
+    {
+      "id": "fold-earlier",
+      "width": 1280,
+      "status": "passed",
+      "file": "fold-earlier-1280.ics",
+      "sha256": "d5099f6d83396300adfbaffc93c91adaf0e79e0bffda3b30ee2185e4f7005a3d"
+    },
+    {
+      "id": "fold-later",
+      "width": 1280,
+      "status": "passed",
+      "file": "fold-later-1280.ics",
+      "sha256": "392701e866591deac26757eb48513a68102dd7190ca755bed55e357d4dfaafac"
+    },
+    {
+      "id": "gap-earlier",
+      "width": 1280,
+      "status": "passed",
+      "file": "gap-earlier-1280.ics",
+      "sha256": "3df663110f4f4f8a31526bf5f8faaa810d772fc4176ce34274efb24672cdf63d"
+    },
+    {
+      "id": "gap-later",
+      "width": 1280,
+      "status": "passed",
+      "file": "gap-later-1280.ics",
+      "sha256": "ae0bf2d85f0a263617678bd81abcee3e78549e84fbff1666fb9d6cb60064d78b"
+    }
+  ],
+  "sourceHashes": {
+    "src/shared/interpret-recurrence.ts": "16ff528bcd22a529b7c671a8a2ce181e62f6faeb6ce59750f3eaef63b0031524",
+    "src/shared/interpret-date.ts": "061d7e5182eee549b25bc727d8d1baeb29b1168d27a9219a7b4748e698e3c0e3",
+    "src/shared/clarify-numeric-date.ts": "fa291aa4c31825afd5c1b3b1fe5ad1e60674dc1540d116c9f22cab1d31287860",
+    "src/shared/recurring-calendar-file.ts": "f59c681d8395da419bcdd813acb7d604063fbe154a32d4c5627b014d63132182",
+    "examples/app/verify-excluded-clock.mjs": "237289d41eb92456d97d0372b002eb8cf5b9b18c870cdaf878345ee623ca56b1"
+  },
+  "scope": "Desktop Chrome direct focus/Enter, excluded-clock count clarification, download and edit invalidation. Not full keyboard traversal, physical devices or calendar-client imports."
+}

@@ -1,0 +1,21 @@
+{
+  "files": [
+    {
+      "filename": "daily-point.ics",
+      "sha256": "73f24e995ef3e43437e18371000e200ac982dc0fb22219acf1457c4e9e456217",
+      "events": 1000,
+      "firstLocalDate": "2026-09-12",
+      "lastLocalDate": "2029-06-07",
+      "status": "passed"
+    },
+    {
+      "filename": "daily-duration.ics",
+      "sha256": "513e41cf448450d11339644ad3083659f990e17000560e8a58ffbc2fad95dfe8",
+      "events": 1000,
+      "firstLocalDate": "2026-09-12",
+      "lastLocalDate": "2029-06-07",
+      "status": "passed"
+    }
+  ],
+  "scope": "Separate Python readers verify complete files, dates, durations, titles and unique UID/recurrence identities. SDK first date has a fixed oracle; app checks continuity, not its captured reference. No actual client import."
+}

@@ -1,0 +1,42 @@
+{
+  "export.cpuprofile": {
+    "originalSha256": "84f62fab11a40cb9adf773a9d4b876ea307fdf11ef254ca3b4dabd86b46a1398",
+    "redactedSha256": "3a4326c2824d437b0f61dfcf49bbd2339affe63b0584f7464ea1c17a20675f04"
+  },
+  "calculatorTrace.cpuprofile": {
+    "originalSha256": "9ccaca36c2e80b6049ff12c12b7f8223dbdfb8182da88381b0bf262011432369",
+    "redactedSha256": "79fb5289ea3f4476cb05c46e1440c4f77c07a7ad65955ef4509a8ece4fe3dfe3"
+  },
+  "report.json": {
+    "originalSha256": "64aa6b6447e5794351621e0f0b55eaae7ef2aee08062c7c67c48fbf254b0474f",
+    "redactedSha256": "64aa6b6447e5794351621e0f0b55eaae7ef2aee08062c7c67c48fbf254b0474f"
+  },
+  "export.heapprofile": {
+    "originalSha256": "199baa27f8178efbdf6f898c2ff6df5471774662ae5fd39ac83caf794f54475a",
+    "redactedSha256": "44bfa190fa5a8272de433cede7b43838d3f7c18f67533950b9014ffdc3d63b60"
+  },
+  "correction.cpuprofile": {
+    "originalSha256": "6c0b49a387d2e4168761c7d222a5c3cdcb835cf351964c054a0b75d2ff377255",
+    "redactedSha256": "4cce6d3f97e2a4d5457e75b09b88fe3c8ef016808432bbe98eaf5c470f75ad15"
+  },
+  "preview.cpuprofile": {
+    "originalSha256": "7f7416b8927d85cb1cd28b1161430bd95ef4c384880ad5f1beacc794617e4565",
+    "redactedSha256": "1fe838af10345468095f64ae8917c20a73acb43c46494ff16d1d888eb4b8bad1"
+  },
+  "calculatorTrace.heapprofile": {
+    "originalSha256": "018877e24f84b1a5225ea82341852d2792007bffd7ccdb538f7d25f4c54eb68d",
+    "redactedSha256": "76b7eb0d370017bc36cdcaf9a30616de4581e5a1c0626588a2ac5839066efef9"
+  },
+  "initialization.cpuprofile": {
+    "originalSha256": "3c475b8535b394da4fbd81a6e44518dc20f049e48ac4b914dcbe93bf7d9ef823",
+    "redactedSha256": "4979f22375cc7d53653facf6fd17bc8f585284064c737906ca30e00f43de198f"
+  },
+  "preview.heapprofile": {
+    "originalSha256": "ac6d6986b2bbd63a393ecf14c2150e42e382fa4ee50ac271b7a9d8fab5ae2268",
+    "redactedSha256": "3a3f7f57eb76c993c1555d8abe65c819833f74c05b10ee5e660908e1d9fcce85"
+  },
+  "correction.heapprofile": {
+    "originalSha256": "5290d5d6e492b1049875390163e46168cf6419228399793d20dd7af26ea610dc",
+    "redactedSha256": "3372638afc47b3c4a0f4f15e3f4d408100ef939fd94dad5ae0824198bb11da98"
+  }
+}

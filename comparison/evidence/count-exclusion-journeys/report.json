@@ -1,0 +1,70 @@
+{
+  "status": "passed",
+  "browser": "153.0.8010.36",
+  "scope": "Desktop Chrome, direct focus/Enter, count preview, monthly correction, actual file download and edit invalidation. Not physical-device or calendar-client import evidence.",
+  "runs": [
+    {
+      "id": "weekly",
+      "width": 320,
+      "status": "passed",
+      "file": "weekly-320.ics",
+      "sha256": "425c5066617bea9c1e4338a36e49b2b6c4ec221800bebdae18361fe9a6fb7107"
+    },
+    {
+      "id": "monthly",
+      "width": 320,
+      "status": "passed",
+      "file": "monthly-320.ics",
+      "sha256": "16d3695824a03a43c3309d280d0c99feee89e7ee21d33eea1bf2129855870298"
+    },
+    {
+      "id": "consume",
+      "width": 320,
+      "status": "passed",
+      "file": "consume-320.ics",
+      "sha256": "6f95a03ba4583fe65004d56d3fa1c3b193f8af36e61eaa1d3b37f509851f9cea"
+    },
+    {
+      "id": "replace",
+      "width": 320,
+      "status": "passed",
+      "file": "replace-320.ics",
+      "sha256": "cbe98ed7b85c3c3f8e9c4c6db9464fa595c08ef1ee30af38c9d7b14076e60d9d"
+    },
+    {
+      "id": "weekly",
+      "width": 1280,
+      "status": "passed",
+      "file": "weekly-1280.ics",
+      "sha256": "5d33f1298be761919a11c13740c9053f49c4a6a81ea24fd2fce22fa9d6a87286"
+    },
+    {
+      "id": "monthly",
+      "width": 1280,
+      "status": "passed",
+      "file": "monthly-1280.ics",
+      "sha256": "44b11ab9bc9c3665d67c9b071fbdb7b2a3d6a98bc17a989e62e61972a97ef86a"
+    },
+    {
+      "id": "consume",
+      "width": 1280,
+      "status": "passed",
+      "file": "consume-1280.ics",
+      "sha256": "0c55981a47ccdbc1ad50503ea9717a2fbc33df1b396d33d419b8cb75df4771c5"
+    },
+    {
+      "id": "replace",
+      "width": 1280,
+      "status": "passed",
+      "file": "replace-1280.ics",
+      "sha256": "26e4be36f4f91400434dd8884e7e0702be39b051edd7b7041dba6e465633e739"
+    }
+  ],
+  "sourceHashes": {
+    "src/shared/interpret-recurrence.ts": "f76ee41a238351e0950923274ecc7661bd0ac0298cc3a097e1c182dfd199b453",
+    "src/shared/recurring-calendar-file.ts": "ba633cbbbac398ca5e218da27920a6588532294940f35e4dca76a355e647a577",
+    "src/features/parser/components/occurrence-result.tsx": "b3025e299dd11303129104e8c85ccaf51c821b363625833679e1e846b3e6381e",
+    "src/features/parser/components/calendar-export.tsx": "eb4c1eeaff61172f2eb6a8b8af0e6d73eda7b69ef691cd29cfba6925612c54e3",
+    "examples/app/verify-count.mjs": "7a5b6fb09330cc1fc724540d7b36e58b6b7d00e62c0af8d42a5df8051d3963a5"
+  }
+}

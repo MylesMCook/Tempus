@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tempus//Calendar Export//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:82f097f5-32e5-454d-add0-84f411172195-0@tempus.invalid
+DTSTAMP:20260912T160000Z
+SUMMARY:Buy apples for mom
+DESCRIPTION:Date phrase: 11/01/2026 at 1:30am for 30 minutes\nTimezone: Ame
+ rica/Chicago\nThe interval end is exclusive.\nYou selected Start: Second: 
+ November 1\, 2026 at 1:30 AM CST (UTC-06:00).\nDate interpreted as Novembe
+ r 1\, 2026.
+DTSTART:20261101T073000Z
+DTEND:20261101T080000Z
+END:VEVENT
+END:VCALENDAR

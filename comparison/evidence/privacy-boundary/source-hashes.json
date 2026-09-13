@@ -1,0 +1,9 @@
+{
+  "src/routes/privacy-page.tsx": "e3c30d11f2350d674f2a36d69ca3753ab49398c2f869a4bd7ded4e739822e067",
+  "src/routes/home-page.tsx": "f2d1ef1855d8e9a3e1a47bbb16c4221e568d850786338d33777002d45b593e50",
+  "src/features/parser/components/api-docs.tsx": "3bcd061f58078834979b207a30b3278c8e3bf46e92414d09dbe937e8f7f2431e",
+  "src/features/parser/settings-storage.ts": "a998edc84ffd6f05839b53068d0d785feca1ed17ed1135906a885422d3039d79",
+  "src/features/parser/context/settings-context.tsx": "9ccf27df8af609e05b3cbb1f657b538b61c75a98cd9fa889ad10d1cbc1068efd",
+  "public/_headers": "c551696324b38b5fb63980772f32cae743f0d7349139c851f44b2357394b8671",
+  "wrangler.jsonc": "accb2aaca61b1329b3e18865f992fabc9d87721fc703e31fbb093d51e56c092f"
+}

@@ -1,0 +1,8 @@
+{
+  "sourceHashes": {
+    "examples/app/verify-context-reset.mjs": "7064134f09c8e4c37b86a23af96f1ca1b00ee183f26cdaf51ab79582621d79dc",
+    "examples/app/read-reminder.py": "4c3f0df4f31b2fb9ba0c645d5a7423757ed6d2030796351423b74d67b54fb822",
+    "examples/app/read-reminder.py.lock": "25321ad7e67ccbc618b94ba12fdfc25f3d5cc3d7ba775ee1ef6b06cab5e63751"
+  },
+  "checks": "Two viewport download/edit journeys, independent exact-file readback and both prior reader scenarios pass; runner formatting/lint/types pass. Application and SDK bytes unchanged."
+}

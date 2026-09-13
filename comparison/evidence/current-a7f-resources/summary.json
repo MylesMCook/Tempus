@@ -1,0 +1,432 @@
+{
+  "packed": {
+    "tempus": {
+      "coldMs": {
+        "p50": 25.691833000000003,
+        "p95": 26.670541999999998,
+        "n": 5
+      },
+      "1": {
+        "p50": 0.15954199999999474,
+        "p95": 1.3104580000000041,
+        "n": 100
+      },
+      "10": {
+        "p50": 2.5849580000000003,
+        "p95": 3.192875000000001,
+        "n": 100
+      },
+      "100": {
+        "p50": 20.359458000000018,
+        "p95": 23.13387499999999,
+        "n": 100
+      },
+      "throughputPerSecond": 4911.722109694664,
+      "families": {
+        "point": {
+          "p50": 0.09324999999999761,
+          "p95": 0.12008300000000105,
+          "n": 25
+        },
+        "weekday": {
+          "p50": 0.0899169999999998,
+          "p95": 0.11766599999999983,
+          "n": 25
+        },
+        "overnightRange": {
+          "p50": 0.30279099999999914,
+          "p95": 0.3942920000000001,
+          "n": 25
+        },
+        "weeklyRecurrence": {
+          "p50": 1.2283749999999998,
+          "p95": 1.3817090000000007,
+          "n": 25
+        }
+      },
+      "postGcGrowthMiB": {
+        "rss": {
+          "p50": 96.328125,
+          "p95": 99.3125,
+          "n": 5
+        },
+        "heapUsed": {
+          "p50": 4.669990539550781,
+          "p95": 5.1391143798828125,
+          "n": 5
+        }
+      }
+    },
+    "gpu-time": {
+      "coldMs": {
+        "p50": 17.059666,
+        "p95": 18.324416,
+        "n": 5
+      },
+      "1": {
+        "p50": 0.20962500000000261,
+        "p95": 0.4905000000000044,
+        "n": 100
+      },
+      "10": {
+        "p50": 1.2326249999999987,
+        "p95": 1.9583749999999966,
+        "n": 100
+      },
+      "100": {
+        "p50": 10.817291000000012,
+        "p95": 11.37895899999998,
+        "n": 100
+      },
+      "throughputPerSecond": 9244.458709671386,
+      "families": {
+        "point": {
+          "p50": 0.1667500000000004,
+          "p95": 0.30383300000000446,
+          "n": 25
+        },
+        "weekday": {
+          "p50": 0.10216699999999435,
+          "p95": 0.17695799999999906,
+          "n": 25
+        },
+        "overnightRange": {
+          "p50": 0.22491600000000034,
+          "p95": 0.29129199999999855,
+          "n": 25
+        },
+        "weeklyRecurrence": {
+          "p50": 0.45583400000000296,
+          "p95": 0.6207920000000016,
+          "n": 25
+        }
+      },
+      "postGcGrowthMiB": {
+        "rss": {
+          "p50": 30.59375,
+          "p95": 30.96875,
+          "n": 5
+        },
+        "heapUsed": {
+          "p50": 1.4977188110351562,
+          "p95": 1.91937255859375,
+          "n": 5
+        }
+      }
+    }
+  },
+  "browser": {
+    "tempus": {
+      "coldMs": {
+        "p50": 17.59999990463257,
+        "p95": 18.100000023841858,
+        "n": 5
+      },
+      "1": {
+        "p50": 0.2999999523162842,
+        "p95": 1.7000000476837158,
+        "n": 100
+      },
+      "10": {
+        "p50": 3.5999999046325684,
+        "p95": 4.300000071525574,
+        "n": 100
+      },
+      "100": {
+        "p50": 26,
+        "p95": 29.699999928474426,
+        "n": 100
+      },
+      "throughputPerSecond": 3846.153846153846,
+      "families": {
+        "point": {
+          "p50": 0.10000002384185791,
+          "p95": 0.20000004768371582,
+          "n": 25
+        },
+        "weekday": {
+          "p50": 0.10000002384185791,
+          "p95": 0.20000004768371582,
+          "n": 25
+        },
+        "overnightRange": {
+          "p50": 0.3999999761581421,
+          "p95": 0.5,
+          "n": 25
+        },
+        "weeklyRecurrence": {
+          "p50": 1.600000023841858,
+          "p95": 1.8000000715255737,
+          "n": 25
+        }
+      }
+    },
+    "gpu-time": {
+      "coldMs": {
+        "p50": 13.799999952316284,
+        "p95": 13.800000071525574,
+        "n": 5
+      },
+      "1": {
+        "p50": 0.20000004768371582,
+        "p95": 0.7999999523162842,
+        "n": 100
+      },
+      "10": {
+        "p50": 1,
+        "p95": 1.399999976158142,
+        "n": 100
+      },
+      "100": {
+        "p50": 8.100000023841858,
+        "p95": 8.5,
+        "n": 100
+      },
+      "throughputPerSecond": 12345.678976006922,
+      "families": {
+        "point": {
+          "p50": 0.19999992847442627,
+          "p95": 0.5,
+          "n": 25
+        },
+        "weekday": {
+          "p50": 0.10000002384185791,
+          "p95": 0.40000009536743164,
+          "n": 25
+        },
+        "overnightRange": {
+          "p50": 0.19999992847442627,
+          "p95": 0.7999999523162842,
+          "n": 25
+        },
+        "weeklyRecurrence": {
+          "p50": 0.30000007152557373,
+          "p95": 0.8999999761581421,
+          "n": 25
+        }
+      }
+    }
+  },
+  "lanes": {
+    "preview": {
+      "p50": 0.9826249999999987,
+      "p95": 1.259541999999982,
+      "n": 500
+    },
+    "calculatorTrace": {
+      "p50": 0.07533300000000054,
+      "p95": 0.10054099999999266,
+      "n": 500
+    },
+    "correction": {
+      "p50": 0.6958750000000009,
+      "p95": 0.9505000000000052,
+      "n": 500
+    },
+    "export": {
+      "p50": 1.8625000000000114,
+      "p95": 2.4899580000000014,
+      "n": 500
+    }
+  },
+  "unchangedProfileOutputs": true,
+  "profiles": {
+    "correction.heapprofile.gz": {
+      "sampledAllocationBytes": 260414000
+    },
+    "preview.cpuprofile.gz": {
+      "samples": 2527,
+      "topSelfSamples": [
+        {
+          "function": "Mt",
+          "samples": 119
+        },
+        {
+          "function": "Mt",
+          "samples": 98
+        },
+        {
+          "function": "Mt",
+          "samples": 97
+        },
+        {
+          "function": "Mt",
+          "samples": 97
+        },
+        {
+          "function": "(garbage collector)",
+          "samples": 86
+        },
+        {
+          "function": "Mt",
+          "samples": 31
+        },
+        {
+          "function": "Mt",
+          "samples": 31
+        },
+        {
+          "function": "Mt",
+          "samples": 28
+        }
+      ]
+    },
+    "preview.heapprofile.gz": {
+      "sampledAllocationBytes": 346166024
+    },
+    "initialization.cpuprofile.gz": {
+      "samples": 228,
+      "topSelfSamples": [
+        {
+          "function": "IndianHelper",
+          "samples": 65
+        },
+        {
+          "function": "compileSourceTextModule",
+          "samples": 16
+        },
+        {
+          "function": "(garbage collector)",
+          "samples": 10
+        },
+        {
+          "function": "compileSourceTextModule",
+          "samples": 9
+        },
+        {
+          "function": "compileSourceTextModule",
+          "samples": 5
+        },
+        {
+          "function": "compileSourceTextModule",
+          "samples": 5
+        },
+        {
+          "function": "",
+          "samples": 5
+        },
+        {
+          "function": "compileForInternalLoader",
+          "samples": 3
+        }
+      ]
+    },
+    "calculatorTrace.cpuprofile.gz": {
+      "samples": 236,
+      "topSelfSamples": [
+        {
+          "function": "(garbage collector)",
+          "samples": 18
+        },
+        {
+          "function": "Mt",
+          "samples": 11
+        },
+        {
+          "function": "Mt",
+          "samples": 11
+        },
+        {
+          "function": "br",
+          "samples": 11
+        },
+        {
+          "function": "(program)",
+          "samples": 5
+        },
+        {
+          "function": "",
+          "samples": 4
+        },
+        {
+          "function": "<computed>.v.<computed>",
+          "samples": 4
+        },
+        {
+          "function": "yr",
+          "samples": 3
+        }
+      ]
+    },
+    "correction.cpuprofile.gz": {
+      "samples": 1766,
+      "topSelfSamples": [
+        {
+          "function": "Mt",
+          "samples": 47
+        },
+        {
+          "function": "AmbiguousLocalTime",
+          "samples": 44
+        },
+        {
+          "function": "(garbage collector)",
+          "samples": 39
+        },
+        {
+          "function": "AmbiguousLocalTime",
+          "samples": 29
+        },
+        {
+          "function": "Mt",
+          "samples": 29
+        },
+        {
+          "function": "timezoneLabel",
+          "samples": 28
+        },
+        {
+          "function": "CalculationFailure",
+          "samples": 28
+        },
+        {
+          "function": "CalculationFailure",
+          "samples": 25
+        }
+      ]
+    },
+    "export.heapprofile.gz": {
+      "sampledAllocationBytes": 866083144
+    },
+    "export.cpuprofile.gz": {
+      "samples": 4759,
+      "topSelfSamples": [
+        {
+          "function": "applyOperation",
+          "samples": 273
+        },
+        {
+          "function": "Mt",
+          "samples": 156
+        },
+        {
+          "function": "(garbage collector)",
+          "samples": 152
+        },
+        {
+          "function": "Mt",
+          "samples": 127
+        },
+        {
+          "function": "prepareCalendarFile",
+          "samples": 88
+        },
+        {
+          "function": "br",
+          "samples": 74
+        },
+        {
+          "function": "br",
+          "samples": 59
+        },
+        {
+          "function": "br",
+          "samples": 57
+        }
+      ]
+    },
+    "calculatorTrace.heapprofile.gz": {
+      "sampledAllocationBytes": 41300296
+    }
+  }
+}

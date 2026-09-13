@@ -1,0 +1,11 @@
+# Timezone edit and stale-selection review
+
+September 13, 2026. Review found a main-app bug after resolving a reminder: entering UTC cleared the clarification answers but kept America/Chicago. The timezone handler called a synchronous selection reset before reading its controlled input value. React restored the old value during that reset. The fix captures `event.currentTarget.value` before clearing choices, then applies the captured timezone.
+
+Both initial desktop runs failed at 320/1280 px. A diagnostic rerun retained the actual result text showing America/Chicago after the UTC edit. With the fix, both widths pass: resolve the three-date reminder, set an export title, change to UTC, re-answer clarification, verify UTC and a reset title, enter an invalid zone, recover Chicago, then refresh the reference and verify clarification returns with no export control. Original input survives. These runs use direct focus/Enter, not full Tab traversal; no file was downloaded or calendar written.
+
+A separate installed-SDK runner checks the unchanged 8d0c2791 archive on Node 22.12.0 and 26.8.1. Fourteen checks per runtime pass: a complete selection exports three events; removing or conflicting with each required answer blocks export; changing day, title, clock, timezone or reference invalidates the selection. These are authored contract checks, not independent language evaluation or protection against a caller constructing arbitrary SDK values. Integrators remain responsible for presenting the current result before external actions.
+
+The three changed JavaScript/TypeScript files pass formatting/lint/types without warnings. Production build passes with the existing client bundle warning (901.09 kB / 265.44 kB gzip). SDK implementation and packed bytes did not change. This limited review does not refresh the sealed security scan or establish hosting readiness, device behavior, real calendar imports or competitive superiority.
+
+Reproduce the app checks with `node examples/app/verify-context-reset.mjs PLAYWRIGHT-ENTRY NEW-OUTPUT-DIRECTORY` against the task-local app on port 5174. Run `node examples/sdk/verify-selection-boundary.mjs VERIFIED-INSTALL NEW-REPORT.json` for the installed SDK boundary checks. Existing output is refused; preserve failed reports. The local source hashes and before/after results are retained here.

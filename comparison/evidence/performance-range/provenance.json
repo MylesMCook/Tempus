@@ -1,0 +1,22 @@
+{
+  "archiveSha256": "47a218ba893908d49fdd132122040df95d107df8508be22fd6ff25a7fad342f4",
+  "originalReports": {
+    "node": {
+      "originalSha256": "56d4638683add9ce1f9ca9a3fd0f4e6c2d7b722413bdea87b6fb44d83f6eccbd"
+    },
+    "chrome": {
+      "originalSha256": "5432d251fbd1b6e976d777f99afcd03ffd1d5fbde7e826931053d6f1941fae5d"
+    },
+    "calendar": {
+      "originalSha256": "1f619b2287ef3ea3923558668aaf5efb3c15870515aa0bd186ad30bd2f1ec797"
+    }
+  },
+  "redaction": "Only local home-directory strings replaced with <home>; raw originals remain in their recorded local output directories.",
+  "summaryMethod": "Chrome median pools samples by engine and batch size; conventional middle/mean-middle median. Node memory is median per-process post-work minus pre-import, after explicit GC.",
+  "sourceHashes": {
+    "comparison/performance/run.mjs": "a211a7b7451204b516f09bc0069f6006e3a3169e01b03e22ce35bd643920a984",
+    "comparison/performance/browser.mjs": "19c0af3800cbeaa6eda18609b777cf4af0fb1ac032b5f54801cdb147ca2c3640",
+    "comparison/performance/calendar-bundle.mjs": "00dc1795f3725fad1ea14c12ce38a03fffaa9bf940da399528729a34a0aae45d",
+    "comparison/performance/workload.json": "479a37134d0f2b3e57fa5c96f7700de2d944a62ab83dee7654d6bec101d950c9"
+  }
+}

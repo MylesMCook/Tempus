@@ -1,0 +1,243 @@
+{
+  "archiveSha256": "8d0c279183fba267c0e4d97441a8159d126b068838ad9f9b186c4ae146602f7b",
+  "context": {
+    "timezone": "America/Chicago",
+    "reference": "2026-09-12T16:00:00Z"
+  },
+  "scope": "Five inspected initial-interpretation probes. Authored intended tasks, not completed journey evidence or comparison scores.",
+  "records": [
+    {
+      "id": "explicit-range-relative",
+      "input": "Call Sam from tomorrow at noon until Friday at noon",
+      "intended": "One interval: September 13 to September 18 at noon Chicago; preserve Call Sam.",
+      "result": {
+        "interpretationVersion": 1,
+        "status": "unsupported",
+        "error": {
+          "code": "syntax",
+          "message": "Expected a number and time unit.",
+          "hint": "Try “today plus 2 days” or “2 weeks before may 1”.",
+          "span": {
+            "start": 9,
+            "end": 13
+          }
+        },
+        "sdkVersion": "0.1.0",
+        "input": "Call Sam from tomorrow at noon until Friday at noon",
+        "context": {
+          "timezone": "America/Chicago",
+          "reference": "2026-09-12T16:00:00Z"
+        }
+      }
+    },
+    {
+      "id": "explicit-range-iso",
+      "input": "Call Sam from 2026-09-13 at noon to 2026-09-18 at noon",
+      "intended": "One interval: 2026-09-13T17:00Z to 2026-09-18T17:00Z.",
+      "result": {
+        "interpretationVersion": 1,
+        "status": "unsupported",
+        "error": {
+          "code": "syntax",
+          "message": "Expected a number and time unit.",
+          "hint": "Try “today plus 2 days” or “2 weeks before may 1”.",
+          "span": {
+            "start": 9,
+            "end": 13
+          }
+        },
+        "sdkVersion": "0.1.0",
+        "input": "Call Sam from 2026-09-13 at noon to 2026-09-18 at noon",
+        "context": {
+          "timezone": "America/Chicago",
+          "reference": "2026-09-12T16:00:00Z"
+        }
+      }
+    },
+    {
+      "id": "count-bounded-rule",
+      "input": "Call Sam every Monday at noon for 3 occurrences",
+      "intended": "Exactly September 14, 21 and 28, 2026 at noon Chicago; no invented duration.",
+      "result": {
+        "interpretationVersion": 1,
+        "status": "unsupported",
+        "error": {
+          "code": "syntax",
+          "message": "How long should this event last?",
+          "hint": "Use a positive whole number and seconds, minutes, hours, days or weeks, such as “tomorrow at noon for 30 minutes”."
+        },
+        "sdkVersion": "0.1.0",
+        "input": "Call Sam every Monday at noon for 3 occurrences",
+        "context": {
+          "timezone": "America/Chicago",
+          "reference": "2026-09-12T16:00:00Z"
+        }
+      }
+    },
+    {
+      "id": "daily-control",
+      "input": "Call Sam every day at noon until 2026-09-15",
+      "intended": "Three dates September 13 through 15 at noon Chicago; complete export remains separately verified.",
+      "result": {
+        "interpretationVersion": 1,
+        "status": "resolved",
+        "value": {
+          "ok": true,
+          "kind": "recurrence",
+          "timezone": "America/Chicago",
+          "rule": {
+            "frequency": "weekly",
+            "weekdays": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "startClock": "noon",
+            "starting": "2026-09-12",
+            "until": "2026-09-15",
+            "exceptions": []
+          },
+          "occurrences": [
+            {
+              "start": {
+                "ok": true,
+                "engineVersion": 2,
+                "expression": "2026-09-12 at noon",
+                "timezone": "America/Chicago",
+                "reference": "2026-09-12T16:00:00.000Z",
+                "normalized": "2026-09-12 at noon",
+                "anchor": {
+                  "iso": "2026-09-12T17:00:00.000Z",
+                  "local": "2026-09-12T12:00:00.000",
+                  "offset": "-05:00",
+                  "timestamp": 1789232400000
+                },
+                "anchorDescription": "Use the exact calendar date. Set the clock to 12:00:00.",
+                "steps": [],
+                "warnings": [],
+                "result": {
+                  "iso": "2026-09-12T17:00:00.000Z",
+                  "local": "2026-09-12T12:00:00.000",
+                  "offset": "-05:00",
+                  "timestamp": 1789232400000
+                }
+              }
+            },
+            {
+              "start": {
+                "ok": true,
+                "engineVersion": 2,
+                "expression": "2026-09-13 at noon",
+                "timezone": "America/Chicago",
+                "reference": "2026-09-12T16:00:00.000Z",
+                "normalized": "2026-09-13 at noon",
+                "anchor": {
+                  "iso": "2026-09-13T17:00:00.000Z",
+                  "local": "2026-09-13T12:00:00.000",
+                  "offset": "-05:00",
+                  "timestamp": 1789318800000
+                },
+                "anchorDescription": "Use the exact calendar date. Set the clock to 12:00:00.",
+                "steps": [],
+                "warnings": [],
+                "result": {
+                  "iso": "2026-09-13T17:00:00.000Z",
+                  "local": "2026-09-13T12:00:00.000",
+                  "offset": "-05:00",
+                  "timestamp": 1789318800000
+                }
+              }
+            },
+            {
+              "start": {
+                "ok": true,
+                "engineVersion": 2,
+                "expression": "2026-09-14 at noon",
+                "timezone": "America/Chicago",
+                "reference": "2026-09-12T16:00:00.000Z",
+                "normalized": "2026-09-14 at noon",
+                "anchor": {
+                  "iso": "2026-09-14T17:00:00.000Z",
+                  "local": "2026-09-14T12:00:00.000",
+                  "offset": "-05:00",
+                  "timestamp": 1789405200000
+                },
+                "anchorDescription": "Use the exact calendar date. Set the clock to 12:00:00.",
+                "steps": [],
+                "warnings": [],
+                "result": {
+                  "iso": "2026-09-14T17:00:00.000Z",
+                  "local": "2026-09-14T12:00:00.000",
+                  "offset": "-05:00",
+                  "timestamp": 1789405200000
+                }
+              }
+            }
+          ],
+          "truncated": true,
+          "validation": "preview-only"
+        },
+        "source": {
+          "text": "every day at noon until 2026-09-15",
+          "span": {
+            "start": 9,
+            "end": 43
+          }
+        },
+        "event": {
+          "text": "Call Sam",
+          "span": {
+            "start": 0,
+            "end": 8
+          }
+        },
+        "apiReplay": false,
+        "assumptions": [
+          "Only upcoming occurrence starts appear in the preview.",
+          "Recurrence export has not been validated."
+        ],
+        "sdkVersion": "0.1.0",
+        "input": "Call Sam every day at noon until 2026-09-15",
+        "context": {
+          "timezone": "America/Chicago",
+          "reference": "2026-09-12T16:00:00Z"
+        }
+      }
+    },
+    {
+      "id": "title-control",
+      "input": "Dentist appointment next Tuesday at 2pm",
+      "intended": "Ask whether Dentist appointment is the title; then one September 15 14:00 Chicago point.",
+      "result": {
+        "interpretationVersion": 1,
+        "status": "needs-clarification",
+        "error": {
+          "code": "syntax",
+          "message": "Use “Dentist appointment” as the event title?",
+          "hint": "Date phrase: next Tuesday at 2pm. Confirm the title or edit your input."
+        },
+        "clarification": {
+          "contextKey": "[\"Dentist appointment next Tuesday at 2pm\",\"America/Chicago\",\"2026-09-12T16:00:00Z\"]",
+          "question": "Use “Dentist appointment” as the event title?",
+          "choices": [
+            {
+              "id": "event:title",
+              "label": "Use “Dentist appointment”",
+              "expression": "next Tuesday at 2pm"
+            }
+          ]
+        },
+        "sdkVersion": "0.1.0",
+        "input": "Dentist appointment next Tuesday at 2pm",
+        "context": {
+          "timezone": "America/Chicago",
+          "reference": "2026-09-12T16:00:00Z"
+        }
+      }
+    }
+  ]
+}

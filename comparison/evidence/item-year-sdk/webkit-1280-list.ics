@@ -1,0 +1,23 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tempus//Calendar Export//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:5281097f-b67a-4ae6-a78d-625c4200736d-0@tempus.invalid
+DTSTAMP:20260913T124418Z
+SUMMARY:Call Sam
+DESCRIPTION:Date phrase: December 31 and January 1\, 2027 at noon\nTimezone
+ : America/Chicago\nEach listed date or range occurs once\; this is not a r
+ epeating rule.\nYou selected Date 1: 2026.\nYou selected Date 1: At noon.
+DTSTART:20261231T180000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:5281097f-b67a-4ae6-a78d-625c4200736d-1@tempus.invalid
+DTSTAMP:20260913T124418Z
+SUMMARY:Call Sam
+DESCRIPTION:Date phrase: December 31 and January 1\, 2027 at noon\nTimezone
+ : America/Chicago\nEach listed date or range occurs once\; this is not a r
+ epeating rule.\nYou selected Date 1: 2026.\nYou selected Date 1: At noon.
+DTSTART:20270101T180000Z
+END:VEVENT
+END:VCALENDAR

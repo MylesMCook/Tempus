@@ -1,0 +1,35 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tempus//Calendar Export//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:746b86e9-0408-4dcd-b55e-288032fbb8cd-0@tempus.invalid
+DTSTAMP:20260912T160000Z
+SUMMARY:Call Sam
+DESCRIPTION:Date phrase: September 30 and October 2 and 4 at noon\nTimezone
+ : UTC\nEach listed date or range occurs once\; this is not a repeating rul
+ e.\nYou selected 2026 for every listed date.\nYou selected Date 3: October
+  4.\nYou selected Date 1: At noon.\nYou selected Date 2: At noon.
+DTSTART:20260930T120000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:746b86e9-0408-4dcd-b55e-288032fbb8cd-1@tempus.invalid
+DTSTAMP:20260912T160000Z
+SUMMARY:Call Sam
+DESCRIPTION:Date phrase: September 30 and October 2 and 4 at noon\nTimezone
+ : UTC\nEach listed date or range occurs once\; this is not a repeating rul
+ e.\nYou selected 2026 for every listed date.\nYou selected Date 3: October
+  4.\nYou selected Date 1: At noon.\nYou selected Date 2: At noon.
+DTSTART:20261002T120000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:746b86e9-0408-4dcd-b55e-288032fbb8cd-2@tempus.invalid
+DTSTAMP:20260912T160000Z
+SUMMARY:Call Sam
+DESCRIPTION:Date phrase: September 30 and October 2 and 4 at noon\nTimezone
+ : UTC\nEach listed date or range occurs once\; this is not a repeating rul
+ e.\nYou selected 2026 for every listed date.\nYou selected Date 3: October
+  4.\nYou selected Date 1: At noon.\nYou selected Date 2: At noon.
+DTSTART:20261004T120000Z
+END:VEVENT
+END:VCALENDAR

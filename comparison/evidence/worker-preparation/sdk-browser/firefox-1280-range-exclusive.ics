@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tempus//Calendar Export//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:d3c0bb3d-616a-4c07-a325-caa992d010cc-0@tempus.invalid
+DTSTAMP:20260913T160444Z
+SUMMARY:Call Sam
+DESCRIPTION:Date phrase: from 2026-09-13 to 2026-09-18\nTimezone: America/C
+ hicago\nThe interval end is exclusive.\nYou selected End before 2026-09-18
+  begins.
+DTSTART;VALUE=DATE:20260913
+DTEND;VALUE=DATE:20260918
+END:VEVENT
+END:VCALENDAR

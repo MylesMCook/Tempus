@@ -1,0 +1,31 @@
+
+> tempus-total@0.1.0 test /Users/mylescook/Code/MylesMCook/TempusTotal
+> vp test --run
+
+
+ RUN  v4.1.11 /Users/mylescook/Code/MylesMCook/TempusTotal
+
+ ❯ src/shared/recipient-label.test.ts (20 tests | 1 failed) 68ms
+   × keeps date words out of a recipient proposal: Buy apples for Sam At noon tomorrow 3ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/shared/recipient-label.test.ts > keeps date words out of a recipient proposal: Buy apples for Sam At noon tomorrow
+Error: Missing recipient title confirmation
+ ❯ src/shared/recipient-label.test.ts:77:11
+     75|   const question = parse(input, context);
+     76|   if (question.status !== "needs-clarification" || !question.clarifica…
+     77|     throw Error("Missing recipient title confirmation");
+       |           ^
+     78|   expect(question.clarification.question).toMatch(/Buy apples [Ff]or S…
+     79|   const result = parse(input, {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 56 passed (57)
+      Tests  1 failed | 960 passed | 1 expected fail (962)
+   Start at  12:59:05
+   Duration  2.42s (transform 1.48s, setup 0ms, import 10.03s, tests 6.68s, environment 2ms)
+
+ ELIFECYCLE  Test failed. See above for more details.

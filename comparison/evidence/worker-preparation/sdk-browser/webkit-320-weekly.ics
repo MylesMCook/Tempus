@@ -1,0 +1,130 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tempus//Calendar Export//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:40a1d49c-ce2f-45e0-a6c6-7f54ce6d3ca7-0@tempus.invalid
+DTSTAMP:20260913T160513Z
+SUMMARY:Call Sam
+DESCRIPTION:Date phrase: every Sunday at 1:30am for 30 minutes until 2026-1
+ 1-08\nTimezone: America/Chicago\nOnly upcoming occurrence starts appear in
+  the preview.\nComplete bounded recurrence set\; dates are fixed to the ti
+ mezone rules used when this file was generated.\n2026-11-01 start: Start: 
+ Second: November 1\, 2026 at 1:30 AM CST (UTC-06:00)
+DTSTART:20260913T063000Z
+DTEND:20260913T070000Z
+RDATE:20260913T063000Z
+RDATE:20260920T063000Z
+RDATE:20260927T063000Z
+RDATE:20261004T063000Z
+RDATE:20261011T063000Z
+RDATE:20261018T063000Z
+RDATE:20261025T063000Z
+RDATE:20261101T073000Z
+RDATE:20261108T073000Z
+END:VEVENT
+BEGIN:VEVENT
+RECURRENCE-ID:20260920T063000Z
+UID:40a1d49c-ce2f-45e0-a6c6-7f54ce6d3ca7-0@tempus.invalid
+DTSTAMP:20260913T160513Z
+SUMMARY:Call Sam
+DESCRIPTION:Date phrase: every Sunday at 1:30am for 30 minutes until 2026-1
+ 1-08\nTimezone: America/Chicago\nOnly upcoming occurrence starts appear in
+  the preview.\nComplete bounded recurrence set\; dates are fixed to the ti
+ mezone rules used when this file was generated.\n2026-11-01 start: Start: 
+ Second: November 1\, 2026 at 1:30 AM CST (UTC-06:00)
+DTSTART:20260920T063000Z
+DTEND:20260920T070000Z
+END:VEVENT
+BEGIN:VEVENT
+RECURRENCE-ID:20260927T063000Z
+UID:40a1d49c-ce2f-45e0-a6c6-7f54ce6d3ca7-0@tempus.invalid
+DTSTAMP:20260913T160513Z
+SUMMARY:Call Sam
+DESCRIPTION:Date phrase: every Sunday at 1:30am for 30 minutes until 2026-1
+ 1-08\nTimezone: America/Chicago\nOnly upcoming occurrence starts appear in
+  the preview.\nComplete bounded recurrence set\; dates are fixed to the ti
+ mezone rules used when this file was generated.\n2026-11-01 start: Start: 
+ Second: November 1\, 2026 at 1:30 AM CST (UTC-06:00)
+DTSTART:20260927T063000Z
+DTEND:20260927T070000Z
+END:VEVENT
+BEGIN:VEVENT
+RECURRENCE-ID:20261004T063000Z
+UID:40a1d49c-ce2f-45e0-a6c6-7f54ce6d3ca7-0@tempus.invalid
+DTSTAMP:20260913T160513Z
+SUMMARY:Call Sam
+DESCRIPTION:Date phrase: every Sunday at 1:30am for 30 minutes until 2026-1
+ 1-08\nTimezone: America/Chicago\nOnly upcoming occurrence starts appear in
+  the preview.\nComplete bounded recurrence set\; dates are fixed to the ti
+ mezone rules used when this file was generated.\n2026-11-01 start: Start: 
+ Second: November 1\, 2026 at 1:30 AM CST (UTC-06:00)
+DTSTART:20261004T063000Z
+DTEND:20261004T070000Z
+END:VEVENT
+BEGIN:VEVENT
+RECURRENCE-ID:20261011T063000Z
+UID:40a1d49c-ce2f-45e0-a6c6-7f54ce6d3ca7-0@tempus.invalid
+DTSTAMP:20260913T160513Z
+SUMMARY:Call Sam
+DESCRIPTION:Date phrase: every Sunday at 1:30am for 30 minutes until 2026-1
+ 1-08\nTimezone: America/Chicago\nOnly upcoming occurrence starts appear in
+  the preview.\nComplete bounded recurrence set\; dates are fixed to the ti
+ mezone rules used when this file was generated.\n2026-11-01 start: Start: 
+ Second: November 1\, 2026 at 1:30 AM CST (UTC-06:00)
+DTSTART:20261011T063000Z
+DTEND:20261011T070000Z
+END:VEVENT
+BEGIN:VEVENT
+RECURRENCE-ID:20261018T063000Z
+UID:40a1d49c-ce2f-45e0-a6c6-7f54ce6d3ca7-0@tempus.invalid
+DTSTAMP:20260913T160513Z
+SUMMARY:Call Sam
+DESCRIPTION:Date phrase: every Sunday at 1:30am for 30 minutes until 2026-1
+ 1-08\nTimezone: America/Chicago\nOnly upcoming occurrence starts appear in
+  the preview.\nComplete bounded recurrence set\; dates are fixed to the ti
+ mezone rules used when this file was generated.\n2026-11-01 start: Start: 
+ Second: November 1\, 2026 at 1:30 AM CST (UTC-06:00)
+DTSTART:20261018T063000Z
+DTEND:20261018T070000Z
+END:VEVENT
+BEGIN:VEVENT
+RECURRENCE-ID:20261025T063000Z
+UID:40a1d49c-ce2f-45e0-a6c6-7f54ce6d3ca7-0@tempus.invalid
+DTSTAMP:20260913T160513Z
+SUMMARY:Call Sam
+DESCRIPTION:Date phrase: every Sunday at 1:30am for 30 minutes until 2026-1
+ 1-08\nTimezone: America/Chicago\nOnly upcoming occurrence starts appear in
+  the preview.\nComplete bounded recurrence set\; dates are fixed to the ti
+ mezone rules used when this file was generated.\n2026-11-01 start: Start: 
+ Second: November 1\, 2026 at 1:30 AM CST (UTC-06:00)
+DTSTART:20261025T063000Z
+DTEND:20261025T070000Z
+END:VEVENT
+BEGIN:VEVENT
+RECURRENCE-ID:20261101T073000Z
+UID:40a1d49c-ce2f-45e0-a6c6-7f54ce6d3ca7-0@tempus.invalid
+DTSTAMP:20260913T160513Z
+SUMMARY:Call Sam
+DESCRIPTION:Date phrase: every Sunday at 1:30am for 30 minutes until 2026-1
+ 1-08\nTimezone: America/Chicago\nOnly upcoming occurrence starts appear in
+  the preview.\nComplete bounded recurrence set\; dates are fixed to the ti
+ mezone rules used when this file was generated.\n2026-11-01 start: Start: 
+ Second: November 1\, 2026 at 1:30 AM CST (UTC-06:00)
+DTSTART:20261101T073000Z
+DTEND:20261101T080000Z
+END:VEVENT
+BEGIN:VEVENT
+RECURRENCE-ID:20261108T073000Z
+UID:40a1d49c-ce2f-45e0-a6c6-7f54ce6d3ca7-0@tempus.invalid
+DTSTAMP:20260913T160513Z
+SUMMARY:Call Sam
+DESCRIPTION:Date phrase: every Sunday at 1:30am for 30 minutes until 2026-1
+ 1-08\nTimezone: America/Chicago\nOnly upcoming occurrence starts appear in
+  the preview.\nComplete bounded recurrence set\; dates are fixed to the ti
+ mezone rules used when this file was generated.\n2026-11-01 start: Start: 
+ Second: November 1\, 2026 at 1:30 AM CST (UTC-06:00)
+DTSTART:20261108T073000Z
+DTEND:20261108T080000Z
+END:VEVENT
+END:VCALENDAR

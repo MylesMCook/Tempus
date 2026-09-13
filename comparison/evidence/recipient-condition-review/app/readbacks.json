@@ -1,0 +1,137 @@
+{
+  "files": [
+    {
+      "file": "invoice-320.ics",
+      "status": "passed",
+      "starts": [
+        "2026-11-01T07:30:00+00:00"
+      ],
+      "title": "Pay invoice #123"
+    },
+    {
+      "file": "quantity-320.ics",
+      "status": "passed",
+      "starts": [
+        "2026-11-01T07:30:00+00:00"
+      ],
+      "title": "Buy 3 apples"
+    },
+    {
+      "file": "quantity-list-320.ics",
+      "status": "passed",
+      "starts": [
+        "2026-11-01T07:30:00+00:00"
+      ],
+      "title": "Buy 3 apples and 2 pears"
+    },
+    {
+      "file": "recipient-320.ics",
+      "status": "passed",
+      "starts": [
+        "2026-11-01T07:30:00+00:00"
+      ],
+      "title": "Buy apples for Sam"
+    },
+    {
+      "file": "recipient-lowercase-320.ics",
+      "status": "passed",
+      "starts": [
+        "2026-11-01T07:30:00+00:00"
+      ],
+      "title": "Buy apples for mom"
+    },
+    {
+      "file": "clock-first-320.ics",
+      "status": "passed",
+      "starts": [
+        "2026-11-01T07:30:00+00:00"
+      ],
+      "title": "Buy apples for Sam"
+    },
+    {
+      "file": "schedule-320.ics",
+      "status": "passed",
+      "starts": [
+        "2026-09-14T17:00:00+00:00",
+        "2026-09-21T17:00:00+00:00",
+        "2026-09-28T17:00:00+00:00"
+      ],
+      "title": "Visit room 3"
+    },
+    {
+      "file": "title-320.ics",
+      "status": "passed",
+      "starts": [
+        "2026-09-13T17:00:00+00:00"
+      ],
+      "title": "Room 3"
+    },
+    {
+      "file": "invoice-1280.ics",
+      "status": "passed",
+      "starts": [
+        "2026-11-01T07:30:00+00:00"
+      ],
+      "title": "Pay invoice #123"
+    },
+    {
+      "file": "quantity-1280.ics",
+      "status": "passed",
+      "starts": [
+        "2026-11-01T07:30:00+00:00"
+      ],
+      "title": "Buy 3 apples"
+    },
+    {
+      "file": "quantity-list-1280.ics",
+      "status": "passed",
+      "starts": [
+        "2026-11-01T07:30:00+00:00"
+      ],
+      "title": "Buy 3 apples and 2 pears"
+    },
+    {
+      "file": "recipient-1280.ics",
+      "status": "passed",
+      "starts": [
+        "2026-11-01T07:30:00+00:00"
+      ],
+      "title": "Buy apples for Sam"
+    },
+    {
+      "file": "recipient-lowercase-1280.ics",
+      "status": "passed",
+      "starts": [
+        "2026-11-01T07:30:00+00:00"
+      ],
+      "title": "Buy apples for mom"
+    },
+    {
+      "file": "clock-first-1280.ics",
+      "status": "passed",
+      "starts": [
+        "2026-11-01T07:30:00+00:00"
+      ],
+      "title": "Buy apples for Sam"
+    },
+    {
+      "file": "schedule-1280.ics",
+      "status": "passed",
+      "starts": [
+        "2026-09-14T17:00:00+00:00",
+        "2026-09-21T17:00:00+00:00",
+        "2026-09-28T17:00:00+00:00"
+      ],
+      "title": "Visit room 3"
+    },
+    {
+      "file": "title-1280.ics",
+      "status": "passed",
+      "starts": [
+        "2026-09-13T17:00:00+00:00"
+      ],
+      "title": "Room 3"
+    }
+  ],
+  "scope": "Separate file readers and fixed authored oracle; not calendar-client import or independent product evaluation."
+}

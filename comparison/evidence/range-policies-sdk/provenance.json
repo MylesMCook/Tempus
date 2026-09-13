@@ -1,0 +1,20 @@
+{
+  "originalReportHashes": {
+    "verification.json": "645988591570cbba7d71ed868fc533197e0804cf543c30b6d2c1b34da7deaf59",
+    "node22.json": "85b0698272df08a71854a59d6570b52b44ae200594e65f73bf0726ce077dff17",
+    "replay.json": "21cbe3e7e94187904ee3926dee79fc0af5c5fefbaa674b85c1e1c7fe3e65a6e9",
+    "imports.json": "17780d52db6c685eec7ddeb058fb1bd08640e8f3da7d9b8866a3cf9bfff4213b",
+    "worker.json": "00ad1f1294e4af7645c6d9107e1229e85aa6572a1deba5b2aeb684c692d6fb8d",
+    "worker-readback.json": "307170b7a2a831d1ceab7cfd042e72f5e3a94ed4768e25b55e1e3b0e1c3153d0",
+    "browser.json": "38bfd354f391ef7fd619b5ca92fbafdbb904ae78fd18f49364dfc70728c7cf41",
+    "browser-readback.json": "e3d4a448665408ef111da1da632798fb87e2182a32681e4e6d88b2d07fd841a3"
+  },
+  "redaction": "Home path only",
+  "sourceHashes": {
+    "examples/sdk/calendar.mjs": "dda3e6b7146a514135c4d751814e22ecc1715844fbec11d9457c1eb00e339364",
+    "examples/sdk/verify-browser.mjs": "b1f1b61f82dc50c09a904f2e8a2a07b8bbc7fd73e0dab507cc725a993640473a",
+    "examples/sdk/verification-worker.ts": "dc4a67b997d42ad3002c23f3480a40b2b367aafd5fb9d9f56e0eb93f86e42255",
+    "examples/sdk/read-browser-files.py": "e82904cbe0c0f28b2165ddc174b756c05ea5856d4277e6e51366a050121150ea",
+    "examples/sdk/read-worker-files.py": "f90400acf762c9c7c4c812b7f4604aed7b439e6b6db128009524d9b76ed8c02a"
+  }
+}

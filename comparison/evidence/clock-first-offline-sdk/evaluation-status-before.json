@@ -1,0 +1,110 @@
+{
+  "protocolVersion": "draft-1",
+  "protocol": "comparison/evaluation/protocol.md",
+  "frozen": false,
+  "holdoutOpened": false,
+  "confirmatoryEvaluationReady": false,
+  "baseline": {
+    "tempusArchiveSha256": "e33ab0ca30d3670a2bd47928bc403872a5ca4c9c92408923461c9a94afe1fe53",
+    "gpuTimeVersion": "0.2.1",
+    "gpuTimeFreshness": "Registry rechecked September 13, 2026 at 14:44:16 UTC; same latest version, commit and integrity; refresh before freezing",
+    "developmentCases": 31,
+    "scriptedJourneys": 22,
+    "independentCases": 0,
+    "physicalDeviceRuns": 0,
+    "calendarClientImports": 0,
+    "tempusArtifactScope": "Current range-policy candidate: six examples on Node 22/26; 56 installed files match; declarations/import closure pass. Six paced desktop browser runs and local workerd pass, with 84 browser and fifteen Worker files read separately. WebKit uses Option-Tab. Same 31-case/22-journey source replay matches package results/file bytes on Node 26. No new independent cases. Current preview performance is recorded separately. Rapid-download failure remains historical and unresolved. No actual imports or physical devices.",
+    "performanceArchiveSha256": "e33ab0ca30d3670a2bd47928bc403872a5ca4c9c92408923461c9a94afe1fe53",
+    "performanceScope": "Current e33ab0ca against pinned gpu-time 0.2.1 on four inspected Node/Chrome preview inputs. gpu-time leads startup, batches, size and single-call tails; Tempus has lower Node single p50, Chrome p50 ties. No correction/export, device or human-task measurement; no accepted budgets or significance claim. Reports: comparison/evidence/performance-range-policies."
+  },
+  "missing": [
+    "Independent evaluator and holdout custodian",
+    "Independently authored development pilot",
+    "Final primary claims and minimum useful advantage",
+    "Sample allocation and precision or power justification",
+    "Error tolerances and regression margins",
+    "Reviewed paired analysis with cluster and multiple-claim handling",
+    "Human task-study design and participants",
+    "Designated physical devices and resource budgets",
+    "Validated export capability and authorized client imports",
+    "Frozen artifacts, adapters, protocol and execution identity"
+  ],
+  "pilotHandoff": "comparison/evaluation/pilot-handoff.md",
+  "documentationCandidate": {
+    "archiveSha256": "4b96da77b994605be06f0c63091c338cb7dae5f5a65e958f3d970786a5858a63",
+    "runtimeBaselineSha256": "756fbb4ec523da3ac1bba687507eba72c2b42aa2a9de767e01d0e9d765cbbf59",
+    "changedFiles": [
+      "README.md"
+    ],
+    "evidence": "comparison/evidence/candidate-compatibility",
+    "scope": "Seven Node26 examples, installed types, 56-file equality and runtime export inventory pass. Only README differs; no fresh browser/Worker/device/performance claim. Public compatibility commitment remains open."
+  },
+  "performanceCandidate": {
+    "archiveSha256": "b8ffb7e04e46eeaaf1e1dcf6c07875b2f805e2497dee50f03280ec0afd14e051",
+    "evidence": "comparison/evidence/clock-first-resources",
+    "budgets": "docs/performance-budgets.md",
+    "budgetsStatus": "Provisional engineering containment targets; physical baselines and independent-evaluator freeze required",
+    "scope": "Archive-verified CPU/allocation profiles, shared four-input Node/Chrome CPU comparison, separate authored trace/correction/nine-event export timings and bundle costs. Full separate-lane output hashes match predecessor. Retention/large-export/full Worker/offline evidence retains older identities. No peak memory, energy, device, human-task or overall superiority claim."
+  },
+  "runtimeCandidate": {
+    "archiveSha256": "4b96da77b994605be06f0c63091c338cb7dae5f5a65e958f3d970786a5858a63",
+    "evidence": "comparison/evidence/candidate-compatibility",
+    "browserEvidence": "comparison/evidence/current-offline-sdk",
+    "workerEvidence": "comparison/evidence/current-quantity-worker",
+    "scope": "Seven Node26 examples, installed types and README-only parity against Node22-tested 756fbb4e. Current local Worker has sixteen file readbacks. Existing fourteen-task offline browser suite passes six desktop runs and 84 file readbacks; quantity is outside this offline suite. Current 31/25 source replay passes. No cold-offline, physical-device, deployed-Worker, client-import or independent-evaluation claim."
+  },
+  "optimizationCandidate": {
+    "archiveSha256": "bd06963f2facb68dce9e2aadb79b21d9cfd2583a004a60b6e7b33e9706f0aa7e",
+    "evidence": "comparison/evidence/numeric-formatter",
+    "changedPackedFiles": [
+      "dist/clarify-numeric-date.js"
+    ],
+    "scope": "Node22/26 seven examples, 31/22 full replay, nine targeted static browser correction probes, local Worker and fifteen separate file readbacks. Scope-specific formatter/memory and paired correction improvements; no new gpu-time, physical-device, peak-memory or energy run. Current full offline-after-load keyboard/download evidence is recorded separately in offline-sdk."
+  },
+  "quantityCandidate": {
+    "archiveSha256": "756fbb4ec523da3ac1bba687507eba72c2b42aa2a9de767e01d0e9d765cbbf59",
+    "evidence": "comparison/evidence/quantity-title",
+    "scope": "Seven Node22/26 examples, installed types and file equality, 31/22 replay, nine targeted SDK browser probes, eight main-app files read separately. Current full offline/Worker refresh pending; current performance recorded separately; no independent user, physical-device or calendar-import claim."
+  },
+  "journeyCandidate": {
+    "archiveSha256": "4b96da77b994605be06f0c63091c338cb7dae5f5a65e958f3d970786a5858a63",
+    "evidence": "comparison/evidence/count-quantity-validation",
+    "snapshot": "comparison/evidence/count-quantity-meaningful-edits",
+    "comparisonCases": 31,
+    "authoredJourneys": 25,
+    "independentCases": 0,
+    "scope": "Node26 31/25 source/package replay and 31/22 legacy replay; 25 bounded file readbacks. Three meaningful edit cases. No new browser/device/import or comparative count-policy study. Known ongoing-duration conformance failure remains."
+  },
+  "workerCandidate": {
+    "archiveSha256": "4b96da77b994605be06f0c63091c338cb7dae5f5a65e958f3d970786a5858a63",
+    "evidence": "comparison/evidence/current-quantity-worker",
+    "diagnosticVersion": 2,
+    "filesRead": 16,
+    "scope": "Current installed package on local workerd; quantity clarification and edit invalidation plus existing failure/count/range/list/monthly cases. No deployed Worker, full-current-browser, device, human-task or calendar-client claim."
+  },
+  "recipientCandidate": {
+    "archiveSha256": "e7ac31c41806e7e1bd799d07bac2df438ac95d342250c789a8a621c93f45fbe2",
+    "evidence": "comparison/evidence/recipient-reminder",
+    "scope": "952 tests pass plus one expected failure; build/lint, Node26 package, targeted Node22/26 recipient flow, ten built-app file readbacks and 31/25 replay. Bounded capitalized recipient names; full current Worker/offline/performance, devices and independent evaluation remain open."
+  },
+  "sourceReview": {
+    "evidence": "comparison/evidence/recipient-review",
+    "testsPassed": 960,
+    "expectedFailures": 1,
+    "failures": 1,
+    "scope": "Recipient casing/qualifier fixes; clock-first reminder expected result remains failing. Build/lint and built-app checks pass. No new packed runtime identity or release-ready claim.",
+    "supersededBy": "comparison/evidence/clock-first"
+  },
+  "clockFirstCandidate": {
+    "archiveSha256": "b8ffb7e04e46eeaaf1e1dcf6c07875b2f805e2497dee50f03280ec0afd14e051",
+    "evidence": "comparison/evidence/clock-first",
+    "scope": "979 tests pass and one existing expected failure; build/types/lint, seven Node26 package examples, targeted Node22/26 and 31/25 replay. Twelve built-app file readbacks pass on unchanged retry; first download timeout remains unexplained. No full current Worker/offline/performance, device/import or independent-evaluation claim."
+  },
+  "currentWorkerCandidate": {
+    "archiveSha256": "b8ffb7e04e46eeaaf1e1dcf6c07875b2f805e2497dee50f03280ec0afd14e051",
+    "evidence": "comparison/evidence/current-clock-first-worker",
+    "diagnosticVersion": 3,
+    "fileReadbacks": 18,
+    "scope": "Local workerd, archive equality, installed types, clarification and edit recovery. No deployed Worker, physical-device, actual-import or independent evaluation claim."
+  }
+}

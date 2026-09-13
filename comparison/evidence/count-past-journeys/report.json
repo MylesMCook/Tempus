@@ -1,0 +1,100 @@
+{
+  "status": "passed",
+  "browser": "153.0.8010.36",
+  "scope": "Desktop Chrome, direct focus/Enter, count preview, monthly correction, actual file download and edit invalidation. Not physical-device or calendar-client import evidence.",
+  "runs": [
+    {
+      "id": "weekly",
+      "width": 320,
+      "status": "passed",
+      "file": "weekly-320.ics",
+      "sha256": "d0cc032e86e0f9a8b110e421186571bef377e7388b5817bda7d97c0d22934e12"
+    },
+    {
+      "id": "monthly",
+      "width": 320,
+      "status": "passed",
+      "file": "monthly-320.ics",
+      "sha256": "302a433fa0fe3d38de992c16a41e3b157f1a8a048e54e9268024aee43987ed07"
+    },
+    {
+      "id": "consume",
+      "width": 320,
+      "status": "passed",
+      "file": "consume-320.ics",
+      "sha256": "205b171e6df8e984ffef9388ae41a9b558e2ef24c719e493fba61b920b84a36b"
+    },
+    {
+      "id": "replace",
+      "width": 320,
+      "status": "passed",
+      "file": "replace-320.ics",
+      "sha256": "063d8987460407c5f2f6d664f4c92e1e9dba00973da311a2543a06d8f4302e1e"
+    },
+    {
+      "id": "past-consume",
+      "width": 320,
+      "status": "passed",
+      "file": "past-consume-320.ics",
+      "sha256": "c7de5fa27c0ee8e4f29d066431a62cddc54d3978775828d26fd0317a43f04eba"
+    },
+    {
+      "id": "past-upcoming",
+      "width": 320,
+      "status": "passed",
+      "file": "past-upcoming-320.ics",
+      "sha256": "bdc19b51e905f5892bfe2b5afd373f6a315fa5ac0d212ae9a5f1c3619a02071e"
+    },
+    {
+      "id": "weekly",
+      "width": 1280,
+      "status": "passed",
+      "file": "weekly-1280.ics",
+      "sha256": "132da5003f585ed870d353826d20b6d022b7a36f247d47e29f3a6602caaccdc7"
+    },
+    {
+      "id": "monthly",
+      "width": 1280,
+      "status": "passed",
+      "file": "monthly-1280.ics",
+      "sha256": "aca9d52aa8f32941426f3253d7ca5e20b737d93b6aca2c0636a38b5e3d70cdf6"
+    },
+    {
+      "id": "consume",
+      "width": 1280,
+      "status": "passed",
+      "file": "consume-1280.ics",
+      "sha256": "3294c3ea2449079f1ae91c3ef2ad91d621eb2a582ed47cc0c33f2a26a1f77aa7"
+    },
+    {
+      "id": "replace",
+      "width": 1280,
+      "status": "passed",
+      "file": "replace-1280.ics",
+      "sha256": "b9d9a0cf5c22c1b54e9d201e38aa7272c6771ca248ac2a10fb8218b05b4c9b6b"
+    },
+    {
+      "id": "past-consume",
+      "width": 1280,
+      "status": "passed",
+      "file": "past-consume-1280.ics",
+      "sha256": "0dc17fd1bc2d8db02bc60fe641e51f120e7e46c0081dba3f38826277884ad791"
+    },
+    {
+      "id": "past-upcoming",
+      "width": 1280,
+      "status": "passed",
+      "file": "past-upcoming-1280.ics",
+      "sha256": "f33c8ec0ed9f01180fcb4f5ba916bdf7ebf9aaf9a3cd7fa0506581d94580ca60"
+    }
+  ],
+  "sourceHashes": {
+    "src/shared/interpret-recurrence.ts": "231e414092457b65540f9dd23d44e02a02aed62e5ef1870bac2b1c152982ad66",
+    "src/shared/interpret-date.ts": "3152632fb3f834ec8e9f8dcb1751b6bea8642c0b3760fb5f1c53be8aa75643db",
+    "src/shared/clarify-numeric-date.ts": "d7bd22c22aeb96b0ea58402e9bfc756296cbe0ea1cdf0435dc40b16089f7a578",
+    "src/shared/recurring-calendar-file.ts": "711424d1acf351073f0c17511f7019a3254a267ed4ae8889b44c5de5d0b47cc3",
+    "src/features/parser/components/occurrence-result.tsx": "eae264f72f3eaf1b9258f455a1ad5ecb63b50c94f8a55c984f7f94055cdd2d39",
+    "src/features/parser/components/calendar-export.tsx": "7c12a1ed6144f5b30a3a6f8069bf7de0b0de9846f9fd7a278e0a1cb261cc3974",
+    "examples/app/verify-count.mjs": "cd6fd46d38fb4b30d90b9f2078a15b3d06d7e760c5bfb8bf41d26ea46288fb79"
+  }
+}

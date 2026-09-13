@@ -1,0 +1,4563 @@
+{
+  "status": "passed",
+  "webkitNavigation": "Option-Tab / Shift-Option-Tab",
+  "archiveSha256": "7fa6dd5769dc486a4de6e216984d99b57d1f7c97c64b193f94c6766e582c9d5e",
+  "sourceHashes": {
+    "calendar.html": "4e9afce6f43914d9b6ed0cf0b13641aef1eb4d7367e2941dfea252b62f9812d3",
+    "calendar-browser.ts": "b3da9e4acbd44080526e250c60d7e40fe5febaf3d7e900de3ffb0953f7dac983",
+    "vite.config.mjs": "737f9e6f36206b44d99a9f64774a5f82f2afcbd62f34d58148d6748c3fdb1274"
+  },
+  "runnerSha256": "a8d0304c24e487a7b23794a723d54b1d41ea14ac8b98fdcbc6ecd5e429b08dd7",
+  "runs": [
+    {
+      "browser": "chromium",
+      "version": "153.0.8010.36",
+      "width": 320,
+      "status": "passed",
+      "files": [
+        {
+          "filename": "chromium-320-date-point.ics",
+          "sha256": "669bb05efc15261f446ddb786c8b8ab826f7d6984073095bf233d11457789579",
+          "events": 1
+        },
+        {
+          "filename": "chromium-320-all-day-range.ics",
+          "sha256": "840d0fccfc7c55a30b4d87cfecaff528c427fefdfba7a220227f49f69755b089",
+          "events": 1
+        },
+        {
+          "filename": "chromium-320-count-weekly.ics",
+          "sha256": "aea7d6b31a8491f202bababdf25eb5e125f758fee1b53e860bf90a1e6344256f",
+          "events": 5
+        },
+        {
+          "filename": "chromium-320-count-monthly.ics",
+          "sha256": "5f204b2fe934701fb08d875e72e314c606566189cc805bedf587e6ac07ed83a6",
+          "events": 3
+        },
+        {
+          "filename": "chromium-320-count-past-consume.ics",
+          "sha256": "ea7c065500917a70edfd3918bc6cb75570616b57c3a9113b510af71c1ab0ee89",
+          "events": 2
+        },
+        {
+          "filename": "chromium-320-count-past-upcoming.ics",
+          "sha256": "66d9a66d26cc8a7bd9b3f49c53f23223ecfe78ae0793ec7fd4d67b5937f6e215",
+          "events": 3
+        },
+        {
+          "filename": "chromium-320-count-excluded-consume.ics",
+          "sha256": "0cfb084a975668e0d6b86cd648f5b7520e5d34b7ed66eeb5fb7fcac5d8681cbe",
+          "events": 2
+        },
+        {
+          "filename": "chromium-320-count-excluded-replace.ics",
+          "sha256": "d002db092b10218260d6dabb338457367ed5960b0f294514da3f43b76967cae9",
+          "events": 3
+        },
+        {
+          "filename": "chromium-320-range.ics",
+          "sha256": "f74d2698a048df03cd8d33f4c19c788529c8ebf903e06ea30f817aab9242561a",
+          "events": 1
+        },
+        {
+          "filename": "chromium-320-weekly.ics",
+          "sha256": "f4a0dfe602e3e3fbd27c8ec9b6cc8f622517b192482469fb8bf0443845953a64",
+          "events": 9
+        },
+        {
+          "filename": "chromium-320-list.ics",
+          "sha256": "ac008b626e6e98c32a9509a3d9bf561c8f4a4339a3daeb6566dc09f6fb60ff97",
+          "events": 3
+        }
+      ],
+      "errors": [],
+      "keyboard": [
+        {
+          "target": "phrase",
+          "tabs": 1,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "Use September 12, 2026 (date only)",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Tab",
+          "focus": []
+        },
+        {
+          "target": "Use September 13, 2026 to September 15, 2026 (all day; exclusive end)",
+          "tabs": 1,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Tab",
+          "focus": []
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Tab",
+          "focus": []
+        },
+        {
+          "target": "Use the last day of that month",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Tab",
+          "focus": []
+        },
+        {
+          "target": "Count from the written start, including past dates · 2026-09-14, 2026-09-21",
+          "tabs": 1,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Tab",
+          "focus": []
+        },
+        {
+          "target": "Count upcoming starts; keep the written cadence · 2026-09-14, 2026-09-21, 2026-09-28",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Tab",
+          "focus": []
+        },
+        {
+          "target": "Count excluded dates; do not replace them · 2026-09-14, 2026-09-28",
+          "tabs": 1,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Tab",
+          "focus": []
+        },
+        {
+          "target": "Replace excluded dates to keep the event count · 2026-09-14, 2026-09-28, 2026-10-05",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Tab",
+          "focus": []
+        },
+        {
+          "target": "November 1, 2026",
+          "tabs": 1,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "Second: November 1, 2026 at 1:30 AM CST (UTC-06:00)",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Tab",
+          "focus": []
+        },
+        {
+          "target": "Second: November 1, 2026 at 1:30 AM CST (UTC-06:00)",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "restart",
+          "tabs": 1,
+          "key": "Shift+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 1,
+          "key": "Shift+Tab",
+          "focus": [
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "October 4",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "2026",
+          "tabs": 1,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "At noon",
+          "tabs": 1,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "At noon",
+          "tabs": 1,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "Inspect the SDK result",
+          "tabs": 1,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "SUMMARY",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 3,
+          "key": "Shift+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Tab",
+          "focus": []
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Tab",
+          "focus": []
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Tab",
+          "focus": []
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Tab",
+          "focus": []
+        }
+      ],
+      "externalRequests": []
+    },
+    {
+      "browser": "chromium",
+      "version": "153.0.8010.36",
+      "width": 1280,
+      "status": "passed",
+      "files": [
+        {
+          "filename": "chromium-1280-date-point.ics",
+          "sha256": "64b28841d6a15d3b51866fa39b146d2e52a4099cd05e032a6c45f3338a755116",
+          "events": 1
+        },
+        {
+          "filename": "chromium-1280-all-day-range.ics",
+          "sha256": "e4adc66677e45a7e4f84c1aa94a5b3d785656443db4d125632ed3a33b4a1d443",
+          "events": 1
+        },
+        {
+          "filename": "chromium-1280-count-weekly.ics",
+          "sha256": "feaec4a0e306de545e38ad89ab32a92665d11bd1faab8570756f535029451476",
+          "events": 5
+        },
+        {
+          "filename": "chromium-1280-count-monthly.ics",
+          "sha256": "971867ee67ba703d4d642a7e6a93c0a347be16d07183dc909935deefe1cf8d81",
+          "events": 3
+        },
+        {
+          "filename": "chromium-1280-count-past-consume.ics",
+          "sha256": "e9cb163901446d86e5ff0f892d2c555ccfcbc6ada40c7380fb5b3aa3121ae408",
+          "events": 2
+        },
+        {
+          "filename": "chromium-1280-count-past-upcoming.ics",
+          "sha256": "71f431a1347fdded59ff9ced59647a0ec0f8e96efc681d71196914319ddaaac2",
+          "events": 3
+        },
+        {
+          "filename": "chromium-1280-count-excluded-consume.ics",
+          "sha256": "ecf1ddea66aaff9c350bf7565f2a5fd983d0347e56e13eb4003d9922c7df17f8",
+          "events": 2
+        },
+        {
+          "filename": "chromium-1280-count-excluded-replace.ics",
+          "sha256": "ecc648eb6af5568ee87d2518b6073bd501c0e7ab430d44f260097d3f4cded8f4",
+          "events": 3
+        },
+        {
+          "filename": "chromium-1280-range.ics",
+          "sha256": "2f1f672423072b395498c76377b18006e6b45111428aba4a9cdc95b207358cf5",
+          "events": 1
+        },
+        {
+          "filename": "chromium-1280-weekly.ics",
+          "sha256": "1f8cd711f0257a9b3a261f4710d511c947253068127e5e0eb3fd2cb2035091b8",
+          "events": 9
+        },
+        {
+          "filename": "chromium-1280-list.ics",
+          "sha256": "a050ca2d3f37dd684d0e55e0e83ae7da1d64626f7bc5ab37f8ec193c518d23d6",
+          "events": 3
+        }
+      ],
+      "errors": [],
+      "keyboard": [
+        {
+          "target": "phrase",
+          "tabs": 1,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "Use September 12, 2026 (date only)",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Tab",
+          "focus": []
+        },
+        {
+          "target": "Use September 13, 2026 to September 15, 2026 (all day; exclusive end)",
+          "tabs": 1,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Tab",
+          "focus": []
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Tab",
+          "focus": []
+        },
+        {
+          "target": "Use the last day of that month",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Tab",
+          "focus": []
+        },
+        {
+          "target": "Count from the written start, including past dates · 2026-09-14, 2026-09-21",
+          "tabs": 1,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Tab",
+          "focus": []
+        },
+        {
+          "target": "Count upcoming starts; keep the written cadence · 2026-09-14, 2026-09-21, 2026-09-28",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Tab",
+          "focus": []
+        },
+        {
+          "target": "Count excluded dates; do not replace them · 2026-09-14, 2026-09-28",
+          "tabs": 1,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Tab",
+          "focus": []
+        },
+        {
+          "target": "Replace excluded dates to keep the event count · 2026-09-14, 2026-09-28, 2026-10-05",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Tab",
+          "focus": []
+        },
+        {
+          "target": "November 1, 2026",
+          "tabs": 1,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "Second: November 1, 2026 at 1:30 AM CST (UTC-06:00)",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Tab",
+          "focus": []
+        },
+        {
+          "target": "Second: November 1, 2026 at 1:30 AM CST (UTC-06:00)",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "restart",
+          "tabs": 1,
+          "key": "Shift+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 1,
+          "key": "Shift+Tab",
+          "focus": [
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "October 4",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "2026",
+          "tabs": 1,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "At noon",
+          "tabs": 1,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "At noon",
+          "tabs": 1,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "Inspect the SDK result",
+          "tabs": 1,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "SUMMARY",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 3,
+          "key": "Shift+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Tab",
+          "focus": []
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Tab",
+          "focus": []
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Tab",
+          "focus": []
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Tab",
+          "focus": []
+        }
+      ],
+      "externalRequests": []
+    },
+    {
+      "browser": "firefox",
+      "version": "148.0.2",
+      "width": 320,
+      "status": "passed",
+      "files": [
+        {
+          "filename": "firefox-320-date-point.ics",
+          "sha256": "3ef5fc84b39480c28691629398333cb285a3424fed8eed73c9933cfe1256c822",
+          "events": 1
+        },
+        {
+          "filename": "firefox-320-all-day-range.ics",
+          "sha256": "d5674bc7aa6efbe6ca57110ceae48d3ca6bd6e7b3340b08c24eea8aff04eda12",
+          "events": 1
+        },
+        {
+          "filename": "firefox-320-count-weekly.ics",
+          "sha256": "9b32ca28812044ee7244d0961261d524f2e11ab020caed8a06c4a56d7ac9f993",
+          "events": 5
+        },
+        {
+          "filename": "firefox-320-count-monthly.ics",
+          "sha256": "41ef8a56de43e83ccf6b6931463e7664f572436c29a2dd07b2dfdb0a4baa5327",
+          "events": 3
+        },
+        {
+          "filename": "firefox-320-count-past-consume.ics",
+          "sha256": "75f987c57970ab6c70310f255e3954a9c77a6487de13aa8750e36305adb63641",
+          "events": 2
+        },
+        {
+          "filename": "firefox-320-count-past-upcoming.ics",
+          "sha256": "41e4f838a26d444ed1d76dfdf944f953d580da9a1bf425fcf2fb51d42a773d8c",
+          "events": 3
+        },
+        {
+          "filename": "firefox-320-count-excluded-consume.ics",
+          "sha256": "e8f3d6346d861aa77ec095b8c7f4e93a1cc99a774ef49ce1cdb260e8a34b4900",
+          "events": 2
+        },
+        {
+          "filename": "firefox-320-count-excluded-replace.ics",
+          "sha256": "0fc7076326aa4c1b21c88a6992db075ad59e079fd885013135ed0f65889de7e3",
+          "events": 3
+        },
+        {
+          "filename": "firefox-320-range.ics",
+          "sha256": "892aa6416e4a46751f940a6f604dae3e2dcb0830e32a7563339fbd5dd149159d",
+          "events": 1
+        },
+        {
+          "filename": "firefox-320-weekly.ics",
+          "sha256": "1542f268d1dcd16b6bccd7b69624ca52f590e7ba3ebb7814c397e8974b4cdf2e",
+          "events": 9
+        },
+        {
+          "filename": "firefox-320-list.ics",
+          "sha256": "856021416e41bd67e8eb6ff1d12ea13ec7a137dd92043668d04c4c521d9085e5",
+          "events": 3
+        }
+      ],
+      "errors": [],
+      "keyboard": [
+        {
+          "target": "phrase",
+          "tabs": 1,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "Use September 12, 2026 (date only)",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Tab",
+          "focus": []
+        },
+        {
+          "target": "Use September 13, 2026 to September 15, 2026 (all day; exclusive end)",
+          "tabs": 1,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Tab",
+          "focus": []
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Tab",
+          "focus": []
+        },
+        {
+          "target": "Use the last day of that month",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Tab",
+          "focus": []
+        },
+        {
+          "target": "Count from the written start, including past dates · 2026-09-14, 2026-09-21",
+          "tabs": 1,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Tab",
+          "focus": []
+        },
+        {
+          "target": "Count upcoming starts; keep the written cadence · 2026-09-14, 2026-09-21, 2026-09-28",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Tab",
+          "focus": []
+        },
+        {
+          "target": "Count excluded dates; do not replace them · 2026-09-14, 2026-09-28",
+          "tabs": 1,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Tab",
+          "focus": []
+        },
+        {
+          "target": "Replace excluded dates to keep the event count · 2026-09-14, 2026-09-28, 2026-10-05",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Tab",
+          "focus": []
+        },
+        {
+          "target": "November 1, 2026",
+          "tabs": 1,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "Second: November 1, 2026 at 1:30 AM CST (UTC-06:00)",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Tab",
+          "focus": []
+        },
+        {
+          "target": "Second: November 1, 2026 at 1:30 AM CST (UTC-06:00)",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "restart",
+          "tabs": 1,
+          "key": "Shift+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 1,
+          "key": "Shift+Tab",
+          "focus": [
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "October 4",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "2026",
+          "tabs": 1,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "At noon",
+          "tabs": 1,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "At noon",
+          "tabs": 1,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "Inspect the SDK result",
+          "tabs": 1,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "SUMMARY",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 3,
+          "key": "Shift+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Tab",
+          "focus": []
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Tab",
+          "focus": []
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Tab",
+          "focus": []
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Tab",
+          "focus": []
+        }
+      ],
+      "externalRequests": []
+    },
+    {
+      "browser": "firefox",
+      "version": "148.0.2",
+      "width": 1280,
+      "status": "passed",
+      "files": [
+        {
+          "filename": "firefox-1280-date-point.ics",
+          "sha256": "2125a093bbf9159d5c0be579c23ef71ad618374f4b9ed4036df6daf6ce0af54e",
+          "events": 1
+        },
+        {
+          "filename": "firefox-1280-all-day-range.ics",
+          "sha256": "0547fa5bb6dd7f50bd4eb297b223136d633108527b1eaed84546a68bc108101e",
+          "events": 1
+        },
+        {
+          "filename": "firefox-1280-count-weekly.ics",
+          "sha256": "1f193bfb7f09b981129ae2c767642223f0f6556dcca30ba62b674f49553b87ce",
+          "events": 5
+        },
+        {
+          "filename": "firefox-1280-count-monthly.ics",
+          "sha256": "38233c1ec7e5ab5bafb3dde64bdf4724f3f4abe17f68b07a74e8e639ad385e0e",
+          "events": 3
+        },
+        {
+          "filename": "firefox-1280-count-past-consume.ics",
+          "sha256": "e8659840a3b21beb1f1ac669e9746b7e3d1df00ef69f363c7f3e7c53b1e5993b",
+          "events": 2
+        },
+        {
+          "filename": "firefox-1280-count-past-upcoming.ics",
+          "sha256": "bb47661f89d93ad1c60fb27f2e50bcba4cfb056ac7bd085546a6ce702e7161c5",
+          "events": 3
+        },
+        {
+          "filename": "firefox-1280-count-excluded-consume.ics",
+          "sha256": "bf09d8f0f1d4c360086b4f055ece9823ed6d69182297aa283f11f29317b6300c",
+          "events": 2
+        },
+        {
+          "filename": "firefox-1280-count-excluded-replace.ics",
+          "sha256": "56efa33917ace31a59f218d0203e041182d2271d2902bf521382adc661c00997",
+          "events": 3
+        },
+        {
+          "filename": "firefox-1280-range.ics",
+          "sha256": "11e2ad10e86fbee890ba4e71b9a8f393929c02c933f8e91f66aca71332505d3f",
+          "events": 1
+        },
+        {
+          "filename": "firefox-1280-weekly.ics",
+          "sha256": "bc2dc8364fce0f7c3a92c92fd683b7d931a2c7ab63354fc88f91f69588ca93a9",
+          "events": 9
+        },
+        {
+          "filename": "firefox-1280-list.ics",
+          "sha256": "799ce9c8e7753102c96d87911f5f6ade32a4adcd42bfa061130d0cadfe99f261",
+          "events": 3
+        }
+      ],
+      "errors": [],
+      "keyboard": [
+        {
+          "target": "phrase",
+          "tabs": 1,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "Use September 12, 2026 (date only)",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Tab",
+          "focus": []
+        },
+        {
+          "target": "Use September 13, 2026 to September 15, 2026 (all day; exclusive end)",
+          "tabs": 1,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Tab",
+          "focus": []
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Tab",
+          "focus": []
+        },
+        {
+          "target": "Use the last day of that month",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Tab",
+          "focus": []
+        },
+        {
+          "target": "Count from the written start, including past dates · 2026-09-14, 2026-09-21",
+          "tabs": 1,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Tab",
+          "focus": []
+        },
+        {
+          "target": "Count upcoming starts; keep the written cadence · 2026-09-14, 2026-09-21, 2026-09-28",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Tab",
+          "focus": []
+        },
+        {
+          "target": "Count excluded dates; do not replace them · 2026-09-14, 2026-09-28",
+          "tabs": 1,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Tab",
+          "focus": []
+        },
+        {
+          "target": "Replace excluded dates to keep the event count · 2026-09-14, 2026-09-28, 2026-10-05",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Tab",
+          "focus": []
+        },
+        {
+          "target": "November 1, 2026",
+          "tabs": 1,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "Second: November 1, 2026 at 1:30 AM CST (UTC-06:00)",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Tab",
+          "focus": []
+        },
+        {
+          "target": "Second: November 1, 2026 at 1:30 AM CST (UTC-06:00)",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "restart",
+          "tabs": 1,
+          "key": "Shift+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 1,
+          "key": "Shift+Tab",
+          "focus": [
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "October 4",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "2026",
+          "tabs": 1,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "At noon",
+          "tabs": 1,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "At noon",
+          "tabs": 1,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "Inspect the SDK result",
+          "tabs": 1,
+          "key": "Tab",
+          "focus": [
+            {
+              "tag": "SUMMARY",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 3,
+          "key": "Shift+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Tab",
+          "focus": []
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Tab",
+          "focus": []
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Tab",
+          "focus": []
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Tab",
+          "focus": []
+        }
+      ],
+      "externalRequests": []
+    },
+    {
+      "browser": "webkit",
+      "version": "26.4",
+      "width": 320,
+      "status": "passed",
+      "files": [
+        {
+          "filename": "webkit-320-date-point.ics",
+          "sha256": "48af055e26b35cb1db75a7c854812db4054f3c94200558b17a9b0d8395c14043",
+          "events": 1
+        },
+        {
+          "filename": "webkit-320-all-day-range.ics",
+          "sha256": "8f45e45768ad9599c318b1358bd2c893c815b2f77a4ef70885ec8ca109f10416",
+          "events": 1
+        },
+        {
+          "filename": "webkit-320-count-weekly.ics",
+          "sha256": "ce1ec0f5a3e4266771628f45497a42cb27e413a90060e75f380e6c79ce7d20cc",
+          "events": 5
+        },
+        {
+          "filename": "webkit-320-count-monthly.ics",
+          "sha256": "fa4a97a483a5e13f5c01691ab866ffc54f69df388cd7b527f2498fef3e48fb56",
+          "events": 3
+        },
+        {
+          "filename": "webkit-320-count-past-consume.ics",
+          "sha256": "5c2ae0b3d9460a8cae173d1c6d2ffe3b8788ff6fb9082d72aea227820a81c689",
+          "events": 2
+        },
+        {
+          "filename": "webkit-320-count-past-upcoming.ics",
+          "sha256": "abae2d3d126c16cbc9598f0be0f78654b70fc4ae667adcc97fdfae421182cb3d",
+          "events": 3
+        },
+        {
+          "filename": "webkit-320-count-excluded-consume.ics",
+          "sha256": "c2fa7a4256d38615a86a0f2f6d4cc7bf6e70e30aac08f40d7964e0ec2e6d8f27",
+          "events": 2
+        },
+        {
+          "filename": "webkit-320-count-excluded-replace.ics",
+          "sha256": "3d39117cb34680a4c4fcee405d0623dca2db661f2bbe026819a8c890f1df91bb",
+          "events": 3
+        },
+        {
+          "filename": "webkit-320-range.ics",
+          "sha256": "78ede8323ab7e3186be84b44dcfbcde8ecbca1047e713c69d469a225ea0c3de9",
+          "events": 1
+        },
+        {
+          "filename": "webkit-320-weekly.ics",
+          "sha256": "f6eabd6b927ff60ac6085cd8fe40fbce3be0504dea8f8ca688758a8026b135d9",
+          "events": 9
+        },
+        {
+          "filename": "webkit-320-list.ics",
+          "sha256": "4811d3e430ff886df6fef38570977d5eff7a44180603ee0f986791b2a21e9876",
+          "events": 3
+        }
+      ],
+      "errors": [],
+      "keyboard": [
+        {
+          "target": "phrase",
+          "tabs": 1,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "Use September 12, 2026 (date only)",
+          "tabs": 2,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Alt+Tab",
+          "focus": []
+        },
+        {
+          "target": "Use September 13, 2026 to September 15, 2026 (all day; exclusive end)",
+          "tabs": 1,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Alt+Tab",
+          "focus": []
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Alt+Tab",
+          "focus": []
+        },
+        {
+          "target": "Use the last day of that month",
+          "tabs": 2,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Alt+Tab",
+          "focus": []
+        },
+        {
+          "target": "Count from the written start, including past dates · 2026-09-14, 2026-09-21",
+          "tabs": 1,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Alt+Tab",
+          "focus": []
+        },
+        {
+          "target": "Count upcoming starts; keep the written cadence · 2026-09-14, 2026-09-21, 2026-09-28",
+          "tabs": 2,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Alt+Tab",
+          "focus": []
+        },
+        {
+          "target": "Count excluded dates; do not replace them · 2026-09-14, 2026-09-28",
+          "tabs": 1,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Alt+Tab",
+          "focus": []
+        },
+        {
+          "target": "Replace excluded dates to keep the event count · 2026-09-14, 2026-09-28, 2026-10-05",
+          "tabs": 2,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Alt+Tab",
+          "focus": []
+        },
+        {
+          "target": "November 1, 2026",
+          "tabs": 1,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "Second: November 1, 2026 at 1:30 AM CST (UTC-06:00)",
+          "tabs": 2,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Alt+Tab",
+          "focus": []
+        },
+        {
+          "target": "Second: November 1, 2026 at 1:30 AM CST (UTC-06:00)",
+          "tabs": 2,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "restart",
+          "tabs": 1,
+          "key": "Shift+Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 1,
+          "key": "Shift+Alt+Tab",
+          "focus": [
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "October 4",
+          "tabs": 2,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "2026",
+          "tabs": 1,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "At noon",
+          "tabs": 1,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "At noon",
+          "tabs": 1,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "Inspect the SDK result",
+          "tabs": 1,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "SUMMARY",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 3,
+          "key": "Shift+Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Alt+Tab",
+          "focus": []
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Alt+Tab",
+          "focus": []
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Alt+Tab",
+          "focus": []
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Alt+Tab",
+          "focus": []
+        }
+      ],
+      "externalRequests": []
+    },
+    {
+      "browser": "webkit",
+      "version": "26.4",
+      "width": 1280,
+      "status": "passed",
+      "files": [
+        {
+          "filename": "webkit-1280-date-point.ics",
+          "sha256": "87a89e0183b9d4a53a7dcd40f5c2f76070db8061e43c850187a4a29b8297e182",
+          "events": 1
+        },
+        {
+          "filename": "webkit-1280-all-day-range.ics",
+          "sha256": "8daec79d56cfc99406d928ba23f0faeb14155a4f3d9aa621bee00cdf5c4d4f58",
+          "events": 1
+        },
+        {
+          "filename": "webkit-1280-count-weekly.ics",
+          "sha256": "7a811c3190485be3a6d726fdaa6e938d0dd5e6f1b6db24b345d5a6f1bcd7295c",
+          "events": 5
+        },
+        {
+          "filename": "webkit-1280-count-monthly.ics",
+          "sha256": "8dc81aefa5dfa6c4e90fe16f8f93297f57585efd1893bd87fad1fa0e6d07273f",
+          "events": 3
+        },
+        {
+          "filename": "webkit-1280-count-past-consume.ics",
+          "sha256": "2546061221d2ebc6d52102d77a448c0e20fd57011693de2f8e63d986bb58acf7",
+          "events": 2
+        },
+        {
+          "filename": "webkit-1280-count-past-upcoming.ics",
+          "sha256": "cad3cb3ccb5f0cf96ade397c7970241276bc3b2f29efa668f4a83f2583d684ed",
+          "events": 3
+        },
+        {
+          "filename": "webkit-1280-count-excluded-consume.ics",
+          "sha256": "abf0da4758978168ad8784e2d5e2dc1f2ed0a1a7b899467ebb6dc46722114f4f",
+          "events": 2
+        },
+        {
+          "filename": "webkit-1280-count-excluded-replace.ics",
+          "sha256": "4b121d1b9d2d3c9453fb06dab33c2ff4d22732064080002728362f9c622042c4",
+          "events": 3
+        },
+        {
+          "filename": "webkit-1280-range.ics",
+          "sha256": "2ae16ef854a19655043dd00af9d707161c0c9892d482f646d426405eb560d458",
+          "events": 1
+        },
+        {
+          "filename": "webkit-1280-weekly.ics",
+          "sha256": "af055de068820e50dc44dbf800dcebd7709661d3ed516fa5dc104e019d016562",
+          "events": 9
+        },
+        {
+          "filename": "webkit-1280-list.ics",
+          "sha256": "e42d473b64ef67b0cca0b8605a52597b3e347c7255cf7c0b6dd62a8d30f365c5",
+          "events": 3
+        }
+      ],
+      "errors": [],
+      "keyboard": [
+        {
+          "target": "phrase",
+          "tabs": 1,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "Use September 12, 2026 (date only)",
+          "tabs": 2,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Alt+Tab",
+          "focus": []
+        },
+        {
+          "target": "Use September 13, 2026 to September 15, 2026 (all day; exclusive end)",
+          "tabs": 1,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Alt+Tab",
+          "focus": []
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Alt+Tab",
+          "focus": []
+        },
+        {
+          "target": "Use the last day of that month",
+          "tabs": 2,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Alt+Tab",
+          "focus": []
+        },
+        {
+          "target": "Count from the written start, including past dates · 2026-09-14, 2026-09-21",
+          "tabs": 1,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Alt+Tab",
+          "focus": []
+        },
+        {
+          "target": "Count upcoming starts; keep the written cadence · 2026-09-14, 2026-09-21, 2026-09-28",
+          "tabs": 2,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Alt+Tab",
+          "focus": []
+        },
+        {
+          "target": "Count excluded dates; do not replace them · 2026-09-14, 2026-09-28",
+          "tabs": 1,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Alt+Tab",
+          "focus": []
+        },
+        {
+          "target": "Replace excluded dates to keep the event count · 2026-09-14, 2026-09-28, 2026-10-05",
+          "tabs": 2,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Alt+Tab",
+          "focus": []
+        },
+        {
+          "target": "November 1, 2026",
+          "tabs": 1,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "Second: November 1, 2026 at 1:30 AM CST (UTC-06:00)",
+          "tabs": 2,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 2,
+          "key": "Shift+Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Alt+Tab",
+          "focus": []
+        },
+        {
+          "target": "Second: November 1, 2026 at 1:30 AM CST (UTC-06:00)",
+          "tabs": 2,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "restart",
+          "tabs": 1,
+          "key": "Shift+Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 1,
+          "key": "Shift+Alt+Tab",
+          "focus": [
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "October 4",
+          "tabs": 2,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "2026",
+          "tabs": 1,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "At noon",
+          "tabs": 1,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "At noon",
+          "tabs": 1,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "download",
+          "tabs": 2,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "Inspect the SDK result",
+          "tabs": 1,
+          "key": "Alt+Tab",
+          "focus": [
+            {
+              "tag": "SUMMARY",
+              "id": "",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 3,
+          "key": "Shift+Alt+Tab",
+          "focus": [
+            {
+              "tag": "BUTTON",
+              "id": "download",
+              "documentFocused": true
+            },
+            {
+              "tag": "BUTTON",
+              "id": "restart",
+              "documentFocused": true
+            },
+            {
+              "tag": "INPUT",
+              "id": "phrase",
+              "documentFocused": true
+            }
+          ]
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Alt+Tab",
+          "focus": []
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Alt+Tab",
+          "focus": []
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Alt+Tab",
+          "focus": []
+        },
+        {
+          "target": "phrase",
+          "tabs": 0,
+          "key": "Shift+Alt+Tab",
+          "focus": []
+        }
+      ],
+      "externalRequests": []
+    }
+  ],
+  "downloadPacingMs": 1100,
+  "scope": "Authored packed SDK browser journeys. Desktop viewport resizing is not physical-device testing. Downloads are not calendar-client imports."
+}

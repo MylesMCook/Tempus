@@ -1,0 +1,60 @@
+{
+  "status": "passed",
+  "browser": "153.0.8010.36",
+  "runs": [
+    {
+      "id": "invoice",
+      "width": 320,
+      "status": "passed",
+      "errors": [],
+      "file": "invoice-320.ics",
+      "sha256": "abd8bd9487257bc0a052ab50c9cd2af5a04510f7034b7a1b82daf34958daef07"
+    },
+    {
+      "id": "schedule",
+      "width": 320,
+      "status": "passed",
+      "errors": [],
+      "file": "schedule-320.ics",
+      "sha256": "396ee6613e8700d5bbec655fa9c891d92e1623c61214f0945a5b159715a6a06b"
+    },
+    {
+      "id": "title",
+      "width": 320,
+      "status": "passed",
+      "errors": [],
+      "file": "title-320.ics",
+      "sha256": "8026a3a185c05265e4f96cffc776dc50bcd353d731bde4c35346db94ada6722e"
+    },
+    {
+      "id": "invoice",
+      "width": 1280,
+      "status": "passed",
+      "errors": [],
+      "file": "invoice-1280.ics",
+      "sha256": "21ab61c262239385fc10058df92a722e0b810a1047316f4af8e9168d2a9067a6"
+    },
+    {
+      "id": "schedule",
+      "width": 1280,
+      "status": "passed",
+      "errors": [],
+      "file": "schedule-1280.ics",
+      "sha256": "76a91209632aa3126454cd2e8ffe40adda94f3b255db0921cabd94f17cfe76ba"
+    },
+    {
+      "id": "title",
+      "width": 1280,
+      "status": "passed",
+      "errors": [],
+      "file": "title-1280.ics",
+      "sha256": "e7cb40935cd2a719e92b252c532bbf75189eef4ee60387dcf5c6647f68a64edb"
+    }
+  ],
+  "sourceHashes": {
+    "src/shared/interpret-date.ts": "e68edf66a2917d25417ff2ef4f21bc075767c0845424eb2dfcf234cb2f89c2dd",
+    "src/shared/event-identifiers.test.ts": "5cb6831e1c2def452a210eca08e5be6270ccec9a9241a7e346c7431079288275",
+    "examples/app/verify-event-identifiers.mjs": "e0674a351dada25319f51efaad789c2018f20df9cd3cb18b98df6fbaa86a187d"
+  },
+  "scope": "Authored main-app tasks, direct focus/Enter and downloads at desktop widths; not independent users, physical phones or calendar-client import."
+}

@@ -1,0 +1,41 @@
+{
+  "versions": {
+    "icalendar": "7.3.0",
+    "recurring-ical-events": "3.8.2"
+  },
+  "cases": [
+    {
+      "name": "day-29-setpos",
+      "sha256": "450e6ba770dfff22c91592c833acbe8430328c84d2c12be735235054b87434e4",
+      "status": "passed",
+      "observedCount": 4800,
+      "firstMismatch": null
+    },
+    {
+      "name": "day-29-rscale",
+      "sha256": "046351c1664243ce2eda1670e7a8abcd55ab2508bfb33f3294b1052c04ab7674",
+      "status": "failed",
+      "error": "UNTIL parameter is missing: RSCALE=GREGORIAN;FREQ=MONTHLY;BYMONTHDAY=29;SKIP=BACKWARD"
+    },
+    {
+      "name": "day-30-setpos",
+      "sha256": "d3d37a40fadfe8a04adccea6bf2371f8f0dfdee9d2b7239cfc469ecec8eaccf5",
+      "status": "passed",
+      "observedCount": 4800,
+      "firstMismatch": null
+    },
+    {
+      "name": "day-30-rscale",
+      "sha256": "94887342d04d9b4e93370e3047503e3891a1e503783f34a4ec5480771cf74cef",
+      "status": "failed",
+      "error": "UNTIL parameter is missing: RSCALE=GREGORIAN;FREQ=MONTHLY;BYMONTHDAY=30;SKIP=BACKWARD"
+    },
+    {
+      "name": "day-31-last-day",
+      "sha256": "b0b111a6ea760ea088ea79b0b5cff5e9d111dbe5f2141e03d5296d870bb1fd2b",
+      "status": "passed",
+      "observedCount": 4800,
+      "firstMismatch": null
+    }
+  ]
+}

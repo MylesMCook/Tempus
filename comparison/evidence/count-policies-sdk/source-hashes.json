@@ -1,0 +1,7 @@
+{
+  "examples/sdk/counts.mjs": "827f3adf67415034bb0f2677edb2f4841f37fe1871142387100e8898c5cde089",
+  "examples/sdk/verify-browser.mjs": "a8d0304c24e487a7b23794a723d54b1d41ea14ac8b98fdcbc6ecd5e429b08dd7",
+  "examples/sdk/verification-worker.ts": "1225683463d4aff7eb40a32ad1cbc35c0d6e48a03cc4c1b929b75dadbb809e07",
+  "examples/sdk/read-browser-files.py": "88ad1dc56d107a199f21501c6cfa02fbd19def81e644b801c37d67b1346d268a",
+  "examples/sdk/read-worker-files.py": "34e2b0aa29d75cf1d233ed5662cd923072a3303ed55e2dff924d4dc4345eb271"
+}

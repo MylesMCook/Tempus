@@ -1,0 +1,9 @@
+{
+  "src/shared/interpret-date.ts": "e439da48f284b292fb401a07f2397da12e7edd846cc102cff2ff4729b67d91ac",
+  "src/shared/quantity-label.test.ts": "dba6e3db4db336cecf9c06e6a3669c8e476ef58949712767c77f0573d4cafb73",
+  "examples/app/verify-event-identifiers.mjs": "984e3317ae308f39c41e1a2b0f1f8a99984f6b072c2f61155264707fe2a33d5d",
+  "examples/app/read-event-identifiers.py": "705cfdef85d17fada3f8af6db9f488ea88e430d2c52c8a60a5426ce2f6a0543c",
+  "examples/app/read-event-identifiers.py.lock": "25321ad7e67ccbc618b94ba12fdfc25f3d5cc3d7ba775ee1ef6b06cab5e63751",
+  "examples/sdk/identifiers.mjs": "4a62b94c1f5b12310d99199c20a28c716b27e3492f778b0d3ecde5dd5499e542",
+  "examples/sdk/verify-startup.mjs": "7463f9df09b0e63d0b5719c648bd98ded33c4beacbecafb496ccfb384d87e883"
+}

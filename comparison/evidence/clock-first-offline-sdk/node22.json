@@ -1,0 +1,44 @@
+{
+  "status": "passed",
+  "node": "v22.12.0",
+  "archiveSha256": "b8ffb7e04e46eeaaf1e1dcf6c07875b2f805e2497dee50f03280ec0afd14e051",
+  "runnerSha256": "62896ecdf170150d5eae4a9df8a49e0cb62ecbb35065b3bd4d210faaa7e76ee6",
+  "examples": [
+    {
+      "name": "node",
+      "status": "passed",
+      "output": "{\"runtime\":\"v22.12.0\",\"checks\":\"uncertain reminder edit recovery\"}\n{\"runtime\":\"v22.12.0\",\"package\":\"0.1.0\",\"checks\":\"point, batch parity, unresolved item, reusable parser\"}\n{\"runtime\":\"v22.12.0\",\"checks\":\"ordered arithmetic, reminder date correction, recurring and group DST correction, original input and stale selection\"}\n{\"runtime\":\"v22.12.0\",\"checks\":\"complete overnight interval\"}\n{\"runtime\":\"v22.12.0\",\"checks\":\"numeric date and DST correction preserve reminder duration\"}\n{\"runtime\":\"v22.12.0\",\"checks\":\"group next-date confirmation and whole-input rejection\"}\n{\"runtime\":\"v22.12.0\",\"checks\":\"repeating duration with exclusions and calendar-duration endpoint choice\"}\n{\"runtime\":\"v22.12.0\",\"checks\":\"date-only midnight boundary, explicit clock ambiguity, skipped date and empty-rule validation\"}\n{\"runtime\":\"v22.12.0\",\"checks\":\"arithmetic clock conflict recovery preserves remaining operations\"}\n{\"runtime\":\"v22.12.0\",\"checks\":\"recurrence conflict recovery preserves complete reminder endpoints\"}\n{\"runtime\":\"v22.12.0\",\"checks\":\"group conflict recovery, complete reminder endpoints and dependent end invalidation\"}\n{\"runtime\":\"v22.12.0\",\"checks\":\"anchored fortnightly reminder retains exclusions after reference changes\"}\n{\"runtime\":\"v22.12.0\",\"checks\":\"seconds duration survives date correction\"}\n{\"runtime\":\"v22.12.0\",\"checks\":\"complete alternative selection preserves duration and invalidates after edits\"}\n{\"runtime\":\"v22.12.0\",\"checks\":\"staged date and clock choices retain the complete alternative and reject stale selections\"}\n{\"runtime\":\"v22.12.0\",\"checks\":\"staged correction preserves both keep/replace durations and invalidates after edits\"}\n{\"runtime\":\"v22.12.0\",\"checks\":\"direct command preserves event case and spans without discarding conditions\"}\n{\"runtime\":\"v22.12.0\",\"checks\":\"half-hour interval survives date/clock choices and invalid duration edit\"}\n{\"runtime\":\"v22.12.0\",\"checks\":\"title/date/clock decisions preserve complete interval and reset safely\"}"
+    },
+    {
+      "name": "calendar",
+      "status": "passed",
+      "output": "{\"runtime\":\"v22.12.0\",\"status\":\"passed\",\"checks\":\"point precision, recurrence clarification, complete file, edit recovery, unresolved and future-policy rejection\"}\n{\"rangePolicyJourneys\":3,\"status\":\"passed\"}"
+    },
+    {
+      "name": "state",
+      "status": "passed",
+      "output": "{\"runtime\":\"v22.12.0\",\"checks\":[\"two-step reminder correction and file preparation\",\"date-only and all-day choice precision through export and edit\",\"event invalidation\",\"duration invalidation\",\"timezone invalidation\",\"reference invalidation\",\"batch answer isolation\",\"reusable parser nested snapshot\",\"returned result isolation\"],\"limits\":\"Installed SDK integration only; no browser UI, recurrence export decisions or calendar-client import.\"}"
+    },
+    {
+      "name": "monthly",
+      "status": "passed",
+      "output": "{\"status\":\"passed\",\"monthlyBoundedEvents\":4,\"ongoingRule\":true,\"staleDecisionRejected\":true}"
+    },
+    {
+      "name": "date-list",
+      "status": "passed",
+      "output": "{\"status\":\"passed\",\"dateTimeClockChoices\":3,\"events\":2,\"changedToDateOnly\":true,\"staleDecisionRejected\":true,\"explicitYearJourney\":true}"
+    },
+    {
+      "name": "counts",
+      "status": "passed",
+      "output": "{\"status\":\"passed\",\"weeklyEvents\":5,\"monthlyEvents\":3,\"foldEvents\":10,\"beyondPreviewChoice\":true,\"editedCountInvalidates\":true,\"batchFailures\":4,\"completedCountPolicyCases\":5}"
+    },
+    {
+      "name": "identifiers",
+      "status": "passed",
+      "output": "{\"status\":\"passed\",\"reminder\":\"Pay invoice #123\",\"recurrence\":\"Visit room 3\",\"events\":3}\n{\"status\":\"passed\",\"quantityTitleCorrectionAndEdit\":true}"
+    }
+  ],
+  "scope": "Same verified installed artifact on the invoked Node runtime. No repack, browser/Worker execution or external actions."
+}

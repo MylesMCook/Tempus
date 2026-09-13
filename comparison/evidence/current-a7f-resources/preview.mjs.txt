@@ -1,0 +1,22 @@
+// Performance workload uses second-precision ISO instants. Reject extra nonzero
+// fractional precision rather than silently rounding it through Date.parse.
+const instant = (text) => {
+  if (typeof text !== "string") return NaN;
+  const fraction = /\.(\d+)(?:Z|[+-]\d{2}:\d{2})$/.exec(text)?.[1];
+  if (fraction && /[1-9]/.test(fraction.slice(3))) return NaN;
+  return Date.parse(text);
+};
+export function samePreview(observed, expected) {
+  return (
+    observed.recurring === expected.recurring &&
+    observed.occurrences?.length === expected.occurrences.length &&
+    observed.occurrences.every((row, i) => {
+      const target = expected.occurrences[i];
+      return (
+        instant(row.start) === instant(target.start) &&
+        ((row.end === undefined && target.end === undefined) ||
+          instant(row.end) === instant(target.end))
+      );
+    })
+  );
+}

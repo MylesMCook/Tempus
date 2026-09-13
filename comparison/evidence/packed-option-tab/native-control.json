@@ -1,0 +1,75 @@
+{
+  "browser": "26.4",
+  "runs": [
+    {
+      "key": "Tab",
+      "steps": [
+        {
+          "id": "input",
+          "tag": "INPUT",
+          "focused": true
+        },
+        {
+          "id": "",
+          "tag": "BODY",
+          "focused": false
+        },
+        {
+          "id": "input",
+          "tag": "INPUT",
+          "focused": true
+        },
+        {
+          "id": "",
+          "tag": "BODY",
+          "focused": false
+        },
+        {
+          "id": "input",
+          "tag": "INPUT",
+          "focused": true
+        },
+        {
+          "id": "",
+          "tag": "BODY",
+          "focused": false
+        }
+      ]
+    },
+    {
+      "key": "Alt+Tab",
+      "steps": [
+        {
+          "id": "input",
+          "tag": "INPUT",
+          "focused": true
+        },
+        {
+          "id": "first",
+          "tag": "BUTTON",
+          "focused": true
+        },
+        {
+          "id": "second",
+          "tag": "BUTTON",
+          "focused": true
+        },
+        {
+          "id": "link",
+          "tag": "A",
+          "focused": true
+        },
+        {
+          "id": "",
+          "tag": "BODY",
+          "focused": false
+        },
+        {
+          "id": "input",
+          "tag": "INPUT",
+          "focused": true
+        }
+      ]
+    }
+  ]
+}

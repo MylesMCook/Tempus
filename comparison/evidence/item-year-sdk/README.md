@@ -1,0 +1,11 @@
+# Missing item year: packed runtime and replay evidence
+
+Archive `110185666dc9da97be3bfa9b9b073d7a8fd826c222d88f5fdf591dfa6f02009f`, September 13, 2026. All 56 installed files match. Five examples each pass Node 22.12.0 and 26.8.1, including the new item-year choice and prior same-year/mixed-month flows. Installed TypeScript and the diagnostic Worker type-check pass. Static browser import closure passes with the same declared Tempus → Temporal → JSBI dependency chain.
+
+Input `Call Sam December 31 and January 1, 2027 at noon` explicitly chooses 2026 for December, then noon. Exact results are December 31, 2026 and January 1, 2027 at 18:00 UTC; title and source spans are preserved and no duration is invented. Changing the item year clears its dependent time; changing the input invalidates answers.
+
+The successful browser replay passes Chrome 153.0.8010.36, Firefox 148.0.2 and WebKit 26.4 at 320/1280 px. Each run includes item-year correction/download/edit, weekly recurrence and both precision-label flows. All 24 actual downloads pass the locked Python reader. Local workerd passes item-year recovery, previous failure cases and five generated files, all independently read. WebKit uses explicit Option-Tab; historical ordinary-Tab behavior remains unverified for actual Safari/device use.
+
+An earlier six-run attempt failed Chrome 320 with an execution-context-destroyed navigation error; the other five passed. A dev-server startup reload was observed around this attempt. Its failed report is preserved separately, not counted as success. The unchanged runner passed all six on retry against the already-running server. Raw partial downloads remain in the original scratch directory. Both task-local servers were stopped after verification.
+
+The [current development snapshot](../item-year-journeys/README.md) has 31 comparison cases and 20 complete scripted tasks. Existing comparison summaries are unchanged. Both readers pass all twenty journey files; strict duration conformance still fails separately. No holdout, independent human completion, physical-device, real calendar import or comparative superiority claim follows. Performance remains historical for archive 906f3a6f. No application/deployment/calendar writes occurred in this verification turn.

@@ -1,0 +1,71 @@
+{
+  "status": "passed",
+  "browser": "153.0.8010.36",
+  "runs": [
+    {
+      "width": 320,
+      "expression": "2026-01-31 plus 1 month minus 1 day",
+      "iso": "2026-02-27T06:00:00.000Z",
+      "copied": "Friday, February 27, 2026\nDate only · no time specified · America/Chicago",
+      "steps": [
+        "2026-02-28T06:00:00.000Z",
+        "2026-02-27T06:00:00.000Z"
+      ],
+      "status": "passed"
+    },
+    {
+      "width": 320,
+      "expression": "2026-01-31 minus 1 day plus 1 month",
+      "iso": "2026-02-28T06:00:00.000Z",
+      "copied": "Saturday, February 28, 2026\nDate only · no time specified · America/Chicago",
+      "steps": [
+        "2026-01-30T06:00:00.000Z",
+        "2026-02-28T06:00:00.000Z"
+      ],
+      "status": "passed"
+    },
+    {
+      "width": 320,
+      "expression": "2026-09-12 at noon plus 0.5 seconds",
+      "iso": "2026-09-12T17:00:00.500Z",
+      "copied": "Saturday, September 12, 2026\n12:00:00.500 PM CDT · America/Chicago (UTC-05:00)",
+      "steps": [
+        "2026-09-12T17:00:00.500Z"
+      ],
+      "status": "passed"
+    },
+    {
+      "width": 1280,
+      "expression": "2026-01-31 plus 1 month minus 1 day",
+      "iso": "2026-02-27T06:00:00.000Z",
+      "copied": "Friday, February 27, 2026\nDate only · no time specified · America/Chicago",
+      "steps": [
+        "2026-02-28T06:00:00.000Z",
+        "2026-02-27T06:00:00.000Z"
+      ],
+      "status": "passed"
+    },
+    {
+      "width": 1280,
+      "expression": "2026-01-31 minus 1 day plus 1 month",
+      "iso": "2026-02-28T06:00:00.000Z",
+      "copied": "Saturday, February 28, 2026\nDate only · no time specified · America/Chicago",
+      "steps": [
+        "2026-01-30T06:00:00.000Z",
+        "2026-02-28T06:00:00.000Z"
+      ],
+      "status": "passed"
+    },
+    {
+      "width": 1280,
+      "expression": "2026-09-12 at noon plus 0.5 seconds",
+      "iso": "2026-09-12T17:00:00.500Z",
+      "copied": "Saturday, September 12, 2026\n12:00:00.500 PM CDT · America/Chicago (UTC-05:00)",
+      "steps": [
+        "2026-09-12T17:00:00.500Z"
+      ],
+      "status": "passed"
+    }
+  ],
+  "scope": "Local main-app calculator, real clipboard readback of values just copied, strict API replay. Desktop widths, not physical devices or cross-application paste. Keyboard activation uses focus/Enter, not full Tab traversal."
+}

@@ -1,0 +1,32 @@
+{
+  "status": "passed",
+  "browser": "153.0.8010.36",
+  "baseURL": "http://127.0.0.1:5175",
+  "runs": [
+    {
+      "width": 320,
+      "status": "passed",
+      "errors": [],
+      "rows": [
+        "Sun, Nov 1, 2026 at 1:30 AM CST",
+        "Wed, Sep 30, 2026 at 12:00 PM CDT"
+      ],
+      "copied": "Call Sam\n2026-11-01 at 1:30am and 2026-09-30 at noon\nAmerica/Chicago\nListed dates (not repeating):\nSun, Nov 1, 2026 at 1:30 AM CST\nWed, Sep 30, 2026 at 12:00 PM CDT\nDate 1: Second: November 1, 2026 at 1:30 AM CST (UTC-06:00)\nAll listed dates and ranges are included.",
+      "file": "written-order-320.ics",
+      "sha256": "2f5d9ff7e0ce3f4af62fec1b4d344a7c938dc03715ed6a952a465b1d35aa133c"
+    },
+    {
+      "width": 1280,
+      "status": "passed",
+      "errors": [],
+      "rows": [
+        "Sun, Nov 1, 2026 at 1:30 AM CST",
+        "Wed, Sep 30, 2026 at 12:00 PM CDT"
+      ],
+      "copied": "Call Sam\n2026-11-01 at 1:30am and 2026-09-30 at noon\nAmerica/Chicago\nListed dates (not repeating):\nSun, Nov 1, 2026 at 1:30 AM CST\nWed, Sep 30, 2026 at 12:00 PM CDT\nDate 1: Second: November 1, 2026 at 1:30 AM CST (UTC-06:00)\nAll listed dates and ranges are included.",
+      "file": "written-order-1280.ics",
+      "sha256": "a080ebadaa044e1dffe962d5d18478484990274ca5f7815a4b332a6917c5e3dc"
+    }
+  ],
+  "scope": "Authored written-order task; desktop Chrome, not physical phones, independent users or calendar-client import."
+}

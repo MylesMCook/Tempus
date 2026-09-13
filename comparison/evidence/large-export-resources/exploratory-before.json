@@ -1,0 +1,7 @@
+{
+  "scope": "Ad hoc Chrome 1280px development-app observation before pagination; console result retained manually, not a paired benchmark or hash-bound old source snapshot.",
+  "input": "Call Sam every day at noon for 30 minutes for 1000 occurrences",
+  "elapsedMs": 607,
+  "renderedRows": 1000,
+  "longTaskMs": 528
+}

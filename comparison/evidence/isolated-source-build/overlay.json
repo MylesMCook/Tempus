@@ -1,0 +1,8 @@
+{
+  "scope": "Only these comparison-tooling sources were overlaid after the initial snapshot failed without Git metadata. App/SDK bytes were unchanged.",
+  "files": {
+    "comparison/provenance.ts": "1908025c8d3927097cc7c2d780470e52a8e6c42007b4483abc73760acbef6572",
+    "comparison/provenance.test.ts": "bbea8f42fe146cc3892e79579b5898e009ae8bcc166f4996064114f42086d2a9",
+    "comparison/comparison.test.ts": "d4d1b2d74cb18d11ff8c1995628d4c26f02e2b1ac8796ff319008d82894cce1a"
+  }
+}

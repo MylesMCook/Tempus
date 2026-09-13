@@ -1,0 +1,6 @@
+{
+  "afterBrowserFormattingOnly": [
+    "src/shared/recurrence-count.test.ts"
+  ],
+  "note": "Browser executed before formatting. Relevant tests rerun after formatting; browser report hashes retain tested bytes."
+}

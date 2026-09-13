@@ -1,0 +1,11 @@
+{
+  "archiveSha256": "36928444c25a46792517585163d483b7bcc3f0397014bde17ced492495932711",
+  "sourceHashes": {
+    "examples/sdk/verify-browser.mjs": "4738ef41580545611f9a5a00aeebc76be5aeeeb44a36c7dce6eb45f0b15975df",
+    "examples/sdk/verification-worker.ts": "fb20366edc30d897679fc18828cd88cfdf70f87edc489f62e56c828e1f989991",
+    "examples/sdk/read-browser-files.py": "1d6d6f5d0294f4cade5fd6659c007982b9a84e983de6764f0105a186e8cc3783",
+    "examples/sdk/read-worker-files.py": "b6865e5249656158d5dee8de8eebc67895d673501ee2c0d4d8816562221c6e74"
+  },
+  "scope": "42 browser downloads and 8 Worker files independently read; desktop viewport emulation and local workerd only. No actual calendar import.",
+  "startupFailure": "pnpm exec vite unavailable; used pnpm exec vp dev with the same scratch config and loopback binding."
+}

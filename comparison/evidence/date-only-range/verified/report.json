@@ -1,0 +1,41 @@
+{
+  "status": "passed",
+  "browser": "153.0.8010.36",
+  "sourceHashes": {
+    "src/shared/interpret-interval.ts": "e1bb5999e761d36e2235c39c841a56b575e87bb7e128070d827425e1d0e07eda",
+    "src/shared/interpret-date.ts": "cd846ef49b2987cba74d9d4dec8c78d9a5ec1f288c54e0950459fef3be527add",
+    "src/shared/clarify-numeric-date.ts": "e95d385b5b69e6b10f3b66e4561fb064d879a99a7b532148800ddd6e295ac302",
+    "examples/app/verify-date-only-range.mjs": "d6f5ac029282d1c7129f4922e2bf7719a2df8d422d0684520bd32f7c042e5441"
+  },
+  "runs": [
+    {
+      "width": 320,
+      "id": "exclusive",
+      "status": "passed",
+      "file": "exclusive-320.ics",
+      "sha256": "98ad358d2d5c35e10dba049e439d5162395aa0f1ccb9df3de51585124ca9df40"
+    },
+    {
+      "width": 320,
+      "id": "inclusive",
+      "status": "passed",
+      "file": "inclusive-320.ics",
+      "sha256": "6568d9f7780788b0e804f4ccba7957ad8f8cc8b649dda708f4a42682ee570957"
+    },
+    {
+      "width": 1280,
+      "id": "exclusive",
+      "status": "passed",
+      "file": "exclusive-1280.ics",
+      "sha256": "5a435933324efb53fe566e017cb3c6cfc0c28ee700912f0b8ca81e0c63d8d9e8"
+    },
+    {
+      "width": 1280,
+      "id": "inclusive",
+      "status": "passed",
+      "file": "inclusive-1280.ics",
+      "sha256": "605f00d29d5dd1b07be92b253fd080ad42d0d153088f826a3931075485073478"
+    }
+  ],
+  "scope": "Desktop direct focus/Enter and actual downloads, not full Tab traversal, devices or calendar import."
+}

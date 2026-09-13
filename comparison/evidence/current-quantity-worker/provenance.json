@@ -1,0 +1,13 @@
+{
+  "archiveSha256": "4b96da77b994605be06f0c63091c338cb7dae5f5a65e958f3d970786a5858a63",
+  "installedFiles": 56,
+  "wrangler": "4.131.1",
+  "workerd": "1.20260911.1",
+  "sourceHashes": {
+    "examples/sdk/verification-worker.ts": "874d426eec5c5f76e2f13f2a0e756060de9cce67ab1910c172b65155e2b6c9f6",
+    "examples/sdk/wrangler.verify.jsonc": "c08fac53a5b06c33b8269230f3dd4ef2fc678ade2f4918cadd88febd2307d223",
+    "examples/sdk/read-worker-files.py": "b4fe89f075b9b4d020f3b53ac7692c12b93f28fe6e70442b7e15471aaab5faa7",
+    "examples/sdk/read-worker-files.py.lock": "25321ad7e67ccbc618b94ba12fdfc25f3d5cc3d7ba775ee1ef6b06cab5e63751"
+  },
+  "scope": "Copied Worker typecheck and scoped lint passed. GET /verify returned 200. Local-only runtime; no deployed Worker or device claim."
+}

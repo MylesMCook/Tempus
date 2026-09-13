@@ -1,0 +1,36 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tempus//Calendar Export//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:11111111-2222-4333-8444-555555555555-0@tempus.invalid
+DTSTAMP:20261031T120000Z
+SUMMARY:call Sam
+DESCRIPTION:Date phrase: every Sunday from 1:30am to 3am until 2026-11-15 e
+ xcept 2026-11-08\nTimezone: America/Chicago\nOnly upcoming occurrence star
+ ts appear in the preview.\nFor 2026-11-01 start only\, you selected Start:
+  Second: November 1\, 2026 at 1:30 AM CST (UTC-06:00). Other occurrences k
+ eep their written local clocks.\nComplete bounded recurrence set\; dates a
+ re fixed to the timezone rules used when this file was generated.\n2026-11
+ -01 start: Start: Second: November 1\, 2026 at 1:30 AM CST (UTC-06:00)
+DTSTART:20261101T073000Z
+DTEND:20261101T090000Z
+RDATE:20261101T073000Z
+RDATE:20261115T073000Z
+END:VEVENT
+BEGIN:VEVENT
+RECURRENCE-ID:20261115T073000Z
+UID:11111111-2222-4333-8444-555555555555-0@tempus.invalid
+DTSTAMP:20261031T120000Z
+SUMMARY:call Sam
+DESCRIPTION:Date phrase: every Sunday from 1:30am to 3am until 2026-11-15 e
+ xcept 2026-11-08\nTimezone: America/Chicago\nOnly upcoming occurrence star
+ ts appear in the preview.\nFor 2026-11-01 start only\, you selected Start:
+  Second: November 1\, 2026 at 1:30 AM CST (UTC-06:00). Other occurrences k
+ eep their written local clocks.\nComplete bounded recurrence set\; dates a
+ re fixed to the timezone rules used when this file was generated.\n2026-11
+ -01 start: Start: Second: November 1\, 2026 at 1:30 AM CST (UTC-06:00)
+DTSTART:20261115T073000Z
+DTEND:20261115T090000Z
+END:VEVENT
+END:VCALENDAR

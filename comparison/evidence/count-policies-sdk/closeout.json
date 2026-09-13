@@ -1,0 +1,17 @@
+{
+  "matrixRequirementsPreserved": 9,
+  "releaseGatesStillOpen": 15,
+  "scopedLint": "passed",
+  "taskServersExited": true,
+  "serverPortsClosed": [
+    5184,
+    8788
+  ],
+  "mainAppPortPreserved": 5174,
+  "browserFilesRead": 66,
+  "workerFilesRead": 12,
+  "failedRunFilesRetained": 64,
+  "actualCalendarImports": 0,
+  "physicalDeviceRuns": 0,
+  "independentEvaluationCases": 0
+}

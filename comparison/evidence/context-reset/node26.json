@@ -1,0 +1,78 @@
+{
+  "status": "passed",
+  "node": "v26.8.1",
+  "archiveSha256": "8d0c279183fba267c0e4d97441a8159d126b068838ad9f9b186c4ae146602f7b",
+  "runnerSha256": "8fafd3bfa37d5f315b52bf9eeaf2a5ab40e15ce5f108495aa5f478d481a6faae",
+  "checks": [
+    {
+      "id": "complete-current-selection",
+      "status": "passed"
+    },
+    {
+      "id": "missing-list:2:month:october",
+      "status": "passed",
+      "outcome": "needs-clarification"
+    },
+    {
+      "id": "conflicting-list:2:month:october",
+      "status": "passed",
+      "outcome": "needs-clarification"
+    },
+    {
+      "id": "missing-list:year:2026",
+      "status": "passed",
+      "outcome": "needs-clarification"
+    },
+    {
+      "id": "conflicting-list:year:2026",
+      "status": "passed",
+      "outcome": "needs-clarification"
+    },
+    {
+      "id": "missing-list:0:time:0",
+      "status": "passed",
+      "outcome": "needs-clarification"
+    },
+    {
+      "id": "conflicting-list:0:time:0",
+      "status": "passed",
+      "outcome": "needs-clarification"
+    },
+    {
+      "id": "missing-list:1:time:0",
+      "status": "passed",
+      "outcome": "needs-clarification"
+    },
+    {
+      "id": "conflicting-list:1:time:0",
+      "status": "passed",
+      "outcome": "needs-clarification"
+    },
+    {
+      "id": "edited-day",
+      "status": "passed",
+      "outcome": "needs-clarification"
+    },
+    {
+      "id": "edited-title",
+      "status": "passed",
+      "outcome": "needs-clarification"
+    },
+    {
+      "id": "edited-clock",
+      "status": "passed",
+      "outcome": "needs-clarification"
+    },
+    {
+      "id": "edited-timezone",
+      "status": "passed",
+      "outcome": "needs-clarification"
+    },
+    {
+      "id": "edited-reference",
+      "status": "passed",
+      "outcome": "needs-clarification"
+    }
+  ],
+  "scope": "Authored omitted-month clarification boundary checks against installed bytes. Not independent language evaluation, browser race testing or an authorization boundary for hostile SDK callers."
+}

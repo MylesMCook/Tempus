@@ -1,0 +1,15 @@
+{
+  "matrixRequirementsUnchanged": 9,
+  "acceptanceSectionUnchanged": true,
+  "milestoneExitConditionsUnchanged": true,
+  "openChecklistGatesPreserved": 15,
+  "localLinkPathsChecked": 50,
+  "evidenceChecksumsVerified": 65,
+  "currentResolverMatchesRecordedFinalSource": true,
+  "currentDocumentHashes": {
+    "tasks.md": "2449d10161c11bff37ce66715ab9ecc551944e6dad3577483c00a2b8059b66e8",
+    "docs/product-matrix.md": "115850b522918912c53035af9f448451224a8be60a2014372c9073da07a81fee",
+    "docs/release-checklist.md": "af5f66f92a1efc96e18d9d10671b111b7627b19c85f1c32ebfe5166812f84c09"
+  },
+  "scope": "Documentation reconciliation and retained evidence integrity only; no application tests, deployments or independent evaluation rerun."
+}

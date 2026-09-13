@@ -1,0 +1,133 @@
+
+> tempus-total@0.1.0 build /Users/mylescook/Code/MylesMCook/TempusTotal
+> tsc -b && vp build
+
+comparison/evidence/snapshot-resources/source/src__features__parser__components__calendar-export.tsx(3,24): error TS2307: Cannot find module '@/components/ui/button' or its corresponding type declarations.
+comparison/evidence/snapshot-resources/source/src__features__parser__components__calendar-export.tsx(4,23): error TS2307: Cannot find module '@/components/ui/input' or its corresponding type declarations.
+comparison/evidence/snapshot-resources/source/src__features__parser__components__calendar-export.tsx(5,37): error TS2307: Cannot find module '@/shared/interpret-date' or its corresponding type declarations.
+comparison/evidence/snapshot-resources/source/src__features__parser__components__calendar-export.tsx(6,37): error TS2307: Cannot find module '@/shared/calendar-file' or its corresponding type declarations.
+comparison/evidence/snapshot-resources/source/src__features__parser__components__calendar-export.tsx(7,40): error TS2307: Cannot find module '../use-calendar-preparation' or its corresponding type declarations.
+comparison/evidence/snapshot-resources/source/src__features__parser__components__calendar-export.tsx(8,32): error TS2307: Cannot find module '../options' or its corresponding type declarations.
+comparison/evidence/snapshot-resources/source/src__features__parser__components__calendar-export.tsx(9,43): error TS2307: Cannot find module '@/shared/clarify-numeric-date' or its corresponding type declarations.
+comparison/evidence/snapshot-resources/source/src__features__parser__components__calendar-export.tsx(56,116): error TS7006: Parameter 'row' implicitly has an 'any' type.
+comparison/evidence/snapshot-resources/source/src__features__parser__components__calendar-export.tsx(56,215): error TS7006: Parameter 'row' implicitly has an 'any' type.
+comparison/evidence/snapshot-resources/source/src__features__parser__components__calendar-export.tsx(67,18): error TS7006: Parameter 'event' implicitly has an 'any' type.
+comparison/evidence/snapshot-resources/source/src__features__parser__components__calendar-export.tsx(71,5): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+comparison/evidence/snapshot-resources/source/src__features__parser__components__calendar-export.tsx(74,37): error TS2339: Property 'open' does not exist on type 'EventTarget & HTMLDetailsElement'.
+comparison/evidence/snapshot-resources/source/src__features__parser__components__calendar-export.tsx(77,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+comparison/evidence/snapshot-resources/source/src__features__parser__components__calendar-export.tsx(83,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+comparison/evidence/snapshot-resources/source/src__features__parser__components__calendar-export.tsx(84,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+comparison/evidence/snapshot-resources/source/src__features__parser__components__calendar-export.tsx(86,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+comparison/evidence/snapshot-resources/source/src__features__parser__components__calendar-export.tsx(104,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+comparison/evidence/snapshot-resources/source/src__features__parser__components__calendar-export.tsx(114,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+comparison/evidence/snapshot-resources/source/src__features__parser__components__calendar-export.tsx(118,33): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+comparison/evidence/snapshot-resources/source/src__features__parser__components__calendar-export.tsx(120,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+comparison/evidence/snapshot-resources/source/src__features__parser__components__calendar-export.tsx(123,33): error TS2584: Cannot find name 'document'. Do you need to change your target library? Try changing the 'lib' compiler option to include 'dom'.
+comparison/evidence/snapshot-resources/source/src__features__parser__components__calendar-export.tsx(124,40): error TS2693: 'HTMLTextAreaElement' only refers to a type, but is being used as a value here.
+comparison/evidence/snapshot-resources/source/src__features__parser__components__calendar-export.tsx(124,80): error TS2693: 'HTMLInputElement' only refers to a type, but is being used as a value here.
+comparison/evidence/snapshot-resources/source/src__features__parser__components__calendar-export.tsx(134,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+comparison/evidence/snapshot-resources/source/src__features__parser__components__calendar-export.tsx(135,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+comparison/evidence/snapshot-resources/source/src__features__parser__components__calendar-export.tsx(136,48): error TS7006: Parameter 'choice' implicitly has an 'any' type.
+comparison/evidence/snapshot-resources/source/src__features__parser__components__calendar-export.tsx(137,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+comparison/evidence/snapshot-resources/source/src__features__parser__components__calendar-export.tsx(148,23): error TS2584: Cannot find name 'document'. Do you need to change your target library? Try changing the 'lib' compiler option to include 'dom'.
+comparison/evidence/snapshot-resources/source/src__features__parser__components__calendar-export.tsx(157,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+comparison/evidence/snapshot-resources/source/src__features__parser__components__calendar-export.tsx(166,19): error TS2584: Cannot find name 'document'. Do you need to change your target library? Try changing the 'lib' compiler option to include 'dom'.
+comparison/evidence/snapshot-resources/source/src__features__parser__components__calendar-export.tsx(175,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+comparison/evidence/snapshot-resources/source/src__features__parser__components__calendar-export.tsx(176,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+comparison/evidence/snapshot-resources/source/src__features__parser__components__calendar-export.tsx(179,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+comparison/evidence/snapshot-resources/source/src__features__parser__components__calendar-export.tsx(183,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+comparison/evidence/snapshot-resources/source/src__features__parser__components__calendar-export.tsx(192,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+comparison/evidence/snapshot-resources/source/src__features__parser__components__calendar-export.tsx(201,63): error TS7006: Parameter 'event' implicitly has an 'any' type.
+comparison/evidence/snapshot-resources/source/src__features__parser__components__calendar-export.tsx(201,70): error TS7006: Parameter 'index' implicitly has an 'any' type.
+comparison/evidence/snapshot-resources/source/src__features__parser__components__calendar-export.tsx(202,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+comparison/evidence/snapshot-resources/source/src__features__parser__components__calendar-export.tsx(204,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+comparison/evidence/snapshot-resources/source/src__features__parser__components__calendar-export.tsx(213,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+comparison/evidence/snapshot-resources/source/src__features__parser__components__calendar-export.tsx(214,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+comparison/evidence/snapshot-resources/source/src__features__parser__components__calendar-export.tsx(228,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+comparison/evidence/snapshot-resources/source/src__features__parser__components__calendar-export.tsx(232,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+comparison/evidence/snapshot-resources/source/src__features__parser__components__calendar-export.tsx(235,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+comparison/evidence/snapshot-resources/source/src__features__parser__components__calendar-export.tsx(239,22): error TS7006: Parameter 'event' implicitly has an 'any' type.
+comparison/evidence/snapshot-resources/source/src__features__parser__components__calendar-export.tsx(244,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+comparison/evidence/snapshot-resources/source/src__features__parser__components__calendar-export.tsx(248,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+comparison/evidence/snapshot-resources/source/src__features__parser__components__calendar-export.tsx(274,28): error TS2584: Cannot find name 'document'. Do you need to change your target library? Try changing the 'lib' compiler option to include 'dom'.
+comparison/evidence/snapshot-resources/source/src__features__parser__components__calendar-export.tsx(279,17): error TS2584: Cannot find name 'document'. Do you need to change your target library? Try changing the 'lib' compiler option to include 'dom'.
+comparison/evidence/snapshot-resources/source/src__features__parser__components__calendar-export.tsx(295,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+comparison/evidence/snapshot-resources/source/src__features__parser__use-calendar-preparation.ts(5,8): error TS2307: Cannot find module './calendar-preparation' or its corresponding type declarations.
+comparison/evidence/snapshot-resources/source/src__features__parser__use-calendar-preparation.ts(37,15): error TS2339: Property 'terminate' does not exist on type 'Worker'.
+comparison/evidence/snapshot-resources/source/src__features__parser__use-calendar-preparation.ts(43,24): error TS2693: 'Worker' only refers to a type, but is being used as a value here.
+comparison/evidence/snapshot-resources/source/src__features__parser__use-calendar-preparation.ts(46,11): error TS18048: 'worker' is possibly 'undefined'.
+comparison/evidence/snapshot-resources/source/src__features__parser__use-calendar-preparation.ts(46,18): error TS2339: Property 'onmessage' does not exist on type 'Worker'.
+comparison/evidence/snapshot-resources/source/src__features__parser__use-calendar-preparation.ts(46,38): error TS2315: Type 'MessageEvent' is not generic.
+comparison/evidence/snapshot-resources/source/src__features__parser__use-calendar-preparation.ts(48,21): error TS2339: Property 'terminate' does not exist on type 'Worker'.
+comparison/evidence/snapshot-resources/source/src__features__parser__use-calendar-preparation.ts(50,11): error TS18048: 'worker' is possibly 'undefined'.
+comparison/evidence/snapshot-resources/source/src__features__parser__use-calendar-preparation.ts(50,18): error TS2339: Property 'onerror' does not exist on type 'Worker'.
+comparison/evidence/snapshot-resources/source/src__features__parser__use-calendar-preparation.ts(51,11): error TS18048: 'worker' is possibly 'undefined'.
+comparison/evidence/snapshot-resources/source/src__features__parser__use-calendar-preparation.ts(51,18): error TS2339: Property 'onmessageerror' does not exist on type 'Worker'.
+comparison/evidence/snapshot-resources/source/src__features__parser__use-calendar-preparation.ts(52,11): error TS18048: 'worker' is possibly 'undefined'.
+comparison/evidence/snapshot-resources/source/src__features__parser__use-calendar-preparation.ts(52,18): error TS2339: Property 'postMessage' does not exist on type 'Worker'.
+comparison/evidence/snapshot-resources/source/src__features__parser__use-calendar-preparation.ts(62,15): error TS2339: Property 'terminate' does not exist on type 'Worker'.
+comparison/evidence/snapshot-resources/source/src__shared__date-parser.test.ts(2,31): error TS2307: Cannot find module './date-parser' or its corresponding type declarations.
+comparison/evidence/snapshot-resources/source/src__shared__date-parser.test.ts(3,33): error TS2307: Cannot find module './date-engine/grammar' or its corresponding type declarations.
+comparison/evidence/snapshot-resources/source/src__shared__date-parser.test.ts(12,29): error TS2307: Cannot find module './date-engine/oracle-fixtures' or its corresponding type declarations.
+comparison/evidence/snapshot-resources/source/src__shared__date-parser.test.ts(13,36): error TS2307: Cannot find module './date-engine/compatibility-fixtures' or its corresponding type declarations.
+comparison/evidence/snapshot-resources/source/src__shared__date-parser.test.ts(14,26): error TS2307: Cannot find module '../features/parser/examples' or its corresponding type declarations.
+comparison/evidence/snapshot-resources/source/src__shared__date-parser.test.ts(32,35): error TS2345: Argument of type '(phrase: any, expected: any) => void' is not assignable to parameter of type '(...args: any[] | [any]) => Awaitable<void>'.
+  Types of parameters 'phrase' and 'args' are incompatible.
+    Type 'any[] | [any]' is not assignable to type '[phrase: any, expected: any]'.
+      Type 'any[]' is not assignable to type '[phrase: any, expected: any]'.
+        Target requires 2 element(s) but source may have fewer.
+comparison/evidence/snapshot-resources/source/src__shared__date-parser.test.ts(36,32): error TS7006: Parameter 'step' implicitly has an 'any' type.
+comparison/evidence/snapshot-resources/source/src__shared__date-parser.test.ts(36,38): error TS7006: Parameter 'index' implicitly has an 'any' type.
+comparison/evidence/snapshot-resources/source/src__shared__date-parser.test.ts(42,73): error TS7006: Parameter 'op' implicitly has an 'any' type.
+comparison/evidence/snapshot-resources/source/src__shared__date-parser.test.ts(168,24): error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'string'.
+comparison/evidence/snapshot-resources/source/src__shared__date-parser.test.ts(168,33): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(actual: boolean, message?: string | undefined): Assertion<boolean>', gave the following error.
+    Argument of type 'unknown' is not assignable to parameter of type 'string | undefined'.
+  Overload 2 of 2, '(val: any, message?: string | undefined): Assertion', gave the following error.
+    Argument of type 'unknown' is not assignable to parameter of type 'string | undefined'.
+comparison/evidence/snapshot-resources/source/src__shared__date-parser.ts(6,8): error TS2307: Cannot find module './date-engine/zoned-date.js' or its corresponding type declarations.
+comparison/evidence/snapshot-resources/source/src__shared__date-parser.ts(7,41): error TS2307: Cannot find module './date-engine/timezone-database.js' or its corresponding type declarations.
+comparison/evidence/snapshot-resources/source/src__shared__date-parser.ts(9,33): error TS2307: Cannot find module './date-engine/grammar.js' or its corresponding type declarations.
+comparison/evidence/snapshot-resources/source/src__shared__date-parser.ts(18,8): error TS2307: Cannot find module './date-engine/types.js' or its corresponding type declarations.
+comparison/evidence/snapshot-resources/source/src__shared__date-parser.ts(24,8): error TS2307: Cannot find module './date-engine/types.js' or its corresponding type declarations.
+comparison/evidence/snapshot-resources/source/src__shared__date-parser.ts(162,40): error TS2454: Variable 'clock' is used before being assigned.
+comparison/evidence/snapshot-resources/source/src__shared__date-parser.ts(163,63): error TS2454: Variable 'clock' is used before being assigned.
+comparison/evidence/snapshot-resources/source/src__shared__date-parser.ts(185,7): error TS2322: Type 'number' is not assignable to type 'bigint'.
+comparison/evidence/snapshot-resources/source/src__shared__date-parser.ts(185,17): error TS2365: Operator '*' cannot be applied to types 'number' and 'bigint'.
+comparison/evidence/snapshot-resources/source/src__shared__date-parser.ts(186,20): error TS2365: Operator '*' cannot be applied to types 'number' and 'bigint'.
+comparison/evidence/snapshot-resources/source/src__shared__date-parser.ts(214,28): error TS2365: Operator '*' cannot be applied to types 'number' and 'bigint'.
+comparison/evidence/snapshot-resources/source/src__shared__date-parser.ts(246,37): error TS7053: Element implicitly has an 'any' type because expression of type 'any' can't be used to index type '{ readonly hour: 3600000n; readonly minute: 60000n; readonly second: 1000n; readonly millisecond: 1n; }'.
+comparison/evidence/snapshot-resources/source/src__shared__date-parser.ts(247,9): error TS2367: This comparison appears to be unintentional because the types 'number' and 'bigint' have no overlap.
+comparison/evidence/snapshot-resources/source/src__shared__date-parser.ts(309,32): error TS2454: Variable 'instant' is used before being assigned.
+comparison/evidence/snapshot-resources/source/src__shared__date-parser.ts(342,18): error TS2454: Variable 'instant' is used before being assigned.
+comparison/evidence/snapshot-resources/source/src__shared__date-parser.ts(343,36): error TS7006: Parameter 'token' implicitly has an 'any' type.
+comparison/evidence/snapshot-resources/source/src__shared__date-parser.ts(358,24): error TS18046: 'error' is of type 'unknown'.
+comparison/evidence/snapshot-resources/source/src__shared__date-parser.ts(362,15): error TS18046: 'error' is of type 'unknown'.
+comparison/evidence/snapshot-runtime/runners/calendar-browser.ts(1,69): error TS2307: Cannot find module '@tempus-date/core' or its corresponding type declarations.
+comparison/evidence/snapshot-runtime/runners/calendar-browser.ts(7,8): error TS2307: Cannot find module '@tempus-date/core/calendar' or its corresponding type declarations.
+comparison/evidence/snapshot-runtime/runners/calendar-browser.ts(9,15): error TS2584: Cannot find name 'document'. Do you need to change your target library? Try changing the 'lib' compiler option to include 'dom'.
+comparison/evidence/snapshot-runtime/runners/calendar-browser.ts(10,16): error TS2584: Cannot find name 'document'. Do you need to change your target library? Try changing the 'lib' compiler option to include 'dom'.
+comparison/evidence/snapshot-runtime/runners/calendar-browser.ts(11,17): error TS2584: Cannot find name 'document'. Do you need to change your target library? Try changing the 'lib' compiler option to include 'dom'.
+comparison/evidence/snapshot-runtime/runners/calendar-browser.ts(12,17): error TS2584: Cannot find name 'document'. Do you need to change your target library? Try changing the 'lib' compiler option to include 'dom'.
+comparison/evidence/snapshot-runtime/runners/calendar-browser.ts(13,18): error TS2584: Cannot find name 'document'. Do you need to change your target library? Try changing the 'lib' compiler option to include 'dom'.
+comparison/evidence/snapshot-runtime/runners/calendar-browser.ts(14,18): error TS2584: Cannot find name 'document'. Do you need to change your target library? Try changing the 'lib' compiler option to include 'dom'.
+comparison/evidence/snapshot-runtime/runners/calendar-browser.ts(31,21): error TS2584: Cannot find name 'document'. Do you need to change your target library? Try changing the 'lib' compiler option to include 'dom'.
+comparison/evidence/snapshot-runtime/runners/calendar-browser.ts(68,20): error TS2584: Cannot find name 'document'. Do you need to change your target library? Try changing the 'lib' compiler option to include 'dom'.
+comparison/evidence/snapshot-runtime/runners/calendar-browser.ts(70,22): error TS2584: Cannot find name 'document'. Do you need to change your target library? Try changing the 'lib' compiler option to include 'dom'.
+comparison/evidence/snapshot-runtime/runners/calendar-browser.ts(80,22): error TS7006: Parameter 'row' implicitly has an 'any' type.
+comparison/evidence/snapshot-runtime/runners/calendar-browser.ts(116,20): error TS2584: Cannot find name 'document'. Do you need to change your target library? Try changing the 'lib' compiler option to include 'dom'.
+comparison/evidence/snapshot-runtime/runners/calendar-browser.ts(121,9): error TS2584: Cannot find name 'document'. Do you need to change your target library? Try changing the 'lib' compiler option to include 'dom'.
+comparison/evidence/snapshot-runtime/runners/calendar-browser.ts(139,22): error TS2584: Cannot find name 'document'. Do you need to change your target library? Try changing the 'lib' compiler option to include 'dom'.
+comparison/evidence/snapshot-runtime/runners/calendar-browser.ts(143,22): error TS2584: Cannot find name 'document'. Do you need to change your target library? Try changing the 'lib' compiler option to include 'dom'.
+comparison/evidence/snapshot-runtime/runners/calendar-browser.ts(165,1): error TS2584: Cannot find name 'document'. Do you need to change your target library? Try changing the 'lib' compiler option to include 'dom'.
+comparison/evidence/snapshot-runtime/verification-worker.ts(1,68): error TS2307: Cannot find module '@tempus-date/core' or its corresponding type declarations.
+comparison/evidence/snapshot-runtime/verification-worker.ts(8,8): error TS2307: Cannot find module '@tempus-date/core/calendar' or its corresponding type declarations.
+comparison/evidence/snapshot-runtime/verification-worker.ts(54,6): error TS7006: Parameter 'choice' implicitly has an 'any' type.
+comparison/evidence/snapshot-runtime/verification-worker.ts(78,42): error TS7006: Parameter 'choice' implicitly has an 'any' type.
+comparison/evidence/snapshot-runtime/verification-worker.ts(86,50): error TS7006: Parameter 'row' implicitly has an 'any' type.
+comparison/evidence/snapshot-runtime/verification-worker.ts(148,44): error TS7006: Parameter 'choice' implicitly has an 'any' type.
+comparison/evidence/snapshot-runtime/verification-worker.ts(173,41): error TS7006: Parameter 'choice' implicitly has an 'any' type.
+comparison/evidence/snapshot-runtime/verification-worker.ts(226,44): error TS7006: Parameter 'choice' implicitly has an 'any' type.
+comparison/evidence/snapshot-runtime/verification-worker.ts(327,44): error TS7006: Parameter 'choice' implicitly has an 'any' type.
+comparison/evidence/snapshot-runtime/verification-worker.ts(373,48): error TS7006: Parameter 'choice' implicitly has an 'any' type.
+ ELIFECYCLE  Command failed with exit code 2.

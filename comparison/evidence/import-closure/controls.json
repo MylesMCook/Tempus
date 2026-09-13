@@ -1,0 +1,29 @@
+{
+  "scope": "Synthetic local fixtures test checker rejection; not SDK accuracy or security evaluation.",
+  "controls": [
+    {
+      "fixture": "valid",
+      "exitCode": 0,
+      "expectedFailure": false,
+      "status": "passed"
+    },
+    {
+      "fixture": "undeclared",
+      "exitCode": 1,
+      "expectedFailure": true,
+      "status": "passed"
+    },
+    {
+      "fixture": "node-builtin",
+      "exitCode": 1,
+      "expectedFailure": true,
+      "status": "passed"
+    },
+    {
+      "fixture": "tampered",
+      "exitCode": 1,
+      "expectedFailure": true,
+      "status": "passed"
+    }
+  ]
+}

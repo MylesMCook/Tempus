@@ -1,0 +1,29 @@
+[1m[2mnote:[0m[0m You are running [94m`vp test`[39m as a Vite+ built-in command. If you meant to run the test npm script, use [94m`vpr test`[39m instead.
+
+ RUN  v4.1.11 /Users/mylescook/Code/MylesMCook/TempusTotal
+
+ ❯ src/shared/clock-first.test.ts (18 tests | 2 failed) 30ms
+   × retains numeric and DST choices, source, output and edit invalidation: 11/01/2026 6ms
+   × retains numeric and DST choices, source, output and edit invalidation: 2026-03-08 3ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/shared/clock-first.test.ts > retains numeric and DST choices, source, output and edit invalidation: 11/01/2026
+ FAIL  src/shared/clock-first.test.ts > retains numeric and DST choices, source, output and edit invalidation: 2026-03-08
+Error: Choose an all-day date or an exact-time event before exporting this point.
+ ❯ src/shared/clock-first.test.ts:66:25
+     64|     );
+     65|     const file = prepareCalendarFile(result, metadata);
+     66|     if (!file.ok) throw Error(file.reason);
+       |                         ^
+     67|     expect(file.text).toContain(`SUMMARY:${metadata.title}`);
+     68|     expect(file.text).not.toContain("DTEND");
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  2 failed | 36 passed (38)
+   Start at  13:03:48
+   Duration  211ms (transform 156ms, setup 0ms, import 223ms, tests 69ms, environment 0ms)
+

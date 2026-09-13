@@ -1,0 +1,8 @@
+{
+  "src/shared/interpret-date.ts": "7fc9f866463b34225c0726effd3521ecdd7d8fef34f1ac79b3600124464debc7",
+  "src/shared/recipient-label.test.ts": "0a0fe471ef880e6c3ad4fcdf905b6c5f2008a86e8bd6d4e313b523cad1dc5d8a",
+  "examples/app/verify-event-identifiers.mjs": "beeeb39b1d56d5be04a93b03ac5ba5724e34aa3db1ef0a493c2aace63c6fa312",
+  "examples/app/read-event-identifiers.py": "f861ac990964827be2bf9668188177dc0d03986f5845fd694de6f7c2cd4578a3",
+  "examples/app/read-event-identifiers.py.lock": "25321ad7e67ccbc618b94ba12fdfc25f3d5cc3d7ba775ee1ef6b06cab5e63751",
+  "packages/core/README.md": "eedc9d77f7d40f9657cbfded350595b58b81e3a01e5830cd3d7b56f8363e25a6"
+}

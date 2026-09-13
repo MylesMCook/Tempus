@@ -1,0 +1,13 @@
+{
+  "sourceHashes": {
+    "src/features/parser/components/date-picker.tsx": "8a35ce79f56a0aa56273f6de243d9e3bdad31baa2b43a30aaead4079bbb18b3a",
+    "examples/app/verify-context-reset.mjs": "d5ae3a543dc716580477b31d6547176431d40ed1d1e63155d3f7e39b691c6748",
+    "examples/sdk/verify-selection-boundary.mjs": "8fafd3bfa37d5f315b52bf9eeaf2a5ab40e15ce5f108495aa5f478d481a6faae"
+  },
+  "checks": {
+    "browser": "Two before-fix runs failed at each width; fixed 320/1280 passes",
+    "sdk": "14 checks each Node22/26 against unchanged 8d0c2791 archive",
+    "build": "passed with existing bundle warning: 901.09 kB client / 265.44 kB gzip",
+    "scopedChecks": "Three files pass formatting/lint/types without warnings"
+  }
+}

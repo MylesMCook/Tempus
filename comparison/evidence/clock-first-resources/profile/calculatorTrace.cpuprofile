@@ -1,0 +1,7241 @@
+{
+  "nodes": [
+    {
+      "id": 1,
+      "callFrame": {
+        "functionName": "(root)",
+        "scriptId": "0",
+        "url": "",
+        "lineNumber": -1,
+        "columnNumber": -1
+      },
+      "hitCount": 0,
+      "children": [
+        2,
+        110,
+        188,
+        190
+      ]
+    },
+    {
+      "id": 2,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "90",
+        "url": "file://<HOME>/Code/MylesMCook/TempusTotal/comparison/performance/profile.mjs",
+        "lineNumber": -1,
+        "columnNumber": -1
+      },
+      "hitCount": 0,
+      "children": [
+        3,
+        6
+      ]
+    },
+    {
+      "id": 3,
+      "callFrame": {
+        "functionName": "fn",
+        "scriptId": "13",
+        "url": "node:internal/util",
+        "lineNumber": 476,
+        "columnNumber": 13
+      },
+      "hitCount": 0,
+      "children": [
+        4
+      ]
+    },
+    {
+      "id": 4,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "13",
+        "url": "node:internal/util",
+        "lineNumber": 477,
+        "columnNumber": 23
+      },
+      "hitCount": 0,
+      "children": [
+        5
+      ]
+    },
+    {
+      "id": 5,
+      "callFrame": {
+        "functionName": "post",
+        "scriptId": "157",
+        "url": "node:inspector",
+        "lineNumber": 114,
+        "columnNumber": 6
+      },
+      "hitCount": 0
+    },
+    {
+      "id": 6,
+      "callFrame": {
+        "functionName": "calculatorTrace",
+        "scriptId": "90",
+        "url": "file://<HOME>/Code/MylesMCook/TempusTotal/comparison/performance/profile.mjs",
+        "lineNumber": 100,
+        "columnNumber": 21
+      },
+      "hitCount": 0,
+      "children": [
+        7
+      ]
+    },
+    {
+      "id": 7,
+      "callFrame": {
+        "functionName": "calculateDate",
+        "scriptId": "182",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-parser.js",
+        "lineNumber": 190,
+        "columnNumber": 29
+      },
+      "hitCount": 0,
+      "children": [
+        8
+      ]
+    },
+    {
+      "id": 8,
+      "callFrame": {
+        "functionName": "calculateWithClockResolver",
+        "scriptId": "182",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-parser.js",
+        "lineNumber": 196,
+        "columnNumber": 42
+      },
+      "hitCount": 4,
+      "children": [
+        9,
+        20,
+        42,
+        112,
+        167,
+        195,
+        232,
+        320
+      ],
+      "positionTicks": [
+        {
+          "line": 239,
+          "ticks": 1
+        },
+        {
+          "line": 239,
+          "ticks": 1
+        },
+        {
+          "line": 221,
+          "ticks": 1
+        },
+        {
+          "line": 230,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "callFrame": {
+        "functionName": "snapshot",
+        "scriptId": "182",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-parser.js",
+        "lineNumber": 13,
+        "columnNumber": 17
+      },
+      "hitCount": 1,
+      "children": [
+        10,
+        31,
+        67,
+        81,
+        272,
+        326
+      ],
+      "positionTicks": [
+        {
+          "line": 20,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "callFrame": {
+        "functionName": "toString",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 103490
+      },
+      "hitCount": 1,
+      "children": [
+        11,
+        144,
+        206,
+        307
+      ],
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "callFrame": {
+        "functionName": "Xn",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 32022
+      },
+      "hitCount": 0,
+      "children": [
+        12,
+        73
+      ]
+    },
+    {
+      "id": 12,
+      "callFrame": {
+        "functionName": "zn",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 29738
+      },
+      "hitCount": 0,
+      "children": [
+        13,
+        117,
+        125
+      ]
+    },
+    {
+      "id": 13,
+      "callFrame": {
+        "functionName": "Fn",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 29478
+      },
+      "hitCount": 0,
+      "children": [
+        14
+      ]
+    },
+    {
+      "id": 14,
+      "callFrame": {
+        "functionName": "lr",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 35851
+      },
+      "hitCount": 0,
+      "children": [
+        15,
+        19
+      ]
+    },
+    {
+      "id": 15,
+      "callFrame": {
+        "functionName": "No",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 56273
+      },
+      "hitCount": 0,
+      "children": [
+        16
+      ]
+    },
+    {
+      "id": 16,
+      "callFrame": {
+        "functionName": "g",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 473
+      },
+      "hitCount": 0,
+      "children": [
+        17,
+        227
+      ]
+    },
+    {
+      "id": 17,
+      "callFrame": {
+        "functionName": "remainder",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 3638
+      },
+      "hitCount": 0,
+      "children": [
+        18,
+        390
+      ]
+    },
+    {
+      "id": 18,
+      "callFrame": {
+        "functionName": "__trim",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 9804
+      },
+      "hitCount": 2,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        },
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 390,
+      "callFrame": {
+        "functionName": "__absoluteDivLarge",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 22364
+      },
+      "hitCount": 0,
+      "children": [
+        391
+      ]
+    },
+    {
+      "id": 391,
+      "callFrame": {
+        "functionName": "__specialLeftShift",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 24585
+      },
+      "hitCount": 0,
+      "children": [
+        392
+      ]
+    },
+    {
+      "id": 392,
+      "callFrame": {
+        "functionName": "JSBI",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 49
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 227,
+      "callFrame": {
+        "functionName": "divide",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 3272
+      },
+      "hitCount": 0,
+      "children": [
+        228
+      ]
+    },
+    {
+      "id": 228,
+      "callFrame": {
+        "functionName": "__absoluteDivLarge",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 22364
+      },
+      "hitCount": 0,
+      "children": [
+        229,
+        267,
+        310
+      ]
+    },
+    {
+      "id": 229,
+      "callFrame": {
+        "functionName": "__inplaceSub",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 23461
+      },
+      "hitCount": 0,
+      "children": [
+        230
+      ]
+    },
+    {
+      "id": 230,
+      "callFrame": {
+        "functionName": "__digit",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 27584
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 267,
+      "callFrame": {
+        "functionName": "JSBI",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 49
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 310,
+      "callFrame": {
+        "functionName": "__specialLeftShift",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 24585
+      },
+      "hitCount": 0,
+      "children": [
+        311
+      ]
+    },
+    {
+      "id": 311,
+      "callFrame": {
+        "functionName": "JSBI",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 49
+      },
+      "hitCount": 2,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        },
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "callFrame": {
+        "functionName": "ur",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 35649
+      },
+      "hitCount": 3,
+      "children": [
+        41,
+        243
+      ],
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        },
+        {
+          "line": 1,
+          "ticks": 1
+        },
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "callFrame": {
+        "functionName": "br",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 37455
+      },
+      "hitCount": 10,
+      "children": [
+        109
+      ],
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        },
+        {
+          "line": 1,
+          "ticks": 1
+        },
+        {
+          "line": 1,
+          "ticks": 8
+        }
+      ]
+    },
+    {
+      "id": 109,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 37476
+      },
+      "hitCount": 13,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 11
+        },
+        {
+          "line": 1,
+          "ticks": 2
+        }
+      ]
+    },
+    {
+      "id": 243,
+      "callFrame": {
+        "functionName": "yr",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 36051
+      },
+      "hitCount": 4,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 2
+        },
+        {
+          "line": 1,
+          "ticks": 1
+        },
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 117,
+      "callFrame": {
+        "functionName": "$r",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 39271
+      },
+      "hitCount": 0,
+      "children": [
+        118,
+        263
+      ]
+    },
+    {
+      "id": 118,
+      "callFrame": {
+        "functionName": "Yr",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 39361
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 263,
+      "callFrame": {
+        "functionName": "Or",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 38822
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 125,
+      "callFrame": {
+        "functionName": "gr",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 36357
+      },
+      "hitCount": 5,
+      "children": [
+        155,
+        175
+      ],
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 2
+        },
+        {
+          "line": 1,
+          "ticks": 1
+        },
+        {
+          "line": 1,
+          "ticks": 2
+        }
+      ]
+    },
+    {
+      "id": 155,
+      "callFrame": {
+        "functionName": "remainder",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 3638
+      },
+      "hitCount": 0,
+      "children": [
+        156,
+        201
+      ]
+    },
+    {
+      "id": 156,
+      "callFrame": {
+        "functionName": "__trim",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 9804
+      },
+      "hitCount": 4,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 2
+        },
+        {
+          "line": 1,
+          "ticks": 2
+        }
+      ]
+    },
+    {
+      "id": 201,
+      "callFrame": {
+        "functionName": "__absoluteDivLarge",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 22364
+      },
+      "hitCount": 0,
+      "children": [
+        202,
+        380
+      ]
+    },
+    {
+      "id": 202,
+      "callFrame": {
+        "functionName": "JSBI",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 49
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 380,
+      "callFrame": {
+        "functionName": "__internalMultiplyAdd",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 21215
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 175,
+      "callFrame": {
+        "functionName": "No",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 56273
+      },
+      "hitCount": 1,
+      "children": [
+        176
+      ],
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 176,
+      "callFrame": {
+        "functionName": "g",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 473
+      },
+      "hitCount": 0,
+      "children": [
+        177,
+        264
+      ]
+    },
+    {
+      "id": 177,
+      "callFrame": {
+        "functionName": "remainder",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 3638
+      },
+      "hitCount": 1,
+      "children": [
+        273,
+        329
+      ],
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 273,
+      "callFrame": {
+        "functionName": "__absoluteDivLarge",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 22364
+      },
+      "hitCount": 0,
+      "children": [
+        274
+      ]
+    },
+    {
+      "id": 274,
+      "callFrame": {
+        "functionName": "__inplaceSub",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 23461
+      },
+      "hitCount": 0,
+      "children": [
+        275
+      ]
+    },
+    {
+      "id": 275,
+      "callFrame": {
+        "functionName": "__digit",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 27584
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 329,
+      "callFrame": {
+        "functionName": "__trim",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 9804
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 264,
+      "callFrame": {
+        "functionName": "divide",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 3272
+      },
+      "hitCount": 0,
+      "children": [
+        265
+      ]
+    },
+    {
+      "id": 265,
+      "callFrame": {
+        "functionName": "__absoluteDivLarge",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 22364
+      },
+      "hitCount": 0,
+      "children": [
+        266,
+        308
+      ]
+    },
+    {
+      "id": 266,
+      "callFrame": {
+        "functionName": "JSBI",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 49
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 308,
+      "callFrame": {
+        "functionName": "__inplaceSub",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 23461
+      },
+      "hitCount": 0,
+      "children": [
+        309
+      ]
+    },
+    {
+      "id": 309,
+      "callFrame": {
+        "functionName": "__digit",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 27584
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 73,
+      "callFrame": {
+        "functionName": "nr",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 32969
+      },
+      "hitCount": 1,
+      "children": [
+        78
+      ],
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 78,
+      "callFrame": {
+        "functionName": "Vn",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 31923
+      },
+      "hitCount": 1,
+      "children": [
+        79
+      ],
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 79,
+      "callFrame": {
+        "functionName": "Kn",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 31781
+      },
+      "hitCount": 0,
+      "children": [
+        80
+      ]
+    },
+    {
+      "id": 80,
+      "callFrame": {
+        "functionName": "Ke",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 8583
+      },
+      "hitCount": 2,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 2
+        }
+      ]
+    },
+    {
+      "id": 144,
+      "callFrame": {
+        "functionName": "Io",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 54287
+      },
+      "hitCount": 0,
+      "children": [
+        145,
+        185
+      ]
+    },
+    {
+      "id": 145,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 54328
+      },
+      "hitCount": 1,
+      "children": [
+        146,
+        196,
+        204
+      ],
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 146,
+      "callFrame": {
+        "functionName": "lessThan",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 4703
+      },
+      "hitCount": 0,
+      "children": [
+        147
+      ]
+    },
+    {
+      "id": 147,
+      "callFrame": {
+        "functionName": "__compareToBigInt",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 14790
+      },
+      "hitCount": 2,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        },
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 196,
+      "callFrame": {
+        "functionName": "divide",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 3272
+      },
+      "hitCount": 0,
+      "children": [
+        197
+      ]
+    },
+    {
+      "id": 197,
+      "callFrame": {
+        "functionName": "__absoluteDivLarge",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 22364
+      },
+      "hitCount": 0,
+      "children": [
+        198
+      ]
+    },
+    {
+      "id": 198,
+      "callFrame": {
+        "functionName": "__specialLeftShift",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 24585
+      },
+      "hitCount": 0,
+      "children": [
+        199,
+        389
+      ]
+    },
+    {
+      "id": 199,
+      "callFrame": {
+        "functionName": "JSBI",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 49
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 389,
+      "callFrame": {
+        "functionName": "__setDigit",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 27651
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 204,
+      "callFrame": {
+        "functionName": "remainder",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 3638
+      },
+      "hitCount": 0,
+      "children": [
+        205,
+        225
+      ]
+    },
+    {
+      "id": 205,
+      "callFrame": {
+        "functionName": "__trim",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 9804
+      },
+      "hitCount": 3,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        },
+        {
+          "line": 1,
+          "ticks": 2
+        }
+      ]
+    },
+    {
+      "id": 225,
+      "callFrame": {
+        "functionName": "__absoluteDivLarge",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 22364
+      },
+      "hitCount": 0,
+      "children": [
+        226,
+        386
+      ]
+    },
+    {
+      "id": 226,
+      "callFrame": {
+        "functionName": "__specialLeftShift",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 24585
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 386,
+      "callFrame": {
+        "functionName": "__clz15",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 23270
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 185,
+      "callFrame": {
+        "functionName": "BigInt",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 208
+      },
+      "hitCount": 0,
+      "children": [
+        186
+      ]
+    },
+    {
+      "id": 186,
+      "callFrame": {
+        "functionName": "__oneDigit",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 9642
+      },
+      "hitCount": 0,
+      "children": [
+        187
+      ]
+    },
+    {
+      "id": 187,
+      "callFrame": {
+        "functionName": "JSBI",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 49
+      },
+      "hitCount": 2,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        },
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 206,
+      "callFrame": {
+        "functionName": "vt",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 10745
+      },
+      "hitCount": 0,
+      "children": [
+        207
+      ]
+    },
+    {
+      "id": 207,
+      "callFrame": {
+        "functionName": "ut",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 10473
+      },
+      "hitCount": 0,
+      "children": [
+        208
+      ]
+    },
+    {
+      "id": 208,
+      "callFrame": {
+        "functionName": "ne",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 1342
+      },
+      "hitCount": 2,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        },
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 307,
+      "callFrame": {
+        "functionName": "Wt",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 17507
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "callFrame": {
+        "functionName": "get year",
+        "scriptId": "176",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/zoned-date.js",
+        "lineNumber": 34,
+        "columnNumber": 12
+      },
+      "hitCount": 1,
+      "children": [
+        32,
+        35
+      ],
+      "positionTicks": [
+        {
+          "line": 36,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "callFrame": {
+        "functionName": "get year",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 107181
+      },
+      "hitCount": 0,
+      "children": [
+        33
+      ]
+    },
+    {
+      "id": 33,
+      "callFrame": {
+        "functionName": "xi",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 110095
+      },
+      "hitCount": 10,
+      "children": [
+        34
+      ],
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 10
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "callFrame": {
+        "functionName": "isoToDate",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 61695
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "callFrame": {
+        "functionName": "toPlainDateTime",
+        "scriptId": "176",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/zoned-date.js",
+        "lineNumber": 46,
+        "columnNumber": 19
+      },
+      "hitCount": 4,
+      "children": [
+        36,
+        162
+      ],
+      "positionTicks": [
+        {
+          "line": 48,
+          "ticks": 1
+        },
+        {
+          "line": 49,
+          "ticks": 3
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "callFrame": {
+        "functionName": "from",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 109986
+      },
+      "hitCount": 0,
+      "children": [
+        37
+      ]
+    },
+    {
+      "id": 37,
+      "callFrame": {
+        "functionName": "an",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 20831
+      },
+      "hitCount": 0,
+      "children": [
+        38,
+        330,
+        385
+      ]
+    },
+    {
+      "id": 38,
+      "callFrame": {
+        "functionName": "wn",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 26764
+      },
+      "hitCount": 0,
+      "children": [
+        39
+      ]
+    },
+    {
+      "id": 39,
+      "callFrame": {
+        "functionName": "gn",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 26713
+      },
+      "hitCount": 0,
+      "children": [
+        40,
+        334
+      ]
+    },
+    {
+      "id": 40,
+      "callFrame": {
+        "functionName": "<computed>.v.<computed>",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 1272
+      },
+      "hitCount": 2,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 2
+        }
+      ]
+    },
+    {
+      "id": 334,
+      "callFrame": {
+        "functionName": "Br",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 40674
+      },
+      "hitCount": 0,
+      "children": [
+        335,
+        387
+      ]
+    },
+    {
+      "id": 335,
+      "callFrame": {
+        "functionName": "greaterThan",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 4830
+      },
+      "hitCount": 0,
+      "children": [
+        336
+      ]
+    },
+    {
+      "id": 336,
+      "callFrame": {
+        "functionName": "__compareToBigInt",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 14790
+      },
+      "hitCount": 0,
+      "children": [
+        337
+      ]
+    },
+    {
+      "id": 337,
+      "callFrame": {
+        "functionName": "__absoluteCompare",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 20543
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 387,
+      "callFrame": {
+        "functionName": "pr",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 36253
+      },
+      "hitCount": 0,
+      "children": [
+        388
+      ]
+    },
+    {
+      "id": 388,
+      "callFrame": {
+        "functionName": "yr",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 36051
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 330,
+      "callFrame": {
+        "functionName": "zo",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 57582
+      },
+      "hitCount": 1,
+      "children": [
+        331
+      ],
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 331,
+      "callFrame": {
+        "functionName": "Ao",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 57789
+      },
+      "hitCount": 2,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 2
+        }
+      ]
+    },
+    {
+      "id": 385,
+      "callFrame": {
+        "functionName": "Mt",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 11690
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 162,
+      "callFrame": {
+        "functionName": "get epochMilliseconds",
+        "scriptId": "176",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/zoned-date.js",
+        "lineNumber": 25,
+        "columnNumber": 25
+      },
+      "hitCount": 0,
+      "children": [
+        163
+      ]
+    },
+    {
+      "id": 163,
+      "callFrame": {
+        "functionName": "get epochMilliseconds",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 102722
+      },
+      "hitCount": 0,
+      "children": [
+        164,
+        414
+      ]
+    },
+    {
+      "id": 164,
+      "callFrame": {
+        "functionName": "vt",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 10745
+      },
+      "hitCount": 0,
+      "children": [
+        165
+      ]
+    },
+    {
+      "id": 165,
+      "callFrame": {
+        "functionName": "ut",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 10473
+      },
+      "hitCount": 0,
+      "children": [
+        166
+      ]
+    },
+    {
+      "id": 166,
+      "callFrame": {
+        "functionName": "ne",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 1342
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 414,
+      "callFrame": {
+        "functionName": "No",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 56273
+      },
+      "hitCount": 0,
+      "children": [
+        415
+      ]
+    },
+    {
+      "id": 415,
+      "callFrame": {
+        "functionName": "g",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 473
+      },
+      "hitCount": 0,
+      "children": [
+        416
+      ]
+    },
+    {
+      "id": 416,
+      "callFrame": {
+        "functionName": "divide",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 3272
+      },
+      "hitCount": 0,
+      "children": [
+        417
+      ]
+    },
+    {
+      "id": 417,
+      "callFrame": {
+        "functionName": "__absoluteDivLarge",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 22364
+      },
+      "hitCount": 0,
+      "children": [
+        418
+      ]
+    },
+    {
+      "id": 418,
+      "callFrame": {
+        "functionName": "__specialLeftShift",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 24585
+      },
+      "hitCount": 0,
+      "children": [
+        419
+      ]
+    },
+    {
+      "id": 419,
+      "callFrame": {
+        "functionName": "JSBI",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 49
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 67,
+      "callFrame": {
+        "functionName": "get epochMilliseconds",
+        "scriptId": "176",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/zoned-date.js",
+        "lineNumber": 25,
+        "columnNumber": 25
+      },
+      "hitCount": 0,
+      "children": [
+        68
+      ]
+    },
+    {
+      "id": 68,
+      "callFrame": {
+        "functionName": "get epochMilliseconds",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 102722
+      },
+      "hitCount": 0,
+      "children": [
+        69,
+        111
+      ]
+    },
+    {
+      "id": 69,
+      "callFrame": {
+        "functionName": "No",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 56273
+      },
+      "hitCount": 0,
+      "children": [
+        70
+      ]
+    },
+    {
+      "id": 70,
+      "callFrame": {
+        "functionName": "g",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 473
+      },
+      "hitCount": 0,
+      "children": [
+        71,
+        152
+      ]
+    },
+    {
+      "id": 71,
+      "callFrame": {
+        "functionName": "remainder",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 3638
+      },
+      "hitCount": 0,
+      "children": [
+        72,
+        213
+      ]
+    },
+    {
+      "id": 72,
+      "callFrame": {
+        "functionName": "__trim",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 9804
+      },
+      "hitCount": 2,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 2
+        }
+      ]
+    },
+    {
+      "id": 213,
+      "callFrame": {
+        "functionName": "__absoluteDivLarge",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 22364
+      },
+      "hitCount": 1,
+      "children": [
+        214,
+        231
+      ],
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 214,
+      "callFrame": {
+        "functionName": "__halfDigit",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 27802
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 231,
+      "callFrame": {
+        "functionName": "JSBI",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 49
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 152,
+      "callFrame": {
+        "functionName": "divide",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 3272
+      },
+      "hitCount": 0,
+      "children": [
+        153
+      ]
+    },
+    {
+      "id": 153,
+      "callFrame": {
+        "functionName": "__absoluteDivLarge",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 22364
+      },
+      "hitCount": 0,
+      "children": [
+        154,
+        332
+      ]
+    },
+    {
+      "id": 154,
+      "callFrame": {
+        "functionName": "JSBI",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 49
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 332,
+      "callFrame": {
+        "functionName": "__internalMultiplyAdd",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 21215
+      },
+      "hitCount": 0,
+      "children": [
+        333
+      ]
+    },
+    {
+      "id": 333,
+      "callFrame": {
+        "functionName": "__setDigit",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 27651
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 111,
+      "callFrame": {
+        "functionName": "vt",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 10745
+      },
+      "hitCount": 2,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 2
+        }
+      ]
+    },
+    {
+      "id": 81,
+      "callFrame": {
+        "functionName": "toString",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 109279
+      },
+      "hitCount": 0,
+      "children": [
+        82,
+        116,
+        367
+      ]
+    },
+    {
+      "id": 82,
+      "callFrame": {
+        "functionName": "Co",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 54620
+      },
+      "hitCount": 0,
+      "children": [
+        83,
+        377
+      ]
+    },
+    {
+      "id": 83,
+      "callFrame": {
+        "functionName": "Zr",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 40750
+      },
+      "hitCount": 0,
+      "children": [
+        84
+      ]
+    },
+    {
+      "id": 84,
+      "callFrame": {
+        "functionName": "pr",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 36253
+      },
+      "hitCount": 0,
+      "children": [
+        85,
+        210
+      ]
+    },
+    {
+      "id": 85,
+      "callFrame": {
+        "functionName": "yr",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 36051
+      },
+      "hitCount": 5,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 2
+        },
+        {
+          "line": 1,
+          "ticks": 1
+        },
+        {
+          "line": 1,
+          "ticks": 2
+        }
+      ]
+    },
+    {
+      "id": 210,
+      "callFrame": {
+        "functionName": "xo",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 56436
+      },
+      "hitCount": 0,
+      "children": [
+        211
+      ]
+    },
+    {
+      "id": 211,
+      "callFrame": {
+        "functionName": "multiply",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 2994
+      },
+      "hitCount": 0,
+      "children": [
+        212
+      ]
+    },
+    {
+      "id": 212,
+      "callFrame": {
+        "functionName": "JSBI",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 49
+      },
+      "hitCount": 2,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        },
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 377,
+      "callFrame": {
+        "functionName": "Oo",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 54739
+      },
+      "hitCount": 1,
+      "children": [
+        378
+      ],
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 378,
+      "callFrame": {
+        "functionName": "Yr",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 39361
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 116,
+      "callFrame": {
+        "functionName": "Wt",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 17507
+      },
+      "hitCount": 2,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        },
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 367,
+      "callFrame": {
+        "functionName": "Br",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 40674
+      },
+      "hitCount": 0,
+      "children": [
+        368
+      ]
+    },
+    {
+      "id": 368,
+      "callFrame": {
+        "functionName": "pr",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 36253
+      },
+      "hitCount": 0,
+      "children": [
+        369,
+        397
+      ]
+    },
+    {
+      "id": 369,
+      "callFrame": {
+        "functionName": "BigInt",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 208
+      },
+      "hitCount": 0,
+      "children": [
+        370
+      ]
+    },
+    {
+      "id": 370,
+      "callFrame": {
+        "functionName": "__zero",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 9600
+      },
+      "hitCount": 0,
+      "children": [
+        371
+      ]
+    },
+    {
+      "id": 371,
+      "callFrame": {
+        "functionName": "JSBI",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 49
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 397,
+      "callFrame": {
+        "functionName": "yr",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 36051
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 272,
+      "callFrame": {
+        "functionName": "multiply",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 2994
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 326,
+      "callFrame": {
+        "functionName": "get offset",
+        "scriptId": "176",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/zoned-date.js",
+        "lineNumber": 31,
+        "columnNumber": 14
+      },
+      "hitCount": 0,
+      "children": [
+        327
+      ]
+    },
+    {
+      "id": 327,
+      "callFrame": {
+        "functionName": "offsetText",
+        "scriptId": "176",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/zoned-date.js",
+        "lineNumber": 7,
+        "columnNumber": 19
+      },
+      "hitCount": 0,
+      "children": [
+        328
+      ]
+    },
+    {
+      "id": 328,
+      "callFrame": {
+        "functionName": "pad",
+        "scriptId": "176",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/zoned-date.js",
+        "lineNumber": 9,
+        "columnNumber": 16
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 10,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "callFrame": {
+        "functionName": "applyOperation",
+        "scriptId": "182",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-parser.js",
+        "lineNumber": 118,
+        "columnNumber": 23
+      },
+      "hitCount": 1,
+      "children": [
+        21,
+        101,
+        129
+      ],
+      "positionTicks": [
+        {
+          "line": 171,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "callFrame": {
+        "functionName": "calendar",
+        "scriptId": "182",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-parser.js",
+        "lineNumber": 135,
+        "columnNumber": 25
+      },
+      "hitCount": 0,
+      "children": [
+        22,
+        56,
+        178
+      ]
+    },
+    {
+      "id": 22,
+      "callFrame": {
+        "functionName": "zoned",
+        "scriptId": "182",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-parser.js",
+        "lineNumber": 23,
+        "columnNumber": 14
+      },
+      "hitCount": 0,
+      "children": [
+        23
+      ]
+    },
+    {
+      "id": 23,
+      "callFrame": {
+        "functionName": "zonedLocal",
+        "scriptId": "176",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/zoned-date.js",
+        "lineNumber": 78,
+        "columnNumber": 26
+      },
+      "hitCount": 1,
+      "children": [
+        24,
+        160,
+        244
+      ],
+      "positionTicks": [
+        {
+          "line": 80,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "callFrame": {
+        "functionName": "civilMilliseconds",
+        "scriptId": "176",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/zoned-date.js",
+        "lineNumber": 4,
+        "columnNumber": 26
+      },
+      "hitCount": 0,
+      "children": [
+        25,
+        97,
+        410
+      ]
+    },
+    {
+      "id": 25,
+      "callFrame": {
+        "functionName": "get epochMilliseconds",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 102722
+      },
+      "hitCount": 0,
+      "children": [
+        26
+      ]
+    },
+    {
+      "id": 26,
+      "callFrame": {
+        "functionName": "No",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 56273
+      },
+      "hitCount": 0,
+      "children": [
+        27
+      ]
+    },
+    {
+      "id": 27,
+      "callFrame": {
+        "functionName": "g",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 473
+      },
+      "hitCount": 0,
+      "children": [
+        28
+      ]
+    },
+    {
+      "id": 28,
+      "callFrame": {
+        "functionName": "divide",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 3272
+      },
+      "hitCount": 0,
+      "children": [
+        29
+      ]
+    },
+    {
+      "id": 29,
+      "callFrame": {
+        "functionName": "__absoluteDivLarge",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 22364
+      },
+      "hitCount": 0,
+      "children": [
+        30
+      ]
+    },
+    {
+      "id": 30,
+      "callFrame": {
+        "functionName": "__internalMultiplyAdd",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 21215
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 97,
+      "callFrame": {
+        "functionName": "from",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 104149
+      },
+      "hitCount": 0,
+      "children": [
+        98
+      ]
+    },
+    {
+      "id": 98,
+      "callFrame": {
+        "functionName": "cn",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 23373
+      },
+      "hitCount": 0,
+      "children": [
+        99,
+        126
+      ]
+    },
+    {
+      "id": 99,
+      "callFrame": {
+        "functionName": "pr",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 36253
+      },
+      "hitCount": 0,
+      "children": [
+        100
+      ]
+    },
+    {
+      "id": 100,
+      "callFrame": {
+        "functionName": "yr",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 36051
+      },
+      "hitCount": 2,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        },
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 126,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 23501
+      },
+      "hitCount": 0,
+      "children": [
+        127
+      ]
+    },
+    {
+      "id": 127,
+      "callFrame": {
+        "functionName": "Mt",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 11690
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 410,
+      "callFrame": {
+        "functionName": "toString",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 109279
+      },
+      "hitCount": 0,
+      "children": [
+        411
+      ]
+    },
+    {
+      "id": 411,
+      "callFrame": {
+        "functionName": "Co",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 54620
+      },
+      "hitCount": 0,
+      "children": [
+        412
+      ]
+    },
+    {
+      "id": 412,
+      "callFrame": {
+        "functionName": "Oo",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 54739
+      },
+      "hitCount": 0,
+      "children": [
+        413
+      ]
+    },
+    {
+      "id": 413,
+      "callFrame": {
+        "functionName": "Eo",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 54094
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 160,
+      "callFrame": {
+        "functionName": "possibleInstants",
+        "scriptId": "181",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/timezone-reader.js",
+        "lineNumber": 225,
+        "columnNumber": 24
+      },
+      "hitCount": 1,
+      "children": [
+        161,
+        394
+      ],
+      "positionTicks": [
+        {
+          "line": 229,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 161,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "181",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/timezone-reader.js",
+        "lineNumber": 230,
+        "columnNumber": 21
+      },
+      "hitCount": 2,
+      "positionTicks": [
+        {
+          "line": 231,
+          "ticks": 2
+        }
+      ]
+    },
+    {
+      "id": 394,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "181",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/timezone-reader.js",
+        "lineNumber": 228,
+        "columnNumber": 24
+      },
+      "hitCount": 0,
+      "children": [
+        395
+      ]
+    },
+    {
+      "id": 395,
+      "callFrame": {
+        "functionName": "offsetAt",
+        "scriptId": "181",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/timezone-reader.js",
+        "lineNumber": 161,
+        "columnNumber": 21
+      },
+      "hitCount": 0,
+      "children": [
+        396
+      ]
+    },
+    {
+      "id": 396,
+      "callFrame": {
+        "functionName": "at",
+        "scriptId": "181",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/timezone-reader.js",
+        "lineNumber": 99,
+        "columnNumber": 10
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 101,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 244,
+      "callFrame": {
+        "functionName": "zonedInstant",
+        "scriptId": "176",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/zoned-date.js",
+        "lineNumber": 60,
+        "columnNumber": 28
+      },
+      "hitCount": 0,
+      "children": [
+        245,
+        298
+      ]
+    },
+    {
+      "id": 245,
+      "callFrame": {
+        "functionName": "ZonedDate",
+        "scriptId": "176",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/zoned-date.js",
+        "lineNumber": 18,
+        "columnNumber": 15
+      },
+      "hitCount": 0,
+      "children": [
+        246
+      ]
+    },
+    {
+      "id": 246,
+      "callFrame": {
+        "functionName": "get epochMilliseconds",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 102722
+      },
+      "hitCount": 0,
+      "children": [
+        247
+      ]
+    },
+    {
+      "id": 247,
+      "callFrame": {
+        "functionName": "No",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 56273
+      },
+      "hitCount": 0,
+      "children": [
+        248
+      ]
+    },
+    {
+      "id": 248,
+      "callFrame": {
+        "functionName": "g",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 473
+      },
+      "hitCount": 0,
+      "children": [
+        249
+      ]
+    },
+    {
+      "id": 249,
+      "callFrame": {
+        "functionName": "divide",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 3272
+      },
+      "hitCount": 0,
+      "children": [
+        250
+      ]
+    },
+    {
+      "id": 250,
+      "callFrame": {
+        "functionName": "__absoluteDivLarge",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 22364
+      },
+      "hitCount": 0,
+      "children": [
+        251
+      ]
+    },
+    {
+      "id": 251,
+      "callFrame": {
+        "functionName": "JSBI",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 49
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 298,
+      "callFrame": {
+        "functionName": "from",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 104149
+      },
+      "hitCount": 0,
+      "children": [
+        299
+      ]
+    },
+    {
+      "id": 299,
+      "callFrame": {
+        "functionName": "cn",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 23373
+      },
+      "hitCount": 0,
+      "children": [
+        300,
+        312
+      ]
+    },
+    {
+      "id": 300,
+      "callFrame": {
+        "functionName": "pr",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 36253
+      },
+      "hitCount": 0,
+      "children": [
+        301
+      ]
+    },
+    {
+      "id": 301,
+      "callFrame": {
+        "functionName": "yr",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 36051
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 312,
+      "callFrame": {
+        "functionName": "Cn",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 27369
+      },
+      "hitCount": 0,
+      "children": [
+        313
+      ]
+    },
+    {
+      "id": 313,
+      "callFrame": {
+        "functionName": "In",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 27330
+      },
+      "hitCount": 0,
+      "children": [
+        314
+      ]
+    },
+    {
+      "id": 314,
+      "callFrame": {
+        "functionName": "<computed>.v.<computed>",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 1272
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 56,
+      "callFrame": {
+        "functionName": "get day",
+        "scriptId": "176",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/zoned-date.js",
+        "lineNumber": 37,
+        "columnNumber": 11
+      },
+      "hitCount": 0,
+      "children": [
+        57,
+        182
+      ]
+    },
+    {
+      "id": 57,
+      "callFrame": {
+        "functionName": "toPlainDateTime",
+        "scriptId": "176",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/zoned-date.js",
+        "lineNumber": 46,
+        "columnNumber": 19
+      },
+      "hitCount": 2,
+      "children": [
+        58,
+        344
+      ],
+      "positionTicks": [
+        {
+          "line": 49,
+          "ticks": 2
+        }
+      ]
+    },
+    {
+      "id": 58,
+      "callFrame": {
+        "functionName": "from",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 109986
+      },
+      "hitCount": 0,
+      "children": [
+        59
+      ]
+    },
+    {
+      "id": 59,
+      "callFrame": {
+        "functionName": "an",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 20831
+      },
+      "hitCount": 0,
+      "children": [
+        60,
+        200
+      ]
+    },
+    {
+      "id": 60,
+      "callFrame": {
+        "functionName": "wn",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 26764
+      },
+      "hitCount": 0,
+      "children": [
+        61
+      ]
+    },
+    {
+      "id": 61,
+      "callFrame": {
+        "functionName": "gn",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 26713
+      },
+      "hitCount": 0,
+      "children": [
+        62
+      ]
+    },
+    {
+      "id": 62,
+      "callFrame": {
+        "functionName": "Br",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 40674
+      },
+      "hitCount": 0,
+      "children": [
+        63
+      ]
+    },
+    {
+      "id": 63,
+      "callFrame": {
+        "functionName": "pr",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 36253
+      },
+      "hitCount": 0,
+      "children": [
+        64,
+        364
+      ]
+    },
+    {
+      "id": 64,
+      "callFrame": {
+        "functionName": "xo",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 56436
+      },
+      "hitCount": 0,
+      "children": [
+        65
+      ]
+    },
+    {
+      "id": 65,
+      "callFrame": {
+        "functionName": "BigInt",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 208
+      },
+      "hitCount": 0,
+      "children": [
+        66
+      ]
+    },
+    {
+      "id": 66,
+      "callFrame": {
+        "functionName": "__fromDouble",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 10216
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 364,
+      "callFrame": {
+        "functionName": "yr",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 36051
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 200,
+      "callFrame": {
+        "functionName": "Mt",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 11690
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 344,
+      "callFrame": {
+        "functionName": "get epochMilliseconds",
+        "scriptId": "176",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/zoned-date.js",
+        "lineNumber": 25,
+        "columnNumber": 25
+      },
+      "hitCount": 0,
+      "children": [
+        345
+      ]
+    },
+    {
+      "id": 345,
+      "callFrame": {
+        "functionName": "get epochMilliseconds",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 102722
+      },
+      "hitCount": 0,
+      "children": [
+        346
+      ]
+    },
+    {
+      "id": 346,
+      "callFrame": {
+        "functionName": "No",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 56273
+      },
+      "hitCount": 0,
+      "children": [
+        347
+      ]
+    },
+    {
+      "id": 347,
+      "callFrame": {
+        "functionName": "g",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 473
+      },
+      "hitCount": 0,
+      "children": [
+        348
+      ]
+    },
+    {
+      "id": 348,
+      "callFrame": {
+        "functionName": "divide",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 3272
+      },
+      "hitCount": 0,
+      "children": [
+        349
+      ]
+    },
+    {
+      "id": 349,
+      "callFrame": {
+        "functionName": "__absoluteDivLarge",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 22364
+      },
+      "hitCount": 0,
+      "children": [
+        350
+      ]
+    },
+    {
+      "id": 350,
+      "callFrame": {
+        "functionName": "JSBI",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 49
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 182,
+      "callFrame": {
+        "functionName": "get day",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 107294
+      },
+      "hitCount": 1,
+      "children": [
+        183
+      ],
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 183,
+      "callFrame": {
+        "functionName": "xi",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 110095
+      },
+      "hitCount": 0,
+      "children": [
+        184
+      ]
+    },
+    {
+      "id": 184,
+      "callFrame": {
+        "functionName": "isoToDate",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 61695
+      },
+      "hitCount": 2,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 2
+        }
+      ]
+    },
+    {
+      "id": 178,
+      "callFrame": {
+        "functionName": "add",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 108553
+      },
+      "hitCount": 0,
+      "children": [
+        179
+      ]
+    },
+    {
+      "id": 179,
+      "callFrame": {
+        "functionName": "bo",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 53217
+      },
+      "hitCount": 0,
+      "children": [
+        180,
+        338
+      ]
+    },
+    {
+      "id": 180,
+      "callFrame": {
+        "functionName": "sn",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 21695
+      },
+      "hitCount": 0,
+      "children": [
+        181
+      ]
+    },
+    {
+      "id": 181,
+      "callFrame": {
+        "functionName": "Duration",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 110290
+      },
+      "hitCount": 1,
+      "children": [
+        297
+      ],
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 297,
+      "callFrame": {
+        "functionName": "oe",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 1550
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 338,
+      "callFrame": {
+        "functionName": "wn",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 26764
+      },
+      "hitCount": 0,
+      "children": [
+        339
+      ]
+    },
+    {
+      "id": 339,
+      "callFrame": {
+        "functionName": "gn",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 26713
+      },
+      "hitCount": 0,
+      "children": [
+        340,
+        379
+      ]
+    },
+    {
+      "id": 340,
+      "callFrame": {
+        "functionName": "Br",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 40674
+      },
+      "hitCount": 0,
+      "children": [
+        341
+      ]
+    },
+    {
+      "id": 341,
+      "callFrame": {
+        "functionName": "pr",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 36253
+      },
+      "hitCount": 0,
+      "children": [
+        342
+      ]
+    },
+    {
+      "id": 342,
+      "callFrame": {
+        "functionName": "yr",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 36051
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 379,
+      "callFrame": {
+        "functionName": "oe",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 1550
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 101,
+      "callFrame": {
+        "functionName": "add",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 108553
+      },
+      "hitCount": 0,
+      "children": [
+        102
+      ]
+    },
+    {
+      "id": 102,
+      "callFrame": {
+        "functionName": "bo",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 53217
+      },
+      "hitCount": 0,
+      "children": [
+        103,
+        325,
+        357
+      ]
+    },
+    {
+      "id": 103,
+      "callFrame": {
+        "functionName": "qr",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 41835
+      },
+      "hitCount": 0,
+      "children": [
+        104,
+        282,
+        393
+      ]
+    },
+    {
+      "id": 104,
+      "callFrame": {
+        "functionName": "add24HourDays",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 4382
+      },
+      "hitCount": 0,
+      "children": [
+        105
+      ]
+    },
+    {
+      "id": 105,
+      "callFrame": {
+        "functionName": "validateNew",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 3737
+      },
+      "hitCount": 0,
+      "children": [
+        106
+      ]
+    },
+    {
+      "id": 106,
+      "callFrame": {
+        "functionName": "TimeDuration",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 3599
+      },
+      "hitCount": 0,
+      "children": [
+        107
+      ]
+    },
+    {
+      "id": 107,
+      "callFrame": {
+        "functionName": "divide",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 3272
+      },
+      "hitCount": 0,
+      "children": [
+        108
+      ]
+    },
+    {
+      "id": 108,
+      "callFrame": {
+        "functionName": "__absoluteDivLarge",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 22364
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 282,
+      "callFrame": {
+        "functionName": "fromComponents",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 4004
+      },
+      "hitCount": 0,
+      "children": [
+        283
+      ]
+    },
+    {
+      "id": 283,
+      "callFrame": {
+        "functionName": "validateNew",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 3737
+      },
+      "hitCount": 0,
+      "children": [
+        284
+      ]
+    },
+    {
+      "id": 284,
+      "callFrame": {
+        "functionName": "TimeDuration",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 3599
+      },
+      "hitCount": 0,
+      "children": [
+        285
+      ]
+    },
+    {
+      "id": 285,
+      "callFrame": {
+        "functionName": "divide",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 3272
+      },
+      "hitCount": 0,
+      "children": [
+        286
+      ]
+    },
+    {
+      "id": 286,
+      "callFrame": {
+        "functionName": "__zero",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 9600
+      },
+      "hitCount": 0,
+      "children": [
+        287
+      ]
+    },
+    {
+      "id": 287,
+      "callFrame": {
+        "functionName": "JSBI",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 49
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 393,
+      "callFrame": {
+        "functionName": "re",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 1442
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 325,
+      "callFrame": {
+        "functionName": "Sn",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 27931
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 357,
+      "callFrame": {
+        "functionName": "sn",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 21695
+      },
+      "hitCount": 1,
+      "children": [
+        358
+      ],
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 358,
+      "callFrame": {
+        "functionName": "Duration",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 110290
+      },
+      "hitCount": 0,
+      "children": [
+        359
+      ]
+    },
+    {
+      "id": 359,
+      "callFrame": {
+        "functionName": "oe",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 1550
+      },
+      "hitCount": 0,
+      "children": [
+        360
+      ]
+    },
+    {
+      "id": 360,
+      "callFrame": {
+        "functionName": "<computed>.w.<computed>",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 1152
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 129,
+      "callFrame": {
+        "functionName": "zoned",
+        "scriptId": "182",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-parser.js",
+        "lineNumber": 23,
+        "columnNumber": 14
+      },
+      "hitCount": 0,
+      "children": [
+        130
+      ]
+    },
+    {
+      "id": 130,
+      "callFrame": {
+        "functionName": "zonedLocal",
+        "scriptId": "176",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/zoned-date.js",
+        "lineNumber": 78,
+        "columnNumber": 26
+      },
+      "hitCount": 0,
+      "children": [
+        131,
+        148,
+        252
+      ]
+    },
+    {
+      "id": 131,
+      "callFrame": {
+        "functionName": "civilMilliseconds",
+        "scriptId": "176",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/zoned-date.js",
+        "lineNumber": 4,
+        "columnNumber": 26
+      },
+      "hitCount": 0,
+      "children": [
+        132,
+        191,
+        293
+      ]
+    },
+    {
+      "id": 132,
+      "callFrame": {
+        "functionName": "get epochMilliseconds",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 102722
+      },
+      "hitCount": 0,
+      "children": [
+        133,
+        375
+      ]
+    },
+    {
+      "id": 133,
+      "callFrame": {
+        "functionName": "No",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 56273
+      },
+      "hitCount": 0,
+      "children": [
+        134
+      ]
+    },
+    {
+      "id": 134,
+      "callFrame": {
+        "functionName": "g",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 473
+      },
+      "hitCount": 0,
+      "children": [
+        135
+      ]
+    },
+    {
+      "id": 135,
+      "callFrame": {
+        "functionName": "divide",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 3272
+      },
+      "hitCount": 0,
+      "children": [
+        136
+      ]
+    },
+    {
+      "id": 136,
+      "callFrame": {
+        "functionName": "__absoluteDivLarge",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 22364
+      },
+      "hitCount": 0,
+      "children": [
+        137
+      ]
+    },
+    {
+      "id": 137,
+      "callFrame": {
+        "functionName": "__initializeDigits",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 9928
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 375,
+      "callFrame": {
+        "functionName": "re",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 1442
+      },
+      "hitCount": 0,
+      "children": [
+        376
+      ]
+    },
+    {
+      "id": 376,
+      "callFrame": {
+        "functionName": "<computed>.w.<computed>",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 1152
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 191,
+      "callFrame": {
+        "functionName": "from",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 104149
+      },
+      "hitCount": 1,
+      "children": [
+        192
+      ],
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 192,
+      "callFrame": {
+        "functionName": "cn",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 23373
+      },
+      "hitCount": 0,
+      "children": [
+        193,
+        372
+      ]
+    },
+    {
+      "id": 193,
+      "callFrame": {
+        "functionName": "pr",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 36253
+      },
+      "hitCount": 0,
+      "children": [
+        194
+      ]
+    },
+    {
+      "id": 194,
+      "callFrame": {
+        "functionName": "yr",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 36051
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 372,
+      "callFrame": {
+        "functionName": "Cn",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 27369
+      },
+      "hitCount": 0,
+      "children": [
+        373
+      ]
+    },
+    {
+      "id": 373,
+      "callFrame": {
+        "functionName": "In",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 27330
+      },
+      "hitCount": 0,
+      "children": [
+        374
+      ]
+    },
+    {
+      "id": 374,
+      "callFrame": {
+        "functionName": "<computed>.v.<computed>",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 1272
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 293,
+      "callFrame": {
+        "functionName": "toString",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 109279
+      },
+      "hitCount": 1,
+      "children": [
+        294,
+        302
+      ],
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 294,
+      "callFrame": {
+        "functionName": "re",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 1442
+      },
+      "hitCount": 0,
+      "children": [
+        295
+      ]
+    },
+    {
+      "id": 295,
+      "callFrame": {
+        "functionName": "<computed>.w.<computed>",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 1152
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 302,
+      "callFrame": {
+        "functionName": "Br",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 40674
+      },
+      "hitCount": 0,
+      "children": [
+        303
+      ]
+    },
+    {
+      "id": 303,
+      "callFrame": {
+        "functionName": "pr",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 36253
+      },
+      "hitCount": 0,
+      "children": [
+        304,
+        315
+      ]
+    },
+    {
+      "id": 304,
+      "callFrame": {
+        "functionName": "BigInt",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 208
+      },
+      "hitCount": 0,
+      "children": [
+        305
+      ]
+    },
+    {
+      "id": 305,
+      "callFrame": {
+        "functionName": "__zero",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 9600
+      },
+      "hitCount": 0,
+      "children": [
+        306
+      ]
+    },
+    {
+      "id": 306,
+      "callFrame": {
+        "functionName": "JSBI",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 49
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 315,
+      "callFrame": {
+        "functionName": "yr",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 36051
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 148,
+      "callFrame": {
+        "functionName": "possibleInstants",
+        "scriptId": "181",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/timezone-reader.js",
+        "lineNumber": 225,
+        "columnNumber": 24
+      },
+      "hitCount": 0,
+      "children": [
+        149
+      ]
+    },
+    {
+      "id": 149,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "181",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/timezone-reader.js",
+        "lineNumber": 228,
+        "columnNumber": 24
+      },
+      "hitCount": 0,
+      "children": [
+        150
+      ]
+    },
+    {
+      "id": 150,
+      "callFrame": {
+        "functionName": "offsetAt",
+        "scriptId": "181",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/timezone-reader.js",
+        "lineNumber": 161,
+        "columnNumber": 21
+      },
+      "hitCount": 0,
+      "children": [
+        151
+      ]
+    },
+    {
+      "id": 151,
+      "callFrame": {
+        "functionName": "at",
+        "scriptId": "181",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/timezone-reader.js",
+        "lineNumber": 99,
+        "columnNumber": 10
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 101,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 252,
+      "callFrame": {
+        "functionName": "zonedInstant",
+        "scriptId": "176",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/zoned-date.js",
+        "lineNumber": 60,
+        "columnNumber": 28
+      },
+      "hitCount": 0,
+      "children": [
+        253,
+        268
+      ]
+    },
+    {
+      "id": 253,
+      "callFrame": {
+        "functionName": "ZonedDate",
+        "scriptId": "176",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/zoned-date.js",
+        "lineNumber": 18,
+        "columnNumber": 15
+      },
+      "hitCount": 0,
+      "children": [
+        254
+      ]
+    },
+    {
+      "id": 254,
+      "callFrame": {
+        "functionName": "get epochNanoseconds",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 102787
+      },
+      "hitCount": 0,
+      "children": [
+        255,
+        279
+      ]
+    },
+    {
+      "id": 255,
+      "callFrame": {
+        "functionName": "ko",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 56174
+      },
+      "hitCount": 1,
+      "children": [
+        256
+      ],
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 256,
+      "callFrame": {
+        "functionName": "toString",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 1031
+      },
+      "hitCount": 0,
+      "children": [
+        257
+      ]
+    },
+    {
+      "id": 257,
+      "callFrame": {
+        "functionName": "__toStringGeneric",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 13842
+      },
+      "hitCount": 0,
+      "children": [
+        258
+      ]
+    },
+    {
+      "id": 258,
+      "callFrame": {
+        "functionName": "exponentiate",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 2302
+      },
+      "hitCount": 0,
+      "children": [
+        259
+      ]
+    },
+    {
+      "id": 259,
+      "callFrame": {
+        "functionName": "multiply",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 2994
+      },
+      "hitCount": 0,
+      "children": [
+        260
+      ]
+    },
+    {
+      "id": 260,
+      "callFrame": {
+        "functionName": "__clzmsd",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 18029
+      },
+      "hitCount": 0,
+      "children": [
+        261
+      ]
+    },
+    {
+      "id": 261,
+      "callFrame": {
+        "functionName": "JSBI.__clz30",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 29023
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 279,
+      "callFrame": {
+        "functionName": "vt",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 10745
+      },
+      "hitCount": 0,
+      "children": [
+        280
+      ]
+    },
+    {
+      "id": 280,
+      "callFrame": {
+        "functionName": "ut",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 10473
+      },
+      "hitCount": 0,
+      "children": [
+        281
+      ]
+    },
+    {
+      "id": 281,
+      "callFrame": {
+        "functionName": "ne",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 1342
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 268,
+      "callFrame": {
+        "functionName": "from",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 104149
+      },
+      "hitCount": 0,
+      "children": [
+        269
+      ]
+    },
+    {
+      "id": 269,
+      "callFrame": {
+        "functionName": "cn",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 23373
+      },
+      "hitCount": 0,
+      "children": [
+        270,
+        407
+      ]
+    },
+    {
+      "id": 270,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 23501
+      },
+      "hitCount": 0,
+      "children": [
+        271
+      ]
+    },
+    {
+      "id": 271,
+      "callFrame": {
+        "functionName": "Mt",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 11690
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 407,
+      "callFrame": {
+        "functionName": "$r",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 39271
+      },
+      "hitCount": 0,
+      "children": [
+        408
+      ]
+    },
+    {
+      "id": 408,
+      "callFrame": {
+        "functionName": "Or",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 38822
+      },
+      "hitCount": 0,
+      "children": [
+        409
+      ]
+    },
+    {
+      "id": 409,
+      "callFrame": {
+        "functionName": "Tr",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 38096
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "callFrame": {
+        "functionName": "resolveAnchor",
+        "scriptId": "182",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-parser.js",
+        "lineNumber": 33,
+        "columnNumber": 22
+      },
+      "hitCount": 0,
+      "children": [
+        43,
+        51,
+        87
+      ]
+    },
+    {
+      "id": 43,
+      "callFrame": {
+        "functionName": "add",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 105449
+      },
+      "hitCount": 0,
+      "children": [
+        44
+      ]
+    },
+    {
+      "id": 44,
+      "callFrame": {
+        "functionName": "vo",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 53085
+      },
+      "hitCount": 0,
+      "children": [
+        45,
+        74,
+        86,
+        158,
+        398
+      ]
+    },
+    {
+      "id": 45,
+      "callFrame": {
+        "functionName": "Sn",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 27931
+      },
+      "hitCount": 0,
+      "children": [
+        46
+      ]
+    },
+    {
+      "id": 46,
+      "callFrame": {
+        "functionName": "dateAdd",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 60977
+      },
+      "hitCount": 0,
+      "children": [
+        47
+      ]
+    },
+    {
+      "id": 47,
+      "callFrame": {
+        "functionName": "St",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 14461
+      },
+      "hitCount": 0,
+      "children": [
+        48
+      ]
+    },
+    {
+      "id": 48,
+      "callFrame": {
+        "functionName": "kr",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 40194
+      },
+      "hitCount": 0,
+      "children": [
+        49
+      ]
+    },
+    {
+      "id": 49,
+      "callFrame": {
+        "functionName": "Tr",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 38096
+      },
+      "hitCount": 0,
+      "children": [
+        50
+      ]
+    },
+    {
+      "id": 50,
+      "callFrame": {
+        "functionName": "Dr",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 38032
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 74,
+      "callFrame": {
+        "functionName": "Wr",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 42030
+      },
+      "hitCount": 0,
+      "children": [
+        75,
+        128
+      ]
+    },
+    {
+      "id": 75,
+      "callFrame": {
+        "functionName": "qr",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 41835
+      },
+      "hitCount": 0,
+      "children": [
+        76,
+        138
+      ]
+    },
+    {
+      "id": 76,
+      "callFrame": {
+        "functionName": "re",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 1442
+      },
+      "hitCount": 0,
+      "children": [
+        77
+      ]
+    },
+    {
+      "id": 77,
+      "callFrame": {
+        "functionName": "<computed>.w.<computed>",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 1152
+      },
+      "hitCount": 2,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 2
+        }
+      ]
+    },
+    {
+      "id": 138,
+      "callFrame": {
+        "functionName": "add24HourDays",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 4382
+      },
+      "hitCount": 0,
+      "children": [
+        139
+      ]
+    },
+    {
+      "id": 139,
+      "callFrame": {
+        "functionName": "validateNew",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 3737
+      },
+      "hitCount": 0,
+      "children": [
+        140
+      ]
+    },
+    {
+      "id": 140,
+      "callFrame": {
+        "functionName": "TimeDuration",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 3599
+      },
+      "hitCount": 0,
+      "children": [
+        141
+      ]
+    },
+    {
+      "id": 141,
+      "callFrame": {
+        "functionName": "divide",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 3272
+      },
+      "hitCount": 0,
+      "children": [
+        142
+      ]
+    },
+    {
+      "id": 142,
+      "callFrame": {
+        "functionName": "__absoluteDivLarge",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 22364
+      },
+      "hitCount": 0,
+      "children": [
+        143
+      ]
+    },
+    {
+      "id": 143,
+      "callFrame": {
+        "functionName": "JSBI",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 49
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 128,
+      "callFrame": {
+        "functionName": "zr",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 40975
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 86,
+      "callFrame": {
+        "functionName": "Lt",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 15415
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 158,
+      "callFrame": {
+        "functionName": "sn",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 21695
+      },
+      "hitCount": 1,
+      "children": [
+        159
+      ],
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 159,
+      "callFrame": {
+        "functionName": "Duration",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 110290
+      },
+      "hitCount": 2,
+      "children": [
+        174,
+        365,
+        366
+      ],
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        },
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 174,
+      "callFrame": {
+        "functionName": "<computed>.v.<computed>",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 1272
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 365,
+      "callFrame": {
+        "functionName": "Ge",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 8221
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 366,
+      "callFrame": {
+        "functionName": "zr",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 40975
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 398,
+      "callFrame": {
+        "functionName": "pn",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 26613
+      },
+      "hitCount": 0,
+      "children": [
+        399
+      ]
+    },
+    {
+      "id": 399,
+      "callFrame": {
+        "functionName": "yn",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 26551
+      },
+      "hitCount": 0,
+      "children": [
+        400
+      ]
+    },
+    {
+      "id": 400,
+      "callFrame": {
+        "functionName": "<computed>.v.<computed>",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 1272
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "callFrame": {
+        "functionName": "from",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 119854
+      },
+      "hitCount": 0,
+      "children": [
+        52
+      ]
+    },
+    {
+      "id": 52,
+      "callFrame": {
+        "functionName": "hn",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 24279
+      },
+      "hitCount": 0,
+      "children": [
+        53
+      ]
+    },
+    {
+      "id": 53,
+      "callFrame": {
+        "functionName": "Et",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 12352
+      },
+      "hitCount": 3,
+      "children": [
+        54,
+        189
+      ],
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        },
+        {
+          "line": 1,
+          "ticks": 2
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "callFrame": {
+        "functionName": "Ct",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 13759
+      },
+      "hitCount": 0,
+      "children": [
+        55
+      ]
+    },
+    {
+      "id": 55,
+      "callFrame": {
+        "functionName": "Mt",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 11690
+      },
+      "hitCount": 13,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        },
+        {
+          "line": 1,
+          "ticks": 12
+        }
+      ]
+    },
+    {
+      "id": 189,
+      "callFrame": {
+        "functionName": "It",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 13309
+      },
+      "hitCount": 1,
+      "children": [
+        262
+      ],
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 262,
+      "callFrame": {
+        "functionName": "Mt",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 11690
+      },
+      "hitCount": 8,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        },
+        {
+          "line": 1,
+          "ticks": 7
+        }
+      ]
+    },
+    {
+      "id": 87,
+      "callFrame": {
+        "functionName": "zoned",
+        "scriptId": "182",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-parser.js",
+        "lineNumber": 23,
+        "columnNumber": 14
+      },
+      "hitCount": 0,
+      "children": [
+        88
+      ]
+    },
+    {
+      "id": 88,
+      "callFrame": {
+        "functionName": "zonedLocal",
+        "scriptId": "176",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/zoned-date.js",
+        "lineNumber": 78,
+        "columnNumber": 26
+      },
+      "hitCount": 0,
+      "children": [
+        89,
+        203,
+        215,
+        241
+      ]
+    },
+    {
+      "id": 89,
+      "callFrame": {
+        "functionName": "zonedInstant",
+        "scriptId": "176",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/zoned-date.js",
+        "lineNumber": 60,
+        "columnNumber": 28
+      },
+      "hitCount": 0,
+      "children": [
+        90,
+        209,
+        361
+      ]
+    },
+    {
+      "id": 90,
+      "callFrame": {
+        "functionName": "ZonedDate",
+        "scriptId": "176",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/zoned-date.js",
+        "lineNumber": 18,
+        "columnNumber": 15
+      },
+      "hitCount": 0,
+      "children": [
+        91,
+        316
+      ]
+    },
+    {
+      "id": 91,
+      "callFrame": {
+        "functionName": "get epochNanoseconds",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 102787
+      },
+      "hitCount": 0,
+      "children": [
+        92,
+        222
+      ]
+    },
+    {
+      "id": 92,
+      "callFrame": {
+        "functionName": "ko",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 56174
+      },
+      "hitCount": 0,
+      "children": [
+        93
+      ]
+    },
+    {
+      "id": 93,
+      "callFrame": {
+        "functionName": "toString",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 1031
+      },
+      "hitCount": 0,
+      "children": [
+        94
+      ]
+    },
+    {
+      "id": 94,
+      "callFrame": {
+        "functionName": "__toStringGeneric",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 13842
+      },
+      "hitCount": 0,
+      "children": [
+        95
+      ]
+    },
+    {
+      "id": 95,
+      "callFrame": {
+        "functionName": "__absoluteDivLarge",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 22364
+      },
+      "hitCount": 0,
+      "children": [
+        96
+      ]
+    },
+    {
+      "id": 96,
+      "callFrame": {
+        "functionName": "JSBI",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 49
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 222,
+      "callFrame": {
+        "functionName": "vt",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 10745
+      },
+      "hitCount": 0,
+      "children": [
+        223
+      ]
+    },
+    {
+      "id": 223,
+      "callFrame": {
+        "functionName": "ut",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 10473
+      },
+      "hitCount": 0,
+      "children": [
+        224
+      ]
+    },
+    {
+      "id": 224,
+      "callFrame": {
+        "functionName": "ne",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 1342
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 316,
+      "callFrame": {
+        "functionName": "get epochMilliseconds",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 102722
+      },
+      "hitCount": 0,
+      "children": [
+        317
+      ]
+    },
+    {
+      "id": 317,
+      "callFrame": {
+        "functionName": "No",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 56273
+      },
+      "hitCount": 0,
+      "children": [
+        318
+      ]
+    },
+    {
+      "id": 318,
+      "callFrame": {
+        "functionName": "g",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 473
+      },
+      "hitCount": 0,
+      "children": [
+        319
+      ]
+    },
+    {
+      "id": 319,
+      "callFrame": {
+        "functionName": "remainder",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 3638
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 209,
+      "callFrame": {
+        "functionName": "ZonedDate",
+        "scriptId": "176",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/zoned-date.js",
+        "lineNumber": 14,
+        "columnNumber": 4
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 15,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 361,
+      "callFrame": {
+        "functionName": "from",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 104149
+      },
+      "hitCount": 0,
+      "children": [
+        362
+      ]
+    },
+    {
+      "id": 362,
+      "callFrame": {
+        "functionName": "cn",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 23373
+      },
+      "hitCount": 0,
+      "children": [
+        363
+      ]
+    },
+    {
+      "id": 363,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 23501
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 203,
+      "callFrame": {
+        "functionName": "timezoneDatabase",
+        "scriptId": "179",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/timezone-database.js",
+        "lineNumber": 25,
+        "columnNumber": 32
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 27,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 215,
+      "callFrame": {
+        "functionName": "civilMilliseconds",
+        "scriptId": "176",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/zoned-date.js",
+        "lineNumber": 4,
+        "columnNumber": 26
+      },
+      "hitCount": 0,
+      "children": [
+        216,
+        288
+      ]
+    },
+    {
+      "id": 216,
+      "callFrame": {
+        "functionName": "toString",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 109279
+      },
+      "hitCount": 0,
+      "children": [
+        217,
+        276
+      ]
+    },
+    {
+      "id": 217,
+      "callFrame": {
+        "functionName": "Wt",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 17507
+      },
+      "hitCount": 2,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 2
+        }
+      ]
+    },
+    {
+      "id": 276,
+      "callFrame": {
+        "functionName": "Co",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 54620
+      },
+      "hitCount": 1,
+      "children": [
+        277
+      ],
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 277,
+      "callFrame": {
+        "functionName": "Oo",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 54739
+      },
+      "hitCount": 0,
+      "children": [
+        278
+      ]
+    },
+    {
+      "id": 278,
+      "callFrame": {
+        "functionName": "Yr",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 39361
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 288,
+      "callFrame": {
+        "functionName": "from",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 104149
+      },
+      "hitCount": 0,
+      "children": [
+        289
+      ]
+    },
+    {
+      "id": 289,
+      "callFrame": {
+        "functionName": "cn",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 23373
+      },
+      "hitCount": 0,
+      "children": [
+        290
+      ]
+    },
+    {
+      "id": 290,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 23501
+      },
+      "hitCount": 0,
+      "children": [
+        291
+      ]
+    },
+    {
+      "id": 291,
+      "callFrame": {
+        "functionName": "Mt",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 11690
+      },
+      "hitCount": 0,
+      "children": [
+        292
+      ]
+    },
+    {
+      "id": 292,
+      "callFrame": {
+        "functionName": "Tt",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 11361
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 241,
+      "callFrame": {
+        "functionName": "possibleInstants",
+        "scriptId": "181",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/timezone-reader.js",
+        "lineNumber": 225,
+        "columnNumber": 24
+      },
+      "hitCount": 1,
+      "children": [
+        242
+      ],
+      "positionTicks": [
+        {
+          "line": 229,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 242,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "181",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/timezone-reader.js",
+        "lineNumber": 230,
+        "columnNumber": 21
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 231,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 112,
+      "callFrame": {
+        "functionName": "toString",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 103490
+      },
+      "hitCount": 0,
+      "children": [
+        113,
+        119
+      ]
+    },
+    {
+      "id": 113,
+      "callFrame": {
+        "functionName": "Cn",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 27369
+      },
+      "hitCount": 0,
+      "children": [
+        114
+      ]
+    },
+    {
+      "id": 114,
+      "callFrame": {
+        "functionName": "In",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 27330
+      },
+      "hitCount": 0,
+      "children": [
+        115
+      ]
+    },
+    {
+      "id": 115,
+      "callFrame": {
+        "functionName": "<computed>.v.<computed>",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 1272
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 119,
+      "callFrame": {
+        "functionName": "Xn",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 32022
+      },
+      "hitCount": 0,
+      "children": [
+        120
+      ]
+    },
+    {
+      "id": 120,
+      "callFrame": {
+        "functionName": "zn",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 29738
+      },
+      "hitCount": 0,
+      "children": [
+        121,
+        351
+      ]
+    },
+    {
+      "id": 121,
+      "callFrame": {
+        "functionName": "Fn",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 29478
+      },
+      "hitCount": 0,
+      "children": [
+        122
+      ]
+    },
+    {
+      "id": 122,
+      "callFrame": {
+        "functionName": "lr",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 35851
+      },
+      "hitCount": 0,
+      "children": [
+        123
+      ]
+    },
+    {
+      "id": 123,
+      "callFrame": {
+        "functionName": "ur",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 35649
+      },
+      "hitCount": 0,
+      "children": [
+        124,
+        157
+      ]
+    },
+    {
+      "id": 124,
+      "callFrame": {
+        "functionName": "br",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 37455
+      },
+      "hitCount": 2,
+      "children": [
+        343
+      ],
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 2
+        }
+      ]
+    },
+    {
+      "id": 343,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 37476
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 157,
+      "callFrame": {
+        "functionName": "yr",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 36051
+      },
+      "hitCount": 2,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 2
+        }
+      ]
+    },
+    {
+      "id": 351,
+      "callFrame": {
+        "functionName": "gr",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 36357
+      },
+      "hitCount": 0,
+      "children": [
+        352
+      ]
+    },
+    {
+      "id": 352,
+      "callFrame": {
+        "functionName": "No",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 56273
+      },
+      "hitCount": 0,
+      "children": [
+        353
+      ]
+    },
+    {
+      "id": 353,
+      "callFrame": {
+        "functionName": "g",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 473
+      },
+      "hitCount": 0,
+      "children": [
+        354
+      ]
+    },
+    {
+      "id": 354,
+      "callFrame": {
+        "functionName": "remainder",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 3638
+      },
+      "hitCount": 0,
+      "children": [
+        355
+      ]
+    },
+    {
+      "id": 355,
+      "callFrame": {
+        "functionName": "__absoluteDivLarge",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 22364
+      },
+      "hitCount": 0,
+      "children": [
+        356
+      ]
+    },
+    {
+      "id": 356,
+      "callFrame": {
+        "functionName": "__halfDigit",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 27802
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 167,
+      "callFrame": {
+        "functionName": "parseExpression",
+        "scriptId": "183",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/grammar.js",
+        "lineNumber": 96,
+        "columnNumber": 31
+      },
+      "hitCount": 0,
+      "children": [
+        168,
+        169,
+        381
+      ]
+    },
+    {
+      "id": 168,
+      "callFrame": {
+        "functionName": "tokenize",
+        "scriptId": "183",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/grammar.js",
+        "lineNumber": 59,
+        "columnNumber": 17
+      },
+      "hitCount": 2,
+      "positionTicks": [
+        {
+          "line": 78,
+          "ticks": 1
+        },
+        {
+          "line": 73,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 169,
+      "callFrame": {
+        "functionName": "tail",
+        "scriptId": "183",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/grammar.js",
+        "lineNumber": 342,
+        "columnNumber": 17
+      },
+      "hitCount": 0,
+      "children": [
+        170
+      ]
+    },
+    {
+      "id": 170,
+      "callFrame": {
+        "functionName": "append",
+        "scriptId": "183",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/grammar.js",
+        "lineNumber": 337,
+        "columnNumber": 19
+      },
+      "hitCount": 0,
+      "children": [
+        171
+      ]
+    },
+    {
+      "id": 171,
+      "callFrame": {
+        "functionName": "readOperation",
+        "scriptId": "183",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/grammar.js",
+        "lineNumber": 321,
+        "columnNumber": 26
+      },
+      "hitCount": 1,
+      "children": [
+        172
+      ],
+      "positionTicks": [
+        {
+          "line": 333,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 172,
+      "callFrame": {
+        "functionName": "readAmount",
+        "scriptId": "183",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/grammar.js",
+        "lineNumber": 259,
+        "columnNumber": 23
+      },
+      "hitCount": 0,
+      "children": [
+        173,
+        296
+      ]
+    },
+    {
+      "id": 173,
+      "callFrame": {
+        "functionName": "fraction",
+        "scriptId": "183",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/grammar.js",
+        "lineNumber": 243,
+        "columnNumber": 21
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 254,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 296,
+      "callFrame": {
+        "functionName": "rational",
+        "scriptId": "183",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/grammar.js",
+        "lineNumber": 86,
+        "columnNumber": 17
+      },
+      "hitCount": 3,
+      "positionTicks": [
+        {
+          "line": 95,
+          "ticks": 2
+        },
+        {
+          "line": 88,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 381,
+      "callFrame": {
+        "functionName": "readTime",
+        "scriptId": "183",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/grammar.js",
+        "lineNumber": 185,
+        "columnNumber": 21
+      },
+      "hitCount": 0,
+      "children": [
+        382
+      ]
+    },
+    {
+      "id": 382,
+      "callFrame": {
+        "functionName": "peek",
+        "scriptId": "183",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/grammar.js",
+        "lineNumber": 99,
+        "columnNumber": 17
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 100,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 195,
+      "callFrame": {
+        "functionName": "from",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 104149
+      },
+      "hitCount": 1,
+      "children": [
+        218
+      ],
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 218,
+      "callFrame": {
+        "functionName": "cn",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 23373
+      },
+      "hitCount": 0,
+      "children": [
+        219,
+        321,
+        383
+      ]
+    },
+    {
+      "id": 219,
+      "callFrame": {
+        "functionName": "$r",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 39271
+      },
+      "hitCount": 0,
+      "children": [
+        220
+      ]
+    },
+    {
+      "id": 220,
+      "callFrame": {
+        "functionName": "Yr",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 39361
+      },
+      "hitCount": 0,
+      "children": [
+        221
+      ]
+    },
+    {
+      "id": 221,
+      "callFrame": {
+        "functionName": "de",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 2449
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 321,
+      "callFrame": {
+        "functionName": "pr",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 36253
+      },
+      "hitCount": 0,
+      "children": [
+        322
+      ]
+    },
+    {
+      "id": 322,
+      "callFrame": {
+        "functionName": "xo",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 56436
+      },
+      "hitCount": 0,
+      "children": [
+        323
+      ]
+    },
+    {
+      "id": 323,
+      "callFrame": {
+        "functionName": "BigInt",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 208
+      },
+      "hitCount": 0,
+      "children": [
+        324
+      ]
+    },
+    {
+      "id": 324,
+      "callFrame": {
+        "functionName": "__fromDouble",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 10216
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 383,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 23501
+      },
+      "hitCount": 0,
+      "children": [
+        384
+      ]
+    },
+    {
+      "id": 384,
+      "callFrame": {
+        "functionName": "Mt",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 11690
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 232,
+      "callFrame": {
+        "functionName": "zonedInstant",
+        "scriptId": "176",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/zoned-date.js",
+        "lineNumber": 60,
+        "columnNumber": 28
+      },
+      "hitCount": 0,
+      "children": [
+        233
+      ]
+    },
+    {
+      "id": 233,
+      "callFrame": {
+        "functionName": "ZonedDate",
+        "scriptId": "176",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/zoned-date.js",
+        "lineNumber": 18,
+        "columnNumber": 15
+      },
+      "hitCount": 0,
+      "children": [
+        234,
+        401
+      ]
+    },
+    {
+      "id": 234,
+      "callFrame": {
+        "functionName": "get epochNanoseconds",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 102787
+      },
+      "hitCount": 0,
+      "children": [
+        235
+      ]
+    },
+    {
+      "id": 235,
+      "callFrame": {
+        "functionName": "ko",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 56174
+      },
+      "hitCount": 1,
+      "children": [
+        236
+      ],
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 236,
+      "callFrame": {
+        "functionName": "toString",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 1031
+      },
+      "hitCount": 0,
+      "children": [
+        237
+      ]
+    },
+    {
+      "id": 237,
+      "callFrame": {
+        "functionName": "__toStringGeneric",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 13842
+      },
+      "hitCount": 0,
+      "children": [
+        238
+      ]
+    },
+    {
+      "id": 238,
+      "callFrame": {
+        "functionName": "exponentiate",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 2302
+      },
+      "hitCount": 0,
+      "children": [
+        239
+      ]
+    },
+    {
+      "id": 239,
+      "callFrame": {
+        "functionName": "multiply",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 2994
+      },
+      "hitCount": 0,
+      "children": [
+        240
+      ]
+    },
+    {
+      "id": 240,
+      "callFrame": {
+        "functionName": "__clzmsd",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 18029
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 401,
+      "callFrame": {
+        "functionName": "get epochMilliseconds",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 102722
+      },
+      "hitCount": 0,
+      "children": [
+        402
+      ]
+    },
+    {
+      "id": 402,
+      "callFrame": {
+        "functionName": "No",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 56273
+      },
+      "hitCount": 0,
+      "children": [
+        403
+      ]
+    },
+    {
+      "id": 403,
+      "callFrame": {
+        "functionName": "g",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 473
+      },
+      "hitCount": 0,
+      "children": [
+        404
+      ]
+    },
+    {
+      "id": 404,
+      "callFrame": {
+        "functionName": "divide",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 3272
+      },
+      "hitCount": 0,
+      "children": [
+        405
+      ]
+    },
+    {
+      "id": 405,
+      "callFrame": {
+        "functionName": "__absoluteDivLarge",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 22364
+      },
+      "hitCount": 0,
+      "children": [
+        406
+      ]
+    },
+    {
+      "id": 406,
+      "callFrame": {
+        "functionName": "__initializeDigits",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 9928
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 320,
+      "callFrame": {
+        "functionName": "get epochNanoseconds",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 102787
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 110,
+      "callFrame": {
+        "functionName": "__compareToBigInt",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-clock-first-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 14790
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 188,
+      "callFrame": {
+        "functionName": "(program)",
+        "scriptId": "0",
+        "url": "",
+        "lineNumber": -1,
+        "columnNumber": -1
+      },
+      "hitCount": 2
+    },
+    {
+      "id": 190,
+      "callFrame": {
+        "functionName": "(garbage collector)",
+        "scriptId": "0",
+        "url": "",
+        "lineNumber": -1,
+        "columnNumber": -1
+      },
+      "hitCount": 20
+    }
+  ],
+  "startTime": 763267643980,
+  "endTime": 763267706076,
+  "samples": [
+    5,
+    18,
+    19,
+    30,
+    18,
+    34,
+    40,
+    41,
+    50,
+    55,
+    66,
+    72,
+    73,
+    77,
+    78,
+    80,
+    8,
+    85,
+    86,
+    96,
+    100,
+    108,
+    109,
+    109,
+    33,
+    55,
+    110,
+    111,
+    115,
+    116,
+    118,
+    19,
+    124,
+    55,
+    125,
+    125,
+    55,
+    109,
+    127,
+    109,
+    109,
+    109,
+    109,
+    109,
+    128,
+    8,
+    53,
+    109,
+    109,
+    137,
+    33,
+    143,
+    31,
+    147,
+    151,
+    154,
+    33,
+    77,
+    85,
+    156,
+    157,
+    159,
+    161,
+    166,
+    168,
+    173,
+    174,
+    177,
+    181,
+    184,
+    184,
+    187,
+    188,
+    111,
+    189,
+    190,
+    57,
+    33,
+    194,
+    195,
+    53,
+    199,
+    200,
+    85,
+    202,
+    35,
+    203,
+    100,
+    205,
+    208,
+    188,
+    205,
+    209,
+    160,
+    212,
+    214,
+    217,
+    80,
+    116,
+    124,
+    125,
+    221,
+    224,
+    226,
+    230,
+    231,
+    240,
+    242,
+    33,
+    41,
+    190,
+    9,
+    55,
+    243,
+    251,
+    261,
+    190,
+    262,
+    263,
+    191,
+    8,
+    159,
+    266,
+    125,
+    40,
+    243,
+    267,
+    35,
+    190,
+    243,
+    271,
+    272,
+    275,
+    33,
+    262,
+    278,
+    55,
+    281,
+    287,
+    145,
+    255,
+    41,
+    292,
+    41,
+    295,
+    296,
+    262,
+    297,
+    301,
+    306,
+    190,
+    55,
+    307,
+    309,
+    33,
+    296,
+    262,
+    85,
+    311,
+    314,
+    315,
+    296,
+    109,
+    55,
+    276,
+    33,
+    311,
+    190,
+    190,
+    190,
+    190,
+    190,
+    190,
+    190,
+    208,
+    319,
+    320,
+    324,
+    41,
+    156,
+    325,
+    190,
+    190,
+    190,
+    190,
+    190,
+    190,
+    328,
+    41,
+    241,
+    329,
+    212,
+    41,
+    190,
+    171,
+    331,
+    333,
+    337,
+    190,
+    342,
+    343,
+    262,
+    350,
+    356,
+    53,
+    85,
+    360,
+    330,
+    363,
+    364,
+    33,
+    365,
+    10,
+    157,
+    19,
+    156,
+    366,
+    182,
+    371,
+    331,
+    374,
+    262,
+    376,
+    158,
+    377,
+    378,
+    35,
+    379,
+    380,
+    213,
+    55,
+    161,
+    187,
+    20,
+    382,
+    205,
+    384,
+    243,
+    357,
+    55,
+    156,
+    262,
+    168,
+    33,
+    41,
+    125,
+    235,
+    385,
+    386,
+    109,
+    388,
+    293,
+    389,
+    41,
+    175,
+    392,
+    262,
+    57,
+    8,
+    41,
+    393,
+    55,
+    396,
+    397,
+    400,
+    23,
+    35,
+    217,
+    109,
+    406,
+    147,
+    409,
+    55,
+    413,
+    419,
+    55,
+    72
+  ],
+  "timeDeltas": [
+    19369,
+    221,
+    150,
+    145,
+    152,
+    149,
+    156,
+    153,
+    148,
+    154,
+    147,
+    154,
+    144,
+    157,
+    147,
+    155,
+    153,
+    152,
+    154,
+    155,
+    156,
+    146,
+    157,
+    147,
+    156,
+    152,
+    151,
+    153,
+    154,
+    154,
+    154,
+    153,
+    151,
+    158,
+    153,
+    152,
+    154,
+    154,
+    156,
+    166,
+    150,
+    150,
+    153,
+    154,
+    154,
+    155,
+    147,
+    155,
+    155,
+    155,
+    152,
+    155,
+    151,
+    146,
+    154,
+    154,
+    146,
+    155,
+    152,
+    152,
+    153,
+    152,
+    155,
+    153,
+    155,
+    147,
+    154,
+    153,
+    154,
+    147,
+    153,
+    151,
+    153,
+    150,
+    155,
+    155,
+    152,
+    155,
+    152,
+    152,
+    152,
+    153,
+    153,
+    146,
+    154,
+    154,
+    153,
+    154,
+    155,
+    153,
+    154,
+    152,
+    153,
+    154,
+    149,
+    154,
+    152,
+    153,
+    153,
+    152,
+    154,
+    150,
+    153,
+    148,
+    159,
+    153,
+    151,
+    154,
+    147,
+    154,
+    155,
+    149,
+    154,
+    154,
+    153,
+    154,
+    153,
+    146,
+    156,
+    152,
+    153,
+    152,
+    155,
+    154,
+    154,
+    151,
+    152,
+    154,
+    155,
+    150,
+    154,
+    154,
+    149,
+    155,
+    155,
+    157,
+    155,
+    154,
+    158,
+    145,
+    153,
+    152,
+    152,
+    153,
+    149,
+    153,
+    154,
+    153,
+    154,
+    151,
+    154,
+    146,
+    154,
+    154,
+    154,
+    152,
+    153,
+    155,
+    156,
+    152,
+    152,
+    153,
+    154,
+    154,
+    154,
+    151,
+    152,
+    159,
+    211,
+    164,
+    159,
+    164,
+    156,
+    153,
+    176,
+    302,
+    132,
+    154,
+    153,
+    155,
+    152,
+    152,
+    163,
+    158,
+    158,
+    338,
+    129,
+    155,
+    152,
+    149,
+    154,
+    146,
+    154,
+    151,
+    154,
+    153,
+    153,
+    152,
+    154,
+    154,
+    154,
+    147,
+    153,
+    149,
+    154,
+    147,
+    153,
+    156,
+    150,
+    155,
+    157,
+    153,
+    150,
+    153,
+    151,
+    152,
+    152,
+    150,
+    146,
+    153,
+    153,
+    150,
+    150,
+    153,
+    151,
+    152,
+    154,
+    152,
+    152,
+    155,
+    153,
+    153,
+    154,
+    154,
+    155,
+    152,
+    150,
+    154,
+    153,
+    153,
+    166,
+    153,
+    145,
+    153,
+    152,
+    151,
+    152,
+    153,
+    153,
+    148,
+    206,
+    126,
+    151,
+    154,
+    151,
+    154,
+    152,
+    151,
+    153,
+    153,
+    154,
+    157,
+    150,
+    153,
+    148,
+    154,
+    152,
+    153,
+    153,
+    152,
+    154,
+    146,
+    153,
+    155,
+    153,
+    148,
+    154
+  ]
+}

@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tempus//Calendar Export//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:4c1914a8-7926-4e58-bbc2-e26aa68d0a39-0@tempus.invalid
+DTSTAMP:20260913T153535Z
+SUMMARY:Call Sam
+DESCRIPTION:Date phrase: Call Sam Friday at noon\, actually Saturday instea
+ d\nTimezone: America/Chicago\nYou confirmed that the second date replaces 
+ the first.
+DTSTART;VALUE=DATE:20260912
+END:VEVENT
+END:VCALENDAR

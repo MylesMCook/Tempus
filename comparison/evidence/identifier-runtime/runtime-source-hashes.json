@@ -1,0 +1,12 @@
+{
+  "examples/sdk/verification-worker.ts": "dc4a67b997d42ad3002c23f3480a40b2b367aafd5fb9d9f56e0eb93f86e42255",
+  "examples/sdk/wrangler.verify.jsonc": "c08fac53a5b06c33b8269230f3dd4ef2fc678ade2f4918cadd88febd2307d223",
+  "examples/sdk/read-worker-files.py": "f90400acf762c9c7c4c812b7f4604aed7b439e6b6db128009524d9b76ed8c02a",
+  "examples/sdk/read-worker-files.py.lock": "25321ad7e67ccbc618b94ba12fdfc25f3d5cc3d7ba775ee1ef6b06cab5e63751",
+  "examples/sdk/verify-browser.mjs": "368cbabd676e8908fad97ab9af58dedf12e6983b26cece0331d1e937b4dcb170",
+  "examples/sdk/read-browser-files.py": "e82904cbe0c0f28b2165ddc174b756c05ea5856d4277e6e51366a050121150ea",
+  "examples/sdk/read-browser-files.py.lock": "25321ad7e67ccbc618b94ba12fdfc25f3d5cc3d7ba775ee1ef6b06cab5e63751",
+  "src/shared/interpret-date.ts": "e68edf66a2917d25417ff2ef4f21bc075767c0845424eb2dfcf234cb2f89c2dd",
+  "src/shared/event-identifiers.test.ts": "5cb6831e1c2def452a210eca08e5be6270ccec9a9241a7e346c7431079288275",
+  "examples/sdk/identifiers.mjs": "09a51c93e01b7ce24cd8e93f9bc3878f68b551235096c7d770f070522e0e05c7"
+}

@@ -1,0 +1,544 @@
+{
+  "inputs": {
+    "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-umd.js": {
+      "bytes": 35301,
+      "imports": [],
+      "format": "cjs"
+    },
+    "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js": {
+      "bytes": 128868,
+      "imports": [
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-umd.js",
+          "kind": "import-statement",
+          "original": "jsbi"
+        }
+      ],
+      "format": "esm"
+    },
+    "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/calendar-file.js": {
+      "bytes": 5135,
+      "imports": [
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+          "kind": "import-statement",
+          "original": "@js-temporal/polyfill"
+        }
+      ],
+      "format": "esm"
+    },
+    "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/monthly-date.js": {
+      "bytes": 1000,
+      "imports": [
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+          "kind": "import-statement",
+          "original": "@js-temporal/polyfill"
+        }
+      ],
+      "format": "esm"
+    },
+    "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/timezone-data.js": {
+      "bytes": 298390,
+      "imports": [],
+      "format": "esm"
+    },
+    "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/timezone-reader.js": {
+      "bytes": 10104,
+      "imports": [],
+      "format": "esm"
+    },
+    "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/timezone-database.js": {
+      "bytes": 1809,
+      "imports": [
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/timezone-data.js",
+          "kind": "import-statement",
+          "original": "./timezone-data.js"
+        },
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/timezone-reader.js",
+          "kind": "import-statement",
+          "original": "./timezone-reader.js"
+        },
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/timezone-reader.js",
+          "kind": "import-statement",
+          "original": "./timezone-reader.js"
+        },
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/timezone-data.js",
+          "kind": "import-statement",
+          "original": "./timezone-data.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/zoned-date.js": {
+      "bytes": 4422,
+      "imports": [
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+          "kind": "import-statement",
+          "original": "@js-temporal/polyfill"
+        },
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/timezone-database.js",
+          "kind": "import-statement",
+          "original": "./timezone-database.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/vocabulary.js": {
+      "bytes": 1088,
+      "imports": [],
+      "format": "esm"
+    },
+    "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/types.js": {
+      "bytes": 288,
+      "imports": [],
+      "format": "esm"
+    },
+    "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/grammar.js": {
+      "bytes": 15994,
+      "imports": [
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/vocabulary.js",
+          "kind": "import-statement",
+          "original": "./vocabulary.js"
+        },
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/types.js",
+          "kind": "import-statement",
+          "original": "./types.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-parser.js": {
+      "bytes": 13319,
+      "imports": [
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/zoned-date.js",
+          "kind": "import-statement",
+          "original": "./date-engine/zoned-date.js"
+        },
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/timezone-database.js",
+          "kind": "import-statement",
+          "original": "./date-engine/timezone-database.js"
+        },
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+          "kind": "import-statement",
+          "original": "@js-temporal/polyfill"
+        },
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/grammar.js",
+          "kind": "import-statement",
+          "original": "./date-engine/grammar.js"
+        },
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/types.js",
+          "kind": "import-statement",
+          "original": "./date-engine/types.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/calculate-schedule-date.js": {
+      "bytes": 2545,
+      "imports": [
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/zoned-date.js",
+          "kind": "import-statement",
+          "original": "./date-engine/zoned-date.js"
+        },
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+          "kind": "import-statement",
+          "original": "@js-temporal/polyfill"
+        },
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-parser.js",
+          "kind": "import-statement",
+          "original": "./date-parser.js"
+        },
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/grammar.js",
+          "kind": "import-statement",
+          "original": "./date-engine/grammar.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/clarify-numeric-date.js": {
+      "bytes": 5286,
+      "imports": [
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+          "kind": "import-statement",
+          "original": "@js-temporal/polyfill"
+        }
+      ],
+      "format": "esm"
+    },
+    "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/format-zoned.js": {
+      "bytes": 2614,
+      "imports": [
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+          "kind": "import-statement",
+          "original": "@js-temporal/polyfill"
+        },
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/zoned-date.js",
+          "kind": "import-statement",
+          "original": "./zoned-date.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/clarify-clock.js": {
+      "bytes": 2031,
+      "imports": [
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/zoned-date.js",
+          "kind": "import-statement",
+          "original": "./date-engine/zoned-date.js"
+        },
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/format-zoned.js",
+          "kind": "import-statement",
+          "original": "./date-engine/format-zoned.js"
+        },
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+          "kind": "import-statement",
+          "original": "@js-temporal/polyfill"
+        },
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/calculate-schedule-date.js",
+          "kind": "import-statement",
+          "original": "./calculate-schedule-date.js"
+        },
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/grammar.js",
+          "kind": "import-statement",
+          "original": "./date-engine/grammar.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/interpret-interval.js": {
+      "bytes": 14419,
+      "imports": [
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/zoned-date.js",
+          "kind": "import-statement",
+          "original": "./date-engine/zoned-date.js"
+        },
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+          "kind": "import-statement",
+          "original": "@js-temporal/polyfill"
+        },
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-parser.js",
+          "kind": "import-statement",
+          "original": "./date-parser.js"
+        },
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/calculate-schedule-date.js",
+          "kind": "import-statement",
+          "original": "./calculate-schedule-date.js"
+        },
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/grammar.js",
+          "kind": "import-statement",
+          "original": "./date-engine/grammar.js"
+        },
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/clarify-numeric-date.js",
+          "kind": "import-statement",
+          "original": "./clarify-numeric-date.js"
+        },
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/clarify-clock.js",
+          "kind": "import-statement",
+          "original": "./clarify-clock.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/interpret-recurrence.js": {
+      "bytes": 25451,
+      "imports": [
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/monthly-date.js",
+          "kind": "import-statement",
+          "original": "./monthly-date.js"
+        },
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/zoned-date.js",
+          "kind": "import-statement",
+          "original": "./date-engine/zoned-date.js"
+        },
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+          "kind": "import-statement",
+          "original": "@js-temporal/polyfill"
+        },
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-parser.js",
+          "kind": "import-statement",
+          "original": "./date-parser.js"
+        },
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/types.js",
+          "kind": "import-statement",
+          "original": "./date-engine/types.js"
+        },
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/grammar.js",
+          "kind": "import-statement",
+          "original": "./date-engine/grammar.js"
+        },
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/interpret-interval.js",
+          "kind": "import-statement",
+          "original": "./interpret-interval.js"
+        },
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/clarify-clock.js",
+          "kind": "import-statement",
+          "original": "./clarify-clock.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/recurrence-clock-conflicts.js": {
+      "bytes": 8069,
+      "imports": [
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/monthly-date.js",
+          "kind": "import-statement",
+          "original": "./monthly-date.js"
+        },
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+          "kind": "import-statement",
+          "original": "@js-temporal/polyfill"
+        },
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-parser.js",
+          "kind": "import-statement",
+          "original": "./date-parser.js"
+        },
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/timezone-database.js",
+          "kind": "import-statement",
+          "original": "./date-engine/timezone-database.js"
+        },
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/zoned-date.js",
+          "kind": "import-statement",
+          "original": "./date-engine/zoned-date.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/calendar-transition-rule.js": {
+      "bytes": 2618,
+      "imports": [],
+      "format": "esm"
+    },
+    "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/calendar-timezone-ongoing.js": {
+      "bytes": 4274,
+      "imports": [
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/timezone-database.js",
+          "kind": "import-statement",
+          "original": "./date-engine/timezone-database.js"
+        },
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/calendar-transition-rule.js",
+          "kind": "import-statement",
+          "original": "./calendar-transition-rule.js"
+        },
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+          "kind": "import-statement",
+          "original": "@js-temporal/polyfill"
+        }
+      ],
+      "format": "esm"
+    },
+    "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/recurring-calendar-file.js": {
+      "bytes": 17351,
+      "imports": [
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/interpret-recurrence.js",
+          "kind": "import-statement",
+          "original": "./interpret-recurrence.js"
+        },
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/calendar-file.js",
+          "kind": "import-statement",
+          "original": "./calendar-file.js"
+        },
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+          "kind": "import-statement",
+          "original": "@js-temporal/polyfill"
+        },
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/timezone-database.js",
+          "kind": "import-statement",
+          "original": "./date-engine/timezone-database.js"
+        },
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-parser.js",
+          "kind": "import-statement",
+          "original": "./date-parser.js"
+        },
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/recurrence-clock-conflicts.js",
+          "kind": "import-statement",
+          "original": "./recurrence-clock-conflicts.js"
+        },
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/calendar-timezone-ongoing.js",
+          "kind": "import-statement",
+          "original": "./calendar-timezone-ongoing.js"
+        },
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/clarify-numeric-date.js",
+          "kind": "import-statement",
+          "original": "./clarify-numeric-date.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/sdk-calendar.js": {
+      "bytes": 474,
+      "imports": [
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/calendar-file.js",
+          "kind": "import-statement",
+          "original": "./calendar-file.js"
+        },
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/recurring-calendar-file.js",
+          "kind": "import-statement",
+          "original": "./recurring-calendar-file.js"
+        },
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/clarify-numeric-date.js",
+          "kind": "import-statement",
+          "original": "./clarify-numeric-date.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "../../../Documents/Codex/2026-09-13-tempus-current-resource-audit/after-bundle/calendar-entry.mjs": {
+      "bytes": 133,
+      "imports": [
+        {
+          "path": "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/sdk-calendar.js",
+          "kind": "import-statement",
+          "original": "/Users/mylescook/Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/@tempus-date/core/dist/sdk-calendar.js"
+        }
+      ],
+      "format": "esm"
+    }
+  },
+  "outputs": {
+    "../../../Documents/Codex/2026-09-13-tempus-current-resource-audit/after-bundle/calendar.js": {
+      "imports": [],
+      "exports": [
+        "prepareCalendarFile",
+        "prepareRecurringCalendarFile",
+        "resolveRecurringExport",
+        "retainOccurrenceDecisions"
+      ],
+      "entryPoint": "../../../Documents/Codex/2026-09-13-tempus-current-resource-audit/after-bundle/calendar-entry.mjs",
+      "inputs": {
+        "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-umd.js": {
+          "bytesInOutput": 35127
+        },
+        "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js": {
+          "bytesInOutput": 126472
+        },
+        "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/calendar-file.js": {
+          "bytesInOutput": 3008
+        },
+        "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/sdk-calendar.js": {
+          "bytesInOutput": 0
+        },
+        "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/monthly-date.js": {
+          "bytesInOutput": 529
+        },
+        "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/timezone-data.js": {
+          "bytesInOutput": 289016
+        },
+        "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/timezone-reader.js": {
+          "bytesInOutput": 4448
+        },
+        "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/timezone-database.js": {
+          "bytesInOutput": 824
+        },
+        "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/zoned-date.js": {
+          "bytesInOutput": 2053
+        },
+        "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/vocabulary.js": {
+          "bytesInOutput": 683
+        },
+        "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/types.js": {
+          "bytesInOutput": 158
+        },
+        "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/grammar.js": {
+          "bytesInOutput": 7845
+        },
+        "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-parser.js": {
+          "bytesInOutput": 6374
+        },
+        "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/calculate-schedule-date.js": {
+          "bytesInOutput": 1131
+        },
+        "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/clarify-numeric-date.js": {
+          "bytesInOutput": 2302
+        },
+        "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/format-zoned.js": {
+          "bytesInOutput": 1001
+        },
+        "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/clarify-clock.js": {
+          "bytesInOutput": 775
+        },
+        "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/interpret-interval.js": {
+          "bytesInOutput": 6379
+        },
+        "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/interpret-recurrence.js": {
+          "bytesInOutput": 11216
+        },
+        "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/recurrence-clock-conflicts.js": {
+          "bytesInOutput": 3310
+        },
+        "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/calendar-transition-rule.js": {
+          "bytesInOutput": 1202
+        },
+        "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/calendar-timezone-ongoing.js": {
+          "bytesInOutput": 1785
+        },
+        "../../../Documents/Codex/2026-09-13-tempus-snapshot-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/recurring-calendar-file.js": {
+          "bytesInOutput": 8859
+        },
+        "../../../Documents/Codex/2026-09-13-tempus-current-resource-audit/after-bundle/calendar-entry.mjs": {
+          "bytesInOutput": 0
+        }
+      },
+      "bytes": 515199
+    }
+  }
+}

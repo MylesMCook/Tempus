@@ -1,0 +1,9 @@
+{
+  "status": "failed",
+  "input": "Call person 0 on 03/04/2027 at noon",
+  "timezone": "Africa/Abidjan",
+  "expected": "needs-clarification",
+  "observed": "unsupported",
+  "message": "Unexpected character “/”.",
+  "scope": "Initial resource-probe input assertion failed; no memory or export result was produced. Retained language-coverage gap."
+}

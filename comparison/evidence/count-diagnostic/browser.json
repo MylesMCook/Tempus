@@ -1,0 +1,21 @@
+{
+  "scope": "Desktop Chrome viewport emulation; diagnostic and edit recovery only. No count completion, download or calendar import.",
+  "browser": "153.0.8010.36",
+  "runs": [
+    {
+      "width": 320,
+      "status": "passed",
+      "corrected": "Your repeating schedule\n\nCall Sam\n\nRepeats Monday\n\nAmerica/Chicago\n\nMon, Sep 14, 2026 at 12:00 PM CDT → Mon, Sep 14, 2026 at 12:03 PM CDT (end not included)\nMon, Sep 21, 2026 at 12:00 PM CDT → Mon, Sep 21, 2026 at 12:03 PM CDT (end not included)\nMon, Sep 28, 2026 at 12:00 PM CDT → Mon, Sep 28, 2026 at 12:03 PM CDT (end not included)\n\nShowing the next 3 occurrences. More continue beyond this preview.\n\nCall Sam every Monday at noon for 3 minutes\n\nStart date\n2026-09-12\nCopy schedule preview\n\nPreview only. No reminders or calendar events have been created. Open Export to calendar to review the available file.\n\nHow these dates were calculated"
+    },
+    {
+      "width": 1280,
+      "status": "passed",
+      "corrected": "Your repeating schedule\n\nCall Sam\n\nRepeats Monday\n\nAmerica/Chicago\n\nMon, Sep 14, 2026 at 12:00 PM CDT → Mon, Sep 14, 2026 at 12:03 PM CDT (end not included)\nMon, Sep 21, 2026 at 12:00 PM CDT → Mon, Sep 21, 2026 at 12:03 PM CDT (end not included)\nMon, Sep 28, 2026 at 12:00 PM CDT → Mon, Sep 28, 2026 at 12:03 PM CDT (end not included)\n\nShowing the next 3 occurrences. More continue beyond this preview.\n\nCall Sam every Monday at noon for 3 minutes\n\nStart date\n2026-09-12\nCopy schedule preview\n\nPreview only. No reminders or calendar events have been created. Open Export to calendar to review the available file.\n\nHow these dates were calculated"
+    }
+  ],
+  "sourceHashes": {
+    "src/shared/interpret-recurrence.ts": "ac13987ce4e12b04a2d4ff4ec641925dd7f2c603ddf51b415f899c5c50792cd5",
+    "src/shared/recurrence-count.test.ts": "f2458c4ccf92662dcccb53cc714c1d3ca58dc2a3c518de0d20c16aad96cdeddc"
+  },
+  "status": "passed"
+}

@@ -1,0 +1,91 @@
+# Tempus release work
+
+## Objective and authority
+
+Keep the [product matrix](docs/product-matrix.md) as the acceptance contract. Finish usable calculator, reminder and schedule journeys alongside a supported TypeScript package. The [release checklist](docs/release-checklist.md) owns detailed gates and evidence identities.
+
+Local work only. No push, publication, deployment, cloud mutation or calendar write. Preserve unrelated `aux/misc/rust-wasm-spike/` work.
+
+## Current state
+
+- Source: [quantified item lists](comparison/evidence/quantity-list/README.md) complete the recorded shopping reminder. 994 tests pass with one existing expected failure; fourteen app file journeys/readbacks pass; build/types/lint pass. Strict API v2 remains unchanged.
+- Current archive 5866c6b3 passes seven Node26 examples, installed consumer types, 56-file equality, targeted Node22/26 item-list flows and unchanged 31/25 replay. Broad Worker/offline/performance evidence below retains b8ffb7e0 identity.
+- Built app: [clarification focus repair](comparison/evidence/download-focus/README.md) removes a reproduced delayed focus race. Twelve instrumented journeys and separate file readbacks pass. Earlier uninstrumented download timeouts and rapid-download reliability remain open.
+- [Current local Worker evidence](comparison/evidence/current-clock-first-worker/README.md) passes eighteen separate file readbacks on b8ffb7e0. [Current offline-browser evidence](comparison/evidence/clock-first-offline-sdk/README.md) passes the fourteen-task suite in six desktop contexts with 84 file readbacks on b8ffb7e0; all seven Node22 examples also pass. [Shared performance now measures b8ffb7e0](comparison/evidence/clock-first-resources/README.md); large-export and retention evidence keeps its older identity; current deployed/physical-device runtime evidence is missing.
+- Independent cases, physical-device runs and actual calendar imports remain zero. Ongoing-duration conformance, post-scan review and whole-repository check scope remain open. Source tests do not prove overall superiority.
+
+## Product evidence priority
+
+Tempus has credible calculator and guided-correction advantages, but no overall replacement claim is established. [Performance/resource budgets](docs/performance-budgets.md) supplement the unchanged matrix; speed does not displace correctness or complete journeys. Authored tests protect known behavior; they do not measure unfamiliar users completing tasks. Prioritize one reviewable candidate and the existing independent pilot handoff over more isolated grammar features. The current four-input desktop workload favors gpu-time for startup, batches, size and single-call tails. Real task completion and phone performance remain unmeasured. Real calendar imports, physical devices and independent participants remain unavailable.
+
+The current b8ffb7e0 [resource refresh](comparison/evidence/clock-first-resources/README.md) verifies archive bytes and measures Node/Chrome CPU parsing plus separate calculator, correction and export lanes. gpu-time retains the measured startup, batch, size and tail advantage. Node RSS growth is 94.84/30.72 MiB (Tempus/gpu-time), not peak memory or energy. No architecture change follows from this refresh.
+
+## Local queue
+
+- [x] Complete “Buy apples for Sam At noon tomorrow” without changing its expected result or strict calculator/API v2 grammar. [Evidence](comparison/evidence/clock-first/README.md) includes numeric/DST choice flows, current package checks and the unresolved first-run browser download timeout.
+- [x] Review recipient capitalization and temporal-qualifier handling. Correct eight newly failing checks; preserve the remaining failure and prior evidence.
+
+- [x] Complete bounded capitalized-recipient reminders through title confirmation, date/DST correction, file output and recipient edits. [Evidence](comparison/evidence/recipient-reminder/README.md): 952 tests pass with one expected failure; build/lint pass; ten built-app files match separate readers; current e7ac31c4 passes Node26 package checks, Node22/26 recipient probes and 31/25 replay. Lowercase/date-like names, multiple quantities and two actions remain gaps.
+
+- [x] Remove the browser performance runner’s implicit parent-directory Playwright dependency. [Portability check](comparison/evidence/browser-runtime-portability/README.md) passes ten explicit-runtime Chrome processes and rejects missing/invalid paths before output creation. No dependency added; fresh-machine reproduction remains open.
+
+- [x] Refresh the existing fourteen-task loaded-SDK offline suite on current 4b96da77: six desktop browser runs and 84 file readbacks pass. [Evidence](comparison/evidence/current-offline-sdk/README.md) retains failed control fetches and no later requests. Quantity is outside this suite; cold offline startup, physical devices and imports remain unverified.
+
+- [x] Verify current packed Worker runtime, including quantity/title/date/DST correction and meaningful edit invalidation. [Evidence](comparison/evidence/current-quantity-worker/README.md) has sixteen separate file readbacks; legacy fifteen-file reader compatibility also passes. Task-local server stopped; deployed Workers remain unverified.
+
+- [x] Extend the authored journey report to 25 tasks with quantity and both count-exclusion policies, complete file checks and meaningful edits. [Validation](comparison/evidence/count-quantity-validation/README.md): 31/25 current and 31/22 legacy packed replay pass; 25 bounded files match separate readers. Ongoing-duration conformance still exits 1; comparative count tasks and independent users remain missing.
+
+- [x] Document the current SDK public surface, opaque-state upgrade boundaries and strict-v2 migration distinction; repair two malformed README policy rows. [Candidate compatibility](comparison/evidence/candidate-compatibility/README.md) verifies seven Node26 examples, installed types and a README-only archive change. Public compatibility commitments and independent consumer review remain open.
+
+- [x] Refresh current 756fbb4e CPU/allocation, Node/Chrome shared timings, optional calendar bundle and eight fixed/varied-zone retention runs. Installed equality and 31/22 replay pass. Preserve prior reports; no new code optimization, dependency or rewrite is justified by this refresh.
+
+- [x] Complete “Buy 3 apples on 11/01/2026 at 1:30am for 30 minutes” through title/date/DST clarification, download and quantity edit. Preserve spans and safeguards; document the bounded quantity grammar. [Evidence](comparison/evidence/quantity-title/README.md) includes the initially failed on-connector path and its correction.
+
+- [x] Review the current export/worker identity boundary and verify built-app cancellation, late responses, edits and failure recovery. [Scoped review](comparison/evidence/export-boundary-review/README.md) found no confirmed bypass in that path; broader post-scan coverage remains open. Correct the SDK export-status wording and document host responsibilities.
+
+- [x] Verify complete loaded-SDK tasks offline in desktop Chrome/Firefox/WebKit: each control fetch fails, then correction/edit/download makes no further request. This does not close website cold start, physical-device or import gates.
+
+- [x] Add built static SDK serving and controlled delayed-startup verification. Inputs entered before module load survive correction; edits invalidate export. No unexpected reload occurred in nine probes. The earlier development-server failure remains unproven.
+
+- [x] Measure large finite exports and varied-input/zone memory. [Evidence](comparison/evidence/large-export-resources/README.md) retains limits and failures. Paginated review exposes all 1,000 events with ten DOM rows; downloaded files remain complete.
+- [x] Move complete recurring export preparation off the main thread with cancellation and stale-response protection. [Built-app evidence](comparison/evidence/worker-preparation/README.md) has no observed long task in the two 1,000-event runs; ready time remains about 299–306 ms and adds a 144 kB gzip worker. Broader latency/device gates stay open.
+- [x] Isolate fixed-zone versus varied-zone memory growth and remove repeated numeric-date formatter construction. Current scoped runs are below the provisional RSS figure; remaining native attribution, peak memory, sustained workloads and devices stay open.
+- [x] Preserve bounded numeric identifiers such as room 3 and invoice #123 through correction and file output. Seventeen regression cases and six authored app journeys pass; unsupported quantities and conflicting time tokens still block. Current a8a1cbb4 passes seven Node 22/26 examples and the 31/22 replay. Its packed runtime refresh now passes on retry; the first-run empty-result failure remains open.
+
+- [x] Profile the current packed SDK before optimizing; retain before/after profiles and equivalent shared CPU comparisons. Add provisional resource budgets and keep physical-device/energy evidence explicitly missing.
+
+- [x] Correct the package README against actual exports/behavior; compile and execute its three snippets. [Contract review](comparison/evidence/sdk-contract-review/README.md) proves the new archive differs only in documentation. Public compatibility policy remains open.
+
+- [x] Complete the declared written past-start count choice through correction, future-only file output and edit invalidation. Source and current SDK evidence are linked above.
+- [x] Complete declared date-only/mixed-precision explicit range source/app journeys with explicit choices, original text and independently read files.
+- [x] Verify the combined range source in one packed candidate across Node/browser/local Worker, including correction and complete file outputs.
+- [x] Verify the completed count policies in one packed candidate across Node/browser/local Worker, retaining failures.
+- [x] Refresh the authored comparison replay against the current candidate, preserving historical reports and verifying installed-package equality.
+- [ ] Review accumulated post-scan parser/export/tooling changes, package stability, timezone provenance and fresh-checkout reproduction.
+- [ ] Complete release checks without rewriting evidence or touching unrelated Rust-spike work. The last recorded whole-repository check failed on that unrelated formatting.
+
+## Decisions and missing access
+
+- [ ] Decide whether ongoing elapsed-duration export can be experimental or stays blocked pending client verification.
+- [ ] Decide whether day-29/30 clamping may use two separately editable series. Current blocks remain until answered.
+- [ ] Obtain explicit disposable-calendar import authorization and client access; inspect the imported results.
+- [ ] Obtain physical iOS/Android, screen-reader and Safari.app access; verify retail Firefox, offline startup and deployed Workers before claiming them.
+- [ ] Obtain independent evaluator, holdout custodian and participants; run the pilot and freeze policies, claims, budgets and margins before opening holdouts.
+
+## Failures to preserve
+
+Reader duration/clamping disagreements, ordinary-Tab WebKit failures, incomplete post-scan review and missing independent timezone provenance remain open in the [release checklist](docs/release-checklist.md). Passing authored tests does not establish competitive superiority. The [pre-consolidation snapshot](comparison/evidence/release-reconciliation/README.md) retains earlier task prose and report pointers.
+
+## Next action
+
+[Privacy boundary review](comparison/evidence/privacy-boundary/README.md) verifies local typing/clarification/file preparation, preferences-only storage, reload reset and explicit API replay. The privacy page now explains clipboard and calendar files. Live logging, full security review and physical-device behavior remain open.
+
+[Isolated source build](comparison/evidence/isolated-source-build/README.md) now passes with a separate offline dependency tree and produces identical package/client bytes. Comparison provenance explicitly supports absent Git metadata; 994 tests pass plus one expected failure. Cross-host/toolchain and authenticated timezone provenance remain open.
+
+[Copy recovery](comparison/evidence/copy-recovery/README.md) passes six Chrome reminder/range/schedule tasks through Tab navigation, simulated denial, real clipboard retry and edit invalidation. No app change was needed; physical/native-permission and other-browser clipboard checks remain open.
+
+[Item-list review](comparison/evidence/quantity-list-review/README.md) removed misleading sequential/incomplete title proposals. Preserve the valid shopping journey while investigating remaining recovery gaps; do not count blocked second actions as completed tasks.
+
+The reviewed quantified-list candidate is 5866c6b3; broad runtime/performance checks still use b8ffb7e0. [Public consumer contract checks](comparison/evidence/public-consumer-contract/README.md) now run in package verification; the archive remains byte-identical. Continue review of accumulated implementation changes and complete-task recovery gaps. New reminder families remain outside the offline suite. Add representative complete-task/painted-interaction measurements before treating SDK timing as product responsiveness evidence.
+
+Review the remaining observed reminder failures and recovery burden. The capitalized-recipient path now completes locally; do not claim all recipient wording is supported. Keep the existing matrix and corpus expectations. The [wording probe](comparison/evidence/reminder-wording-probe/README.md) records fourteen inspected inputs with no task-completion claim. Continue the independent pilot handoff when evaluator, participants and device/client access become available; do not replace that evidence with more authored cases.

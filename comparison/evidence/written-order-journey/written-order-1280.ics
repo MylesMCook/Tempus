@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tempus//Calendar Export//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:0541608d-4d13-4e39-9487-2153b7632a40-0@tempus.invalid
+DTSTAMP:20260912T160000Z
+SUMMARY:Call Sam
+DESCRIPTION:Date phrase: 2026-11-01 at 1:30am and 2026-09-30 at noon\nTimez
+ one: America/Chicago\nEach listed date or range occurs once\; this is not 
+ a repeating rule.\nYou selected Date 1: Second: November 1\, 2026 at 1:30 
+ AM CST (UTC-06:00).
+DTSTART:20261101T073000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:0541608d-4d13-4e39-9487-2153b7632a40-1@tempus.invalid
+DTSTAMP:20260912T160000Z
+SUMMARY:Call Sam
+DESCRIPTION:Date phrase: 2026-11-01 at 1:30am and 2026-09-30 at noon\nTimez
+ one: America/Chicago\nEach listed date or range occurs once\; this is not 
+ a repeating rule.\nYou selected Date 1: Second: November 1\, 2026 at 1:30 
+ AM CST (UTC-06:00).
+DTSTART:20260930T170000Z
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "browser": "153.0.8010.36",
+  "baseURL": "http://127.0.0.1:5175",
+  "rows": [
+    {
+      "width": 320,
+      "before": "calendar-export-toggle",
+      "after": "calendar-export-toggle",
+      "pending": 0
+    },
+    {
+      "width": 1280,
+      "before": "calendar-export-toggle",
+      "after": "calendar-export-toggle",
+      "pending": 0
+    }
+  ],
+  "sourceHashes": {
+    "src/features/parser/components/date-picker.tsx": "903ebf546f50f17423c2c7ce6c82c85813b38a5457d36e155f3753db5bac7476",
+    "src/routes/home-page.tsx": "f2d1ef1855d8e9a3e1a47bbb16c4221e568d850786338d33777002d45b593e50",
+    "examples/app/verify-choice-focus.mjs": "b57bb4050107daa9ad5d51f986fdf79f92c9c644b127e74f71f37a68961331b5"
+  },
+  "scope": "Controlled delayed animation frames in desktop Chrome; not physical-device evidence."
+}

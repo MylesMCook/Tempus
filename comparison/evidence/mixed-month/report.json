@@ -1,0 +1,16 @@
+[
+  {
+    "width": 320,
+    "status": "passed",
+    "file": "year-320.ics",
+    "sha256": "a8225d604eeb3ef984fe589cd9e212006064e26c68e72a51ceca2371f78d387e",
+    "scope": "Desktop keyboard activation and download; no client import or physical device."
+  },
+  {
+    "width": 1280,
+    "status": "passed",
+    "file": "year-1280.ics",
+    "sha256": "db9cf12c1a85511b8806af41a509f0f7b09f9194f5dd0667cd53cb7306b29c65",
+    "scope": "Desktop keyboard activation and download; no client import or physical device."
+  }
+]

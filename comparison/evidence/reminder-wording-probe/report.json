@@ -1,0 +1,414 @@
+{
+  "archiveSha256": "4b96da77b994605be06f0c63091c338cb7dae5f5a65e958f3d970786a5858a63",
+  "context": {
+    "timezone": "America/Chicago",
+    "reference": "2026-09-12T16:00:00Z"
+  },
+  "records": [
+    {
+      "id": "recipient",
+      "input": "Buy apples for Sam tomorrow at noon",
+      "intendedTask": "Complete point at 2026-09-13T17:00:00Z, retaining Buy apples for Sam; title confirmation may be needed.",
+      "result": {
+        "interpretationVersion": 1,
+        "status": "unsupported",
+        "error": {
+          "code": "syntax",
+          "message": "How long should this event last?",
+          "hint": "Use a positive whole number and seconds, minutes, hours, days or weeks, such as “tomorrow at noon for 30 minutes”."
+        },
+        "sdkVersion": "0.1.0",
+        "input": "Buy apples for Sam tomorrow at noon",
+        "context": {
+          "timezone": "America/Chicago",
+          "reference": "2026-09-12T16:00:00Z"
+        }
+      },
+      "hasSelectableRecovery": false,
+      "taskCompletion": "not-measured"
+    },
+    {
+      "id": "companion",
+      "input": "Pick up groceries with Jo tomorrow at noon",
+      "intendedTask": "Complete point at 2026-09-13T17:00:00Z, retaining Pick up groceries with Jo.",
+      "result": {
+        "interpretationVersion": 1,
+        "status": "resolved",
+        "value": {
+          "kind": "point",
+          "calculation": {
+            "ok": true,
+            "engineVersion": 2,
+            "expression": "tomorrow at noon",
+            "timezone": "America/Chicago",
+            "reference": "2026-09-12T16:00:00.000Z",
+            "normalized": "tomorrow at noon",
+            "anchor": {
+              "iso": "2026-09-13T17:00:00.000Z",
+              "local": "2026-09-13T12:00:00.000",
+              "offset": "-05:00",
+              "timestamp": 1789318800000
+            },
+            "anchorDescription": "Use tomorrow in America/Chicago. Set the clock to 12:00:00.",
+            "steps": [],
+            "warnings": [],
+            "result": {
+              "iso": "2026-09-13T17:00:00.000Z",
+              "local": "2026-09-13T12:00:00.000",
+              "offset": "-05:00",
+              "timestamp": 1789318800000
+            }
+          },
+          "precision": "time",
+          "clockSource": "explicit"
+        },
+        "source": {
+          "text": "tomorrow at noon",
+          "span": {
+            "start": 26,
+            "end": 42
+          }
+        },
+        "event": {
+          "text": "Pick up groceries with Jo",
+          "span": {
+            "start": 0,
+            "end": 25
+          }
+        },
+        "assumptions": [
+          "The event text is a label only; no reminder has been created."
+        ],
+        "sdkVersion": "0.1.0",
+        "input": "Pick up groceries with Jo tomorrow at noon",
+        "context": {
+          "timezone": "America/Chicago",
+          "reference": "2026-09-12T16:00:00Z"
+        }
+      },
+      "hasSelectableRecovery": false,
+      "taskCompletion": "not-measured"
+    },
+    {
+      "id": "condition",
+      "input": "Remind me to call Sam if the report is ready tomorrow at noon",
+      "intendedTask": "Do not silently schedule an unconditional event; preserve condition and allow deliberate correction.",
+      "result": {
+        "interpretationVersion": 1,
+        "status": "needs-clarification",
+        "error": {
+          "code": "syntax",
+          "message": "Which date do you want?",
+          "hint": "This needs a more specific date or condition. Enter one complete date phrase for each correction."
+        },
+        "sdkVersion": "0.1.0",
+        "input": "Remind me to call Sam if the report is ready tomorrow at noon",
+        "context": {
+          "timezone": "America/Chicago",
+          "reference": "2026-09-12T16:00:00Z"
+        }
+      },
+      "hasSelectableRecovery": false,
+      "taskCompletion": "not-measured"
+    },
+    {
+      "id": "unless",
+      "input": "Call Sam tomorrow at noon unless he cancels",
+      "intendedTask": "Do not silently discard cancellation condition.",
+      "result": {
+        "interpretationVersion": 1,
+        "status": "needs-clarification",
+        "error": {
+          "code": "syntax",
+          "message": "Which date do you want?",
+          "hint": "This needs a more specific date or condition. Enter one complete date phrase for each correction."
+        },
+        "sdkVersion": "0.1.0",
+        "input": "Call Sam tomorrow at noon unless he cancels",
+        "context": {
+          "timezone": "America/Chicago",
+          "reference": "2026-09-12T16:00:00Z"
+        }
+      },
+      "hasSelectableRecovery": false,
+      "taskCompletion": "not-measured"
+    },
+    {
+      "id": "multiple-quantities",
+      "input": "Buy 3 apples and 2 pears tomorrow at noon",
+      "intendedTask": "Complete point with both quantities retained as event text after any needed confirmation.",
+      "result": {
+        "interpretationVersion": 1,
+        "status": "unsupported",
+        "error": {
+          "code": "syntax",
+          "message": "Expected a number and time unit.",
+          "hint": "Try “today plus 2 days” or “2 weeks before may 1”.",
+          "span": {
+            "start": 0,
+            "end": 3
+          }
+        },
+        "sdkVersion": "0.1.0",
+        "input": "Buy 3 apples and 2 pears tomorrow at noon",
+        "context": {
+          "timezone": "America/Chicago",
+          "reference": "2026-09-12T16:00:00Z"
+        }
+      },
+      "hasSelectableRecovery": false,
+      "taskCompletion": "not-measured"
+    },
+    {
+      "id": "object",
+      "input": "Email Jo the report tomorrow at noon",
+      "intendedTask": "Complete point at 2026-09-13T17:00:00Z with full event text.",
+      "result": {
+        "interpretationVersion": 1,
+        "status": "resolved",
+        "value": {
+          "kind": "point",
+          "calculation": {
+            "ok": true,
+            "engineVersion": 2,
+            "expression": "tomorrow at noon",
+            "timezone": "America/Chicago",
+            "reference": "2026-09-12T16:00:00.000Z",
+            "normalized": "tomorrow at noon",
+            "anchor": {
+              "iso": "2026-09-13T17:00:00.000Z",
+              "local": "2026-09-13T12:00:00.000",
+              "offset": "-05:00",
+              "timestamp": 1789318800000
+            },
+            "anchorDescription": "Use tomorrow in America/Chicago. Set the clock to 12:00:00.",
+            "steps": [],
+            "warnings": [],
+            "result": {
+              "iso": "2026-09-13T17:00:00.000Z",
+              "local": "2026-09-13T12:00:00.000",
+              "offset": "-05:00",
+              "timestamp": 1789318800000
+            }
+          },
+          "precision": "time",
+          "clockSource": "explicit"
+        },
+        "source": {
+          "text": "tomorrow at noon",
+          "span": {
+            "start": 20,
+            "end": 36
+          }
+        },
+        "event": {
+          "text": "Email Jo the report",
+          "span": {
+            "start": 0,
+            "end": 19
+          }
+        },
+        "assumptions": [
+          "The event text is a label only; no reminder has been created."
+        ],
+        "sdkVersion": "0.1.0",
+        "input": "Email Jo the report tomorrow at noon",
+        "context": {
+          "timezone": "America/Chicago",
+          "reference": "2026-09-12T16:00:00Z"
+        }
+      },
+      "hasSelectableRecovery": false,
+      "taskCompletion": "not-measured"
+    },
+    {
+      "id": "deadline",
+      "input": "Remind me to call Sam before noon tomorrow",
+      "intendedTask": "Do not silently convert before noon into exactly noon. Deadline semantics remain unsupported.",
+      "result": {
+        "interpretationVersion": 1,
+        "status": "unsupported",
+        "error": {
+          "code": "syntax",
+          "message": "Expected a number and time unit.",
+          "hint": "Try “today plus 2 days” or “2 weeks before may 1”.",
+          "span": {
+            "start": 22,
+            "end": 28
+          }
+        },
+        "sdkVersion": "0.1.0",
+        "input": "Remind me to call Sam before noon tomorrow",
+        "context": {
+          "timezone": "America/Chicago",
+          "reference": "2026-09-12T16:00:00Z"
+        }
+      },
+      "hasSelectableRecovery": false,
+      "taskCompletion": "not-measured"
+    },
+    {
+      "id": "lower-bound",
+      "input": "Call Sam tomorrow at noon or later",
+      "intendedTask": "Do not silently replace a lower bound with an exact instant.",
+      "result": {
+        "interpretationVersion": 1,
+        "status": "needs-clarification",
+        "error": {
+          "code": "syntax",
+          "message": "Which date do you want?",
+          "hint": "This needs a more specific date or condition. Enter one complete date phrase for each correction."
+        },
+        "sdkVersion": "0.1.0",
+        "input": "Call Sam tomorrow at noon or later",
+        "context": {
+          "timezone": "America/Chicago",
+          "reference": "2026-09-12T16:00:00Z"
+        }
+      },
+      "hasSelectableRecovery": false,
+      "taskCompletion": "not-measured"
+    },
+    {
+      "id": "lower-bound-prefix",
+      "input": "Call Sam no earlier than noon tomorrow",
+      "intendedTask": "Do not silently replace a lower bound with an exact instant.",
+      "result": {
+        "interpretationVersion": 1,
+        "status": "unsupported",
+        "error": {
+          "code": "syntax",
+          "message": "Expected a number and time unit.",
+          "hint": "Try “today plus 2 days” or “2 weeks before may 1”.",
+          "span": {
+            "start": 12,
+            "end": 19
+          }
+        },
+        "sdkVersion": "0.1.0",
+        "input": "Call Sam no earlier than noon tomorrow",
+        "context": {
+          "timezone": "America/Chicago",
+          "reference": "2026-09-12T16:00:00Z"
+        }
+      },
+      "hasSelectableRecovery": false,
+      "taskCompletion": "not-measured"
+    },
+    {
+      "id": "holiday-exception",
+      "input": "Call Sam tomorrow at noon except on holidays",
+      "intendedTask": "Do not ignore holiday exception or invent a holiday calendar.",
+      "result": {
+        "interpretationVersion": 1,
+        "status": "needs-clarification",
+        "error": {
+          "code": "syntax",
+          "message": "Which date do you want?",
+          "hint": "This needs a more specific date or condition. Enter one complete date phrase for each correction."
+        },
+        "sdkVersion": "0.1.0",
+        "input": "Call Sam tomorrow at noon except on holidays",
+        "context": {
+          "timezone": "America/Chicago",
+          "reference": "2026-09-12T16:00:00Z"
+        }
+      },
+      "hasSelectableRecovery": false,
+      "taskCompletion": "not-measured"
+    },
+    {
+      "id": "approximate-duration",
+      "input": "Call Sam tomorrow at noon for about 30 minutes",
+      "intendedTask": "Do not discard approximation or silently make duration exact.",
+      "result": {
+        "interpretationVersion": 1,
+        "status": "unsupported",
+        "error": {
+          "code": "syntax",
+          "message": "How long should this event last?",
+          "hint": "Use a positive whole number and seconds, minutes, hours, days or weeks, such as “tomorrow at noon for 30 minutes”."
+        },
+        "sdkVersion": "0.1.0",
+        "input": "Call Sam tomorrow at noon for about 30 minutes",
+        "context": {
+          "timezone": "America/Chicago",
+          "reference": "2026-09-12T16:00:00Z"
+        }
+      },
+      "hasSelectableRecovery": false,
+      "taskCompletion": "not-measured"
+    },
+    {
+      "id": "two-actions",
+      "input": "Remind me to call Sam tomorrow at noon and email Jo on Friday",
+      "intendedTask": "Do not drop either action or give them one shared title.",
+      "result": {
+        "interpretationVersion": 1,
+        "status": "unsupported",
+        "error": {
+          "code": "syntax",
+          "message": "Expected a number and time unit.",
+          "hint": "Try “today plus 2 days” or “2 weeks before may 1”.",
+          "span": {
+            "start": 43,
+            "end": 48
+          }
+        },
+        "sdkVersion": "0.1.0",
+        "input": "Remind me to call Sam tomorrow at noon and email Jo on Friday",
+        "context": {
+          "timezone": "America/Chicago",
+          "reference": "2026-09-12T16:00:00Z"
+        }
+      },
+      "hasSelectableRecovery": false,
+      "taskCompletion": "not-measured"
+    },
+    {
+      "id": "negative-correction",
+      "input": "Call Sam tomorrow at noon, not Friday",
+      "intendedTask": "Ask a concrete correction when supported; do not silently pick a mentioned date.",
+      "result": {
+        "interpretationVersion": 1,
+        "status": "no-expression",
+        "error": {
+          "code": "syntax",
+          "message": "No date selected from this instruction.",
+          "hint": "It contains a cancellation or negative instruction. Enter only the date you want to calculate."
+        },
+        "sdkVersion": "0.1.0",
+        "input": "Call Sam tomorrow at noon, not Friday",
+        "context": {
+          "timezone": "America/Chicago",
+          "reference": "2026-09-12T16:00:00Z"
+        }
+      },
+      "hasSelectableRecovery": false,
+      "taskCompletion": "not-measured"
+    },
+    {
+      "id": "replacement",
+      "input": "Call Sam tomorrow at noon instead of Friday",
+      "intendedTask": "Ask a concrete replacement clarification when supported.",
+      "result": {
+        "interpretationVersion": 1,
+        "status": "needs-clarification",
+        "error": {
+          "code": "syntax",
+          "message": "Which date do you want?",
+          "hint": "This needs a more specific date or condition. Enter one complete date phrase for each correction."
+        },
+        "sdkVersion": "0.1.0",
+        "input": "Call Sam tomorrow at noon instead of Friday",
+        "context": {
+          "timezone": "America/Chicago",
+          "reference": "2026-09-12T16:00:00Z"
+        }
+      },
+      "hasSelectableRecovery": false,
+      "taskCompletion": "not-measured"
+    }
+  ],
+  "scope": "Author-selected exploratory development inputs; no holdout, competitor, UI, export or human task-completion measure. Resolved is not automatically a completed task."
+}

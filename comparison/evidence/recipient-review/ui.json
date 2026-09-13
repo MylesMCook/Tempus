@@ -1,0 +1,91 @@
+{
+  "rows": [
+    {
+      "width": 320,
+      "phrase": "Buy apples for Sam Tomorrow at noon",
+      "kind": "confirmed-title-result",
+      "text": "Your date is ready\n\nSunday, September 13, 2026\n\nAmerica/Chicago · 12:00 PM CDT\n\nEvent: Buy apples for Sam\n\nBuy apples for Sam Tomorrow at noon\n\nDate preview only. No reminder has been created.\n\nUsing Title: Buy apples for Sam\n\nChange date interpretation\nCopy date"
+    },
+    {
+      "width": 320,
+      "phrase": "Buy apples For Sam tomorrow at noon",
+      "kind": "confirmed-title-result",
+      "text": "Your date is ready\n\nSunday, September 13, 2026\n\nAmerica/Chicago · 12:00 PM CDT\n\nEvent: Buy apples For Sam\n\nBuy apples For Sam tomorrow at noon\n\nDate preview only. No reminder has been created.\n\nUsing Title: Buy apples For Sam\n\nChange date interpretation\nCopy date"
+    },
+    {
+      "width": 320,
+      "phrase": "Buy apples for Sam May 5, 2027",
+      "kind": "confirmed-title-result",
+      "text": "Your date is ready\n\nWednesday, May 5, 2027\n\nAmerica/Chicago · Date only · no time specified\n\nEvent: Buy apples for Sam\n\nBuy apples for Sam May 5, 2027\n\nDate preview only. No reminder has been created.\n\nUsing Title: Buy apples for Sam\n\nChange date interpretation\nCopy date"
+    },
+    {
+      "width": 320,
+      "phrase": "Buy apples for A Long Time tomorrow at noon",
+      "kind": "blocked-without-title-choice"
+    },
+    {
+      "width": 320,
+      "phrase": "Buy apples for Ever tomorrow at noon",
+      "kind": "blocked-without-title-choice"
+    },
+    {
+      "width": 320,
+      "phrase": "Buy apples for Life tomorrow at noon",
+      "kind": "blocked-without-title-choice"
+    },
+    {
+      "width": 320,
+      "phrase": "Buy apples for An Eternity tomorrow at noon",
+      "kind": "blocked-without-title-choice"
+    },
+    {
+      "width": 320,
+      "phrase": "Buy apples for The Foreseeable Future tomorrow at noon",
+      "kind": "blocked-without-title-choice"
+    },
+    {
+      "width": 1280,
+      "phrase": "Buy apples for Sam Tomorrow at noon",
+      "kind": "confirmed-title-result",
+      "text": "Your date is ready\n\nSunday, September 13, 2026\n\nAmerica/Chicago · 12:00 PM CDT\n\nEvent: Buy apples for Sam\n\nBuy apples for Sam Tomorrow at noon\n\nDate preview only. No reminder has been created.\n\nUsing Title: Buy apples for Sam\n\nChange date interpretation\nCopy date"
+    },
+    {
+      "width": 1280,
+      "phrase": "Buy apples For Sam tomorrow at noon",
+      "kind": "confirmed-title-result",
+      "text": "Your date is ready\n\nSunday, September 13, 2026\n\nAmerica/Chicago · 12:00 PM CDT\n\nEvent: Buy apples For Sam\n\nBuy apples For Sam tomorrow at noon\n\nDate preview only. No reminder has been created.\n\nUsing Title: Buy apples For Sam\n\nChange date interpretation\nCopy date"
+    },
+    {
+      "width": 1280,
+      "phrase": "Buy apples for Sam May 5, 2027",
+      "kind": "confirmed-title-result",
+      "text": "Your date is ready\n\nWednesday, May 5, 2027\n\nAmerica/Chicago · Date only · no time specified\n\nEvent: Buy apples for Sam\n\nBuy apples for Sam May 5, 2027\n\nDate preview only. No reminder has been created.\n\nUsing Title: Buy apples for Sam\n\nChange date interpretation\nCopy date"
+    },
+    {
+      "width": 1280,
+      "phrase": "Buy apples for A Long Time tomorrow at noon",
+      "kind": "blocked-without-title-choice"
+    },
+    {
+      "width": 1280,
+      "phrase": "Buy apples for Ever tomorrow at noon",
+      "kind": "blocked-without-title-choice"
+    },
+    {
+      "width": 1280,
+      "phrase": "Buy apples for Life tomorrow at noon",
+      "kind": "blocked-without-title-choice"
+    },
+    {
+      "width": 1280,
+      "phrase": "Buy apples for An Eternity tomorrow at noon",
+      "kind": "blocked-without-title-choice"
+    },
+    {
+      "width": 1280,
+      "phrase": "Buy apples for The Foreseeable Future tomorrow at noon",
+      "kind": "blocked-without-title-choice"
+    }
+  ],
+  "scope": "Built Chrome, direct focus/Enter at desktop widths. No sequential keyboard, device or client import claim."
+}

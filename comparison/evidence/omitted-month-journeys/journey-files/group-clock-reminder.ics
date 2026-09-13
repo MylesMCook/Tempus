@@ -1,0 +1,29 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tempus//Calendar Export//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:11111111-2222-4333-8444-555555555555-0@tempus.invalid
+DTSTAMP:20261031T120000Z
+SUMMARY:call Sam
+DESCRIPTION:Date phrase: Sun 1:15am-1:45am Mon 9am-10am\nTimezone: America/
+ Chicago\nEach listed date or range occurs once\; this is not a repeating r
+ ule.\nYou selected Range 1 (Sun): Start: Second: November 1\, 2026 at 1:15
+  AM CST (UTC-06:00).\nYou selected Range 1 (Sun): End: Second: November 1\
+ , 2026 at 1:45 AM CST (UTC-06:00).
+DTSTART:20261101T071500Z
+DTEND:20261101T074500Z
+END:VEVENT
+BEGIN:VEVENT
+UID:11111111-2222-4333-8444-555555555555-1@tempus.invalid
+DTSTAMP:20261031T120000Z
+SUMMARY:call Sam
+DESCRIPTION:Date phrase: Sun 1:15am-1:45am Mon 9am-10am\nTimezone: America/
+ Chicago\nEach listed date or range occurs once\; this is not a repeating r
+ ule.\nYou selected Range 1 (Sun): Start: Second: November 1\, 2026 at 1:15
+  AM CST (UTC-06:00).\nYou selected Range 1 (Sun): End: Second: November 1\
+ , 2026 at 1:45 AM CST (UTC-06:00).
+DTSTART:20261102T150000Z
+DTEND:20261102T160000Z
+END:VEVENT
+END:VCALENDAR

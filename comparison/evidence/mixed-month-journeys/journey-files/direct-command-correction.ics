@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tempus//Calendar Export//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:11111111-2222-4333-8444-555555555555-0@tempus.invalid
+DTSTAMP:20260912T160000Z
+SUMMARY:call Sam
+DESCRIPTION:Date phrase: call Sam Friday at noon for 30 minutes\, actually 
+ 01/11/2026 at 1:30am for 30 seconds instead\nTimezone: America/Chicago\nTh
+ e interval end is exclusive.\nYou selected Start: Second: November 1\, 202
+ 6 at 1:30 AM CST (UTC-06:00).\nDate interpreted as November 1\, 2026.\nYou
+  confirmed that the second date replaces the first.
+DTSTART:20261101T073000Z
+DTEND:20261101T073030Z
+END:VEVENT
+END:VCALENDAR

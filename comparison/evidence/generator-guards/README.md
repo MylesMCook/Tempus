@@ -1,0 +1,7 @@
+# Timezone generator preconditions
+
+September 13, 2026. The generator previously checked archive/manifest and zone hashes but did not check current compiler bytes or successful exit status, and could overwrite existing output. It now requires successful data/compiler builds, checks compiler bytes against both manifests, checks the license hash, rejects an empty zone inventory and refuses existing source/license outputs. Final file creation uses exclusive mode.
+
+Fresh scratch generation from the current rebuilt IANA source produces the unchanged 597-zone/344-file payload hash `d80dfea2b792c207cf64a85bd9be4866f16c6b42f20025f28e6cbe97803f55d6`; license bytes match the bundled license. Five isolated rejection controls preserve destination bytes: existing output, failed data build, changed compiler bytes, changed source license and empty inventory. Their errors and generator hash are retained in checks.json. Raw fixtures remain in local scratch `2026-09-13-tempus-generator-check`.
+
+Use the [updated generation workflow](../../calendar/README.md) in a fresh scratch directory. Inspect/verify the output before explicitly replacing repository data. App/SDK payloads were not changed by this work. These preconditions strengthen local tooling; they do not authenticate arbitrary manifests, establish detached-signature trust or prove a hermetic compiler. Writing the source and license is not a two-file atomic transaction; on an I/O failure retain the partial scratch output for inspection and retry in another fresh directory.

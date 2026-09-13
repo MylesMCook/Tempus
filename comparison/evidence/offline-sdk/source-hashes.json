@@ -1,0 +1,8 @@
+{
+  "examples/sdk/verify-browser.mjs": "3d6c32d28dae2fbe36fb96b4e78f11ef956853ca03f7e1ebb9cef9eb88e558fb",
+  "examples/sdk/read-browser-files.py": "578f0a92ceabd46b1e1f6cadab6e18936141c83971b6ad4c19982449bd71b4a2",
+  "examples/sdk/read-browser-files.py.lock": "25321ad7e67ccbc618b94ba12fdfc25f3d5cc3d7ba775ee1ef6b06cab5e63751",
+  "examples/sdk/serve-packed.mjs": "72a706246e536183373e01e7f7c4d6961d7268eec829f879d96a1763673c6726",
+  "examples/sdk/calendar.html": "4e9afce6f43914d9b6ed0cf0b13641aef1eb4d7367e2941dfea252b62f9812d3",
+  "examples/sdk/calendar-browser.ts": "b3da9e4acbd44080526e250c60d7e40fe5febaf3d7e900de3ffb0953f7dac983"
+}

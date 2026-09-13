@@ -1,0 +1,13 @@
+# Current loaded-SDK offline verification
+
+Archive 4b96da77b994605be06f0c63091c338cb7dae5f5a65e958f3d970786a5858a63 passes six desktop runs: Chrome 153.0.8010.36, Playwright Firefox 148.0.2 and WebKit 26.4, each at widths 320 and 1280. Each run completes the existing fourteen-task SDK browser suite using keyboard choices and actual saved downloads. The separate icalendar 7.3.0 / recurring-ical-events 3.8.2 reader matches all 84 files against authored expectations and recorded hashes.
+
+After the static integration loaded, each browser context went offline. navigator.onLine became false and a declared control fetch failed. No later request occurred during correction, edits and downloads. Reports contain no page errors or external requests. The fixture suite covers counted schedules, explicit range policies, date-only precision, recurring clock correction and list recovery. It verifies input retention, disabled stale exports, restart, keyboard reachability, optional diagnostics and horizontal overflow. WebKit uses Option-Tab. Downloads are paced by 1.1 seconds; rapid-download failures from earlier work remain unresolved.
+
+This is the same fourteen-task suite run against the current artifact, not fourteen newly covered language families. It does not include the newer quantity-title journey; that has separate targeted browser and current Worker evidence. It is not an independent user study, physical-phone run, accessibility certification or calendar-client import. A narrow desktop viewport is not a phone.
+
+Offline starts only after the module loads. This does not verify cold offline startup, service-worker caching, installability, the main website's API replay or disconnected package installation. It verifies no runtime network requirement for these loaded SDK tasks. No UI or SDK code changed in this turn.
+
+The static server bound only to loopback port 5184 and was stopped afterward. Main development server 5174 remained running. No publication, deployment or calendar-account write occurred. Historical browser failures, ongoing-duration conformance, independent evaluation, physical devices and real client imports remain open.
+
+Reproduce with examples/sdk/serve-packed.mjs and examples/sdk/verify-browser.mjs using --webkit-option-tab --offline-after-load, then examples/sdk/read-browser-files.py. Use new scratch directories and the verified installation. report.json records artifact/script identities and every run; readback.json records file hashes and observations. static-build.json identifies the served asset; screenshots show the final list task, not every intermediate state. SHA256SUMS provides integrity, not independent certification.

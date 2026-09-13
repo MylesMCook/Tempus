@@ -1,0 +1,40 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tempus//Calendar Export//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:178a7bf1-b046-48ac-bb41-032ecf4333fa-0@tempus.invalid
+DTSTAMP:20260912T160000Z
+SUMMARY:Call Sam
+DESCRIPTION:Date phrase: every Monday at noon for 3 occurrences except 2026
+ -09-21\nTimezone: America/Chicago\nOnly upcoming occurrence starts appear 
+ in the preview.\nComplete bounded recurrence set\; dates are fixed to the 
+ timezone rules used when this file was generated.
+DTSTART:20260914T170000Z
+RDATE:20260914T170000Z
+RDATE:20260928T170000Z
+RDATE:20261005T170000Z
+END:VEVENT
+BEGIN:VEVENT
+RECURRENCE-ID:20260928T170000Z
+UID:178a7bf1-b046-48ac-bb41-032ecf4333fa-0@tempus.invalid
+DTSTAMP:20260912T160000Z
+SUMMARY:Call Sam
+DESCRIPTION:Date phrase: every Monday at noon for 3 occurrences except 2026
+ -09-21\nTimezone: America/Chicago\nOnly upcoming occurrence starts appear 
+ in the preview.\nComplete bounded recurrence set\; dates are fixed to the 
+ timezone rules used when this file was generated.
+DTSTART:20260928T170000Z
+END:VEVENT
+BEGIN:VEVENT
+RECURRENCE-ID:20261005T170000Z
+UID:178a7bf1-b046-48ac-bb41-032ecf4333fa-0@tempus.invalid
+DTSTAMP:20260912T160000Z
+SUMMARY:Call Sam
+DESCRIPTION:Date phrase: every Monday at noon for 3 occurrences except 2026
+ -09-21\nTimezone: America/Chicago\nOnly upcoming occurrence starts appear 
+ in the preview.\nComplete bounded recurrence set\; dates are fixed to the 
+ timezone rules used when this file was generated.
+DTSTART:20261005T170000Z
+END:VEVENT
+END:VCALENDAR

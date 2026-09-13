@@ -1,0 +1,9 @@
+{
+  "previousArchiveSha256": "4ec180308a16144daa73f3c154d22868f8f47fcd9c4bcebf81d2be2ec1b452df",
+  "currentArchiveSha256": "e2293d2d7279e51e10c50fa31bfd827dfd08dfc738d80294fa6a412d3554fb7c",
+  "changedInstalledFiles": ["README.md"],
+  "unchangedInstalledFiles": 55,
+  "readmeTypeScriptBlocks": 2,
+  "strictInstalledTypecheck": "passed",
+  "scope": "README-only archive change; no new browser or Worker execution claimed."
+}

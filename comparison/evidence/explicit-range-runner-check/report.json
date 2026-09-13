@@ -1,0 +1,6 @@
+{
+  "runner": "examples/app/verify-date-range.mjs",
+  "sha256": "557ed973f9e0eed0eafb5c62c4252c08f1a85ad438c0e760b03f57f06aab5093",
+  "change": "Add a JSDoc tuple annotation after browser verification; no executable behavior change. The earlier explicit-range snapshot retains the executed runner hash.",
+  "validation": "Formatter and lint/type check pass without warnings; no browser rerun for annotation-only change."
+}

@@ -1,0 +1,32 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tempus//Calendar Export//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:f61d959e-cb75-4b98-9f76-c179771b85fc-0@tempus.invalid
+DTSTAMP:20260913T174347Z
+SUMMARY:Call Sam
+DESCRIPTION:Date phrase: every Monday at noon for 3 occurrences starting 20
+ 26-09-07\nTimezone: America/Chicago\nOnly upcoming occurrence starts appea
+ r in the preview.\nThe count includes past starts from the written start. 
+ Only future events are included in this file.\nComplete bounded recurrence
+  set\; dates are fixed to the timezone rules used when this file was gener
+ ated.
+DTSTART:20260914T170000Z
+RDATE:20260914T170000Z
+RDATE:20260921T170000Z
+END:VEVENT
+BEGIN:VEVENT
+RECURRENCE-ID:20260921T170000Z
+UID:f61d959e-cb75-4b98-9f76-c179771b85fc-0@tempus.invalid
+DTSTAMP:20260913T174347Z
+SUMMARY:Call Sam
+DESCRIPTION:Date phrase: every Monday at noon for 3 occurrences starting 20
+ 26-09-07\nTimezone: America/Chicago\nOnly upcoming occurrence starts appea
+ r in the preview.\nThe count includes past starts from the written start. 
+ Only future events are included in this file.\nComplete bounded recurrence
+  set\; dates are fixed to the timezone rules used when this file was gener
+ ated.
+DTSTART:20260921T170000Z
+END:VEVENT
+END:VCALENDAR

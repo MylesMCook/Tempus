@@ -1,0 +1,137 @@
+{
+  "redaction": "Only /Users/mylescook replaced with <home>; profiles gzip-compressed after redaction. Original files retained in dated Codex scratch directories.",
+  "manifest": [
+    {
+      "file": "before-calculatorTrace.cpuprofile.gz",
+      "originalSha256": "9d2af90f49aaec6c62aa695855d7eccf21693587798cedfe5fd3354a44f43b6b",
+      "redactedUncompressedSha256": "2ab14780e633c8b33edb2255c075a7e73fd2f24fda6ffd2df462f02f5bc84d3e"
+    },
+    {
+      "file": "before-calculatorTrace.heapprofile.gz",
+      "originalSha256": "c6ff2b9a6639f39167a8a7c3cf72a4643654534ccf7f66b24909fb58675edf79",
+      "redactedUncompressedSha256": "3f3b0f2d6a2b4ff19e32dc866a451cb33bc58916dfa71237342b3a6dc73e9527"
+    },
+    {
+      "file": "before-correction.cpuprofile.gz",
+      "originalSha256": "9ecf9e4b773d18fd8d3f8a5147db6d6d9bcc847b9d7c3939a148c5e6b02c57df",
+      "redactedUncompressedSha256": "ffe7015a51272728dbec51103f65764149289848c712eb72f366fda954ab2aac"
+    },
+    {
+      "file": "before-correction.heapprofile.gz",
+      "originalSha256": "5d7007fc0ab40a6eb2371c279ba72913dfe8ef19a0379d9229b4b5304c432369",
+      "redactedUncompressedSha256": "4fde6da26987d55f7a56cec6a62027a4cdeb3c4be3703c76b4852efb871111fb"
+    },
+    {
+      "file": "before-export.cpuprofile.gz",
+      "originalSha256": "a98818018be6b59708ab0e87a51fab04241e9fd849be6af7e9e776b7886f5f3b",
+      "redactedUncompressedSha256": "3e4d223c0acd69885b56c88bcc561d8cf7001ac994751767a400060d0725c199"
+    },
+    {
+      "file": "before-export.heapprofile.gz",
+      "originalSha256": "c57a1731195e9746daa5c4a7edee8813ed55766ce8961fffe1ab60cfdadf37c2",
+      "redactedUncompressedSha256": "4a666cc9c2827eccc95b040b4011c220b285acfb7d606764f78900b93cf9f279"
+    },
+    {
+      "file": "before-initialization.cpuprofile.gz",
+      "originalSha256": "e5821414ea2980bb197f70a1406c5c0722430765cbe7183a302a7b2edd2e6cba",
+      "redactedUncompressedSha256": "cb0c1fd78c4cd2e1a490df1960da6c78a49e00d3c8b841a323765da2b1ff2623"
+    },
+    {
+      "file": "before-preview.cpuprofile.gz",
+      "originalSha256": "b68d200bc7f63bd93dfaa385c97a352689807add93bf1bf063f3d28d82542a1a",
+      "redactedUncompressedSha256": "917865fd9e3ec2d784605567bf4e9c65c0b7c588f41711e5002569a119d82785"
+    },
+    {
+      "file": "before-preview.heapprofile.gz",
+      "originalSha256": "fad2248dd80c938f58c16ff564fbe409a9074f16a9840abacef9e67dfb2b4283",
+      "redactedUncompressedSha256": "244eb3423816fcda1a5fe6ae229990707b047c6789ad0bfb9b92ea1511da29b7"
+    },
+    {
+      "file": "before-report.json",
+      "originalSha256": "4431e301bd385699f8c59cd6aa5dee85794f8461684a9e34bccf2f44be4f7ce1",
+      "redactedUncompressedSha256": "4431e301bd385699f8c59cd6aa5dee85794f8461684a9e34bccf2f44be4f7ce1"
+    },
+    {
+      "file": "after-calculatorTrace.cpuprofile.gz",
+      "originalSha256": "415c0ce3b5fa57cbe4dcd90b397c1c658761464a5e59b5a564d8044cce0f037e",
+      "redactedUncompressedSha256": "21fed35b019e6fc121371f3a76f9add94e581822d66706d13e92553af825deab"
+    },
+    {
+      "file": "after-calculatorTrace.heapprofile.gz",
+      "originalSha256": "bde837016124d64051e2168d5cfffff34f75df8b5c952a0cd9d0520f5c7bcf2d",
+      "redactedUncompressedSha256": "32b059403b576cdfb2d45b7baed1e772623406ea5ec8397d162d6cec007b53f6"
+    },
+    {
+      "file": "after-correction.cpuprofile.gz",
+      "originalSha256": "1b99168863f50e2397390783d982100eea9aa2e8553067265d0bd808e68ff723",
+      "redactedUncompressedSha256": "087471eed6d621cea081c1fc925fbda6a283fc0b89b498df1e2b40c2c57aac46"
+    },
+    {
+      "file": "after-correction.heapprofile.gz",
+      "originalSha256": "5e510ec9cf7c47e8d1b544b7bbaa7f3f37a0f652189883ebe6fc85e7d0abc519",
+      "redactedUncompressedSha256": "745b876543e114456e06288944667e0d5f296ccb7d6d6e8ea0c9a1fd2bfbd98f"
+    },
+    {
+      "file": "after-export.cpuprofile.gz",
+      "originalSha256": "0a9bb359778d5d8583096069d9910c0c84c3ff140b8d1469ea61b9518dc60586",
+      "redactedUncompressedSha256": "e919752fd7cf818a3debd104da53f0f8e4ab2681b6b8a8c879a225f3bd74a942"
+    },
+    {
+      "file": "after-export.heapprofile.gz",
+      "originalSha256": "ec24bf8205a1b67e6416664f4b1aca9c865362505809ffb99f1a47e9ae9e32f5",
+      "redactedUncompressedSha256": "01f653c0731f5194aba167454bec05766e211c0787b71e27a9981ec9a5f84194"
+    },
+    {
+      "file": "after-initialization.cpuprofile.gz",
+      "originalSha256": "e7972b6900a4b4d1b6a87e7649e3837061efc6ac0d6a96b42e9a48eb0ca94719",
+      "redactedUncompressedSha256": "edbe6aa8f5a29b22ced8ce4d383d8ea411c41c7fa69c86ac6a72d7bef57624a5"
+    },
+    {
+      "file": "after-preview.cpuprofile.gz",
+      "originalSha256": "d518051902e148e71fb05dbd71485bd35b41b795b4be524f8c74f2a9113fecdf",
+      "redactedUncompressedSha256": "4c134252cfb757de29c4c2b499419737ba1c04bc93cab0f12dd0b09f8cf8b362"
+    },
+    {
+      "file": "after-preview.heapprofile.gz",
+      "originalSha256": "b0717729ca74117fcd12009b47fc26aae67abacdc719b075a08ba6a0e3a14428",
+      "redactedUncompressedSha256": "5b7709797d7efd05328704626970fe44c930fd40815ab30e043fe47bcf80af33"
+    },
+    {
+      "file": "after-report.json",
+      "originalSha256": "900c039c46e0741e4859b524a2d3cffa38ad9d3cf24d4d1746691be13c014701",
+      "redactedUncompressedSha256": "900c039c46e0741e4859b524a2d3cffa38ad9d3cf24d4d1746691be13c014701"
+    },
+    {
+      "file": "paired.json",
+      "originalSha256": "96c8e3e0d78699b5776a2089413a2c4ffe73679143ee427485e48265434a106e"
+    },
+    {
+      "file": "node.json",
+      "originalSha256": "887e050e72032eab43a3d8c558e9da476645d998aa0ab2dd08856c96d82fbd62"
+    },
+    {
+      "file": "chrome.json",
+      "originalSha256": "755b4c70bb7fa25a2fd4f437ec825478d65b1b301d32e70ce869313139a5d27d"
+    },
+    {
+      "file": "bundles.json",
+      "originalSha256": "ac74df4f6f7156c20d8928ec42dd8711d3e18e9e1199bbc98ca06f7df81a025e"
+    },
+    {
+      "file": "parse-metafile.json",
+      "originalSha256": "35c838503ea36509cddd8886ed156e4fcfef4e5a9af8a9784266ffc8cc995d58"
+    },
+    {
+      "file": "node26.json",
+      "originalSha256": "fb06d184884bf74e191362027736c991f95e5e9575359fdf2edb79157440e3cf"
+    },
+    {
+      "file": "node22.json",
+      "originalSha256": "e832372e795ec5bf992e36d3a57b5ae063a59427998b0d02f1330cabff4b455d"
+    },
+    {
+      "file": "replay.json",
+      "originalSha256": "8932c0f56aadf274f165e1391cdc7d78565d64661a74814c30ba4f1822cd0196"
+    }
+  ]
+}

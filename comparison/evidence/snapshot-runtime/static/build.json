@@ -1,0 +1,9 @@
+{
+  "archiveSha256": "e70f6d12405597b332dfcdf469acdac73b3f90eb6ee3f6408931272a9eb64d5d",
+  "exampleSha256": "b3da9e4acbd44080526e250c60d7e40fe5febaf3d7e900de3ffb0953f7dac983",
+  "htmlSha256": "0e84ef3839425b6cf3eb4ab11f6db6f794ed9fa90832205f3cfa4bef3dcfe149",
+  "bundleSha256": "5a2da77e0c3fd18231c339071479927940ace95dd51deb9fc786de2cf56f6604",
+  "runnerSha256": "72a706246e536183373e01e7f7c4d6961d7268eec829f879d96a1763673c6726",
+  "node": "v26.8.1",
+  "scope": "Installed SDK static integration. No hot reload, API, external requests or calendar import."
+}

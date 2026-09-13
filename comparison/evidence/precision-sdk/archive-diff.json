@@ -1,0 +1,9 @@
+{
+  "priorArchiveSha256": "1dbb7a0be85c7a6bb7610c65c82c1316571abb4424fc6a1a417ee08e29321df4",
+  "currentArchiveSha256": "7d1907c6674485eee8d1df072f5d4b6138a949e88a1f71999377a29f67d8255a",
+  "changedFiles": [
+    "dist/interpret-date.js"
+  ],
+  "identicalFiles": 55,
+  "scope": "Byte comparison, not rerun browser/Worker execution. Declarations, dependencies and serializer bytes are unchanged."
+}

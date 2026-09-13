@@ -1,0 +1,22 @@
+{
+  "status": "failed",
+  "browser": "153.0.8010.36",
+  "sourceHashes": {
+    "src/routes/home-page.tsx": "f2d1ef1855d8e9a3e1a47bbb16c4221e568d850786338d33777002d45b593e50",
+    "src/features/parser/components/date-picker.tsx": "6c66cd67dbbdd17cc3cdbfa3d323375ac77720d04eadf74d00198cc6ad76344a",
+    "src/features/parser/components/calendar-export.tsx": "b03efb0ff6b160a867827d53ea4e767171941a27bc7af4fcf6897092ab5be275"
+  },
+  "runs": [
+    {
+      "width": 320,
+      "status": "failed",
+      "error": "AssertionError [ERR_ASSERTION]: Your listed dates\n\nCall Sam\n\nAmerica/Chicago\n\nWed, Sep 30, 2026 at 12:00 PM CDT\nFri, Oct 2, 2026 at 12:00 PM CDT\nSun, Oct 4, 2026 at 12:00 PM CDT\n\nEach listed date or range occurs once, in the order you entered it.\n\nChange date or clock choices\nInterpretation choices (4)\n\nCall Sam September 30 and October 2 and 4 at noon\n\nCopy schedule preview\n\nPreview only. No reminders or calendar events have been created. You can download a file below and import it separately.\n\nHow these dates were calculated"
+    },
+    {
+      "width": 1280,
+      "status": "failed",
+      "error": "AssertionError [ERR_ASSERTION]: Your listed dates\n\nCall Sam\n\nAmerica/Chicago\n\nWed, Sep 30, 2026 at 12:00 PM CDT\nFri, Oct 2, 2026 at 12:00 PM CDT\nSun, Oct 4, 2026 at 12:00 PM CDT\n\nEach listed date or range occurs once, in the order you entered it.\n\nChange date or clock choices\nInterpretation choices (4)\n\nCall Sam September 30 and October 2 and 4 at noon\n\nCopy schedule preview\n\nPreview only. No reminders or calendar events have been created. You can download a file below and import it separately.\n\nHow these dates were calculated"
+    }
+  ],
+  "scope": "Desktop context-edit recovery with direct focus/Enter. No download, calendar write, physical device or screen-reader claim."
+}

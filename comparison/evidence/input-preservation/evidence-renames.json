@@ -1,0 +1,32 @@
+[
+  {
+    "before": "comparison/evidence/snapshot-resources/source/src__features__parser__use-calendar-preparation.ts",
+    "after": "comparison/evidence/snapshot-resources/source/src__features__parser__use-calendar-preparation.ts.txt",
+    "sha256": "7710871624cb210383cf83a3f0fabb6011c956a13f3a034bb301fb2149cd9183"
+  },
+  {
+    "before": "comparison/evidence/snapshot-resources/source/src__shared__date-parser.test.ts",
+    "after": "comparison/evidence/snapshot-resources/source/src__shared__date-parser.test.ts.txt",
+    "sha256": "3eb37cb7f87e3dbc9a5753b4dac935e0d199f6c7d332bb086d918e345706a50b"
+  },
+  {
+    "before": "comparison/evidence/snapshot-resources/source/src__shared__date-parser.ts",
+    "after": "comparison/evidence/snapshot-resources/source/src__shared__date-parser.ts.txt",
+    "sha256": "ab957f6f5aa4647e992d11a0fcf53bc2cc71bb308c5922112435ee751724f1a1"
+  },
+  {
+    "before": "comparison/evidence/snapshot-resources/source/src__features__parser__components__calendar-export.tsx",
+    "after": "comparison/evidence/snapshot-resources/source/src__features__parser__components__calendar-export.tsx.txt",
+    "sha256": "d4bfe7279c5a41a7db83cb82bdac3245cbfb4a923c59ff69a8b3be88f74be8e3"
+  },
+  {
+    "before": "comparison/evidence/snapshot-runtime/verification-worker.ts",
+    "after": "comparison/evidence/snapshot-runtime/verification-worker.ts.txt",
+    "sha256": "2130135c365198d02f5d7565a41ce490d85ae2a8c5de8b6d29e0d57b397616d5"
+  },
+  {
+    "before": "comparison/evidence/snapshot-runtime/runners/calendar-browser.ts",
+    "after": "comparison/evidence/snapshot-runtime/runners/calendar-browser.ts.txt",
+    "sha256": "b3da9e4acbd44080526e250c60d7e40fe5febaf3d7e900de3ffb0953f7dac983"
+  }
+]

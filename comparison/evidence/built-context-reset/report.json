@@ -1,0 +1,26 @@
+{
+  "scenario": "context-utc",
+  "status": "passed",
+  "browser": "153.0.8010.36",
+  "sourceHashes": {
+    "examples/app/verify-context-reset.mjs": "2c861c9b5148e794213638e73a123db91b38d152b2eabb389b73e0fbcfbf234e",
+    "src/routes/home-page.tsx": "f2d1ef1855d8e9a3e1a47bbb16c4221e568d850786338d33777002d45b593e50",
+    "src/features/parser/components/date-picker.tsx": "7e605f8fce93f0b1f8fe2e701f90e03984e77370159db3f3dd969364455f5f37",
+    "src/features/parser/components/calendar-export.tsx": "d4bfe7279c5a41a7db83cb82bdac3245cbfb4a923c59ff69a8b3be88f74be8e3"
+  },
+  "runs": [
+    {
+      "width": 320,
+      "status": "passed",
+      "file": "year-320.ics",
+      "sha256": "7bf25c867541e12ea7a30af46c1301e74a2042b79863b9ac6234da90bf47c88a"
+    },
+    {
+      "width": 1280,
+      "status": "passed",
+      "file": "year-1280.ics",
+      "sha256": "76f06ff453490ebe31dfe7d973d4221acbd08469ab13399847b5b2832007a1d0"
+    }
+  ],
+  "scope": "Desktop context-edit recovery with direct focus/Enter. Downloads the corrected UTC file; no calendar write, physical device or screen-reader claim."
+}

@@ -1,0 +1,13 @@
+
+> tempus-total@0.1.0 test /Users/mylescook/Code/MylesMCook/TempusTotal
+> vp test --run
+
+
+ RUN  v4.1.11 /Users/mylescook/Code/MylesMCook/TempusTotal
+
+
+ Test Files  59 passed (59)
+      Tests  995 passed | 1 expected fail (996)
+   Start at  14:15:54
+   Duration  2.46s (transform 1.62s, setup 0ms, import 10.73s, tests 6.92s, environment 4ms)
+

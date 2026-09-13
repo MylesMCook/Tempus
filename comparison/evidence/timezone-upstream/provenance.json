@@ -1,0 +1,25 @@
+{
+  "scope": "Fresh official HTTPS downloads and same-host rebuild. No detached-signature, independent reviewer or hermetic toolchain claim.",
+  "archives": {
+    "tzcode2026d.tar.gz": {
+      "url": "https://data.iana.org/time-zones/releases/tzcode2026d.tar.gz",
+      "sha256": "2f5c9f7fe29e6b8cb863583667884b8ce17b0a485355a054b591c6bdfcd81791"
+    },
+    "tzdata2026d.tar.gz": {
+      "url": "https://data.iana.org/time-zones/releases/tzdata2026d.tar.gz",
+      "sha256": "0cb2aa8e333c3dc049badc42a0c61f21987b8cd44e107fa900bad764aacc7767"
+    }
+  },
+  "originalManifestHashes": {
+    "compiler.json": "9cb66d3229fcb4afbaa0f7ab55946a6e49f37ed3263ddd53c042d9a2aea56770",
+    "build.json": "6653758c5e9a3abfcd9927b882dafc6b71aa9dfc47dc25f7ea9b093c05cad8a6",
+    "verification.json": "473282de90493fd6cec17d0e3f076c23d36cf46361102afdffa923d94eaa03c7"
+  },
+  "sourceHashes": {
+    "comparison/calendar/build-zic.py": "5fda57db910228cd98aff5ae1cd0b0c57cd9d6ff095381ac36a3f069c7ac4b9d",
+    "comparison/calendar/build-tzif.py": "6803aa091a35563af9845157bdc71f9bad398247d50cb767f8ee5a56f79014f8",
+    "comparison/calendar/verify-timezone-data.py": "e50cf223898febf7e3c39d23ebdd8297e630f8c7359743e6d8e31ce5512e3e0b",
+    "src/shared/date-engine/timezone-data.ts": "9e0012bdaeefcd776c5c53d55f728e85bbddf7e5cfec83a72ce5667758430d2e",
+    "src/shared/date-engine/timezone-LICENSE.txt": "0613408568889f5739e5ae252b722a2659c02002839ad970a63dc5e9174b27cf"
+  }
+}

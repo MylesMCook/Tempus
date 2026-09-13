@@ -1,0 +1,36 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tempus//Calendar Export//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:95b1ed35-2c73-4741-aaae-63234b7897eb-0@tempus.invalid
+DTSTAMP:20260308T080000Z
+SUMMARY:Call Sam
+DESCRIPTION:Date phrase: every Sunday at 2:30am for 3 occurrences except 20
+ 26-03-08\nTimezone: America/Chicago\nOnly upcoming occurrence starts appea
+ r in the preview.\nFor 2026-03-08 start only\, you selected Use March 8\, 
+ 2026 at 3:30 AM CDT (UTC-05:00). Other occurrences keep their written loca
+ l clocks.\nExcluded dates use count slots and are not replaced.\nComplete 
+ bounded recurrence set\; dates are fixed to the timezone rules used when t
+ his file was generated.\n2026-03-08 start: Use March 8\, 2026 at 3:30 AM C
+ DT (UTC-05:00)
+DTSTART:20260315T073000Z
+RDATE:20260315T073000Z
+RDATE:20260322T073000Z
+END:VEVENT
+BEGIN:VEVENT
+RECURRENCE-ID:20260322T073000Z
+UID:95b1ed35-2c73-4741-aaae-63234b7897eb-0@tempus.invalid
+DTSTAMP:20260308T080000Z
+SUMMARY:Call Sam
+DESCRIPTION:Date phrase: every Sunday at 2:30am for 3 occurrences except 20
+ 26-03-08\nTimezone: America/Chicago\nOnly upcoming occurrence starts appea
+ r in the preview.\nFor 2026-03-08 start only\, you selected Use March 8\, 
+ 2026 at 3:30 AM CDT (UTC-05:00). Other occurrences keep their written loca
+ l clocks.\nExcluded dates use count slots and are not replaced.\nComplete 
+ bounded recurrence set\; dates are fixed to the timezone rules used when t
+ his file was generated.\n2026-03-08 start: Use March 8\, 2026 at 3:30 AM C
+ DT (UTC-05:00)
+DTSTART:20260322T073000Z
+END:VEVENT
+END:VCALENDAR

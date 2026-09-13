@@ -1,0 +1,14 @@
+{
+  "archiveSha256": "47a218ba893908d49fdd132122040df95d107df8508be22fd6ff25a7fad342f4",
+  "installedFilesMatch": 56,
+  "sourceHashes": {
+    "examples/sdk/verify-browser.mjs": "ec9061dc01d1fd51ed9ad042544ad85d8b04d5cba0250851373087aab021858b",
+    "examples/sdk/verification-worker.ts": "b80e1aea39ea83ff1f93e8b893c8b707c01f2676e2a93656319b4458c8ab07d9",
+    "examples/sdk/read-browser-files.py": "47f6281afdf1ea3de92f1868fc149d0291a8c2e2a39473c6cf6d570deb52670d",
+    "examples/sdk/read-worker-files.py": "49c354fb97b9bd46f781b67d3e68d0876f44ff7aa1630afa74af076deaebab25",
+    "examples/sdk/read-browser-files.py.lock": "25321ad7e67ccbc618b94ba12fdfc25f3d5cc3d7ba775ee1ef6b06cab5e63751",
+    "examples/sdk/read-worker-files.py.lock": "25321ad7e67ccbc618b94ba12fdfc25f3d5cc3d7ba775ee1ef6b06cab5e63751"
+  },
+  "installedWorkerTypes": "passed",
+  "scopedChecks": "Browser runner and Worker formatting/lint/types pass without warnings"
+}

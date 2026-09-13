@@ -1,0 +1,50 @@
+{
+  "status": "passed",
+  "runnerSha256": "625591d17f3a0f91c8fa965fbe42019bb5e8595f05fa7db24f4437109ce6b09a",
+  "original": "Call Sam tomorrow at noon                                                                                                                                                                               except on holidays",
+  "runs": [
+    {
+      "browser": "chromium",
+      "version": "153.0.8010.36",
+      "width": 320,
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "browser": "chromium",
+      "version": "153.0.8010.36",
+      "width": 1280,
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "browser": "firefox",
+      "version": "148.0.2",
+      "width": 320,
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "browser": "firefox",
+      "version": "148.0.2",
+      "width": 1280,
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "browser": "webkit",
+      "version": "26.4",
+      "width": 320,
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "browser": "webkit",
+      "version": "26.4",
+      "width": 1280,
+      "status": "passed",
+      "errors": []
+    }
+  ],
+  "scope": "Authored desktop text insertion and explicit editing; not physical-device, native clipboard, calendar import or independent-user evidence."
+}

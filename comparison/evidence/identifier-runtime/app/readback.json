@@ -1,0 +1,57 @@
+{
+  "files": [
+    {
+      "file": "invoice-320.ics",
+      "status": "passed",
+      "starts": [
+        "2026-11-01T07:30:00+00:00"
+      ],
+      "title": "Pay invoice #123"
+    },
+    {
+      "file": "schedule-320.ics",
+      "status": "passed",
+      "starts": [
+        "2026-09-14T17:00:00+00:00",
+        "2026-09-21T17:00:00+00:00",
+        "2026-09-28T17:00:00+00:00"
+      ],
+      "title": "Visit room 3"
+    },
+    {
+      "file": "title-320.ics",
+      "status": "passed",
+      "starts": [
+        "2026-09-13T17:00:00+00:00"
+      ],
+      "title": "Room 3"
+    },
+    {
+      "file": "invoice-1280.ics",
+      "status": "passed",
+      "starts": [
+        "2026-11-01T07:30:00+00:00"
+      ],
+      "title": "Pay invoice #123"
+    },
+    {
+      "file": "schedule-1280.ics",
+      "status": "passed",
+      "starts": [
+        "2026-09-14T17:00:00+00:00",
+        "2026-09-21T17:00:00+00:00",
+        "2026-09-28T17:00:00+00:00"
+      ],
+      "title": "Visit room 3"
+    },
+    {
+      "file": "title-1280.ics",
+      "status": "passed",
+      "starts": [
+        "2026-09-13T17:00:00+00:00"
+      ],
+      "title": "Room 3"
+    }
+  ],
+  "scope": "Separate file readers and fixed authored oracle; not calendar-client import or independent product evaluation."
+}

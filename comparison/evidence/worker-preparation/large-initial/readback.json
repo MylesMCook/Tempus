@@ -1,0 +1,21 @@
+{
+  "files": [
+    {
+      "filename": "large-320.ics",
+      "sha256": "c8e3968ab3b75708f397b2035a51090c13def5b591f67b354d55abab967551cb",
+      "events": 1000,
+      "firstLocalDate": "2026-09-13",
+      "lastLocalDate": "2029-06-08",
+      "status": "passed"
+    },
+    {
+      "filename": "large-1280.ics",
+      "sha256": "39a817016ab68bf5e5057bfaaee459ff2d98b220860970cc1637392186489a89",
+      "events": 1000,
+      "firstLocalDate": "2026-09-13",
+      "lastLocalDate": "2029-06-08",
+      "status": "passed"
+    }
+  ],
+  "scope": "Separate Python readers verify complete files, dates, durations, titles and unique UID/recurrence identities. SDK first date has a fixed oracle; app checks continuity, not its captured reference. No actual client import."
+}

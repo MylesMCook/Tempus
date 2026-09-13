@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "sentParameters": {
+    "expression": "2026-11-01 at noon",
+    "timezone": "America/Chicago",
+    "reference": "2026-09-13T18:52:25.119Z",
+    "format": "EEEE, MMMM d, yyyy"
+  },
+  "engineVersion": 2,
+  "scope": "Explicit local API replay only; not Cloudflare deployment or hosting-log inspection"
+}

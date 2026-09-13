@@ -1,0 +1,905 @@
+{
+  "status": "passed",
+  "archiveSha256": "7d1907c6674485eee8d1df072f5d4b6138a949e88a1f71999377a29f67d8255a",
+  "runnerSha256": "407b3daac41d94913100acff3ba317c6ae8cf67cbb414211e3562229fbed812f",
+  "packages": {
+    "jsbi@4.3.2": {
+      "dependencies": {},
+      "manifestSha256": "756c2c1b6e80e9e8488fe7ad66403a8307b115a0dc141966e69adf41eb39efc6"
+    },
+    "@js-temporal/polyfill@0.5.1": {
+      "dependencies": {
+        "jsbi": "^4.3.0"
+      },
+      "manifestSha256": "8406de0f5b7642ee1518c01c40ee6b797da7bc97575fea406e1f17876493e9cc"
+    },
+    "@tempus-date/core@0.1.0": {
+      "dependencies": {
+        "@js-temporal/polyfill": "0.5.1"
+      },
+      "manifestSha256": "f4e96ea3ceafde788dfb33f672b6ec066e5988cdfb19f87216784c17296391be"
+    }
+  },
+  "bundles": {
+    ".": {
+      "inputs": {
+        "jsbi@4.3.2/dist/jsbi-umd.js": {
+          "sha256": "450aa05df1d8664d5be05897b616d0dcaaeacc8bf20d7d8e3cc48ad703b086d3",
+          "imports": []
+        },
+        "@js-temporal/polyfill@0.5.1/dist/index.esm.js": {
+          "sha256": "21f067c54fa5f532f20a8e85e3d2401a3ae1cf60d85fafea6502f621dc93b167",
+          "imports": [
+            {
+              "package": "jsbi@4.3.2",
+              "file": "dist/jsbi-umd.js",
+              "kind": "import-statement"
+            }
+          ]
+        },
+        "@tempus-date/core@0.1.0/dist/date-engine/timezone-data.js": {
+          "sha256": "14ab87de1253235b9d68b3e903248e8eb2fc8da44fabd0aacbb8049da759d84b",
+          "imports": []
+        },
+        "@tempus-date/core@0.1.0/dist/date-engine/timezone-reader.js": {
+          "sha256": "335a8582d97843aad7c34468193d852f7d7307c688a30709e48c9954d75ac1fb",
+          "imports": []
+        },
+        "@tempus-date/core@0.1.0/dist/date-engine/timezone-database.js": {
+          "sha256": "3124b9abc162242ac6f5c8a202e7adcbb76139a3dc7a147075e6839f0dce516d",
+          "imports": [
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/timezone-data.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/timezone-reader.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/timezone-reader.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/timezone-data.js",
+              "kind": "import-statement"
+            }
+          ]
+        },
+        "@tempus-date/core@0.1.0/dist/date-engine/zoned-date.js": {
+          "sha256": "97fae20bd5fe7a8254cad410bddeb89c8420fee1356bf6b2046496cbb80a08fa",
+          "imports": [
+            {
+              "package": "@js-temporal/polyfill@0.5.1",
+              "file": "dist/index.esm.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/timezone-database.js",
+              "kind": "import-statement"
+            }
+          ]
+        },
+        "@tempus-date/core@0.1.0/dist/date-engine/vocabulary.js": {
+          "sha256": "32363c034a3af302db4d2fa401193680703a56c189bec4c2f4b123a41b01c8ec",
+          "imports": []
+        },
+        "@tempus-date/core@0.1.0/dist/date-engine/types.js": {
+          "sha256": "628a013b109b9ad301d1f669034207bb4c920c028c6e5802a1915b5f5887ffb2",
+          "imports": []
+        },
+        "@tempus-date/core@0.1.0/dist/date-engine/grammar.js": {
+          "sha256": "dc8eb73e51298972e2846374f489c2873e2a7dd0730736e7adbf0a27df5afdcb",
+          "imports": [
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/vocabulary.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/types.js",
+              "kind": "import-statement"
+            }
+          ]
+        },
+        "@tempus-date/core@0.1.0/dist/date-parser.js": {
+          "sha256": "41f1b74452831f1028d22a49105da7c92166b332b44e447b56f8eadc69af50bd",
+          "imports": [
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/zoned-date.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/timezone-database.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@js-temporal/polyfill@0.5.1",
+              "file": "dist/index.esm.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/grammar.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/types.js",
+              "kind": "import-statement"
+            }
+          ]
+        },
+        "@tempus-date/core@0.1.0/dist/calculate-schedule-date.js": {
+          "sha256": "ad8cc9b69d8821efde450e6c54b07b5d716b1f6823e26c62daae61e1c9ea86e3",
+          "imports": [
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/zoned-date.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@js-temporal/polyfill@0.5.1",
+              "file": "dist/index.esm.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-parser.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/grammar.js",
+              "kind": "import-statement"
+            }
+          ]
+        },
+        "@tempus-date/core@0.1.0/dist/date-engine/format-zoned.js": {
+          "sha256": "3a06f03c37b1d75cc81137c4852d101379ad5473dd178afedc365d9c7988afbd",
+          "imports": [
+            {
+              "package": "@js-temporal/polyfill@0.5.1",
+              "file": "dist/index.esm.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/zoned-date.js",
+              "kind": "import-statement"
+            }
+          ]
+        },
+        "@tempus-date/core@0.1.0/dist/clarify-clock.js": {
+          "sha256": "133defdfa89bcb1692e91bebd152bc1748bc841a2549ac2162fbbfd810d2783e",
+          "imports": [
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/zoned-date.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/format-zoned.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@js-temporal/polyfill@0.5.1",
+              "file": "dist/index.esm.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/calculate-schedule-date.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/grammar.js",
+              "kind": "import-statement"
+            }
+          ]
+        },
+        "@tempus-date/core@0.1.0/dist/clarify-numeric-date.js": {
+          "sha256": "293b19edea177f52ee7b21e042fd450aa117fe4af1d5412d35630766872a8b49",
+          "imports": [
+            {
+              "package": "@js-temporal/polyfill@0.5.1",
+              "file": "dist/index.esm.js",
+              "kind": "import-statement"
+            }
+          ]
+        },
+        "@tempus-date/core@0.1.0/dist/interpret-interval.js": {
+          "sha256": "2b16a37543237d7d59ff1380faaa5ef4a9a41808c2e13465c6358ad20f9ac2ba",
+          "imports": [
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/zoned-date.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@js-temporal/polyfill@0.5.1",
+              "file": "dist/index.esm.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-parser.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/calculate-schedule-date.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/grammar.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/clarify-clock.js",
+              "kind": "import-statement"
+            }
+          ]
+        },
+        "@tempus-date/core@0.1.0/dist/interpret-date-list.js": {
+          "sha256": "49ae0e81b696870a0c5e4e74a94dbee8694f52b32d0bc3df7f94a7baa8984c31",
+          "imports": [
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/calculate-schedule-date.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/clarify-clock.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/clarify-numeric-date.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/interpret-interval.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/zoned-date.js",
+              "kind": "import-statement"
+            }
+          ]
+        },
+        "@tempus-date/core@0.1.0/dist/monthly-date.js": {
+          "sha256": "96fac959e2aac2652bca15beb9aae039de3d6c60ce426f440f6ff2c7e3d7c5ae",
+          "imports": [
+            {
+              "package": "@js-temporal/polyfill@0.5.1",
+              "file": "dist/index.esm.js",
+              "kind": "import-statement"
+            }
+          ]
+        },
+        "@tempus-date/core@0.1.0/dist/interpret-recurrence.js": {
+          "sha256": "dc2db4369f787d737e376f23b6835cea03cd4cb43f831e913afb0cc2d2fe0309",
+          "imports": [
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/monthly-date.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/zoned-date.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@js-temporal/polyfill@0.5.1",
+              "file": "dist/index.esm.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-parser.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/types.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/grammar.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/interpret-interval.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/clarify-clock.js",
+              "kind": "import-statement"
+            }
+          ]
+        },
+        "@tempus-date/core@0.1.0/dist/interpret-groups.js": {
+          "sha256": "8e3468660b0278947d0098ea937f4e7754d04d9136035175978722fa299182c8",
+          "imports": [
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/vocabulary.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/interpret-interval.js",
+              "kind": "import-statement"
+            }
+          ]
+        },
+        "@tempus-date/core@0.1.0/dist/clarify-arithmetic.js": {
+          "sha256": "6c9dbfc4bfc9fe38374e32b86840ee1e103d5d1e52d6d0a73e8f0f5674b016f5",
+          "imports": [
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-parser.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/grammar.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/zoned-date.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/format-zoned.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/types.js",
+              "kind": "import-statement"
+            }
+          ]
+        },
+        "@tempus-date/core@0.1.0/dist/interpret-date.js": {
+          "sha256": "99221367e42fa447d9358d25204bb565f3d13bd64bd077d39010a298e821d262",
+          "imports": [
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/interpret-date-list.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/format-zoned.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-parser.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/interpret-recurrence.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/interpret-groups.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/clarify-clock.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/clarify-arithmetic.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/calculate-schedule-date.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/grammar.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/interpret-interval.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/clarify-numeric-date.js",
+              "kind": "import-statement"
+            }
+          ]
+        },
+        "@tempus-date/core@0.1.0/dist/sdk.js": {
+          "sha256": "4c58029c8a1a962b65aeb4eb761d811a65b85cb1657d00969408c96c5c6b7f49",
+          "imports": [
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/interpret-date.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/clarify-numeric-date.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-parser.js",
+              "kind": "import-statement"
+            }
+          ]
+        }
+      },
+      "exports": [
+        "SDK_VERSION",
+        "appendSelection",
+        "calculateDate",
+        "createParser",
+        "limits",
+        "parse",
+        "parseMany"
+      ],
+      "bundleSha256": "da27d9db215297a64f6ca072ac818df6b65664301309affc351c6fee903fba5e"
+    },
+    "./calendar": {
+      "inputs": {
+        "jsbi@4.3.2/dist/jsbi-umd.js": {
+          "sha256": "450aa05df1d8664d5be05897b616d0dcaaeacc8bf20d7d8e3cc48ad703b086d3",
+          "imports": []
+        },
+        "@js-temporal/polyfill@0.5.1/dist/index.esm.js": {
+          "sha256": "21f067c54fa5f532f20a8e85e3d2401a3ae1cf60d85fafea6502f621dc93b167",
+          "imports": [
+            {
+              "package": "jsbi@4.3.2",
+              "file": "dist/jsbi-umd.js",
+              "kind": "import-statement"
+            }
+          ]
+        },
+        "@tempus-date/core@0.1.0/dist/calendar-file.js": {
+          "sha256": "df12c06abcfd8563ab0163c3f57f6a84acbc6a0196137d5029d07b907bc1858b",
+          "imports": [
+            {
+              "package": "@js-temporal/polyfill@0.5.1",
+              "file": "dist/index.esm.js",
+              "kind": "import-statement"
+            }
+          ]
+        },
+        "@tempus-date/core@0.1.0/dist/monthly-date.js": {
+          "sha256": "96fac959e2aac2652bca15beb9aae039de3d6c60ce426f440f6ff2c7e3d7c5ae",
+          "imports": [
+            {
+              "package": "@js-temporal/polyfill@0.5.1",
+              "file": "dist/index.esm.js",
+              "kind": "import-statement"
+            }
+          ]
+        },
+        "@tempus-date/core@0.1.0/dist/date-engine/timezone-data.js": {
+          "sha256": "14ab87de1253235b9d68b3e903248e8eb2fc8da44fabd0aacbb8049da759d84b",
+          "imports": []
+        },
+        "@tempus-date/core@0.1.0/dist/date-engine/timezone-reader.js": {
+          "sha256": "335a8582d97843aad7c34468193d852f7d7307c688a30709e48c9954d75ac1fb",
+          "imports": []
+        },
+        "@tempus-date/core@0.1.0/dist/date-engine/timezone-database.js": {
+          "sha256": "3124b9abc162242ac6f5c8a202e7adcbb76139a3dc7a147075e6839f0dce516d",
+          "imports": [
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/timezone-data.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/timezone-reader.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/timezone-reader.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/timezone-data.js",
+              "kind": "import-statement"
+            }
+          ]
+        },
+        "@tempus-date/core@0.1.0/dist/date-engine/zoned-date.js": {
+          "sha256": "97fae20bd5fe7a8254cad410bddeb89c8420fee1356bf6b2046496cbb80a08fa",
+          "imports": [
+            {
+              "package": "@js-temporal/polyfill@0.5.1",
+              "file": "dist/index.esm.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/timezone-database.js",
+              "kind": "import-statement"
+            }
+          ]
+        },
+        "@tempus-date/core@0.1.0/dist/date-engine/vocabulary.js": {
+          "sha256": "32363c034a3af302db4d2fa401193680703a56c189bec4c2f4b123a41b01c8ec",
+          "imports": []
+        },
+        "@tempus-date/core@0.1.0/dist/date-engine/types.js": {
+          "sha256": "628a013b109b9ad301d1f669034207bb4c920c028c6e5802a1915b5f5887ffb2",
+          "imports": []
+        },
+        "@tempus-date/core@0.1.0/dist/date-engine/grammar.js": {
+          "sha256": "dc8eb73e51298972e2846374f489c2873e2a7dd0730736e7adbf0a27df5afdcb",
+          "imports": [
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/vocabulary.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/types.js",
+              "kind": "import-statement"
+            }
+          ]
+        },
+        "@tempus-date/core@0.1.0/dist/date-parser.js": {
+          "sha256": "41f1b74452831f1028d22a49105da7c92166b332b44e447b56f8eadc69af50bd",
+          "imports": [
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/zoned-date.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/timezone-database.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@js-temporal/polyfill@0.5.1",
+              "file": "dist/index.esm.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/grammar.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/types.js",
+              "kind": "import-statement"
+            }
+          ]
+        },
+        "@tempus-date/core@0.1.0/dist/calculate-schedule-date.js": {
+          "sha256": "ad8cc9b69d8821efde450e6c54b07b5d716b1f6823e26c62daae61e1c9ea86e3",
+          "imports": [
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/zoned-date.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@js-temporal/polyfill@0.5.1",
+              "file": "dist/index.esm.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-parser.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/grammar.js",
+              "kind": "import-statement"
+            }
+          ]
+        },
+        "@tempus-date/core@0.1.0/dist/date-engine/format-zoned.js": {
+          "sha256": "3a06f03c37b1d75cc81137c4852d101379ad5473dd178afedc365d9c7988afbd",
+          "imports": [
+            {
+              "package": "@js-temporal/polyfill@0.5.1",
+              "file": "dist/index.esm.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/zoned-date.js",
+              "kind": "import-statement"
+            }
+          ]
+        },
+        "@tempus-date/core@0.1.0/dist/clarify-clock.js": {
+          "sha256": "133defdfa89bcb1692e91bebd152bc1748bc841a2549ac2162fbbfd810d2783e",
+          "imports": [
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/zoned-date.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/format-zoned.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@js-temporal/polyfill@0.5.1",
+              "file": "dist/index.esm.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/calculate-schedule-date.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/grammar.js",
+              "kind": "import-statement"
+            }
+          ]
+        },
+        "@tempus-date/core@0.1.0/dist/interpret-interval.js": {
+          "sha256": "2b16a37543237d7d59ff1380faaa5ef4a9a41808c2e13465c6358ad20f9ac2ba",
+          "imports": [
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/zoned-date.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@js-temporal/polyfill@0.5.1",
+              "file": "dist/index.esm.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-parser.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/calculate-schedule-date.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/grammar.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/clarify-clock.js",
+              "kind": "import-statement"
+            }
+          ]
+        },
+        "@tempus-date/core@0.1.0/dist/interpret-recurrence.js": {
+          "sha256": "dc2db4369f787d737e376f23b6835cea03cd4cb43f831e913afb0cc2d2fe0309",
+          "imports": [
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/monthly-date.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/zoned-date.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@js-temporal/polyfill@0.5.1",
+              "file": "dist/index.esm.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-parser.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/types.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/grammar.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/interpret-interval.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/clarify-clock.js",
+              "kind": "import-statement"
+            }
+          ]
+        },
+        "@tempus-date/core@0.1.0/dist/recurrence-clock-conflicts.js": {
+          "sha256": "6e50b27e957364bbb290383036192a3e2dea774bd412640f1bac3e5a94066dc3",
+          "imports": [
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/monthly-date.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@js-temporal/polyfill@0.5.1",
+              "file": "dist/index.esm.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-parser.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/timezone-database.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/zoned-date.js",
+              "kind": "import-statement"
+            }
+          ]
+        },
+        "@tempus-date/core@0.1.0/dist/calendar-transition-rule.js": {
+          "sha256": "c18b0016d35a96ca4867100be4e1490ea68cc9f4c76f74dee0b1f731d9d68ef2",
+          "imports": []
+        },
+        "@tempus-date/core@0.1.0/dist/calendar-timezone-ongoing.js": {
+          "sha256": "d321f7cd557b48bd4f98f3af549ed523d621a5feea38d3bfd257504ba25b0e86",
+          "imports": [
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/timezone-database.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/calendar-transition-rule.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@js-temporal/polyfill@0.5.1",
+              "file": "dist/index.esm.js",
+              "kind": "import-statement"
+            }
+          ]
+        },
+        "@tempus-date/core@0.1.0/dist/clarify-numeric-date.js": {
+          "sha256": "293b19edea177f52ee7b21e042fd450aa117fe4af1d5412d35630766872a8b49",
+          "imports": [
+            {
+              "package": "@js-temporal/polyfill@0.5.1",
+              "file": "dist/index.esm.js",
+              "kind": "import-statement"
+            }
+          ]
+        },
+        "@tempus-date/core@0.1.0/dist/recurring-calendar-file.js": {
+          "sha256": "a0dcd63792dadc7c4720af82d1e01fde5101f07da09b94c01e6d166a22607342",
+          "imports": [
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/interpret-recurrence.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/calendar-file.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@js-temporal/polyfill@0.5.1",
+              "file": "dist/index.esm.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-engine/timezone-database.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/date-parser.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/recurrence-clock-conflicts.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/calendar-timezone-ongoing.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/clarify-numeric-date.js",
+              "kind": "import-statement"
+            }
+          ]
+        },
+        "@tempus-date/core@0.1.0/dist/sdk-calendar.js": {
+          "sha256": "8de19fcb4c2e11e6e624e7f6474b0ca3db62e4541925398fae1e27d5caa8b121",
+          "imports": [
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/calendar-file.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/recurring-calendar-file.js",
+              "kind": "import-statement"
+            },
+            {
+              "package": "@tempus-date/core@0.1.0",
+              "file": "dist/clarify-numeric-date.js",
+              "kind": "import-statement"
+            }
+          ]
+        }
+      },
+      "exports": [
+        "prepareCalendarFile",
+        "prepareRecurringCalendarFile",
+        "resolveRecurringExport",
+        "retainOccurrenceDecisions"
+      ],
+      "bundleSha256": "897715378be354048f8bd461f436f96f2439e89dc0b5af9a49616e520cbacc53"
+    }
+  },
+  "scope": "Browser-platform bundle and declared import closure of current public entries. No unresolved externals or undeclared cross-package edges. Not runtime execution, side-effect proof, vulnerability scan, dependency provenance or independent review."
+}

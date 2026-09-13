@@ -1,0 +1,68 @@
+{
+  "status": "passed",
+  "browser": "153.0.8010.36",
+  "baseURL": "http://127.0.0.1:5175",
+  "runs": [
+    {
+      "kind": "point",
+      "width": 320,
+      "status": "passed",
+      "errors": [],
+      "tabs": 6,
+      "copied": "Call Sam\nSunday, September 13, 2026\n12:00 PM CDT · America/Chicago (UTC-05:00)",
+      "initialResult": "Your date is ready\n\nSunday, September 13, 2026\n\nAmerica/Chicago · 12:00 PM CDT\n\nEvent: Call Sam\n\nCall Sam tomorrow at noon\n\nDate preview only. No reminder has been created.\n\nCopy date"
+    },
+    {
+      "kind": "interval",
+      "width": 320,
+      "status": "passed",
+      "errors": [],
+      "tabs": 6,
+      "copied": "Call Sam\nStart: Sunday, September 13, 2026 at 12:00 PM CDT\nEnd (exclusive): Sunday, September 13, 2026 at 12:30 PM CDT\nAmerica/Chicago\nTimed interval",
+      "initialResult": "Your date range is ready\n\nCall Sam\n\nStart\nSunday, September 13, 2026 at 12:00 PM CDT\nEnd · not included\nSunday, September 13, 2026 at 12:30 PM CDT\n\nAmerica/Chicago · Timed range\n\nCall Sam tomorrow at noon for 30 minutes\n\nCopy date range\n\nPreview only. No reminder or calendar event has been created.\n\nHow this range was calculated"
+    },
+    {
+      "kind": "schedule",
+      "width": 320,
+      "status": "passed",
+      "errors": [],
+      "tabs": 6,
+      "copied": "Call Sam\nevery Monday at noon for 3 occurrences\nRepeats Monday\n3 occurrences in total.\nAmerica/Chicago\nUpcoming occurrence preview:\nMon, Sep 14, 2026 at 12:00 PM CDT\nMon, Sep 21, 2026 at 12:00 PM CDT\nMon, Sep 28, 2026 at 12:00 PM CDT\nNo further occurrences within these boundaries.",
+      "initialResult": "Your repeating schedule\n\nCall Sam\n\nRepeats Monday\n\n3 occurrences in total.\n\nAmerica/Chicago\n\nMon, Sep 14, 2026 at 12:00 PM CDT\nMon, Sep 21, 2026 at 12:00 PM CDT\nMon, Sep 28, 2026 at 12:00 PM CDT\n\nThis preview includes all remaining occurrences within the boundaries.\n\nCall Sam every Monday at noon for 3 occurrences\n\nStart date\n2026-09-12\nCopy schedule preview\n\nPreview only. No reminders or calendar events have been created. Open Export to calendar to review the available file.\n\nHow these dates were calculated"
+    },
+    {
+      "kind": "point",
+      "width": 1280,
+      "status": "passed",
+      "errors": [],
+      "tabs": 6,
+      "copied": "Call Sam\nSunday, September 13, 2026\n12:00 PM CDT · America/Chicago (UTC-05:00)",
+      "initialResult": "Your date is ready\n\nSunday, September 13, 2026\n\nAmerica/Chicago · 12:00 PM CDT\n\nEvent: Call Sam\n\nCall Sam tomorrow at noon\n\nDate preview only. No reminder has been created.\n\nCopy date"
+    },
+    {
+      "kind": "interval",
+      "width": 1280,
+      "status": "passed",
+      "errors": [],
+      "tabs": 6,
+      "copied": "Call Sam\nStart: Sunday, September 13, 2026 at 12:00 PM CDT\nEnd (exclusive): Sunday, September 13, 2026 at 12:30 PM CDT\nAmerica/Chicago\nTimed interval",
+      "initialResult": "Your date range is ready\n\nCall Sam\n\nStart\nSunday, September 13, 2026 at 12:00 PM CDT\nEnd · not included\nSunday, September 13, 2026 at 12:30 PM CDT\n\nAmerica/Chicago · Timed range\n\nCall Sam tomorrow at noon for 30 minutes\n\nCopy date range\n\nPreview only. No reminder or calendar event has been created.\n\nHow this range was calculated"
+    },
+    {
+      "kind": "schedule",
+      "width": 1280,
+      "status": "passed",
+      "errors": [],
+      "tabs": 6,
+      "copied": "Call Sam\nevery Monday at noon for 3 occurrences\nRepeats Monday\n3 occurrences in total.\nAmerica/Chicago\nUpcoming occurrence preview:\nMon, Sep 14, 2026 at 12:00 PM CDT\nMon, Sep 21, 2026 at 12:00 PM CDT\nMon, Sep 28, 2026 at 12:00 PM CDT\nNo further occurrences within these boundaries.",
+      "initialResult": "Your repeating schedule\n\nCall Sam\n\nRepeats Monday\n\n3 occurrences in total.\n\nAmerica/Chicago\n\nMon, Sep 14, 2026 at 12:00 PM CDT\nMon, Sep 21, 2026 at 12:00 PM CDT\nMon, Sep 28, 2026 at 12:00 PM CDT\n\nThis preview includes all remaining occurrences within the boundaries.\n\nCall Sam every Monday at noon for 3 occurrences\n\nStart date\n2026-09-12\nCopy schedule preview\n\nPreview only. No reminders or calendar events have been created. Open Export to calendar to review the available file.\n\nHow these dates were calculated"
+    }
+  ],
+  "sourceHashes": {
+    "examples/app/verify-copy-recovery.mjs": "9bb8d6532fc6ed3e76362e48841317d05814ca8973f6dc160c1e0a0f8c3c52f5",
+    "src/features/parser/components/date-picker.tsx": "903ebf546f50f17423c2c7ce6c82c85813b38a5457d36e155f3753db5bac7476",
+    "src/features/parser/components/interval-result.tsx": "35705e2f6872d6aa9ac7686f44841bada3b7cff95944189ac93f155a3753efaa",
+    "src/features/parser/components/occurrence-result.tsx": "eae264f72f3eaf1b9258f455a1ad5ecb63b50c94f8a55c984f7f94055cdd2d39"
+  },
+  "scope": "Injected clipboard denial followed by real write/read of task-created text; desktop Chrome, not physical devices or cross-application paste. Tab navigation begins at the input."
+}

@@ -1,0 +1,34 @@
+{
+  "commands": [
+    {
+      "command": "pnpm check",
+      "exitCode": 1,
+      "remainingFailure": "aux/misc/rust-wasm-spike/profile.mjs formatting; preserved unrelated work"
+    },
+    {
+      "command": "pnpm exec vp check --no-fmt",
+      "exitCode": 0,
+      "lintAndTypeFiles": 194,
+      "warnings": 0
+    },
+    {
+      "command": "pnpm exec vp check src worker comparison examples packages docs tasks.md README.md vite.config.ts",
+      "exitCode": 0,
+      "formattedFiles": 257,
+      "lintAndTypeFiles": 189,
+      "warnings": 0
+    }
+  ],
+  "evidenceChecksums": {
+    "filesVerified": 263,
+    "failures": []
+  },
+  "configSha256": "d457b27ebc5c4a09f2a06ba31008e2db6a541429fbefa379f964f4fd478b9c23",
+  "scope": "Local release checks; no whole-repository clean claim, deployment or independent security certification.",
+  "finalScopedRerun": {
+    "exitCode": 0,
+    "formattedFiles": 258,
+    "lintAndTypeFiles": 189,
+    "warnings": 0
+  }
+}

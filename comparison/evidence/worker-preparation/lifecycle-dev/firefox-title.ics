@@ -1,0 +1,40 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tempus//Calendar Export//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:0c94cd9a-c57c-4f73-aa17-fc27f3ee56cb-0@tempus.invalid
+DTSTAMP:20260913T160121Z
+SUMMARY:Final title
+DESCRIPTION:Date phrase: every day at noon for 3 occurrences\nTimezone: Ame
+ rica/Chicago\nOnly upcoming occurrence starts appear in the preview.\nComp
+ lete bounded recurrence set\; dates are fixed to the timezone rules used w
+ hen this file was generated.
+DTSTART:20260913T170000Z
+RDATE:20260913T170000Z
+RDATE:20260914T170000Z
+RDATE:20260915T170000Z
+END:VEVENT
+BEGIN:VEVENT
+RECURRENCE-ID:20260914T170000Z
+UID:0c94cd9a-c57c-4f73-aa17-fc27f3ee56cb-0@tempus.invalid
+DTSTAMP:20260913T160121Z
+SUMMARY:Final title
+DESCRIPTION:Date phrase: every day at noon for 3 occurrences\nTimezone: Ame
+ rica/Chicago\nOnly upcoming occurrence starts appear in the preview.\nComp
+ lete bounded recurrence set\; dates are fixed to the timezone rules used w
+ hen this file was generated.
+DTSTART:20260914T170000Z
+END:VEVENT
+BEGIN:VEVENT
+RECURRENCE-ID:20260915T170000Z
+UID:0c94cd9a-c57c-4f73-aa17-fc27f3ee56cb-0@tempus.invalid
+DTSTAMP:20260913T160121Z
+SUMMARY:Final title
+DESCRIPTION:Date phrase: every day at noon for 3 occurrences\nTimezone: Ame
+ rica/Chicago\nOnly upcoming occurrence starts appear in the preview.\nComp
+ lete bounded recurrence set\; dates are fixed to the timezone rules used w
+ hen this file was generated.
+DTSTART:20260915T170000Z
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,79 @@
+{
+  "status": "passed",
+  "version": 2,
+  "baseURL": "http://127.0.0.1:5175",
+  "browser": "153.0.8010.36",
+  "runs": [
+    {
+      "id": "invoice",
+      "width": 320,
+      "status": "passed",
+      "errors": [],
+      "file": "invoice-320.ics",
+      "sha256": "4d572d46a5857b57b61a0863daa43dc47cbb91c53a8359b27d45132dbf3c08dc"
+    },
+    {
+      "id": "quantity",
+      "width": 320,
+      "status": "passed",
+      "errors": [],
+      "file": "quantity-320.ics",
+      "sha256": "c574c1afb06d09b847c8c565a43d81add80a898a11a6e936538ff339df98de86"
+    },
+    {
+      "id": "schedule",
+      "width": 320,
+      "status": "passed",
+      "errors": [],
+      "file": "schedule-320.ics",
+      "sha256": "752bfee27e978dcdf837a17710a9654859e49d3f44a125174b60f457291a226b"
+    },
+    {
+      "id": "title",
+      "width": 320,
+      "status": "passed",
+      "errors": [],
+      "file": "title-320.ics",
+      "sha256": "bedbc21994af6873a63abbbee32924330712d36a83375c6c915f34246c2113ad"
+    },
+    {
+      "id": "invoice",
+      "width": 1280,
+      "status": "passed",
+      "errors": [],
+      "file": "invoice-1280.ics",
+      "sha256": "f75928009d2ea9a4f4235a19b2804dbaad78a1f1ef82cee25cfd8504bb67df30"
+    },
+    {
+      "id": "quantity",
+      "width": 1280,
+      "status": "passed",
+      "errors": [],
+      "file": "quantity-1280.ics",
+      "sha256": "a58a1c6571bff60dd7d066abb240c8326233a9fb7c9afa5fe463e8558b05ef9f"
+    },
+    {
+      "id": "schedule",
+      "width": 1280,
+      "status": "passed",
+      "errors": [],
+      "file": "schedule-1280.ics",
+      "sha256": "e8ffc7ec44058e70e845f2261216ed433d3303270e6fd728455fefcd67196c1d"
+    },
+    {
+      "id": "title",
+      "width": 1280,
+      "status": "passed",
+      "errors": [],
+      "file": "title-1280.ics",
+      "sha256": "37f5533d2d2e525a330def8205460ebc386ddc2290b8ce6b50c561b9ce1ea026"
+    }
+  ],
+  "sourceHashes": {
+    "src/shared/interpret-date.ts": "e439da48f284b292fb401a07f2397da12e7edd846cc102cff2ff4729b67d91ac",
+    "src/shared/event-identifiers.test.ts": "5cb6831e1c2def452a210eca08e5be6270ccec9a9241a7e346c7431079288275",
+    "src/shared/quantity-label.test.ts": "dba6e3db4db336cecf9c06e6a3669c8e476ef58949712767c77f0573d4cafb73",
+    "examples/app/verify-event-identifiers.mjs": "984e3317ae308f39c41e1a2b0f1f8a99984f6b072c2f61155264707fe2a33d5d"
+  },
+  "scope": "Authored main-app tasks, direct focus/Enter and downloads at desktop widths; not independent users, physical phones or calendar-client import."
+}

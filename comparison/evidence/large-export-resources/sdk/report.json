@@ -1,0 +1,205 @@
+{
+  "recordedAt": "2026-09-13T15:47:28.088Z",
+  "node": "v26.8.1",
+  "archiveSha256": "3766276269c5e863a4660b7f47bfff9cdf5b93d20afeebdf06b79385520b666b",
+  "scriptSha256": "bb8281e5577716772aa6383959ce397d7c36a530676662a7eacd013195e0d379",
+  "zoneCount": 597,
+  "beforeImport": {
+    "rss": 48250880,
+    "heapTotal": 7487488,
+    "heapUsed": 4806408,
+    "external": 3001263,
+    "arrayBuffers": 143737
+  },
+  "afterImport": {
+    "rss": 64241664,
+    "heapTotal": 11206656,
+    "heapUsed": 6998576,
+    "external": 2533535,
+    "arrayBuffers": 143745
+  },
+  "samples": [
+    {
+      "cycle": 0,
+      "processed": 597,
+      "rss": 129744896,
+      "heapTotal": 26411008,
+      "heapUsed": 9114968,
+      "external": 2727211,
+      "arrayBuffers": 177613
+    },
+    {
+      "cycle": 1,
+      "processed": 1194,
+      "rss": 133988352,
+      "heapTotal": 28508160,
+      "heapUsed": 9151752,
+      "external": 2753449,
+      "arrayBuffers": 177613
+    },
+    {
+      "cycle": 2,
+      "processed": 1791,
+      "rss": 163528704,
+      "heapTotal": 44761088,
+      "heapUsed": 9209480,
+      "external": 2753132,
+      "arrayBuffers": 177613
+    },
+    {
+      "cycle": 3,
+      "processed": 2388,
+      "rss": 163577856,
+      "heapTotal": 44761088,
+      "heapUsed": 9211888,
+      "external": 2753329,
+      "arrayBuffers": 177613
+    },
+    {
+      "cycle": 4,
+      "processed": 2985,
+      "rss": 163643392,
+      "heapTotal": 45285376,
+      "heapUsed": 9227184,
+      "external": 2749158,
+      "arrayBuffers": 177613
+    },
+    {
+      "cycle": 5,
+      "processed": 3582,
+      "rss": 177340416,
+      "heapTotal": 52363264,
+      "heapUsed": 9245984,
+      "external": 2753244,
+      "arrayBuffers": 177613
+    },
+    {
+      "cycle": 6,
+      "processed": 4179,
+      "rss": 212172800,
+      "heapTotal": 78200832,
+      "heapUsed": 9352640,
+      "external": 2752962,
+      "arrayBuffers": 177613
+    },
+    {
+      "cycle": 7,
+      "processed": 4776,
+      "rss": 212320256,
+      "heapTotal": 78462976,
+      "heapUsed": 9359720,
+      "external": 2756480,
+      "arrayBuffers": 177613
+    },
+    {
+      "cycle": 8,
+      "processed": 5373,
+      "rss": 212434944,
+      "heapTotal": 78462976,
+      "heapUsed": 9354608,
+      "external": 2756480,
+      "arrayBuffers": 177613
+    },
+    {
+      "cycle": 9,
+      "processed": 5970,
+      "rss": 212484096,
+      "heapTotal": 78200832,
+      "heapUsed": 9388144,
+      "external": 2756480,
+      "arrayBuffers": 177613
+    }
+  ],
+  "statuses": {
+    "needs-clarification": 5970
+  },
+  "exports": [
+    {
+      "id": "daily-point",
+      "input": "Call Sam every day at noon for 1000 occurrences",
+      "expectedCount": 1000,
+      "samplesMs": [
+        88.6172919999999,
+        84.49295799999982,
+        80.41529200000014,
+        80.12049999999999,
+        78.60433400000011,
+        79.59658400000012,
+        78.97474999999986,
+        80.14879199999996,
+        78.89970799999992,
+        79.57258300000012,
+        78.81612500000028,
+        79.11424999999963,
+        78.68100000000004,
+        79.15787499999988,
+        78.0793749999998,
+        80.48820799999976,
+        77.64233399999966,
+        78.8260409999998,
+        78.64129200000025,
+        79.97075000000041
+      ],
+      "sha256": "73f24e995ef3e43437e18371000e200ac982dc0fb22219acf1457c4e9e456217",
+      "bytes": 476072
+    },
+    {
+      "id": "daily-duration",
+      "input": "Call Sam every day at noon for 30 minutes for 1000 occurrences",
+      "expectedCount": 1000,
+      "samplesMs": [
+        137.91220900000008,
+        135.8103329999999,
+        133.27149999999983,
+        134.11816700000008,
+        133.48416700000007,
+        135.21158300000025,
+        141.46737499999972,
+        137.60420900000008,
+        138.41545900000074,
+        137.3770830000003,
+        135.98075000000063,
+        136.15929200000028,
+        135.39629199999945,
+        136.73991699999988,
+        140.18258400000013,
+        140.08945800000038,
+        146.1043749999999,
+        144.93679200000042,
+        144.18945799999983,
+        150.41879199999948
+      ],
+      "sha256": "513e41cf448450d11339644ad3083659f990e17000560e8a58ffbc2fad95dfe8",
+      "bytes": 515072
+    },
+    {
+      "id": "over-horizon",
+      "input": "Call Sam every Monday at noon for 1000 occurrences",
+      "expectedCount": 0,
+      "samplesMs": [
+        34.556540999999925,
+        34.886999999999716,
+        34.654999999999745,
+        34.61483399999997,
+        33.614165999999386,
+        34.7817500000001,
+        34.16225000000031,
+        34.93037499999991,
+        34.72462499999983,
+        33.714833,
+        35.12950000000001,
+        35.88799999999992,
+        36.82208300000002,
+        38.992707999999766,
+        38.084249999999884,
+        37.178915999999845,
+        40.16650000000027,
+        36.36833299999944,
+        40.9823750000005,
+        37.323875000000044
+      ],
+      "reason": "The requested count exceeds the ten-year export window. No partial schedule is available."
+    }
+  ],
+  "scope": "One desktop process; all bundled zone names across ten cycles of unique ambiguous phrases/contexts. Explicit-GC snapshots are not peak/native-only allocation or proof of no leak. Twenty warm export samples per authored case; independent readers must validate actual files. No calendars written."
+}

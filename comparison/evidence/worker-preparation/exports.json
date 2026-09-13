@@ -1,0 +1,20 @@
+{
+  "samePublicExportNames": true,
+  "exports": {
+    "sdk": [
+      "SDK_VERSION",
+      "appendSelection",
+      "calculateDate",
+      "createParser",
+      "limits",
+      "parse",
+      "parseMany"
+    ],
+    "sdk-calendar": [
+      "prepareCalendarFile",
+      "prepareRecurringCalendarFile",
+      "resolveRecurringExport",
+      "retainOccurrenceDecisions"
+    ]
+  }
+}

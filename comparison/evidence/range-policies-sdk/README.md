@@ -1,0 +1,17 @@
+# Range-policy SDK candidate
+
+Archive `e33ab0ca30d3670a2bd47928bc403872a5ca4c9c92408923461c9a94afe1fe53` contains the current date-only and mixed-precision range changes. It remains a private local 0.1.0 candidate, not a public API stability commitment.
+
+Six examples pass on Node 22.12.0 and 26.8.1. All 56 installed package files match the archive; installed declarations and both entry-point import closures pass. The calendar example now covers both all-day end choices and numeric-date → missing-time → repeated-clock correction through file preparation and stale-edit rejection. Existing recurrence, count, batch and recovery controls remain included.
+
+Six desktop browser runs pass in Chrome 153, Playwright Firefox 148 and WebKit 26.4 at widths 320/1280. Every run exercises fourteen actual downloads, including the three new range-policy journeys. Keyboard navigation uses Tab/Shift-Tab with explicit Option-Tab for WebKit. Downloads are spaced by 1.1 seconds. No page errors or external requests were recorded. The older rapid Chrome eleventh-download failure is not resolved by this paced result; its evidence remains in count-policies-sdk.
+
+The same archive passes local workerd through Wrangler 4.131.1 and installed Worker TypeScript. Locked Python icalendar 7.3.0 and recurring-ical-events 3.8.2 validate **84 browser downloads and fifteen Worker files**. New range outputs require exact endpoints, date/timed precision, title and no ongoing rule or invented duration. These are authored integration cases read by separate implementations, not independent product evaluation or actual calendar-client import.
+
+The first scoped lint run reported two tuple-type warnings in the new Node example. A runtime assertion alone did not clear them; an explicit tuple annotation did. Final scoped lint passes without warnings. Repacking and rerunning Node examples after that example-only change produced the identical archive hash. Browser/Worker runs used the first verified installation; final Node reports use a second installation of those same package bytes. No app/source behavior changed during this verification.
+
+The installed package also matches all 31 comparison results and all stages/file hashes of 22 authored source journeys on Node 26. [Source snapshot](../range-policy-source-replay/README.md). This establishes source/package consistency, not new independent cases, comparative count-task coverage or superiority. Current performance has not been measured; older archive 47a218ba remains the performance baseline where gpu-time leads the measured desktop workload.
+
+Reproduce with examples/sdk/README.md and comparison/replay-packed.mjs. Reports retain original identities with home paths redacted; provenance.json records original hashes. Browser screenshots remain in local scratch. Both task-local verification servers exited after interruption; ports 5184/8788 had no listeners and the main app stayed on loopback 5174. Their shutdown ran the existing prepare hook. Nothing was pushed, published, deployed or written to a calendar.
+
+The next product-evidence step is the [independent pilot handoff](../../evaluation/pilot-handoff.md). No independent participants/evaluator, physical-phone runs or authorized calendar imports are available yet. Public package guarantees, accumulated security review, current performance, real clients/devices and independent evaluation remain open. Passing these checks does not establish an overall replacement claim.

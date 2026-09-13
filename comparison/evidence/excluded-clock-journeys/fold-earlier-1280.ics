@@ -1,0 +1,52 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tempus//Calendar Export//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:67440023-6014-44a1-be48-04f77e26cec3-0@tempus.invalid
+DTSTAMP:20261101T070000Z
+SUMMARY:Call Sam
+DESCRIPTION:Date phrase: every Sunday at 1:30am for 3 occurrences except 20
+ 26-11-01\nTimezone: America/Chicago\nOnly upcoming occurrence starts appea
+ r in the preview.\nFor 2026-11-01 start only\, you selected First: Novembe
+ r 1\, 2026 at 1:30 AM CDT (UTC-05:00). Other occurrences keep their writte
+ n local clocks.\nExcluded dates use count slots and are not replaced.\nCom
+ plete bounded recurrence set\; dates are fixed to the timezone rules used 
+ when this file was generated.\n2026-11-01 start: First: November 1\, 2026 
+ at 1:30 AM CDT (UTC-05:00)
+DTSTART:20261108T073000Z
+RDATE:20261108T073000Z
+RDATE:20261115T073000Z
+RDATE:20261122T073000Z
+END:VEVENT
+BEGIN:VEVENT
+RECURRENCE-ID:20261115T073000Z
+UID:67440023-6014-44a1-be48-04f77e26cec3-0@tempus.invalid
+DTSTAMP:20261101T070000Z
+SUMMARY:Call Sam
+DESCRIPTION:Date phrase: every Sunday at 1:30am for 3 occurrences except 20
+ 26-11-01\nTimezone: America/Chicago\nOnly upcoming occurrence starts appea
+ r in the preview.\nFor 2026-11-01 start only\, you selected First: Novembe
+ r 1\, 2026 at 1:30 AM CDT (UTC-05:00). Other occurrences keep their writte
+ n local clocks.\nExcluded dates use count slots and are not replaced.\nCom
+ plete bounded recurrence set\; dates are fixed to the timezone rules used 
+ when this file was generated.\n2026-11-01 start: First: November 1\, 2026 
+ at 1:30 AM CDT (UTC-05:00)
+DTSTART:20261115T073000Z
+END:VEVENT
+BEGIN:VEVENT
+RECURRENCE-ID:20261122T073000Z
+UID:67440023-6014-44a1-be48-04f77e26cec3-0@tempus.invalid
+DTSTAMP:20261101T070000Z
+SUMMARY:Call Sam
+DESCRIPTION:Date phrase: every Sunday at 1:30am for 3 occurrences except 20
+ 26-11-01\nTimezone: America/Chicago\nOnly upcoming occurrence starts appea
+ r in the preview.\nFor 2026-11-01 start only\, you selected First: Novembe
+ r 1\, 2026 at 1:30 AM CDT (UTC-05:00). Other occurrences keep their writte
+ n local clocks.\nExcluded dates use count slots and are not replaced.\nCom
+ plete bounded recurrence set\; dates are fixed to the timezone rules used 
+ when this file was generated.\n2026-11-01 start: First: November 1\, 2026 
+ at 1:30 AM CDT (UTC-05:00)
+DTSTART:20261122T073000Z
+END:VEVENT
+END:VCALENDAR

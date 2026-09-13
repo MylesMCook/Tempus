@@ -1,0 +1,1983 @@
+{
+  "protocol": "desktop-cpu-development-v1",
+  "tempusInput": "installed-archive",
+  "artifact": {
+    "archive": "/Users/mylescook/Documents/Codex/2026-09-13-tempus-identifiers-checked-sdk/tempus-date-core-0.1.0.tgz",
+    "sha256": "a8a1cbb41947e294d08d82a3fcb39dddd485574daff86b22f3e20e7423bc35ca",
+    "installedDirectory": "/Users/mylescook/Documents/Codex/2026-09-13-tempus-identifiers-checked-sdk/node_modules/@tempus-date/core",
+    "fileHashes": {
+      "LICENSE": "9791785a8d78230607f4b3c7affbb099aff475925bf11da37759c274e065a169",
+      "dist/calculate-schedule-date.js": "ad8cc9b69d8821efde450e6c54b07b5d716b1f6823e26c62daae61e1c9ea86e3",
+      "dist/calendar-file.js": "df12c06abcfd8563ab0163c3f57f6a84acbc6a0196137d5029d07b907bc1858b",
+      "dist/calendar-timezone-ongoing.js": "d321f7cd557b48bd4f98f3af549ed523d621a5feea38d3bfd257504ba25b0e86",
+      "dist/calendar-transition-rule.js": "c18b0016d35a96ca4867100be4e1490ea68cc9f4c76f74dee0b1f731d9d68ef2",
+      "dist/clarify-arithmetic.js": "6c9dbfc4bfc9fe38374e32b86840ee1e103d5d1e52d6d0a73e8f0f5674b016f5",
+      "dist/clarify-clock.js": "133defdfa89bcb1692e91bebd152bc1748bc841a2549ac2162fbbfd810d2783e",
+      "dist/clarify-numeric-date.js": "2dfb5b257acca4e0c48c2b7a42939a5ef6e3ee144a82d3e57ae44fb0afd9195b",
+      "dist/date-parser.js": "41f1b74452831f1028d22a49105da7c92166b332b44e447b56f8eadc69af50bd",
+      "dist/date-engine/format-zoned.js": "e0839b275d892219d4bd46d82b804ecd749a62ca32ca858cd645caf0522a90d7",
+      "dist/date-engine/grammar.js": "dc8eb73e51298972e2846374f489c2873e2a7dd0730736e7adbf0a27df5afdcb",
+      "dist/interpret-date-list.js": "ceab59558288f8b985f57f04da8c68af7eb82ac9f85b76de2e917931691d4507",
+      "dist/interpret-date.js": "cff61970f3d3d3eb1e7b5c3feeb596240a5a452efe72b117243b5ba3df2c8119",
+      "dist/interpret-groups.js": "8e3468660b0278947d0098ea937f4e7754d04d9136035175978722fa299182c8",
+      "dist/interpret-interval.js": "f62600afed2dd89d586a9405d62143a64c690f863edf5a940a6eadb9105669af",
+      "dist/interpret-recurrence.js": "74d0a545b123bdfd5a4b30496985c53a63bc0af4f7a430c159384a5b6c838578",
+      "dist/monthly-date.js": "96fac959e2aac2652bca15beb9aae039de3d6c60ce426f440f6ff2c7e3d7c5ae",
+      "dist/recurrence-clock-conflicts.js": "6e50b27e957364bbb290383036192a3e2dea774bd412640f1bac3e5a94066dc3",
+      "dist/recurring-calendar-file.js": "71f78728fc8292dfc3253127caca514bd3ff155fcb91ad139b00299b8b307eb4",
+      "dist/sdk-calendar.js": "8de19fcb4c2e11e6e624e7f6474b0ca3db62e4541925398fae1e27d5caa8b121",
+      "dist/sdk.js": "4c58029c8a1a962b65aeb4eb761d811a65b85cb1657d00969408c96c5c6b7f49",
+      "dist/date-engine/timezone-data.js": "14ab87de1253235b9d68b3e903248e8eb2fc8da44fabd0aacbb8049da759d84b",
+      "dist/date-engine/timezone-database.js": "3124b9abc162242ac6f5c8a202e7adcbb76139a3dc7a147075e6839f0dce516d",
+      "dist/date-engine/timezone-reader.js": "335a8582d97843aad7c34468193d852f7d7307c688a30709e48c9954d75ac1fb",
+      "dist/date-engine/types.js": "628a013b109b9ad301d1f669034207bb4c920c028c6e5802a1915b5f5887ffb2",
+      "dist/date-engine/vocabulary.js": "32363c034a3af302db4d2fa401193680703a56c189bec4c2f4b123a41b01c8ec",
+      "dist/date-engine/zoned-date.js": "97fae20bd5fe7a8254cad410bddeb89c8420fee1356bf6b2046496cbb80a08fa",
+      "package.json": "f4e96ea3ceafde788dfb33f672b6ec066e5988cdfb19f87216784c17296391be",
+      "README.md": "667d2786f467c8ebc42c4087185a6af9a4c770d3372db9233969ff891265a569",
+      "dist/calculate-schedule-date.d.ts": "3aeb44b768dd55550b9eba2510e86846badddc275ec6dd386d4f2a7525201b79",
+      "dist/calendar-file.d.ts": "a59cd9bcd2ada06d200eca2adc4b9caf7fd84bbcc0b1a589f9766a68334cf9f2",
+      "dist/calendar-timezone-ongoing.d.ts": "411e5949cfc31911b56bc06886edaccc2e5f77e9e905ff0b69926ce8e3e4f198",
+      "dist/calendar-transition-rule.d.ts": "e16d633fc365064e22aaf2c046ee7045c60844a3e83a8e26e057eea715de80fd",
+      "dist/clarify-arithmetic.d.ts": "0f6454dd2c44d0406cd301797cbe158efe8da08ae9e0ff2843a1aba745c9344e",
+      "dist/clarify-clock.d.ts": "c2806dd940c441d070273c7a8d05c61806685bbaa7e1f074b4c7378522ad9c55",
+      "dist/clarify-numeric-date.d.ts": "b0d96ebf9366b4a4f619b04b08e791d1b881b656f741a0e99cf04671c26d8802",
+      "dist/date-parser.d.ts": "bc9b87ef3b3fe57068d26ce498ab8b04b1569f5e2193bb99be61301c519d2cf8",
+      "dist/date-engine/format-zoned.d.ts": "cf8955f6899b8e64c8ce2095770568f3a4582fcd209acf934a8265ea567ab16d",
+      "dist/date-engine/grammar.d.ts": "ef6dde269f0421c85a99a53a0c14f4d6cd1c4d3514b4068246feb4ef6ed4b975",
+      "dist/interpret-date-list.d.ts": "142883de8af7dfce801943d3af7a13306c834c041368ec7bad081331bb97b4a3",
+      "dist/interpret-date.d.ts": "0e990b674ccbe878b2c92d88931469ee4725fb2eeb5ee5ac66b30e247def1298",
+      "dist/interpret-groups.d.ts": "2f97b8e5a783711c6ba31385f3c920041be4d19ec630b4be52cb4c12f5c8d078",
+      "dist/interpret-interval.d.ts": "6e8d9f942cea8fa7354421b97e5dea4d5d700b1308966ec2a55745580689b417",
+      "dist/interpret-recurrence.d.ts": "8b21700271eca28a9cabfbd4262587b388c80321a42556a4322e35123dcb02aa",
+      "dist/monthly-date.d.ts": "28c949cccf54e801ec22a6b63649925cf52072c2a374c806b9a7da5d09778147",
+      "dist/recurrence-clock-conflicts.d.ts": "a22c06835dead541e95d34799151f349f996bafa11d0f69e94cec3fa3ce192e4",
+      "dist/recurring-calendar-file.d.ts": "1a382d9e7536b2455062aab46dec2196f4ca8ec47e8de182b2ed74a1df2ec8ee",
+      "dist/sdk-calendar.d.ts": "287f8fa1358c5cfb848f4d902cf36c70b0e97c9855b09b19cfa8f243c4b6138e",
+      "dist/sdk.d.ts": "29587603e9f25507c52b91e0556e1399cd97fd160e0d5f5636ddf5fe7283e261",
+      "dist/date-engine/timezone-data.d.ts": "d4d3ec9d55f14df3fb7f977263214c1af78a034a8cfb21187fee6f64247677d0",
+      "dist/date-engine/timezone-database.d.ts": "643d2976c898c94030a832c1a6c4dd205ad43b65a8f016a001f3449f7395213c",
+      "dist/date-engine/timezone-reader.d.ts": "ad17ec0e34194b315503f7c0e2d8f200ccfbf5491f47107cf265b35314634e95",
+      "dist/date-engine/types.d.ts": "446cd34d25c0151a484002a582239b6d7ea38146e17dde9459688f0a1a4ffdc1",
+      "dist/date-engine/vocabulary.d.ts": "ae86198fb4c7b4228561e026f55a24ebb73b993ca6d2939f27f20de4ff206376",
+      "dist/date-engine/zoned-date.d.ts": "f0e1863b3e4a790943a6c9c09413bcdf48161b279a32dee339e6a6aa1cf28686",
+      "dist/date-engine/timezone-LICENSE.txt": "0613408568889f5739e5ae252b722a2659c02002839ad970a63dc5e9174b27cf"
+    }
+  },
+  "recordedAt": "2026-09-13T16:34:07.376Z",
+  "environment": {
+    "node": "v26.8.1",
+    "executable": "/opt/homebrew/Cellar/node/26.8.1/bin/node",
+    "runtimeVersions": {
+      "node": "26.8.1",
+      "acorn": "8.18.0",
+      "ada": "4.0.0",
+      "amaro": "1.1.11",
+      "ares": "1.34.8",
+      "brotli": "1.2.0",
+      "cldr": "48.0",
+      "icu": "78.3",
+      "libffi": "3.8.0",
+      "llhttp": "9.4.3",
+      "merve": "1.2.2",
+      "modules": "147",
+      "napi": "10",
+      "nbytes": "0.1.4",
+      "ncrypto": "0.0.1",
+      "nghttp2": "1.70.0",
+      "nghttp3": "",
+      "ngtcp2": "",
+      "openssl": "3.6.4",
+      "simdjson": "4.6.9",
+      "simdutf": "7.7.0",
+      "sqlite": "3.53.4",
+      "tz": "2026a",
+      "undici": "8.10.0",
+      "unicode": "17.0",
+      "uv": "1.52.1",
+      "uvwasi": "0.0.23",
+      "v8": "14.6.202.34-node.28",
+      "zlib": "1.2.12",
+      "zstd": "1.5.7"
+    },
+    "platform": "darwin",
+    "arch": "arm64",
+    "osRelease": "25.6.0",
+    "cpu": "Apple M4 Pro",
+    "logicalCpus": 14,
+    "totalMemoryBytes": 68719476736
+  },
+  "versions": {
+    "esbuild": "0.28.1",
+    "tempus": "0.1.0",
+    "gpuTime": "0.2.1"
+  },
+  "git": {
+    "commit": "d91a7ca0e67f7f2cf5661e9674901201e8039610",
+    "dirty": true
+  },
+  "sourceHashes": {
+    "comparison/performance/run.mjs": "a211a7b7451204b516f09bc0069f6006e3a3169e01b03e22ce35bd643920a984",
+    "comparison/performance/measure.mjs": "6d570df09fa7251d14a7de81a4af8ef466889df4bdd2063a6b836e4a1c9c431c",
+    "comparison/performance/preview.mjs": "8753c220b4931714f35d84bd12f889581ed67afb51e36a2c5d5997f4a7ba7ef9",
+    "comparison/performance/verify.mjs": "1fddee704630801e1fa4e76653835f8b207241983364d61b24bf54594349f317",
+    "comparison/performance/workload.json": "479a37134d0f2b3e57fa5c96f7700de2d944a62ab83dee7654d6bec101d950c9",
+    "pnpm-lock.yaml": "efd381779c7426cdf686f8563545d66fb58b0b0fa3afcd2c32a46eeed2afa553",
+    "/Users/mylescook/Documents/Codex/2026-09-13-tempus-identifiers-checked-sdk/node_modules/@tempus-date/core/dist/calculate-schedule-date.js": "ad8cc9b69d8821efde450e6c54b07b5d716b1f6823e26c62daae61e1c9ea86e3",
+    "/Users/mylescook/Documents/Codex/2026-09-13-tempus-identifiers-checked-sdk/node_modules/@tempus-date/core/dist/calendar-file.js": "df12c06abcfd8563ab0163c3f57f6a84acbc6a0196137d5029d07b907bc1858b",
+    "/Users/mylescook/Documents/Codex/2026-09-13-tempus-identifiers-checked-sdk/node_modules/@tempus-date/core/dist/calendar-timezone-ongoing.js": "d321f7cd557b48bd4f98f3af549ed523d621a5feea38d3bfd257504ba25b0e86",
+    "/Users/mylescook/Documents/Codex/2026-09-13-tempus-identifiers-checked-sdk/node_modules/@tempus-date/core/dist/calendar-transition-rule.js": "c18b0016d35a96ca4867100be4e1490ea68cc9f4c76f74dee0b1f731d9d68ef2",
+    "/Users/mylescook/Documents/Codex/2026-09-13-tempus-identifiers-checked-sdk/node_modules/@tempus-date/core/dist/clarify-arithmetic.js": "6c9dbfc4bfc9fe38374e32b86840ee1e103d5d1e52d6d0a73e8f0f5674b016f5",
+    "/Users/mylescook/Documents/Codex/2026-09-13-tempus-identifiers-checked-sdk/node_modules/@tempus-date/core/dist/clarify-clock.js": "133defdfa89bcb1692e91bebd152bc1748bc841a2549ac2162fbbfd810d2783e",
+    "/Users/mylescook/Documents/Codex/2026-09-13-tempus-identifiers-checked-sdk/node_modules/@tempus-date/core/dist/clarify-numeric-date.js": "2dfb5b257acca4e0c48c2b7a42939a5ef6e3ee144a82d3e57ae44fb0afd9195b",
+    "/Users/mylescook/Documents/Codex/2026-09-13-tempus-identifiers-checked-sdk/node_modules/@tempus-date/core/dist/date-parser.js": "41f1b74452831f1028d22a49105da7c92166b332b44e447b56f8eadc69af50bd",
+    "/Users/mylescook/Documents/Codex/2026-09-13-tempus-identifiers-checked-sdk/node_modules/@tempus-date/core/dist/interpret-date-list.js": "ceab59558288f8b985f57f04da8c68af7eb82ac9f85b76de2e917931691d4507",
+    "/Users/mylescook/Documents/Codex/2026-09-13-tempus-identifiers-checked-sdk/node_modules/@tempus-date/core/dist/interpret-date.js": "cff61970f3d3d3eb1e7b5c3feeb596240a5a452efe72b117243b5ba3df2c8119",
+    "/Users/mylescook/Documents/Codex/2026-09-13-tempus-identifiers-checked-sdk/node_modules/@tempus-date/core/dist/interpret-groups.js": "8e3468660b0278947d0098ea937f4e7754d04d9136035175978722fa299182c8",
+    "/Users/mylescook/Documents/Codex/2026-09-13-tempus-identifiers-checked-sdk/node_modules/@tempus-date/core/dist/interpret-interval.js": "f62600afed2dd89d586a9405d62143a64c690f863edf5a940a6eadb9105669af",
+    "/Users/mylescook/Documents/Codex/2026-09-13-tempus-identifiers-checked-sdk/node_modules/@tempus-date/core/dist/interpret-recurrence.js": "74d0a545b123bdfd5a4b30496985c53a63bc0af4f7a430c159384a5b6c838578",
+    "/Users/mylescook/Documents/Codex/2026-09-13-tempus-identifiers-checked-sdk/node_modules/@tempus-date/core/dist/monthly-date.js": "96fac959e2aac2652bca15beb9aae039de3d6c60ce426f440f6ff2c7e3d7c5ae",
+    "/Users/mylescook/Documents/Codex/2026-09-13-tempus-identifiers-checked-sdk/node_modules/@tempus-date/core/dist/recurrence-clock-conflicts.js": "6e50b27e957364bbb290383036192a3e2dea774bd412640f1bac3e5a94066dc3",
+    "/Users/mylescook/Documents/Codex/2026-09-13-tempus-identifiers-checked-sdk/node_modules/@tempus-date/core/dist/recurring-calendar-file.js": "71f78728fc8292dfc3253127caca514bd3ff155fcb91ad139b00299b8b307eb4",
+    "/Users/mylescook/Documents/Codex/2026-09-13-tempus-identifiers-checked-sdk/node_modules/@tempus-date/core/dist/sdk-calendar.js": "8de19fcb4c2e11e6e624e7f6474b0ca3db62e4541925398fae1e27d5caa8b121",
+    "/Users/mylescook/Documents/Codex/2026-09-13-tempus-identifiers-checked-sdk/node_modules/@tempus-date/core/dist/sdk.js": "4c58029c8a1a962b65aeb4eb761d811a65b85cb1657d00969408c96c5c6b7f49",
+    "/Users/mylescook/Documents/Codex/2026-09-13-tempus-identifiers-checked-sdk/node_modules/@tempus-date/core/dist/date-engine/format-zoned.js": "e0839b275d892219d4bd46d82b804ecd749a62ca32ca858cd645caf0522a90d7",
+    "/Users/mylescook/Documents/Codex/2026-09-13-tempus-identifiers-checked-sdk/node_modules/@tempus-date/core/dist/date-engine/grammar.js": "dc8eb73e51298972e2846374f489c2873e2a7dd0730736e7adbf0a27df5afdcb",
+    "/Users/mylescook/Documents/Codex/2026-09-13-tempus-identifiers-checked-sdk/node_modules/@tempus-date/core/dist/date-engine/timezone-data.js": "14ab87de1253235b9d68b3e903248e8eb2fc8da44fabd0aacbb8049da759d84b",
+    "/Users/mylescook/Documents/Codex/2026-09-13-tempus-identifiers-checked-sdk/node_modules/@tempus-date/core/dist/date-engine/timezone-database.js": "3124b9abc162242ac6f5c8a202e7adcbb76139a3dc7a147075e6839f0dce516d",
+    "/Users/mylescook/Documents/Codex/2026-09-13-tempus-identifiers-checked-sdk/node_modules/@tempus-date/core/dist/date-engine/timezone-reader.js": "335a8582d97843aad7c34468193d852f7d7307c688a30709e48c9954d75ac1fb",
+    "/Users/mylescook/Documents/Codex/2026-09-13-tempus-identifiers-checked-sdk/node_modules/@tempus-date/core/dist/date-engine/types.js": "628a013b109b9ad301d1f669034207bb4c920c028c6e5802a1915b5f5887ffb2",
+    "/Users/mylescook/Documents/Codex/2026-09-13-tempus-identifiers-checked-sdk/node_modules/@tempus-date/core/dist/date-engine/vocabulary.js": "32363c034a3af302db4d2fa401193680703a56c189bec4c2f4b123a41b01c8ec",
+    "/Users/mylescook/Documents/Codex/2026-09-13-tempus-identifiers-checked-sdk/node_modules/@tempus-date/core/dist/date-engine/zoned-date.js": "97fae20bd5fe7a8254cad410bddeb89c8420fee1356bf6b2046496cbb80a08fa"
+  },
+  "workload": {
+    "version": "shared-development-v1",
+    "context": {
+      "reference": "2026-09-12T16:00:00.000Z",
+      "timeZone": "America/Chicago",
+      "limit": 3
+    },
+    "cases": [
+      {
+        "text": "tomorrow at noon",
+        "recurring": false,
+        "occurrences": [
+          {
+            "start": "2026-09-13T17:00:00.000Z"
+          }
+        ]
+      },
+      {
+        "text": "next Friday",
+        "recurring": false,
+        "occurrences": [
+          {
+            "start": "2026-09-18T05:00:00.000Z"
+          }
+        ]
+      },
+      {
+        "text": "Friday 10pm-12am",
+        "recurring": false,
+        "occurrences": [
+          {
+            "start": "2026-09-19T03:00:00.000Z",
+            "end": "2026-09-19T05:00:00.000Z"
+          }
+        ]
+      },
+      {
+        "text": "every Monday from 8 pm to 10 pm",
+        "recurring": true,
+        "occurrences": [
+          {
+            "start": "2026-09-15T01:00:00.000Z",
+            "end": "2026-09-15T03:00:00.000Z"
+          },
+          {
+            "start": "2026-09-22T01:00:00.000Z",
+            "end": "2026-09-22T03:00:00.000Z"
+          },
+          {
+            "start": "2026-09-29T01:00:00.000Z",
+            "end": "2026-09-29T03:00:00.000Z"
+          }
+        ]
+      }
+    ]
+  },
+  "bundles": {
+    "tempus": {
+      "minifiedBytes": 525855,
+      "gzipBytes": 149404,
+      "sha256": "329bed33aa6bd6ff733d3166d4755c2a3328010971df8b145e09a9905832ee14"
+    },
+    "gpu-time": {
+      "minifiedBytes": 110286,
+      "gzipBytes": 52903,
+      "sha256": "928660046ac9e5ad55a39bcdd7c08ddca17e40b9ea06e7763f2afe2e4ed942d6"
+    }
+  },
+  "runs": [
+    {
+      "trial": 0,
+      "engine": "tempus",
+      "backend": "cpu",
+      "importMs": 24.3725,
+      "initializeMs": 0.03575000000000017,
+      "firstParseMs": 5.950792,
+      "readyThroughFirstParseMs": 30.359334,
+      "firstCorrect": true,
+      "verification": [
+        {
+          "input": "tomorrow at noon",
+          "correct": true,
+          "observed": {
+            "recurring": false,
+            "occurrences": [
+              {
+                "start": "2026-09-13T17:00:00.000Z"
+              }
+            ]
+          }
+        },
+        {
+          "input": "next Friday",
+          "correct": true,
+          "observed": {
+            "recurring": false,
+            "occurrences": [
+              {
+                "start": "2026-09-18T05:00:00.000Z"
+              }
+            ]
+          }
+        },
+        {
+          "input": "Friday 10pm-12am",
+          "correct": true,
+          "observed": {
+            "recurring": false,
+            "occurrences": [
+              {
+                "start": "2026-09-19T03:00:00.000Z",
+                "end": "2026-09-19T05:00:00.000Z"
+              }
+            ]
+          }
+        },
+        {
+          "input": "every Monday from 8 pm to 10 pm",
+          "correct": true,
+          "observed": {
+            "recurring": true,
+            "occurrences": [
+              {
+                "start": "2026-09-15T01:00:00.000Z",
+                "end": "2026-09-15T03:00:00.000Z"
+              },
+              {
+                "start": "2026-09-22T01:00:00.000Z",
+                "end": "2026-09-22T03:00:00.000Z"
+              },
+              {
+                "start": "2026-09-29T01:00:00.000Z",
+                "end": "2026-09-29T03:00:00.000Z"
+              }
+            ]
+          }
+        }
+      ],
+      "measurements": [
+        {
+          "operation": "parse",
+          "batchSize": 1,
+          "samplesMs": [
+            0.11720799999999088,
+            0.10095799999999144,
+            0.3484160000000003,
+            1.5911669999999987,
+            0.11737499999999557,
+            0.09866699999999184,
+            0.35833399999999926,
+            1.4523749999999893,
+            0.08887500000000159,
+            0.09133400000000336,
+            0.30658400000000086,
+            1.3068329999999975,
+            0.08824999999998795,
+            0.10570799999999281,
+            0.4392909999999972,
+            0.9584579999999931,
+            0.071124999999995,
+            0.06858300000000384,
+            0.2712919999999883,
+            1.0069170000000014
+          ],
+          "correctItems": 20,
+          "totalItems": 20
+        },
+        {
+          "operation": "parseMany",
+          "batchSize": 10,
+          "samplesMs": [
+            3.22175,
+            3.471416999999988,
+            4.464540999999997,
+            3.5425830000000076,
+            2.3953750000000014,
+            3.1230410000000006,
+            3.2162500000000023,
+            3.805749999999989,
+            2.900666000000001,
+            2.9175420000000116,
+            3.6765419999999978,
+            2.93995799999999,
+            2.029167000000001,
+            3.2775839999999903,
+            3.431457999999992,
+            3.251209000000017,
+            2.3611660000000256,
+            2.546291999999994,
+            3.109250000000003,
+            3.787542000000002
+          ],
+          "correctItems": 200,
+          "totalItems": 200
+        },
+        {
+          "operation": "parseMany",
+          "batchSize": 100,
+          "samplesMs": [
+            23.618417000000022,
+            21.861041,
+            22.55725000000001,
+            21.712874999999997,
+            21.209667000000024,
+            21.325499999999977,
+            23.71387500000003,
+            23.08654200000001,
+            22.589125000000024,
+            20.830083000000002,
+            20.96745900000002,
+            20.98416599999996,
+            21.279125000000022,
+            22.48945900000001,
+            20.784291999999937,
+            21.516417000000047,
+            19.47874999999999,
+            20.375625000000014,
+            20.412459000000013,
+            21.000541999999996
+          ],
+          "correctItems": 2000,
+          "totalItems": 2000
+        }
+      ],
+      "memoryBytes": {
+        "beforeImport": {
+          "rss": 44007424,
+          "heapUsed": 4191856,
+          "external": 2119125,
+          "arrayBuffers": 137593
+        },
+        "afterFirstParse": {
+          "rss": 62783488,
+          "heapUsed": 6704048,
+          "external": 2252090,
+          "arrayBuffers": 139355
+        },
+        "afterMeasuredWork": {
+          "rss": 143097856,
+          "heapUsed": 9553384,
+          "external": 2120892,
+          "arrayBuffers": 139355
+        }
+      }
+    },
+    {
+      "trial": 0,
+      "engine": "gpu-time",
+      "backend": "cpu",
+      "importMs": 4.405625000000001,
+      "initializeMs": 0.045999999999999375,
+      "firstParseMs": 12.185249999999996,
+      "readyThroughFirstParseMs": 16.637249999999998,
+      "firstCorrect": true,
+      "verification": [
+        {
+          "input": "tomorrow at noon",
+          "correct": true,
+          "observed": {
+            "recurring": false,
+            "occurrences": [
+              {
+                "start": "2026-09-13T12:00:00-05:00"
+              }
+            ]
+          }
+        },
+        {
+          "input": "next Friday",
+          "correct": true,
+          "observed": {
+            "recurring": false,
+            "occurrences": [
+              {
+                "start": "2026-09-18T00:00:00-05:00"
+              }
+            ]
+          }
+        },
+        {
+          "input": "Friday 10pm-12am",
+          "correct": true,
+          "observed": {
+            "recurring": false,
+            "occurrences": [
+              {
+                "start": "2026-09-18T22:00:00-05:00",
+                "end": "2026-09-19T00:00:00-05:00"
+              }
+            ]
+          }
+        },
+        {
+          "input": "every Monday from 8 pm to 10 pm",
+          "correct": true,
+          "observed": {
+            "recurring": true,
+            "occurrences": [
+              {
+                "start": "2026-09-14T20:00:00-05:00",
+                "end": "2026-09-14T22:00:00-05:00"
+              },
+              {
+                "start": "2026-09-21T20:00:00-05:00",
+                "end": "2026-09-21T22:00:00-05:00"
+              },
+              {
+                "start": "2026-09-28T20:00:00-05:00",
+                "end": "2026-09-28T22:00:00-05:00"
+              }
+            ]
+          }
+        }
+      ],
+      "measurements": [
+        {
+          "operation": "parse",
+          "batchSize": 1,
+          "samplesMs": [
+            0.18020800000000037,
+            0.10187499999999972,
+            0.22450000000000614,
+            0.4825840000000028,
+            0.15099999999999625,
+            0.10145800000000094,
+            0.2526250000000019,
+            0.36658299999999855,
+            0.18158299999999628,
+            0.08954099999999698,
+            0.2028750000000059,
+            0.4085419999999971,
+            0.1365419999999986,
+            0.08670799999999446,
+            0.19679200000000208,
+            0.41841699999999804,
+            0.14187500000000597,
+            0.084541999999999,
+            0.24537500000000279,
+            0.36549999999999727
+          ],
+          "correctItems": 20,
+          "totalItems": 20
+        },
+        {
+          "operation": "parseMany",
+          "batchSize": 10,
+          "samplesMs": [
+            1.7411249999999967,
+            1.8404999999999987,
+            2.0957089999999994,
+            1.2495000000000047,
+            1.078707999999999,
+            1.219457999999996,
+            1.2401669999999996,
+            1.3048330000000021,
+            0.9989999999999952,
+            1.0361249999999984,
+            1.2202500000000072,
+            1.5699170000000038,
+            1.0448749999999905,
+            1.0744169999999968,
+            1.2427920000000086,
+            1.2690840000000065,
+            1.0266670000000033,
+            1.0735420000000033,
+            1.204375000000013,
+            1.143500000000003
+          ],
+          "correctItems": 200,
+          "totalItems": 200
+        },
+        {
+          "operation": "parseMany",
+          "batchSize": 100,
+          "samplesMs": [
+            11.160958000000008,
+            10.973375000000004,
+            10.707249999999988,
+            10.718083000000007,
+            10.692791999999997,
+            10.850790999999987,
+            10.927125000000018,
+            10.721624999999989,
+            11.042667000000023,
+            11.091459000000015,
+            11.494666999999993,
+            10.982583999999974,
+            10.683375000000012,
+            11.01362499999999,
+            10.866708999999958,
+            10.837917000000004,
+            10.770832999999982,
+            10.502583000000016,
+            10.597833999999978,
+            10.545542000000012
+          ],
+          "correctItems": 2000,
+          "totalItems": 2000
+        }
+      ],
+      "memoryBytes": {
+        "beforeImport": {
+          "rss": 44023808,
+          "heapUsed": 4637328,
+          "external": 2119125,
+          "arrayBuffers": 137593
+        },
+        "afterFirstParse": {
+          "rss": 59637760,
+          "heapUsed": 4825728,
+          "external": 2436487,
+          "arrayBuffers": 454021
+        },
+        "afterMeasuredWork": {
+          "rss": 75857920,
+          "heapUsed": 6207928,
+          "external": 2468157,
+          "arrayBuffers": 466629
+        }
+      }
+    },
+    {
+      "trial": 1,
+      "engine": "gpu-time",
+      "backend": "cpu",
+      "importMs": 4.384667,
+      "initializeMs": 0.04708300000000065,
+      "firstParseMs": 12.125667,
+      "readyThroughFirstParseMs": 16.557792,
+      "firstCorrect": true,
+      "verification": [
+        {
+          "input": "tomorrow at noon",
+          "correct": true,
+          "observed": {
+            "recurring": false,
+            "occurrences": [
+              {
+                "start": "2026-09-13T12:00:00-05:00"
+              }
+            ]
+          }
+        },
+        {
+          "input": "next Friday",
+          "correct": true,
+          "observed": {
+            "recurring": false,
+            "occurrences": [
+              {
+                "start": "2026-09-18T00:00:00-05:00"
+              }
+            ]
+          }
+        },
+        {
+          "input": "Friday 10pm-12am",
+          "correct": true,
+          "observed": {
+            "recurring": false,
+            "occurrences": [
+              {
+                "start": "2026-09-18T22:00:00-05:00",
+                "end": "2026-09-19T00:00:00-05:00"
+              }
+            ]
+          }
+        },
+        {
+          "input": "every Monday from 8 pm to 10 pm",
+          "correct": true,
+          "observed": {
+            "recurring": true,
+            "occurrences": [
+              {
+                "start": "2026-09-14T20:00:00-05:00",
+                "end": "2026-09-14T22:00:00-05:00"
+              },
+              {
+                "start": "2026-09-21T20:00:00-05:00",
+                "end": "2026-09-21T22:00:00-05:00"
+              },
+              {
+                "start": "2026-09-28T20:00:00-05:00",
+                "end": "2026-09-28T22:00:00-05:00"
+              }
+            ]
+          }
+        }
+      ],
+      "measurements": [
+        {
+          "operation": "parse",
+          "batchSize": 1,
+          "samplesMs": [
+            0.18270900000000267,
+            0.11650000000000205,
+            0.2288339999999991,
+            0.4422909999999973,
+            0.13416600000000045,
+            0.09166700000000105,
+            0.24249999999999972,
+            0.36437500000000256,
+            0.180334000000002,
+            0.08812499999999801,
+            0.20137499999999875,
+            0.42087500000000233,
+            0.13983300000000298,
+            0.0870000000000033,
+            0.19779100000000227,
+            0.4312499999999986,
+            0.142000000000003,
+            0.08500000000000085,
+            0.24295800000000156,
+            0.378582999999999
+          ],
+          "correctItems": 20,
+          "totalItems": 20
+        },
+        {
+          "operation": "parseMany",
+          "batchSize": 10,
+          "samplesMs": [
+            1.811041000000003,
+            1.8749169999999964,
+            1.7156250000000028,
+            1.2223340000000036,
+            1.0791249999999977,
+            1.1159170000000032,
+            1.5217499999999973,
+            1.284666999999999,
+            1.024124999999998,
+            1.0634589999999946,
+            1.2229580000000055,
+            1.199208000000013,
+            1.0545840000000055,
+            1.1027500000000003,
+            1.3927910000000026,
+            1.354916000000003,
+            1.0726659999999981,
+            1.026042000000004,
+            1.23816699999999,
+            1.1551249999999982
+          ],
+          "correctItems": 200,
+          "totalItems": 200
+        },
+        {
+          "operation": "parseMany",
+          "batchSize": 100,
+          "samplesMs": [
+            11.130292000000011,
+            11.144874999999985,
+            10.706500000000005,
+            10.844083000000012,
+            10.750166999999976,
+            10.684207999999984,
+            10.755416999999994,
+            11.015584000000018,
+            10.92904200000001,
+            10.653415999999993,
+            10.726082999999988,
+            10.596915999999993,
+            10.688457999999997,
+            10.48237499999999,
+            10.786458000000039,
+            10.811417000000006,
+            10.919332999999995,
+            10.380082999999956,
+            10.384041999999965,
+            10.83254199999999
+          ],
+          "correctItems": 2000,
+          "totalItems": 2000
+        }
+      ],
+      "memoryBytes": {
+        "beforeImport": {
+          "rss": 44187648,
+          "heapUsed": 4638352,
+          "external": 2119125,
+          "arrayBuffers": 137593
+        },
+        "afterFirstParse": {
+          "rss": 59490304,
+          "heapUsed": 4825904,
+          "external": 2436487,
+          "arrayBuffers": 454021
+        },
+        "afterMeasuredWork": {
+          "rss": 76627968,
+          "heapUsed": 6207736,
+          "external": 2497419,
+          "arrayBuffers": 466629
+        }
+      }
+    },
+    {
+      "trial": 1,
+      "engine": "tempus",
+      "backend": "cpu",
+      "importMs": 19.407542,
+      "initializeMs": 0.032083000000000084,
+      "firstParseMs": 5.5655,
+      "readyThroughFirstParseMs": 25.005459000000002,
+      "firstCorrect": true,
+      "verification": [
+        {
+          "input": "tomorrow at noon",
+          "correct": true,
+          "observed": {
+            "recurring": false,
+            "occurrences": [
+              {
+                "start": "2026-09-13T17:00:00.000Z"
+              }
+            ]
+          }
+        },
+        {
+          "input": "next Friday",
+          "correct": true,
+          "observed": {
+            "recurring": false,
+            "occurrences": [
+              {
+                "start": "2026-09-18T05:00:00.000Z"
+              }
+            ]
+          }
+        },
+        {
+          "input": "Friday 10pm-12am",
+          "correct": true,
+          "observed": {
+            "recurring": false,
+            "occurrences": [
+              {
+                "start": "2026-09-19T03:00:00.000Z",
+                "end": "2026-09-19T05:00:00.000Z"
+              }
+            ]
+          }
+        },
+        {
+          "input": "every Monday from 8 pm to 10 pm",
+          "correct": true,
+          "observed": {
+            "recurring": true,
+            "occurrences": [
+              {
+                "start": "2026-09-15T01:00:00.000Z",
+                "end": "2026-09-15T03:00:00.000Z"
+              },
+              {
+                "start": "2026-09-22T01:00:00.000Z",
+                "end": "2026-09-22T03:00:00.000Z"
+              },
+              {
+                "start": "2026-09-29T01:00:00.000Z",
+                "end": "2026-09-29T03:00:00.000Z"
+              }
+            ]
+          }
+        }
+      ],
+      "measurements": [
+        {
+          "operation": "parse",
+          "batchSize": 1,
+          "samplesMs": [
+            0.12445900000000165,
+            0.10862500000000352,
+            0.39854199999999906,
+            1.3309579999999954,
+            0.097332999999999,
+            0.08945899999999796,
+            0.3140410000000031,
+            1.5095420000000033,
+            0.10683299999999463,
+            0.09162500000000051,
+            0.318916999999999,
+            1.1730419999999953,
+            0.09558299999999775,
+            0.09833299999999667,
+            0.46083300000000094,
+            1.116583999999996,
+            0.0765000000000029,
+            0.07216700000000031,
+            0.32416699999999565,
+            1.0773340000000005
+          ],
+          "correctItems": 20,
+          "totalItems": 20
+        },
+        {
+          "operation": "parseMany",
+          "batchSize": 10,
+          "samplesMs": [
+            2.9229589999999916,
+            2.8087910000000136,
+            3.1332919999999973,
+            3.3010830000000055,
+            2.507334,
+            2.43395799999999,
+            3.0537499999999937,
+            2.916542000000007,
+            2.2611670000000004,
+            2.8277909999999906,
+            3.0335000000000036,
+            2.9959169999999915,
+            1.982208,
+            2.27825,
+            3.4775829999999956,
+            2.9002499999999998,
+            2.091791999999998,
+            2.2768329999999963,
+            3.1808750000000003,
+            3.4792919999999867
+          ],
+          "correctItems": 200,
+          "totalItems": 200
+        },
+        {
+          "operation": "parseMany",
+          "batchSize": 100,
+          "samplesMs": [
+            23.25199999999998,
+            21.34020800000002,
+            21.448958000000005,
+            20.820416999999964,
+            20.784582999999998,
+            21.288291000000015,
+            22.50033400000001,
+            23.891832999999963,
+            22.885291999999993,
+            20.592292000000043,
+            20.54291599999999,
+            20.92783300000002,
+            21.015833000000043,
+            22.368291,
+            21.005457999999976,
+            20.288082999999915,
+            19.20404099999996,
+            20.257791999999995,
+            20.579291000000012,
+            22.09483399999999
+          ],
+          "correctItems": 2000,
+          "totalItems": 2000
+        }
+      ],
+      "memoryBytes": {
+        "beforeImport": {
+          "rss": 43974656,
+          "heapUsed": 4191088,
+          "external": 2119125,
+          "arrayBuffers": 137593
+        },
+        "afterFirstParse": {
+          "rss": 62226432,
+          "heapUsed": 6704048,
+          "external": 2252090,
+          "arrayBuffers": 139355
+        },
+        "afterMeasuredWork": {
+          "rss": 146685952,
+          "heapUsed": 9502688,
+          "external": 2120892,
+          "arrayBuffers": 139355
+        }
+      }
+    },
+    {
+      "trial": 2,
+      "engine": "tempus",
+      "backend": "cpu",
+      "importMs": 18.588333000000002,
+      "initializeMs": 0.035834000000001254,
+      "firstParseMs": 5.896166999999998,
+      "readyThroughFirstParseMs": 24.520667,
+      "firstCorrect": true,
+      "verification": [
+        {
+          "input": "tomorrow at noon",
+          "correct": true,
+          "observed": {
+            "recurring": false,
+            "occurrences": [
+              {
+                "start": "2026-09-13T17:00:00.000Z"
+              }
+            ]
+          }
+        },
+        {
+          "input": "next Friday",
+          "correct": true,
+          "observed": {
+            "recurring": false,
+            "occurrences": [
+              {
+                "start": "2026-09-18T05:00:00.000Z"
+              }
+            ]
+          }
+        },
+        {
+          "input": "Friday 10pm-12am",
+          "correct": true,
+          "observed": {
+            "recurring": false,
+            "occurrences": [
+              {
+                "start": "2026-09-19T03:00:00.000Z",
+                "end": "2026-09-19T05:00:00.000Z"
+              }
+            ]
+          }
+        },
+        {
+          "input": "every Monday from 8 pm to 10 pm",
+          "correct": true,
+          "observed": {
+            "recurring": true,
+            "occurrences": [
+              {
+                "start": "2026-09-15T01:00:00.000Z",
+                "end": "2026-09-15T03:00:00.000Z"
+              },
+              {
+                "start": "2026-09-22T01:00:00.000Z",
+                "end": "2026-09-22T03:00:00.000Z"
+              },
+              {
+                "start": "2026-09-29T01:00:00.000Z",
+                "end": "2026-09-29T03:00:00.000Z"
+              }
+            ]
+          }
+        }
+      ],
+      "measurements": [
+        {
+          "operation": "parse",
+          "batchSize": 1,
+          "samplesMs": [
+            0.1219159999999988,
+            0.11162499999999653,
+            0.37179199999999923,
+            1.6796249999999944,
+            0.13062499999999488,
+            0.10516700000000156,
+            0.33704100000000636,
+            1.4630420000000015,
+            0.09433400000000347,
+            0.08429100000000034,
+            0.3117499999999964,
+            1.1496659999999963,
+            0.093166999999994,
+            0.12950000000000017,
+            0.4427079999999961,
+            1.1454999999999984,
+            0.07508299999999934,
+            0.07283300000000281,
+            0.3157910000000044,
+            1.1184999999999974
+          ],
+          "correctItems": 20,
+          "totalItems": 20
+        },
+        {
+          "operation": "parseMany",
+          "batchSize": 10,
+          "samplesMs": [
+            3.045458999999994,
+            3.0890839999999997,
+            3.360332999999997,
+            3.0436660000000018,
+            2.3247910000000047,
+            2.3327090000000084,
+            3.1424590000000023,
+            2.7816660000000013,
+            2.5254159999999928,
+            2.8445840000000118,
+            2.9286670000000044,
+            3.0804170000000113,
+            2.0186669999999935,
+            2.4753749999999997,
+            3.0471670000000017,
+            2.814582999999999,
+            2.2333749999999952,
+            2.6219169999999963,
+            2.9553339999999935,
+            3.6175409999999886
+          ],
+          "correctItems": 200,
+          "totalItems": 200
+        },
+        {
+          "operation": "parseMany",
+          "batchSize": 100,
+          "samplesMs": [
+            23.582457999999974,
+            22.140000000000043,
+            21.684958999999992,
+            20.931832999999983,
+            21.71312499999999,
+            21.05933299999998,
+            22.686499999999967,
+            24.025125000000003,
+            22.771500000000003,
+            20.56812500000001,
+            19.997667000000035,
+            20.36366700000002,
+            21.343541000000016,
+            20.446750000000065,
+            20.596624999999904,
+            20.34120800000005,
+            22.041292,
+            20.829207999999994,
+            20.816416000000004,
+            21.242624999999975
+          ],
+          "correctItems": 2000,
+          "totalItems": 2000
+        }
+      ],
+      "memoryBytes": {
+        "beforeImport": {
+          "rss": 44072960,
+          "heapUsed": 4637376,
+          "external": 2119125,
+          "arrayBuffers": 137593
+        },
+        "afterFirstParse": {
+          "rss": 63045632,
+          "heapUsed": 6704048,
+          "external": 2252090,
+          "arrayBuffers": 139355
+        },
+        "afterMeasuredWork": {
+          "rss": 144408576,
+          "heapUsed": 9547056,
+          "external": 2120892,
+          "arrayBuffers": 139355
+        }
+      }
+    },
+    {
+      "trial": 2,
+      "engine": "gpu-time",
+      "backend": "cpu",
+      "importMs": 4.4448750000000015,
+      "initializeMs": 0.04691700000000054,
+      "firstParseMs": 12.09825,
+      "readyThroughFirstParseMs": 16.590375,
+      "firstCorrect": true,
+      "verification": [
+        {
+          "input": "tomorrow at noon",
+          "correct": true,
+          "observed": {
+            "recurring": false,
+            "occurrences": [
+              {
+                "start": "2026-09-13T12:00:00-05:00"
+              }
+            ]
+          }
+        },
+        {
+          "input": "next Friday",
+          "correct": true,
+          "observed": {
+            "recurring": false,
+            "occurrences": [
+              {
+                "start": "2026-09-18T00:00:00-05:00"
+              }
+            ]
+          }
+        },
+        {
+          "input": "Friday 10pm-12am",
+          "correct": true,
+          "observed": {
+            "recurring": false,
+            "occurrences": [
+              {
+                "start": "2026-09-18T22:00:00-05:00",
+                "end": "2026-09-19T00:00:00-05:00"
+              }
+            ]
+          }
+        },
+        {
+          "input": "every Monday from 8 pm to 10 pm",
+          "correct": true,
+          "observed": {
+            "recurring": true,
+            "occurrences": [
+              {
+                "start": "2026-09-14T20:00:00-05:00",
+                "end": "2026-09-14T22:00:00-05:00"
+              },
+              {
+                "start": "2026-09-21T20:00:00-05:00",
+                "end": "2026-09-21T22:00:00-05:00"
+              },
+              {
+                "start": "2026-09-28T20:00:00-05:00",
+                "end": "2026-09-28T22:00:00-05:00"
+              }
+            ]
+          }
+        }
+      ],
+      "measurements": [
+        {
+          "operation": "parse",
+          "batchSize": 1,
+          "samplesMs": [
+            0.18229099999999931,
+            0.10570799999999991,
+            0.22287499999999483,
+            0.42345799999999656,
+            0.13308399999999665,
+            0.09058399999999978,
+            0.23970800000000025,
+            0.35908400000000285,
+            0.14654200000000372,
+            0.1317500000000038,
+            0.19975000000000165,
+            0.4041659999999965,
+            0.1384169999999969,
+            0.08691699999999969,
+            0.19675000000000153,
+            0.4206669999999946,
+            0.14070899999999398,
+            0.084541999999999,
+            0.19733300000000042,
+            0.4139160000000004
+          ],
+          "correctItems": 20,
+          "totalItems": 20
+        },
+        {
+          "operation": "parseMany",
+          "batchSize": 10,
+          "samplesMs": [
+            1.715875000000004,
+            1.8532080000000022,
+            1.6939589999999995,
+            1.2333330000000018,
+            1.2677089999999964,
+            1.1952499999999944,
+            1.3185840000000013,
+            1.25079199999999,
+            1.0062910000000045,
+            1.0346660000000014,
+            1.217917,
+            1.188958999999997,
+            1.0831250000000097,
+            1.0764170000000064,
+            1.3522080000000045,
+            1.2807920000000053,
+            1.0104999999999933,
+            1.0180000000000007,
+            1.2264169999999979,
+            1.1351250000000022
+          ],
+          "correctItems": 200,
+          "totalItems": 200
+        },
+        {
+          "operation": "parseMany",
+          "batchSize": 100,
+          "samplesMs": [
+            10.909667000000013,
+            10.985375000000005,
+            10.623625000000004,
+            10.858582999999982,
+            11.379083999999978,
+            12.381333000000012,
+            12.222416999999979,
+            11.555416000000008,
+            11.220416,
+            11.534791999999982,
+            12.441292000000004,
+            12.392874999999975,
+            12.678166000000033,
+            11.431291000000044,
+            10.896749999999997,
+            11.038791000000003,
+            11.234375,
+            10.859041999999988,
+            11.430834000000004,
+            12.420542000000012
+          ],
+          "correctItems": 2000,
+          "totalItems": 2000
+        }
+      ],
+      "memoryBytes": {
+        "beforeImport": {
+          "rss": 44023808,
+          "heapUsed": 4637328,
+          "external": 2119125,
+          "arrayBuffers": 137593
+        },
+        "afterFirstParse": {
+          "rss": 59506688,
+          "heapUsed": 4825904,
+          "external": 2436487,
+          "arrayBuffers": 454021
+        },
+        "afterMeasuredWork": {
+          "rss": 76791808,
+          "heapUsed": 6207728,
+          "external": 2525569,
+          "arrayBuffers": 466629
+        }
+      }
+    },
+    {
+      "trial": 3,
+      "engine": "gpu-time",
+      "backend": "cpu",
+      "importMs": 4.428625,
+      "initializeMs": 0.05004200000000125,
+      "firstParseMs": 12.285542000000003,
+      "readyThroughFirstParseMs": 16.764584000000003,
+      "firstCorrect": true,
+      "verification": [
+        {
+          "input": "tomorrow at noon",
+          "correct": true,
+          "observed": {
+            "recurring": false,
+            "occurrences": [
+              {
+                "start": "2026-09-13T12:00:00-05:00"
+              }
+            ]
+          }
+        },
+        {
+          "input": "next Friday",
+          "correct": true,
+          "observed": {
+            "recurring": false,
+            "occurrences": [
+              {
+                "start": "2026-09-18T00:00:00-05:00"
+              }
+            ]
+          }
+        },
+        {
+          "input": "Friday 10pm-12am",
+          "correct": true,
+          "observed": {
+            "recurring": false,
+            "occurrences": [
+              {
+                "start": "2026-09-18T22:00:00-05:00",
+                "end": "2026-09-19T00:00:00-05:00"
+              }
+            ]
+          }
+        },
+        {
+          "input": "every Monday from 8 pm to 10 pm",
+          "correct": true,
+          "observed": {
+            "recurring": true,
+            "occurrences": [
+              {
+                "start": "2026-09-14T20:00:00-05:00",
+                "end": "2026-09-14T22:00:00-05:00"
+              },
+              {
+                "start": "2026-09-21T20:00:00-05:00",
+                "end": "2026-09-21T22:00:00-05:00"
+              },
+              {
+                "start": "2026-09-28T20:00:00-05:00",
+                "end": "2026-09-28T22:00:00-05:00"
+              }
+            ]
+          }
+        }
+      ],
+      "measurements": [
+        {
+          "operation": "parse",
+          "batchSize": 1,
+          "samplesMs": [
+            0.21079199999999787,
+            0.12079200000000156,
+            0.30229100000000386,
+            0.5172500000000042,
+            0.14841599999999744,
+            0.09229200000000048,
+            0.32066700000000026,
+            0.4864589999999964,
+            0.2369160000000008,
+            0.14383300000000077,
+            0.2854159999999979,
+            0.5289169999999999,
+            0.17079199999999872,
+            0.10466699999999918,
+            0.24958299999999412,
+            0.5122080000000011,
+            0.1645420000000044,
+            0.09779100000000085,
+            0.29333299999999696,
+            0.4352080000000029
+          ],
+          "correctItems": 20,
+          "totalItems": 20
+        },
+        {
+          "operation": "parseMany",
+          "batchSize": 10,
+          "samplesMs": [
+            2.0933749999999947,
+            2.1801669999999973,
+            1.915417000000005,
+            1.5471670000000017,
+            1.2881249999999937,
+            1.2767499999999927,
+            1.4337919999999968,
+            1.5699579999999997,
+            1.2356249999999989,
+            1.3380829999999975,
+            1.5071669999999955,
+            1.3918749999999989,
+            1.1772500000000008,
+            1.3017499999999984,
+            1.4359999999999928,
+            1.4391660000000002,
+            1.2089169999999996,
+            1.2138750000000016,
+            1.428042000000005,
+            1.3984590000000026
+          ],
+          "correctItems": 200,
+          "totalItems": 200
+        },
+        {
+          "operation": "parseMany",
+          "batchSize": 100,
+          "samplesMs": [
+            12.836291999999986,
+            12.790750000000003,
+            12.054999999999978,
+            11.400083999999993,
+            10.896749999999997,
+            10.900875000000013,
+            10.985416000000015,
+            10.775624999999991,
+            10.745416000000006,
+            10.803958000000023,
+            10.594333000000006,
+            10.66054200000002,
+            10.776041999999961,
+            10.72358300000002,
+            10.710957999999948,
+            10.52533299999999,
+            10.736915999999951,
+            10.739041999999984,
+            10.711167000000046,
+            10.406416999999976
+          ],
+          "correctItems": 2000,
+          "totalItems": 2000
+        }
+      ],
+      "memoryBytes": {
+        "beforeImport": {
+          "rss": 44220416,
+          "heapUsed": 4637376,
+          "external": 2119125,
+          "arrayBuffers": 137593
+        },
+        "afterFirstParse": {
+          "rss": 59703296,
+          "heapUsed": 4825632,
+          "external": 2436487,
+          "arrayBuffers": 454021
+        },
+        "afterMeasuredWork": {
+          "rss": 76922880,
+          "heapUsed": 6207584,
+          "external": 2571199,
+          "arrayBuffers": 523413
+        }
+      }
+    },
+    {
+      "trial": 3,
+      "engine": "tempus",
+      "backend": "cpu",
+      "importMs": 19.268458,
+      "initializeMs": 0.032125000000000625,
+      "firstParseMs": 5.541792000000001,
+      "readyThroughFirstParseMs": 24.843791999999997,
+      "firstCorrect": true,
+      "verification": [
+        {
+          "input": "tomorrow at noon",
+          "correct": true,
+          "observed": {
+            "recurring": false,
+            "occurrences": [
+              {
+                "start": "2026-09-13T17:00:00.000Z"
+              }
+            ]
+          }
+        },
+        {
+          "input": "next Friday",
+          "correct": true,
+          "observed": {
+            "recurring": false,
+            "occurrences": [
+              {
+                "start": "2026-09-18T05:00:00.000Z"
+              }
+            ]
+          }
+        },
+        {
+          "input": "Friday 10pm-12am",
+          "correct": true,
+          "observed": {
+            "recurring": false,
+            "occurrences": [
+              {
+                "start": "2026-09-19T03:00:00.000Z",
+                "end": "2026-09-19T05:00:00.000Z"
+              }
+            ]
+          }
+        },
+        {
+          "input": "every Monday from 8 pm to 10 pm",
+          "correct": true,
+          "observed": {
+            "recurring": true,
+            "occurrences": [
+              {
+                "start": "2026-09-15T01:00:00.000Z",
+                "end": "2026-09-15T03:00:00.000Z"
+              },
+              {
+                "start": "2026-09-22T01:00:00.000Z",
+                "end": "2026-09-22T03:00:00.000Z"
+              },
+              {
+                "start": "2026-09-29T01:00:00.000Z",
+                "end": "2026-09-29T03:00:00.000Z"
+              }
+            ]
+          }
+        }
+      ],
+      "measurements": [
+        {
+          "operation": "parse",
+          "batchSize": 1,
+          "samplesMs": [
+            0.1255829999999989,
+            0.11316700000000424,
+            0.5906250000000028,
+            1.7274170000000026,
+            0.10249999999999915,
+            0.09858299999999787,
+            0.36000000000000654,
+            1.4460830000000016,
+            0.09404200000000174,
+            0.08458399999999955,
+            0.31124999999999403,
+            1.1527910000000006,
+            0.08841699999999975,
+            0.1057090000000045,
+            0.4027499999999975,
+            1.0528329999999997,
+            0.07366700000000037,
+            0.07137499999999619,
+            0.3020830000000032,
+            1.125542000000003
+          ],
+          "correctItems": 20,
+          "totalItems": 20
+        },
+        {
+          "operation": "parseMany",
+          "batchSize": 10,
+          "samplesMs": [
+            2.6505829999999975,
+            2.816999999999993,
+            3.265083000000004,
+            3.4213749999999976,
+            2.4152090000000044,
+            2.345708000000002,
+            3.054374999999993,
+            2.9561669999999935,
+            2.2061670000000078,
+            2.4172080000000022,
+            3.0485419999999976,
+            2.8669160000000034,
+            2.156916999999993,
+            2.27825,
+            3.015166999999991,
+            2.8262500000000017,
+            2.1594580000000008,
+            2.643792000000005,
+            2.8894579999999905,
+            3.334541999999999
+          ],
+          "correctItems": 200,
+          "totalItems": 200
+        },
+        {
+          "operation": "parseMany",
+          "batchSize": 100,
+          "samplesMs": [
+            23.999583,
+            21.98762499999998,
+            21.38987499999996,
+            20.65979200000004,
+            20.753874999999994,
+            21.629250000000013,
+            21.93808299999995,
+            23.606041000000005,
+            22.727832999999976,
+            20.368708000000026,
+            20.01600000000002,
+            20.418000000000006,
+            21.371459000000016,
+            21.264958999999976,
+            20.400333000000046,
+            20.665750000000003,
+            22.285082999999986,
+            20.796291999999994,
+            21.172917000000098,
+            21.048457999999982
+          ],
+          "correctItems": 2000,
+          "totalItems": 2000
+        }
+      ],
+      "memoryBytes": {
+        "beforeImport": {
+          "rss": 44056576,
+          "heapUsed": 4660384,
+          "external": 2119125,
+          "arrayBuffers": 137593
+        },
+        "afterFirstParse": {
+          "rss": 62668800,
+          "heapUsed": 6704048,
+          "external": 2252090,
+          "arrayBuffers": 139355
+        },
+        "afterMeasuredWork": {
+          "rss": 144244736,
+          "heapUsed": 9549080,
+          "external": 2120892,
+          "arrayBuffers": 139355
+        }
+      }
+    },
+    {
+      "trial": 4,
+      "engine": "tempus",
+      "backend": "cpu",
+      "importMs": 20.357834,
+      "initializeMs": 0.0350830000000002,
+      "firstParseMs": 5.598750000000003,
+      "readyThroughFirstParseMs": 25.992042,
+      "firstCorrect": true,
+      "verification": [
+        {
+          "input": "tomorrow at noon",
+          "correct": true,
+          "observed": {
+            "recurring": false,
+            "occurrences": [
+              {
+                "start": "2026-09-13T17:00:00.000Z"
+              }
+            ]
+          }
+        },
+        {
+          "input": "next Friday",
+          "correct": true,
+          "observed": {
+            "recurring": false,
+            "occurrences": [
+              {
+                "start": "2026-09-18T05:00:00.000Z"
+              }
+            ]
+          }
+        },
+        {
+          "input": "Friday 10pm-12am",
+          "correct": true,
+          "observed": {
+            "recurring": false,
+            "occurrences": [
+              {
+                "start": "2026-09-19T03:00:00.000Z",
+                "end": "2026-09-19T05:00:00.000Z"
+              }
+            ]
+          }
+        },
+        {
+          "input": "every Monday from 8 pm to 10 pm",
+          "correct": true,
+          "observed": {
+            "recurring": true,
+            "occurrences": [
+              {
+                "start": "2026-09-15T01:00:00.000Z",
+                "end": "2026-09-15T03:00:00.000Z"
+              },
+              {
+                "start": "2026-09-22T01:00:00.000Z",
+                "end": "2026-09-22T03:00:00.000Z"
+              },
+              {
+                "start": "2026-09-29T01:00:00.000Z",
+                "end": "2026-09-29T03:00:00.000Z"
+              }
+            ]
+          }
+        }
+      ],
+      "measurements": [
+        {
+          "operation": "parse",
+          "batchSize": 1,
+          "samplesMs": [
+            0.2289999999999992,
+            0.1735840000000053,
+            0.47295799999999844,
+            1.9167909999999964,
+            0.15575000000000472,
+            0.11129199999999884,
+            0.35691599999999823,
+            1.4704169999999976,
+            0.09395800000000065,
+            0.0834170000000043,
+            0.3145840000000035,
+            1.188709000000003,
+            0.10404199999999975,
+            0.12104099999999818,
+            0.5047080000000008,
+            1.201584000000004,
+            0.08299999999999841,
+            0.0726669999999956,
+            0.32125000000000625,
+            1.3242919999999998
+          ],
+          "correctItems": 20,
+          "totalItems": 20
+        },
+        {
+          "operation": "parseMany",
+          "batchSize": 10,
+          "samplesMs": [
+            2.931624999999997,
+            3.0321249999999935,
+            3.3857500000000016,
+            3.121291999999997,
+            2.3574590000000057,
+            2.4921250000000015,
+            3.295625000000001,
+            3.027541999999997,
+            2.2922089999999997,
+            2.443124999999995,
+            3.0342080000000067,
+            2.920500000000004,
+            2.342540999999997,
+            2.4623749999999944,
+            2.923792000000006,
+            2.903374999999997,
+            2.3242079999999987,
+            2.436875000000015,
+            2.875499999999988,
+            3.6100000000000136
+          ],
+          "correctItems": 200,
+          "totalItems": 200
+        },
+        {
+          "operation": "parseMany",
+          "batchSize": 100,
+          "samplesMs": [
+            22.83258399999997,
+            21.18266699999998,
+            21.409875,
+            19.919125000000008,
+            20.530167000000006,
+            21.724874999999997,
+            22.210375,
+            23.261625000000038,
+            22.55324999999999,
+            20.628375000000005,
+            20.312917000000027,
+            20.314082999999982,
+            21.04449999999997,
+            21.62520900000004,
+            21.00633300000004,
+            20.752000000000066,
+            21.882000000000062,
+            20.844165999999973,
+            20.168249999999944,
+            20.382417000000032
+          ],
+          "correctItems": 2000,
+          "totalItems": 2000
+        }
+      ],
+      "memoryBytes": {
+        "beforeImport": {
+          "rss": 44023808,
+          "heapUsed": 4637264,
+          "external": 2119125,
+          "arrayBuffers": 137593
+        },
+        "afterFirstParse": {
+          "rss": 62586880,
+          "heapUsed": 6704048,
+          "external": 2252090,
+          "arrayBuffers": 139355
+        },
+        "afterMeasuredWork": {
+          "rss": 144670720,
+          "heapUsed": 9546688,
+          "external": 2120892,
+          "arrayBuffers": 139355
+        }
+      }
+    },
+    {
+      "trial": 4,
+      "engine": "gpu-time",
+      "backend": "cpu",
+      "importMs": 4.322083000000001,
+      "initializeMs": 0.042541999999997415,
+      "firstParseMs": 12.301124999999999,
+      "readyThroughFirstParseMs": 16.666083,
+      "firstCorrect": true,
+      "verification": [
+        {
+          "input": "tomorrow at noon",
+          "correct": true,
+          "observed": {
+            "recurring": false,
+            "occurrences": [
+              {
+                "start": "2026-09-13T12:00:00-05:00"
+              }
+            ]
+          }
+        },
+        {
+          "input": "next Friday",
+          "correct": true,
+          "observed": {
+            "recurring": false,
+            "occurrences": [
+              {
+                "start": "2026-09-18T00:00:00-05:00"
+              }
+            ]
+          }
+        },
+        {
+          "input": "Friday 10pm-12am",
+          "correct": true,
+          "observed": {
+            "recurring": false,
+            "occurrences": [
+              {
+                "start": "2026-09-18T22:00:00-05:00",
+                "end": "2026-09-19T00:00:00-05:00"
+              }
+            ]
+          }
+        },
+        {
+          "input": "every Monday from 8 pm to 10 pm",
+          "correct": true,
+          "observed": {
+            "recurring": true,
+            "occurrences": [
+              {
+                "start": "2026-09-14T20:00:00-05:00",
+                "end": "2026-09-14T22:00:00-05:00"
+              },
+              {
+                "start": "2026-09-21T20:00:00-05:00",
+                "end": "2026-09-21T22:00:00-05:00"
+              },
+              {
+                "start": "2026-09-28T20:00:00-05:00",
+                "end": "2026-09-28T22:00:00-05:00"
+              }
+            ]
+          }
+        }
+      ],
+      "measurements": [
+        {
+          "operation": "parse",
+          "batchSize": 1,
+          "samplesMs": [
+            0.18824999999999648,
+            0.10725000000000051,
+            0.22895900000000324,
+            0.4291249999999991,
+            0.13420899999999847,
+            0.09054199999999923,
+            0.2545830000000038,
+            0.36383299999999963,
+            0.12683400000000233,
+            0.13249999999999318,
+            0.20000000000000284,
+            0.4018749999999969,
+            0.13970800000000594,
+            0.08720799999999684,
+            0.1967079999999939,
+            0.4551659999999984,
+            0.14000000000000057,
+            0.08404199999999662,
+            0.19675000000000153,
+            0.47604199999999963
+          ],
+          "correctItems": 20,
+          "totalItems": 20
+        },
+        {
+          "operation": "parseMany",
+          "batchSize": 10,
+          "samplesMs": [
+            1.820875000000001,
+            1.8393330000000034,
+            1.6666249999999962,
+            1.220792000000003,
+            1.315958000000002,
+            1.1589169999999953,
+            1.3847499999999968,
+            1.3080829999999963,
+            1.0148750000000035,
+            1.051000000000002,
+            1.2230830000000026,
+            1.1950000000000074,
+            1.2724580000000003,
+            1.1185410000000076,
+            1.2413329999999974,
+            1.2767499999999927,
+            1.0117499999999922,
+            1.0211249999999978,
+            1.2309160000000077,
+            1.132249999999999
+          ],
+          "correctItems": 200,
+          "totalItems": 200
+        },
+        {
+          "operation": "parseMany",
+          "batchSize": 100,
+          "samplesMs": [
+            11.04420899999998,
+            10.913582999999988,
+            10.491666999999978,
+            10.561084000000022,
+            10.65941699999999,
+            10.720624999999984,
+            10.691667000000024,
+            10.518625000000014,
+            10.540458000000001,
+            10.663750000000022,
+            10.673374999999993,
+            10.604417000000012,
+            10.519249999999971,
+            10.438834000000043,
+            10.765333999999996,
+            10.70916699999998,
+            10.819416000000047,
+            10.445541999999989,
+            10.555082999999968,
+            10.61345799999998
+          ],
+          "correctItems": 2000,
+          "totalItems": 2000
+        }
+      ],
+      "memoryBytes": {
+        "beforeImport": {
+          "rss": 44105728,
+          "heapUsed": 4637360,
+          "external": 2119125,
+          "arrayBuffers": 137593
+        },
+        "afterFirstParse": {
+          "rss": 59523072,
+          "heapUsed": 4825904,
+          "external": 2436487,
+          "arrayBuffers": 454021
+        },
+        "afterMeasuredWork": {
+          "rss": 76283904,
+          "heapUsed": 6207736,
+          "external": 2462699,
+          "arrayBuffers": 466629
+        }
+      }
+    }
+  ]
+}

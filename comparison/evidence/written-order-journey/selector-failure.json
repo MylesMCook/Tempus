@@ -1,0 +1,20 @@
+{
+  "status": "failed",
+  "browser": "153.0.8010.36",
+  "baseURL": "http://127.0.0.1:5175",
+  "runs": [
+    {
+      "width": 320,
+      "status": "failed",
+      "errors": [],
+      "rows": [
+        "Sun, Nov 1, 2026 at 1:30 AM CST",
+        "Wed, Sep 30, 2026 at 12:00 PM CDT",
+        "Starting dateUse the explicitly selected time for listed date 1: Second: November 1, 2026 at 1:30 AM CST (UTC-06:00)2026-11-01 01:30:00 -06:00",
+        "Starting dateUse the exact calendar date. Set the clock to 12:00:00.2026-09-30 12:00:00 -05:00"
+      ],
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n4 !== 2\n"
+    }
+  ],
+  "scope": "Authored written-order task; desktop Chrome, not physical phones, independent users or calendar-client import."
+}

@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tempus//Calendar Export//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:11111111-2222-4333-8444-555555555555-0@tempus.invalid
+DTSTAMP:20260912T160000Z
+SUMMARY:call Sam
+DESCRIPTION:Date phrase: Remind me to call Sam Friday 9am-11am\, actually S
+ aturday 1pm-2pm instead\nTimezone: America/Chicago\nThe interval end is ex
+ clusive.\nYou confirmed that the second date replaces the first.
+DTSTART:20260912T180000Z
+DTEND:20260912T190000Z
+END:VEVENT
+END:VCALENDAR

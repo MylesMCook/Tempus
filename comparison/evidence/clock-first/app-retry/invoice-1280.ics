@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tempus//Calendar Export//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:6062b8d4-2cc7-46d7-b5f1-a195dd449333-0@tempus.invalid
+DTSTAMP:20260912T160000Z
+SUMMARY:Pay invoice #123
+DESCRIPTION:Date phrase: 11/01/2026 at 1:30am for 30 minutes\nTimezone: Ame
+ rica/Chicago\nThe interval end is exclusive.\nYou selected Start: Second: 
+ November 1\, 2026 at 1:30 AM CST (UTC-06:00).\nDate interpreted as Novembe
+ r 1\, 2026.
+DTSTART:20261101T073000Z
+DTEND:20261101T080000Z
+END:VEVENT
+END:VCALENDAR

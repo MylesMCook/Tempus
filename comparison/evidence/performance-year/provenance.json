@@ -1,0 +1,13 @@
+{
+  "originalReportSha256": {
+    "node.json": "72fcbd8ac57ee2ce4ed51bf7e0428cfb0162a639f1fe8de4310fc48deff917b1",
+    "chrome.json": "9d161d26e791abebd3f7ab5dc7709e0b923eb24c3aec40d89f5bc9d0774871ae",
+    "calendar-bundle.json": "042063e4318fa532c91aa32aa8a9361e94894809a49e7ca4755ac5341c581be4"
+  },
+  "redaction": "Only occurrences of the local user home prefix in string values and object keys are replaced with <home>. Original report hashes are retained separately. Numeric samples, workload, artifact and source hashes are unchanged.",
+  "registry": {
+    "version": "0.2.1",
+    "integrity": "sha512-KWC9qpmJBJvxI9gyT+1CpXUee+62fGyVSIFLW4BXbF4plNcs8/U/vdS+ClQTZUpEQzyY+ViqMx+2f3Ht8Alssg==",
+    "checked": "September 13, 2026 via npm view; no installation"
+  }
+}

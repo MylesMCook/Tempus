@@ -1,0 +1,13 @@
+# Count exclusions: correction to file
+
+Current source asks whether excluded cadence dates consume the requested count slots or are replaced. The choice labels show up to three resulting local dates. In the authored Monday example, consuming the excluded September 21 slot leaves September 14 and 28; replacing it adds October 5. No policy is selected implicitly.
+
+The main app passes four tasks at desktop Chrome widths 320 and 1280: ordinary weekly count, monthly count with a short-month policy, and both exclusion choices. It retains input/title, displays count-slot wording separately from actual event totals, downloads the full finite set and invalidates the decision/export state after an exclusion edit. Eight actual files pass independent Python icalendar/recurring-ical-events readback with exact starts, no ongoing rule or invented duration, and the selected policy in each exclusion file's description. This is desktop emulation and direct focus/Enter testing, not a physical phone, full keyboard traversal, calendar-client import or independent language evaluation.
+
+All 788 shared tests pass, including monthly/count history, conflicting raw answers, choice replacement, invalidation across input/timezone/reference edits, all-excluded empty sets and exclusions outside the cadence. Application TypeScript, task-owned lint and production build pass. The client retains the existing size warning at 906.90 kB minified / 266.96 kB gzip.
+
+The first browser pass (`../count-exclusion-journeys/`) preceded the file-policy description addition. The next run (`../count-exclusion-files/`) timed out before an exclusion download became enabled. A focused diagnostic observed the complete two-event plan and enabled download after waiting for the app's post-choice focus update. The runner now waits for that observable update before opening export; this final retry passes all eight tasks. Earlier reports retain their original state and source hashes.
+
+Reproduce with `node examples/app/verify-count.mjs PLAYWRIGHT-ENTRY NEW-output-directory` against the loopback main app on port 5174, then `uv run examples/app/read-count.py NEW-output-directory`. The reader requires all eight scenario/viewport identities, checks file hashes and expands the finite set over ten years. Reports, eight files and checksums are retained here.
+
+Still open: counting past written starts; an excluded repeated clock that straddles the reference when consuming its slot requires an unchosen instant; new packed SDK/runtime verification; actual imports, physical devices and independent evaluation. Archive `36928444` predates this source update. No deployment, publication, cloud mutation or calendar write occurred.

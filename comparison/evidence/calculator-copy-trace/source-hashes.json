@@ -1,0 +1,9 @@
+{
+  "examples/app/verify-calculator.mjs": "7346f108a62f8e0e3e0eeff6beff24eda5e94dcd392ef928bf2e5314feae5fdd",
+  "src/features/parser/components/date-picker.tsx": "6c66cd67dbbdd17cc3cdbfa3d323375ac77720d04eadf74d00198cc6ad76344a",
+  "src/features/parser/components/calculation-trace.tsx": "a20ffe8cc3c2ed8f1d7a8d9237f90a8007086a826f71366b24f81b8acbdf3f22",
+  "src/features/parser/components/api-docs.tsx": "3bcd061f58078834979b207a30b3278c8e3bf46e92414d09dbe937e8f7f2431e",
+  "src/features/parser/options.ts": "bd209da8cf866e953276eac9125ee6b14626be05a30bc7e73a2360faf62f7452",
+  "src/shared/date-parser.ts": "1cb8481c6fe442fb4d6f3edec5273be9b50cc0ca010393f5f751ca1988e2a208",
+  "src/shared/parse-api.ts": "12f2e7177e74570c701f24797482eab67f2333e40e76922df7544a32035743e8"
+}

@@ -1,0 +1,22 @@
+{
+  "scope": "Compiled static assets served locally with public/_headers; no deployed Cloudflare claim. Node gzip settings; build-tool gzip estimates may differ.",
+  "assets": {
+    "calendar-preparation.worker-CZzhyEGb.js": {
+      "bytes": 511564,
+      "gzipBytes": 143674,
+      "sha256": "bcb435962f4842e950cb7cafb9c915ce4501214fbf6b6b2a15cd858ec0e1a912"
+    },
+    "index-BZuWK7jr.css": {
+      "bytes": 56334,
+      "gzipBytes": 10442,
+      "sha256": "50d3a8525e2af63b0bd7bce83d88fc20ed440300508ec1c05f0e4f91beee5c61"
+    },
+    "index-D6qdVFtY.js": {
+      "bytes": 897831,
+      "gzipBytes": 261121,
+      "sha256": "8426e93a132ab7866be7e9a111e9e73159139a37b2c8010875f65bc76d470d14"
+    }
+  },
+  "htmlSha256": "72d781defe0b30a596fd3bc234cb32db2e269502fff1ca3b73ae091c557f98a9",
+  "headersSha256": "c551696324b38b5fb63980772f32cae743f0d7349139c851f44b2357394b8671"
+}

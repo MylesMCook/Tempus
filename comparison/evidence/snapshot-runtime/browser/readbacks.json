@@ -1,0 +1,1095 @@
+{
+  "readers": {
+    "icalendar": "7.3.0",
+    "recurring-ical-events": "3.8.2"
+  },
+  "files": [
+    {
+      "filename": "chromium-320-date-point.ics",
+      "sha256": "e3cc15a600a1eddcbd493a961421b709bbb6d227245327eb6ac29d8b6052bed0",
+      "events": 1,
+      "status": "passed",
+      "precision": "date-point"
+    },
+    {
+      "filename": "chromium-320-all-day-range.ics",
+      "sha256": "55692ce277391935d42dae4d17c967c0fc3f20aded24f169f9d9a8da1a97a995",
+      "events": 1,
+      "status": "passed",
+      "precision": "all-day-range"
+    },
+    {
+      "filename": "chromium-320-range-exclusive.ics",
+      "sha256": "be68234d7675da15b137f0ab663c5647785733103276a1c38c38e6fccdc73683",
+      "events": 1,
+      "observed": [
+        "2026-09-13",
+        "2026-09-18"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "chromium-320-range-inclusive.ics",
+      "sha256": "7e061a657cf9e165141d90d8cfa2b3c1919df0043cfb4588ad28a1f309ebadac",
+      "events": 1,
+      "observed": [
+        "2026-09-13",
+        "2026-09-19"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "chromium-320-range-mixed.ics",
+      "sha256": "41a5e5c3810389c1c61f883b4ca2acbc2126e1a905cdcd1f2c81ecc76034085a",
+      "events": 1,
+      "observed": [
+        "2026-11-01T07:30:00+00:00",
+        "2026-11-02T07:30:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "chromium-320-count-weekly.ics",
+      "sha256": "afe1c5290866664ef05734f32d7793da4eb9c625f90ab404b054532cabea05d8",
+      "events": 5,
+      "observed": [
+        "2026-09-14T17:00:00+00:00",
+        "2026-09-21T17:00:00+00:00",
+        "2026-09-28T17:00:00+00:00",
+        "2026-10-05T17:00:00+00:00",
+        "2026-10-12T17:00:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "chromium-320-count-monthly.ics",
+      "sha256": "01b9178b2c7b6e80e9683f3519e572a66dcada27da1247150ee2cf7c14e6d105",
+      "events": 3,
+      "observed": [
+        "2026-09-30T17:00:00+00:00",
+        "2026-10-31T17:00:00+00:00",
+        "2026-11-30T18:00:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "chromium-320-count-past-consume.ics",
+      "sha256": "b4922c1a9774fadb1995809b8b61e58f67ec84c69e1e9d7cdd792cfefc87f8ba",
+      "events": 2,
+      "observed": [
+        "2026-09-14T17:00:00+00:00",
+        "2026-09-21T17:00:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "chromium-320-count-past-upcoming.ics",
+      "sha256": "301aab1fbad98905e50ff88355ad7f4ab2811603a583093c1d44a0547a38c169",
+      "events": 3,
+      "observed": [
+        "2026-09-14T17:00:00+00:00",
+        "2026-09-21T17:00:00+00:00",
+        "2026-09-28T17:00:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "chromium-320-count-excluded-consume.ics",
+      "sha256": "48467c1018eb65de1aea02955250e876a65840ed7cfa790fb6797ee8c50474d9",
+      "events": 2,
+      "observed": [
+        "2026-09-14T17:00:00+00:00",
+        "2026-09-28T17:00:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "chromium-320-count-excluded-replace.ics",
+      "sha256": "f6cb81094a31464e2eada557b4a911df883f8dae01544f38d7ca36ab491bc938",
+      "events": 3,
+      "observed": [
+        "2026-09-14T17:00:00+00:00",
+        "2026-09-28T17:00:00+00:00",
+        "2026-10-05T17:00:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "chromium-320-range.ics",
+      "sha256": "95e432a6a02b99ffc6527670ae7c686e2e7e244ba7ff4a20ab305255acd6e523",
+      "events": 1,
+      "observed": [
+        "2026-11-01T07:30:00+00:00",
+        "2026-11-02T18:00:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "chromium-320-weekly.ics",
+      "sha256": "8487c7e438ce1c619c7e293d0dff14caffbc10c0a131b7630ac143cb2da6014a",
+      "events": 9,
+      "observed": [
+        [
+          "2026-09-13T06:30:00+00:00",
+          "2026-09-13T07:00:00+00:00"
+        ],
+        [
+          "2026-09-20T06:30:00+00:00",
+          "2026-09-20T07:00:00+00:00"
+        ],
+        [
+          "2026-09-27T06:30:00+00:00",
+          "2026-09-27T07:00:00+00:00"
+        ],
+        [
+          "2026-10-04T06:30:00+00:00",
+          "2026-10-04T07:00:00+00:00"
+        ],
+        [
+          "2026-10-11T06:30:00+00:00",
+          "2026-10-11T07:00:00+00:00"
+        ],
+        [
+          "2026-10-18T06:30:00+00:00",
+          "2026-10-18T07:00:00+00:00"
+        ],
+        [
+          "2026-10-25T06:30:00+00:00",
+          "2026-10-25T07:00:00+00:00"
+        ],
+        [
+          "2026-11-01T07:30:00+00:00",
+          "2026-11-01T08:00:00+00:00"
+        ],
+        [
+          "2026-11-08T07:30:00+00:00",
+          "2026-11-08T08:00:00+00:00"
+        ]
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "chromium-320-list.ics",
+      "sha256": "146492baa8208dffd595162f5b327722181542b8b769ae024ac3346ebbdcceb6",
+      "events": 3,
+      "observed": [
+        [
+          "2026-09-30T17:00:00+00:00"
+        ],
+        [
+          "2026-10-02T17:00:00+00:00"
+        ],
+        [
+          "2026-10-04T17:00:00+00:00"
+        ]
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "chromium-1280-date-point.ics",
+      "sha256": "32aa4525b675610f78171c64ab8a338cceebf45a59c154284319051a66f80c26",
+      "events": 1,
+      "status": "passed",
+      "precision": "date-point"
+    },
+    {
+      "filename": "chromium-1280-all-day-range.ics",
+      "sha256": "00a08a82ce326d643eab017a5e6360246a27f0d5b1d216c7c949a087d2df0d14",
+      "events": 1,
+      "status": "passed",
+      "precision": "all-day-range"
+    },
+    {
+      "filename": "chromium-1280-range-exclusive.ics",
+      "sha256": "953ac1b8bbb7cc9dd8aa56bfcccf3a3d68b388d841e46e634badf5c5130fa79e",
+      "events": 1,
+      "observed": [
+        "2026-09-13",
+        "2026-09-18"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "chromium-1280-range-inclusive.ics",
+      "sha256": "c70b6f3ef2b33115ae0b53a7d6df8aa3578ea587d1090b1bfb924be43396a702",
+      "events": 1,
+      "observed": [
+        "2026-09-13",
+        "2026-09-19"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "chromium-1280-range-mixed.ics",
+      "sha256": "c03d4616bfd46345ff824104dd20ca3a83e94c254afe181453655dacb28f2ff2",
+      "events": 1,
+      "observed": [
+        "2026-11-01T07:30:00+00:00",
+        "2026-11-02T07:30:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "chromium-1280-count-weekly.ics",
+      "sha256": "20a34705dd3e424400148fb5d872f37a2f8270a0e55af7defce1058cdd4377aa",
+      "events": 5,
+      "observed": [
+        "2026-09-14T17:00:00+00:00",
+        "2026-09-21T17:00:00+00:00",
+        "2026-09-28T17:00:00+00:00",
+        "2026-10-05T17:00:00+00:00",
+        "2026-10-12T17:00:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "chromium-1280-count-monthly.ics",
+      "sha256": "1f085afa18af5d1aec3b3049e8c09ce25bfc06ea47a33fe1f6adea0dfaf68577",
+      "events": 3,
+      "observed": [
+        "2026-09-30T17:00:00+00:00",
+        "2026-10-31T17:00:00+00:00",
+        "2026-11-30T18:00:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "chromium-1280-count-past-consume.ics",
+      "sha256": "4f7ab50ea88ddd2789c5a0ded4d3c0cce8dc9cf629c9d52d47b431d90e8240c0",
+      "events": 2,
+      "observed": [
+        "2026-09-14T17:00:00+00:00",
+        "2026-09-21T17:00:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "chromium-1280-count-past-upcoming.ics",
+      "sha256": "951895d9bb24da9561bbccd931c6045089f611895fdcaa4581beb04108efca9e",
+      "events": 3,
+      "observed": [
+        "2026-09-14T17:00:00+00:00",
+        "2026-09-21T17:00:00+00:00",
+        "2026-09-28T17:00:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "chromium-1280-count-excluded-consume.ics",
+      "sha256": "51e6df7ade38c0b93e3eaaa867d903424d496bf671c58d7b9a3ce05a9a0968ff",
+      "events": 2,
+      "observed": [
+        "2026-09-14T17:00:00+00:00",
+        "2026-09-28T17:00:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "chromium-1280-count-excluded-replace.ics",
+      "sha256": "092d0449e6a7cc349cd3ce1d828995b8dac7df021d1d164042294462985632e9",
+      "events": 3,
+      "observed": [
+        "2026-09-14T17:00:00+00:00",
+        "2026-09-28T17:00:00+00:00",
+        "2026-10-05T17:00:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "chromium-1280-range.ics",
+      "sha256": "3111ee0fd10e9bb0dbb3433410a0fb421fe9ba96ae3a3bbfa080741f3897f355",
+      "events": 1,
+      "observed": [
+        "2026-11-01T07:30:00+00:00",
+        "2026-11-02T18:00:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "chromium-1280-weekly.ics",
+      "sha256": "284a4a6ee31494a55b1077241783e49e7e9176aa25dec1b6c23b8f14c93939d1",
+      "events": 9,
+      "observed": [
+        [
+          "2026-09-13T06:30:00+00:00",
+          "2026-09-13T07:00:00+00:00"
+        ],
+        [
+          "2026-09-20T06:30:00+00:00",
+          "2026-09-20T07:00:00+00:00"
+        ],
+        [
+          "2026-09-27T06:30:00+00:00",
+          "2026-09-27T07:00:00+00:00"
+        ],
+        [
+          "2026-10-04T06:30:00+00:00",
+          "2026-10-04T07:00:00+00:00"
+        ],
+        [
+          "2026-10-11T06:30:00+00:00",
+          "2026-10-11T07:00:00+00:00"
+        ],
+        [
+          "2026-10-18T06:30:00+00:00",
+          "2026-10-18T07:00:00+00:00"
+        ],
+        [
+          "2026-10-25T06:30:00+00:00",
+          "2026-10-25T07:00:00+00:00"
+        ],
+        [
+          "2026-11-01T07:30:00+00:00",
+          "2026-11-01T08:00:00+00:00"
+        ],
+        [
+          "2026-11-08T07:30:00+00:00",
+          "2026-11-08T08:00:00+00:00"
+        ]
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "chromium-1280-list.ics",
+      "sha256": "9ab7526e8dcdcd8502f7b7aba7332cf37d84b1c1502dc6871e1c466db0d71a2d",
+      "events": 3,
+      "observed": [
+        [
+          "2026-09-30T17:00:00+00:00"
+        ],
+        [
+          "2026-10-02T17:00:00+00:00"
+        ],
+        [
+          "2026-10-04T17:00:00+00:00"
+        ]
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "firefox-320-date-point.ics",
+      "sha256": "3c8824ad5f3fa1ac1d80081e9854e05b13495f27d525b008135cd70453425460",
+      "events": 1,
+      "status": "passed",
+      "precision": "date-point"
+    },
+    {
+      "filename": "firefox-320-all-day-range.ics",
+      "sha256": "115638cf4eb9bd9b15802b3f8b45eb90d46e430e35fb5a9747d8ac00a6ca83c8",
+      "events": 1,
+      "status": "passed",
+      "precision": "all-day-range"
+    },
+    {
+      "filename": "firefox-320-range-exclusive.ics",
+      "sha256": "420a1252989e2f55712764902589f7177201a4506354581e7f6a3eb810f45662",
+      "events": 1,
+      "observed": [
+        "2026-09-13",
+        "2026-09-18"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "firefox-320-range-inclusive.ics",
+      "sha256": "59afd300d86c464b83886ca4a67fa3e12fc2b5c36c04f0e6a59cadbc2c3c8ba7",
+      "events": 1,
+      "observed": [
+        "2026-09-13",
+        "2026-09-19"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "firefox-320-range-mixed.ics",
+      "sha256": "4526d6a45ecabbda2be03c67c7c3b8431cd0a9045dba8a10cde69b674758b9c0",
+      "events": 1,
+      "observed": [
+        "2026-11-01T07:30:00+00:00",
+        "2026-11-02T07:30:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "firefox-320-count-weekly.ics",
+      "sha256": "15323906ee4a853a4a3c3be3b382fd0ad96efaf8d2677d89e9a9d73b2bb37eb1",
+      "events": 5,
+      "observed": [
+        "2026-09-14T17:00:00+00:00",
+        "2026-09-21T17:00:00+00:00",
+        "2026-09-28T17:00:00+00:00",
+        "2026-10-05T17:00:00+00:00",
+        "2026-10-12T17:00:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "firefox-320-count-monthly.ics",
+      "sha256": "83a8575c9d683c930191a4aa72e9105cd6c5fc7f14ece2b7c8a46880453cc6d3",
+      "events": 3,
+      "observed": [
+        "2026-09-30T17:00:00+00:00",
+        "2026-10-31T17:00:00+00:00",
+        "2026-11-30T18:00:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "firefox-320-count-past-consume.ics",
+      "sha256": "4bcf27d996f134d4da333fe0698da9aae62fbe05b688cadcd1e8117cdfab87dc",
+      "events": 2,
+      "observed": [
+        "2026-09-14T17:00:00+00:00",
+        "2026-09-21T17:00:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "firefox-320-count-past-upcoming.ics",
+      "sha256": "6a2a9c5810990745d479d699225b4cbc931020eb342b434ba233f44a9595069d",
+      "events": 3,
+      "observed": [
+        "2026-09-14T17:00:00+00:00",
+        "2026-09-21T17:00:00+00:00",
+        "2026-09-28T17:00:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "firefox-320-count-excluded-consume.ics",
+      "sha256": "981e48dd9e14f054e96072c9dfa0cd138f9f7712a6e0b503d3af0777618b66c2",
+      "events": 2,
+      "observed": [
+        "2026-09-14T17:00:00+00:00",
+        "2026-09-28T17:00:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "firefox-320-count-excluded-replace.ics",
+      "sha256": "ec97476cc0e922ba7b2963cfa45d537b08ad3b4ce4b8285aa7b208078d4bcb32",
+      "events": 3,
+      "observed": [
+        "2026-09-14T17:00:00+00:00",
+        "2026-09-28T17:00:00+00:00",
+        "2026-10-05T17:00:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "firefox-320-range.ics",
+      "sha256": "55361cd60b112c29eee0b433a94d4cda765f214af83bc4e4a4a6935f733cc471",
+      "events": 1,
+      "observed": [
+        "2026-11-01T07:30:00+00:00",
+        "2026-11-02T18:00:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "firefox-320-weekly.ics",
+      "sha256": "e110ae3de783f4d0a842acf0c7842132a441c6746041e94c2b2ca2db8c39d3b2",
+      "events": 9,
+      "observed": [
+        [
+          "2026-09-13T06:30:00+00:00",
+          "2026-09-13T07:00:00+00:00"
+        ],
+        [
+          "2026-09-20T06:30:00+00:00",
+          "2026-09-20T07:00:00+00:00"
+        ],
+        [
+          "2026-09-27T06:30:00+00:00",
+          "2026-09-27T07:00:00+00:00"
+        ],
+        [
+          "2026-10-04T06:30:00+00:00",
+          "2026-10-04T07:00:00+00:00"
+        ],
+        [
+          "2026-10-11T06:30:00+00:00",
+          "2026-10-11T07:00:00+00:00"
+        ],
+        [
+          "2026-10-18T06:30:00+00:00",
+          "2026-10-18T07:00:00+00:00"
+        ],
+        [
+          "2026-10-25T06:30:00+00:00",
+          "2026-10-25T07:00:00+00:00"
+        ],
+        [
+          "2026-11-01T07:30:00+00:00",
+          "2026-11-01T08:00:00+00:00"
+        ],
+        [
+          "2026-11-08T07:30:00+00:00",
+          "2026-11-08T08:00:00+00:00"
+        ]
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "firefox-320-list.ics",
+      "sha256": "3984b0e4e1c119dcade3a257e15106286a6dd9e6ef964c4109fea853f7911b50",
+      "events": 3,
+      "observed": [
+        [
+          "2026-09-30T17:00:00+00:00"
+        ],
+        [
+          "2026-10-02T17:00:00+00:00"
+        ],
+        [
+          "2026-10-04T17:00:00+00:00"
+        ]
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "firefox-1280-date-point.ics",
+      "sha256": "720dbf81e2f52b317fdea77231f0725ee8a93b83f320572cd89a7f3996c0004e",
+      "events": 1,
+      "status": "passed",
+      "precision": "date-point"
+    },
+    {
+      "filename": "firefox-1280-all-day-range.ics",
+      "sha256": "13ef44581c20b3b22080a93ceb76b229b634631411a4683948399258ebdbf745",
+      "events": 1,
+      "status": "passed",
+      "precision": "all-day-range"
+    },
+    {
+      "filename": "firefox-1280-range-exclusive.ics",
+      "sha256": "8a0c46a0ffca74656f0a97c7058503c51605fc5652f0dbddb32d577e256cb7dd",
+      "events": 1,
+      "observed": [
+        "2026-09-13",
+        "2026-09-18"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "firefox-1280-range-inclusive.ics",
+      "sha256": "db8479c38d774eacb3c4c1d8670b7aefaa235e82f26bc29952821f96edb4fbe3",
+      "events": 1,
+      "observed": [
+        "2026-09-13",
+        "2026-09-19"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "firefox-1280-range-mixed.ics",
+      "sha256": "d3e2f45ddef8e5490a456b6fb8be794aefc71918f699a2987831f9fc84c0698a",
+      "events": 1,
+      "observed": [
+        "2026-11-01T07:30:00+00:00",
+        "2026-11-02T07:30:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "firefox-1280-count-weekly.ics",
+      "sha256": "08c20976cec6aa6d015ff43cdec28f91de33aa031eabd320fcc81b900a34d70b",
+      "events": 5,
+      "observed": [
+        "2026-09-14T17:00:00+00:00",
+        "2026-09-21T17:00:00+00:00",
+        "2026-09-28T17:00:00+00:00",
+        "2026-10-05T17:00:00+00:00",
+        "2026-10-12T17:00:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "firefox-1280-count-monthly.ics",
+      "sha256": "d7a3088585ad4b7be5cc5b1d8638770b0506057a8d7ac6d5042131191780201e",
+      "events": 3,
+      "observed": [
+        "2026-09-30T17:00:00+00:00",
+        "2026-10-31T17:00:00+00:00",
+        "2026-11-30T18:00:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "firefox-1280-count-past-consume.ics",
+      "sha256": "e48130d22abfa564d9855fd4b9938f95b4c92e2a7759e3c092a9bf2b30277e29",
+      "events": 2,
+      "observed": [
+        "2026-09-14T17:00:00+00:00",
+        "2026-09-21T17:00:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "firefox-1280-count-past-upcoming.ics",
+      "sha256": "0dd80b81d356791eb309fa78036d09831f866ed172d360cb465f5aa61e2f5e02",
+      "events": 3,
+      "observed": [
+        "2026-09-14T17:00:00+00:00",
+        "2026-09-21T17:00:00+00:00",
+        "2026-09-28T17:00:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "firefox-1280-count-excluded-consume.ics",
+      "sha256": "60eb8215a775ece4d99526597cad9034b438cc1bffe44b525b843ac9ba7c2e3e",
+      "events": 2,
+      "observed": [
+        "2026-09-14T17:00:00+00:00",
+        "2026-09-28T17:00:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "firefox-1280-count-excluded-replace.ics",
+      "sha256": "50deff03c1cf74db21b1767b6877e4a54661f02236848475f0e1e54343e0aebf",
+      "events": 3,
+      "observed": [
+        "2026-09-14T17:00:00+00:00",
+        "2026-09-28T17:00:00+00:00",
+        "2026-10-05T17:00:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "firefox-1280-range.ics",
+      "sha256": "f22940afbc58d4d3f7857cc7ae1eb7412da6afa1b8534f5886c4033bcbdc02bd",
+      "events": 1,
+      "observed": [
+        "2026-11-01T07:30:00+00:00",
+        "2026-11-02T18:00:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "firefox-1280-weekly.ics",
+      "sha256": "ea974043428f343a945648024d61c128b7002c5fa663c515ccdbc2e9b1294bc4",
+      "events": 9,
+      "observed": [
+        [
+          "2026-09-13T06:30:00+00:00",
+          "2026-09-13T07:00:00+00:00"
+        ],
+        [
+          "2026-09-20T06:30:00+00:00",
+          "2026-09-20T07:00:00+00:00"
+        ],
+        [
+          "2026-09-27T06:30:00+00:00",
+          "2026-09-27T07:00:00+00:00"
+        ],
+        [
+          "2026-10-04T06:30:00+00:00",
+          "2026-10-04T07:00:00+00:00"
+        ],
+        [
+          "2026-10-11T06:30:00+00:00",
+          "2026-10-11T07:00:00+00:00"
+        ],
+        [
+          "2026-10-18T06:30:00+00:00",
+          "2026-10-18T07:00:00+00:00"
+        ],
+        [
+          "2026-10-25T06:30:00+00:00",
+          "2026-10-25T07:00:00+00:00"
+        ],
+        [
+          "2026-11-01T07:30:00+00:00",
+          "2026-11-01T08:00:00+00:00"
+        ],
+        [
+          "2026-11-08T07:30:00+00:00",
+          "2026-11-08T08:00:00+00:00"
+        ]
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "firefox-1280-list.ics",
+      "sha256": "902602990a4d26f6c737cb80fbc50e086904ee39679d3f898eaf8bcb33de9c5c",
+      "events": 3,
+      "observed": [
+        [
+          "2026-09-30T17:00:00+00:00"
+        ],
+        [
+          "2026-10-02T17:00:00+00:00"
+        ],
+        [
+          "2026-10-04T17:00:00+00:00"
+        ]
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "webkit-320-date-point.ics",
+      "sha256": "5b593fbc73e471d6a5abcd0196bee8aac66ad49da11206c3308a2d7c049491c4",
+      "events": 1,
+      "status": "passed",
+      "precision": "date-point"
+    },
+    {
+      "filename": "webkit-320-all-day-range.ics",
+      "sha256": "ee1d7965130955bf07fc3afc6bf0789de19e57949246584b43c107b20cb71477",
+      "events": 1,
+      "status": "passed",
+      "precision": "all-day-range"
+    },
+    {
+      "filename": "webkit-320-range-exclusive.ics",
+      "sha256": "9766bdc1eb73138c8f4b2a62594c7fa4b35780587d9f166ccc3a117be1fa2bf7",
+      "events": 1,
+      "observed": [
+        "2026-09-13",
+        "2026-09-18"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "webkit-320-range-inclusive.ics",
+      "sha256": "efe2db5601bf641bdaa14de380a82045ae96882c2ac2abcb954cf5bcf3e64d83",
+      "events": 1,
+      "observed": [
+        "2026-09-13",
+        "2026-09-19"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "webkit-320-range-mixed.ics",
+      "sha256": "4e74670df035a8eec213d1800473787e3fdfb2247198f6bfe47bef234191e16a",
+      "events": 1,
+      "observed": [
+        "2026-11-01T07:30:00+00:00",
+        "2026-11-02T07:30:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "webkit-320-count-weekly.ics",
+      "sha256": "e04845286ccc25c2a669b8b221641f02ee369681bc5de2a85abb7b98b358cac9",
+      "events": 5,
+      "observed": [
+        "2026-09-14T17:00:00+00:00",
+        "2026-09-21T17:00:00+00:00",
+        "2026-09-28T17:00:00+00:00",
+        "2026-10-05T17:00:00+00:00",
+        "2026-10-12T17:00:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "webkit-320-count-monthly.ics",
+      "sha256": "bf3dda7090b16c2ea43a123e182cd7aa5bc4477c7556fa1e5334d95daa1ba6b8",
+      "events": 3,
+      "observed": [
+        "2026-09-30T17:00:00+00:00",
+        "2026-10-31T17:00:00+00:00",
+        "2026-11-30T18:00:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "webkit-320-count-past-consume.ics",
+      "sha256": "582970cf1a43c5252ee5efbe4401db6e99111d7c0f8317dddfe812358617cf4b",
+      "events": 2,
+      "observed": [
+        "2026-09-14T17:00:00+00:00",
+        "2026-09-21T17:00:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "webkit-320-count-past-upcoming.ics",
+      "sha256": "053985def6ca8fb119d09091910897a8662d671a30022e3aa2e7d68059f654ad",
+      "events": 3,
+      "observed": [
+        "2026-09-14T17:00:00+00:00",
+        "2026-09-21T17:00:00+00:00",
+        "2026-09-28T17:00:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "webkit-320-count-excluded-consume.ics",
+      "sha256": "6106d87eb13165f3548f22d0ec3d5ac49864aff61eb8d0af074aa15db40955d7",
+      "events": 2,
+      "observed": [
+        "2026-09-14T17:00:00+00:00",
+        "2026-09-28T17:00:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "webkit-320-count-excluded-replace.ics",
+      "sha256": "0735e83d5160b66c1fe4e41d4f5aaec5b93667def99bb7ada83ee7e523bd1cd8",
+      "events": 3,
+      "observed": [
+        "2026-09-14T17:00:00+00:00",
+        "2026-09-28T17:00:00+00:00",
+        "2026-10-05T17:00:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "webkit-320-range.ics",
+      "sha256": "44434b7755d0fdee104ffaffda5b7d696cf0139566ca2b26f4ed9cfa6b23f858",
+      "events": 1,
+      "observed": [
+        "2026-11-01T07:30:00+00:00",
+        "2026-11-02T18:00:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "webkit-320-weekly.ics",
+      "sha256": "8fa3fc08d2bf6ee43fd1f08e2a09f871a408759145d0eed68a9e33d048b5e510",
+      "events": 9,
+      "observed": [
+        [
+          "2026-09-13T06:30:00+00:00",
+          "2026-09-13T07:00:00+00:00"
+        ],
+        [
+          "2026-09-20T06:30:00+00:00",
+          "2026-09-20T07:00:00+00:00"
+        ],
+        [
+          "2026-09-27T06:30:00+00:00",
+          "2026-09-27T07:00:00+00:00"
+        ],
+        [
+          "2026-10-04T06:30:00+00:00",
+          "2026-10-04T07:00:00+00:00"
+        ],
+        [
+          "2026-10-11T06:30:00+00:00",
+          "2026-10-11T07:00:00+00:00"
+        ],
+        [
+          "2026-10-18T06:30:00+00:00",
+          "2026-10-18T07:00:00+00:00"
+        ],
+        [
+          "2026-10-25T06:30:00+00:00",
+          "2026-10-25T07:00:00+00:00"
+        ],
+        [
+          "2026-11-01T07:30:00+00:00",
+          "2026-11-01T08:00:00+00:00"
+        ],
+        [
+          "2026-11-08T07:30:00+00:00",
+          "2026-11-08T08:00:00+00:00"
+        ]
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "webkit-320-list.ics",
+      "sha256": "d8253632c1d2077fca1a8c0eba13d574a82e682946ba6738e6944fe37456317e",
+      "events": 3,
+      "observed": [
+        [
+          "2026-09-30T17:00:00+00:00"
+        ],
+        [
+          "2026-10-02T17:00:00+00:00"
+        ],
+        [
+          "2026-10-04T17:00:00+00:00"
+        ]
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "webkit-1280-date-point.ics",
+      "sha256": "6a63c1cf5b34c8cb7e6b62bd21c2413c03b39d55ac2eed861696e30f8997df11",
+      "events": 1,
+      "status": "passed",
+      "precision": "date-point"
+    },
+    {
+      "filename": "webkit-1280-all-day-range.ics",
+      "sha256": "2655f3b8b7de2ac7b90b568d96c1ab8f0b6e0479efc563ee9bbce91ac2085c50",
+      "events": 1,
+      "status": "passed",
+      "precision": "all-day-range"
+    },
+    {
+      "filename": "webkit-1280-range-exclusive.ics",
+      "sha256": "cff0940277e56f251116e1c6e9c9dba651865eb8079f36310467917486c47a63",
+      "events": 1,
+      "observed": [
+        "2026-09-13",
+        "2026-09-18"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "webkit-1280-range-inclusive.ics",
+      "sha256": "ea9d9c0959b371d6c1f16ed6ffc601d38fc9728d3ba332fb20c4f4c502a27d2f",
+      "events": 1,
+      "observed": [
+        "2026-09-13",
+        "2026-09-19"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "webkit-1280-range-mixed.ics",
+      "sha256": "3495e8d27b8ef0fa4b406eb7cc7c73e75a6d5be6bdf8266023d76f15c785f179",
+      "events": 1,
+      "observed": [
+        "2026-11-01T07:30:00+00:00",
+        "2026-11-02T07:30:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "webkit-1280-count-weekly.ics",
+      "sha256": "36150955f64ad07941a67c2d6aa9d4fcaf82bea2005e4a831bb4708fec158b61",
+      "events": 5,
+      "observed": [
+        "2026-09-14T17:00:00+00:00",
+        "2026-09-21T17:00:00+00:00",
+        "2026-09-28T17:00:00+00:00",
+        "2026-10-05T17:00:00+00:00",
+        "2026-10-12T17:00:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "webkit-1280-count-monthly.ics",
+      "sha256": "6c96f682eecb10092f1ebb660a866f629c04eec1b1570a67c4c855b74613c45d",
+      "events": 3,
+      "observed": [
+        "2026-09-30T17:00:00+00:00",
+        "2026-10-31T17:00:00+00:00",
+        "2026-11-30T18:00:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "webkit-1280-count-past-consume.ics",
+      "sha256": "0bd9fc02ba4f01ab872311893e83bd52ba4b711ecefa21f98d164744fc38b190",
+      "events": 2,
+      "observed": [
+        "2026-09-14T17:00:00+00:00",
+        "2026-09-21T17:00:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "webkit-1280-count-past-upcoming.ics",
+      "sha256": "c35bc93966e449a09dfda6fcb03290fe7102ccb73760425a003a674523ad9932",
+      "events": 3,
+      "observed": [
+        "2026-09-14T17:00:00+00:00",
+        "2026-09-21T17:00:00+00:00",
+        "2026-09-28T17:00:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "webkit-1280-count-excluded-consume.ics",
+      "sha256": "bc89e8e66051f74e25443be70c45da8e1a311112acf0866029b8c65ad5ef4188",
+      "events": 2,
+      "observed": [
+        "2026-09-14T17:00:00+00:00",
+        "2026-09-28T17:00:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "webkit-1280-count-excluded-replace.ics",
+      "sha256": "9cc45d94098fafe71efd3a6ebd0da26c99579d1d89e8b851e1e22fee5f82d7b1",
+      "events": 3,
+      "observed": [
+        "2026-09-14T17:00:00+00:00",
+        "2026-09-28T17:00:00+00:00",
+        "2026-10-05T17:00:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "webkit-1280-range.ics",
+      "sha256": "9b0a0be70e347b86218d2880926c5c3cbbc9aee7693b215de64e3b5721e628c1",
+      "events": 1,
+      "observed": [
+        "2026-11-01T07:30:00+00:00",
+        "2026-11-02T18:00:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "webkit-1280-weekly.ics",
+      "sha256": "22591db4712c126c6c14d6b21103db257b89c760b76750868c4022184b5a7e7e",
+      "events": 9,
+      "observed": [
+        [
+          "2026-09-13T06:30:00+00:00",
+          "2026-09-13T07:00:00+00:00"
+        ],
+        [
+          "2026-09-20T06:30:00+00:00",
+          "2026-09-20T07:00:00+00:00"
+        ],
+        [
+          "2026-09-27T06:30:00+00:00",
+          "2026-09-27T07:00:00+00:00"
+        ],
+        [
+          "2026-10-04T06:30:00+00:00",
+          "2026-10-04T07:00:00+00:00"
+        ],
+        [
+          "2026-10-11T06:30:00+00:00",
+          "2026-10-11T07:00:00+00:00"
+        ],
+        [
+          "2026-10-18T06:30:00+00:00",
+          "2026-10-18T07:00:00+00:00"
+        ],
+        [
+          "2026-10-25T06:30:00+00:00",
+          "2026-10-25T07:00:00+00:00"
+        ],
+        [
+          "2026-11-01T07:30:00+00:00",
+          "2026-11-01T08:00:00+00:00"
+        ],
+        [
+          "2026-11-08T07:30:00+00:00",
+          "2026-11-08T08:00:00+00:00"
+        ]
+      ],
+      "status": "passed"
+    },
+    {
+      "filename": "webkit-1280-list.ics",
+      "sha256": "f82d5f4830db379e2fcb0930319c3d8ce736ce57f952b2be7636a6d5ca265c07",
+      "events": 3,
+      "observed": [
+        [
+          "2026-09-30T17:00:00+00:00"
+        ],
+        [
+          "2026-10-02T17:00:00+00:00"
+        ],
+        [
+          "2026-10-04T17:00:00+00:00"
+        ]
+      ],
+      "status": "passed"
+    }
+  ],
+  "scope": "Authored download readback, not calendar-client import or independent evaluation"
+}

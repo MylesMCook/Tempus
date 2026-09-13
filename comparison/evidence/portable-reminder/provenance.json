@@ -1,0 +1,9 @@
+{
+  "sourceHashes": {
+    "examples/app/verify-reminder.mjs": "ecd99fc2223d823774a39f15d850ed6b1cb639794231d47a784e2f3a9f37bf2a",
+    "examples/app/read-reminder.py": "e397d8c08b83746617ed1401d83600561bbbb444d1b5c43ec47bc634855a9b24",
+    "examples/app/read-reminder.py.lock": "25321ad7e67ccbc618b94ba12fdfc25f3d5cc3d7ba775ee1ef6b06cab5e63751"
+  },
+  "server": "127.0.0.1:5174; listener cwd verified as this checkout",
+  "controlsScope": "Earlier runner revision before sort comparator and concise stdout; final browser and readback rerun separately."
+}

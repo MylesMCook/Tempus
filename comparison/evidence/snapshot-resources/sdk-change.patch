@@ -1,0 +1,29 @@
+--- 5866c6b3/dist/date-parser.js
++++ e70f6d12/dist/date-parser.js
+@@ -221,13 +221,15 @@
+         const anchor = resolveAnchor(plan.anchor, reference, plan.time, resolve);
+         const start = snapshot(anchor.date);
+         let current = anchor.date;
++        let currentSnapshot = start;
+         const steps = [];
+         const warnings = [];
+         for (const operation of plan.operations) {
+-            const before = snapshot(current);
++            const before = { ...currentSnapshot };
+             const { after, details, warnings: stepWarnings, } = applyOperation(current, operation, resolve);
+             warnings.push(...stepWarnings);
+-            steps.push({ source: operation.source, before, after: snapshot(after), details });
++            currentSnapshot = snapshot(after);
++            steps.push({ source: operation.source, before, after: currentSnapshot, details });
+             current = after;
+         }
+         return {
+@@ -241,7 +243,7 @@
+             anchorDescription: anchor.description,
+             steps,
+             warnings: [...new Set(warnings)],
+-            result: snapshot(current),
++            result: { ...currentSnapshot },
+         };
+     }
+     catch (error) {

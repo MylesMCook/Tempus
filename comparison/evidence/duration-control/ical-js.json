@@ -1,0 +1,41 @@
+{
+  "reader": "ical.js",
+  "version": "2.2.1",
+  "source": "https://www.rfc-editor.org/rfc/rfc5545.html#section-3.8.5.3",
+  "sourceSha256": "99bdad0a906aba10d71f05f725bcc92136b66c73a2eaf1bcfdd56a8c9cfebc90",
+  "reports": [
+    {
+      "name": "historical",
+      "sha256": "9dc0d47ea92d4d7c61dfe861ecb14912fab037d28bce5e019b7f79b1c1e90b8e",
+      "prodid": null,
+      "expected": [
+        ["2026-03-01T07:00:00.000Z", "2026-03-01T09:00:00.000Z"],
+        ["2026-03-08T07:00:00.000Z", "2026-03-08T09:00:00.000Z"],
+        ["2026-03-15T06:00:00.000Z", "2026-03-15T08:00:00.000Z"]
+      ],
+      "observed": [
+        ["2026-03-01T07:00:00.000Z", "2026-03-01T09:00:00.000Z"],
+        ["2026-03-08T07:00:00.000Z", "2026-03-08T08:00:00.000Z"],
+        ["2026-03-15T06:00:00.000Z", "2026-03-15T08:00:00.000Z"]
+      ],
+      "conforms": false
+    },
+    {
+      "name": "with-prodid",
+      "sha256": "bd3e8139a8d7e45f564c2d1faa754247333554d03509bc6fb05a9cd7b612ab3a",
+      "prodid": "-//Tempus//Duration conformance control//EN",
+      "expected": [
+        ["2026-03-01T07:00:00.000Z", "2026-03-01T09:00:00.000Z"],
+        ["2026-03-08T07:00:00.000Z", "2026-03-08T09:00:00.000Z"],
+        ["2026-03-15T06:00:00.000Z", "2026-03-15T08:00:00.000Z"]
+      ],
+      "observed": [
+        ["2026-03-01T07:00:00.000Z", "2026-03-01T09:00:00.000Z"],
+        ["2026-03-08T07:00:00.000Z", "2026-03-08T08:00:00.000Z"],
+        ["2026-03-15T06:00:00.000Z", "2026-03-15T08:00:00.000Z"]
+      ],
+      "conforms": false
+    }
+  ],
+  "scope": "Two versions of one authored duration fixture. Not an exporter or calendar-client test."
+}

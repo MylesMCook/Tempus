@@ -1,0 +1,7 @@
+{
+  "src/features/parser/components/calendar-export.tsx": "5e72bbebd297218a79ef5a985fa4bb61d91b48ae5c9dd9ac9261eac2311bdfd8",
+  "comparison/performance/resources.mjs": "bb8281e5577716772aa6383959ce397d7c36a530676662a7eacd013195e0d379",
+  "examples/app/verify-large-export.mjs": "ed247b2fe4dfcb41d1b9fc686e2771fa5739ce3403c64f550c1c43fd5f4bbe86",
+  "examples/app/read-large-export.py": "84a25ca76b7f8766643aacd978e3a221238a21b7d77fb3340e3e9e09ca6efcf9",
+  "examples/app/read-large-export.py.lock": "25321ad7e67ccbc618b94ba12fdfc25f3d5cc3d7ba775ee1ef6b06cab5e63751"
+}

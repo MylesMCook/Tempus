@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tempus//Calendar Export//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:273cdeac-1a9f-4f4d-8cd9-70e543abe471-0@tempus.invalid
+DTSTAMP:20260913T140110Z
+SUMMARY:Call Sam
+DESCRIPTION:Date phrase: from 11/01/2026 at 1:30am until 2026-11-02 at noon
+ \nTimezone: America/Chicago\nThe interval end is exclusive.\nYou selected 
+ Start date: November 1\, 2026.\nYou selected Start: Second: November 1\, 2
+ 026 at 1:30 AM CST (UTC-06:00).
+DTSTART:20261101T073000Z
+DTEND:20261102T180000Z
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,47 @@
+{
+  "status": "passed",
+  "browser": "153.0.8010.36",
+  "runs": [
+    {
+      "width": 320,
+      "status": "passed",
+      "errors": [],
+      "openThroughPaintMs": 231.39520800000003,
+      "openLongTasks": [
+        {
+          "start": 185.10000002384186,
+          "duration": 214
+        }
+      ],
+      "overflow": false,
+      "file": {
+        "filename": "large-320.ics",
+        "sha256": "373d9302e9bbaa989000c53a2c3e5750f3f78bb722cbff220523ad207f2653d0"
+      },
+      "reviewedEvents": 1000
+    },
+    {
+      "width": 1280,
+      "status": "passed",
+      "errors": [],
+      "openThroughPaintMs": 234.07541700000002,
+      "openLongTasks": [
+        {
+          "start": 177.89999997615814,
+          "duration": 208
+        }
+      ],
+      "overflow": false,
+      "file": {
+        "filename": "large-1280.ics",
+        "sha256": "88ed80e821517de104f6482d458495b17a80a1e350fc32ba06516fd0b74554d5"
+      },
+      "reviewedEvents": 1000
+    }
+  ],
+  "sourceHashes": {
+    "src/features/parser/components/calendar-export.tsx": "5e72bbebd297218a79ef5a985fa4bb61d91b48ae5c9dd9ac9261eac2311bdfd8",
+    "examples/app/verify-large-export.mjs": "ed247b2fe4dfcb41d1b9fc686e2771fa5739ce3403c64f550c1c43fd5f4bbe86"
+  },
+  "scope": "Desktop development app, direct focus/Enter, real downloads, Chrome long-task observations; not physical phone, independent users or client import. Reference uses actual app clock."
+}

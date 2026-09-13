@@ -1,0 +1,26 @@
+{
+  "tempus": {
+    "chromeStartupMedianMs": 17.399999976158142,
+    "chromeBatchMedianMs": {
+      "1": 0.2999999523162842,
+      "10": 3.699999988079071,
+      "100": 28.69999998807907
+    },
+    "nodePostGcGrowthMiB": {
+      "rss": 94.5,
+      "heapUsed": 4.5824432373046875
+    }
+  },
+  "gpu-time": {
+    "chromeStartupMedianMs": 14,
+    "chromeBatchMedianMs": {
+      "1": 0.20000004768371582,
+      "10": 0.9000000357627869,
+      "100": 8.0
+    },
+    "nodePostGcGrowthMiB": {
+      "rss": 30.359375,
+      "heapUsed": 1.4977874755859375
+    }
+  }
+}

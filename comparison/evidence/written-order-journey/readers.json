@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "files": [
+    {
+      "file": "written-order-320.ics",
+      "startsInSerializedOrder": [
+        "2026-11-01T07:30:00+00:00",
+        "2026-09-30T17:00:00+00:00"
+      ]
+    },
+    {
+      "file": "written-order-1280.ics",
+      "startsInSerializedOrder": [
+        "2026-11-01T07:30:00+00:00",
+        "2026-09-30T17:00:00+00:00"
+      ]
+    }
+  ],
+  "scope": "Authored file values and serialized order; no calendar-client import or client display-order claim."
+}

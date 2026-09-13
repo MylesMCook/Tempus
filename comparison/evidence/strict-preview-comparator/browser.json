@@ -1,0 +1,49 @@
+{
+  "status": "passed",
+  "sourceSha256": "76b16d00eb74a0c52c2523930b0680eba57c5929a5042d9f7b3c9f0f9670c844",
+  "runs": [
+    {
+      "browser": "chromium",
+      "version": "153.0.8010.36",
+      "observed": [
+        false,
+        false,
+        true,
+        true,
+        false,
+        false,
+        true
+      ],
+      "status": "passed"
+    },
+    {
+      "browser": "firefox",
+      "version": "148.0.2",
+      "observed": [
+        false,
+        false,
+        true,
+        true,
+        false,
+        false,
+        true
+      ],
+      "status": "passed"
+    },
+    {
+      "browser": "webkit",
+      "version": "26.4",
+      "observed": [
+        false,
+        false,
+        true,
+        true,
+        false,
+        false,
+        true
+      ],
+      "status": "passed"
+    }
+  ],
+  "scope": "Authored pure comparator cases in desktop browser engines. No website, server, SDK timing, phone or calendar import."
+}

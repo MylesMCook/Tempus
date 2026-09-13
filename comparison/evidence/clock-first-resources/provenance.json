@@ -1,0 +1,141 @@
+{
+  "archiveSha256": "b8ffb7e04e46eeaaf1e1dcf6c07875b2f805e2497dee50f03280ec0afd14e051",
+  "transforms": "Profile home paths replaced with <HOME>; generated JavaScript compressed. Original raw files remain in task scratch. Timing JSON unchanged.",
+  "files": [
+    {
+      "file": "node/compression-audit.json",
+      "originalSha256": "680ffe8fa23e41c686cc174f4c8122a2cc4c1487a28c2f3c72c4cca0ed13fcb9",
+      "retainedSha256": "680ffe8fa23e41c686cc174f4c8122a2cc4c1487a28c2f3c72c4cca0ed13fcb9"
+    },
+    {
+      "file": "node/gpu-time.js.gz",
+      "originalSha256": "928660046ac9e5ad55a39bcdd7c08ddca17e40b9ea06e7763f2afe2e4ed942d6",
+      "retainedSha256": "00a8eb728d8c453c7d0cfea6b4a6e2c1eb80cd6757bccd0410d619520a40a2f7"
+    },
+    {
+      "file": "node/report.json",
+      "originalSha256": "28dfd284441ab82757fc167d677c6b461a19084ff8a044e5da9683bdfb639ce1",
+      "retainedSha256": "28dfd284441ab82757fc167d677c6b461a19084ff8a044e5da9683bdfb639ce1"
+    },
+    {
+      "file": "node/report.md",
+      "originalSha256": "903af3a9244fc12d76c273cc4caa9b2edd83b67292c7d0037b473aeb22926a6a",
+      "retainedSha256": "903af3a9244fc12d76c273cc4caa9b2edd83b67292c7d0037b473aeb22926a6a"
+    },
+    {
+      "file": "node/tempus.js.gz",
+      "originalSha256": "4a91d35aaf0c89aec7a1666539df03640fa83bbbb021388613000455341b7f1b",
+      "retainedSha256": "4d3baef24298cb0fe351e6b410fc7ab2a464d5de57ee72abd340eab0a25bcf5a"
+    },
+    {
+      "file": "browser/report.json",
+      "originalSha256": "08c5b19c3f866ef1c1710d48193ac4ee0b99a64a21e1e7e5e6b477c505cc3d93",
+      "retainedSha256": "08c5b19c3f866ef1c1710d48193ac4ee0b99a64a21e1e7e5e6b477c505cc3d93"
+    },
+    {
+      "file": "profile/calculatorTrace.cpuprofile",
+      "originalSha256": "2f91a32c31f32a76f1c738accf1ce0c8cbdc8817588247778e477f1320b85951",
+      "retainedSha256": "c43ceb7c4226675971a4811c551fd4ecba00efb7ccdd486aad897412cedf8806"
+    },
+    {
+      "file": "profile/calculatorTrace.heapprofile",
+      "originalSha256": "1ed4131caf95ff768abe5886afff01db312f81d2883bf801dd00021462506795",
+      "retainedSha256": "5a5c2adcc97cec53ec3af8b00dbd38dc13c8ec3f9d357513a6a744c0ccd892e7"
+    },
+    {
+      "file": "profile/correction.cpuprofile",
+      "originalSha256": "05943c58c92db1285e52cb5e2e1540b6acbf2f76b677d86101584c310099d2be",
+      "retainedSha256": "d683522e50bd870092aca65fbea2ded16f4f3bbb24f65b90bc3a382cdf93b2c9"
+    },
+    {
+      "file": "profile/correction.heapprofile",
+      "originalSha256": "54bc7c8a441dcda62986131a23c49692e7c02b3718a2394913bdaa6c3902470f",
+      "retainedSha256": "8f7cd6a49ee1f7f4521b907ce98c0ff634810f82ce196369f5aeed13a2219c32"
+    },
+    {
+      "file": "profile/export.cpuprofile",
+      "originalSha256": "27c671287d4fa7f1d904d20a4c170c338966bfc6165c33f9bac84f3efeaf3788",
+      "retainedSha256": "df1487263b0e089735c46abe3705017ef5228a142ed54262aaf20917e052d62f"
+    },
+    {
+      "file": "profile/export.heapprofile",
+      "originalSha256": "e732023ac128df1d32817aa494eadb397c5ceaa8f5d7a3494819cee26e4b14eb",
+      "retainedSha256": "d2ba175a5f102a1de126d6aad8de7728bb8f3ba7af0c1f852a4b1cf72ff5e935"
+    },
+    {
+      "file": "profile/initialization.cpuprofile",
+      "originalSha256": "8e3d37cafae98404d2e328024c979a9adf22c23083624a2b3b0bfc1a2505b902",
+      "retainedSha256": "d67e4d5b2d60362f6b4f97da948dbecd6ad290831a55119a44d2cf872212db71"
+    },
+    {
+      "file": "profile/preview.cpuprofile",
+      "originalSha256": "59a20e62706b7a9577a515cc1759780ba414ab53b3943fdb2e48debc8b5124f9",
+      "retainedSha256": "db319684862f5dd024f8f5725f5395dce3a7ca669ab22a9fdd12b324bda60dfb"
+    },
+    {
+      "file": "profile/preview.heapprofile",
+      "originalSha256": "cf02cde562adeb2cc78cda74178415a0d418a9ba5903d77dd24252a0f92ce1d5",
+      "retainedSha256": "93b5950b693b52ae813af39c4b09d8c6a14941f986f7f1bfa631cf77183f9692"
+    },
+    {
+      "file": "profile/report.json",
+      "originalSha256": "2f9a5ad85ff6e46592912b6d47b314d0e585cb4c05efc45c1c421e2ec40cf6ca",
+      "retainedSha256": "2f9a5ad85ff6e46592912b6d47b314d0e585cb4c05efc45c1c421e2ec40cf6ca"
+    },
+    {
+      "file": "bundle/calendar-entry.mjs.gz",
+      "originalSha256": "2d556166dc4e4f9d8d67dd21911233de800856082c13bd30a9552c1378daf4fc",
+      "retainedSha256": "4bba0855599a4719277f9be89dfc30d710eb68a6345e16128d175eaa00d1e429"
+    },
+    {
+      "file": "bundle/calendar-meta.json",
+      "originalSha256": "5525e100aa70939424ec6f55e748a4a719b2bfd38d44c1e0f4be4e33744aa8d1",
+      "retainedSha256": "5525e100aa70939424ec6f55e748a4a719b2bfd38d44c1e0f4be4e33744aa8d1"
+    },
+    {
+      "file": "bundle/calendar.js.gz",
+      "originalSha256": "87b1b0a27c1aab3872f62c66d8212502b75150332900ef9c01a97f1cc19f3ddb",
+      "retainedSha256": "6325f2e494cbe93244d99436f904d4916bc8cf1b7f5dd02f28130e9780dd2cd3"
+    },
+    {
+      "file": "bundle/combined-entry.mjs.gz",
+      "originalSha256": "1dd4a7fa23df8fb42935084acc85ed3ee535fe98545d6b835d1835a193f77b60",
+      "retainedSha256": "8e69bd2ffba460875ef826ba6e4405b6ec356a36f3ae268f9d9462695b66b6d7"
+    },
+    {
+      "file": "bundle/combined-meta.json",
+      "originalSha256": "38fa50c44f80621aba61f96aa8fd0a1d6bf645ff04ecce2f46f87d4d8cc82380",
+      "retainedSha256": "38fa50c44f80621aba61f96aa8fd0a1d6bf645ff04ecce2f46f87d4d8cc82380"
+    },
+    {
+      "file": "bundle/combined.js.gz",
+      "originalSha256": "4654b093cac737bc4548610b8d513a79e90d6714eeedb08b062cde9eb6ea4f87",
+      "retainedSha256": "6dd2c0c8411c340e4559656a4ceb3daef820af9933a26c9b5ab0d440402b9277"
+    },
+    {
+      "file": "bundle/parse-entry.mjs.gz",
+      "originalSha256": "11078d43533769dd74c5ee1a8445129db86fa94d22fd46714a64985c8896ef8e",
+      "retainedSha256": "99d43d5710c267a583c3f6410015d1bba841b5f254b944f23b18b6bc678578b2"
+    },
+    {
+      "file": "bundle/parse-meta.json",
+      "originalSha256": "893fa03d671747dfaec4d5e3f644caa6521eba9458c448d72aa5ade39c5cee3a",
+      "retainedSha256": "893fa03d671747dfaec4d5e3f644caa6521eba9458c448d72aa5ade39c5cee3a"
+    },
+    {
+      "file": "bundle/parse.js.gz",
+      "originalSha256": "4a91d35aaf0c89aec7a1666539df03640fa83bbbb021388613000455341b7f1b",
+      "retainedSha256": "4d3baef24298cb0fe351e6b410fc7ab2a464d5de57ee72abd340eab0a25bcf5a"
+    },
+    {
+      "file": "bundle/report.json",
+      "originalSha256": "ddc60756d866465e5e59fc8774257faedd0726e8f969e93708782603012b3a66",
+      "retainedSha256": "ddc60756d866465e5e59fc8774257faedd0726e8f969e93708782603012b3a66"
+    },
+    {
+      "file": "bundle/report.md",
+      "originalSha256": "5681299f1ee1a189a7636462bae36fc2b32eafd57df82bf86c636885ff801837",
+      "retainedSha256": "5681299f1ee1a189a7636462bae36fc2b32eafd57df82bf86c636885ff801837"
+    }
+  ]
+}

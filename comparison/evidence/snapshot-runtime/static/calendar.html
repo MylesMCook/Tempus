@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tempus calendar SDK example</title>
+  <style>
+    body {
+      font: 16px system-ui;
+      max-width: 60rem;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    input {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 0.75rem;
+    }
+    button {
+      padding: 0.75rem;
+      margin: 0.25rem;
+    }
+    button,
+    summary {
+      cursor: pointer;
+    }
+    :focus-visible {
+      outline: 2px solid #2459ab;
+      outline-offset: 3px;
+    }
+    li {
+      margin-block: 0.75rem;
+    }
+    #interpretation-summary {
+      overflow-wrap: anywhere;
+    }
+    details {
+      margin-top: 1.5rem;
+    }
+    pre {
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+  </style>
+  <h1>Tempus calendar SDK example</h1>
+  <p>
+    This developer example uses a fixed reference: September 12, 2026 at 11 AM in Chicago. Parsing
+    runs locally.
+  </p>
+  <label for="phrase">Date or schedule</label>
+  <input
+    id="phrase"
+    value="Remind me to call Sam every Sunday at 1:30am for 30 minutes until 2026-11-08"
+  />
+  <section id="interpretation-summary" tabindex="-1" aria-label="Interpreted schedule"></section>
+  <div id="choices" role="group" aria-label="Clarification choices"></div>
+  <button id="restart">Restart choices</button>
+  <button id="download" disabled>Download calendar file</button>
+  <p>
+    Downloads an .ics file. Review and import it separately in your calendar; no reminder is set.
+  </p>
+  <p id="feedback" role="status"></p>
+  <details id="diagnostics">
+    <summary>Inspect the SDK result</summary>
+    <pre id="result" aria-label="Parser result"></pre>
+  </details>
+  <script type="module" src="/calendar-browser.js"></script>
+</html>

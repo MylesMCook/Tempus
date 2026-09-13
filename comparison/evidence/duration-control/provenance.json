@@ -1,0 +1,12 @@
+{
+  "sources": {
+    "comparison/calendar/duration-control.mjs": "99bdad0a906aba10d71f05f725bcc92136b66c73a2eaf1bcfdd56a8c9cfebc90",
+    "comparison/calendar/duration-control.py": "fdda56edf06e1c800f9534ecda369bd9108a4dac42e7cdaf75be4f5b33f67061",
+    "comparison/calendar/duration-control.py.lock": "25321ad7e67ccbc618b94ba12fdfc25f3d5cc3d7ba775ee1ef6b06cab5e63751"
+  },
+  "commands": {
+    "nodeExitCode": 1,
+    "pythonExitCode": 1
+  },
+  "historicalFixtureSha256": "9dc0d47ea92d4d7c61dfe861ecb14912fab037d28bce5e019b7f79b1c1e90b8e"
+}

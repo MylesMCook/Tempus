@@ -1,0 +1,64 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tempus//Calendar Export//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:6f42e601-a20e-406b-ac69-d94367834cd8-0@tempus.invalid
+DTSTAMP:20260913T170912Z
+SUMMARY:Call Sam
+DESCRIPTION:Date phrase: every day at noon for 5 occurrences\nTimezone: Ame
+ rica/Chicago\nOnly upcoming occurrence starts appear in the preview.\nComp
+ lete bounded recurrence set\; dates are fixed to the timezone rules used w
+ hen this file was generated.
+DTSTART:20260914T170000Z
+RDATE:20260914T170000Z
+RDATE:20260915T170000Z
+RDATE:20260916T170000Z
+RDATE:20260917T170000Z
+RDATE:20260918T170000Z
+END:VEVENT
+BEGIN:VEVENT
+RECURRENCE-ID:20260915T170000Z
+UID:6f42e601-a20e-406b-ac69-d94367834cd8-0@tempus.invalid
+DTSTAMP:20260913T170912Z
+SUMMARY:Call Sam
+DESCRIPTION:Date phrase: every day at noon for 5 occurrences\nTimezone: Ame
+ rica/Chicago\nOnly upcoming occurrence starts appear in the preview.\nComp
+ lete bounded recurrence set\; dates are fixed to the timezone rules used w
+ hen this file was generated.
+DTSTART:20260915T170000Z
+END:VEVENT
+BEGIN:VEVENT
+RECURRENCE-ID:20260916T170000Z
+UID:6f42e601-a20e-406b-ac69-d94367834cd8-0@tempus.invalid
+DTSTAMP:20260913T170912Z
+SUMMARY:Call Sam
+DESCRIPTION:Date phrase: every day at noon for 5 occurrences\nTimezone: Ame
+ rica/Chicago\nOnly upcoming occurrence starts appear in the preview.\nComp
+ lete bounded recurrence set\; dates are fixed to the timezone rules used w
+ hen this file was generated.
+DTSTART:20260916T170000Z
+END:VEVENT
+BEGIN:VEVENT
+RECURRENCE-ID:20260917T170000Z
+UID:6f42e601-a20e-406b-ac69-d94367834cd8-0@tempus.invalid
+DTSTAMP:20260913T170912Z
+SUMMARY:Call Sam
+DESCRIPTION:Date phrase: every day at noon for 5 occurrences\nTimezone: Ame
+ rica/Chicago\nOnly upcoming occurrence starts appear in the preview.\nComp
+ lete bounded recurrence set\; dates are fixed to the timezone rules used w
+ hen this file was generated.
+DTSTART:20260917T170000Z
+END:VEVENT
+BEGIN:VEVENT
+RECURRENCE-ID:20260918T170000Z
+UID:6f42e601-a20e-406b-ac69-d94367834cd8-0@tempus.invalid
+DTSTAMP:20260913T170912Z
+SUMMARY:Call Sam
+DESCRIPTION:Date phrase: every day at noon for 5 occurrences\nTimezone: Ame
+ rica/Chicago\nOnly upcoming occurrence starts appear in the preview.\nComp
+ lete bounded recurrence set\; dates are fixed to the timezone rules used w
+ hen this file was generated.
+DTSTART:20260918T170000Z
+END:VEVENT
+END:VCALENDAR

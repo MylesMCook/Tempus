@@ -1,0 +1,586 @@
+{
+  "status": "passed",
+  "version": 5,
+  "downloadEvidenceVersion": 1,
+  "baseURL": "http://127.0.0.1:5175",
+  "browser": "153.0.8010.36",
+  "runs": [
+    {
+      "id": "invoice",
+      "width": 320,
+      "status": "passed",
+      "errors": [],
+      "downloadEvents": [
+        {
+          "filename": "tempus-events.ics",
+          "url": "blob:http://127.0.0.1:5175/70c1080e-5420-4204-85eb-b6f12546f280"
+        }
+      ],
+      "browserLog": [
+        {
+          "source": "network",
+          "level": "error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+        }
+      ],
+      "file": "invoice-320.ics",
+      "sha256": "aef1027ea5fc0c562334d505936cee5e7fee1bd54d67d1fef4a6dd8642ced164",
+      "downloadTrace": [
+        {
+          "kind": "button-click",
+          "at": 117,
+          "active": true,
+          "trusted": true,
+          "disabled": false
+        },
+        {
+          "kind": "blob-created",
+          "at": 118,
+          "active": true,
+          "url": "blob:http://127.0.0.1:5175/70c1080e-5420-4204-85eb-b6f12546f280",
+          "size": 536,
+          "type": "text/calendar;charset=utf-8"
+        },
+        {
+          "kind": "anchor-click",
+          "at": 118,
+          "active": true,
+          "url": "blob:http://127.0.0.1:5175/70c1080e-5420-4204-85eb-b6f12546f280",
+          "filename": "tempus-events.ics",
+          "connected": true
+        }
+      ]
+    },
+    {
+      "id": "quantity",
+      "width": 320,
+      "status": "passed",
+      "errors": [],
+      "downloadEvents": [
+        {
+          "filename": "tempus-events.ics",
+          "url": "blob:http://127.0.0.1:5175/93218341-264f-447b-9f5d-9d9a59871e0a"
+        }
+      ],
+      "browserLog": [],
+      "file": "quantity-320.ics",
+      "sha256": "9b9ae2412f4ae801a2bd8b3cea6b917a0f99abea5bff75cfc46d7bdcb3d92d9f",
+      "downloadTrace": [
+        {
+          "kind": "button-click",
+          "at": 114,
+          "active": true,
+          "trusted": true,
+          "disabled": false
+        },
+        {
+          "kind": "blob-created",
+          "at": 115,
+          "active": true,
+          "url": "blob:http://127.0.0.1:5175/93218341-264f-447b-9f5d-9d9a59871e0a",
+          "size": 532,
+          "type": "text/calendar;charset=utf-8"
+        },
+        {
+          "kind": "anchor-click",
+          "at": 115,
+          "active": true,
+          "url": "blob:http://127.0.0.1:5175/93218341-264f-447b-9f5d-9d9a59871e0a",
+          "filename": "tempus-events.ics",
+          "connected": true
+        }
+      ]
+    },
+    {
+      "id": "quantity-list",
+      "width": 320,
+      "status": "passed",
+      "errors": [],
+      "downloadEvents": [
+        {
+          "filename": "tempus-events.ics",
+          "url": "blob:http://127.0.0.1:5175/1852843c-029c-45c3-ba44-251f72308b8a"
+        }
+      ],
+      "browserLog": [],
+      "file": "quantity-list-320.ics",
+      "sha256": "81e89b6a714cdb5df2eabfde21a3cb77e56e2690993c3a7e20bc52d4ba81e7a2",
+      "downloadTrace": [
+        {
+          "kind": "button-click",
+          "at": 115,
+          "active": true,
+          "trusted": true,
+          "disabled": false
+        },
+        {
+          "kind": "blob-created",
+          "at": 116,
+          "active": true,
+          "url": "blob:http://127.0.0.1:5175/1852843c-029c-45c3-ba44-251f72308b8a",
+          "size": 544,
+          "type": "text/calendar;charset=utf-8"
+        },
+        {
+          "kind": "anchor-click",
+          "at": 116,
+          "active": true,
+          "url": "blob:http://127.0.0.1:5175/1852843c-029c-45c3-ba44-251f72308b8a",
+          "filename": "tempus-events.ics",
+          "connected": true
+        }
+      ]
+    },
+    {
+      "id": "recipient",
+      "width": 320,
+      "status": "passed",
+      "errors": [],
+      "downloadEvents": [
+        {
+          "filename": "tempus-events.ics",
+          "url": "blob:http://127.0.0.1:5175/19b12326-32e6-4ff2-a613-f81687ab8561"
+        }
+      ],
+      "browserLog": [],
+      "file": "recipient-320.ics",
+      "sha256": "691511a0f995d9dff38443c350d04fac11f02c839836d23f41cc70f30c58d54b",
+      "downloadTrace": [
+        {
+          "kind": "button-click",
+          "at": 115,
+          "active": true,
+          "trusted": true,
+          "disabled": false
+        },
+        {
+          "kind": "blob-created",
+          "at": 116,
+          "active": true,
+          "url": "blob:http://127.0.0.1:5175/19b12326-32e6-4ff2-a613-f81687ab8561",
+          "size": 538,
+          "type": "text/calendar;charset=utf-8"
+        },
+        {
+          "kind": "anchor-click",
+          "at": 116,
+          "active": true,
+          "url": "blob:http://127.0.0.1:5175/19b12326-32e6-4ff2-a613-f81687ab8561",
+          "filename": "tempus-events.ics",
+          "connected": true
+        }
+      ]
+    },
+    {
+      "id": "clock-first",
+      "width": 320,
+      "status": "passed",
+      "errors": [],
+      "downloadEvents": [
+        {
+          "filename": "tempus-events.ics",
+          "url": "blob:http://127.0.0.1:5175/ece3ecab-7204-433c-a119-d6a56b4a3481"
+        }
+      ],
+      "browserLog": [],
+      "file": "clock-first-320.ics",
+      "sha256": "376a493b6f9c7302e2bd374dda588744450a391c0ae010d7d4bb81ad97689aef",
+      "downloadTrace": [
+        {
+          "kind": "button-click",
+          "at": 116,
+          "active": true,
+          "trusted": true,
+          "disabled": false
+        },
+        {
+          "kind": "blob-created",
+          "at": 117,
+          "active": true,
+          "url": "blob:http://127.0.0.1:5175/ece3ecab-7204-433c-a119-d6a56b4a3481",
+          "size": 592,
+          "type": "text/calendar;charset=utf-8"
+        },
+        {
+          "kind": "anchor-click",
+          "at": 117,
+          "active": true,
+          "url": "blob:http://127.0.0.1:5175/ece3ecab-7204-433c-a119-d6a56b4a3481",
+          "filename": "tempus-events.ics",
+          "connected": true
+        }
+      ]
+    },
+    {
+      "id": "schedule",
+      "width": 320,
+      "status": "passed",
+      "errors": [],
+      "downloadEvents": [
+        {
+          "filename": "tempus-events.ics",
+          "url": "blob:http://127.0.0.1:5175/09c60372-ba24-4896-9eb7-589d7aca0753"
+        }
+      ],
+      "browserLog": [],
+      "file": "schedule-320.ics",
+      "sha256": "9a9093434bfd5bf5a3fdc68041d44227c61645d9dc2a5e7aeecf3b2c3ec9ecd2",
+      "downloadTrace": [
+        {
+          "kind": "button-click",
+          "at": 137,
+          "active": true,
+          "trusted": true,
+          "disabled": false
+        },
+        {
+          "kind": "blob-created",
+          "at": 137,
+          "active": true,
+          "url": "blob:http://127.0.0.1:5175/09c60372-ba24-4896-9eb7-589d7aca0753",
+          "size": 1512,
+          "type": "text/calendar;charset=utf-8"
+        },
+        {
+          "kind": "anchor-click",
+          "at": 138,
+          "active": true,
+          "url": "blob:http://127.0.0.1:5175/09c60372-ba24-4896-9eb7-589d7aca0753",
+          "filename": "tempus-events.ics",
+          "connected": true
+        }
+      ]
+    },
+    {
+      "id": "title",
+      "width": 320,
+      "status": "passed",
+      "errors": [],
+      "downloadEvents": [
+        {
+          "filename": "tempus-events.ics",
+          "url": "blob:http://127.0.0.1:5175/b17fe34b-e472-4983-b220-44d5c210cbee"
+        }
+      ],
+      "browserLog": [],
+      "file": "title-320.ics",
+      "sha256": "24cde833062ee17c754f36ee2972cc74c8d0c6d68592b90cdcdb18b15660969d",
+      "downloadTrace": [
+        {
+          "kind": "button-click",
+          "at": 100,
+          "active": true,
+          "trusted": true,
+          "disabled": false
+        },
+        {
+          "kind": "blob-created",
+          "at": 101,
+          "active": true,
+          "url": "blob:http://127.0.0.1:5175/b17fe34b-e472-4983-b220-44d5c210cbee",
+          "size": 394,
+          "type": "text/calendar;charset=utf-8"
+        },
+        {
+          "kind": "anchor-click",
+          "at": 101,
+          "active": true,
+          "url": "blob:http://127.0.0.1:5175/b17fe34b-e472-4983-b220-44d5c210cbee",
+          "filename": "tempus-events.ics",
+          "connected": true
+        }
+      ]
+    },
+    {
+      "id": "invoice",
+      "width": 1280,
+      "status": "passed",
+      "errors": [],
+      "downloadEvents": [
+        {
+          "filename": "tempus-events.ics",
+          "url": "blob:http://127.0.0.1:5175/4f49ff6f-d00e-4485-8b66-dcd1e60b1f22"
+        }
+      ],
+      "browserLog": [],
+      "file": "invoice-1280.ics",
+      "sha256": "70f72aae93c272ddc3b03fbaaf7ad6238e7aaa568fc27578f6dc4de4a8e89ca9",
+      "downloadTrace": [
+        {
+          "kind": "button-click",
+          "at": 114,
+          "active": true,
+          "trusted": true,
+          "disabled": false
+        },
+        {
+          "kind": "blob-created",
+          "at": 115,
+          "active": true,
+          "url": "blob:http://127.0.0.1:5175/4f49ff6f-d00e-4485-8b66-dcd1e60b1f22",
+          "size": 536,
+          "type": "text/calendar;charset=utf-8"
+        },
+        {
+          "kind": "anchor-click",
+          "at": 115,
+          "active": true,
+          "url": "blob:http://127.0.0.1:5175/4f49ff6f-d00e-4485-8b66-dcd1e60b1f22",
+          "filename": "tempus-events.ics",
+          "connected": true
+        }
+      ]
+    },
+    {
+      "id": "quantity",
+      "width": 1280,
+      "status": "passed",
+      "errors": [],
+      "downloadEvents": [
+        {
+          "filename": "tempus-events.ics",
+          "url": "blob:http://127.0.0.1:5175/f42c25a8-4971-462f-bcc6-83a9158b3e79"
+        }
+      ],
+      "browserLog": [],
+      "file": "quantity-1280.ics",
+      "sha256": "081e8ee36c554a228e9a934b16b83eb2e5735c6f7aa063f3134c1190991c6e4c",
+      "downloadTrace": [
+        {
+          "kind": "button-click",
+          "at": 111,
+          "active": true,
+          "trusted": true,
+          "disabled": false
+        },
+        {
+          "kind": "blob-created",
+          "at": 112,
+          "active": true,
+          "url": "blob:http://127.0.0.1:5175/f42c25a8-4971-462f-bcc6-83a9158b3e79",
+          "size": 532,
+          "type": "text/calendar;charset=utf-8"
+        },
+        {
+          "kind": "anchor-click",
+          "at": 112,
+          "active": true,
+          "url": "blob:http://127.0.0.1:5175/f42c25a8-4971-462f-bcc6-83a9158b3e79",
+          "filename": "tempus-events.ics",
+          "connected": true
+        }
+      ]
+    },
+    {
+      "id": "quantity-list",
+      "width": 1280,
+      "status": "passed",
+      "errors": [],
+      "downloadEvents": [
+        {
+          "filename": "tempus-events.ics",
+          "url": "blob:http://127.0.0.1:5175/7d9e54d0-bddc-4b88-8fcf-d51e208520ff"
+        }
+      ],
+      "browserLog": [],
+      "file": "quantity-list-1280.ics",
+      "sha256": "7cd43cb6da69936560280f4bb1b11e3fda2c7c1629cc217d9dce2784b5f1e09f",
+      "downloadTrace": [
+        {
+          "kind": "button-click",
+          "at": 111,
+          "active": true,
+          "trusted": true,
+          "disabled": false
+        },
+        {
+          "kind": "blob-created",
+          "at": 112,
+          "active": true,
+          "url": "blob:http://127.0.0.1:5175/7d9e54d0-bddc-4b88-8fcf-d51e208520ff",
+          "size": 544,
+          "type": "text/calendar;charset=utf-8"
+        },
+        {
+          "kind": "anchor-click",
+          "at": 112,
+          "active": true,
+          "url": "blob:http://127.0.0.1:5175/7d9e54d0-bddc-4b88-8fcf-d51e208520ff",
+          "filename": "tempus-events.ics",
+          "connected": true
+        }
+      ]
+    },
+    {
+      "id": "recipient",
+      "width": 1280,
+      "status": "passed",
+      "errors": [],
+      "downloadEvents": [
+        {
+          "filename": "tempus-events.ics",
+          "url": "blob:http://127.0.0.1:5175/78c0ad12-4823-4c33-94bf-21faf451a7eb"
+        }
+      ],
+      "browserLog": [],
+      "file": "recipient-1280.ics",
+      "sha256": "a3ee86f4e3fd31f8e347c1e621fb51d4a2f612601cbb433eafd85efaac760e48",
+      "downloadTrace": [
+        {
+          "kind": "button-click",
+          "at": 113,
+          "active": true,
+          "trusted": true,
+          "disabled": false
+        },
+        {
+          "kind": "blob-created",
+          "at": 114,
+          "active": true,
+          "url": "blob:http://127.0.0.1:5175/78c0ad12-4823-4c33-94bf-21faf451a7eb",
+          "size": 538,
+          "type": "text/calendar;charset=utf-8"
+        },
+        {
+          "kind": "anchor-click",
+          "at": 114,
+          "active": true,
+          "url": "blob:http://127.0.0.1:5175/78c0ad12-4823-4c33-94bf-21faf451a7eb",
+          "filename": "tempus-events.ics",
+          "connected": true
+        }
+      ]
+    },
+    {
+      "id": "clock-first",
+      "width": 1280,
+      "status": "passed",
+      "errors": [],
+      "downloadEvents": [
+        {
+          "filename": "tempus-events.ics",
+          "url": "blob:http://127.0.0.1:5175/7e4ae2ac-3cbc-41eb-bf17-a4ae425e7111"
+        }
+      ],
+      "browserLog": [],
+      "file": "clock-first-1280.ics",
+      "sha256": "8c145bffaa8a7df2836aca4f807de69cba14d8dbc5f57cb47ed21e5ca69f8cb8",
+      "downloadTrace": [
+        {
+          "kind": "button-click",
+          "at": 111,
+          "active": true,
+          "trusted": true,
+          "disabled": false
+        },
+        {
+          "kind": "blob-created",
+          "at": 112,
+          "active": true,
+          "url": "blob:http://127.0.0.1:5175/7e4ae2ac-3cbc-41eb-bf17-a4ae425e7111",
+          "size": 592,
+          "type": "text/calendar;charset=utf-8"
+        },
+        {
+          "kind": "anchor-click",
+          "at": 112,
+          "active": true,
+          "url": "blob:http://127.0.0.1:5175/7e4ae2ac-3cbc-41eb-bf17-a4ae425e7111",
+          "filename": "tempus-events.ics",
+          "connected": true
+        }
+      ]
+    },
+    {
+      "id": "schedule",
+      "width": 1280,
+      "status": "passed",
+      "errors": [],
+      "downloadEvents": [
+        {
+          "filename": "tempus-events.ics",
+          "url": "blob:http://127.0.0.1:5175/0a0e965c-e69a-482d-83ba-ea29ca19a3bc"
+        }
+      ],
+      "browserLog": [],
+      "file": "schedule-1280.ics",
+      "sha256": "241ab0c3f645790b116d08e3867eb0d7a542dc2cd65f01a86c3118843ed0a05c",
+      "downloadTrace": [
+        {
+          "kind": "button-click",
+          "at": 118,
+          "active": true,
+          "trusted": true,
+          "disabled": false
+        },
+        {
+          "kind": "blob-created",
+          "at": 119,
+          "active": true,
+          "url": "blob:http://127.0.0.1:5175/0a0e965c-e69a-482d-83ba-ea29ca19a3bc",
+          "size": 1512,
+          "type": "text/calendar;charset=utf-8"
+        },
+        {
+          "kind": "anchor-click",
+          "at": 119,
+          "active": true,
+          "url": "blob:http://127.0.0.1:5175/0a0e965c-e69a-482d-83ba-ea29ca19a3bc",
+          "filename": "tempus-events.ics",
+          "connected": true
+        }
+      ]
+    },
+    {
+      "id": "title",
+      "width": 1280,
+      "status": "passed",
+      "errors": [],
+      "downloadEvents": [
+        {
+          "filename": "tempus-events.ics",
+          "url": "blob:http://127.0.0.1:5175/e9f56629-2843-4ada-866b-3bac7947a4d0"
+        }
+      ],
+      "browserLog": [],
+      "file": "title-1280.ics",
+      "sha256": "8eb0815e9162508d16f9fa6c04d91bb784173209b2b2a46e082ee5af6e855e82",
+      "downloadTrace": [
+        {
+          "kind": "button-click",
+          "at": 102,
+          "active": true,
+          "trusted": true,
+          "disabled": false
+        },
+        {
+          "kind": "blob-created",
+          "at": 103,
+          "active": true,
+          "url": "blob:http://127.0.0.1:5175/e9f56629-2843-4ada-866b-3bac7947a4d0",
+          "size": 394,
+          "type": "text/calendar;charset=utf-8"
+        },
+        {
+          "kind": "anchor-click",
+          "at": 103,
+          "active": true,
+          "url": "blob:http://127.0.0.1:5175/e9f56629-2843-4ada-866b-3bac7947a4d0",
+          "filename": "tempus-events.ics",
+          "connected": true
+        }
+      ]
+    }
+  ],
+  "sourceHashes": {
+    "src/features/parser/components/date-picker.tsx": "903ebf546f50f17423c2c7ce6c82c85813b38a5457d36e155f3753db5bac7476",
+    "src/routes/home-page.tsx": "f2d1ef1855d8e9a3e1a47bbb16c4221e568d850786338d33777002d45b593e50",
+    "src/shared/interpret-date.ts": "65eae09b9334069f56c9401e52ba972ee539242c545f8600dde4beb77ba4d878",
+    "src/shared/event-identifiers.test.ts": "5cb6831e1c2def452a210eca08e5be6270ccec9a9241a7e346c7431079288275",
+    "src/shared/quantity-label.test.ts": "7ccd15b945a0f667f45165a0076248a75bde53b765d43c93b64eb15e1b6ff08e",
+    "src/shared/recipient-label.test.ts": "81f0d3b801a0b4281d7860c63dc4c911cd36053d2c8c35ae9911c644fcf1e89a",
+    "src/shared/clock-first.test.ts": "18eb3ac39351b96dd4fd4d0b08cade344ad60d8b643889eefbf87b84a76258e9",
+    "examples/app/verify-event-identifiers.mjs": "6a90f02cdc20f60df3ddc9b2d7933a2c3e2fe2a36a51c17c9a6477f065b8c48d"
+  },
+  "scope": "Authored main-app tasks, direct focus/Enter and downloads at desktop widths; not independent users, physical phones or calendar-client import."
+}

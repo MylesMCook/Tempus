@@ -1,0 +1,73 @@
+{
+  "reader": "ical.js 2.2.1",
+  "node": "v26.8.1",
+  "scope": "UTC file expansion, 2026–2425; not a calendar-client import",
+  "cases": [
+    {
+      "name": "day-29-setpos",
+      "day": 29,
+      "rule": "FREQ=MONTHLY;BYMONTHDAY=28,29;BYSETPOS=-1",
+      "sha256": "450e6ba770dfff22c91592c833acbe8430328c84d2c12be735235054b87434e4",
+      "expectedCount": 4800,
+      "status": "failed",
+      "observedCount": 4800,
+      "firstMismatch": {
+        "index": 2,
+        "expected": "2026-03-29T12:00:00.000Z",
+        "observed": "2026-03-28T12:00:00.000Z"
+      }
+    },
+    {
+      "name": "day-29-rscale",
+      "day": 29,
+      "rule": "RSCALE=GREGORIAN;FREQ=MONTHLY;BYMONTHDAY=29;SKIP=BACKWARD",
+      "sha256": "046351c1664243ce2eda1670e7a8abcd55ab2508bfb33f3294b1052c04ab7674",
+      "expectedCount": 4800,
+      "status": "failed",
+      "observedCount": 4800,
+      "firstMismatch": {
+        "index": 1,
+        "expected": "2026-02-28T12:00:00.000Z",
+        "observed": "2026-03-29T12:00:00.000Z"
+      }
+    },
+    {
+      "name": "day-30-setpos",
+      "day": 30,
+      "rule": "FREQ=MONTHLY;BYMONTHDAY=28,29,30;BYSETPOS=-1",
+      "sha256": "d3d37a40fadfe8a04adccea6bf2371f8f0dfdee9d2b7239cfc469ecec8eaccf5",
+      "expectedCount": 4800,
+      "status": "failed",
+      "observedCount": 4800,
+      "firstMismatch": {
+        "index": 2,
+        "expected": "2026-03-30T12:00:00.000Z",
+        "observed": "2026-03-28T12:00:00.000Z"
+      }
+    },
+    {
+      "name": "day-30-rscale",
+      "day": 30,
+      "rule": "RSCALE=GREGORIAN;FREQ=MONTHLY;BYMONTHDAY=30;SKIP=BACKWARD",
+      "sha256": "94887342d04d9b4e93370e3047503e3891a1e503783f34a4ec5480771cf74cef",
+      "expectedCount": 4800,
+      "status": "failed",
+      "observedCount": 4800,
+      "firstMismatch": {
+        "index": 1,
+        "expected": "2026-02-28T12:00:00.000Z",
+        "observed": "2026-03-30T12:00:00.000Z"
+      }
+    },
+    {
+      "name": "day-31-last-day",
+      "day": 31,
+      "rule": "FREQ=MONTHLY;BYMONTHDAY=-1",
+      "sha256": "b0b111a6ea760ea088ea79b0b5cff5e9d111dbe5f2141e03d5296d870bb1fd2b",
+      "expectedCount": 4800,
+      "status": "passed",
+      "observedCount": 4800,
+      "firstMismatch": null
+    }
+  ]
+}

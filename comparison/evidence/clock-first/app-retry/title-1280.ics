@@ -1,0 +1,13 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tempus//Calendar Export//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:e396e52c-2c7e-4657-9023-8812e833c90e-0@tempus.invalid
+DTSTAMP:20260912T160000Z
+SUMMARY:Room 3
+DESCRIPTION:Date phrase: tomorrow at noon\nTimezone: America/Chicago\nThe e
+ vent text is a label only\; no reminder has been created.
+DTSTART:20260913T170000Z
+END:VEVENT
+END:VCALENDAR

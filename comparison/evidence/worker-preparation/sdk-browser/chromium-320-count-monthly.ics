@@ -1,0 +1,40 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tempus//Calendar Export//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:bc5ea675-31e5-4589-b3c8-e8e395486a04-0@tempus.invalid
+DTSTAMP:20260913T160345Z
+SUMMARY:Call Sam
+DESCRIPTION:Date phrase: every month on the 31st at noon for 3 occurrences\
+ nTimezone: America/Chicago\nOnly upcoming occurrence starts appear in the 
+ preview.\nComplete bounded recurrence set\; dates are fixed to the timezon
+ e rules used when this file was generated.
+DTSTART:20260930T170000Z
+RDATE:20260930T170000Z
+RDATE:20261031T170000Z
+RDATE:20261130T180000Z
+END:VEVENT
+BEGIN:VEVENT
+RECURRENCE-ID:20261031T170000Z
+UID:bc5ea675-31e5-4589-b3c8-e8e395486a04-0@tempus.invalid
+DTSTAMP:20260913T160345Z
+SUMMARY:Call Sam
+DESCRIPTION:Date phrase: every month on the 31st at noon for 3 occurrences\
+ nTimezone: America/Chicago\nOnly upcoming occurrence starts appear in the 
+ preview.\nComplete bounded recurrence set\; dates are fixed to the timezon
+ e rules used when this file was generated.
+DTSTART:20261031T170000Z
+END:VEVENT
+BEGIN:VEVENT
+RECURRENCE-ID:20261130T180000Z
+UID:bc5ea675-31e5-4589-b3c8-e8e395486a04-0@tempus.invalid
+DTSTAMP:20260913T160345Z
+SUMMARY:Call Sam
+DESCRIPTION:Date phrase: every month on the 31st at noon for 3 occurrences\
+ nTimezone: America/Chicago\nOnly upcoming occurrence starts appear in the 
+ preview.\nComplete bounded recurrence set\; dates are fixed to the timezon
+ e rules used when this file was generated.
+DTSTART:20261130T180000Z
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,64 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tempus//Calendar Export//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:feab45cc-2620-4ab0-aa50-6050950d2e78-0@tempus.invalid
+DTSTAMP:20260913T143254Z
+SUMMARY:Call Sam
+DESCRIPTION:Date phrase: every Monday at noon for 5 occurrences\nTimezone: 
+ America/Chicago\nOnly upcoming occurrence starts appear in the preview.\nC
+ omplete bounded recurrence set\; dates are fixed to the timezone rules use
+ d when this file was generated.
+DTSTART:20260914T170000Z
+RDATE:20260914T170000Z
+RDATE:20260921T170000Z
+RDATE:20260928T170000Z
+RDATE:20261005T170000Z
+RDATE:20261012T170000Z
+END:VEVENT
+BEGIN:VEVENT
+RECURRENCE-ID:20260921T170000Z
+UID:feab45cc-2620-4ab0-aa50-6050950d2e78-0@tempus.invalid
+DTSTAMP:20260913T143254Z
+SUMMARY:Call Sam
+DESCRIPTION:Date phrase: every Monday at noon for 5 occurrences\nTimezone: 
+ America/Chicago\nOnly upcoming occurrence starts appear in the preview.\nC
+ omplete bounded recurrence set\; dates are fixed to the timezone rules use
+ d when this file was generated.
+DTSTART:20260921T170000Z
+END:VEVENT
+BEGIN:VEVENT
+RECURRENCE-ID:20260928T170000Z
+UID:feab45cc-2620-4ab0-aa50-6050950d2e78-0@tempus.invalid
+DTSTAMP:20260913T143254Z
+SUMMARY:Call Sam
+DESCRIPTION:Date phrase: every Monday at noon for 5 occurrences\nTimezone: 
+ America/Chicago\nOnly upcoming occurrence starts appear in the preview.\nC
+ omplete bounded recurrence set\; dates are fixed to the timezone rules use
+ d when this file was generated.
+DTSTART:20260928T170000Z
+END:VEVENT
+BEGIN:VEVENT
+RECURRENCE-ID:20261005T170000Z
+UID:feab45cc-2620-4ab0-aa50-6050950d2e78-0@tempus.invalid
+DTSTAMP:20260913T143254Z
+SUMMARY:Call Sam
+DESCRIPTION:Date phrase: every Monday at noon for 5 occurrences\nTimezone: 
+ America/Chicago\nOnly upcoming occurrence starts appear in the preview.\nC
+ omplete bounded recurrence set\; dates are fixed to the timezone rules use
+ d when this file was generated.
+DTSTART:20261005T170000Z
+END:VEVENT
+BEGIN:VEVENT
+RECURRENCE-ID:20261012T170000Z
+UID:feab45cc-2620-4ab0-aa50-6050950d2e78-0@tempus.invalid
+DTSTAMP:20260913T143254Z
+SUMMARY:Call Sam
+DESCRIPTION:Date phrase: every Monday at noon for 5 occurrences\nTimezone: 
+ America/Chicago\nOnly upcoming occurrence starts appear in the preview.\nC
+ omplete bounded recurrence set\; dates are fixed to the timezone rules use
+ d when this file was generated.
+DTSTART:20261012T170000Z
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,42 @@
+{
+  "reader": "icalendar 7.3.0",
+  "files": [
+    {
+      "kind": "point",
+      "width": 320,
+      "status": "passed",
+      "filename": "point-320.ics",
+      "sha256": "eae6eae58f2b0b60185d6706fb0febe7a477ef7640611d45e63018447167a06c",
+      "start": "2026-09-12",
+      "end": null
+    },
+    {
+      "kind": "interval",
+      "width": 320,
+      "status": "passed",
+      "filename": "interval-320.ics",
+      "sha256": "819f6aafbda7e2efe53a496a61081c0b0ead79b8cabb381284a708486bbbfb75",
+      "start": "2026-09-13",
+      "end": "2026-09-15"
+    },
+    {
+      "kind": "point",
+      "width": 1280,
+      "status": "passed",
+      "filename": "point-1280.ics",
+      "sha256": "254ca259e425089105256ea08d77dc8709be4c6acbf2ba97c0927c0cf39c96b2",
+      "start": "2026-09-12",
+      "end": null
+    },
+    {
+      "kind": "interval",
+      "width": 1280,
+      "status": "passed",
+      "filename": "interval-1280.ics",
+      "sha256": "a247eea9c754cc8c48a47cf79aa581ce860d597a2bf7c1f5d3afeeff06ca7db1",
+      "start": "2026-09-13",
+      "end": "2026-09-15"
+    }
+  ],
+  "scope": "Saved file readback, not calendar-client import"
+}

@@ -1,0 +1,246 @@
+{
+  "status": "passed",
+  "node": "v22.12.0",
+  "archiveSha256": "7fa6dd5769dc486a4de6e216984d99b57d1f7c97c64b193f94c6766e582c9d5e",
+  "manifestSha256": "6960cb4296c59c2b181f14b4099c9760973bc83ac294f69fbc8261d07146e16d",
+  "runnerSha256": "d56d481729e61fc05170301340a21efb106eb98eb5a01c7ef65bec484622492e",
+  "cases": [
+    {
+      "id": "date-ago",
+      "status": "matched-source"
+    },
+    {
+      "id": "date-noon",
+      "status": "matched-source"
+    },
+    {
+      "id": "date-friday",
+      "status": "matched-source"
+    },
+    {
+      "id": "date-yesterday",
+      "status": "matched-source"
+    },
+    {
+      "id": "date-spring-day",
+      "status": "matched-source"
+    },
+    {
+      "id": "date-spring-hours",
+      "status": "matched-source"
+    },
+    {
+      "id": "math-days-first",
+      "status": "matched-source"
+    },
+    {
+      "id": "math-month-first",
+      "status": "matched-source"
+    },
+    {
+      "id": "math-step-clamp",
+      "status": "matched-source"
+    },
+    {
+      "id": "math-fraction-week",
+      "status": "matched-source"
+    },
+    {
+      "id": "math-fraction-day",
+      "status": "matched-source"
+    },
+    {
+      "id": "sentence-reminder",
+      "status": "matched-source"
+    },
+    {
+      "id": "sentence-meeting",
+      "status": "matched-source"
+    },
+    {
+      "id": "sentence-question",
+      "status": "matched-source"
+    },
+    {
+      "id": "sentence-correction",
+      "status": "matched-source"
+    },
+    {
+      "id": "schedule-weekly",
+      "status": "matched-source"
+    },
+    {
+      "id": "schedule-multiple",
+      "status": "matched-source"
+    },
+    {
+      "id": "schedule-duration",
+      "status": "matched-source"
+    },
+    {
+      "id": "schedule-range",
+      "status": "matched-source"
+    },
+    {
+      "id": "schedule-overnight",
+      "status": "matched-source"
+    },
+    {
+      "id": "negative-counts",
+      "status": "matched-source"
+    },
+    {
+      "id": "negative-name",
+      "status": "matched-source"
+    },
+    {
+      "id": "negative-cancelled",
+      "status": "matched-source"
+    },
+    {
+      "id": "invalid-date",
+      "status": "matched-source"
+    },
+    {
+      "id": "ambiguous-clock",
+      "status": "matched-source"
+    },
+    {
+      "id": "ambiguous-numeric",
+      "status": "matched-source"
+    },
+    {
+      "id": "sentence-duration-suffix",
+      "status": "matched-source"
+    },
+    {
+      "id": "schedule-duration-exclusion",
+      "status": "matched-source"
+    },
+    {
+      "id": "duration-calendar-end-ambiguity",
+      "status": "matched-source"
+    },
+    {
+      "id": "group-equal-clock",
+      "status": "matched-source"
+    },
+    {
+      "id": "duration-incomplete",
+      "status": "matched-source"
+    }
+  ],
+  "journeys": [
+    {
+      "id": "explicit-date-range-correction",
+      "stages": 5,
+      "status": "matched-source"
+    },
+    {
+      "id": "omitted-month-reminder-list",
+      "stages": 7,
+      "status": "matched-source"
+    },
+    {
+      "id": "missing-item-year-reminder-list",
+      "stages": 5,
+      "status": "matched-source"
+    },
+    {
+      "id": "mixed-month-reminder-list",
+      "stages": 5,
+      "status": "matched-source"
+    },
+    {
+      "id": "shared-year-reminder-list",
+      "stages": 5,
+      "status": "matched-source"
+    },
+    {
+      "id": "spring-gap-fortnight-reminder",
+      "stages": 4,
+      "status": "matched-source"
+    },
+    {
+      "id": "confirmed-appointment-title",
+      "stages": 6,
+      "status": "matched-source"
+    },
+    {
+      "id": "half-hour-clock-reminder",
+      "stages": 5,
+      "status": "matched-source"
+    },
+    {
+      "id": "direct-command-correction",
+      "stages": 6,
+      "status": "matched-source"
+    },
+    {
+      "id": "staged-correction-reminder",
+      "stages": 6,
+      "status": "matched-source"
+    },
+    {
+      "id": "staged-alternative-reminder",
+      "stages": 6,
+      "status": "matched-source"
+    },
+    {
+      "id": "alternative-reminder-duration",
+      "stages": 4,
+      "status": "matched-source"
+    },
+    {
+      "id": "short-reminder",
+      "stages": 4,
+      "status": "matched-source"
+    },
+    {
+      "id": "short-recurring-reminder",
+      "stages": 4,
+      "status": "matched-source"
+    },
+    {
+      "id": "all-day-reminder",
+      "stages": 4,
+      "status": "matched-source"
+    },
+    {
+      "id": "midnight-reminder",
+      "stages": 4,
+      "status": "matched-source"
+    },
+    {
+      "id": "fortnightly-reminder",
+      "stages": 4,
+      "status": "matched-source"
+    },
+    {
+      "id": "group-clock-reminder",
+      "stages": 5,
+      "status": "matched-source"
+    },
+    {
+      "id": "arithmetic-clock-reminder",
+      "stages": 4,
+      "status": "matched-source"
+    },
+    {
+      "id": "numeric-reminder-duration",
+      "stages": 4,
+      "status": "matched-source"
+    },
+    {
+      "id": "replace-reminder-range",
+      "stages": 4,
+      "status": "matched-source"
+    },
+    {
+      "id": "repeated-recurring-reminder",
+      "stages": 4,
+      "status": "matched-source"
+    }
+  ],
+  "scope": "Installed SDK equality with inspected source replay: not independent evaluation, new accuracy evidence, browser interaction or calendar-client import."
+}

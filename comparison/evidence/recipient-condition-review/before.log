@@ -1,0 +1,198 @@
+
+> tempus-total@0.1.0 test /Users/mylescook/Code/MylesMCook/TempusTotal
+> vp test --run src/shared/recipient-label.test.ts
+
+
+ RUN  v4.1.11 /Users/mylescook/Code/MylesMCook/TempusTotal
+
+ ❯ src/shared/recipient-label.test.ts (35 tests | 6 failed) 47ms
+   × keeps conditional pending wording out of recipient titles 2ms
+   × keeps conditional assuming wording out of recipient titles 0ms
+   × keeps conditional provided wording out of recipient titles 0ms
+   × keeps conditional Pending wording out of recipient titles 0ms
+   × keeps conditional Assuming wording out of recipient titles 0ms
+   × keeps conditional Provided wording out of recipient titles 0ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 6 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/shared/recipient-label.test.ts > keeps conditional pending wording out of recipient titles
+AssertionError: expected { …(3) } to be undefined
+
+- Expected:
+undefined
+
++ Received:
+{
+  "choices": [
+    {
+      "expression": "tomorrow at noon",
+      "id": "event:title",
+      "label": "Use “Buy apples for mom pending”",
+    },
+  ],
+  "contextKey": "[\"Buy apples for mom pending tomorrow at noon\",\"America/Chicago\",\"2026-09-12T16:00:00Z\"]",
+  "question": "Use “Buy apples for mom pending” as the event title?",
+}
+
+ ❯ src/shared/recipient-label.test.ts:112:70
+    110|       const result = parse(input, context);
+    111|       expect(result.status).not.toBe("resolved");
+    112|       if (result.status !== "resolved") expect(result.clarification).t…
+       |                                                                      ^
+    113|       expect(prepareCalendarFile(result, metadata).ok).toBe(false);
+    114|     }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/6]⎯
+
+ FAIL  src/shared/recipient-label.test.ts > keeps conditional assuming wording out of recipient titles
+AssertionError: expected { …(3) } to be undefined
+
+- Expected:
+undefined
+
++ Received:
+{
+  "choices": [
+    {
+      "expression": "tomorrow at noon",
+      "id": "event:title",
+      "label": "Use “Buy apples for mom assuming”",
+    },
+  ],
+  "contextKey": "[\"Buy apples for mom assuming tomorrow at noon\",\"America/Chicago\",\"2026-09-12T16:00:00Z\"]",
+  "question": "Use “Buy apples for mom assuming” as the event title?",
+}
+
+ ❯ src/shared/recipient-label.test.ts:112:70
+    110|       const result = parse(input, context);
+    111|       expect(result.status).not.toBe("resolved");
+    112|       if (result.status !== "resolved") expect(result.clarification).t…
+       |                                                                      ^
+    113|       expect(prepareCalendarFile(result, metadata).ok).toBe(false);
+    114|     }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/6]⎯
+
+ FAIL  src/shared/recipient-label.test.ts > keeps conditional provided wording out of recipient titles
+AssertionError: expected { …(3) } to be undefined
+
+- Expected:
+undefined
+
++ Received:
+{
+  "choices": [
+    {
+      "expression": "tomorrow at noon",
+      "id": "event:title",
+      "label": "Use “Buy apples for mom provided”",
+    },
+  ],
+  "contextKey": "[\"Buy apples for mom provided tomorrow at noon\",\"America/Chicago\",\"2026-09-12T16:00:00Z\"]",
+  "question": "Use “Buy apples for mom provided” as the event title?",
+}
+
+ ❯ src/shared/recipient-label.test.ts:112:70
+    110|       const result = parse(input, context);
+    111|       expect(result.status).not.toBe("resolved");
+    112|       if (result.status !== "resolved") expect(result.clarification).t…
+       |                                                                      ^
+    113|       expect(prepareCalendarFile(result, metadata).ok).toBe(false);
+    114|     }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/6]⎯
+
+ FAIL  src/shared/recipient-label.test.ts > keeps conditional Pending wording out of recipient titles
+AssertionError: expected { …(3) } to be undefined
+
+- Expected:
+undefined
+
++ Received:
+{
+  "choices": [
+    {
+      "expression": "tomorrow at noon",
+      "id": "event:title",
+      "label": "Use “Buy apples for mom Pending”",
+    },
+  ],
+  "contextKey": "[\"Buy apples for mom Pending tomorrow at noon\",\"America/Chicago\",\"2026-09-12T16:00:00Z\"]",
+  "question": "Use “Buy apples for mom Pending” as the event title?",
+}
+
+ ❯ src/shared/recipient-label.test.ts:112:70
+    110|       const result = parse(input, context);
+    111|       expect(result.status).not.toBe("resolved");
+    112|       if (result.status !== "resolved") expect(result.clarification).t…
+       |                                                                      ^
+    113|       expect(prepareCalendarFile(result, metadata).ok).toBe(false);
+    114|     }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/6]⎯
+
+ FAIL  src/shared/recipient-label.test.ts > keeps conditional Assuming wording out of recipient titles
+AssertionError: expected { …(3) } to be undefined
+
+- Expected:
+undefined
+
++ Received:
+{
+  "choices": [
+    {
+      "expression": "tomorrow at noon",
+      "id": "event:title",
+      "label": "Use “Buy apples for mom Assuming”",
+    },
+  ],
+  "contextKey": "[\"Buy apples for mom Assuming tomorrow at noon\",\"America/Chicago\",\"2026-09-12T16:00:00Z\"]",
+  "question": "Use “Buy apples for mom Assuming” as the event title?",
+}
+
+ ❯ src/shared/recipient-label.test.ts:112:70
+    110|       const result = parse(input, context);
+    111|       expect(result.status).not.toBe("resolved");
+    112|       if (result.status !== "resolved") expect(result.clarification).t…
+       |                                                                      ^
+    113|       expect(prepareCalendarFile(result, metadata).ok).toBe(false);
+    114|     }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/6]⎯
+
+ FAIL  src/shared/recipient-label.test.ts > keeps conditional Provided wording out of recipient titles
+AssertionError: expected { …(3) } to be undefined
+
+- Expected:
+undefined
+
++ Received:
+{
+  "choices": [
+    {
+      "expression": "tomorrow at noon",
+      "id": "event:title",
+      "label": "Use “Buy apples for mom Provided”",
+    },
+  ],
+  "contextKey": "[\"Buy apples for mom Provided tomorrow at noon\",\"America/Chicago\",\"2026-09-12T16:00:00Z\"]",
+  "question": "Use “Buy apples for mom Provided” as the event title?",
+}
+
+ ❯ src/shared/recipient-label.test.ts:112:70
+    110|       const result = parse(input, context);
+    111|       expect(result.status).not.toBe("resolved");
+    112|       if (result.status !== "resolved") expect(result.clarification).t…
+       |                                                                      ^
+    113|       expect(prepareCalendarFile(result, metadata).ok).toBe(false);
+    114|     }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/6]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  6 failed | 29 passed (35)
+   Start at  14:32:53
+   Duration  224ms (transform 80ms, setup 0ms, import 112ms, tests 47ms, environment 0ms)
+
+ ELIFECYCLE  Test failed. See above for more details.

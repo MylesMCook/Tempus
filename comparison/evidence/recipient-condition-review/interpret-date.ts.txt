@@ -1,0 +1,1023 @@
+import { interpretDateList, type DateListCandidate } from "./interpret-date-list.js";
+import { describeZonedInstant } from "./date-engine/format-zoned.js";
+import { calculateDate, type Calculation } from "./date-parser.js";
+import { interpretRecurrence, type RecurrenceCandidate } from "./interpret-recurrence.js";
+import { interpretGroups } from "./interpret-groups.js";
+import { clockChoices } from "./clarify-clock.js";
+import { clarifyArithmetic } from "./clarify-arithmetic.js";
+import { calculateScheduleDate, DATE_START_POLICY } from "./calculate-schedule-date.js";
+import type { CalculationIssue, Span } from "./date-engine/types.js";
+import { parseExpression } from "./date-engine/grammar.js";
+
+import { interpretInterval, type IntervalCandidate } from "./interpret-interval.js";
+import {
+  MAX_SELECTION_HISTORY,
+  numericDateChoices,
+  appendSelection,
+  interpretationContextKey,
+  type ClarificationChoice,
+  type ClarificationSelection,
+} from "./clarify-numeric-date.js";
+
+type Source = { text: string; span: Span };
+export type Interpretation =
+  | {
+      interpretationVersion: 1;
+      status: "resolved";
+      value:
+        | {
+            kind: "point";
+            calculation: Extract<Calculation, { ok: true }>;
+            precision: "date" | "time";
+            clockSource: "explicit" | "reference" | "arithmetic" | "default";
+          }
+        | Extract<IntervalCandidate, { ok: true }>
+        | Extract<RecurrenceCandidate, { ok: true }>
+        | Extract<DateListCandidate, { ok: true }>;
+      source: Source;
+      event?: Source;
+      assumptions: string[];
+      selectedChoice?: string;
+      apiReplay?: false;
+    }
+  | {
+      interpretationVersion: 1;
+      status: "needs-clarification" | "no-expression" | "unsupported";
+      error: CalculationIssue;
+      clarification?: { contextKey: string; question: string; choices: ClarificationChoice[] };
+    };
+
+const temporalStart =
+  /\b(?:every|for|noon|midnight|today|tomorrow|yesterday|next|last|this|in|on|at|monday|tuesday|wednesday|thursday|friday|saturday|sunday|mon|tue|wed|thu|fri|sat|sun|jan(?:uary)?|feb(?:ruary)?|mar(?:ch)?|apr(?:il)?|may|jun(?:e)?|jul(?:y)?|aug(?:ust)?|sep(?:tember)?|oct(?:ober)?|nov(?:ember)?|dec(?:ember)?|days?|weeks?|months?|years?|hours?|minutes?|seconds?|\d+)\b/i;
+
+// These words can constrain the date even when the resolver does not yet
+// support them. Never absorb them into a longer reminder label.
+const reminderBoundary = new RegExp(
+  temporalStart.source +
+    "|\\b(?:each|alternate|alternating|repeat|repeating|recurring|sometime|roughly|approximately|now|tonight|daily|weekly|monthly|yearly|annually|hourly|nightly|quarterly|biweekly|fortnightly|weekdays?|weekends?|mornings?|afternoons?|evenings?|regularly|often|once|twice|before|after|between|until|starting|from|since|around|about|through|during|within|by|earlier|later|soon|zero|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundred|thousand|million|half|couple|quarter|mondays|tuesdays|wednesdays|thursdays|fridays|saturdays|sundays)\\b" +
+    "|\\ba(?=\\s+(?:half|couple|quarter|day|week|month|year|hour|minute|second|fortnight)\\b)",
+  "i",
+);
+
+// Explicit identifiers may contain numbers; ordinary quantities remain temporal boundaries.
+const labelIdentifier =
+  /\b(room|ticket|invoice|order|person|extension|issue|flight|gate|route|table|chapter|item|case)\s+#?(\d+|zero|one|two|three|four|five|six|seven|eight|nine|ten)\b(?!\s*(?:[:/]|(?:[ap]\.?m\.?|and|half|quarter|days?|weeks?|months?|years?|hours?|minutes?|seconds?)\b))/gi;
+function labelBoundary(text: string): number {
+  const identifiers = [...text.matchAll(labelIdentifier)];
+  const boundaries = text.matchAll(new RegExp(reminderBoundary.source, "gi"));
+  for (const match of boundaries) {
+    if (
+      !identifiers.some((identifier) => {
+        const numberStart = identifier.index + identifier[0].length - identifier[2].length;
+        return match.index >= numberStart && match.index < identifier.index + identifier[0].length;
+      })
+    )
+      return match.index;
+  }
+  return -1;
+}
+function validEventLabel(text: string): boolean {
+  return /^[\p{L}][\p{L}'’-]*(?:\s+[\p{L}][\p{L}'’-]*)*$/u.test(
+    text.replace(labelIdentifier, "$1"),
+  );
+}
+
+/** A quantity is event text only after explicit title confirmation. */
+function quantityLabelProposal(text: string) {
+  const prefix =
+    /^((?:(?:please\s+)?remind me to\s+)?)(?:buy|send|pick up)\s+(?:[1-9]\d*|one|two|three|four|five|six|seven|eight|nine|ten)\s+/i.exec(
+      text,
+    );
+  if (!prefix) return undefined;
+  let offset = prefix[0].length;
+  for (;;) {
+    const target = text.slice(offset);
+    const boundary = labelBoundary(target);
+    if (boundary <= 0 || /^[ap]\.?m\.?\b/i.test(target)) return undefined;
+    const object = target.slice(0, boundary).trimEnd();
+    const nextQuantity = /^(?:[1-9]\d*|one|two|three|four|five|six|seven|eight|nine|ten)\s+/i.exec(target.slice(boundary));
+    const continues = /\s+and$/i.test(object) && nextQuantity;
+    const item = continues ? object.replace(/\s+and$/i, "") : object;
+    if (
+      !validEventLabel(item) ||
+      /\bthen\b|\band$|\band\s+(?:call|email|text|visit|pay|buy|send|submit|pick up)\b/i.test(item)
+    ) return undefined;
+    if (continues) {
+      offset += boundary + nextQuantity[0].length;
+      continue;
+    }
+    return {
+      title: text.slice(prefix[1].length, offset + boundary).trimEnd(),
+      boundary: offset + boundary,
+      start: prefix[1].length,
+    };
+  }
+}
+
+/** A bounded sentence recognizer. This does not extract arbitrary dates from prose. */
+export function interpretDate(
+  input: string,
+  options: { timezone: string; reference: string; selection?: ClarificationSelection },
+): Interpretation {
+  const unresolved = (
+    status: Exclude<Interpretation["status"], "resolved">,
+    message: string,
+    hint: string,
+  ): Interpretation => ({
+    interpretationVersion: 1,
+    status,
+    error: { code: "syntax", message, hint },
+  });
+  const fromCalculation = (
+    calculation: Calculation,
+    start: number,
+    text: string,
+    event?: Source,
+    selectedClock = false,
+  ): Interpretation => {
+    if (!calculation.ok)
+      return {
+        interpretationVersion: 1,
+        status: calculation.error.code === "ambiguous-time" ? "needs-clarification" : "unsupported",
+        error: {
+          ...calculation.error,
+          ...(calculation.error.span
+            ? {
+                span: {
+                  start: start + calculation.error.span.start,
+                  end: start + calculation.error.span.end,
+                },
+              }
+            : {}),
+        },
+      };
+    const plan = parseExpression(calculation.expression);
+    const clockSource =
+      selectedClock || plan.time
+        ? "explicit"
+        : plan.anchor.kind === "relative" && plan.anchor.value === "now"
+          ? "reference"
+          : plan.operations.some((operation) =>
+                ["hour", "minute", "second", "millisecond"].includes(operation.unit),
+              ) ||
+              calculation.steps.some(
+                (step) => step.before.local.slice(11) !== step.after.local.slice(11),
+              )
+            ? "arithmetic"
+            : "default";
+    return {
+      interpretationVersion: 1,
+      status: "resolved",
+      value: {
+        kind: "point",
+        calculation,
+        precision: clockSource === "default" ? "date" : "time",
+        clockSource,
+      },
+      source: { text, span: { start, end: start + text.length } },
+      ...(event ? { event } : {}),
+      ...(calculation.warnings.includes(DATE_START_POLICY) ? { apiReplay: false as const } : {}),
+      assumptions: [
+        ...(event ? ["The event text is a label only; no reminder has been created."] : []),
+        ...calculation.warnings.filter((warning) => warning === DATE_START_POLICY),
+      ],
+    };
+  };
+  const fromGroups = (text: string, start: number, event?: Source): Interpretation | null => {
+    const contextKey = interpretationContextKey(input, options);
+    const clockDecisions =
+      options.selection?.contextKey === contextKey
+        ? [
+            options.selection.id,
+            ...(options.selection.previous ?? []).slice(-MAX_SELECTION_HISTORY).reverse(),
+          ]
+        : [];
+    const groups =
+      interpretDateList(text, { ...options, clockDecisions }) ??
+      interpretGroups(text, { ...options, clockDecisions });
+    if (!groups) return null;
+    if (!groups.ok) {
+      const { span: _span, ...error } = groups.error;
+      return {
+        interpretationVersion: 1,
+        status:
+          groups.clockPrompt ||
+          error.code === "ambiguous-time" ||
+          error.message === "Do you mean a full day?"
+            ? "needs-clarification"
+            : "unsupported",
+        error: groups.clockPrompt
+          ? {
+              ...error,
+              message: groups.clockPrompt.question,
+              hint: groups.clockPrompt.choices.some((choice) => choice.id.startsWith("list:year:"))
+                ? error.hint
+                : `${error.message} This choice affects only this listed date or range.`,
+            }
+          : error,
+        ...(groups.clockPrompt ? { clarification: { contextKey, ...groups.clockPrompt } } : {}),
+      };
+    }
+    return {
+      interpretationVersion: 1,
+      status: "resolved",
+      value: {
+        ...groups,
+        occurrences: groups.occurrences.map((row) => ({
+          ...row,
+          allDay: "allDay" in row && row.allDay,
+          source: {
+            text: row.source.text,
+            span: { start: start + row.source.span.start, end: start + row.source.span.end },
+          },
+        })),
+      },
+      source: { text, span: { start, end: start + text.length } },
+      ...(event ? { event } : {}),
+      apiReplay: false,
+      assumptions: [
+        "Each listed date or range occurs once; this is not a repeating rule.",
+        ...(groups.selectedClocks ?? []).map((label) => `You selected ${label}.`),
+      ],
+    };
+  };
+  const fromRecurrence = (text: string, start: number, event?: Source): Interpretation | null => {
+    const contextKey = interpretationContextKey(input, options);
+    const clockDecisions =
+      options.selection?.contextKey === contextKey
+        ? [
+            options.selection.id,
+            ...(options.selection.previous ?? []).slice(-MAX_SELECTION_HISTORY).reverse(),
+          ]
+        : [];
+    const recurrence = interpretRecurrence(text, {
+      ...options,
+      clockDecisions,
+      policyDecisions: clockDecisions,
+    });
+    if (!recurrence) {
+      if (/^(?:every|daily|weekly)\s/i.test(text) && /\bexcept\b/i.test(text))
+        return unresolved(
+          "unsupported",
+          "This repeating schedule or exclusion is not supported yet.",
+          "Use full weekday names with a shared time and exact excluded dates, for example: “every Monday and Wednesday at noon except 2026-09-16”.",
+        );
+      return null;
+    }
+    if (!recurrence.ok) {
+      const { span: _span, ...error } = recurrence.error;
+      return {
+        interpretationVersion: 1,
+        status:
+          error.code === "ambiguous-time" || recurrence.needsClock || recurrence.policyPrompt
+            ? "needs-clarification"
+            : "unsupported",
+        error: recurrence.policyPrompt
+          ? { ...error, message: recurrence.policyPrompt.question }
+          : recurrence.clockPrompt
+            ? {
+                ...error,
+                message: recurrence.clockPrompt.question,
+                hint: `${error.message} Your choice applies only to this occurrence. Other dates keep their written local clocks.`,
+              }
+            : error,
+        ...((recurrence.policyPrompt ?? recurrence.clockPrompt)
+          ? {
+              clarification: {
+                contextKey,
+                ...(recurrence.policyPrompt ?? recurrence.clockPrompt)!,
+              },
+            }
+          : {}),
+      };
+    }
+    return {
+      interpretationVersion: 1,
+      status: "resolved",
+      value: recurrence,
+      ...(recurrence.rule.countPast || recurrence.rule.countExclusions
+        ? {
+            selectedChoice: [
+              recurrence.rule.countPast === "consume"
+                ? "The count includes past starts."
+                : recurrence.rule.countPast === "upcoming"
+                  ? "Only upcoming starts use count slots; the written cadence is retained."
+                  : undefined,
+              recurrence.rule.countExclusions === "consume"
+                ? "Excluded dates use count slots and are not replaced."
+                : recurrence.rule.countExclusions === "replace"
+                  ? "Excluded dates are replaced to keep the requested event count."
+                  : undefined,
+            ]
+              .filter(Boolean)
+              .join(" "),
+          }
+        : {}),
+      source: { text, span: { start, end: start + text.length } },
+      ...(event ? { event } : {}),
+      apiReplay: false,
+      assumptions: [
+        "Only upcoming occurrence starts appear in the preview.",
+        "Recurrence export has not been validated.",
+        ...(recurrence.rule.clockOverrides ?? []).map(
+          (choice) =>
+            `For ${choice.date} ${choice.endpoint} only, you selected ${choice.label}. Other occurrences keep their written local clocks.`,
+        ),
+      ],
+    };
+  };
+  const fromInterval = (text: string, start: number, event?: Source): Interpretation | null => {
+    const contextKey = interpretationContextKey(input, options);
+    const decisions =
+      options.selection?.contextKey === contextKey
+        ? [
+            options.selection.id,
+            ...(options.selection.previous ?? []).slice(-MAX_SELECTION_HISTORY).reverse(),
+          ]
+        : [];
+    const clockSelections = Object.fromEntries(
+      (["start", "end"] as const).map((endpoint) => {
+        const prefix = `interval:${endpoint}:`;
+        const answers = [
+          ...new Set(
+            decisions.filter(
+              (id) =>
+                id.startsWith(prefix) &&
+                !id.startsWith(`${prefix}date:`) &&
+                !id.startsWith(`${prefix}time:`) &&
+                !id.startsWith(`${prefix}boundary:`),
+            ),
+          ),
+        ];
+        return [endpoint, answers.length === 1 ? answers[0].slice(prefix.length) : undefined];
+      }),
+    );
+    const dateSelections = Object.fromEntries(
+      (["start", "end"] as const).map((endpoint) => {
+        const prefix = `interval:${endpoint}:date:`;
+        const answers = [...new Set(decisions.filter((id) => id.startsWith(prefix)))];
+        return [endpoint, answers.length === 1 ? answers[0].slice(prefix.length) : undefined];
+      }),
+    );
+    const boundaryAnswers = [
+      ...new Set(decisions.filter((id) => id.startsWith("interval:end:boundary:"))),
+    ];
+    const dateEndPolicy =
+      boundaryAnswers.length === 1 ? boundaryAnswers[0].slice("interval:end:".length) : undefined;
+    const timeSelections = Object.fromEntries(
+      (["start", "end"] as const).map((endpoint) => {
+        const prefix = `interval:${endpoint}:time:`;
+        const answers = [...new Set(decisions.filter((id) => id.startsWith(prefix)))];
+        return [
+          endpoint,
+          answers.length === 1 ? answers[0].slice(`interval:${endpoint}:`.length) : undefined,
+        ];
+      }),
+    );
+    const intervalOptions = {
+      ...options,
+      clockSelections,
+      dateSelections,
+      dateEndPolicy,
+      timeSelections,
+    };
+    let interval = interpretInterval(text, intervalOptions);
+    if (!interval) return null;
+    let chosenLabel: string | undefined;
+    if (!interval.ok && interval.equalEndpoints) {
+      const candidate = interpretInterval(text, { ...intervalOptions, equalEndpoints: "next-day" });
+      // Do not offer a next-day interpretation whose endpoint is itself unresolved.
+      if (candidate && !candidate.ok) interval = candidate;
+      if (candidate?.ok) {
+        const id = "interval:end-next-day";
+        const label = `End on ${candidate.end.result.local.slice(0, 10)} at ${candidate.end.result.local.slice(11, 16)} (${options.timezone}, UTC${candidate.end.result.offset})`;
+        if (decisions.includes(id)) {
+          interval = candidate;
+          chosenLabel = label;
+        } else {
+          return {
+            interpretationVersion: 1,
+            status: "needs-clarification",
+            error: {
+              ...interval.error,
+              message: "Should this range end on the next date?",
+            },
+            clarification: {
+              contextKey,
+              question: "Should this range end on the next date?",
+              choices: [{ id, label, expression: text }],
+            },
+          };
+        }
+      }
+    }
+    if (!interval.ok) {
+      // Endpoint expressions are synthesized; their offsets are not original-input spans.
+      const { span: _span, ...error } = interval.error;
+      return {
+        interpretationVersion: 1,
+        status:
+          interval.clockPrompt ||
+          error.code === "ambiguous-time" ||
+          error.message === "Do you mean a full day?"
+            ? "needs-clarification"
+            : "unsupported",
+        error: interval.clockPrompt
+          ? {
+              ...error,
+              message: `${interval.clockPrompt.endpoint === "start" ? "Start" : "End"}: ${error.message}`,
+            }
+          : error,
+        ...(interval.clockPrompt
+          ? {
+              clarification: {
+                contextKey,
+                question: `${interval.clockPrompt.endpoint === "start" ? "Start" : "End"}: ${interval.clockPrompt.question}`,
+                choices: interval.clockPrompt.choices.map((choice) => ({
+                  ...choice,
+                  id: `interval:${interval.clockPrompt!.endpoint}:${choice.id}`,
+                })),
+              },
+            }
+          : {}),
+      };
+    }
+    return {
+      interpretationVersion: 1,
+      status: "resolved",
+      value: interval,
+      source: { text, span: { start, end: start + text.length } },
+      ...(event ? { event } : {}),
+      ...(chosenLabel || interval.selectedClocks?.length
+        ? {
+            selectedChoice: [chosenLabel, ...(interval.selectedClocks ?? [])]
+              .filter(Boolean)
+              .join("; "),
+            apiReplay: false as const,
+          }
+        : {}),
+      assumptions: [
+        "The interval end is exclusive.",
+        ...(interval.selectedClocks ?? []).map((label) => `You selected ${label}.`),
+        ...(chosenLabel
+          ? [
+              "You confirmed that the written matching end clock refers to the next date. Any selected clock replacement may change the duration.",
+            ]
+          : []),
+        ...(interval.overnight ? ["The end clock falls on the following date."] : []),
+      ],
+    };
+  };
+  const fromClock = (
+    expression: string,
+    start: number,
+    event?: Source,
+    sourceText = expression,
+  ): Interpretation | null => {
+    const arithmeticContext = interpretationContextKey(input, options);
+    const arithmeticSelection =
+      options.selection?.contextKey === arithmeticContext ? options.selection : undefined;
+    const arithmetic = clarifyArithmetic(
+      expression,
+      options,
+      arithmeticSelection ? [...(arithmeticSelection.previous ?? []), arithmeticSelection.id] : [],
+    );
+    if (arithmetic) {
+      if (arithmetic.prompt)
+        return {
+          interpretationVersion: 1,
+          status: "needs-clarification",
+          error: {
+            code: "ambiguous-time",
+            message: arithmetic.prompt.question,
+            hint: "Choose a clock time to continue the remaining arithmetic.",
+          },
+          clarification: { contextKey: arithmeticContext, ...arithmetic.prompt },
+        };
+      const result = fromCalculation(arithmetic.calculation, start, sourceText, event, true);
+      return result.status === "resolved"
+        ? {
+            ...result,
+            apiReplay: false,
+            selectedChoice: arithmetic.labels.join("; "),
+            assumptions: [...result.assumptions, ...arithmetic.decisions],
+          }
+        : result;
+    }
+    const prompt = clockChoices(expression, options);
+    if (!prompt) return null;
+    const contextKey = interpretationContextKey(input, options);
+    const selected =
+      options.selection?.contextKey === contextKey
+        ? prompt.choices.find((choice) => choice.id === options.selection?.id)
+        : undefined;
+    if (!selected)
+      return {
+        interpretationVersion: 1,
+        status: "needs-clarification",
+        error: {
+          code: "ambiguous-time",
+          message: prompt.question,
+          hint: "Choose an explicit time and UTC offset, or edit the original phrase.",
+        },
+        clarification: { contextKey, ...prompt },
+      };
+    const calculation = calculateDate("now", {
+      timezone: options.timezone,
+      reference: selected.id,
+    });
+    if (!calculation.ok) return fromCalculation(calculation, start, sourceText, event);
+    const result = fromCalculation(
+      {
+        ...calculation,
+        anchorDescription: "Use the explicitly selected instant: " + selected.label,
+      },
+      start,
+      sourceText,
+      event,
+      true,
+    );
+    return result.status === "resolved"
+      ? {
+          ...result,
+          selectedChoice: selected.label.replace(/^Use /, ""),
+          apiReplay: false,
+          assumptions: [
+            ...result.assumptions,
+            "The user selected this clock occurrence or replacement. Strict API v2 does not resolve this ambiguity.",
+          ],
+        }
+      : result;
+  };
+  const fromNumeric = (text: string, start: number, event?: Source): Interpretation | null => {
+    const choices = numericDateChoices(text);
+    if (choices === null) return null;
+    const validContext = calculateDate("now", options);
+    if (!validContext.ok) return fromCalculation(validContext, start, text, event);
+    if (!choices.length)
+      return unresolved(
+        "unsupported",
+        "That calendar date does not exist.",
+        "Check the day, month and year.",
+      );
+    const contextKey = interpretationContextKey(input, options);
+    const selected =
+      choices.length === 1
+        ? choices[0]
+        : options.selection?.contextKey === contextKey
+          ? [
+              options.selection!.id,
+              ...(options.selection!.previous ?? []).slice(-MAX_SELECTION_HISTORY).reverse(),
+            ]
+              .map((id) => choices.find((choice) => choice.id === id))
+              .find((choice) => choice !== undefined)
+          : undefined;
+    if (!selected)
+      return {
+        interpretationVersion: 1,
+        status: "needs-clarification",
+        error: {
+          code: "syntax",
+          message: "Which date do you mean?",
+          hint: "Choose the month and day. Your original text stays here.",
+        },
+        clarification: { contextKey, question: "Which date do you mean?", choices },
+      };
+    const interval = fromInterval(selected.expression, start, event);
+    if (interval) {
+      if (interval.status !== "resolved") return interval;
+      return {
+        ...interval,
+        source: { text, span: { start, end: start + text.length } },
+        selectedChoice: [selected.label, interval.selectedChoice].filter(Boolean).join("; "),
+        assumptions: [...interval.assumptions, `Date interpreted as ${selected.label}.`],
+      };
+    }
+    const calculation = calculateScheduleDate(selected.expression, options);
+    // Errors refer to a generated ISO expression, not the user's numeric source.
+    if (!calculation.ok) {
+      const clock = fromClock(selected.expression, start, event, text);
+      if (clock) return clock;
+      const { span: _span, ...error } = calculation.error;
+      return {
+        interpretationVersion: 1,
+        status: error.code === "ambiguous-time" ? "needs-clarification" : "unsupported",
+        error,
+      };
+    }
+    const result = fromCalculation(calculation, start, text, event);
+    return result.status === "resolved"
+      ? {
+          ...result,
+          ...(choices.length > 1 ? { selectedChoice: selected.label } : {}),
+          assumptions: [...result.assumptions, `Date interpreted as ${selected.label}.`],
+        }
+      : result;
+  };
+  const fromClockFirst = (text: string, start: number, event?: Source): Interpretation | null => {
+    const match =
+      /^(?:at\s+)?(noon|midnight|\d{1,2}(?::\d{2}(?::\d{2})?)?\s*[ap]\.?m\.?|\d{1,2}:\d{2}(?::\d{2})?)\s+(?:on\s+)?(.+)$/i.exec(
+        text,
+      );
+    if (!match) return null;
+    const date = match[2];
+    // Only reorder a clock and a date anchor. Never move a clock across
+    // arithmetic, a second clock, a duration or a recurrence qualifier.
+    try {
+      const dates = numericDateChoices(date)?.map((choice) => choice.expression) ?? [date];
+      if (
+        !dates.length ||
+        dates.some((value) => {
+          const plan = parseExpression(value);
+          return (
+            plan.time ||
+            plan.operations.length ||
+            (plan.anchor.kind === "relative" && plan.anchor.value === "now")
+          );
+        })
+      )
+        return null;
+    } catch {
+      return null;
+    }
+    const normalized = `${date} at ${match[1]}`;
+    const result =
+      fromNumeric(normalized, start, event) ??
+      fromClock(normalized, start, event, text) ??
+      fromCalculation(calculateScheduleDate(normalized, options), start, text, event);
+    if (result.status === "resolved")
+      return {
+        ...result,
+        source: { text, span: { start, end: start + text.length } },
+        apiReplay: false,
+        assumptions: [
+          ...result.assumptions,
+          `Clock-first wording was evaluated as “${normalized}”.`,
+        ],
+      };
+    // Generated-expression offsets are not offsets in the original input.
+    const { span: _span, ...error } = result.error;
+    return { ...result, error };
+  };
+  const strict = calculateScheduleDate(input, options);
+  const leading = input.length - input.trimStart().length;
+  if (strict.ok) return fromCalculation(strict, leading, input.trim());
+  if (input.length > 200) return fromCalculation(strict, 0, input);
+  const text = input
+    .trim()
+    .replace(/[.!?]+$/, "")
+    .trimEnd();
+  if (!text) return unresolved("no-expression", "Enter a date phrase.", "Try “tomorrow at noon”.");
+  if (
+    /\b(?:not|never|cannot|cancel|cancelled|canceled)\b|\b(?:ca|wo|sha|do|does|did|is|are|was|were|has|have|had|could|should|would|must|need)n['’]t\b/i.test(
+      text,
+    )
+  ) {
+    return unresolved(
+      "no-expression",
+      "No date selected from this instruction.",
+      "It contains a cancellation or negative instruction. Enter only the date you want to calculate.",
+    );
+  }
+  const alternatives = /^(?:(meet)\s+)?(.+?)\s+or\s+(.+)$/i.exec(text);
+  const isAlternative =
+    Boolean(alternatives) &&
+    (text.match(/\bor\b/gi)?.length ?? 0) === 1 &&
+    !/\b(?:actually|instead|unless|except|if|reschedule)\b/i.test(text);
+  const correction =
+    (isAlternative ? alternatives : null) ??
+    /^(?:(meet)\s+)?(.+?)(?:,\s*|\s+)actually\s+(.+?)(?:\s+instead)?$/i.exec(text);
+  if (
+    correction &&
+    (isAlternative ||
+      ((text.match(/\bactually\b/gi)?.length ?? 0) === 1 &&
+        !/\b(?:unless|except|if|or|reschedule)\b/i.test(text)))
+  ) {
+    const [, meet, before, after] = correction;
+    const contextKey = interpretationContextKey(input, options);
+    const branchKind = isAlternative ? "alternative" : "correction";
+    const branchResult = (clause: string, index: number) => {
+      const prefix = `${branchKind}:branch:${index}:`;
+      let selection: ClarificationSelection | undefined;
+      if (options.selection?.contextKey === contextKey) {
+        for (const id of [...(options.selection.previous ?? []), options.selection.id]) {
+          if (id.startsWith(prefix))
+            selection = appendSelection(selection, {
+              contextKey: interpretationContextKey(clause, options),
+              id: id.slice(prefix.length),
+            });
+        }
+      }
+      return interpretDate(clause, {
+        timezone: options.timezone,
+        reference: options.reference,
+        ...(selection ? { selection } : {}),
+      });
+    };
+    const beforeResult = branchResult(before, 0);
+    const afterResult = branchResult(after, 1);
+    const branches = [beforeResult, afterResult];
+    // Do not ask about one branch when the other is already unsupported.
+    if (
+      branches.every((result) =>
+        result.status === "resolved"
+          ? result.value.kind === "point" || result.value.kind === "interval"
+          : Boolean(result.clarification),
+      ) &&
+      !(afterResult.status === "resolved" && afterResult.event)
+    ) {
+      const index = branches.findIndex((result) => result.status !== "resolved");
+      const pending = branches[index];
+      if (pending && pending.status !== "resolved" && pending.clarification) {
+        const clauseLabel = isAlternative
+          ? `${index === 0 ? "First" : "Second"} alternative`
+          : index === 0
+            ? "Original date"
+            : "Replacement date";
+        const question = `${clauseLabel}: ${pending.clarification.question}`;
+        return {
+          ...pending,
+          error: { ...pending.error, message: question },
+          clarification: {
+            contextKey,
+            question,
+            choices: pending.clarification.choices.map((choice) => ({
+              ...choice,
+              id: `${branchKind}:branch:${index}:${choice.id}`,
+            })),
+          },
+        };
+      }
+    }
+    if (
+      beforeResult.status === "resolved" &&
+      afterResult.status === "resolved" &&
+      !afterResult.event &&
+      beforeResult.value.kind !== "recurrence" &&
+      beforeResult.value.kind !== "collection" &&
+      afterResult.value.kind !== "recurrence" &&
+      afterResult.value.kind !== "collection"
+    ) {
+      const candidates = [
+        {
+          id: isAlternative ? "alternative:first" : "keep",
+          result: beforeResult,
+          expression: before,
+        },
+        {
+          id: isAlternative ? "alternative:second" : "replace",
+          result: afterResult,
+          expression: after,
+        },
+      ];
+      const describe = (result: typeof beforeResult) => {
+        const value = result.value;
+        if (value.kind === "recurrence" || value.kind === "collection")
+          return "Multiple occurrences";
+        const first = value.kind === "point" ? value.calculation : value.start;
+        const describeDate = (local: string) =>
+          new Intl.DateTimeFormat("en-US", {
+            timeZone: "UTC",
+            month: "long",
+            day: "numeric",
+            year: "numeric",
+          }).format(new Date(`${local.slice(0, 10)}T12:00:00Z`));
+        if (value.kind === "point" && value.precision === "date")
+          return `${describeDate(first.result.local)} (date only)`;
+        if (value.kind === "interval" && value.allDay)
+          return `${describeDate(first.result.local)} to ${describeDate(value.end.result.local)} (all day; exclusive end)`;
+        const start = describeZonedInstant(first.result.timestamp, first.timezone);
+        return value.kind === "point"
+          ? start
+          : `${start} to ${describeZonedInstant(value.end.result.timestamp, first.timezone)} (exclusive end)`;
+      };
+      const choices = candidates.map((candidate) => ({
+        id: candidate.id,
+        expression: candidate.expression,
+        label: `${candidate.id === "keep" ? "Keep" : "Use"} ${describe(candidate.result)}`,
+      }));
+      const chosen =
+        options.selection?.contextKey === contextKey
+          ? candidates.find((candidate) => candidate.id === options.selection?.id)
+          : undefined;
+      const question = isAlternative
+        ? "Which date do you want?"
+        : "Did the second date replace the first?";
+      if (!chosen)
+        return {
+          interpretationVersion: 1,
+          status: "needs-clarification",
+          error: {
+            code: "syntax",
+            message: question,
+            hint: "Choose the date or range to use. Your original text stays here.",
+          },
+          clarification: {
+            contextKey,
+            question,
+            choices,
+          },
+        };
+      const originalEvent = beforeResult.event;
+      const event = originalEvent
+        ? {
+            text: originalEvent.text,
+            span: {
+              start: leading + text.indexOf(before) + originalEvent.span.start,
+              end: leading + text.indexOf(before) + originalEvent.span.end,
+            },
+          }
+        : meet
+          ? { text: meet, span: { start: leading, end: leading + meet.length } }
+          : undefined;
+      return {
+        ...chosen.result,
+        apiReplay: false,
+        source: { text, span: { start: leading, end: leading + text.length } },
+        ...(event ? { event } : {}),
+        selectedChoice: describe(chosen.result),
+        assumptions: [
+          ...chosen.result.assumptions,
+          isAlternative
+            ? `You selected the ${chosen.id === "alternative:first" ? "first" : "second"} written alternative.`
+            : chosen.id === "replace"
+              ? "You confirmed that the second date replaces the first."
+              : "You chose to keep the first date.",
+        ],
+      };
+    }
+  }
+  const recurrence = fromRecurrence(text, leading);
+  if (recurrence) return recurrence;
+  if (
+    /\b(?:actually|instead|unless|if|or|reschedule|pending|assuming|provided)\b/i.test(text) ||
+    (/\bexcept\b/i.test(text) && !/\b(?:every|daily|weekly)\b/i.test(text))
+  ) {
+    return unresolved(
+      "needs-clarification",
+      "Which date do you want?",
+      "This needs a more specific date or condition. Enter one complete date phrase for each correction.",
+    );
+  }
+  // Punctuation is the only text removed from an otherwise strict expression.
+  const punctuated = calculateScheduleDate(text, options);
+  if (punctuated.ok) return fromCalculation(punctuated, leading, text);
+  const clockFirst = fromClockFirst(text, leading);
+  if (clockFirst) return clockFirst;
+
+  let dateStart: number | undefined;
+  let event: Source | undefined;
+  let confirmedTitle = false;
+  let recipientProposal: { title: string; boundary: number; start: number } | undefined;
+  const reminder = /^(?:please\s+)?remind me to\s+/i.exec(text);
+  const actionPattern = /^(?:call|email|text|visit|pay|buy|send|submit|pick up)\s+/i;
+  if (reminder || actionPattern.test(text)) {
+    const prefixLength = reminder?.[0].length ?? 0;
+    const rest = text.slice(prefixLength);
+    if (!actionPattern.test(rest)) {
+      return unresolved(
+        "unsupported",
+        "This reminder form is not supported yet.",
+        "Try “Remind me to call Sam tomorrow at noon”, or enter just the date.",
+      );
+    }
+    const action = actionPattern.exec(rest)!;
+    const target = rest.slice(action[0].length);
+    // Commit to the first temporal marker. A failed suffix must not be
+    // absorbed into the label while a later date is accepted instead.
+    const boundary = labelBoundary(target);
+    const labelTarget = boundary >= 0 ? target.slice(0, boundary).trimEnd() : "";
+    if (/\b(?:maybe|perhaps|probably|possibly|tentatively|optionally)\b/i.test(labelTarget)) {
+      return unresolved(
+        "needs-clarification",
+        "Is this a definite reminder?",
+        "The phrase includes uncertain wording. Keep editing, or remove that wording if you want to schedule it. No event has been selected.",
+      );
+    }
+    if (labelTarget && validEventLabel(labelTarget)) {
+      // A named recipient is a title proposal, not a reason to skip arbitrary
+      // temporal qualifiers. Date-like names and duration words keep blocking.
+      const connector = /^for\s+/i.exec(target.slice(boundary));
+      const recipientText = connector ? target.slice(boundary + connector[0].length) : "";
+      const recipientEnd = labelBoundary(recipientText);
+      const recipient = recipientEnd > 0 ? recipientText.slice(0, recipientEnd).trimEnd() : "";
+      if (
+        connector &&
+        /^\p{L}[\p{L}'’-]*(?:\s+\p{L}[\p{L}'’-]*){0,2}$/u.test(recipient) &&
+        !/^(?:a|an|the|ever|forever|life|lifetime|long|short|some|any|several|many|few|awhile)\b|\b(?:time|eternity|future|maybe|perhaps|probably|possibly|tentatively|optionally|unless|if|then)\b/i.test(
+          recipient,
+        )
+      ) {
+        const end = prefixLength + action[0].length + boundary + connector[0].length + recipientEnd;
+        recipientProposal = {
+          title: text.slice(prefixLength, end).trimEnd(),
+          boundary: end,
+          start: prefixLength,
+        };
+      }
+      const label = rest.slice(0, action[0].length + boundary).trimEnd();
+      dateStart = recipientProposal ? undefined : prefixLength + action[0].length + boundary;
+      event = {
+        text: label,
+        span: {
+          start: leading + prefixLength,
+          end: leading + prefixLength + label.length,
+        },
+      };
+    }
+  } else {
+    const absence = /^(?:set\s+)?(OOO)\s+/i.exec(text);
+    const meeting = /^(?:the\s+)?meeting is\s+/i.exec(text);
+    const question = /^(?:can|could) we (talk|meet)\s+/i.exec(text);
+    const prefix = absence ?? meeting ?? question;
+    if (prefix) {
+      dateStart = prefix[0].length;
+      const label = absence ? absence[1] : meeting ? "meeting" : question![1];
+      const index = text.toLowerCase().indexOf(label.toLowerCase());
+      event = {
+        text: text.slice(index, index + label.length),
+        span: { start: leading + index, end: leading + index + label.length },
+      };
+    }
+  }
+  if (dateStart === undefined) {
+    const titleProposal = recipientProposal ?? quantityLabelProposal(text);
+    const boundary = titleProposal?.boundary ?? labelBoundary(text);
+    const title = titleProposal?.title ?? (boundary > 0 ? text.slice(0, boundary).trimEnd() : "");
+    // A free-form label is a proposal, never an implicit event extracted from prose.
+    if (
+      title &&
+      (titleProposal !== undefined || validEventLabel(title)) &&
+      !/\b(?:maybe|perhaps|probably|possibly|tentatively|optionally|might|must|should|would|could|can|cannot|cant|is|are|was|were|have|has|had|will|wont)\b|['’]t\b/i.test(
+        title,
+      )
+    ) {
+      const phrase = text.slice(boundary);
+      const candidate = interpretDate(phrase.replace(/^on\s+/i, ""), {
+        timezone: options.timezone,
+        reference: options.reference,
+      });
+      const supported =
+        candidate.status === "resolved" ? !candidate.event : Boolean(candidate.clarification);
+      if (supported) {
+        const contextKey = interpretationContextKey(input, options);
+        const confirmed =
+          options.selection?.contextKey === contextKey &&
+          [...(options.selection.previous ?? []), options.selection.id].includes("event:title");
+        if (!confirmed) {
+          const question = `Use “${title}” as the event title?`;
+          return {
+            interpretationVersion: 1,
+            status: "needs-clarification",
+            error: {
+              code: "syntax",
+              message: question,
+              hint: `Date phrase: ${phrase}. Confirm the title or edit your input.`,
+            },
+            clarification: {
+              contextKey,
+              question,
+              choices: [{ id: "event:title", label: `Use “${title}”`, expression: phrase }],
+            },
+          };
+        }
+        confirmedTitle = true;
+        dateStart = boundary;
+        const titleStart = leading + (titleProposal?.start ?? 0);
+        event = { text: title, span: { start: titleStart, end: titleStart + title.length } };
+      }
+    }
+  }
+  if (dateStart === undefined)
+    return (
+      fromGroups(text, leading) ??
+      fromClock(text, leading) ??
+      fromNumeric(text, leading) ??
+      fromInterval(text, leading) ??
+      fromCalculation(strict, 0, input)
+    );
+  let date = text.slice(dateStart);
+  // The highlighted/evaluated phrase starts after an optional "on" connector.
+  const on = /^on\s+/i.exec(date);
+  if (on) {
+    dateStart += on[0].length;
+    date = date.slice(on[0].length);
+  }
+  const resolved =
+    fromClockFirst(date, leading + dateStart, event) ??
+    fromGroups(date, leading + dateStart, event) ??
+    fromRecurrence(date, leading + dateStart, event) ??
+    fromClock(date, leading + dateStart, event) ??
+    fromNumeric(date, leading + dateStart, event) ??
+    fromInterval(date, leading + dateStart, event) ??
+    fromCalculation(calculateScheduleDate(date, options), leading + dateStart, date, event);
+  return confirmedTitle && resolved.status === "resolved"
+    ? {
+        ...resolved,
+        apiReplay: false,
+        selectedChoice: [`Title: ${event!.text}`, resolved.selectedChoice]
+          .filter(Boolean)
+          .join("; "),
+      }
+    : resolved;
+}

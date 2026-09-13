@@ -1,0 +1,179 @@
+{
+  "status": "passed",
+  "node": "v26.8.1",
+  "steps": [
+    {
+      "name": "pnpm-version",
+      "exitCode": 0
+    },
+    {
+      "name": "build-sdk",
+      "exitCode": 0
+    },
+    {
+      "name": "pack",
+      "exitCode": 0
+    },
+    {
+      "name": "offline-install-no-scripts",
+      "exitCode": 0
+    },
+    {
+      "name": "archive-inventory",
+      "exitCode": 0
+    },
+    {
+      "name": "example-node",
+      "exitCode": 0
+    },
+    {
+      "name": "example-calendar",
+      "exitCode": 0
+    },
+    {
+      "name": "example-state",
+      "exitCode": 0
+    },
+    {
+      "name": "example-monthly",
+      "exitCode": 0
+    },
+    {
+      "name": "example-date-list",
+      "exitCode": 0
+    },
+    {
+      "name": "example-counts",
+      "exitCode": 0
+    },
+    {
+      "name": "example-identifiers",
+      "exitCode": 0
+    },
+    {
+      "name": "installed-types",
+      "exitCode": 0
+    }
+  ],
+  "examples": [
+    {
+      "name": "node",
+      "node": "v26.8.1",
+      "exitCode": 0,
+      "output": "{\"runtime\":\"v26.8.1\",\"checks\":\"uncertain reminder edit recovery\"}\n{\"runtime\":\"v26.8.1\",\"package\":\"0.1.0\",\"checks\":\"point, batch parity, unresolved item, reusable parser\"}\n{\"runtime\":\"v26.8.1\",\"checks\":\"ordered arithmetic, reminder date correction, recurring and group DST correction, original input and stale selection\"}\n{\"runtime\":\"v26.8.1\",\"checks\":\"complete overnight interval\"}\n{\"runtime\":\"v26.8.1\",\"checks\":\"numeric date and DST correction preserve reminder duration\"}\n{\"runtime\":\"v26.8.1\",\"checks\":\"group next-date confirmation and whole-input rejection\"}\n{\"runtime\":\"v26.8.1\",\"checks\":\"repeating duration with exclusions and calendar-duration endpoint choice\"}\n{\"runtime\":\"v26.8.1\",\"checks\":\"date-only midnight boundary, explicit clock ambiguity, skipped date and empty-rule validation\"}\n{\"runtime\":\"v26.8.1\",\"checks\":\"arithmetic clock conflict recovery preserves remaining operations\"}\n{\"runtime\":\"v26.8.1\",\"checks\":\"recurrence conflict recovery preserves complete reminder endpoints\"}\n{\"runtime\":\"v26.8.1\",\"checks\":\"group conflict recovery, complete reminder endpoints and dependent end invalidation\"}\n{\"runtime\":\"v26.8.1\",\"checks\":\"anchored fortnightly reminder retains exclusions after reference changes\"}\n{\"runtime\":\"v26.8.1\",\"checks\":\"seconds duration survives date correction\"}\n{\"runtime\":\"v26.8.1\",\"checks\":\"complete alternative selection preserves duration and invalidates after edits\"}\n{\"runtime\":\"v26.8.1\",\"checks\":\"staged date and clock choices retain the complete alternative and reject stale selections\"}\n{\"runtime\":\"v26.8.1\",\"checks\":\"staged correction preserves both keep/replace durations and invalidates after edits\"}\n{\"runtime\":\"v26.8.1\",\"checks\":\"direct command preserves event case and spans without discarding conditions\"}\n{\"runtime\":\"v26.8.1\",\"checks\":\"half-hour interval survives date/clock choices and invalid duration edit\"}\n{\"runtime\":\"v26.8.1\",\"checks\":\"title/date/clock decisions preserve complete interval and reset safely\"}"
+    },
+    {
+      "name": "calendar",
+      "node": "v26.8.1",
+      "exitCode": 0,
+      "output": "{\"runtime\":\"v26.8.1\",\"status\":\"passed\",\"checks\":\"point precision, recurrence clarification, complete file, edit recovery, unresolved and future-policy rejection\"}\n{\"rangePolicyJourneys\":3,\"status\":\"passed\"}"
+    },
+    {
+      "name": "state",
+      "node": "v26.8.1",
+      "exitCode": 0,
+      "output": "{\"runtime\":\"v26.8.1\",\"checks\":[\"two-step reminder correction and file preparation\",\"date-only and all-day choice precision through export and edit\",\"event invalidation\",\"duration invalidation\",\"timezone invalidation\",\"reference invalidation\",\"batch answer isolation\",\"reusable parser nested snapshot\",\"returned result isolation\"],\"limits\":\"Installed SDK integration only; no browser UI, recurrence export decisions or calendar-client import.\"}"
+    },
+    {
+      "name": "monthly",
+      "node": "v26.8.1",
+      "exitCode": 0,
+      "output": "{\"status\":\"passed\",\"monthlyBoundedEvents\":4,\"ongoingRule\":true,\"staleDecisionRejected\":true}"
+    },
+    {
+      "name": "date-list",
+      "node": "v26.8.1",
+      "exitCode": 0,
+      "output": "{\"status\":\"passed\",\"dateTimeClockChoices\":3,\"events\":2,\"changedToDateOnly\":true,\"staleDecisionRejected\":true,\"explicitYearJourney\":true}"
+    },
+    {
+      "name": "counts",
+      "node": "v26.8.1",
+      "exitCode": 0,
+      "output": "{\"status\":\"passed\",\"weeklyEvents\":5,\"monthlyEvents\":3,\"foldEvents\":10,\"beyondPreviewChoice\":true,\"editedCountInvalidates\":true,\"batchFailures\":4,\"completedCountPolicyCases\":5}"
+    },
+    {
+      "name": "identifiers",
+      "node": "v26.8.1",
+      "exitCode": 0,
+      "output": "{\"status\":\"passed\",\"reminder\":\"Pay invoice #123\",\"recurrence\":\"Visit room 3\",\"events\":3}\n{\"status\":\"passed\",\"quantityTitleCorrectionAndEdit\":true}"
+    }
+  ],
+  "scope": "Local packed SDK, invoked Node runtime and installed declarations. No browser/Worker execution, device test, calendar-client import or independent evaluation.",
+  "pnpm": "10.33.0",
+  "archiveSha256": "3c93bbcadab020fb4903ecf044d0ad2e1a15e74d289636ed66a783823da07a50",
+  "installedFileHashes": {
+    "LICENSE": "9791785a8d78230607f4b3c7affbb099aff475925bf11da37759c274e065a169",
+    "dist/calculate-schedule-date.js": "ad8cc9b69d8821efde450e6c54b07b5d716b1f6823e26c62daae61e1c9ea86e3",
+    "dist/calendar-file.js": "df12c06abcfd8563ab0163c3f57f6a84acbc6a0196137d5029d07b907bc1858b",
+    "dist/calendar-timezone-ongoing.js": "d321f7cd557b48bd4f98f3af549ed523d621a5feea38d3bfd257504ba25b0e86",
+    "dist/calendar-transition-rule.js": "c18b0016d35a96ca4867100be4e1490ea68cc9f4c76f74dee0b1f731d9d68ef2",
+    "dist/clarify-arithmetic.js": "6c9dbfc4bfc9fe38374e32b86840ee1e103d5d1e52d6d0a73e8f0f5674b016f5",
+    "dist/clarify-clock.js": "133defdfa89bcb1692e91bebd152bc1748bc841a2549ac2162fbbfd810d2783e",
+    "dist/clarify-numeric-date.js": "012dcae2ab2dd91adf08a41a446d0e8e5ed0271be4fee5d67c2713956da02197",
+    "dist/date-parser.js": "21171f6e5d73c0fdf5cf18defe482775b75ef91090b0f0552a66585a448edbfe",
+    "dist/date-engine/format-zoned.js": "e0839b275d892219d4bd46d82b804ecd749a62ca32ca858cd645caf0522a90d7",
+    "dist/date-engine/grammar.js": "dc8eb73e51298972e2846374f489c2873e2a7dd0730736e7adbf0a27df5afdcb",
+    "dist/interpret-date-list.js": "ceab59558288f8b985f57f04da8c68af7eb82ac9f85b76de2e917931691d4507",
+    "dist/interpret-date.js": "bb8356c8c8e49a51d1389c21e5b8bd408ef6a0ca5b70a1bf5addab4178a48aed",
+    "dist/interpret-groups.js": "8e3468660b0278947d0098ea937f4e7754d04d9136035175978722fa299182c8",
+    "dist/interpret-interval.js": "f62600afed2dd89d586a9405d62143a64c690f863edf5a940a6eadb9105669af",
+    "dist/interpret-recurrence.js": "74d0a545b123bdfd5a4b30496985c53a63bc0af4f7a430c159384a5b6c838578",
+    "dist/monthly-date.js": "96fac959e2aac2652bca15beb9aae039de3d6c60ce426f440f6ff2c7e3d7c5ae",
+    "dist/recurrence-clock-conflicts.js": "6e50b27e957364bbb290383036192a3e2dea774bd412640f1bac3e5a94066dc3",
+    "dist/recurring-calendar-file.js": "71f78728fc8292dfc3253127caca514bd3ff155fcb91ad139b00299b8b307eb4",
+    "dist/sdk-calendar.js": "8de19fcb4c2e11e6e624e7f6474b0ca3db62e4541925398fae1e27d5caa8b121",
+    "dist/sdk.js": "4c58029c8a1a962b65aeb4eb761d811a65b85cb1657d00969408c96c5c6b7f49",
+    "dist/date-engine/timezone-data.js": "14ab87de1253235b9d68b3e903248e8eb2fc8da44fabd0aacbb8049da759d84b",
+    "dist/date-engine/timezone-database.js": "3124b9abc162242ac6f5c8a202e7adcbb76139a3dc7a147075e6839f0dce516d",
+    "dist/date-engine/timezone-reader.js": "335a8582d97843aad7c34468193d852f7d7307c688a30709e48c9954d75ac1fb",
+    "dist/date-engine/types.js": "628a013b109b9ad301d1f669034207bb4c920c028c6e5802a1915b5f5887ffb2",
+    "dist/date-engine/vocabulary.js": "32363c034a3af302db4d2fa401193680703a56c189bec4c2f4b123a41b01c8ec",
+    "dist/date-engine/zoned-date.js": "97fae20bd5fe7a8254cad410bddeb89c8420fee1356bf6b2046496cbb80a08fa",
+    "package.json": "f4e96ea3ceafde788dfb33f672b6ec066e5988cdfb19f87216784c17296391be",
+    "README.md": "eedc9d77f7d40f9657cbfded350595b58b81e3a01e5830cd3d7b56f8363e25a6",
+    "dist/calculate-schedule-date.d.ts": "3aeb44b768dd55550b9eba2510e86846badddc275ec6dd386d4f2a7525201b79",
+    "dist/calendar-file.d.ts": "a59cd9bcd2ada06d200eca2adc4b9caf7fd84bbcc0b1a589f9766a68334cf9f2",
+    "dist/calendar-timezone-ongoing.d.ts": "411e5949cfc31911b56bc06886edaccc2e5f77e9e905ff0b69926ce8e3e4f198",
+    "dist/calendar-transition-rule.d.ts": "e16d633fc365064e22aaf2c046ee7045c60844a3e83a8e26e057eea715de80fd",
+    "dist/clarify-arithmetic.d.ts": "0f6454dd2c44d0406cd301797cbe158efe8da08ae9e0ff2843a1aba745c9344e",
+    "dist/clarify-clock.d.ts": "c2806dd940c441d070273c7a8d05c61806685bbaa7e1f074b4c7378522ad9c55",
+    "dist/clarify-numeric-date.d.ts": "b0d96ebf9366b4a4f619b04b08e791d1b881b656f741a0e99cf04671c26d8802",
+    "dist/date-parser.d.ts": "bc9b87ef3b3fe57068d26ce498ab8b04b1569f5e2193bb99be61301c519d2cf8",
+    "dist/date-engine/format-zoned.d.ts": "cf8955f6899b8e64c8ce2095770568f3a4582fcd209acf934a8265ea567ab16d",
+    "dist/date-engine/grammar.d.ts": "ef6dde269f0421c85a99a53a0c14f4d6cd1c4d3514b4068246feb4ef6ed4b975",
+    "dist/interpret-date-list.d.ts": "142883de8af7dfce801943d3af7a13306c834c041368ec7bad081331bb97b4a3",
+    "dist/interpret-date.d.ts": "0e990b674ccbe878b2c92d88931469ee4725fb2eeb5ee5ac66b30e247def1298",
+    "dist/interpret-groups.d.ts": "2f97b8e5a783711c6ba31385f3c920041be4d19ec630b4be52cb4c12f5c8d078",
+    "dist/interpret-interval.d.ts": "6e8d9f942cea8fa7354421b97e5dea4d5d700b1308966ec2a55745580689b417",
+    "dist/interpret-recurrence.d.ts": "8b21700271eca28a9cabfbd4262587b388c80321a42556a4322e35123dcb02aa",
+    "dist/monthly-date.d.ts": "28c949cccf54e801ec22a6b63649925cf52072c2a374c806b9a7da5d09778147",
+    "dist/recurrence-clock-conflicts.d.ts": "a22c06835dead541e95d34799151f349f996bafa11d0f69e94cec3fa3ce192e4",
+    "dist/recurring-calendar-file.d.ts": "1a382d9e7536b2455062aab46dec2196f4ca8ec47e8de182b2ed74a1df2ec8ee",
+    "dist/sdk-calendar.d.ts": "287f8fa1358c5cfb848f4d902cf36c70b0e97c9855b09b19cfa8f243c4b6138e",
+    "dist/sdk.d.ts": "29587603e9f25507c52b91e0556e1399cd97fd160e0d5f5636ddf5fe7283e261",
+    "dist/date-engine/timezone-data.d.ts": "d4d3ec9d55f14df3fb7f977263214c1af78a034a8cfb21187fee6f64247677d0",
+    "dist/date-engine/timezone-database.d.ts": "643d2976c898c94030a832c1a6c4dd205ad43b65a8f016a001f3449f7395213c",
+    "dist/date-engine/timezone-reader.d.ts": "ad17ec0e34194b315503f7c0e2d8f200ccfbf5491f47107cf265b35314634e95",
+    "dist/date-engine/types.d.ts": "446cd34d25c0151a484002a582239b6d7ea38146e17dde9459688f0a1a4ffdc1",
+    "dist/date-engine/vocabulary.d.ts": "ae86198fb4c7b4228561e026f55a24ebb73b993ca6d2939f27f20de4ff206376",
+    "dist/date-engine/zoned-date.d.ts": "f0e1863b3e4a790943a6c9c09413bcdf48161b279a32dee339e6a6aa1cf28686",
+    "dist/date-engine/timezone-LICENSE.txt": "0613408568889f5739e5ae252b722a2659c02002839ad970a63dc5e9174b27cf"
+  },
+  "installedFilesMatch": 56,
+  "exampleSourceHashes": {
+    "node.mjs": "ef9cdb862d8f4188924c6db3182e961dfcf8ea34578b591305296b6333b975f9",
+    "calendar.mjs": "dda3e6b7146a514135c4d751814e22ecc1715844fbec11d9457c1eb00e339364",
+    "state.mjs": "b2c0987df03c49310626037c5918800906437de08962d4f048e352efd1db1520",
+    "monthly.mjs": "a2575bc526afe47e21243d3b07e7ccf1071bdd31f7244009233d48f965ca1d31",
+    "date-list.mjs": "4fbb11d8abedba9319a04f306c4ac1ebe7adced33eb721cbd049c06fdd37033f",
+    "counts.mjs": "827f3adf67415034bb0f2677edb2f4841f37fe1871142387100e8898c5cde089",
+    "identifiers.mjs": "4a62b94c1f5b12310d99199c20a28c716b27e3492f778b0d3ecde5dd5499e542",
+    "browser.ts": "90e426d8a67d37daadb6f2e4e3198b58f5f5f75888e78093c2a0f36b23c75dcd",
+    "calendar-browser.ts": "b3da9e4acbd44080526e250c60d7e40fe5febaf3d7e900de3ffb0953f7dac983",
+    "worker.ts": "ab05abdd04f70ba95628b5ead7e9b31dfed91394f31e2dd955ed1e1e1de09316",
+    "contract.ts": "312bcd0c2d30449f7904c8f40520610fe0773c623450a73832af0f7e9cdd3c3c"
+  },
+  "runnerSha256": "5853d410ab4995e480c140a3b8d81c87dd9943462d3805850f2ec157118e8542",
+  "lockSha256": "efd381779c7426cdf686f8563545d66fb58b0b0fa3afcd2c32a46eeed2afa553"
+}

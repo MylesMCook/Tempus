@@ -1,0 +1,13 @@
+
+> tempus-total@0.1.0 test /Users/mylescook/Documents/Codex/2026-09-13-tempus-isolated-source
+> vp test --run
+
+
+ RUN  v4.1.11 /Users/mylescook/Documents/Codex/2026-09-13-tempus-isolated-source
+
+
+ Test Files  59 passed (59)
+      Tests  994 passed | 1 expected fail (995)
+   Start at  13:46:29
+   Duration  2.63s (transform 1.88s, setup 0ms, import 11.36s, tests 7.21s, environment 3ms)
+

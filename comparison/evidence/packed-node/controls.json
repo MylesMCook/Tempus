@@ -1,0 +1,17 @@
+{
+  "controls": [
+    {
+      "name": "inside-repository",
+      "exitCode": 1,
+      "expectedMessage": true
+    },
+    {
+      "name": "existing-directory",
+      "exitCode": 1,
+      "expectedMessage": true
+    }
+  ],
+  "priorReportUnchanged": true,
+  "noRepositoryDirectoryCreated": true,
+  "runnerSha256": "3ce797b091f57d44f58960ef0d48285089eea137c83b13d0b19747a094050775"
+}

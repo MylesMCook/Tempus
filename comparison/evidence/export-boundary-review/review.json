@@ -1,0 +1,39 @@
+{
+  "formalSecurityScan": false,
+  "confirmedFindings": [],
+  "scope": [
+    "SDK options snapshot and calendar entry points",
+    "Complete calendar-file serialization and recurring preflight entry",
+    "Export component and worker request/response lifecycle",
+    "Date-picker export remount key only",
+    "Strict API v2 response builder; context-key construction"
+  ],
+  "notReviewed": [
+    "Full parser/grammar and timezone implementation audit",
+    "All changed repository files",
+    "Dependency advisories or supply-chain provenance",
+    "Authentication or authorization in third-party SDK integrations",
+    "Deployed headers, Cloudflare account or infrastructure",
+    "Physical-device, screen-reader or actual calendar-client behavior"
+  ],
+  "rejectedConcern": {
+    "question": "Can arithmetic at the calendar year boundary reach an invalid all-day export through parse?",
+    "observations": [
+      {
+        "input": "1 day ago",
+        "reference": "0001-01-01T12:00:00Z",
+        "timezone": "UTC",
+        "parseStatus": "unsupported",
+        "fileCode": "unresolved"
+      },
+      {
+        "input": "tomorrow",
+        "reference": "9999-12-31T12:00:00Z",
+        "timezone": "UTC",
+        "parseStatus": "unsupported",
+        "fileCode": "unresolved"
+      }
+    ],
+    "decision": "No reachable issue established by these two checks; not exhaustive boundary coverage."
+  }
+}

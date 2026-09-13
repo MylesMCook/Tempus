@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tempus//Calendar Export//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:3e2bf3ba-f0ad-4b7a-970b-5d8ff13b0f96-0@tempus.invalid
+DTSTAMP:20260912T160000Z
+SUMMARY:Time off
+DESCRIPTION:Date phrase: from 2026-09-13 to 2026-09-18\nTimezone: America/C
+ hicago\nThe interval end is exclusive.\nYou selected Include all of 2026-0
+ 9-18.
+DTSTART;VALUE=DATE:20260913
+DTEND;VALUE=DATE:20260919
+END:VEVENT
+END:VCALENDAR

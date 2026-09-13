@@ -1,0 +1,37 @@
+{
+  "status": "passed",
+  "browser": "153.0.8010.36",
+  "runs": [
+    {
+      "width": 320,
+      "status": "passed",
+      "errors": [],
+      "openThroughPaintMs": 488.5296250000001,
+      "openLongTasks": [],
+      "overflow": false,
+      "file": {
+        "filename": "large-320.ics",
+        "sha256": "c8e3968ab3b75708f397b2035a51090c13def5b591f67b354d55abab967551cb"
+      },
+      "reviewedEvents": 1000
+    },
+    {
+      "width": 1280,
+      "status": "passed",
+      "errors": [],
+      "openThroughPaintMs": 496.0247089999998,
+      "openLongTasks": [],
+      "overflow": false,
+      "file": {
+        "filename": "large-1280.ics",
+        "sha256": "39a817016ab68bf5e5057bfaaee459ff2d98b220860970cc1637392186489a89"
+      },
+      "reviewedEvents": 1000
+    }
+  ],
+  "sourceHashes": {
+    "src/features/parser/components/calendar-export.tsx": "3ed59c09cbc8e585e66263f8d2c45a061f5049917030f56ee022fd8225b071e4",
+    "examples/app/verify-large-export.mjs": "ed247b2fe4dfcb41d1b9fc686e2771fa5739ce3403c64f550c1c43fd5f4bbe86"
+  },
+  "scope": "Desktop development app, direct focus/Enter, real downloads, Chrome long-task observations; not physical phone, independent users or client import. Reference uses actual app clock."
+}

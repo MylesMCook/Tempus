@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tempus//Calendar Export//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:28ac1065-251e-40f3-a4e6-a6f72c19dd0d-0@tempus.invalid
+DTSTAMP:20260913T121211Z
+SUMMARY:Call Sam
+DESCRIPTION:Date phrase: September 30 and October 2 at noon\nTimezone: Amer
+ ica/Chicago\nEach listed date or range occurs once\; this is not a repeati
+ ng rule.\nYou selected 2026 for every listed date.\nYou selected Date 1: A
+ t noon.
+DTSTART:20260930T170000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:28ac1065-251e-40f3-a4e6-a6f72c19dd0d-1@tempus.invalid
+DTSTAMP:20260913T121211Z
+SUMMARY:Call Sam
+DESCRIPTION:Date phrase: September 30 and October 2 at noon\nTimezone: Amer
+ ica/Chicago\nEach listed date or range occurs once\; this is not a repeati
+ ng rule.\nYou selected 2026 for every listed date.\nYou selected Date 1: A
+ t noon.
+DTSTART:20261002T170000Z
+END:VEVENT
+END:VCALENDAR

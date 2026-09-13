@@ -1,0 +1,9 @@
+# Candidate compatibility documentation
+
+The package README now identifies both public entries and every named export, marks clarification IDs and decisions as transient state, explains how to upgrade without carrying stale choices/files, and distinguishes strict calculator/API v2 from scheduling interpretation. Two malformed policy-table rows are corrected. This defines the current candidate's integration boundary; it does not approve a public compatibility promise or publication.
+
+Archive `4b96da77b994605be06f0c63091c338cb7dae5f5a65e958f3d970786a5858a63` passes seven Node 26 examples, installed TypeScript consumers and all 56 installed-file checks. Its only changed file versus `756fbb4ec523da3ac1bba687507eba72c2b42aa2a9de767e01d0e9d765cbbf59` is README.md. All emitted JavaScript, declarations, metadata, dependencies, timezone data and licenses are identical. The runtime export lists were compared with the documented inventory. All three existing TypeScript snippets are unchanged; they were not rerun separately in this pass. The malformed rows now have exactly two cells.
+
+No new Node 22, browser, Worker, calendar-reader or performance run is claimed. Use the prior artifact's scoped evidence with this explicit byte-parity result, not an invented current-runtime pass. No code behavior changed, no calendar was written and nothing was published.
+
+Public name/version ownership, the compatibility and migration commitment for published releases, independent consumer review, broader runtime/device checks and accumulated security review remain open. Before publication, define how changes to result unions, ambiguity policy, limits, timezone data and export semantics are versioned; report behavior changes even when signatures remain unchanged. Do not treat patch numbering as evidence of identical calendar results. Several unpublished candidates share 0.1.0, so archive hashes remain necessary for reproduction.

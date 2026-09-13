@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "browser": "153.0.8010.36",
+  "sourceHashes": {
+    "src/routes/home-page.tsx": "f2d1ef1855d8e9a3e1a47bbb16c4221e568d850786338d33777002d45b593e50",
+    "src/features/parser/components/date-picker.tsx": "8a35ce79f56a0aa56273f6de243d9e3bdad31baa2b43a30aaead4079bbb18b3a",
+    "src/features/parser/components/calendar-export.tsx": "b03efb0ff6b160a867827d53ea4e767171941a27bc7af4fcf6897092ab5be275"
+  },
+  "runs": [
+    {
+      "width": 320,
+      "status": "passed"
+    },
+    {
+      "width": 1280,
+      "status": "passed"
+    }
+  ],
+  "scope": "Desktop context-edit recovery with direct focus/Enter. No download, calendar write, physical device or screen-reader claim."
+}

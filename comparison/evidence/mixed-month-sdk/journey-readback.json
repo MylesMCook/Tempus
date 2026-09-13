@@ -1,0 +1,583 @@
+{
+  "python": "3.13.15",
+  "versions": {
+    "recurring-ical-events": "3.8.2",
+    "icalendar": "7.3.0",
+    "python-dateutil": "2.9.0.post0",
+    "tzdata": "2026.4",
+    "x-wr-timezone": "2.0.1"
+  },
+  "scriptSha256": "da0eaa9246929f583d49f988c2021c29dd75a22f774cc90bbb34ecec486dd89b",
+  "lockSha256": "25321ad7e67ccbc618b94ba12fdfc25f3d5cc3d7ba775ee1ef6b06cab5e63751",
+  "expansionWindow": "2026-01-01 through 2028-01-01 UTC",
+  "ruleProbe": {
+    "file": "comparison/results/calendar/dtend-duration.ics",
+    "sha256": "9dc0d47ea92d4d7c61dfe861ecb14912fab037d28bce5e019b7f79b1c1e90b8e",
+    "observed": [
+      [
+        "2026-03-01T07:00:00.000Z",
+        "2026-03-01T09:00:00.000Z"
+      ],
+      [
+        "2026-03-08T07:00:00.000Z",
+        "2026-03-08T08:00:00.000Z"
+      ],
+      [
+        "2026-03-15T06:00:00.000Z",
+        "2026-03-15T08:00:00.000Z"
+      ]
+    ],
+    "titles": [
+      "",
+      "",
+      ""
+    ],
+    "expected": [
+      [
+        "2026-03-01T07:00:00.000Z",
+        "2026-03-01T09:00:00.000Z"
+      ],
+      [
+        "2026-03-08T07:00:00.000Z",
+        "2026-03-08T09:00:00.000Z"
+      ],
+      [
+        "2026-03-15T06:00:00.000Z",
+        "2026-03-15T08:00:00.000Z"
+      ]
+    ],
+    "conforms": false
+  },
+  "boundedFiles": [
+    {
+      "file": "comparison/results/journey-files/mixed-month-reminder-list.ics",
+      "sha256": "6313c26a101003701429bcd3c5db8973d229a38788a5d63ec87f054b38196299",
+      "observed": [
+        [
+          "2026-09-30T17:00:00.000Z",
+          "2026-09-30T17:00:00.000Z"
+        ],
+        [
+          "2026-10-02T17:00:00.000Z",
+          "2026-10-02T17:00:00.000Z"
+        ]
+      ],
+      "titles": [
+        "Call Sam",
+        "Call Sam"
+      ],
+      "expected": [
+        [
+          "2026-09-30T17:00:00.000Z",
+          "2026-09-30T17:00:00.000Z"
+        ],
+        [
+          "2026-10-02T17:00:00.000Z",
+          "2026-10-02T17:00:00.000Z"
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "file": "comparison/results/journey-files/shared-year-reminder-list.ics",
+      "sha256": "1260f703c74a5d55f51ca1dc0c3182409b2300993705b4242bce4e81fc4e6247",
+      "observed": [
+        [
+          "2026-09-14T17:00:00.000Z",
+          "2026-09-14T17:00:00.000Z"
+        ],
+        [
+          "2026-09-16T17:00:00.000Z",
+          "2026-09-16T17:00:00.000Z"
+        ]
+      ],
+      "titles": [
+        "Call Sam",
+        "Call Sam"
+      ],
+      "expected": [
+        [
+          "2026-09-14T17:00:00.000Z",
+          "2026-09-14T17:00:00.000Z"
+        ],
+        [
+          "2026-09-16T17:00:00.000Z",
+          "2026-09-16T17:00:00.000Z"
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "file": "comparison/results/journey-files/spring-gap-fortnight-reminder.ics",
+      "sha256": "1d72dce87386fe6eb3cf3635113ac2152bb5d1b41cf847dbd1e9b4496440c0af",
+      "observed": [
+        [
+          "2026-03-08T08:30:00.000Z",
+          "2026-03-08T09:00:00.000Z"
+        ],
+        [
+          "2026-03-22T07:30:00.000Z",
+          "2026-03-22T08:00:00.000Z"
+        ],
+        [
+          "2026-04-19T07:30:00.000Z",
+          "2026-04-19T08:00:00.000Z"
+        ]
+      ],
+      "titles": [
+        "call Sam",
+        "call Sam",
+        "call Sam"
+      ],
+      "expected": [
+        [
+          "2026-03-08T08:30:00.000Z",
+          "2026-03-08T09:00:00.000Z"
+        ],
+        [
+          "2026-03-22T07:30:00.000Z",
+          "2026-03-22T08:00:00.000Z"
+        ],
+        [
+          "2026-04-19T07:30:00.000Z",
+          "2026-04-19T08:00:00.000Z"
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "file": "comparison/results/journey-files/confirmed-appointment-title.ics",
+      "sha256": "cca45ca4dab6b62070b174a367bc0631c3d14c770b05bf69fca59236dd38bc76",
+      "observed": [
+        [
+          "2026-11-01T07:30:00.000Z",
+          "2026-11-01T08:00:00.000Z"
+        ]
+      ],
+      "titles": [
+        "Dentist appointment"
+      ],
+      "expected": [
+        [
+          "2026-11-01T07:30:00.000Z",
+          "2026-11-01T08:00:00.000Z"
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "file": "comparison/results/journey-files/half-hour-clock-reminder.ics",
+      "sha256": "a34031d2d5d510f77937fbc39d06af985b749592aa69e174ebceb1d9429e4e86",
+      "observed": [
+        [
+          "2026-11-01T07:30:00.000Z",
+          "2026-11-01T08:00:00.000Z"
+        ]
+      ],
+      "titles": [
+        "call Sam"
+      ],
+      "expected": [
+        [
+          "2026-11-01T07:30:00.000Z",
+          "2026-11-01T08:00:00.000Z"
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "file": "comparison/results/journey-files/direct-command-correction.ics",
+      "sha256": "79bc5b7c87fee790fdbc86a67bf37e0c987b56a9d48e607d9dfaad14ad505995",
+      "observed": [
+        [
+          "2026-11-01T07:30:00.000Z",
+          "2026-11-01T07:30:30.000Z"
+        ]
+      ],
+      "titles": [
+        "call Sam"
+      ],
+      "expected": [
+        [
+          "2026-11-01T07:30:00.000Z",
+          "2026-11-01T07:30:30.000Z"
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "file": "comparison/results/journey-files/staged-correction-reminder.ics",
+      "sha256": "dc6f62937981275e037c54425c81e157fca8f63886ab46af42bd6a66451f037a",
+      "observed": [
+        [
+          "2026-11-01T07:30:00.000Z",
+          "2026-11-01T07:30:30.000Z"
+        ]
+      ],
+      "titles": [
+        "call Sam"
+      ],
+      "expected": [
+        [
+          "2026-11-01T07:30:00.000Z",
+          "2026-11-01T07:30:30.000Z"
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "file": "comparison/results/journey-files/staged-alternative-reminder.ics",
+      "sha256": "c3335064ff7b1ab1995ecb4f496980ecf71256823316e8215d2d115b4c653bf0",
+      "observed": [
+        [
+          "2026-11-01T07:30:00.000Z",
+          "2026-11-01T07:30:30.000Z"
+        ]
+      ],
+      "titles": [
+        "call Sam"
+      ],
+      "expected": [
+        [
+          "2026-11-01T07:30:00.000Z",
+          "2026-11-01T07:30:30.000Z"
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "file": "comparison/results/journey-files/alternative-reminder-duration.ics",
+      "sha256": "5e272e135712463285745f8cba09597bc7c9cac4e192aac1959d4fedbaf3e58a",
+      "observed": [
+        [
+          "2026-09-18T19:00:00.000Z",
+          "2026-09-18T19:00:30.000Z"
+        ]
+      ],
+      "titles": [
+        "call Sam"
+      ],
+      "expected": [
+        [
+          "2026-09-18T19:00:00.000Z",
+          "2026-09-18T19:00:30.000Z"
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "file": "comparison/results/journey-files/short-reminder.ics",
+      "sha256": "da940211e8e948e5b165b3bcb33c672789e5d4598ca503023beb01bc6b5538bd",
+      "observed": [
+        [
+          "2027-04-03T17:00:00.000Z",
+          "2027-04-03T17:00:30.000Z"
+        ]
+      ],
+      "titles": [
+        "call Sam"
+      ],
+      "expected": [
+        [
+          "2027-04-03T17:00:00.000Z",
+          "2027-04-03T17:00:30.000Z"
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "file": "comparison/results/journey-files/short-recurring-reminder.ics",
+      "sha256": "4cc1d231cd5bf85a016b9b13a88f8c57d461d75a9f5e8ddf4cebb297bb743769",
+      "observed": [
+        [
+          "2026-11-01T07:30:00.000Z",
+          "2026-11-01T07:30:30.000Z"
+        ],
+        [
+          "2026-11-08T07:30:00.000Z",
+          "2026-11-08T07:30:30.000Z"
+        ]
+      ],
+      "titles": [
+        "call Sam",
+        "call Sam"
+      ],
+      "expected": [
+        [
+          "2026-11-01T07:30:00.000Z",
+          "2026-11-01T07:30:30.000Z"
+        ],
+        [
+          "2026-11-08T07:30:00.000Z",
+          "2026-11-08T07:30:30.000Z"
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "file": "comparison/results/journey-files/all-day-reminder.ics",
+      "sha256": "6744099b7f91b044fab272608105ef79c071c2fa1411d466f1b12ef298fbcc08",
+      "observed": [
+        [
+          "2027-04-03",
+          "2027-04-04"
+        ]
+      ],
+      "titles": [
+        "call Sam"
+      ],
+      "expected": [
+        [
+          "2027-04-03",
+          "2027-04-04"
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "file": "comparison/results/journey-files/midnight-reminder.ics",
+      "sha256": "840a1fca64f0dfe23f1bc43511d097dffa62abdf847d830b3b0682351b95fec5",
+      "observed": [
+        [
+          "2027-04-03T05:00:00.000Z",
+          "2027-04-03T05:00:00.000Z"
+        ]
+      ],
+      "titles": [
+        "call Sam"
+      ],
+      "expected": [
+        [
+          "2027-04-03T05:00:00.000Z",
+          "2027-04-03T05:00:00.000Z"
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "file": "comparison/results/journey-files/fortnightly-reminder.ics",
+      "sha256": "7dadc18b0f3123259a520836bb89db5fda57cafa81f184cdfcf16fb4ef438ffd",
+      "observed": [
+        [
+          "2026-10-18T06:30:00.000Z",
+          "2026-10-18T07:00:00.000Z"
+        ],
+        [
+          "2026-11-01T07:30:00.000Z",
+          "2026-11-01T08:00:00.000Z"
+        ],
+        [
+          "2026-11-29T07:30:00.000Z",
+          "2026-11-29T08:00:00.000Z"
+        ]
+      ],
+      "titles": [
+        "call Sam",
+        "call Sam",
+        "call Sam"
+      ],
+      "expected": [
+        [
+          "2026-10-18T06:30:00.000Z",
+          "2026-10-18T07:00:00.000Z"
+        ],
+        [
+          "2026-11-01T07:30:00.000Z",
+          "2026-11-01T08:00:00.000Z"
+        ],
+        [
+          "2026-11-29T07:30:00.000Z",
+          "2026-11-29T08:00:00.000Z"
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "file": "comparison/results/journey-files/group-clock-reminder.ics",
+      "sha256": "9a61c4eaf69981f1f3883489fbbbf92668d7af6a23165f9b3f7c54ce7de7eb4f",
+      "observed": [
+        [
+          "2026-11-01T07:15:00.000Z",
+          "2026-11-01T07:45:00.000Z"
+        ],
+        [
+          "2026-11-02T15:00:00.000Z",
+          "2026-11-02T16:00:00.000Z"
+        ]
+      ],
+      "titles": [
+        "call Sam",
+        "call Sam"
+      ],
+      "expected": [
+        [
+          "2026-11-01T07:15:00.000Z",
+          "2026-11-01T07:45:00.000Z"
+        ],
+        [
+          "2026-11-02T15:00:00.000Z",
+          "2026-11-02T16:00:00.000Z"
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "file": "comparison/results/journey-files/arithmetic-clock-reminder.ics",
+      "sha256": "cfab826e305aa65b8f0900c45fd26e500a65ec14a9cbef402bfc3cc921164e58",
+      "observed": [
+        [
+          "2026-11-01T09:30:00.000Z",
+          "2026-11-01T09:30:00.000Z"
+        ]
+      ],
+      "titles": [
+        "call Sam"
+      ],
+      "expected": [
+        [
+          "2026-11-01T09:30:00.000Z",
+          "2026-11-01T09:30:00.000Z"
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "file": "comparison/results/journey-files/numeric-reminder-duration.ics",
+      "sha256": "67d446e8c6ac89ebb8e970db150e977a08f7fecac5d6c6d46ba07b0b7e976b55",
+      "observed": [
+        [
+          "2027-04-03T17:00:00.000Z",
+          "2027-04-03T17:30:00.000Z"
+        ]
+      ],
+      "titles": [
+        "call Sam"
+      ],
+      "expected": [
+        [
+          "2027-04-03T17:00:00.000Z",
+          "2027-04-03T17:30:00.000Z"
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "file": "comparison/results/journey-files/replace-reminder-range.ics",
+      "sha256": "d25785abbe55a2fa69657a913632a8164fb1699d1eb8a2428a88950164aa2747",
+      "observed": [
+        [
+          "2026-09-12T18:00:00.000Z",
+          "2026-09-12T19:00:00.000Z"
+        ]
+      ],
+      "titles": [
+        "call Sam"
+      ],
+      "expected": [
+        [
+          "2026-09-12T18:00:00.000Z",
+          "2026-09-12T19:00:00.000Z"
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "file": "comparison/results/journey-files/repeated-recurring-reminder.ics",
+      "sha256": "e5e90f911ef1b07dab98f21f4813eda8b2be7c980f48dd1410d812f6c28bd112",
+      "observed": [
+        [
+          "2026-11-01T07:30:00.000Z",
+          "2026-11-01T09:00:00.000Z"
+        ],
+        [
+          "2026-11-15T07:30:00.000Z",
+          "2026-11-15T09:00:00.000Z"
+        ]
+      ],
+      "titles": [
+        "call Sam",
+        "call Sam"
+      ],
+      "expected": [
+        [
+          "2026-11-01T07:30:00.000Z",
+          "2026-11-01T09:00:00.000Z"
+        ],
+        [
+          "2026-11-15T07:30:00.000Z",
+          "2026-11-15T09:00:00.000Z"
+        ]
+      ],
+      "passed": true
+    }
+  ],
+  "unboundedFiles": [
+    {
+      "file": "comparison/results/calendar/unbounded-fixed-tokyo.ics",
+      "sha256": "37cde422e97c8047b02a2eee82410a3fedbbda2731c7e30a2f0e6f8ec3c1a2d4",
+      "observed": [
+        [
+          "2026-09-13T15:30:00.000Z",
+          "2026-09-13T16:00:00.000Z"
+        ],
+        [
+          "2026-09-27T15:30:00.000Z",
+          "2026-09-27T16:00:00.000Z"
+        ],
+        [
+          "2026-10-04T15:30:00.000Z",
+          "2026-10-04T16:00:00.000Z"
+        ]
+      ],
+      "titles": [
+        "call Sam",
+        "call Sam",
+        "call Sam"
+      ],
+      "expected": [
+        [
+          "2026-09-13T15:30:00.000Z",
+          "2026-09-13T16:00:00.000Z"
+        ],
+        [
+          "2026-09-27T15:30:00.000Z",
+          "2026-09-27T16:00:00.000Z"
+        ],
+        [
+          "2026-10-04T15:30:00.000Z",
+          "2026-10-04T16:00:00.000Z"
+        ]
+      ],
+      "ongoingWeeklyRule": true,
+      "distantObserved": [
+        [
+          "2048-01-05T15:30:00.000Z",
+          "2048-01-05T16:00:00.000Z"
+        ]
+      ],
+      "distantExpected": [
+        [
+          "2048-01-05T15:30:00.000Z",
+          "2048-01-05T16:00:00.000Z"
+        ]
+      ],
+      "passed": true
+    }
+  ],
+  "timezoneCandidates": [],
+  "ongoingEventCandidates": [],
+  "overrideCoverage": [],
+  "clientImportDiagnostics": [],
+  "timezoneSourceBuild": null,
+  "unboundedExpansionWindows": [
+    "2026-09-12 through 2026-10-05 UTC",
+    "2048-01-01 through 2048-01-06 UTC"
+  ],
+  "limitations": [
+    "Two implementations agreeing is not proof of RFC conformance; the DTEND probe records a known disagreement with the standard.",
+    "Scripted development files and pinned libraries; not a calendar-client import, user study or general conformance suite.",
+    "This bounded query covers these fixtures only; it must not validate arbitrary unbounded files or schedules outside its window."
+  ],
+  "originalReportSha256": "486d94d1eb45be9c083508a3d482da2218eca8bd2de5c3b611c64fa3f7f65a29",
+  "scope": "19 authored bounded journey files pass. Separate strict duration conformance fails; no client import or independent evaluation."
+}

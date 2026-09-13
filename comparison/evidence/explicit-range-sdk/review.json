@@ -1,0 +1,18 @@
+{
+  "beforeFix": {
+    "test": "conflicting repeated-clock answers",
+    "expected": "needs-clarification",
+    "observed": "resolved",
+    "suite": "1 failed / 11 passed"
+  },
+  "afterFix": "765 shared-source plus 16 harness tests pass; 22 complete journeys; scoped checks pass",
+  "browserFailure": "First post-fix run terminated on an unhandled download timeout before saving a report. No per-case success is inferred; terminal failure is summarized here. Reader refused the missing report.",
+  "browserRecovery": "Wait for download and activation together with Promise.all; corrected runner passes all four journeys and independent readback. Initial timeout cause not isolated.",
+  "sourceHashes": {
+    "src/shared/interpret-date.ts": "9eed044f147a27172186ad3ace5675defc7c777ff0ef7cbeaa8c48bb997ff5b2",
+    "src/shared/explicit-date-range.test.ts": "f434d3668c5c9c66f06318437a5bbbb3f318fb720f8fa85e561c07970d0743a2",
+    "examples/sdk/calendar.mjs": "d2907c61a6930d14cf6a32e300957cc61065ef6e05b0eef56bc83d1ad3048c53",
+    "examples/app/verify-date-range.mjs": "88a3ae5c5fa18c002692b1c63f31caa7cfff2f3056cf194b6122029fa9e4d420"
+  },
+  "comparison": "31-case summary and valueSummary unchanged"
+}

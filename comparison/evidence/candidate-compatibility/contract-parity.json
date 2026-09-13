@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "priorArchiveSha256": "756fbb4ec523da3ac1bba687507eba72c2b42aa2a9de767e01d0e9d765cbbf59",
+  "archiveSha256": "4b96da77b994605be06f0c63091c338cb7dae5f5a65e958f3d970786a5858a63",
+  "changedFiles": [
+    "README.md"
+  ],
+  "installedFiles": 56,
+  "runtimeExports": {
+    ".": [
+      "SDK_VERSION",
+      "appendSelection",
+      "calculateDate",
+      "createParser",
+      "limits",
+      "parse",
+      "parseMany"
+    ],
+    "./calendar": [
+      "prepareCalendarFile",
+      "prepareRecurringCalendarFile",
+      "resolveRecurringExport",
+      "retainOccurrenceDecisions"
+    ]
+  },
+  "unchangedReadmeSnippets": 3,
+  "tableColumnCheck": "Two cells in monthly and count policy rows",
+  "scope": "Documentation-only parity; runtime/declaration/manifest/dependency/data bytes identical. Node26 examples and installed types rerun; no new browser/Worker/device/performance run."
+}

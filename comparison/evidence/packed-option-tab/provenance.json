@@ -1,0 +1,10 @@
+{
+  "sources": {
+    "examples/sdk/verify-browser.mjs": "4ed759ff676091c9ece3cf6e91dfbc806d67a53dc5321a73c7ecbfc92f66c614",
+    "examples/sdk/verify-webkit-controls.mjs": "3b8617a05f59604c9018132d485133691d7cb19493e55dd6d7c21016421f55d6",
+    "examples/sdk/read-browser-files.py": "adf2281207893fc9a4836d44a8fa034d34cca1e7e61f28ef5601b3731d0be823",
+    "examples/sdk/read-browser-files.py.lock": "25321ad7e67ccbc618b94ba12fdfc25f3d5cc3d7ba775ee1ef6b06cab5e63751"
+  },
+  "reference": "https://support.apple.com/en-gb/guide/safari/cpsh003/mac",
+  "settingsChanged": false
+}

@@ -1,0 +1,41 @@
+{
+  "scope": "Fresh local rerun; all nine diagnostic file bytes match the retained prior files. Not a calendar-client import or independent evaluation.",
+  "node": "v26.8.1",
+  "runs": [
+    {
+      "family": "single-series",
+      "reader": "ical.js",
+      "exitCode": 1,
+      "expectedExit": 1
+    },
+    {
+      "family": "single-series",
+      "reader": "python",
+      "exitCode": 1,
+      "expectedExit": 1
+    },
+    {
+      "family": "two-series",
+      "reader": "ical.js",
+      "exitCode": 0,
+      "expectedExit": 0
+    },
+    {
+      "family": "two-series",
+      "reader": "python",
+      "exitCode": 0,
+      "expectedExit": 0
+    }
+  ],
+  "sourceHashes": {
+    "comparison/calendar/monthly-clamp.mjs": "c200935960ebea1bacd24970230816e66a2621b0bd40869bb281fc3970f7f2a7",
+    "comparison/calendar/monthly-clamp.py": "f96e71f6d38a37151aae9637062d9c14a43915b6da09db70a9bb7be79be6aa52",
+    "comparison/calendar/monthly-clamp.py.lock": "25321ad7e67ccbc618b94ba12fdfc25f3d5cc3d7ba775ee1ef6b06cab5e63751",
+    "comparison/calendar/monthly-split.mjs": "0f9dab93b2bac359619d06d683e18eb663e2273e479ffa0cc34f927369710d3c",
+    "comparison/calendar/monthly-split.py": "ca268da0ff3de97fcf0fc9098ec768ce64a5aab8e75a4eb1cb774333ef95e00b",
+    "comparison/calendar/monthly-split.py.lock": "25321ad7e67ccbc618b94ba12fdfc25f3d5cc3d7ba775ee1ef6b06cab5e63751",
+    "packages/core/dist/calendar-timezone-ongoing.js": "d321f7cd557b48bd4f98f3af549ed523d621a5feea38d3bfd257504ba25b0e86",
+    "packages/core/dist/date-engine/timezone-data.js": "14ab87de1253235b9d68b3e903248e8eb2fc8da44fabd0aacbb8049da759d84b",
+    "pnpm-lock.yaml": "efd381779c7426cdf686f8563545d66fb58b0b0fa3afcd2c32a46eeed2afa553"
+  }
+}

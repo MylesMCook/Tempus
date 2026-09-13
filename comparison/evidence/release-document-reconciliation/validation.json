@@ -1,0 +1,16 @@
+{
+  "protectedRequirementsUnchanged": true,
+  "acceptanceTableUnchanged": true,
+  "milestoneTableUnchanged": true,
+  "claimRulesUnchanged": true,
+  "openReleaseCheckboxesUnchanged": true,
+  "relativeFileLinksExist": true,
+  "matrixLinesBeforeAfter": [
+    175,
+    115
+  ],
+  "checklistLinesBeforeAfter": [
+    134,
+    113
+  ]
+}

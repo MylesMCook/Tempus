@@ -1,0 +1,11 @@
+# Recipient recognition review
+
+Review of the previous recipient implementation exposed two flaws: its greedy capitalized-name match swallowed date words such as Tomorrow or May, and it could propose indefinite-duration wording such as A Long Time as title text. Capitalization is not sufficient evidence that words are a recipient name. The prior milestone remains historical; its qualifier coverage was too narrow.
+
+The source now finds the next temporal boundary before validating the recipient name, matches the for connector without case sensitivity, and rejects common indefinite-duration/article phrases. It still requires explicit title confirmation and retains the bounded capitalized-name grammar. This improves the measured cases; it does not establish general proper-name recognition. Lowercase/date-like names, unusual names overlapping rejected words and broader purpose clauses remain limitations.
+
+Nine new assertions failed before the change. Eight now pass. The remaining expected task is Buy apples for Sam At noon tomorrow: Tempus also rejects at noon tomorrow without a recipient, so this exposes a broader clock-first grammar gap. Its expected resolved result has not been weakened, marked as an expected failure or removed. The full suite therefore exits 1: 960 pass, one existing expected failure, one new failing task, across 57 files. This source is not release-ready. The next task is clock-first reminder completion while preserving strict calculator/API v2 semantics.
+
+Build and scoped lint pass, with the existing large-chunk warning. Sixteen built Chrome checks at widths 320 and 1280 confirm the corrected title/date paths or block the five indefinite-duration phrases without export. Ten existing built-app journeys and separate file readbacks also pass. Direct focus/Enter is used; these are not sequential-keyboard, physical-device or independent-user checks. The task-local server was stopped; the main development server remains running.
+
+No new SDK archive was produced. Prior archive e7ac31c4 and its runtime evidence retain the earlier behavior; they must not be described as containing this fix. No calendar import, publication, push or deployment occurred. Raw failing and subsequent reports are retained here.

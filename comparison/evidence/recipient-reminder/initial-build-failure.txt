@@ -1,0 +1,11 @@
+
+> tempus-total@0.1.0 build /Users/mylescook/Code/MylesMCook/TempusTotal
+> tsc -b && vp build
+
+src/shared/recipient-label.test.ts(13,42): error TS2345: Argument of type '{ uid: string; stamp: string; }' is not assignable to parameter of type '{ uid: string; stamp: string; title: string; pointMode?: "date" | "instant" | undefined; }'.
+  Property 'title' is missing in type '{ uid: string; stamp: string; }' but required in type '{ uid: string; stamp: string; title: string; pointMode?: "date" | "instant" | undefined; }'.
+src/shared/recipient-label.test.ts(35,40): error TS2345: Argument of type '{ uid: string; stamp: string; }' is not assignable to parameter of type '{ uid: string; stamp: string; title: string; pointMode?: "date" | "instant" | undefined; }'.
+  Property 'title' is missing in type '{ uid: string; stamp: string; }' but required in type '{ uid: string; stamp: string; title: string; pointMode?: "date" | "instant" | undefined; }'.
+src/shared/recipient-label.test.ts(50,70): error TS2345: Argument of type '{ uid: string; stamp: string; }' is not assignable to parameter of type '{ uid: string; stamp: string; title: string; pointMode?: "date" | "instant" | undefined; }'.
+  Property 'title' is missing in type '{ uid: string; stamp: string; }' but required in type '{ uid: string; stamp: string; title: string; pointMode?: "date" | "instant" | undefined; }'.
+ ELIFECYCLE  Command failed with exit code 2.

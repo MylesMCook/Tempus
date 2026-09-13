@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import {pathToFileURL} from 'node:url';
+const {parse,appendSelection}=await import(pathToFileURL(process.argv[2]).href);
+const input='Call Sam 2026-11-01 at 1:30am and 2026-09-30 at noon';
+const opts={timezone:'America/Chicago',reference:'2026-09-12T16:00:00Z'};
+const q=parse(input,opts);
+assert.equal(q.status,'needs-clarification');
+const selection=appendSelection(undefined,{contextKey:q.clarification.contextKey,id:'list:0:start:2026-11-01T07:30:00Z'});
+const r=parse(input,{...opts,selection});
+assert.equal(r.status,'resolved');
+assert.equal(r.value.kind,'collection');
+assert.deepEqual(r.value.occurrences.map(x=>x.start.result.iso),['2026-11-01T07:30:00.000Z','2026-09-30T17:00:00.000Z']);
+for(const s of [r.source,r.event,...r.value.occurrences.map(x=>x.source)]) assert.equal(input.slice(s.span.start,s.span.end),s.text);
+assert.equal(parse(input.replace('Sam','Jo'),{...opts,selection}).status,'needs-clarification');
+console.log(JSON.stringify({status:'passed',result:r},null,2));

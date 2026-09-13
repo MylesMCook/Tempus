@@ -1,0 +1,73 @@
+{
+  "status": "passed",
+  "runs": [
+    {
+      "browser": "chromium",
+      "version": "153.0.8010.36",
+      "status": "passed",
+      "errors": [],
+      "files": [
+        {
+          "filename": "chromium-retry.ics",
+          "sha256": "706959199096cbb570dfe63855e0737b3a9026c31a8af793fc467827d4e6b622"
+        },
+        {
+          "filename": "chromium-edited.ics",
+          "sha256": "7f9ef612e1936c88f264e8373842f566107fdc92e748e47023a27b5323ece341"
+        },
+        {
+          "filename": "chromium-title.ics",
+          "sha256": "ab30867fc25d4f1904e224ff03e75f85f2f2c420581d14b8f4c018df67890854"
+        }
+      ]
+    },
+    {
+      "browser": "firefox",
+      "version": "148.0.2",
+      "status": "passed",
+      "errors": [],
+      "files": [
+        {
+          "filename": "firefox-retry.ics",
+          "sha256": "c921e8708eec817d00bd5c05a8807dc449ed0268951d4d3d10ab8187ac5fa1f9"
+        },
+        {
+          "filename": "firefox-edited.ics",
+          "sha256": "cb3c261a8a5407892e09d375d226c2df58144da99e99a9e6744ec70e9886da11"
+        },
+        {
+          "filename": "firefox-title.ics",
+          "sha256": "c3693f35d9a8957d0131e030c6ee0f744e8dc74bf87f95e500cd044e87442bca"
+        }
+      ]
+    },
+    {
+      "browser": "webkit",
+      "version": "26.4",
+      "status": "passed",
+      "errors": [],
+      "files": [
+        {
+          "filename": "webkit-retry.ics",
+          "sha256": "3921e8fe2d7001e47db5879fa6dca268f00669e45f773a105b716d611d6db401"
+        },
+        {
+          "filename": "webkit-edited.ics",
+          "sha256": "6602eed09ec0b3942fceb478bcd35de69a8354ce27d78960d840b82e0569a350"
+        },
+        {
+          "filename": "webkit-title.ics",
+          "sha256": "307c4b3e0284b30121805a93742d393dd35cf88476e57e8b9cf58679c79b1ccb"
+        }
+      ]
+    }
+  ],
+  "sourceHashes": {
+    "src/features/parser/calendar-preparation.worker.ts": "b26b962d9d83ce481f8336d095811a8095a562191ea81c144980da0ef7594623",
+    "src/features/parser/use-calendar-preparation.ts": "7710871624cb210383cf83a3f0fabb6011c956a13f3a034bb301fb2149cd9183",
+    "src/features/parser/components/calendar-export.tsx": "3ed59c09cbc8e585e66263f8d2c45a061f5049917030f56ee022fd8225b071e4",
+    "src/shared/recurring-calendar-file.ts": "77acb98b991deddae5c88e0a9cdd40e225e083ec02d7e28ead674f8aa835de8d",
+    "examples/app/verify-worker-preparation.mjs": "68f87d2682d483892dfcefc031efe3801389d33b288476a6d045a64b00bd0b96"
+  },
+  "scope": "Real desktop workers, direct focus/Enter and files. Harness delays actual message delivery and simulates unavailable Worker construction for cancellation/stale-response/failure tests. Not physical device or production-server evidence."
+}

@@ -1,0 +1,15 @@
+{
+  "archiveSha256": "e7ac31c41806e7e1bd799d07bac2df438ac95d342250c789a8a621c93f45fbe2",
+  "sourceHashes": {
+    "src/shared/interpret-date.ts": "a406b4e92e41a4aec49a418c2650d1df15df5166c2093a92f776997f64cf0e0a",
+    "src/shared/recipient-label.test.ts": "6b919b91c0fa3bd18d131ab8e3fb26b2c56bea8f8a3ac5754186080f4de68dcf",
+    "examples/app/verify-event-identifiers.mjs": "e6de20d8fb37e1db9dd138f5eb39d1c440aaa623d241e4b12f29d46b54278aa7",
+    "examples/app/read-event-identifiers.py": "e1b0ae5711860c63e9dab3ea5116fb2d8b6a1c427bfdd642320791af080ac568",
+    "examples/app/read-event-identifiers.py.lock": "25321ad7e67ccbc618b94ba12fdfc25f3d5cc3d7ba775ee1ef6b06cab5e63751"
+  },
+  "recipientProbeNodeVersions": [
+    "22.12.0",
+    "26.8.1"
+  ],
+  "scope": "Source tests/build/lint; installed Node26 package verification; targeted recipient probe on Node22/26; built-app Chrome at desktop widths; separate file readers. Not independent users, physical devices or calendar imports."
+}

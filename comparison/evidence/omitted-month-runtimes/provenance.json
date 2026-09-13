@@ -1,0 +1,14 @@
+{
+  "archiveSha256": "8d0c279183fba267c0e4d97441a8159d126b068838ad9f9b186c4ae146602f7b",
+  "installedFilesMatch": 56,
+  "sourceHashes": {
+    "examples/sdk/verify-browser.mjs": "ddc907471389d202cf58ae6df9739068a50fb5e6b13cd79d632ffa06f8d49c4d",
+    "examples/sdk/verification-worker.ts": "207525a05f1028613c395c6ca75c947093ac265632e8dae84fcf41287aec6ff1",
+    "examples/sdk/read-browser-files.py": "a561110077158abf365c7f7ac638c64863d34d8f0b9063f27998fedd470dca26",
+    "examples/sdk/read-worker-files.py": "368f825e7af569f187f076d73bfaed71d472a07a07fa983bb599af07b60d006f",
+    "examples/sdk/read-browser-files.py.lock": "25321ad7e67ccbc618b94ba12fdfc25f3d5cc3d7ba775ee1ef6b06cab5e63751",
+    "examples/sdk/read-worker-files.py.lock": "25321ad7e67ccbc618b94ba12fdfc25f3d5cc3d7ba775ee1ef6b06cab5e63751"
+  },
+  "installedWorkerTypes": "passed",
+  "scope": "Local browser and workerd execution; no real calendar import or device evidence"
+}

@@ -1,0 +1,10 @@
+{
+  "sourceHashes": {
+    "src/shared/interpret-date.ts": "42ff026b14d5633eebfa531ab5c111da4379ab95c1c3d7f6617af67aadebf3e5",
+    "src/shared/recipient-label.test.ts": "81f0d3b801a0b4281d7860c63dc4c911cd36053d2c8c35ae9911c644fcf1e89a",
+    "examples/app/verify-event-identifiers.mjs": "e6de20d8fb37e1db9dd138f5eb39d1c440aaa623d241e4b12f29d46b54278aa7",
+    "examples/app/read-event-identifiers.py": "e1b0ae5711860c63e9dab3ea5116fb2d8b6a1c427bfdd642320791af080ac568"
+  },
+  "packedArtifact": "Not repacked; e7ac31c4 is the previous implementation.",
+  "scope": "Source and built-app review. Build/lint pass; full tests have one unresolved clock-first case. No new SDK runtime/performance or deployment evidence."
+}

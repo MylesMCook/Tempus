@@ -1,0 +1,435 @@
+import { parse, calculateDate, appendSelection, SDK_VERSION } from "@tempus-date/core";
+import {
+  prepareCalendarFile,
+  prepareRecurringCalendarFile,
+  resolveRecurringExport,
+  type CalendarFile,
+  type CalendarFileFailureCode,
+} from "@tempus-date/core/calendar";
+
+function check(condition: unknown, message: string): asserts condition {
+  if (!condition) throw new Error(message);
+}
+
+// Authored diagnostic answers only. Never apply these choices to real user input.
+function verify() {
+  const context = { timezone: "America/Chicago", reference: "2026-09-12T16:00:00Z" };
+  const metadata = {
+    uid: "11111111-2222-4333-8444-555555555555",
+    stamp: context.reference,
+    title: "Call Sam",
+    reference: context.reference,
+  };
+  const failures: CalendarFileFailureCode[] = [];
+  function failure(file: CalendarFile, code: CalendarFileFailureCode) {
+    check(!file.ok && file.code === code, `Expected ${code}`);
+    failures.push(code);
+  }
+  failure(prepareCalendarFile(parse("03/04/2027", context), metadata), "unresolved");
+  failure(
+    prepareCalendarFile(parse("every Monday at noon", context), metadata),
+    "recurrence-required",
+  );
+  failure(prepareCalendarFile(parse("tomorrow", context), metadata), "point-mode-required");
+  failure(
+    prepareRecurringCalendarFile(parse("every Sunday at 1:30am", context), metadata),
+    "export-blocked",
+  );
+  const point = parse("tomorrow at noon", context);
+  failure(
+    prepareCalendarFile(point, { ...metadata, title: "", pointMode: "instant" }),
+    "invalid-file",
+  );
+  check(
+    prepareCalendarFile(point, { ...metadata, pointMode: "instant" }).ok,
+    "Metadata repair failed",
+  );
+
+  const input = "Call Sam every Sunday at 1:30am for 30 minutes until 2026-11-08";
+  const recurring = parse(input, context);
+  failure(prepareRecurringCalendarFile(recurring, metadata), "clarification-required");
+  const pending = resolveRecurringExport(recurring, context.reference);
+  check(pending && !pending.ok && pending.clockPrompt, "Missing export question");
+  const choice = pending.clockPrompt.choices.find(
+    (choice) => choice.id === "recurrence:2026-11-01:start:2026-11-01T07:30:00Z",
+  );
+  check(choice, "Missing authored repeated-clock answer");
+  const recurringFile = prepareRecurringCalendarFile(recurring, {
+    ...metadata,
+    decisions: [choice.id],
+  });
+  check(recurringFile.ok && recurringFile.eventCount === 9, "Incomplete recurring file");
+  check(recurringFile.text.includes("20261101T073000Z"), "Wrong repeated clock");
+  const past = { ...context, reference: "2026-11-01T08:00:00Z" };
+  failure(
+    prepareRecurringCalendarFile(parse("every Sunday at 1:30am until 2026-11-01", past), {
+      ...metadata,
+      reference: past.reference,
+    }),
+    "empty-schedule",
+  );
+
+  const text = "Call Sam September 30 and October 2 and 4 at noon";
+  let listed = parse(text, context);
+  let selection;
+  for (const id of ["list:2:month:october", "list:year:2026", "list:0:time:0", "list:1:time:0"]) {
+    check(listed.status === "needs-clarification" && listed.clarification, "Missing list question");
+    check(
+      listed.clarification.choices.some((choice) => choice.id === id),
+      "Missing offered choice",
+    );
+    selection = appendSelection(selection, { contextKey: listed.clarification.contextKey, id });
+    listed = parse(text, { ...context, selection });
+  }
+  check(listed.status === "resolved" && listed.value.kind === "collection", "Unresolved shorthand");
+  check(
+    JSON.stringify(listed.value.occurrences.map((row) => row.start.result.iso)) ===
+      JSON.stringify([
+        "2026-09-30T17:00:00.000Z",
+        "2026-10-02T17:00:00.000Z",
+        "2026-10-04T17:00:00.000Z",
+      ]),
+    "Wrong shorthand dates",
+  );
+  for (const row of listed.value.occurrences)
+    check(
+      text.slice(row.source.span.start, row.source.span.end) === row.source.text,
+      "Lost source span",
+    );
+  check(
+    parse(text.replace("4 at", "5 at"), { ...context, selection }).status === "needs-clarification",
+    "Stale answer accepted",
+  );
+  const listedFile = prepareCalendarFile(listed, metadata);
+  check(listedFile.ok && listedFile.eventCount === 3, "Incomplete list file");
+
+  const monthlyContext = { ...context, reference: "2026-01-01T00:00:00Z" };
+  const monthlyText =
+    "Call Sam every month on the 30th at 9am for half an hour until 2026-05-31 except 2026-03-30";
+  const monthlyQuestion = parse(monthlyText, monthlyContext);
+  check(
+    monthlyQuestion.status === "needs-clarification" && monthlyQuestion.clarification,
+    "Missing monthly policy question",
+  );
+  const monthly = parse(monthlyText, {
+    ...monthlyContext,
+    selection: { contextKey: monthlyQuestion.clarification.contextKey, id: "monthly:last-day" },
+  });
+  const monthlyFile = prepareRecurringCalendarFile(monthly, {
+    ...metadata,
+    reference: monthlyContext.reference,
+  });
+  check(monthlyFile.ok && monthlyFile.eventCount === 4, "Incomplete monthly file");
+  const precisionFiles: Record<string, string> = {};
+  for (const [text, id, label, kind, start, end] of [
+    [
+      "Call Sam Friday at noon, actually Saturday instead",
+      "replace",
+      "Use September 12, 2026 (date only)",
+      "date-point",
+      "20260912",
+      "",
+    ],
+    [
+      "Call Sam tomorrow for 2 days or Friday at midnight for 2 days",
+      "alternative:first",
+      "Use September 13, 2026 to September 15, 2026 (all day; exclusive end)",
+      "all-day-range",
+      "20260913",
+      "20260915",
+    ],
+  ]) {
+    const question = parse(text, context);
+    check(
+      question.status === "needs-clarification" && question.clarification,
+      "Missing precision question",
+    );
+    check(
+      question.clarification.choices.find((choice) => choice.id === id)?.label === label,
+      "Misleading precision label",
+    );
+    const selection = { contextKey: question.clarification.contextKey, id };
+    const resolved = parse(text, { ...context, selection });
+    const file = prepareCalendarFile(resolved, {
+      ...metadata,
+      ...(kind === "date-point" ? { pointMode: "date" as const } : {}),
+    });
+    check(file.ok && file.eventCount === 1, "Missing precision file");
+    check(file.text.includes(`DTSTART;VALUE=DATE:${start}`), "Incorrect civil start");
+    if (end) check(file.text.includes(`DTEND;VALUE=DATE:${end}`), "Incorrect civil end");
+    const edited = parse(text.replace("Sam", "Jo"), { ...context, selection });
+    check(
+      edited.status === "needs-clarification" && !prepareCalendarFile(edited, metadata).ok,
+      "Stale precision answer",
+    );
+    precisionFiles[kind] = file.text;
+  }
+  const rangeText = "Call Sam from 11/01/2026 at 1:30am until 2026-11-02 at noon";
+  let range = parse(rangeText, context);
+  let rangeSelection;
+  for (const id of ["interval:start:date:2026-11-01", "interval:start:2026-11-01T07:30:00Z"]) {
+    check(range.status === "needs-clarification" && range.clarification, "Missing range question");
+    check(
+      range.clarification.choices.some((choice) => choice.id === id),
+      "Missing range choice",
+    );
+    rangeSelection = appendSelection(rangeSelection, {
+      contextKey: range.clarification.contextKey,
+      id,
+    });
+    range = parse(rangeText, { ...context, selection: rangeSelection });
+  }
+  check(range.status === "resolved" && range.value.kind === "interval", "Unresolved range");
+  check(
+    range.value.start.result.iso === "2026-11-01T07:30:00.000Z" &&
+      range.value.end.result.iso === "2026-11-02T18:00:00.000Z",
+    "Wrong range endpoints",
+  );
+  check(
+    parse(rangeText.replace("11-02", "11-03"), { ...context, selection: rangeSelection }).status ===
+      "needs-clarification",
+    "Stale range choice",
+  );
+  const rangeFile = prepareCalendarFile(range, metadata);
+  check(rangeFile.ok && rangeFile.eventCount === 1, "Invalid range file");
+  const rangePolicyFiles: Record<string, string> = {};
+  const rangeCases: [string, string, string[]][] = [
+    [
+      "range-exclusive",
+      "Call Sam from 2026-09-13 to 2026-09-18",
+      ["interval:end:boundary:exclusive"],
+    ],
+    [
+      "range-inclusive",
+      "Call Sam from 2026-09-13 to 2026-09-18",
+      ["interval:end:boundary:inclusive"],
+    ],
+    [
+      "range-mixed",
+      "Call Sam from 11/01/2026 until 2026-11-02 at 1:30am",
+      [
+        "interval:start:date:2026-11-01",
+        "interval:start:time:written",
+        "interval:start:2026-11-01T07:30:00Z",
+      ],
+    ],
+  ];
+  for (const [kind, text, ids] of rangeCases) {
+    let answer = parse(text, context),
+      selection;
+    for (const id of ids) {
+      check(
+        answer.status === "needs-clarification" && answer.clarification,
+        "Missing range policy question",
+      );
+      check(
+        answer.clarification.choices.some((choice) => choice.id === id),
+        "Missing range policy choice",
+      );
+      check(!prepareCalendarFile(answer, metadata).ok, "Unresolved range export");
+      selection = appendSelection(selection, { contextKey: answer.clarification.contextKey, id });
+      answer = parse(text, { ...context, selection });
+    }
+    check(
+      answer.status === "resolved" && answer.value.kind === "interval",
+      "Unresolved range policy",
+    );
+    check(answer.input === text && answer.event?.text === "Call Sam", "Range input lost");
+    const output = prepareCalendarFile(answer, metadata);
+    check(output.ok && output.eventCount === 1, "Incomplete range policy file");
+    rangePolicyFiles[kind] = output.text;
+    const edited = parse(text.replace("Sam", "Jo"), { ...context, selection });
+    check(
+      edited.status === "needs-clarification" && !prepareCalendarFile(edited, metadata).ok,
+      "Stale range policy",
+    );
+  }
+  const countFiles: Record<string, string> = {};
+  for (const [kind, text, total, policy] of [
+    ["weekly", "Call Sam every Monday at noon for 5 occurrences", 5, null],
+    [
+      "monthly",
+      "Call Sam every month on the 31st at noon for 3 occurrences",
+      3,
+      "monthly:last-day",
+    ],
+    [
+      "past-consume",
+      "Call Sam every Monday at noon for 3 occurrences starting 2026-09-07",
+      2,
+      "count:past:consume",
+    ],
+    [
+      "past-upcoming",
+      "Call Sam every Monday at noon for 3 occurrences starting 2026-09-07",
+      3,
+      "count:past:upcoming",
+    ],
+    [
+      "excluded-consume",
+      "Call Sam every Monday at noon for 3 occurrences except 2026-09-21",
+      2,
+      "count:exclusions:consume",
+    ],
+    [
+      "excluded-replace",
+      "Call Sam every Monday at noon for 3 occurrences except 2026-09-21",
+      3,
+      "count:exclusions:replace",
+    ],
+  ] as const) {
+    let counted = parse(text, context);
+    let selection: Parameters<typeof appendSelection>[0];
+    if (policy) {
+      check(
+        counted.status === "needs-clarification" && counted.clarification,
+        "Missing count policy",
+      );
+      selection = appendSelection(undefined, {
+        contextKey: counted.clarification.contextKey,
+        id: policy,
+      });
+      counted = parse(text, { ...context, selection });
+    }
+    check(
+      counted.status === "resolved" &&
+        counted.value.kind === "recurrence" &&
+        counted.value.rule.count === (kind === "weekly" ? 5 : 3),
+      "Wrong count",
+    );
+    const file = prepareRecurringCalendarFile(counted, metadata);
+    check(
+      file.ok && file.eventCount === total && !file.text.includes("RRULE:"),
+      "Incomplete count file",
+    );
+    countFiles[kind] = file.text;
+    const changed = parse(
+      text.replace(
+        `${kind === "weekly" ? 5 : 3} occurrences`,
+        kind === "monthly" ? "4 occurrences" : "0 occurrences",
+      ),
+      { ...context, selection },
+    );
+    check(
+      changed.status !== "resolved" && !prepareRecurringCalendarFile(changed, metadata).ok,
+      "Stale count export",
+    );
+  }
+  const quantityInput = "Buy 3 apples on 11/01/2026 at 1:30am for 30 minutes";
+  let quantitySelection: Parameters<typeof appendSelection>[0];
+  let quantity = parse(quantityInput, context);
+  for (const id of ["event:title", "2026-11-01", "interval:start:2026-11-01T07:30:00Z"]) {
+    check(
+      quantity.status === "needs-clarification" && quantity.clarification,
+      "Missing quantity question",
+    );
+    check(
+      quantity.clarification.choices.some((choice) => choice.id === id),
+      "Missing quantity choice",
+    );
+    check(!prepareCalendarFile(quantity, metadata).ok, "Premature quantity export");
+    quantitySelection = appendSelection(quantitySelection, {
+      contextKey: quantity.clarification.contextKey,
+      id,
+    });
+    quantity = parse(quantityInput, { ...context, selection: quantitySelection });
+  }
+  check(
+    quantity.status === "resolved" && quantity.value.kind === "interval",
+    "Unresolved quantity interval",
+  );
+  check(
+    quantity.input === quantityInput && quantity.event?.text === "Buy 3 apples",
+    "Lost quantity text",
+  );
+  check(
+    quantityInput.slice(quantity.event.span.start, quantity.event.span.end) === quantity.event.text,
+    "Wrong quantity span",
+  );
+  check(
+    quantity.value.start.result.iso === "2026-11-01T07:30:00.000Z" &&
+      quantity.value.end.result.iso === "2026-11-01T08:00:00.000Z",
+    "Wrong quantity interval",
+  );
+  const quantityFile = prepareCalendarFile(quantity, { ...metadata, title: quantity.event.text });
+  check(quantityFile.ok && quantityFile.eventCount === 1, "Incomplete quantity file");
+  const quantityEdit = quantityInput.replace("3 apples", "4 apples");
+  const editedQuantity = parse(quantityEdit, { ...context, selection: quantitySelection });
+  check(
+    JSON.stringify(editedQuantity) === JSON.stringify(parse(quantityEdit, context)),
+    "Stale quantity choice",
+  );
+  check(!prepareCalendarFile(editedQuantity, metadata).ok, "Stale quantity export");
+  const reminderFiles: Record<string, string> = {};
+  for (const [name, input, ids, expected] of [
+    ["recipient-lowercase", "Buy apples for mom at 1:30am on 11/01/2026", ["event:title", "2026-11-01", "2026-11-01T07:30:00Z"], "2026-11-01T07:30:00.000Z"],
+    ["recipient-clock", "Buy apples for Sam At noon tomorrow", ["event:title"], "2026-09-13T17:00:00.000Z"],
+    ["recipient-dst", "Buy apples for Sam at 1:30am on 11/01/2026", ["event:title", "2026-11-01", "2026-11-01T07:30:00Z"], "2026-11-01T07:30:00.000Z"],
+  ] as const) {
+    let selection: Parameters<typeof appendSelection>[0];
+    let result = parse(input, context);
+    const fileMetadata = { ...metadata, title: name === "recipient-lowercase" ? "Buy apples for mom" : "Buy apples for Sam", pointMode: "instant" as const };
+    for (const id of ids) {
+      check(result.status === "needs-clarification" && result.clarification, "Missing reminder question");
+      check(result.clarification.choices.some((choice) => choice.id === id), "Missing reminder choice");
+      check(!prepareCalendarFile(result, fileMetadata).ok, "Premature reminder export");
+      selection = appendSelection(selection, { contextKey: result.clarification.contextKey, id });
+      result = parse(input, { ...context, selection });
+    }
+    check(result.status === "resolved" && result.value.kind === "point", "Unresolved reminder");
+    check(result.value.calculation.result.iso === expected, "Wrong reminder instant");
+    check(result.input === input && result.event?.text === fileMetadata.title, "Lost reminder text");
+    check(input.slice(result.event.span.start, result.event.span.end) === result.event.text, "Wrong reminder event span");
+    check(input.slice(result.source.span.start, result.source.span.end) === result.source.text, "Wrong reminder source span");
+    check(!result.apiReplay && !calculateDate(result.source.text, context).ok, "Strict calculator grammar changed");
+    const file = prepareCalendarFile(result, fileMetadata);
+    check(file.ok && file.eventCount === 1, "Incomplete reminder file");
+    reminderFiles[name] = file.text;
+    const edited = name === "recipient-lowercase" ? input.replace("mom", "dad") : input.replace("Sam", "Jo");
+    const changed = parse(edited, { ...context, selection });
+    check(JSON.stringify(changed) === JSON.stringify(parse(edited, context)), "Stale reminder choices");
+    check(!prepareCalendarFile(changed, fileMetadata).ok, "Stale reminder export");
+  }
+  const rejectedConditions: string[] = [];
+  for (const condition of ["pending", "assuming", "provided"]) {
+    const input = `Buy apples for mom ${condition} tomorrow at noon`;
+    const result = parse(input, context);
+    check(result.status !== "resolved" && !result.clarification, "Conditional reminder accepted");
+    check(result.input === input, "Conditional input lost");
+    check(!prepareCalendarFile(result, metadata).ok, "Conditional reminder exported");
+    rejectedConditions.push(condition);
+  }
+  return {
+    diagnosticVersion: 4,
+    rejectedConditions,
+    reminderFiles,
+    quantityFile: quantityFile.text,
+    status: "passed",
+    sdkVersion: SDK_VERSION,
+    precisionFiles,
+    countFiles,
+    rangePolicyFiles,
+    rangeFile: rangeFile.text,
+    failures,
+    metadataRecovery: true,
+    staleAnswerRejected: true,
+    files: { recurring: recurringFile.text, shorthand: listedFile.text, monthly: monthlyFile.text },
+    scope:
+      "Fixed authored SDK checks. No browser UI, independent accuracy, device or calendar-client import claim.",
+  };
+}
+
+export default {
+  fetch(request: Request) {
+    if (request.method !== "GET" || new URL(request.url).pathname !== "/verify")
+      return new Response("Not found", { status: 404 });
+    try {
+      return Response.json(verify(), { headers: { "Cache-Control": "no-store" } });
+    } catch (error) {
+      return Response.json(
+        { status: "failed", error: String(error) },
+        { status: 500, headers: { "Cache-Control": "no-store" } },
+      );
+    }
+  },
+};

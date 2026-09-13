@@ -1,0 +1,14 @@
+{
+  "newArchive": "f2adf85cae83f54bb9dd01b4154cefa890fb851c1471c08109567b2f5aa8b701",
+  "runtimeEvidenceArchive": "e33ab0ca30d3670a2bd47928bc403872a5ca4c9c92408923461c9a94afe1fe53",
+  "filesCompared": 56,
+  "changedFiles": [
+    "README.md"
+  ],
+  "runtimeDeclarationsManifestLicensesIdentical": true,
+  "readmeExamples": 3,
+  "installedTypecheck": "passed",
+  "node26Execution": "passed",
+  "originalVerificationHash": "3d5ef29d6b8373388f4a80d083c3b28f72201b8b3c633dab2d61f196c8cfd801",
+  "readmeSha256": "667d2786f467c8ebc42c4087185a6af9a4c770d3372db9233969ff891265a569"
+}

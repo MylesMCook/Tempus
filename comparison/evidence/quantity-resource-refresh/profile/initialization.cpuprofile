@@ -1,0 +1,5563 @@
+{
+  "nodes": [
+    {
+      "id": 1,
+      "callFrame": {
+        "functionName": "(root)",
+        "scriptId": "0",
+        "url": "",
+        "lineNumber": -1,
+        "columnNumber": -1
+      },
+      "hitCount": 0,
+      "children": [
+        2,
+        6,
+        234,
+        249
+      ]
+    },
+    {
+      "id": 2,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "90",
+        "url": "file://<HOME>/Code/MylesMCook/TempusTotal/comparison/performance/profile.mjs",
+        "lineNumber": -1,
+        "columnNumber": -1
+      },
+      "hitCount": 0,
+      "children": [
+        3,
+        7,
+        24,
+        264,
+        265
+      ]
+    },
+    {
+      "id": 3,
+      "callFrame": {
+        "functionName": "fn",
+        "scriptId": "13",
+        "url": "node:internal/util",
+        "lineNumber": 476,
+        "columnNumber": 13
+      },
+      "hitCount": 0,
+      "children": [
+        4
+      ]
+    },
+    {
+      "id": 4,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "13",
+        "url": "node:internal/util",
+        "lineNumber": 477,
+        "columnNumber": 23
+      },
+      "hitCount": 0,
+      "children": [
+        5
+      ]
+    },
+    {
+      "id": 5,
+      "callFrame": {
+        "functionName": "post",
+        "scriptId": "157",
+        "url": "node:inspector",
+        "lineNumber": 114,
+        "columnNumber": 6
+      },
+      "hitCount": 0
+    },
+    {
+      "id": 7,
+      "callFrame": {
+        "functionName": "get",
+        "scriptId": "13",
+        "url": "node:internal/util",
+        "lineNumber": 637,
+        "columnNumber": 16
+      },
+      "hitCount": 0,
+      "children": [
+        8
+      ]
+    },
+    {
+      "id": 8,
+      "callFrame": {
+        "functionName": "requireBuiltin",
+        "scriptId": "6",
+        "url": "node:internal/bootstrap/realm",
+        "lineNumber": 428,
+        "columnNumber": 23
+      },
+      "hitCount": 0,
+      "children": [
+        9
+      ]
+    },
+    {
+      "id": 9,
+      "callFrame": {
+        "functionName": "compileForInternalLoader",
+        "scriptId": "6",
+        "url": "node:internal/bootstrap/realm",
+        "lineNumber": 391,
+        "columnNumber": 26
+      },
+      "hitCount": 0,
+      "children": [
+        10
+      ]
+    },
+    {
+      "id": 10,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "163",
+        "url": "node:perf_hooks",
+        "lineNumber": 0,
+        "columnNumber": 0
+      },
+      "hitCount": 0,
+      "children": [
+        11
+      ]
+    },
+    {
+      "id": 11,
+      "callFrame": {
+        "functionName": "requireBuiltin",
+        "scriptId": "6",
+        "url": "node:internal/bootstrap/realm",
+        "lineNumber": 428,
+        "columnNumber": 23
+      },
+      "hitCount": 0,
+      "children": [
+        12
+      ]
+    },
+    {
+      "id": 12,
+      "callFrame": {
+        "functionName": "compileForInternalLoader",
+        "scriptId": "6",
+        "url": "node:internal/bootstrap/realm",
+        "lineNumber": 391,
+        "columnNumber": 26
+      },
+      "hitCount": 2,
+      "children": [
+        13,
+        17
+      ],
+      "positionTicks": [
+        {
+          "line": 404,
+          "ticks": 2
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "165",
+        "url": "node:internal/perf/usertiming",
+        "lineNumber": 0,
+        "columnNumber": 0
+      },
+      "hitCount": 0,
+      "children": [
+        14
+      ]
+    },
+    {
+      "id": 14,
+      "callFrame": {
+        "functionName": "requireBuiltin",
+        "scriptId": "6",
+        "url": "node:internal/bootstrap/realm",
+        "lineNumber": 428,
+        "columnNumber": 23
+      },
+      "hitCount": 0,
+      "children": [
+        15
+      ]
+    },
+    {
+      "id": 15,
+      "callFrame": {
+        "functionName": "compileForInternalLoader",
+        "scriptId": "6",
+        "url": "node:internal/bootstrap/realm",
+        "lineNumber": 391,
+        "columnNumber": 26
+      },
+      "hitCount": 0,
+      "children": [
+        16
+      ]
+    },
+    {
+      "id": 16,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "166",
+        "url": "node:internal/perf/nodetiming",
+        "lineNumber": 0,
+        "columnNumber": 0
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 175,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "167",
+        "url": "node:internal/perf/performance",
+        "lineNumber": 0,
+        "columnNumber": 0
+      },
+      "hitCount": 1,
+      "children": [
+        18
+      ],
+      "positionTicks": [
+        {
+          "line": 226,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "callFrame": {
+        "functionName": "requireBuiltin",
+        "scriptId": "6",
+        "url": "node:internal/bootstrap/realm",
+        "lineNumber": 428,
+        "columnNumber": 23
+      },
+      "hitCount": 0,
+      "children": [
+        19
+      ]
+    },
+    {
+      "id": 19,
+      "callFrame": {
+        "functionName": "compileForInternalLoader",
+        "scriptId": "6",
+        "url": "node:internal/bootstrap/realm",
+        "lineNumber": 391,
+        "columnNumber": 26
+      },
+      "hitCount": 0,
+      "children": [
+        20,
+        21
+      ]
+    },
+    {
+      "id": 20,
+      "callFrame": {
+        "functionName": "compileFunction",
+        "scriptId": "0",
+        "url": "",
+        "lineNumber": -1,
+        "columnNumber": -1
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 404,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "169",
+        "url": "node:internal/perf/timerify",
+        "lineNumber": 0,
+        "columnNumber": 0
+      },
+      "hitCount": 0,
+      "children": [
+        22
+      ]
+    },
+    {
+      "id": 22,
+      "callFrame": {
+        "functionName": "requireBuiltin",
+        "scriptId": "6",
+        "url": "node:internal/bootstrap/realm",
+        "lineNumber": 428,
+        "columnNumber": 23
+      },
+      "hitCount": 0,
+      "children": [
+        23
+      ]
+    },
+    {
+      "id": 23,
+      "callFrame": {
+        "functionName": "compileForInternalLoader",
+        "scriptId": "6",
+        "url": "node:internal/bootstrap/realm",
+        "lineNumber": 391,
+        "columnNumber": 26
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 404,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "callFrame": {
+        "functionName": "importModuleDynamicallyCallback",
+        "scriptId": "65",
+        "url": "node:internal/modules/esm/utils",
+        "lineNumber": 263,
+        "columnNumber": 46
+      },
+      "hitCount": 0,
+      "children": [
+        25
+      ]
+    },
+    {
+      "id": 25,
+      "callFrame": {
+        "functionName": "defaultImportModuleDynamicallyForModule",
+        "scriptId": "65",
+        "url": "node:internal/modules/esm/utils",
+        "lineNumber": 212,
+        "columnNumber": 48
+      },
+      "hitCount": 0,
+      "children": [
+        26
+      ]
+    },
+    {
+      "id": 26,
+      "callFrame": {
+        "functionName": "import",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 633,
+        "columnNumber": 14
+      },
+      "hitCount": 0,
+      "children": [
+        27
+      ]
+    },
+    {
+      "id": 27,
+      "callFrame": {
+        "functionName": "tracePromise",
+        "scriptId": "32",
+        "url": "node:diagnostics_channel",
+        "lineNumber": 544,
+        "columnNumber": 14
+      },
+      "hitCount": 0,
+      "children": [
+        28
+      ]
+    },
+    {
+      "id": 28,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 634,
+        "columnNumber": 33
+      },
+      "hitCount": 0,
+      "children": [
+        29
+      ]
+    },
+    {
+      "id": 29,
+      "callFrame": {
+        "functionName": "getOrCreateModuleJob",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 602,
+        "columnNumber": 22
+      },
+      "hitCount": 0,
+      "children": [
+        30,
+        41
+      ]
+    },
+    {
+      "id": 30,
+      "callFrame": {
+        "functionName": "#resolve",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 681,
+        "columnNumber": 10
+      },
+      "hitCount": 0,
+      "children": [
+        31
+      ]
+    },
+    {
+      "id": 31,
+      "callFrame": {
+        "functionName": "resolveSync",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 743,
+        "columnNumber": 13
+      },
+      "hitCount": 0,
+      "children": [
+        32
+      ]
+    },
+    {
+      "id": 32,
+      "callFrame": {
+        "functionName": "#resolveAndMaybeBlockOnLoaderThread",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 722,
+        "columnNumber": 37
+      },
+      "hitCount": 0,
+      "children": [
+        33
+      ]
+    },
+    {
+      "id": 33,
+      "callFrame": {
+        "functionName": "#cachedDefaultResolve",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 699,
+        "columnNumber": 23
+      },
+      "hitCount": 0,
+      "children": [
+        34
+      ]
+    },
+    {
+      "id": 34,
+      "callFrame": {
+        "functionName": "defaultResolve",
+        "scriptId": "74",
+        "url": "node:internal/modules/esm/resolve",
+        "lineNumber": 960,
+        "columnNumber": 23
+      },
+      "hitCount": 0,
+      "children": [
+        35,
+        37
+      ]
+    },
+    {
+      "id": 35,
+      "callFrame": {
+        "functionName": "moduleResolve",
+        "scriptId": "74",
+        "url": "node:internal/modules/esm/resolve",
+        "lineNumber": 844,
+        "columnNumber": 22
+      },
+      "hitCount": 0,
+      "children": [
+        36
+      ]
+    },
+    {
+      "id": 36,
+      "callFrame": {
+        "functionName": "finalizeResolution",
+        "scriptId": "74",
+        "url": "node:internal/modules/esm/resolve",
+        "lineNumber": 225,
+        "columnNumber": 27
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 227,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "callFrame": {
+        "functionName": "defaultGetFormatWithoutErrors",
+        "scriptId": "73",
+        "url": "node:internal/modules/esm/get_format",
+        "lineNumber": 256,
+        "columnNumber": 38
+      },
+      "hitCount": 0,
+      "children": [
+        38
+      ]
+    },
+    {
+      "id": 38,
+      "callFrame": {
+        "functionName": "getFileProtocolModuleFormat",
+        "scriptId": "73",
+        "url": "node:internal/modules/esm/get_format",
+        "lineNumber": 170,
+        "columnNumber": 36
+      },
+      "hitCount": 0,
+      "children": [
+        39
+      ]
+    },
+    {
+      "id": 39,
+      "callFrame": {
+        "functionName": "getPackageScopeConfig",
+        "scriptId": "63",
+        "url": "node:internal/modules/package_json_reader",
+        "lineNumber": 221,
+        "columnNumber": 30
+      },
+      "hitCount": 0,
+      "children": [
+        40
+      ]
+    },
+    {
+      "id": 40,
+      "callFrame": {
+        "functionName": "getPackageScopeConfig",
+        "scriptId": "0",
+        "url": "",
+        "lineNumber": -1,
+        "columnNumber": -1
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 223,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "callFrame": {
+        "functionName": "afterResolve",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 612,
+        "columnNumber": 25
+      },
+      "hitCount": 0,
+      "children": [
+        42
+      ]
+    },
+    {
+      "id": 42,
+      "callFrame": {
+        "functionName": "#getOrCreateModuleJobAfterResolve",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 528,
+        "columnNumber": 35
+      },
+      "hitCount": 0,
+      "children": [
+        43,
+        50
+      ]
+    },
+    {
+      "id": 43,
+      "callFrame": {
+        "functionName": "loadAndTranslate",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 498,
+        "columnNumber": 18
+      },
+      "hitCount": 0,
+      "children": [
+        44
+      ]
+    },
+    {
+      "id": 44,
+      "callFrame": {
+        "functionName": "afterLoad",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 501,
+        "columnNumber": 22
+      },
+      "hitCount": 0,
+      "children": [
+        45
+      ]
+    },
+    {
+      "id": 45,
+      "callFrame": {
+        "functionName": "#translate",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 431,
+        "columnNumber": 12
+      },
+      "hitCount": 0,
+      "children": [
+        46
+      ]
+    },
+    {
+      "id": 46,
+      "callFrame": {
+        "functionName": "moduleStrategy",
+        "scriptId": "71",
+        "url": "node:internal/modules/esm/translators",
+        "lineNumber": 82,
+        "columnNumber": 49
+      },
+      "hitCount": 0,
+      "children": [
+        47
+      ]
+    },
+    {
+      "id": 47,
+      "callFrame": {
+        "functionName": "stringify",
+        "scriptId": "49",
+        "url": "node:internal/modules/helpers",
+        "lineNumber": 455,
+        "columnNumber": 18
+      },
+      "hitCount": 0,
+      "children": [
+        48
+      ]
+    },
+    {
+      "id": 48,
+      "callFrame": {
+        "functionName": "decode",
+        "scriptId": "79",
+        "url": "node:internal/encoding",
+        "lineNumber": 480,
+        "columnNumber": 8
+      },
+      "hitCount": 0,
+      "children": [
+        49
+      ]
+    },
+    {
+      "id": 49,
+      "callFrame": {
+        "functionName": "decodeUTF8",
+        "scriptId": "0",
+        "url": "",
+        "lineNumber": -1,
+        "columnNumber": -1
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 493,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "callFrame": {
+        "functionName": "ModuleJob",
+        "scriptId": "70",
+        "url": "node:internal/modules/esm/module_job",
+        "lineNumber": 353,
+        "columnNumber": 13
+      },
+      "hitCount": 0,
+      "children": [
+        51
+      ]
+    },
+    {
+      "id": 51,
+      "callFrame": {
+        "functionName": "link",
+        "scriptId": "70",
+        "url": "node:internal/modules/esm/module_job",
+        "lineNumber": 384,
+        "columnNumber": 6
+      },
+      "hitCount": 0,
+      "children": [
+        52
+      ]
+    },
+    {
+      "id": 52,
+      "callFrame": {
+        "functionName": "syncLink",
+        "scriptId": "70",
+        "url": "node:internal/modules/esm/module_job",
+        "lineNumber": 260,
+        "columnNumber": 10
+      },
+      "hitCount": 0,
+      "children": [
+        53
+      ]
+    },
+    {
+      "id": 53,
+      "callFrame": {
+        "functionName": "getOrCreateModuleJob",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 602,
+        "columnNumber": 22
+      },
+      "hitCount": 0,
+      "children": [
+        54
+      ]
+    },
+    {
+      "id": 54,
+      "callFrame": {
+        "functionName": "afterResolve",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 612,
+        "columnNumber": 25
+      },
+      "hitCount": 0,
+      "children": [
+        55
+      ]
+    },
+    {
+      "id": 55,
+      "callFrame": {
+        "functionName": "#getOrCreateModuleJobAfterResolve",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 528,
+        "columnNumber": 35
+      },
+      "hitCount": 0,
+      "children": [
+        56,
+        69
+      ]
+    },
+    {
+      "id": 56,
+      "callFrame": {
+        "functionName": "loadAndTranslate",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 498,
+        "columnNumber": 18
+      },
+      "hitCount": 0,
+      "children": [
+        57,
+        65
+      ]
+    },
+    {
+      "id": 57,
+      "callFrame": {
+        "functionName": "load",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 784,
+        "columnNumber": 6
+      },
+      "hitCount": 0,
+      "children": [
+        58
+      ]
+    },
+    {
+      "id": 58,
+      "callFrame": {
+        "functionName": "#loadSync",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 820,
+        "columnNumber": 11
+      },
+      "hitCount": 0,
+      "children": [
+        59
+      ]
+    },
+    {
+      "id": 59,
+      "callFrame": {
+        "functionName": "#loadAndMaybeBlockOnLoaderThread",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 802,
+        "columnNumber": 34
+      },
+      "hitCount": 0,
+      "children": [
+        60
+      ]
+    },
+    {
+      "id": 60,
+      "callFrame": {
+        "functionName": "defaultLoadSync",
+        "scriptId": "72",
+        "url": "node:internal/modules/esm/load",
+        "lineNumber": 133,
+        "columnNumber": 24
+      },
+      "hitCount": 0,
+      "children": [
+        61
+      ]
+    },
+    {
+      "id": 61,
+      "callFrame": {
+        "functionName": "getSourceSync",
+        "scriptId": "72",
+        "url": "node:internal/modules/esm/load",
+        "lineNumber": 28,
+        "columnNumber": 22
+      },
+      "hitCount": 0,
+      "children": [
+        62
+      ]
+    },
+    {
+      "id": 62,
+      "callFrame": {
+        "functionName": "readFileSync",
+        "scriptId": "46",
+        "url": "node:fs",
+        "lineNumber": 605,
+        "columnNumber": 21
+      },
+      "hitCount": 0,
+      "children": [
+        63
+      ]
+    },
+    {
+      "id": 63,
+      "callFrame": {
+        "functionName": "openSync",
+        "scriptId": "46",
+        "url": "node:fs",
+        "lineNumber": 770,
+        "columnNumber": 17
+      },
+      "hitCount": 0,
+      "children": [
+        64
+      ]
+    },
+    {
+      "id": 64,
+      "callFrame": {
+        "functionName": "open",
+        "scriptId": "0",
+        "url": "",
+        "lineNumber": -1,
+        "columnNumber": -1
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 780,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 65,
+      "callFrame": {
+        "functionName": "afterLoad",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 501,
+        "columnNumber": 22
+      },
+      "hitCount": 0,
+      "children": [
+        66
+      ]
+    },
+    {
+      "id": 66,
+      "callFrame": {
+        "functionName": "#translate",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 431,
+        "columnNumber": 12
+      },
+      "hitCount": 0,
+      "children": [
+        67
+      ]
+    },
+    {
+      "id": 67,
+      "callFrame": {
+        "functionName": "moduleStrategy",
+        "scriptId": "71",
+        "url": "node:internal/modules/esm/translators",
+        "lineNumber": 82,
+        "columnNumber": 49
+      },
+      "hitCount": 0,
+      "children": [
+        68
+      ]
+    },
+    {
+      "id": 68,
+      "callFrame": {
+        "functionName": "compileSourceTextModule",
+        "scriptId": "65",
+        "url": "node:internal/modules/esm/utils",
+        "lineNumber": 337,
+        "columnNumber": 32
+      },
+      "hitCount": 3,
+      "positionTicks": [
+        {
+          "line": 355,
+          "ticks": 3
+        }
+      ]
+    },
+    {
+      "id": 69,
+      "callFrame": {
+        "functionName": "ModuleJob",
+        "scriptId": "70",
+        "url": "node:internal/modules/esm/module_job",
+        "lineNumber": 353,
+        "columnNumber": 13
+      },
+      "hitCount": 0,
+      "children": [
+        70
+      ]
+    },
+    {
+      "id": 70,
+      "callFrame": {
+        "functionName": "link",
+        "scriptId": "70",
+        "url": "node:internal/modules/esm/module_job",
+        "lineNumber": 384,
+        "columnNumber": 6
+      },
+      "hitCount": 0,
+      "children": [
+        71
+      ]
+    },
+    {
+      "id": 71,
+      "callFrame": {
+        "functionName": "syncLink",
+        "scriptId": "70",
+        "url": "node:internal/modules/esm/module_job",
+        "lineNumber": 260,
+        "columnNumber": 10
+      },
+      "hitCount": 0,
+      "children": [
+        72
+      ]
+    },
+    {
+      "id": 72,
+      "callFrame": {
+        "functionName": "getOrCreateModuleJob",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 602,
+        "columnNumber": 22
+      },
+      "hitCount": 0,
+      "children": [
+        73,
+        237
+      ]
+    },
+    {
+      "id": 73,
+      "callFrame": {
+        "functionName": "afterResolve",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 612,
+        "columnNumber": 25
+      },
+      "hitCount": 0,
+      "children": [
+        74
+      ]
+    },
+    {
+      "id": 74,
+      "callFrame": {
+        "functionName": "#getOrCreateModuleJobAfterResolve",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 528,
+        "columnNumber": 35
+      },
+      "hitCount": 0,
+      "children": [
+        75,
+        87,
+        230
+      ]
+    },
+    {
+      "id": 75,
+      "callFrame": {
+        "functionName": "loadAndTranslate",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 498,
+        "columnNumber": 18
+      },
+      "hitCount": 0,
+      "children": [
+        76,
+        83
+      ]
+    },
+    {
+      "id": 76,
+      "callFrame": {
+        "functionName": "load",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 784,
+        "columnNumber": 6
+      },
+      "hitCount": 0,
+      "children": [
+        77
+      ]
+    },
+    {
+      "id": 77,
+      "callFrame": {
+        "functionName": "#loadSync",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 820,
+        "columnNumber": 11
+      },
+      "hitCount": 0,
+      "children": [
+        78
+      ]
+    },
+    {
+      "id": 78,
+      "callFrame": {
+        "functionName": "#loadAndMaybeBlockOnLoaderThread",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 802,
+        "columnNumber": 34
+      },
+      "hitCount": 0,
+      "children": [
+        79
+      ]
+    },
+    {
+      "id": 79,
+      "callFrame": {
+        "functionName": "defaultLoadSync",
+        "scriptId": "72",
+        "url": "node:internal/modules/esm/load",
+        "lineNumber": 133,
+        "columnNumber": 24
+      },
+      "hitCount": 0,
+      "children": [
+        80
+      ]
+    },
+    {
+      "id": 80,
+      "callFrame": {
+        "functionName": "getSourceSync",
+        "scriptId": "72",
+        "url": "node:internal/modules/esm/load",
+        "lineNumber": 28,
+        "columnNumber": 22
+      },
+      "hitCount": 0,
+      "children": [
+        81
+      ]
+    },
+    {
+      "id": 81,
+      "callFrame": {
+        "functionName": "readFileSync",
+        "scriptId": "46",
+        "url": "node:fs",
+        "lineNumber": 605,
+        "columnNumber": 21
+      },
+      "hitCount": 0,
+      "children": [
+        82
+      ]
+    },
+    {
+      "id": 82,
+      "callFrame": {
+        "functionName": "openSync",
+        "scriptId": "46",
+        "url": "node:fs",
+        "lineNumber": 770,
+        "columnNumber": 17
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 780,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 83,
+      "callFrame": {
+        "functionName": "afterLoad",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 501,
+        "columnNumber": 22
+      },
+      "hitCount": 0,
+      "children": [
+        84
+      ]
+    },
+    {
+      "id": 84,
+      "callFrame": {
+        "functionName": "#translate",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 431,
+        "columnNumber": 12
+      },
+      "hitCount": 0,
+      "children": [
+        85
+      ]
+    },
+    {
+      "id": 85,
+      "callFrame": {
+        "functionName": "moduleStrategy",
+        "scriptId": "71",
+        "url": "node:internal/modules/esm/translators",
+        "lineNumber": 82,
+        "columnNumber": 49
+      },
+      "hitCount": 0,
+      "children": [
+        86,
+        235
+      ]
+    },
+    {
+      "id": 86,
+      "callFrame": {
+        "functionName": "compileSourceTextModule",
+        "scriptId": "65",
+        "url": "node:internal/modules/esm/utils",
+        "lineNumber": 337,
+        "columnNumber": 32
+      },
+      "hitCount": 2,
+      "positionTicks": [
+        {
+          "line": 355,
+          "ticks": 2
+        }
+      ]
+    },
+    {
+      "id": 235,
+      "callFrame": {
+        "functionName": "stringify",
+        "scriptId": "49",
+        "url": "node:internal/modules/helpers",
+        "lineNumber": 455,
+        "columnNumber": 18
+      },
+      "hitCount": 0,
+      "children": [
+        236
+      ]
+    },
+    {
+      "id": 236,
+      "callFrame": {
+        "functionName": "decode",
+        "scriptId": "79",
+        "url": "node:internal/encoding",
+        "lineNumber": 480,
+        "columnNumber": 8
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 493,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 87,
+      "callFrame": {
+        "functionName": "ModuleJob",
+        "scriptId": "70",
+        "url": "node:internal/modules/esm/module_job",
+        "lineNumber": 353,
+        "columnNumber": 13
+      },
+      "hitCount": 0,
+      "children": [
+        88
+      ]
+    },
+    {
+      "id": 88,
+      "callFrame": {
+        "functionName": "link",
+        "scriptId": "70",
+        "url": "node:internal/modules/esm/module_job",
+        "lineNumber": 384,
+        "columnNumber": 6
+      },
+      "hitCount": 0,
+      "children": [
+        89
+      ]
+    },
+    {
+      "id": 89,
+      "callFrame": {
+        "functionName": "syncLink",
+        "scriptId": "70",
+        "url": "node:internal/modules/esm/module_job",
+        "lineNumber": 260,
+        "columnNumber": 10
+      },
+      "hitCount": 0,
+      "children": [
+        90
+      ]
+    },
+    {
+      "id": 90,
+      "callFrame": {
+        "functionName": "getOrCreateModuleJob",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 602,
+        "columnNumber": 22
+      },
+      "hitCount": 0,
+      "children": [
+        91,
+        206
+      ]
+    },
+    {
+      "id": 91,
+      "callFrame": {
+        "functionName": "afterResolve",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 612,
+        "columnNumber": 25
+      },
+      "hitCount": 0,
+      "children": [
+        92
+      ]
+    },
+    {
+      "id": 92,
+      "callFrame": {
+        "functionName": "#getOrCreateModuleJobAfterResolve",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 528,
+        "columnNumber": 35
+      },
+      "hitCount": 0,
+      "children": [
+        93,
+        104
+      ]
+    },
+    {
+      "id": 93,
+      "callFrame": {
+        "functionName": "loadAndTranslate",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 498,
+        "columnNumber": 18
+      },
+      "hitCount": 0,
+      "children": [
+        94,
+        219
+      ]
+    },
+    {
+      "id": 94,
+      "callFrame": {
+        "functionName": "load",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 784,
+        "columnNumber": 6
+      },
+      "hitCount": 0,
+      "children": [
+        95
+      ]
+    },
+    {
+      "id": 95,
+      "callFrame": {
+        "functionName": "#loadSync",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 820,
+        "columnNumber": 11
+      },
+      "hitCount": 0,
+      "children": [
+        96
+      ]
+    },
+    {
+      "id": 96,
+      "callFrame": {
+        "functionName": "#loadAndMaybeBlockOnLoaderThread",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 802,
+        "columnNumber": 34
+      },
+      "hitCount": 0,
+      "children": [
+        97
+      ]
+    },
+    {
+      "id": 97,
+      "callFrame": {
+        "functionName": "defaultLoadSync",
+        "scriptId": "72",
+        "url": "node:internal/modules/esm/load",
+        "lineNumber": 133,
+        "columnNumber": 24
+      },
+      "hitCount": 0,
+      "children": [
+        98
+      ]
+    },
+    {
+      "id": 98,
+      "callFrame": {
+        "functionName": "getSourceSync",
+        "scriptId": "72",
+        "url": "node:internal/modules/esm/load",
+        "lineNumber": 28,
+        "columnNumber": 22
+      },
+      "hitCount": 0,
+      "children": [
+        99
+      ]
+    },
+    {
+      "id": 99,
+      "callFrame": {
+        "functionName": "readFileSync",
+        "scriptId": "46",
+        "url": "node:fs",
+        "lineNumber": 605,
+        "columnNumber": 21
+      },
+      "hitCount": 0,
+      "children": [
+        100,
+        231
+      ]
+    },
+    {
+      "id": 100,
+      "callFrame": {
+        "functionName": "tryCreateBuffer",
+        "scriptId": "46",
+        "url": "node:fs",
+        "lineNumber": 527,
+        "columnNumber": 24
+      },
+      "hitCount": 0,
+      "children": [
+        101
+      ]
+    },
+    {
+      "id": 101,
+      "callFrame": {
+        "functionName": "allocUnsafe",
+        "scriptId": "25",
+        "url": "node:buffer",
+        "lineNumber": 468,
+        "columnNumber": 41
+      },
+      "hitCount": 0,
+      "children": [
+        102
+      ]
+    },
+    {
+      "id": 102,
+      "callFrame": {
+        "functionName": "allocate",
+        "scriptId": "25",
+        "url": "node:buffer",
+        "lineNumber": 513,
+        "columnNumber": 17
+      },
+      "hitCount": 0,
+      "children": [
+        103
+      ]
+    },
+    {
+      "id": 103,
+      "callFrame": {
+        "functionName": "FastBuffer",
+        "scriptId": "26",
+        "url": "node:internal/buffer",
+        "lineNumber": 960,
+        "columnNumber": 0
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 961,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 231,
+      "callFrame": {
+        "functionName": "openSync",
+        "scriptId": "46",
+        "url": "node:fs",
+        "lineNumber": 770,
+        "columnNumber": 17
+      },
+      "hitCount": 0,
+      "children": [
+        232
+      ]
+    },
+    {
+      "id": 232,
+      "callFrame": {
+        "functionName": "open",
+        "scriptId": "0",
+        "url": "",
+        "lineNumber": -1,
+        "columnNumber": -1
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 779,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 219,
+      "callFrame": {
+        "functionName": "afterLoad",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 501,
+        "columnNumber": 22
+      },
+      "hitCount": 0,
+      "children": [
+        220
+      ]
+    },
+    {
+      "id": 220,
+      "callFrame": {
+        "functionName": "#translate",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 431,
+        "columnNumber": 12
+      },
+      "hitCount": 0,
+      "children": [
+        221
+      ]
+    },
+    {
+      "id": 221,
+      "callFrame": {
+        "functionName": "moduleStrategy",
+        "scriptId": "71",
+        "url": "node:internal/modules/esm/translators",
+        "lineNumber": 82,
+        "columnNumber": 49
+      },
+      "hitCount": 0,
+      "children": [
+        222
+      ]
+    },
+    {
+      "id": 222,
+      "callFrame": {
+        "functionName": "compileSourceTextModule",
+        "scriptId": "65",
+        "url": "node:internal/modules/esm/utils",
+        "lineNumber": 337,
+        "columnNumber": 32
+      },
+      "hitCount": 2,
+      "positionTicks": [
+        {
+          "line": 355,
+          "ticks": 2
+        }
+      ]
+    },
+    {
+      "id": 104,
+      "callFrame": {
+        "functionName": "ModuleJob",
+        "scriptId": "70",
+        "url": "node:internal/modules/esm/module_job",
+        "lineNumber": 353,
+        "columnNumber": 13
+      },
+      "hitCount": 0,
+      "children": [
+        105
+      ]
+    },
+    {
+      "id": 105,
+      "callFrame": {
+        "functionName": "link",
+        "scriptId": "70",
+        "url": "node:internal/modules/esm/module_job",
+        "lineNumber": 384,
+        "columnNumber": 6
+      },
+      "hitCount": 0,
+      "children": [
+        106
+      ]
+    },
+    {
+      "id": 106,
+      "callFrame": {
+        "functionName": "syncLink",
+        "scriptId": "70",
+        "url": "node:internal/modules/esm/module_job",
+        "lineNumber": 260,
+        "columnNumber": 10
+      },
+      "hitCount": 0,
+      "children": [
+        107
+      ]
+    },
+    {
+      "id": 107,
+      "callFrame": {
+        "functionName": "getOrCreateModuleJob",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 602,
+        "columnNumber": 22
+      },
+      "hitCount": 0,
+      "children": [
+        108,
+        185
+      ]
+    },
+    {
+      "id": 108,
+      "callFrame": {
+        "functionName": "afterResolve",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 612,
+        "columnNumber": 25
+      },
+      "hitCount": 0,
+      "children": [
+        109
+      ]
+    },
+    {
+      "id": 109,
+      "callFrame": {
+        "functionName": "#getOrCreateModuleJobAfterResolve",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 528,
+        "columnNumber": 35
+      },
+      "hitCount": 0,
+      "children": [
+        110,
+        115
+      ]
+    },
+    {
+      "id": 110,
+      "callFrame": {
+        "functionName": "loadAndTranslate",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 498,
+        "columnNumber": 18
+      },
+      "hitCount": 0,
+      "children": [
+        111
+      ]
+    },
+    {
+      "id": 111,
+      "callFrame": {
+        "functionName": "afterLoad",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 501,
+        "columnNumber": 22
+      },
+      "hitCount": 0,
+      "children": [
+        112
+      ]
+    },
+    {
+      "id": 112,
+      "callFrame": {
+        "functionName": "#translate",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 431,
+        "columnNumber": 12
+      },
+      "hitCount": 0,
+      "children": [
+        113
+      ]
+    },
+    {
+      "id": 113,
+      "callFrame": {
+        "functionName": "moduleStrategy",
+        "scriptId": "71",
+        "url": "node:internal/modules/esm/translators",
+        "lineNumber": 82,
+        "columnNumber": 49
+      },
+      "hitCount": 0,
+      "children": [
+        114,
+        214
+      ]
+    },
+    {
+      "id": 114,
+      "callFrame": {
+        "functionName": "stringify",
+        "scriptId": "49",
+        "url": "node:internal/modules/helpers",
+        "lineNumber": 455,
+        "columnNumber": 18
+      },
+      "hitCount": 1,
+      "children": [
+        198
+      ],
+      "positionTicks": [
+        {
+          "line": 461,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 198,
+      "callFrame": {
+        "functionName": "decode",
+        "scriptId": "79",
+        "url": "node:internal/encoding",
+        "lineNumber": 480,
+        "columnNumber": 8
+      },
+      "hitCount": 0,
+      "children": [
+        199
+      ]
+    },
+    {
+      "id": 199,
+      "callFrame": {
+        "functionName": "decodeUTF8",
+        "scriptId": "0",
+        "url": "",
+        "lineNumber": -1,
+        "columnNumber": -1
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 493,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 214,
+      "callFrame": {
+        "functionName": "compileSourceTextModule",
+        "scriptId": "65",
+        "url": "node:internal/modules/esm/utils",
+        "lineNumber": 337,
+        "columnNumber": 32
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 355,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 115,
+      "callFrame": {
+        "functionName": "ModuleJob",
+        "scriptId": "70",
+        "url": "node:internal/modules/esm/module_job",
+        "lineNumber": 353,
+        "columnNumber": 13
+      },
+      "hitCount": 0,
+      "children": [
+        116
+      ]
+    },
+    {
+      "id": 116,
+      "callFrame": {
+        "functionName": "link",
+        "scriptId": "70",
+        "url": "node:internal/modules/esm/module_job",
+        "lineNumber": 384,
+        "columnNumber": 6
+      },
+      "hitCount": 0,
+      "children": [
+        117
+      ]
+    },
+    {
+      "id": 117,
+      "callFrame": {
+        "functionName": "syncLink",
+        "scriptId": "70",
+        "url": "node:internal/modules/esm/module_job",
+        "lineNumber": 260,
+        "columnNumber": 10
+      },
+      "hitCount": 0,
+      "children": [
+        118
+      ]
+    },
+    {
+      "id": 118,
+      "callFrame": {
+        "functionName": "getOrCreateModuleJob",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 602,
+        "columnNumber": 22
+      },
+      "hitCount": 0,
+      "children": [
+        119,
+        134
+      ]
+    },
+    {
+      "id": 119,
+      "callFrame": {
+        "functionName": "#resolve",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 681,
+        "columnNumber": 10
+      },
+      "hitCount": 0,
+      "children": [
+        120
+      ]
+    },
+    {
+      "id": 120,
+      "callFrame": {
+        "functionName": "resolveSync",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 743,
+        "columnNumber": 13
+      },
+      "hitCount": 0,
+      "children": [
+        121
+      ]
+    },
+    {
+      "id": 121,
+      "callFrame": {
+        "functionName": "#resolveAndMaybeBlockOnLoaderThread",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 722,
+        "columnNumber": 37
+      },
+      "hitCount": 0,
+      "children": [
+        122
+      ]
+    },
+    {
+      "id": 122,
+      "callFrame": {
+        "functionName": "#cachedDefaultResolve",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 699,
+        "columnNumber": 23
+      },
+      "hitCount": 0,
+      "children": [
+        123
+      ]
+    },
+    {
+      "id": 123,
+      "callFrame": {
+        "functionName": "defaultResolve",
+        "scriptId": "74",
+        "url": "node:internal/modules/esm/resolve",
+        "lineNumber": 960,
+        "columnNumber": 23
+      },
+      "hitCount": 0,
+      "children": [
+        124
+      ]
+    },
+    {
+      "id": 124,
+      "callFrame": {
+        "functionName": "moduleResolve",
+        "scriptId": "74",
+        "url": "node:internal/modules/esm/resolve",
+        "lineNumber": 844,
+        "columnNumber": 22
+      },
+      "hitCount": 0,
+      "children": [
+        125,
+        200
+      ]
+    },
+    {
+      "id": 125,
+      "callFrame": {
+        "functionName": "packageResolve",
+        "scriptId": "74",
+        "url": "node:internal/modules/esm/resolve",
+        "lineNumber": 761,
+        "columnNumber": 23
+      },
+      "hitCount": 0,
+      "children": [
+        126,
+        128
+      ]
+    },
+    {
+      "id": 126,
+      "callFrame": {
+        "functionName": "getPackageJSONURL",
+        "scriptId": "63",
+        "url": "node:internal/modules/package_json_reader",
+        "lineNumber": 296,
+        "columnNumber": 26
+      },
+      "hitCount": 0,
+      "children": [
+        127
+      ]
+    },
+    {
+      "id": 127,
+      "callFrame": {
+        "functionName": "internalModuleStat",
+        "scriptId": "0",
+        "url": "",
+        "lineNumber": -1,
+        "columnNumber": -1
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 314,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 128,
+      "callFrame": {
+        "functionName": "packageExportsResolve",
+        "scriptId": "74",
+        "url": "node:internal/modules/esm/resolve",
+        "lineNumber": 588,
+        "columnNumber": 30
+      },
+      "hitCount": 0,
+      "children": [
+        129
+      ]
+    },
+    {
+      "id": 129,
+      "callFrame": {
+        "functionName": "resolvePackageTarget",
+        "scriptId": "74",
+        "url": "node:internal/modules/esm/resolve",
+        "lineNumber": 481,
+        "columnNumber": 29
+      },
+      "hitCount": 0,
+      "children": [
+        130
+      ]
+    },
+    {
+      "id": 130,
+      "callFrame": {
+        "functionName": "resolvePackageTarget",
+        "scriptId": "74",
+        "url": "node:internal/modules/esm/resolve",
+        "lineNumber": 481,
+        "columnNumber": 29
+      },
+      "hitCount": 0,
+      "children": [
+        131
+      ]
+    },
+    {
+      "id": 131,
+      "callFrame": {
+        "functionName": "resolvePackageTarget",
+        "scriptId": "74",
+        "url": "node:internal/modules/esm/resolve",
+        "lineNumber": 481,
+        "columnNumber": 29
+      },
+      "hitCount": 0,
+      "children": [
+        132
+      ]
+    },
+    {
+      "id": 132,
+      "callFrame": {
+        "functionName": "resolvePackageTarget",
+        "scriptId": "74",
+        "url": "node:internal/modules/esm/resolve",
+        "lineNumber": 481,
+        "columnNumber": 29
+      },
+      "hitCount": 0,
+      "children": [
+        133
+      ]
+    },
+    {
+      "id": 133,
+      "callFrame": {
+        "functionName": "resolvePackageTargetString",
+        "scriptId": "74",
+        "url": "node:internal/modules/esm/resolve",
+        "lineNumber": 376,
+        "columnNumber": 35
+      },
+      "hitCount": 2,
+      "positionTicks": [
+        {
+          "line": 409,
+          "ticks": 2
+        }
+      ]
+    },
+    {
+      "id": 200,
+      "callFrame": {
+        "functionName": "finalizeResolution",
+        "scriptId": "74",
+        "url": "node:internal/modules/esm/resolve",
+        "lineNumber": 225,
+        "columnNumber": 27
+      },
+      "hitCount": 0,
+      "children": [
+        201
+      ]
+    },
+    {
+      "id": 201,
+      "callFrame": {
+        "functionName": "internalModuleStat",
+        "scriptId": "0",
+        "url": "",
+        "lineNumber": -1,
+        "columnNumber": -1
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 248,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 134,
+      "callFrame": {
+        "functionName": "afterResolve",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 612,
+        "columnNumber": 25
+      },
+      "hitCount": 0,
+      "children": [
+        135
+      ]
+    },
+    {
+      "id": 135,
+      "callFrame": {
+        "functionName": "#getOrCreateModuleJobAfterResolve",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 528,
+        "columnNumber": 35
+      },
+      "hitCount": 0,
+      "children": [
+        136,
+        149
+      ]
+    },
+    {
+      "id": 136,
+      "callFrame": {
+        "functionName": "loadAndTranslate",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 498,
+        "columnNumber": 18
+      },
+      "hitCount": 0,
+      "children": [
+        137,
+        145
+      ]
+    },
+    {
+      "id": 137,
+      "callFrame": {
+        "functionName": "load",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 784,
+        "columnNumber": 6
+      },
+      "hitCount": 0,
+      "children": [
+        138
+      ]
+    },
+    {
+      "id": 138,
+      "callFrame": {
+        "functionName": "#loadSync",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 820,
+        "columnNumber": 11
+      },
+      "hitCount": 0,
+      "children": [
+        139
+      ]
+    },
+    {
+      "id": 139,
+      "callFrame": {
+        "functionName": "#loadAndMaybeBlockOnLoaderThread",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 802,
+        "columnNumber": 34
+      },
+      "hitCount": 0,
+      "children": [
+        140
+      ]
+    },
+    {
+      "id": 140,
+      "callFrame": {
+        "functionName": "defaultLoadSync",
+        "scriptId": "72",
+        "url": "node:internal/modules/esm/load",
+        "lineNumber": 133,
+        "columnNumber": 24
+      },
+      "hitCount": 0,
+      "children": [
+        141
+      ]
+    },
+    {
+      "id": 141,
+      "callFrame": {
+        "functionName": "getSourceSync",
+        "scriptId": "72",
+        "url": "node:internal/modules/esm/load",
+        "lineNumber": 28,
+        "columnNumber": 22
+      },
+      "hitCount": 0,
+      "children": [
+        142
+      ]
+    },
+    {
+      "id": 142,
+      "callFrame": {
+        "functionName": "readFileSync",
+        "scriptId": "46",
+        "url": "node:fs",
+        "lineNumber": 605,
+        "columnNumber": 21
+      },
+      "hitCount": 0,
+      "children": [
+        143
+      ]
+    },
+    {
+      "id": 143,
+      "callFrame": {
+        "functionName": "openSync",
+        "scriptId": "46",
+        "url": "node:fs",
+        "lineNumber": 770,
+        "columnNumber": 17
+      },
+      "hitCount": 0,
+      "children": [
+        144
+      ]
+    },
+    {
+      "id": 144,
+      "callFrame": {
+        "functionName": "open",
+        "scriptId": "0",
+        "url": "",
+        "lineNumber": -1,
+        "columnNumber": -1
+      },
+      "hitCount": 2,
+      "positionTicks": [
+        {
+          "line": 780,
+          "ticks": 2
+        }
+      ]
+    },
+    {
+      "id": 145,
+      "callFrame": {
+        "functionName": "afterLoad",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 501,
+        "columnNumber": 22
+      },
+      "hitCount": 0,
+      "children": [
+        146
+      ]
+    },
+    {
+      "id": 146,
+      "callFrame": {
+        "functionName": "#translate",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 431,
+        "columnNumber": 12
+      },
+      "hitCount": 0,
+      "children": [
+        147
+      ]
+    },
+    {
+      "id": 147,
+      "callFrame": {
+        "functionName": "moduleStrategy",
+        "scriptId": "71",
+        "url": "node:internal/modules/esm/translators",
+        "lineNumber": 82,
+        "columnNumber": 49
+      },
+      "hitCount": 0,
+      "children": [
+        148
+      ]
+    },
+    {
+      "id": 148,
+      "callFrame": {
+        "functionName": "compileSourceTextModule",
+        "scriptId": "65",
+        "url": "node:internal/modules/esm/utils",
+        "lineNumber": 337,
+        "columnNumber": 32
+      },
+      "hitCount": 13,
+      "positionTicks": [
+        {
+          "line": 355,
+          "ticks": 13
+        }
+      ]
+    },
+    {
+      "id": 149,
+      "callFrame": {
+        "functionName": "ModuleJob",
+        "scriptId": "70",
+        "url": "node:internal/modules/esm/module_job",
+        "lineNumber": 353,
+        "columnNumber": 13
+      },
+      "hitCount": 0,
+      "children": [
+        150
+      ]
+    },
+    {
+      "id": 150,
+      "callFrame": {
+        "functionName": "link",
+        "scriptId": "70",
+        "url": "node:internal/modules/esm/module_job",
+        "lineNumber": 384,
+        "columnNumber": 6
+      },
+      "hitCount": 0,
+      "children": [
+        151
+      ]
+    },
+    {
+      "id": 151,
+      "callFrame": {
+        "functionName": "syncLink",
+        "scriptId": "70",
+        "url": "node:internal/modules/esm/module_job",
+        "lineNumber": 260,
+        "columnNumber": 10
+      },
+      "hitCount": 0,
+      "children": [
+        152
+      ]
+    },
+    {
+      "id": 152,
+      "callFrame": {
+        "functionName": "getOrCreateModuleJob",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 602,
+        "columnNumber": 22
+      },
+      "hitCount": 0,
+      "children": [
+        153,
+        163
+      ]
+    },
+    {
+      "id": 153,
+      "callFrame": {
+        "functionName": "#resolve",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 681,
+        "columnNumber": 10
+      },
+      "hitCount": 0,
+      "children": [
+        154
+      ]
+    },
+    {
+      "id": 154,
+      "callFrame": {
+        "functionName": "resolveSync",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 743,
+        "columnNumber": 13
+      },
+      "hitCount": 0,
+      "children": [
+        155
+      ]
+    },
+    {
+      "id": 155,
+      "callFrame": {
+        "functionName": "#resolveAndMaybeBlockOnLoaderThread",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 722,
+        "columnNumber": 37
+      },
+      "hitCount": 0,
+      "children": [
+        156
+      ]
+    },
+    {
+      "id": 156,
+      "callFrame": {
+        "functionName": "#cachedDefaultResolve",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 699,
+        "columnNumber": 23
+      },
+      "hitCount": 0,
+      "children": [
+        157
+      ]
+    },
+    {
+      "id": 157,
+      "callFrame": {
+        "functionName": "defaultResolve",
+        "scriptId": "74",
+        "url": "node:internal/modules/esm/resolve",
+        "lineNumber": 960,
+        "columnNumber": 23
+      },
+      "hitCount": 0,
+      "children": [
+        158
+      ]
+    },
+    {
+      "id": 158,
+      "callFrame": {
+        "functionName": "moduleResolve",
+        "scriptId": "74",
+        "url": "node:internal/modules/esm/resolve",
+        "lineNumber": 844,
+        "columnNumber": 22
+      },
+      "hitCount": 0,
+      "children": [
+        159,
+        182
+      ]
+    },
+    {
+      "id": 159,
+      "callFrame": {
+        "functionName": "packageResolve",
+        "scriptId": "74",
+        "url": "node:internal/modules/esm/resolve",
+        "lineNumber": 761,
+        "columnNumber": 23
+      },
+      "hitCount": 0,
+      "children": [
+        160
+      ]
+    },
+    {
+      "id": 160,
+      "callFrame": {
+        "functionName": "legacyMainResolve",
+        "scriptId": "74",
+        "url": "node:internal/modules/esm/resolve",
+        "lineNumber": 195,
+        "columnNumber": 26
+      },
+      "hitCount": 0,
+      "children": [
+        161
+      ]
+    },
+    {
+      "id": 161,
+      "callFrame": {
+        "functionName": "URL",
+        "scriptId": "40",
+        "url": "node:internal/url",
+        "lineNumber": 882,
+        "columnNumber": 13
+      },
+      "hitCount": 0,
+      "children": [
+        162
+      ]
+    },
+    {
+      "id": 162,
+      "callFrame": {
+        "functionName": "parse",
+        "scriptId": "0",
+        "url": "",
+        "lineNumber": -1,
+        "columnNumber": -1
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 899,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 182,
+      "callFrame": {
+        "functionName": "finalizeResolution",
+        "scriptId": "74",
+        "url": "node:internal/modules/esm/resolve",
+        "lineNumber": 225,
+        "columnNumber": 27
+      },
+      "hitCount": 0,
+      "children": [
+        183
+      ]
+    },
+    {
+      "id": 183,
+      "callFrame": {
+        "functionName": "realpathSync",
+        "scriptId": "46",
+        "url": "node:fs",
+        "lineNumber": 3326,
+        "columnNumber": 21
+      },
+      "hitCount": 0,
+      "children": [
+        184
+      ]
+    },
+    {
+      "id": 184,
+      "callFrame": {
+        "functionName": "lstat",
+        "scriptId": "0",
+        "url": "",
+        "lineNumber": -1,
+        "columnNumber": -1
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 3413,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 163,
+      "callFrame": {
+        "functionName": "afterResolve",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 612,
+        "columnNumber": 25
+      },
+      "hitCount": 0,
+      "children": [
+        164
+      ]
+    },
+    {
+      "id": 164,
+      "callFrame": {
+        "functionName": "#getOrCreateModuleJobAfterResolve",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 528,
+        "columnNumber": 35
+      },
+      "hitCount": 0,
+      "children": [
+        165,
+        179
+      ]
+    },
+    {
+      "id": 165,
+      "callFrame": {
+        "functionName": "loadAndTranslate",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 498,
+        "columnNumber": 18
+      },
+      "hitCount": 0,
+      "children": [
+        166,
+        173
+      ]
+    },
+    {
+      "id": 166,
+      "callFrame": {
+        "functionName": "load",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 784,
+        "columnNumber": 6
+      },
+      "hitCount": 0,
+      "children": [
+        167
+      ]
+    },
+    {
+      "id": 167,
+      "callFrame": {
+        "functionName": "#loadSync",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 820,
+        "columnNumber": 11
+      },
+      "hitCount": 0,
+      "children": [
+        168
+      ]
+    },
+    {
+      "id": 168,
+      "callFrame": {
+        "functionName": "#loadAndMaybeBlockOnLoaderThread",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 802,
+        "columnNumber": 34
+      },
+      "hitCount": 0,
+      "children": [
+        169
+      ]
+    },
+    {
+      "id": 169,
+      "callFrame": {
+        "functionName": "defaultLoadSync",
+        "scriptId": "72",
+        "url": "node:internal/modules/esm/load",
+        "lineNumber": 133,
+        "columnNumber": 24
+      },
+      "hitCount": 0,
+      "children": [
+        170,
+        202
+      ]
+    },
+    {
+      "id": 170,
+      "callFrame": {
+        "functionName": "defaultGetFormat",
+        "scriptId": "73",
+        "url": "node:internal/modules/esm/get_format",
+        "lineNumber": 273,
+        "columnNumber": 25
+      },
+      "hitCount": 0,
+      "children": [
+        171
+      ]
+    },
+    {
+      "id": 171,
+      "callFrame": {
+        "functionName": "getFileProtocolModuleFormat",
+        "scriptId": "73",
+        "url": "node:internal/modules/esm/get_format",
+        "lineNumber": 170,
+        "columnNumber": 36
+      },
+      "hitCount": 0,
+      "children": [
+        172
+      ]
+    },
+    {
+      "id": 172,
+      "callFrame": {
+        "functionName": "detectModuleFormat",
+        "scriptId": "73",
+        "url": "node:internal/modules/esm/get_format",
+        "lineNumber": 93,
+        "columnNumber": 27
+      },
+      "hitCount": 3,
+      "positionTicks": [
+        {
+          "line": 98,
+          "ticks": 2
+        },
+        {
+          "line": 98,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 202,
+      "callFrame": {
+        "functionName": "getSourceSync",
+        "scriptId": "72",
+        "url": "node:internal/modules/esm/load",
+        "lineNumber": 28,
+        "columnNumber": 22
+      },
+      "hitCount": 0,
+      "children": [
+        203
+      ]
+    },
+    {
+      "id": 203,
+      "callFrame": {
+        "functionName": "readFileSync",
+        "scriptId": "46",
+        "url": "node:fs",
+        "lineNumber": 605,
+        "columnNumber": 21
+      },
+      "hitCount": 0,
+      "children": [
+        204
+      ]
+    },
+    {
+      "id": 204,
+      "callFrame": {
+        "functionName": "openSync",
+        "scriptId": "46",
+        "url": "node:fs",
+        "lineNumber": 770,
+        "columnNumber": 17
+      },
+      "hitCount": 0,
+      "children": [
+        205
+      ]
+    },
+    {
+      "id": 205,
+      "callFrame": {
+        "functionName": "open",
+        "scriptId": "0",
+        "url": "",
+        "lineNumber": -1,
+        "columnNumber": -1
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 779,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 173,
+      "callFrame": {
+        "functionName": "afterLoad",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 501,
+        "columnNumber": 22
+      },
+      "hitCount": 0,
+      "children": [
+        174
+      ]
+    },
+    {
+      "id": 174,
+      "callFrame": {
+        "functionName": "#translate",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 431,
+        "columnNumber": 12
+      },
+      "hitCount": 0,
+      "children": [
+        175,
+        180
+      ]
+    },
+    {
+      "id": 175,
+      "callFrame": {
+        "functionName": "commonjsStrategy",
+        "scriptId": "71",
+        "url": "node:internal/modules/esm/translators",
+        "lineNumber": 390,
+        "columnNumber": 53
+      },
+      "hitCount": 0,
+      "children": [
+        176
+      ]
+    },
+    {
+      "id": 176,
+      "callFrame": {
+        "functionName": "createCJSModuleWrap",
+        "scriptId": "71",
+        "url": "node:internal/modules/esm/translators",
+        "lineNumber": 206,
+        "columnNumber": 28
+      },
+      "hitCount": 0,
+      "children": [
+        177
+      ]
+    },
+    {
+      "id": 177,
+      "callFrame": {
+        "functionName": "cjsPreparseModuleExports",
+        "scriptId": "71",
+        "url": "node:internal/modules/esm/translators",
+        "lineNumber": 423,
+        "columnNumber": 33
+      },
+      "hitCount": 0,
+      "children": [
+        178
+      ]
+    },
+    {
+      "id": 178,
+      "callFrame": {
+        "functionName": "parse",
+        "scriptId": "0",
+        "url": "",
+        "lineNumber": -1,
+        "columnNumber": -1
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 436,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 180,
+      "callFrame": {
+        "functionName": "moduleStrategy",
+        "scriptId": "71",
+        "url": "node:internal/modules/esm/translators",
+        "lineNumber": 82,
+        "columnNumber": 49
+      },
+      "hitCount": 0,
+      "children": [
+        181
+      ]
+    },
+    {
+      "id": 181,
+      "callFrame": {
+        "functionName": "compileSourceTextModule",
+        "scriptId": "65",
+        "url": "node:internal/modules/esm/utils",
+        "lineNumber": 337,
+        "columnNumber": 32
+      },
+      "hitCount": 10,
+      "positionTicks": [
+        {
+          "line": 355,
+          "ticks": 10
+        }
+      ]
+    },
+    {
+      "id": 179,
+      "callFrame": {
+        "functionName": "get",
+        "scriptId": "68",
+        "url": "node:internal/modules/esm/module_map",
+        "lineNumber": 93,
+        "columnNumber": 5
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 94,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 185,
+      "callFrame": {
+        "functionName": "#resolve",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 681,
+        "columnNumber": 10
+      },
+      "hitCount": 0,
+      "children": [
+        186
+      ]
+    },
+    {
+      "id": 186,
+      "callFrame": {
+        "functionName": "resolveSync",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 743,
+        "columnNumber": 13
+      },
+      "hitCount": 0,
+      "children": [
+        187
+      ]
+    },
+    {
+      "id": 187,
+      "callFrame": {
+        "functionName": "#resolveAndMaybeBlockOnLoaderThread",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 722,
+        "columnNumber": 37
+      },
+      "hitCount": 0,
+      "children": [
+        188
+      ]
+    },
+    {
+      "id": 188,
+      "callFrame": {
+        "functionName": "#cachedDefaultResolve",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 699,
+        "columnNumber": 23
+      },
+      "hitCount": 0,
+      "children": [
+        189
+      ]
+    },
+    {
+      "id": 189,
+      "callFrame": {
+        "functionName": "defaultResolve",
+        "scriptId": "74",
+        "url": "node:internal/modules/esm/resolve",
+        "lineNumber": 960,
+        "columnNumber": 23
+      },
+      "hitCount": 0,
+      "children": [
+        190,
+        226
+      ]
+    },
+    {
+      "id": 190,
+      "callFrame": {
+        "functionName": "moduleResolve",
+        "scriptId": "74",
+        "url": "node:internal/modules/esm/resolve",
+        "lineNumber": 844,
+        "columnNumber": 22
+      },
+      "hitCount": 0,
+      "children": [
+        191,
+        215
+      ]
+    },
+    {
+      "id": 191,
+      "callFrame": {
+        "functionName": "packageResolve",
+        "scriptId": "74",
+        "url": "node:internal/modules/esm/resolve",
+        "lineNumber": 761,
+        "columnNumber": 23
+      },
+      "hitCount": 0,
+      "children": [
+        192,
+        223
+      ]
+    },
+    {
+      "id": 192,
+      "callFrame": {
+        "functionName": "packageExportsResolve",
+        "scriptId": "74",
+        "url": "node:internal/modules/esm/resolve",
+        "lineNumber": 588,
+        "columnNumber": 30
+      },
+      "hitCount": 0,
+      "children": [
+        193
+      ]
+    },
+    {
+      "id": 193,
+      "callFrame": {
+        "functionName": "resolvePackageTarget",
+        "scriptId": "74",
+        "url": "node:internal/modules/esm/resolve",
+        "lineNumber": 481,
+        "columnNumber": 29
+      },
+      "hitCount": 0,
+      "children": [
+        194
+      ]
+    },
+    {
+      "id": 194,
+      "callFrame": {
+        "functionName": "resolvePackageTarget",
+        "scriptId": "74",
+        "url": "node:internal/modules/esm/resolve",
+        "lineNumber": 481,
+        "columnNumber": 29
+      },
+      "hitCount": 0,
+      "children": [
+        195
+      ]
+    },
+    {
+      "id": 195,
+      "callFrame": {
+        "functionName": "resolvePackageTarget",
+        "scriptId": "74",
+        "url": "node:internal/modules/esm/resolve",
+        "lineNumber": 481,
+        "columnNumber": 29
+      },
+      "hitCount": 0,
+      "children": [
+        196
+      ]
+    },
+    {
+      "id": 196,
+      "callFrame": {
+        "functionName": "resolvePackageTarget",
+        "scriptId": "74",
+        "url": "node:internal/modules/esm/resolve",
+        "lineNumber": 481,
+        "columnNumber": 29
+      },
+      "hitCount": 0,
+      "children": [
+        197
+      ]
+    },
+    {
+      "id": 197,
+      "callFrame": {
+        "functionName": "resolvePackageTargetString",
+        "scriptId": "74",
+        "url": "node:internal/modules/esm/resolve",
+        "lineNumber": 376,
+        "columnNumber": 35
+      },
+      "hitCount": 2,
+      "positionTicks": [
+        {
+          "line": 409,
+          "ticks": 2
+        }
+      ]
+    },
+    {
+      "id": 223,
+      "callFrame": {
+        "functionName": "getPackageJSONURL",
+        "scriptId": "63",
+        "url": "node:internal/modules/package_json_reader",
+        "lineNumber": 296,
+        "columnNumber": 26
+      },
+      "hitCount": 0,
+      "children": [
+        224
+      ]
+    },
+    {
+      "id": 224,
+      "callFrame": {
+        "functionName": "URL",
+        "scriptId": "40",
+        "url": "node:internal/url",
+        "lineNumber": 882,
+        "columnNumber": 13
+      },
+      "hitCount": 0,
+      "children": [
+        225
+      ]
+    },
+    {
+      "id": 225,
+      "callFrame": {
+        "functionName": "parse",
+        "scriptId": "0",
+        "url": "",
+        "lineNumber": -1,
+        "columnNumber": -1
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 899,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 215,
+      "callFrame": {
+        "functionName": "finalizeResolution",
+        "scriptId": "74",
+        "url": "node:internal/modules/esm/resolve",
+        "lineNumber": 225,
+        "columnNumber": 27
+      },
+      "hitCount": 0,
+      "children": [
+        216
+      ]
+    },
+    {
+      "id": 216,
+      "callFrame": {
+        "functionName": "pathToFileURL",
+        "scriptId": "40",
+        "url": "node:internal/url",
+        "lineNumber": 1672,
+        "columnNumber": 22
+      },
+      "hitCount": 0,
+      "children": [
+        217
+      ]
+    },
+    {
+      "id": 217,
+      "callFrame": {
+        "functionName": "resolve",
+        "scriptId": "39",
+        "url": "node:path",
+        "lineNumber": 1244,
+        "columnNumber": 9
+      },
+      "hitCount": 0,
+      "children": [
+        218
+      ]
+    },
+    {
+      "id": 218,
+      "callFrame": {
+        "functionName": "normalizeString",
+        "scriptId": "39",
+        "url": "node:path",
+        "lineNumber": 91,
+        "columnNumber": 24
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 100,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 226,
+      "callFrame": {
+        "functionName": "defaultGetFormatWithoutErrors",
+        "scriptId": "73",
+        "url": "node:internal/modules/esm/get_format",
+        "lineNumber": 256,
+        "columnNumber": 38
+      },
+      "hitCount": 0,
+      "children": [
+        227
+      ]
+    },
+    {
+      "id": 227,
+      "callFrame": {
+        "functionName": "getFileProtocolModuleFormat",
+        "scriptId": "73",
+        "url": "node:internal/modules/esm/get_format",
+        "lineNumber": 170,
+        "columnNumber": 36
+      },
+      "hitCount": 0,
+      "children": [
+        228
+      ]
+    },
+    {
+      "id": 228,
+      "callFrame": {
+        "functionName": "getPackageScopeConfig",
+        "scriptId": "63",
+        "url": "node:internal/modules/package_json_reader",
+        "lineNumber": 221,
+        "columnNumber": 30
+      },
+      "hitCount": 0,
+      "children": [
+        229
+      ]
+    },
+    {
+      "id": 229,
+      "callFrame": {
+        "functionName": "get",
+        "scriptId": "63",
+        "url": "node:internal/modules/package_json_reader",
+        "lineNumber": 79,
+        "columnNumber": 9
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 81,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 206,
+      "callFrame": {
+        "functionName": "#resolve",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 681,
+        "columnNumber": 10
+      },
+      "hitCount": 0,
+      "children": [
+        207
+      ]
+    },
+    {
+      "id": 207,
+      "callFrame": {
+        "functionName": "resolveSync",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 743,
+        "columnNumber": 13
+      },
+      "hitCount": 0,
+      "children": [
+        208
+      ]
+    },
+    {
+      "id": 208,
+      "callFrame": {
+        "functionName": "#resolveAndMaybeBlockOnLoaderThread",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 722,
+        "columnNumber": 37
+      },
+      "hitCount": 0,
+      "children": [
+        209
+      ]
+    },
+    {
+      "id": 209,
+      "callFrame": {
+        "functionName": "#cachedDefaultResolve",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 699,
+        "columnNumber": 23
+      },
+      "hitCount": 0,
+      "children": [
+        210
+      ]
+    },
+    {
+      "id": 210,
+      "callFrame": {
+        "functionName": "defaultResolve",
+        "scriptId": "74",
+        "url": "node:internal/modules/esm/resolve",
+        "lineNumber": 960,
+        "columnNumber": 23
+      },
+      "hitCount": 0,
+      "children": [
+        211,
+        246
+      ]
+    },
+    {
+      "id": 211,
+      "callFrame": {
+        "functionName": "moduleResolve",
+        "scriptId": "74",
+        "url": "node:internal/modules/esm/resolve",
+        "lineNumber": 844,
+        "columnNumber": 22
+      },
+      "hitCount": 0,
+      "children": [
+        212
+      ]
+    },
+    {
+      "id": 212,
+      "callFrame": {
+        "functionName": "finalizeResolution",
+        "scriptId": "74",
+        "url": "node:internal/modules/esm/resolve",
+        "lineNumber": 225,
+        "columnNumber": 27
+      },
+      "hitCount": 0,
+      "children": [
+        213,
+        233
+      ]
+    },
+    {
+      "id": 213,
+      "callFrame": {
+        "functionName": "internalModuleStat",
+        "scriptId": "0",
+        "url": "",
+        "lineNumber": -1,
+        "columnNumber": -1
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 248,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 233,
+      "callFrame": {
+        "functionName": "set hash",
+        "scriptId": "40",
+        "url": "node:internal/url",
+        "lineNumber": 1188,
+        "columnNumber": 10
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1190,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 246,
+      "callFrame": {
+        "functionName": "parse",
+        "scriptId": "40",
+        "url": "node:internal/url",
+        "lineNumber": 915,
+        "columnNumber": 14
+      },
+      "hitCount": 0,
+      "children": [
+        247
+      ]
+    },
+    {
+      "id": 247,
+      "callFrame": {
+        "functionName": "URL",
+        "scriptId": "40",
+        "url": "node:internal/url",
+        "lineNumber": 882,
+        "columnNumber": 13
+      },
+      "hitCount": 0,
+      "children": [
+        248
+      ]
+    },
+    {
+      "id": 248,
+      "callFrame": {
+        "functionName": "parse",
+        "scriptId": "0",
+        "url": "",
+        "lineNumber": -1,
+        "columnNumber": -1
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 906,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 230,
+      "callFrame": {
+        "functionName": "get",
+        "scriptId": "68",
+        "url": "node:internal/modules/esm/module_map",
+        "lineNumber": 93,
+        "columnNumber": 5
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 97,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 237,
+      "callFrame": {
+        "functionName": "#resolve",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 681,
+        "columnNumber": 10
+      },
+      "hitCount": 0,
+      "children": [
+        238
+      ]
+    },
+    {
+      "id": 238,
+      "callFrame": {
+        "functionName": "resolveSync",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 743,
+        "columnNumber": 13
+      },
+      "hitCount": 0,
+      "children": [
+        239
+      ]
+    },
+    {
+      "id": 239,
+      "callFrame": {
+        "functionName": "#resolveAndMaybeBlockOnLoaderThread",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 722,
+        "columnNumber": 37
+      },
+      "hitCount": 0,
+      "children": [
+        240
+      ]
+    },
+    {
+      "id": 240,
+      "callFrame": {
+        "functionName": "#cachedDefaultResolve",
+        "scriptId": "67",
+        "url": "node:internal/modules/esm/loader",
+        "lineNumber": 699,
+        "columnNumber": 23
+      },
+      "hitCount": 0,
+      "children": [
+        241
+      ]
+    },
+    {
+      "id": 241,
+      "callFrame": {
+        "functionName": "defaultResolve",
+        "scriptId": "74",
+        "url": "node:internal/modules/esm/resolve",
+        "lineNumber": 960,
+        "columnNumber": 23
+      },
+      "hitCount": 0,
+      "children": [
+        242
+      ]
+    },
+    {
+      "id": 242,
+      "callFrame": {
+        "functionName": "defaultGetFormatWithoutErrors",
+        "scriptId": "73",
+        "url": "node:internal/modules/esm/get_format",
+        "lineNumber": 256,
+        "columnNumber": 38
+      },
+      "hitCount": 0,
+      "children": [
+        243
+      ]
+    },
+    {
+      "id": 243,
+      "callFrame": {
+        "functionName": "getFileProtocolModuleFormat",
+        "scriptId": "73",
+        "url": "node:internal/modules/esm/get_format",
+        "lineNumber": 170,
+        "columnNumber": 36
+      },
+      "hitCount": 0,
+      "children": [
+        244
+      ]
+    },
+    {
+      "id": 244,
+      "callFrame": {
+        "functionName": "getPackageScopeConfig",
+        "scriptId": "63",
+        "url": "node:internal/modules/package_json_reader",
+        "lineNumber": 221,
+        "columnNumber": 30
+      },
+      "hitCount": 0,
+      "children": [
+        245
+      ]
+    },
+    {
+      "id": 245,
+      "callFrame": {
+        "functionName": "getPackageScopeConfig",
+        "scriptId": "0",
+        "url": "",
+        "lineNumber": -1,
+        "columnNumber": -1
+      },
+      "hitCount": 2,
+      "positionTicks": [
+        {
+          "line": 223,
+          "ticks": 2
+        }
+      ]
+    },
+    {
+      "id": 264,
+      "callFrame": {
+        "functionName": "createParser",
+        "scriptId": "172",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/sdk.js",
+        "lineNumber": 66,
+        "columnNumber": 28
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 68,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 265,
+      "callFrame": {
+        "functionName": "parse",
+        "scriptId": "172",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/sdk.js",
+        "lineNumber": 69,
+        "columnNumber": 15
+      },
+      "hitCount": 0,
+      "children": [
+        266
+      ]
+    },
+    {
+      "id": 266,
+      "callFrame": {
+        "functionName": "parse",
+        "scriptId": "172",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/sdk.js",
+        "lineNumber": 43,
+        "columnNumber": 21
+      },
+      "hitCount": 2,
+      "children": [
+        267
+      ],
+      "positionTicks": [
+        {
+          "line": 48,
+          "ticks": 2
+        }
+      ]
+    },
+    {
+      "id": 267,
+      "callFrame": {
+        "functionName": "interpretDate",
+        "scriptId": "173",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/interpret-date.js",
+        "lineNumber": 53,
+        "columnNumber": 29
+      },
+      "hitCount": 0,
+      "children": [
+        268,
+        340
+      ]
+    },
+    {
+      "id": 268,
+      "callFrame": {
+        "functionName": "calculateScheduleDate",
+        "scriptId": "175",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/calculate-schedule-date.js",
+        "lineNumber": 6,
+        "columnNumber": 37
+      },
+      "hitCount": 0,
+      "children": [
+        269
+      ]
+    },
+    {
+      "id": 269,
+      "callFrame": {
+        "functionName": "calculateDate",
+        "scriptId": "182",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-parser.js",
+        "lineNumber": 190,
+        "columnNumber": 29
+      },
+      "hitCount": 1,
+      "children": [
+        270
+      ],
+      "positionTicks": [
+        {
+          "line": 192,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 270,
+      "callFrame": {
+        "functionName": "calculateWithClockResolver",
+        "scriptId": "182",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-parser.js",
+        "lineNumber": 196,
+        "columnNumber": 42
+      },
+      "hitCount": 1,
+      "children": [
+        271,
+        273,
+        279,
+        284,
+        293,
+        314,
+        335
+      ],
+      "positionTicks": [
+        {
+          "line": 221,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 271,
+      "callFrame": {
+        "functionName": "parseExpression",
+        "scriptId": "183",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/grammar.js",
+        "lineNumber": 96,
+        "columnNumber": 31
+      },
+      "hitCount": 2,
+      "children": [
+        272
+      ],
+      "positionTicks": [
+        {
+          "line": 343,
+          "ticks": 1
+        },
+        {
+          "line": 98,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 272,
+      "callFrame": {
+        "functionName": "tokenize",
+        "scriptId": "183",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/grammar.js",
+        "lineNumber": 59,
+        "columnNumber": 17
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 73,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 273,
+      "callFrame": {
+        "functionName": "from",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 104149
+      },
+      "hitCount": 0,
+      "children": [
+        274
+      ]
+    },
+    {
+      "id": 274,
+      "callFrame": {
+        "functionName": "cn",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 23373
+      },
+      "hitCount": 0,
+      "children": [
+        275,
+        277
+      ]
+    },
+    {
+      "id": 275,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 23501
+      },
+      "hitCount": 0,
+      "children": [
+        276
+      ]
+    },
+    {
+      "id": 276,
+      "callFrame": {
+        "functionName": "Mt",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 11690
+      },
+      "hitCount": 4,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        },
+        {
+          "line": 1,
+          "ticks": 3
+        }
+      ]
+    },
+    {
+      "id": 277,
+      "callFrame": {
+        "functionName": "$r",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 39271
+      },
+      "hitCount": 0,
+      "children": [
+        278
+      ]
+    },
+    {
+      "id": 278,
+      "callFrame": {
+        "functionName": "Or",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 38822
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 279,
+      "callFrame": {
+        "functionName": "get epochNanoseconds",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 102787
+      },
+      "hitCount": 1,
+      "children": [
+        280
+      ],
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 280,
+      "callFrame": {
+        "functionName": "ko",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 56174
+      },
+      "hitCount": 0,
+      "children": [
+        281
+      ]
+    },
+    {
+      "id": 281,
+      "callFrame": {
+        "functionName": "toString",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 1031
+      },
+      "hitCount": 0,
+      "children": [
+        282
+      ]
+    },
+    {
+      "id": 282,
+      "callFrame": {
+        "functionName": "__toStringGeneric",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 13842
+      },
+      "hitCount": 0,
+      "children": [
+        283
+      ]
+    },
+    {
+      "id": 283,
+      "callFrame": {
+        "functionName": "__absoluteDivLarge",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 22364
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 284,
+      "callFrame": {
+        "functionName": "zonedInstant",
+        "scriptId": "176",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/zoned-date.js",
+        "lineNumber": 60,
+        "columnNumber": 28
+      },
+      "hitCount": 0,
+      "children": [
+        285
+      ]
+    },
+    {
+      "id": 285,
+      "callFrame": {
+        "functionName": "ZonedDate",
+        "scriptId": "176",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/zoned-date.js",
+        "lineNumber": 18,
+        "columnNumber": 15
+      },
+      "hitCount": 0,
+      "children": [
+        286,
+        292
+      ]
+    },
+    {
+      "id": 286,
+      "callFrame": {
+        "functionName": "timezoneDatabase",
+        "scriptId": "179",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/timezone-database.js",
+        "lineNumber": 25,
+        "columnNumber": 32
+      },
+      "hitCount": 2,
+      "children": [
+        287,
+        288
+      ],
+      "positionTicks": [
+        {
+          "line": 33,
+          "ticks": 1
+        },
+        {
+          "line": 33,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 287,
+      "callFrame": {
+        "functionName": "bytesFromBase64",
+        "scriptId": "179",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/timezone-database.js",
+        "lineNumber": 7,
+        "columnNumber": 24
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 19,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 288,
+      "callFrame": {
+        "functionName": "readZone",
+        "scriptId": "181",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/timezone-reader.js",
+        "lineNumber": 119,
+        "columnNumber": 24
+      },
+      "hitCount": 1,
+      "children": [
+        289
+      ],
+      "positionTicks": [
+        {
+          "line": 158,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 289,
+      "callFrame": {
+        "functionName": "footer",
+        "scriptId": "181",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/timezone-reader.js",
+        "lineNumber": 50,
+        "columnNumber": 15
+      },
+      "hitCount": 2,
+      "children": [
+        290
+      ],
+      "positionTicks": [
+        {
+          "line": 56,
+          "ticks": 2
+        }
+      ]
+    },
+    {
+      "id": 290,
+      "callFrame": {
+        "functionName": "rule",
+        "scriptId": "181",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/timezone-reader.js",
+        "lineNumber": 19,
+        "columnNumber": 13
+      },
+      "hitCount": 0,
+      "children": [
+        291
+      ]
+    },
+    {
+      "id": 291,
+      "callFrame": {
+        "functionName": "clock",
+        "scriptId": "181",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/timezone-reader.js",
+        "lineNumber": 13,
+        "columnNumber": 14
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 15,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 292,
+      "callFrame": {
+        "functionName": "offsetAt",
+        "scriptId": "181",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/timezone-reader.js",
+        "lineNumber": 161,
+        "columnNumber": 21
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 167,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 293,
+      "callFrame": {
+        "functionName": "snapshot",
+        "scriptId": "182",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-parser.js",
+        "lineNumber": 13,
+        "columnNumber": 17
+      },
+      "hitCount": 0,
+      "children": [
+        294,
+        300,
+        311
+      ]
+    },
+    {
+      "id": 294,
+      "callFrame": {
+        "functionName": "get year",
+        "scriptId": "176",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/zoned-date.js",
+        "lineNumber": 34,
+        "columnNumber": 12
+      },
+      "hitCount": 0,
+      "children": [
+        295
+      ]
+    },
+    {
+      "id": 295,
+      "callFrame": {
+        "functionName": "toPlainDateTime",
+        "scriptId": "176",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/zoned-date.js",
+        "lineNumber": 46,
+        "columnNumber": 19
+      },
+      "hitCount": 1,
+      "children": [
+        296
+      ],
+      "positionTicks": [
+        {
+          "line": 49,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 296,
+      "callFrame": {
+        "functionName": "from",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 109986
+      },
+      "hitCount": 0,
+      "children": [
+        297
+      ]
+    },
+    {
+      "id": 297,
+      "callFrame": {
+        "functionName": "an",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 20831
+      },
+      "hitCount": 0,
+      "children": [
+        298,
+        299
+      ]
+    },
+    {
+      "id": 298,
+      "callFrame": {
+        "functionName": "Mt",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 11690
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 299,
+      "callFrame": {
+        "functionName": "zo",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 57582
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 300,
+      "callFrame": {
+        "functionName": "toString",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 103490
+      },
+      "hitCount": 1,
+      "children": [
+        301
+      ],
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 301,
+      "callFrame": {
+        "functionName": "Xn",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 32022
+      },
+      "hitCount": 0,
+      "children": [
+        302
+      ]
+    },
+    {
+      "id": 302,
+      "callFrame": {
+        "functionName": "zn",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 29738
+      },
+      "hitCount": 0,
+      "children": [
+        303,
+        309
+      ]
+    },
+    {
+      "id": 303,
+      "callFrame": {
+        "functionName": "Fn",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 29478
+      },
+      "hitCount": 0,
+      "children": [
+        304,
+        305
+      ]
+    },
+    {
+      "id": 304,
+      "callFrame": {
+        "functionName": "Rt",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 14372
+      },
+      "hitCount": 2,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 2
+        }
+      ]
+    },
+    {
+      "id": 305,
+      "callFrame": {
+        "functionName": "lr",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 35851
+      },
+      "hitCount": 0,
+      "children": [
+        306
+      ]
+    },
+    {
+      "id": 306,
+      "callFrame": {
+        "functionName": "ur",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 35649
+      },
+      "hitCount": 0,
+      "children": [
+        307
+      ]
+    },
+    {
+      "id": 307,
+      "callFrame": {
+        "functionName": "br",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 37455
+      },
+      "hitCount": 0,
+      "children": [
+        308
+      ]
+    },
+    {
+      "id": 308,
+      "callFrame": {
+        "functionName": "ht",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 10246
+      },
+      "hitCount": 2,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 2
+        }
+      ]
+    },
+    {
+      "id": 309,
+      "callFrame": {
+        "functionName": "$r",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 39271
+      },
+      "hitCount": 0,
+      "children": [
+        310
+      ]
+    },
+    {
+      "id": 310,
+      "callFrame": {
+        "functionName": "Yr",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 39361
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 311,
+      "callFrame": {
+        "functionName": "toString",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 109279
+      },
+      "hitCount": 0,
+      "children": [
+        312
+      ]
+    },
+    {
+      "id": 312,
+      "callFrame": {
+        "functionName": "Co",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 54620
+      },
+      "hitCount": 0,
+      "children": [
+        313
+      ]
+    },
+    {
+      "id": 313,
+      "callFrame": {
+        "functionName": "Oo",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 54739
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 314,
+      "callFrame": {
+        "functionName": "resolveAnchor",
+        "scriptId": "182",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-parser.js",
+        "lineNumber": 33,
+        "columnNumber": 22
+      },
+      "hitCount": 0,
+      "children": [
+        315,
+        323,
+        328
+      ]
+    },
+    {
+      "id": 315,
+      "callFrame": {
+        "functionName": "add",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 105449
+      },
+      "hitCount": 0,
+      "children": [
+        316
+      ]
+    },
+    {
+      "id": 316,
+      "callFrame": {
+        "functionName": "vo",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 53085
+      },
+      "hitCount": 0,
+      "children": [
+        317,
+        319
+      ]
+    },
+    {
+      "id": 317,
+      "callFrame": {
+        "functionName": "sn",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 21695
+      },
+      "hitCount": 0,
+      "children": [
+        318
+      ]
+    },
+    {
+      "id": 318,
+      "callFrame": {
+        "functionName": "Duration",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 110290
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 319,
+      "callFrame": {
+        "functionName": "Sn",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 27931
+      },
+      "hitCount": 0,
+      "children": [
+        320
+      ]
+    },
+    {
+      "id": 320,
+      "callFrame": {
+        "functionName": "dateAdd",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 60977
+      },
+      "hitCount": 0,
+      "children": [
+        321
+      ]
+    },
+    {
+      "id": 321,
+      "callFrame": {
+        "functionName": "St",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 14461
+      },
+      "hitCount": 0,
+      "children": [
+        322
+      ]
+    },
+    {
+      "id": 322,
+      "callFrame": {
+        "functionName": "kr",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 40194
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 323,
+      "callFrame": {
+        "functionName": "from",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 119854
+      },
+      "hitCount": 0,
+      "children": [
+        324
+      ]
+    },
+    {
+      "id": 324,
+      "callFrame": {
+        "functionName": "hn",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 24279
+      },
+      "hitCount": 0,
+      "children": [
+        325
+      ]
+    },
+    {
+      "id": 325,
+      "callFrame": {
+        "functionName": "Et",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 12352
+      },
+      "hitCount": 1,
+      "children": [
+        326,
+        327
+      ],
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 326,
+      "callFrame": {
+        "functionName": "Ct",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 13759
+      },
+      "hitCount": 2,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 2
+        }
+      ]
+    },
+    {
+      "id": 327,
+      "callFrame": {
+        "functionName": "It",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 13309
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 328,
+      "callFrame": {
+        "functionName": "zoned",
+        "scriptId": "182",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-parser.js",
+        "lineNumber": 23,
+        "columnNumber": 14
+      },
+      "hitCount": 1,
+      "children": [
+        329
+      ],
+      "positionTicks": [
+        {
+          "line": 26,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 329,
+      "callFrame": {
+        "functionName": "zonedLocal",
+        "scriptId": "176",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/zoned-date.js",
+        "lineNumber": 78,
+        "columnNumber": 26
+      },
+      "hitCount": 0,
+      "children": [
+        330
+      ]
+    },
+    {
+      "id": 330,
+      "callFrame": {
+        "functionName": "zonedInstant",
+        "scriptId": "176",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/zoned-date.js",
+        "lineNumber": 60,
+        "columnNumber": 28
+      },
+      "hitCount": 0,
+      "children": [
+        331
+      ]
+    },
+    {
+      "id": 331,
+      "callFrame": {
+        "functionName": "from",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 104149
+      },
+      "hitCount": 0,
+      "children": [
+        332
+      ]
+    },
+    {
+      "id": 332,
+      "callFrame": {
+        "functionName": "cn",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 23373
+      },
+      "hitCount": 0,
+      "children": [
+        333
+      ]
+    },
+    {
+      "id": 333,
+      "callFrame": {
+        "functionName": "$r",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 39271
+      },
+      "hitCount": 0,
+      "children": [
+        334
+      ]
+    },
+    {
+      "id": 334,
+      "callFrame": {
+        "functionName": "Yr",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 39361
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 335,
+      "callFrame": {
+        "functionName": "toString",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 103490
+      },
+      "hitCount": 0,
+      "children": [
+        336
+      ]
+    },
+    {
+      "id": 336,
+      "callFrame": {
+        "functionName": "Xn",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 32022
+      },
+      "hitCount": 0,
+      "children": [
+        337
+      ]
+    },
+    {
+      "id": 337,
+      "callFrame": {
+        "functionName": "zn",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 29738
+      },
+      "hitCount": 0,
+      "children": [
+        338
+      ]
+    },
+    {
+      "id": 338,
+      "callFrame": {
+        "functionName": "$r",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 39271
+      },
+      "hitCount": 0,
+      "children": [
+        339
+      ]
+    },
+    {
+      "id": 339,
+      "callFrame": {
+        "functionName": "Yr",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 39361
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 340,
+      "callFrame": {
+        "functionName": "fromCalculation",
+        "scriptId": "173",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/interpret-date.js",
+        "lineNumber": 59,
+        "columnNumber": 28
+      },
+      "hitCount": 0,
+      "children": [
+        341
+      ]
+    },
+    {
+      "id": 341,
+      "callFrame": {
+        "functionName": "parseExpression",
+        "scriptId": "183",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/grammar.js",
+        "lineNumber": 96,
+        "columnNumber": 31
+      },
+      "hitCount": 0,
+      "children": [
+        342
+      ]
+    },
+    {
+      "id": 342,
+      "callFrame": {
+        "functionName": "tokenize",
+        "scriptId": "183",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/grammar.js",
+        "lineNumber": 59,
+        "columnNumber": 17
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 77,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "callFrame": {
+        "functionName": "(garbage collector)",
+        "scriptId": "0",
+        "url": "",
+        "lineNumber": -1,
+        "columnNumber": -1
+      },
+      "hitCount": 7
+    },
+    {
+      "id": 234,
+      "callFrame": {
+        "functionName": "(program)",
+        "scriptId": "0",
+        "url": "",
+        "lineNumber": -1,
+        "columnNumber": -1
+      },
+      "hitCount": 1
+    },
+    {
+      "id": 249,
+      "callFrame": {
+        "functionName": "run",
+        "scriptId": "70",
+        "url": "node:internal/modules/esm/module_job",
+        "lineNumber": 557,
+        "columnNumber": 11
+      },
+      "hitCount": 0,
+      "children": [
+        250
+      ]
+    },
+    {
+      "id": 250,
+      "callFrame": {
+        "functionName": "evaluate",
+        "scriptId": "0",
+        "url": "",
+        "lineNumber": -1,
+        "columnNumber": -1
+      },
+      "hitCount": 0,
+      "children": [
+        251,
+        252,
+        262,
+        263
+      ]
+    },
+    {
+      "id": 251,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "71",
+        "url": "node:internal/modules/esm/translators",
+        "lineNumber": 235,
+        "columnNumber": 62
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 248,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 252,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 0
+      },
+      "hitCount": 4,
+      "children": [
+        253,
+        254,
+        258,
+        261
+      ],
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        },
+        {
+          "line": 1,
+          "ticks": 1
+        },
+        {
+          "line": 1,
+          "ticks": 1
+        },
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 253,
+      "callFrame": {
+        "functionName": "BigInt",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 208
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 254,
+      "callFrame": {
+        "functionName": "TimeDuration",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 3599
+      },
+      "hitCount": 0,
+      "children": [
+        255
+      ]
+    },
+    {
+      "id": 255,
+      "callFrame": {
+        "functionName": "divide",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 3272
+      },
+      "hitCount": 0,
+      "children": [
+        256
+      ]
+    },
+    {
+      "id": 256,
+      "callFrame": {
+        "functionName": "__zero",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 9600
+      },
+      "hitCount": 0,
+      "children": [
+        257
+      ]
+    },
+    {
+      "id": 257,
+      "callFrame": {
+        "functionName": "JSBI",
+        "scriptId": "178",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/jsbi@4.3.2/node_modules/jsbi/dist/jsbi-cjs.js",
+        "lineNumber": 0,
+        "columnNumber": 49
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 258,
+      "callFrame": {
+        "functionName": "EthiopicHelper",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 84669
+      },
+      "hitCount": 0,
+      "children": [
+        259
+      ]
+    },
+    {
+      "id": 259,
+      "callFrame": {
+        "functionName": "OrthodoxBaseHelper",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 84078
+      },
+      "hitCount": 0,
+      "children": [
+        260
+      ]
+    },
+    {
+      "id": 260,
+      "callFrame": {
+        "functionName": "GregorianBaseHelper",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 79553
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 261,
+      "callFrame": {
+        "functionName": "IndianHelper",
+        "scriptId": "177",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@js-temporal+polyfill@0.5.1/node_modules/@js-temporal/polyfill/dist/index.esm.js",
+        "lineNumber": 0,
+        "columnNumber": 77403
+      },
+      "hitCount": 58,
+      "positionTicks": [
+        {
+          "line": 1,
+          "ticks": 54
+        },
+        {
+          "line": 1,
+          "ticks": 4
+        }
+      ]
+    },
+    {
+      "id": 262,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "180",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/timezone-data.js",
+        "lineNumber": 0,
+        "columnNumber": 0
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 4,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 263,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "179",
+        "url": "file://<HOME>/Documents/Codex/2026-09-13-tempus-quantity-sdk/node_modules/.pnpm/@tempus-date+core@file+tempus-date-core-0.1.0.tgz/node_modules/@tempus-date/core/dist/date-engine/timezone-database.js",
+        "lineNumber": 0,
+        "columnNumber": 0
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 5,
+          "ticks": 1
+        }
+      ]
+    }
+  ],
+  "startTime": 760066602339,
+  "endTime": 760066639988,
+  "samples": [
+    5,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    12,
+    12,
+    16,
+    20,
+    23,
+    17,
+    36,
+    40,
+    49,
+    64,
+    68,
+    68,
+    68,
+    82,
+    86,
+    103,
+    114,
+    127,
+    133,
+    133,
+    144,
+    148,
+    148,
+    148,
+    148,
+    148,
+    148,
+    148,
+    148,
+    148,
+    148,
+    148,
+    148,
+    162,
+    172,
+    172,
+    172,
+    178,
+    144,
+    179,
+    181,
+    181,
+    181,
+    181,
+    181,
+    181,
+    181,
+    181,
+    181,
+    184,
+    181,
+    197,
+    197,
+    199,
+    201,
+    148,
+    205,
+    213,
+    214,
+    218,
+    222,
+    6,
+    222,
+    225,
+    229,
+    230,
+    86,
+    232,
+    233,
+    234,
+    236,
+    245,
+    248,
+    245,
+    251,
+    252,
+    253,
+    257,
+    252,
+    252,
+    260,
+    261,
+    261,
+    261,
+    261,
+    261,
+    261,
+    261,
+    261,
+    261,
+    261,
+    261,
+    261,
+    261,
+    261,
+    261,
+    261,
+    261,
+    261,
+    261,
+    261,
+    261,
+    261,
+    261,
+    261,
+    261,
+    261,
+    261,
+    261,
+    261,
+    261,
+    261,
+    261,
+    261,
+    261,
+    261,
+    261,
+    261,
+    261,
+    261,
+    261,
+    261,
+    261,
+    261,
+    261,
+    261,
+    261,
+    261,
+    261,
+    261,
+    261,
+    261,
+    261,
+    261,
+    261,
+    261,
+    261,
+    261,
+    261,
+    252,
+    262,
+    263,
+    264,
+    266,
+    266,
+    269,
+    271,
+    272,
+    271,
+    276,
+    276,
+    276,
+    276,
+    278,
+    279,
+    283,
+    286,
+    287,
+    286,
+    288,
+    289,
+    289,
+    291,
+    292,
+    295,
+    298,
+    299,
+    300,
+    304,
+    308,
+    308,
+    310,
+    313,
+    270,
+    318,
+    322,
+    325,
+    326,
+    326,
+    327,
+    328,
+    334,
+    304,
+    339,
+    342
+  ],
+  "timeDeltas": [
+    8250,
+    258,
+    158,
+    139,
+    164,
+    156,
+    140,
+    157,
+    151,
+    147,
+    153,
+    155,
+    150,
+    152,
+    191,
+    111,
+    153,
+    151,
+    146,
+    154,
+    153,
+    155,
+    148,
+    153,
+    141,
+    150,
+    152,
+    166,
+    141,
+    148,
+    153,
+    151,
+    154,
+    152,
+    150,
+    154,
+    111,
+    125,
+    153,
+    153,
+    154,
+    154,
+    148,
+    156,
+    149,
+    161,
+    145,
+    149,
+    154,
+    155,
+    155,
+    154,
+    153,
+    217,
+    161,
+    152,
+    155,
+    150,
+    154,
+    173,
+    130,
+    153,
+    153,
+    161,
+    151,
+    147,
+    154,
+    150,
+    156,
+    154,
+    156,
+    150,
+    151,
+    155,
+    160,
+    144,
+    149,
+    158,
+    156,
+    147,
+    155,
+    148,
+    153,
+    153,
+    154,
+    155,
+    151,
+    154,
+    165,
+    147,
+    147,
+    154,
+    153,
+    152,
+    157,
+    153,
+    155,
+    156,
+    154,
+    158,
+    152,
+    153,
+    153,
+    152,
+    152,
+    156,
+    157,
+    153,
+    157,
+    153,
+    154,
+    153,
+    153,
+    156,
+    154,
+    153,
+    153,
+    154,
+    159,
+    162,
+    156,
+    154,
+    153,
+    154,
+    155,
+    155,
+    155,
+    157,
+    151,
+    155,
+    156,
+    152,
+    154,
+    153,
+    155,
+    154,
+    157,
+    154,
+    157,
+    152,
+    154,
+    156,
+    153,
+    154,
+    153,
+    157,
+    149,
+    153,
+    156,
+    154,
+    153,
+    155,
+    152,
+    154,
+    151,
+    147,
+    154,
+    153,
+    150,
+    154,
+    153,
+    153,
+    150,
+    155,
+    146,
+    154,
+    152,
+    153,
+    152,
+    153,
+    153,
+    152,
+    158,
+    148,
+    153,
+    152,
+    156,
+    150,
+    153,
+    152,
+    151,
+    153,
+    152,
+    147,
+    153,
+    153,
+    157,
+    152,
+    155,
+    149,
+    153,
+    149
+  ]
+}

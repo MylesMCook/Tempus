@@ -1,0 +1,131 @@
+{
+  "mode": "fixed-sync",
+  "beforeImport": {
+    "rss": 46874624,
+    "heapTotal": 6963200,
+    "heapUsed": 4821088,
+    "external": 2572313,
+    "arrayBuffers": 143737
+  },
+  "afterImport": {
+    "rss": 63045632,
+    "heapTotal": 10944512,
+    "heapUsed": 6945832,
+    "external": 2703524,
+    "arrayBuffers": 143745
+  },
+  "samples": [
+    {
+      "cycle": 0,
+      "processed": 597,
+      "constructors": 2390,
+      "rss": 118423552,
+      "heapTotal": 18546688,
+      "heapUsed": 8723392,
+      "external": 2574080,
+      "arrayBuffers": 145499
+    },
+    {
+      "cycle": 1,
+      "processed": 1194,
+      "constructors": 4778,
+      "rss": 132939776,
+      "heapTotal": 26935296,
+      "heapUsed": 8767256,
+      "external": 2574080,
+      "arrayBuffers": 145499
+    },
+    {
+      "cycle": 2,
+      "processed": 1791,
+      "constructors": 7166,
+      "rss": 133021696,
+      "heapTotal": 26935296,
+      "heapUsed": 8767528,
+      "external": 2574080,
+      "arrayBuffers": 145499
+    },
+    {
+      "cycle": 3,
+      "processed": 2388,
+      "constructors": 9554,
+      "rss": 133120000,
+      "heapTotal": 26935296,
+      "heapUsed": 8780840,
+      "external": 2574080,
+      "arrayBuffers": 145499
+    },
+    {
+      "cycle": 4,
+      "processed": 2985,
+      "constructors": 11942,
+      "rss": 163790848,
+      "heapTotal": 43712512,
+      "heapUsed": 8827568,
+      "external": 2574080,
+      "arrayBuffers": 145499
+    },
+    {
+      "cycle": 5,
+      "processed": 3582,
+      "constructors": 14330,
+      "rss": 164364288,
+      "heapTotal": 43712512,
+      "heapUsed": 8855088,
+      "external": 2574080,
+      "arrayBuffers": 145499
+    },
+    {
+      "cycle": 6,
+      "processed": 4179,
+      "constructors": 16718,
+      "rss": 164544512,
+      "heapTotal": 43712512,
+      "heapUsed": 8877368,
+      "external": 2574080,
+      "arrayBuffers": 145499
+    },
+    {
+      "cycle": 7,
+      "processed": 4776,
+      "constructors": 19106,
+      "rss": 164757504,
+      "heapTotal": 43712512,
+      "heapUsed": 8885864,
+      "external": 2574080,
+      "arrayBuffers": 145499
+    },
+    {
+      "cycle": 8,
+      "processed": 5373,
+      "constructors": 21494,
+      "rss": 167886848,
+      "heapTotal": 45023232,
+      "heapUsed": 8873872,
+      "external": 2574080,
+      "arrayBuffers": 145499
+    },
+    {
+      "cycle": 9,
+      "processed": 5970,
+      "constructors": 23882,
+      "rss": 210223104,
+      "heapTotal": 77414400,
+      "heapUsed": 8972560,
+      "external": 2574080,
+      "arrayBuffers": 145499
+    }
+  ],
+  "afterYield": {
+    "rss": 210321408,
+    "heapTotal": 77152256,
+    "heapUsed": 8865064,
+    "external": 2574080,
+    "arrayBuffers": 145499
+  },
+  "constructors": 23882,
+  "signatures": {
+    "[\"en-US\",{\"year\":\"numeric\",\"month\":\"long\",\"day\":\"numeric\"}]": 23880,
+    "[\"en-us\",{\"hour12\":false,\"era\":\"short\",\"year\":\"numeric\",\"month\":\"numeric\",\"day\":\"numeric\",\"hour\":\"numeric\",\"minute\":\"numeric\",\"second\":\"numeric\"}]": 2
+  }
+}

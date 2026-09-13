@@ -1,0 +1,8 @@
+{
+  "sourceHashes": {
+    "examples/sdk/verify-browser.mjs": "32eb85b82f067562b70881d729cd3cebe268c549fa623ecb786cea8c0ae4742a",
+    "examples/sdk/read-browser-files.py": "adf2281207893fc9a4836d44a8fa034d34cca1e7e61f28ef5601b3731d0be823",
+    "examples/sdk/read-browser-files.py.lock": "25321ad7e67ccbc618b94ba12fdfc25f3d5cc3d7ba775ee1ef6b06cab5e63751"
+  },
+  "screenshots": "Six screenshots remain in the local run directory; only Chromium 320px was visually inspected. No main-app or physical-device claim."
+}

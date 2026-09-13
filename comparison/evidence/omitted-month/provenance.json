@@ -1,0 +1,20 @@
+{
+  "sourceHashes": {
+    "src/shared/interpret-date-list.ts": "87846db9e2d0f1cfbedb3d668bf9b640f53df4c8b4ad892e2c117d7297b787b5",
+    "src/shared/clarify-numeric-date.ts": "59ad2ed1161435c1747d1b0f96d29ca64abe31fd20128fb41a5acedbf81b4546",
+    "src/shared/date-list.test.ts": "b6f0b619fa6d1462be1cdeb964693e68aa650cb30aca77508bc290b99c380411",
+    "examples/app/verify-reminder.mjs": "aa08981cd7ac31370ebca8d3be54dcb16b37f72bd645f3f71d93499ff4760210",
+    "examples/app/read-reminder.py": "155092b8a6cfc9ddab25be4b42846a23925f66542af1a96edd6efe77c87263c2"
+  },
+  "checks": {
+    "sharedSuite": "752 tests / 35 files passed before the final additional history regression",
+    "dateListFinal": "36 tests passed including the additional month/item-year history regression",
+    "build": "passed; client 901.07 kB / 265.43 kB gzip; existing size warning",
+    "scopedCheck": "four files pass formatting/lint/type checks without warnings"
+  },
+  "limits": [
+    "Archive 11018566 predates these source changes",
+    "Twenty-task comparison replay predates these source changes",
+    "No physical devices, actual imports or independent evaluation"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "status": "failed",
+  "browser": "153.0.8010.36",
+  "scope": "Desktop Chrome, direct focus/Enter, count preview, monthly correction, actual file download and edit invalidation. Not physical-device or calendar-client import evidence.",
+  "runs": [
+    {
+      "id": "weekly",
+      "width": 320,
+      "status": "passed",
+      "file": "weekly-320.ics",
+      "sha256": "90180d4d97726f18e40c6644f3010ad4fe20242c4721aab5eecd745b2453734c"
+    },
+    {
+      "id": "monthly",
+      "width": 320,
+      "status": "passed",
+      "file": "monthly-320.ics",
+      "sha256": "5338c7068c4965f25f871028679bb24d70bbb69bd5b8130a4d524ea587d022e8"
+    }
+  ],
+  "sourceHashes": {
+    "src/shared/interpret-recurrence.ts": "f76ee41a238351e0950923274ecc7661bd0ac0298cc3a097e1c182dfd199b453",
+    "src/shared/interpret-date.ts": "061d7e5182eee549b25bc727d8d1baeb29b1168d27a9219a7b4748e698e3c0e3",
+    "src/shared/clarify-numeric-date.ts": "fa291aa4c31825afd5c1b3b1fe5ad1e60674dc1540d116c9f22cab1d31287860",
+    "src/shared/recurring-calendar-file.ts": "f59c681d8395da419bcdd813acb7d604063fbe154a32d4c5627b014d63132182",
+    "src/features/parser/components/occurrence-result.tsx": "b3025e299dd11303129104e8c85ccaf51c821b363625833679e1e846b3e6381e",
+    "src/features/parser/components/calendar-export.tsx": "eb4c1eeaff61172f2eb6a8b8af0e6d73eda7b69ef691cd29cfba6925612c54e3",
+    "examples/app/verify-count.mjs": "1804852ea35d210c59cdb8bb31909e648f62205ac073081054a8cc18c2d664a8"
+  },
+  "error": "TimeoutError: page.waitForFunction: Timeout 30000ms exceeded."
+}

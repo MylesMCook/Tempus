@@ -1,0 +1,37 @@
+{
+  "readers": {
+    "icalendar": "7.3.0",
+    "recurring-ical-events": "3.8.2"
+  },
+  "files": [
+    {
+      "file": "exclusive-320.ics",
+      "sha256": "98ad358d2d5c35e10dba049e439d5162395aa0f1ccb9df3de51585124ca9df40",
+      "start": "2026-09-13",
+      "exclusiveEnd": "2026-09-18",
+      "status": "passed"
+    },
+    {
+      "file": "inclusive-320.ics",
+      "sha256": "6568d9f7780788b0e804f4ccba7957ad8f8cc8b649dda708f4a42682ee570957",
+      "start": "2026-09-13",
+      "exclusiveEnd": "2026-09-19",
+      "status": "passed"
+    },
+    {
+      "file": "exclusive-1280.ics",
+      "sha256": "5a435933324efb53fe566e017cb3c6cfc0c28ee700912f0b8ca81e0c63d8d9e8",
+      "start": "2026-09-13",
+      "exclusiveEnd": "2026-09-18",
+      "status": "passed"
+    },
+    {
+      "file": "inclusive-1280.ics",
+      "sha256": "605f00d29d5dd1b07be92b253fd080ad42d0d153088f826a3931075485073478",
+      "start": "2026-09-13",
+      "exclusiveEnd": "2026-09-19",
+      "status": "passed"
+    }
+  ],
+  "scope": "Actual downloaded file validation; no calendar-client import or independent language evaluation."
+}

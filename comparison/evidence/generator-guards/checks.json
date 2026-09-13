@@ -1,0 +1,41 @@
+{
+  "positive": {
+    "zones": 597,
+    "uniqueFiles": 344,
+    "payloadMatches": true,
+    "licenseMatches": true
+  },
+  "rejections": [
+    {
+      "case": "existing-output",
+      "exitCode": 1,
+      "message": "Output and adjacent license must be new files; use a fresh scratch directory.",
+      "outputUnchanged": true
+    },
+    {
+      "case": "failed-build",
+      "exitCode": 1,
+      "message": "A pinned-source slim compiler build is required.",
+      "outputUnchanged": true
+    },
+    {
+      "case": "changed-compiler",
+      "exitCode": 1,
+      "message": "Compiler bytes differ from the build manifests.",
+      "outputUnchanged": true
+    },
+    {
+      "case": "changed-license",
+      "exitCode": 1,
+      "message": "Source license differs from the build manifest.",
+      "outputUnchanged": true
+    },
+    {
+      "case": "empty-inventory",
+      "exitCode": 1,
+      "message": "The compiled zone inventory is empty.",
+      "outputUnchanged": true
+    }
+  ],
+  "generatorSha256": "665245430f87cbe70d26222a5ecf3ba3348f09dfd53f6ebbbf41aac61e8b0e77"
+}

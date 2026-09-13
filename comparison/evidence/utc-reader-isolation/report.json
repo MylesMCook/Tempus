@@ -1,0 +1,93 @@
+{
+  "probe": "authored-utc-to-local-v1",
+  "reader": "ical.js",
+  "version": "2.2.1",
+  "readerSourceSha256": "6052075546ebf8d8782ae30227af7e422650471d152bc49808f0b97be28946b2",
+  "runnerSha256": "0a003781cf8ede60e28ce38e0e8a56356093d1cdbfe5a29cafd79bf8da3f2adc",
+  "fixtureSha256": "0287beda5f5fecfafda7da60dc2cccc93aabf9da5b0d8e9b74f6ce967901a295",
+  "rows": [
+    {
+      "instant": "2026-01-15T18:00:00Z",
+      "expected": "2026-01-15T12:00:00",
+      "offset": -21600,
+      "observed": "2026-01-15T12:00:00",
+      "matches": true,
+      "returnedInstant": "2026-01-15T18:00:00.000Z",
+      "utcControl": "2026-01-15T18:00:00Z"
+    },
+    {
+      "instant": "2026-03-08T07:59:59Z",
+      "expected": "2026-03-08T01:59:59",
+      "offset": -21600,
+      "observed": "2026-03-08T02:59:59",
+      "matches": false,
+      "returnedInstant": "2026-03-08T07:59:59.000Z",
+      "utcControl": "2026-03-08T07:59:59Z"
+    },
+    {
+      "instant": "2026-03-08T08:00:00Z",
+      "expected": "2026-03-08T03:00:00",
+      "offset": -18000,
+      "observed": "2026-03-08T03:00:00",
+      "matches": true,
+      "returnedInstant": "2026-03-08T08:00:00.000Z",
+      "utcControl": "2026-03-08T08:00:00Z"
+    },
+    {
+      "instant": "2026-03-08T08:00:01Z",
+      "expected": "2026-03-08T03:00:01",
+      "offset": -18000,
+      "observed": "2026-03-08T03:00:01",
+      "matches": true,
+      "returnedInstant": "2026-03-08T08:00:01.000Z",
+      "utcControl": "2026-03-08T08:00:01Z"
+    },
+    {
+      "instant": "2026-07-15T17:00:00Z",
+      "expected": "2026-07-15T12:00:00",
+      "offset": -18000,
+      "observed": "2026-07-15T12:00:00",
+      "matches": true,
+      "returnedInstant": "2026-07-15T17:00:00.000Z",
+      "utcControl": "2026-07-15T17:00:00Z"
+    },
+    {
+      "instant": "2026-11-01T06:59:59Z",
+      "expected": "2026-11-01T01:59:59",
+      "offset": -18000,
+      "observed": "2026-11-01T00:59:59",
+      "matches": false,
+      "returnedInstant": "2026-11-01T05:59:59.000Z",
+      "utcControl": "2026-11-01T06:59:59Z"
+    },
+    {
+      "instant": "2026-11-01T07:00:00Z",
+      "expected": "2026-11-01T01:00:00",
+      "offset": -21600,
+      "observed": "2026-11-01T01:00:00",
+      "matches": true,
+      "returnedInstant": "2026-11-01T07:00:00.000Z",
+      "utcControl": "2026-11-01T07:00:00Z"
+    },
+    {
+      "instant": "2026-11-01T07:00:01Z",
+      "expected": "2026-11-01T01:00:01",
+      "offset": -21600,
+      "observed": "2026-11-01T01:00:01",
+      "matches": true,
+      "returnedInstant": "2026-11-01T07:00:01.000Z",
+      "utcControl": "2026-11-01T07:00:01Z"
+    },
+    {
+      "instant": "2026-12-15T18:00:00Z",
+      "expected": "2026-12-15T12:00:00",
+      "offset": -21600,
+      "observed": "2026-12-15T12:00:00",
+      "matches": true,
+      "returnedInstant": "2026-12-15T18:00:00.000Z",
+      "utcControl": "2026-12-15T18:00:00Z"
+    }
+  ],
+  "conforms": false,
+  "scope": "Nine authored clocks in a single finite timezone fixture. No Tempus generator, calendar-client import, general reader certification or independent-user evaluation."
+}

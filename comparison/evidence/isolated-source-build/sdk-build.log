@@ -1,0 +1,4 @@
+
+> tempus-total@0.1.0 build:sdk /Users/mylescook/Documents/Codex/2026-09-13-tempus-isolated-source
+> tsc -p tsconfig.sdk.json && node -e "require('node:fs').copyFileSync('src/shared/date-engine/timezone-LICENSE.txt', 'packages/core/dist/date-engine/timezone-LICENSE.txt')"
+

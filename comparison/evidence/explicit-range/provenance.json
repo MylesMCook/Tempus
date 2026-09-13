@@ -1,0 +1,14 @@
+{
+  "sourceHashes": {
+    "src/shared/interpret-interval.ts": "dd42f4adff55fa2a610ae8e45ca597ed3f7368ac5164bea2b02839363d81a5d5",
+    "src/shared/interpret-date.ts": "5fc8ed932220fbe63e2ca454de9db3843c6ee894cc569eae585a998f97838e19",
+    "src/shared/clarify-numeric-date.ts": "cce7937c57d73a466a0062ff741b76fa01672a7e0855a7d9e9954a8f30b8e0a8",
+    "src/shared/explicit-date-range.test.ts": "e60ed2e39b9d665308aa320f7535257dc606b03c79d30c35deb33ba904f5314c",
+    "examples/app/verify-date-range.mjs": "974a9b4659e3c661d6df76bd8b4692d337b3b43c703e7677678a4f537d035fd0",
+    "examples/app/read-date-range.py": "a44c73b75745296088083633ae5849e0b40a5798d9aa54a1b92f4b474acb1a21",
+    "examples/app/read-date-range.py.lock": "25321ad7e67ccbc618b94ba12fdfc25f3d5cc3d7ba775ee1ef6b06cab5e63751"
+  },
+  "sharedTests": 763,
+  "testFiles": 36,
+  "build": "passed; existing bundle warning 902.90 kB client / 265.89 kB gzip"
+}

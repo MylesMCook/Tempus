@@ -1,0 +1,22 @@
+{
+  "status": "failed",
+  "browser": "153.0.8010.36",
+  "scope": "Desktop Chrome, direct focus/Enter, count preview, monthly correction, actual file download and edit invalidation. Not physical-device or calendar-client import evidence.",
+  "runs": [
+    {
+      "id": "weekly",
+      "width": 320,
+      "status": "passed",
+      "file": "weekly-320.ics",
+      "sha256": "14bd0fb05698e14beaca16641df7d69b5680791e40411be90c084901c8f846dc"
+    }
+  ],
+  "sourceHashes": {
+    "src/shared/interpret-recurrence.ts": "e7f9ae164ed78f11c868a5aadda3bfffd869f4e5332c59f09c53d8dfb99c105c",
+    "src/shared/recurring-calendar-file.ts": "fbc0935a0c434383c44196ea155e09f1c515e892e43570020caf87e446c4c40e",
+    "src/features/parser/components/occurrence-result.tsx": "132428b5ace355037a7bae1c76057abc512996de011dfd71bdff3bf65e979758",
+    "src/features/parser/components/calendar-export.tsx": "736a81223b1ee7c7104d26b321144bd860f39210b3225fb7022867e653f35122",
+    "examples/app/verify-count.mjs": "50ab43f572ad41274ee5178286b8a7d3550156e90e55788b99d242077dc7e9dc"
+  },
+  "error": "TimeoutError: page.waitForEvent: Timeout 30000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================"
+}

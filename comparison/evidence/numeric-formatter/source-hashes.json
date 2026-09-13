@@ -1,0 +1,10 @@
+{
+  "src/shared/clarify-numeric-date.ts": "def0fede5237a9506c37184cb50865dff842f90842faefa4d940b732dd1887b3",
+  "src/shared/clarify-numeric-date.test.ts": "4bf7c520e83501a4641209817bade37e264adae5db8bc3039de31d0aa6a11f05",
+  "comparison/performance/retention.mjs": "7a5d117b77e0fec434b8e39c2e9c47aeb7ff555bac94da26413cab7fa7ba7594",
+  "comparison/performance/profile.mjs": "9cfb742ef0b8a55da122ded9f4e5fa300b4351d1c40ba1e360af4e6d6a29ccec",
+  "examples/sdk/verify-startup.mjs": "81d1c057e750f70ba532a5d019c45aa8f64824c171e60b918b2a06121500e916",
+  "examples/sdk/verification-worker.ts": "dc4a67b997d42ad3002c23f3480a40b2b367aafd5fb9d9f56e0eb93f86e42255",
+  "examples/sdk/read-worker-files.py": "f90400acf762c9c7c4c812b7f4604aed7b439e6b6db128009524d9b76ed8c02a",
+  "examples/sdk/read-worker-files.py.lock": "25321ad7e67ccbc618b94ba12fdfc25f3d5cc3d7ba775ee1ef6b06cab5e63751"
+}

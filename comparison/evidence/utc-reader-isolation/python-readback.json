@@ -1,0 +1,73 @@
+{
+  "reader": "icalendar",
+  "version": "7.3.0",
+  "fixtureSha256": "0287beda5f5fecfafda7da60dc2cccc93aabf9da5b0d8e9b74f6ce967901a295",
+  "lookupTzid": false,
+  "rows": [
+    {
+      "instant": "2026-01-15T18:00:00Z",
+      "expected": "2026-01-15T12:00:00",
+      "observed": "2026-01-15T12:00:00",
+      "offset": -21600,
+      "matches": true
+    },
+    {
+      "instant": "2026-03-08T07:59:59Z",
+      "expected": "2026-03-08T01:59:59",
+      "observed": "2026-03-08T01:59:59",
+      "offset": -21600,
+      "matches": true
+    },
+    {
+      "instant": "2026-03-08T08:00:00Z",
+      "expected": "2026-03-08T03:00:00",
+      "observed": "2026-03-08T03:00:00",
+      "offset": -18000,
+      "matches": true
+    },
+    {
+      "instant": "2026-03-08T08:00:01Z",
+      "expected": "2026-03-08T03:00:01",
+      "observed": "2026-03-08T03:00:01",
+      "offset": -18000,
+      "matches": true
+    },
+    {
+      "instant": "2026-07-15T17:00:00Z",
+      "expected": "2026-07-15T12:00:00",
+      "observed": "2026-07-15T12:00:00",
+      "offset": -18000,
+      "matches": true
+    },
+    {
+      "instant": "2026-11-01T06:59:59Z",
+      "expected": "2026-11-01T01:59:59",
+      "observed": "2026-11-01T01:59:59",
+      "offset": -18000,
+      "matches": true
+    },
+    {
+      "instant": "2026-11-01T07:00:00Z",
+      "expected": "2026-11-01T01:00:00",
+      "observed": "2026-11-01T01:00:00",
+      "offset": -21600,
+      "matches": true
+    },
+    {
+      "instant": "2026-11-01T07:00:01Z",
+      "expected": "2026-11-01T01:00:01",
+      "observed": "2026-11-01T01:00:01",
+      "offset": -21600,
+      "matches": true
+    },
+    {
+      "instant": "2026-12-15T18:00:00Z",
+      "expected": "2026-12-15T12:00:00",
+      "observed": "2026-12-15T12:00:00",
+      "offset": -21600,
+      "matches": true
+    }
+  ],
+  "conforms": true,
+  "scope": "Nine authored instants; embedded timezone only. Not a calendar-client import or general conformance test."
+}

@@ -1,0 +1,88 @@
+{
+  "status": "failed",
+  "version": 4,
+  "baseURL": "http://127.0.0.1:5175",
+  "browser": "153.0.8010.36",
+  "runs": [
+    {
+      "id": "invoice",
+      "width": 320,
+      "status": "passed",
+      "errors": [],
+      "file": "invoice-320.ics",
+      "sha256": "3c1673a1403b23fa7d6f840a3eec2d94ed9f73098526c894f40c748883a5d0b4"
+    },
+    {
+      "id": "quantity",
+      "width": 320,
+      "status": "passed",
+      "errors": [],
+      "file": "quantity-320.ics",
+      "sha256": "ba842ef13376d106bcdf7f6dc898a5799c5035bc66c21c6f9ed6372b45439bb4"
+    },
+    {
+      "id": "recipient",
+      "width": 320,
+      "status": "passed",
+      "errors": [],
+      "file": "recipient-320.ics",
+      "sha256": "1e408a470e33ad3e0aa71a9fea47e8d98df64c12cdf0fecf4357452d1c170c42"
+    },
+    {
+      "id": "clock-first",
+      "width": 320,
+      "status": "passed",
+      "errors": [],
+      "file": "clock-first-320.ics",
+      "sha256": "85ff42089a0ae65b61739e8715f8afc26ca2771a6a135a453c6838d0e5f1b41a"
+    },
+    {
+      "id": "schedule",
+      "width": 320,
+      "status": "passed",
+      "errors": [],
+      "file": "schedule-320.ics",
+      "sha256": "5774b7623ce579fe704583c5c49b3dd15e58ca0b06fc98d95934a42defa5c671"
+    },
+    {
+      "id": "title",
+      "width": 320,
+      "status": "passed",
+      "errors": [],
+      "file": "title-320.ics",
+      "sha256": "8bfa7d4e5ed1617305a5d23fa5b758a95f0311aed77ac92ac7561b54879a1c01"
+    },
+    {
+      "id": "invoice",
+      "width": 1280,
+      "status": "passed",
+      "errors": [],
+      "file": "invoice-1280.ics",
+      "sha256": "e6414ae0607ea074135f5ba65268bb50c0acc441c87df84b63820695b34c72e4"
+    },
+    {
+      "id": "quantity",
+      "width": 1280,
+      "status": "passed",
+      "errors": [],
+      "file": "quantity-1280.ics",
+      "sha256": "840cb2f9813a21f221b8edd16f71d3e9962d8f1785e46122705c307a4b7f7582"
+    },
+    {
+      "id": "recipient",
+      "width": 1280,
+      "status": "failed",
+      "errors": [],
+      "error": "TimeoutError: page.waitForEvent: Timeout 30000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================"
+    }
+  ],
+  "sourceHashes": {
+    "src/shared/interpret-date.ts": "4fdec03c29dab9dfe9190d5e12c554669d8faa32ebf3eb5921fc9cd0780dabd2",
+    "src/shared/event-identifiers.test.ts": "5cb6831e1c2def452a210eca08e5be6270ccec9a9241a7e346c7431079288275",
+    "src/shared/quantity-label.test.ts": "dba6e3db4db336cecf9c06e6a3669c8e476ef58949712767c77f0573d4cafb73",
+    "src/shared/recipient-label.test.ts": "81f0d3b801a0b4281d7860c63dc4c911cd36053d2c8c35ae9911c644fcf1e89a",
+    "src/shared/clock-first.test.ts": "18eb3ac39351b96dd4fd4d0b08cade344ad60d8b643889eefbf87b84a76258e9",
+    "examples/app/verify-event-identifiers.mjs": "02a7e118b8e8bcf0f32000c8df951a833fe2abc3ba955a17964cf7e0b0f3eabe"
+  },
+  "scope": "Authored main-app tasks, direct focus/Enter and downloads at desktop widths; not independent users, physical phones or calendar-client import."
+}

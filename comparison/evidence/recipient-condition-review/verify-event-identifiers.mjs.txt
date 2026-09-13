@@ -1,0 +1,268 @@
+import assert from "node:assert/strict";
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { createHash } from "node:crypto";
+import { resolve, join } from "node:path";
+import { pathToFileURL } from "node:url";
+const [playwrightArg, outputArg] = process.argv.slice(2);
+assert.ok(playwrightArg && outputArg && process.argv.length === 4);
+const baseURL = process.env.TEMPUS_APP_URL ?? "http://127.0.0.1:5174";
+assert.match(baseURL, /^http:\/\/127\.0\.0\.1:\d+\/?$/);
+const output = resolve(outputArg);
+mkdirSync(output);
+const { chromium } = await import(pathToFileURL(resolve(playwrightArg)).href);
+const browser = await chromium.launch({ channel: "chrome" });
+const report = {
+  status: "running",
+  version: 6,
+  downloadEvidenceVersion: 1,
+  baseURL,
+  browser: browser.version(),
+  runs: [],
+  sourceHashes: Object.fromEntries(
+    [
+      "src/features/parser/components/date-picker.tsx",
+      "src/routes/home-page.tsx",
+      "src/shared/interpret-date.ts",
+      "src/shared/event-identifiers.test.ts",
+      "src/shared/quantity-label.test.ts",
+      "src/shared/recipient-label.test.ts",
+      "src/shared/clock-first.test.ts",
+      "examples/app/verify-event-identifiers.mjs",
+    ].map((p) => [p, createHash("sha256").update(readFileSync(p)).digest("hex")]),
+  ),
+  scope:
+    "Authored main-app tasks, direct focus/Enter and downloads at desktop widths; not independent users, physical phones or calendar-client import.",
+};
+try {
+  for (const width of [320, 1280])
+    for (const [id, expression, title, choices, count] of [
+      [
+        "invoice",
+        "Pay invoice #123 on 11/01/2026 at 1:30am for 30 minutes",
+        "Pay invoice #123",
+        [/November 1, 2026/, /UTC-06:00/],
+        1,
+      ],
+      [
+        "quantity",
+        "Buy 3 apples on 11/01/2026 at 1:30am for 30 minutes",
+        "Buy 3 apples",
+        [/^Use “Buy 3 apples”$/, /November 1, 2026/, /UTC-06:00/],
+        1,
+      ],
+      [
+        "quantity-list",
+        "Buy 3 apples and 2 pears on 11/01/2026 at 1:30am for 30 minutes",
+        "Buy 3 apples and 2 pears",
+        [/^Use “Buy 3 apples and 2 pears”$/, /November 1, 2026/, /UTC-06:00/],
+        1,
+      ],
+      [
+        "recipient",
+        "Buy apples for Sam on 11/01/2026 at 1:30am for 30 minutes",
+        "Buy apples for Sam",
+        [/^Use “Buy apples for Sam”$/, /November 1, 2026/, /UTC-06:00/],
+        1,
+      ],
+      [
+        "recipient-lowercase",
+        "Buy apples for mom on 11/01/2026 at 1:30am for 30 minutes",
+        "Buy apples for mom",
+        [/^Use “Buy apples for mom”$/, /November 1, 2026/, /UTC-06:00/],
+        1,
+      ],
+      [
+        "clock-first",
+        "Buy apples for Sam at 1:30am on 11/01/2026",
+        "Buy apples for Sam",
+        [/^Use “Buy apples for Sam”$/, /November 1, 2026/, /UTC-06:00/],
+        1,
+      ],
+      ["schedule", "Visit room 3 every Monday at noon for 3 occurrences", "Visit room 3", [], 3],
+      ["title", "Room 3 tomorrow at noon", "Room 3", [/^Use “Room 3”$/], 1],
+    ]) {
+      const page = await browser.newPage({
+        viewport: { width, height: 950 },
+        timezoneId: "America/Chicago",
+      });
+      const run = { id, width, status: "running", errors: [] };
+      report.runs.push(run);
+      page.on("pageerror", (error) => run.errors.push(error.message));
+      run.downloadEvents = [];
+      run.browserLog = [];
+      page.on("download", (file) =>
+        run.downloadEvents.push({ filename: file.suggestedFilename(), url: file.url() }),
+      );
+      const cdp = await page.context().newCDPSession(page);
+      await cdp.send("Log.enable");
+      cdp.on("Log.entryAdded", ({ entry }) =>
+        run.browserLog.push({ source: entry.source, level: entry.level, text: entry.text }),
+      );
+      await page.addInitScript(() => {
+        const entries = [];
+        Object.defineProperty(window, "__tempusDownloadEvidence", { value: entries });
+        const record = (kind, detail = {}) =>
+          entries.push({
+            kind,
+            at: performance.now(),
+            active: navigator.userActivation.isActive,
+            ...detail,
+          });
+        document.addEventListener(
+          "click",
+          (event) => {
+            const button = event.target instanceof Element ? event.target.closest("button") : null;
+            if (button?.textContent?.trim() === "Download calendar file")
+              record("button-click", { trusted: event.isTrusted, disabled: button.disabled });
+          },
+          true,
+        );
+        const create = Reflect.get(URL, "createObjectURL");
+        URL.createObjectURL = function (blob) {
+          const url = Reflect.apply(create, this, [blob]);
+          record("blob-created", { url, size: blob.size, type: blob.type });
+          return url;
+        };
+        const revoke = Reflect.get(URL, "revokeObjectURL");
+        URL.revokeObjectURL = function (url) {
+          record("blob-revoked", { url });
+          return Reflect.apply(revoke, this, [url]);
+        };
+        const click = Reflect.get(HTMLAnchorElement.prototype, "click");
+        HTMLAnchorElement.prototype.click = function () {
+          if (this.download)
+            record("anchor-click", {
+              url: this.href,
+              filename: this.download,
+              connected: this.isConnected,
+            });
+          return Reflect.apply(click, this, []);
+        };
+      });
+      try {
+        await page.clock.install({ time: new Date("2026-09-12T16:00:00Z") });
+        await page.goto(baseURL);
+        const input = page.locator("#date-expression");
+        await input.fill(expression);
+        const activate = async (locator) => {
+          await locator.focus();
+          await page.keyboard.press("Enter");
+        };
+        for (const choice of choices) {
+          assert.equal(await page.locator("#calendar-export-toggle").count(), 0);
+          await activate(page.getByRole("button", { name: choice }));
+        }
+        await page.locator("#calculated-date").waitFor();
+        assert.equal(await input.inputValue(), expression);
+        assert.ok((await page.locator("#calculated-date").innerText()).includes(title));
+        await activate(page.locator("#calendar-export-toggle"));
+        await page.waitForFunction(() =>
+          [...document.querySelectorAll("button")].some(
+            (b) => b.textContent.trim() === "Download calendar file" && !b.disabled,
+          ),
+        );
+        assert.equal(await page.locator("#calendar-title").inputValue(), title);
+        const [download] = await Promise.all([
+          page.waitForEvent("download"),
+          activate(page.getByRole("button", { name: "Download calendar file", exact: true })),
+        ]);
+        const filename = `${String(id)}-${width}.ics`;
+        await download.saveAs(join(output, filename));
+        const bytes = readFileSync(join(output, filename));
+        assert.equal((bytes.toString().match(/BEGIN:VEVENT/g) ?? []).length, count);
+        assert.ok(bytes.toString().includes(`SUMMARY:${String(title)}`));
+        assert.equal(
+          await page.evaluate(() => document.documentElement.scrollWidth > innerWidth),
+          false,
+        );
+        await page.screenshot({ path: join(output, `${String(id)}-${width}.png`) });
+        await input.fill(
+          id === "recipient-lowercase"
+            ? expression.replace("mom", "dad")
+            : id === "recipient" || id === "clock-first"
+            ? expression.replace("Sam", "Jo")
+            : expression.replace(id === "invoice" ? "#123" : "3", id === "invoice" ? "#124" : "4"),
+        );
+        if (id !== "schedule") {
+          await page
+            .getByRole("button", {
+              name:
+                id === "recipient-lowercase"
+                  ? /^Use “Buy apples for dad”$/
+                  : id === "recipient" || id === "clock-first"
+                  ? /^Use “Buy apples for Jo”$/
+                  : id === "invoice"
+                    ? /November 1, 2026/
+                    : (id === "quantity" || id === "quantity-list")
+                      ? id === "quantity-list" ? /^Use “Buy 4 apples and 2 pears”$/ : /^Use “Buy 4 apples”$/
+                      : /^Use “Room 4”$/,
+            })
+            .waitFor();
+          assert.equal(await page.locator("#calendar-export-toggle").count(), 0);
+        }
+        await input.fill("Visit room 3 pm tomorrow at noon");
+        await page.locator("#calculation-error").waitFor();
+        assert.equal(await page.locator("#calendar-export-toggle").count(), 0);
+        if (id === "recipient-lowercase") {
+          for (const condition of ["pending", "assuming", "provided"]) {
+            const conditional = `Buy apples for mom ${condition} tomorrow at noon`;
+            await input.fill(conditional);
+            await page.locator("#calculation-error").waitFor();
+            assert.equal(await input.inputValue(), conditional);
+            assert.equal(await page.getByRole("button", { name: /^Use “/ }).count(), 0);
+            assert.equal(await page.locator("#calendar-export-toggle").count(), 0);
+          }
+        }
+        if (id === "quantity-list") {
+          for (const invalid of [
+            "Buy 3 apples and 2 pears then call Sam tomorrow at noon",
+            "Buy 3 apples and 2 pears then email Jo tomorrow",
+            "Buy 3 apples and 2 pears and tomorrow at noon",
+          ]) {
+            await input.fill(invalid);
+            await page.locator("#calculation-error").waitFor();
+            assert.equal(await input.inputValue(), invalid);
+            assert.equal(await page.locator("#calculation-error button").count(), 0);
+            assert.equal(await page.locator("#calendar-export-toggle").count(), 0);
+          }
+        }
+        assert.deepEqual(run.errors, []);
+        Object.assign(run, {
+          status: "passed",
+          file: filename,
+          sha256: createHash("sha256").update(bytes).digest("hex"),
+        });
+      } catch (error) {
+        run.status = "failed";
+        run.error = String(error);
+        run.failureState = await page
+          .evaluate(() => ({
+            activeElement: document.activeElement?.outerHTML,
+            statuses: [...document.querySelectorAll('[role="status"]')].map((el) => el.textContent),
+          }))
+          .catch(() => null);
+        await page
+          .screenshot({ path: join(output, `${String(id)}-${width}-failed.png`), fullPage: true })
+          .catch(() => {});
+        writeFileSync(
+          join(output, `${String(id)}-${width}-failed.html`),
+          await page.content(),
+        );
+        throw error;
+      } finally {
+        run.downloadTrace = await page
+          .evaluate(() => window.__tempusDownloadEvidence)
+          .catch(() => null);
+        await cdp.detach();
+        await page.close();
+      }
+    }
+  report.status = "passed";
+} catch (error) {
+  report.status = "failed";
+  throw error;
+} finally {
+  await browser.close();
+  writeFileSync(join(output, "report.json"), JSON.stringify(report, null, 2) + "\n");
+}
+console.log(JSON.stringify({ status: report.status, runs: report.runs.length }));

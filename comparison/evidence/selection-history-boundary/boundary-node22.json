@@ -1,0 +1,1 @@
+{"status":"passed","node":"v22.12.0","checks":"four malformed-history entry calls reject immediately; valid multi-answer reminder agrees across single, batch and reusable APIs"}

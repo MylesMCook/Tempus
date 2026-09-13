@@ -1,0 +1,99 @@
+{
+  "readers": {
+    "icalendar": "7.3.0",
+    "recurring-ical-events": "3.8.2"
+  },
+  "files": [
+    {
+      "file": "end-written-320.ics",
+      "sha256": "f0d1c4e04e1c9b5f6b155401279fec549702e0aa643adf5c460fcce26b5580a7",
+      "observed": [
+        "2026-09-13T17:00:00+00:00",
+        "2026-09-18T17:00:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "file": "end-midnight-320.ics",
+      "sha256": "61245fbf78129efa196b65de0029ca9745aaabc723b6897b28099dfefc9f9c8f",
+      "observed": [
+        "2026-09-13T17:00:00+00:00",
+        "2026-09-18T05:00:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "file": "start-written-320.ics",
+      "sha256": "91e1dd9b10b62162f1fd55a06acb73f7922c75abd946205e3d293e34d57d0c74",
+      "observed": [
+        "2026-09-13T17:00:00+00:00",
+        "2026-09-18T17:00:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "file": "start-midnight-320.ics",
+      "sha256": "22927ca1cd4681a73edb66113cc7e7588f36d07e502722627344cba19e5252a8",
+      "observed": [
+        "2026-09-13T05:00:00+00:00",
+        "2026-09-18T17:00:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "file": "start-fold-320.ics",
+      "sha256": "7a345d3a0851f67f4236d98779f7b05ab33c3e93a43246cc5707dc3dfd3806a3",
+      "observed": [
+        "2026-11-01T07:30:00+00:00",
+        "2026-11-02T07:30:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "file": "end-written-1280.ics",
+      "sha256": "e44919694c702768dc884f67ed5d0eff0bc7573517ca4edb2d289ec942484c5e",
+      "observed": [
+        "2026-09-13T17:00:00+00:00",
+        "2026-09-18T17:00:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "file": "end-midnight-1280.ics",
+      "sha256": "6122831da00ca79bbdad3db91ab5e5063be1e2836d982c39d3c79f332d16c4b4",
+      "observed": [
+        "2026-09-13T17:00:00+00:00",
+        "2026-09-18T05:00:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "file": "start-written-1280.ics",
+      "sha256": "d018cb0b8fffe7e37e591e661ebea96528c4256400a4b75ad5a77403719efdc7",
+      "observed": [
+        "2026-09-13T17:00:00+00:00",
+        "2026-09-18T17:00:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "file": "start-midnight-1280.ics",
+      "sha256": "fb164bd6fde73c251f8b8bcaa78bd1f441c0fa7f444f3d130c81d3b2ef9caa09",
+      "observed": [
+        "2026-09-13T05:00:00+00:00",
+        "2026-09-18T17:00:00+00:00"
+      ],
+      "status": "passed"
+    },
+    {
+      "file": "start-fold-1280.ics",
+      "sha256": "0bffb9485dcb1dbd3a16a15424022b2278c65c49c2581259f20f7bc259e510cb",
+      "observed": [
+        "2026-11-01T07:30:00+00:00",
+        "2026-11-02T07:30:00+00:00"
+      ],
+      "status": "passed"
+    }
+  ],
+  "scope": "Actual downloaded file validation; no calendar-client import or independent language evaluation."
+}

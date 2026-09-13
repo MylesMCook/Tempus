@@ -1,0 +1,22 @@
+[
+  {
+    "method": "GET",
+    "path": "/calendar.html",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "path": "/calendar-browser.js",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "path": "/unknown",
+    "status": 404
+  },
+  {
+    "method": "POST",
+    "path": "/calendar.html",
+    "status": 404
+  }
+]

@@ -1,0 +1,17 @@
+{
+  "rows": [
+    {
+      "width": 320,
+      "before": "calendar-export-toggle",
+      "after": "calculated-date",
+      "pending": 1
+    },
+    {
+      "width": 1280,
+      "before": "calendar-export-toggle",
+      "after": "calculated-date",
+      "pending": 1
+    }
+  ],
+  "scope": "Controlled held animation-frame callbacks, not a claim that all historical download failures have this cause."
+}

@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tempus//Calendar Export//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:11111111-2222-4333-8444-555555555555-0@tempus.invalid
+DTSTAMP:20260912T160000Z
+SUMMARY:call Sam
+DESCRIPTION:Date phrase: 03/04/2027 at midnight\nTimezone: America/Chicago\
+ nThe event text is a label only\; no reminder has been created.\nDate inte
+ rpreted as April 3\, 2027.
+DTSTART:20270403T050000Z
+END:VEVENT
+END:VCALENDAR

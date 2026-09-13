@@ -1,0 +1,37 @@
+{
+  "status": "passed",
+  "node": "v22.12.0",
+  "archiveSha256": "8d0c279183fba267c0e4d97441a8159d126b068838ad9f9b186c4ae146602f7b",
+  "examples": [
+    {
+      "name": "node",
+      "exitCode": 0,
+      "output": "{\"runtime\":\"v22.12.0\",\"checks\":\"uncertain reminder edit recovery\"}\n{\"runtime\":\"v22.12.0\",\"package\":\"0.1.0\",\"checks\":\"point, batch parity, unresolved item, reusable parser\"}\n{\"runtime\":\"v22.12.0\",\"checks\":\"ordered arithmetic, reminder date correction, recurring and group DST correction, original input and stale selection\"}\n{\"runtime\":\"v22.12.0\",\"checks\":\"complete overnight interval\"}\n{\"runtime\":\"v22.12.0\",\"checks\":\"numeric date and DST correction preserve reminder duration\"}\n{\"runtime\":\"v22.12.0\",\"checks\":\"group next-date confirmation and whole-input rejection\"}\n{\"runtime\":\"v22.12.0\",\"checks\":\"repeating duration with exclusions and calendar-duration endpoint choice\"}\n{\"runtime\":\"v22.12.0\",\"checks\":\"date-only midnight boundary, explicit clock ambiguity, skipped date and empty-rule validation\"}\n{\"runtime\":\"v22.12.0\",\"checks\":\"arithmetic clock conflict recovery preserves remaining operations\"}\n{\"runtime\":\"v22.12.0\",\"checks\":\"recurrence conflict recovery preserves complete reminder endpoints\"}\n{\"runtime\":\"v22.12.0\",\"checks\":\"group conflict recovery, complete reminder endpoints and dependent end invalidation\"}\n{\"runtime\":\"v22.12.0\",\"checks\":\"anchored fortnightly reminder retains exclusions after reference changes\"}\n{\"runtime\":\"v22.12.0\",\"checks\":\"seconds duration survives date correction\"}\n{\"runtime\":\"v22.12.0\",\"checks\":\"complete alternative selection preserves duration and invalidates after edits\"}\n{\"runtime\":\"v22.12.0\",\"checks\":\"staged date and clock choices retain the complete alternative and reject stale selections\"}\n{\"runtime\":\"v22.12.0\",\"checks\":\"staged correction preserves both keep/replace durations and invalidates after edits\"}\n{\"runtime\":\"v22.12.0\",\"checks\":\"direct command preserves event case and spans without discarding conditions\"}\n{\"runtime\":\"v22.12.0\",\"checks\":\"half-hour interval survives date/clock choices and invalid duration edit\"}\n{\"runtime\":\"v22.12.0\",\"checks\":\"title/date/clock decisions preserve complete interval and reset safely\"}\n",
+      "error": ""
+    },
+    {
+      "name": "calendar",
+      "exitCode": 0,
+      "output": "{\"runtime\":\"v22.12.0\",\"status\":\"passed\",\"checks\":\"point precision, recurrence clarification, complete file, edit recovery, unresolved and future-policy rejection\"}\n",
+      "error": ""
+    },
+    {
+      "name": "state",
+      "exitCode": 0,
+      "output": "{\"runtime\":\"v22.12.0\",\"checks\":[\"two-step reminder correction and file preparation\",\"date-only and all-day choice precision through export and edit\",\"event invalidation\",\"duration invalidation\",\"timezone invalidation\",\"reference invalidation\",\"batch answer isolation\",\"reusable parser nested snapshot\",\"returned result isolation\"],\"limits\":\"Installed SDK integration only; no browser UI, recurrence export decisions or calendar-client import.\"}\n",
+      "error": ""
+    },
+    {
+      "name": "monthly",
+      "exitCode": 0,
+      "output": "{\"status\":\"passed\",\"monthlyBoundedEvents\":4,\"ongoingRule\":true,\"staleDecisionRejected\":true}\n",
+      "error": ""
+    },
+    {
+      "name": "date-list",
+      "exitCode": 0,
+      "output": "{\"status\":\"passed\",\"dateTimeClockChoices\":3,\"events\":2,\"changedToDateOnly\":true,\"staleDecisionRejected\":true,\"explicitYearJourney\":true}\n",
+      "error": ""
+    }
+  ]
+}

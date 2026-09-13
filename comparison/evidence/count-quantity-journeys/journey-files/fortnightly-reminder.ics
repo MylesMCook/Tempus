@@ -1,0 +1,55 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tempus//Calendar Export//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:11111111-2222-4333-8444-555555555555-0@tempus.invalid
+DTSTAMP:20260912T160000Z
+SUMMARY:call Sam
+DESCRIPTION:Date phrase: every other Sunday at 1:30am for 30 minutes starti
+ ng 2026-10-18 until 2026-11-29 except 2026-11-15\nTimezone: America/Chicag
+ o\nOnly upcoming occurrence starts appear in the preview.\nFor 2026-11-01 
+ start only\, you selected Start: Second: November 1\, 2026 at 1:30 AM CST 
+ (UTC-06:00). Other occurrences keep their written local clocks.\nComplete 
+ bounded recurrence set\; dates are fixed to the timezone rules used when t
+ his file was generated.\n2026-11-01 start: Start: Second: November 1\, 202
+ 6 at 1:30 AM CST (UTC-06:00)
+DTSTART:20261018T063000Z
+DTEND:20261018T070000Z
+RDATE:20261018T063000Z
+RDATE:20261101T073000Z
+RDATE:20261129T073000Z
+END:VEVENT
+BEGIN:VEVENT
+RECURRENCE-ID:20261101T073000Z
+UID:11111111-2222-4333-8444-555555555555-0@tempus.invalid
+DTSTAMP:20260912T160000Z
+SUMMARY:call Sam
+DESCRIPTION:Date phrase: every other Sunday at 1:30am for 30 minutes starti
+ ng 2026-10-18 until 2026-11-29 except 2026-11-15\nTimezone: America/Chicag
+ o\nOnly upcoming occurrence starts appear in the preview.\nFor 2026-11-01 
+ start only\, you selected Start: Second: November 1\, 2026 at 1:30 AM CST 
+ (UTC-06:00). Other occurrences keep their written local clocks.\nComplete 
+ bounded recurrence set\; dates are fixed to the timezone rules used when t
+ his file was generated.\n2026-11-01 start: Start: Second: November 1\, 202
+ 6 at 1:30 AM CST (UTC-06:00)
+DTSTART:20261101T073000Z
+DTEND:20261101T080000Z
+END:VEVENT
+BEGIN:VEVENT
+RECURRENCE-ID:20261129T073000Z
+UID:11111111-2222-4333-8444-555555555555-0@tempus.invalid
+DTSTAMP:20260912T160000Z
+SUMMARY:call Sam
+DESCRIPTION:Date phrase: every other Sunday at 1:30am for 30 minutes starti
+ ng 2026-10-18 until 2026-11-29 except 2026-11-15\nTimezone: America/Chicag
+ o\nOnly upcoming occurrence starts appear in the preview.\nFor 2026-11-01 
+ start only\, you selected Start: Second: November 1\, 2026 at 1:30 AM CST 
+ (UTC-06:00). Other occurrences keep their written local clocks.\nComplete 
+ bounded recurrence set\; dates are fixed to the timezone rules used when t
+ his file was generated.\n2026-11-01 start: Start: Second: November 1\, 202
+ 6 at 1:30 AM CST (UTC-06:00)
+DTSTART:20261129T073000Z
+DTEND:20261129T080000Z
+END:VEVENT
+END:VCALENDAR

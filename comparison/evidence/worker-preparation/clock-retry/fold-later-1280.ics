@@ -1,0 +1,36 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tempus//Calendar Export//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:ef7dc1cd-a18b-4187-abcc-3cb145942d94-0@tempus.invalid
+DTSTAMP:20260913T160432Z
+SUMMARY:Call Sam
+DESCRIPTION:Date phrase: every Sunday at 1:30am for 3 occurrences except 20
+ 26-11-01\nTimezone: America/Chicago\nOnly upcoming occurrence starts appea
+ r in the preview.\nFor 2026-11-01 start only\, you selected Second: Novemb
+ er 1\, 2026 at 1:30 AM CST (UTC-06:00). Other occurrences keep their writt
+ en local clocks.\nExcluded dates use count slots and are not replaced.\nCo
+ mplete bounded recurrence set\; dates are fixed to the timezone rules used
+  when this file was generated.\n2026-11-01 start: Second: November 1\, 202
+ 6 at 1:30 AM CST (UTC-06:00)
+DTSTART:20261108T073000Z
+RDATE:20261108T073000Z
+RDATE:20261115T073000Z
+END:VEVENT
+BEGIN:VEVENT
+RECURRENCE-ID:20261115T073000Z
+UID:ef7dc1cd-a18b-4187-abcc-3cb145942d94-0@tempus.invalid
+DTSTAMP:20260913T160432Z
+SUMMARY:Call Sam
+DESCRIPTION:Date phrase: every Sunday at 1:30am for 3 occurrences except 20
+ 26-11-01\nTimezone: America/Chicago\nOnly upcoming occurrence starts appea
+ r in the preview.\nFor 2026-11-01 start only\, you selected Second: Novemb
+ er 1\, 2026 at 1:30 AM CST (UTC-06:00). Other occurrences keep their writt
+ en local clocks.\nExcluded dates use count slots and are not replaced.\nCo
+ mplete bounded recurrence set\; dates are fixed to the timezone rules used
+  when this file was generated.\n2026-11-01 start: Second: November 1\, 202
+ 6 at 1:30 AM CST (UTC-06:00)
+DTSTART:20261115T073000Z
+END:VEVENT
+END:VCALENDAR
