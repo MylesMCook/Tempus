@@ -1,4 +1,4 @@
-export type Occurrence = { start: string; end?: string };
+export type Occurrence = { start: string; end?: string; allDay?: boolean };
 export type Expected =
   | { kind: "resolved"; occurrences: Occurrence[]; recurring: boolean }
   | { kind: "no-expression" | "invalid" | "ambiguous" };
@@ -18,14 +18,14 @@ export const context = {
   limit: 3,
 };
 
-const point = (start: string): Expected => ({
+const point = (start: string, allDay = false): Expected => ({
   kind: "resolved",
-  occurrences: [{ start }],
+  occurrences: [{ start, allDay }],
   recurring: false,
 });
-const interval = (start: string, end: string): Expected => ({
+const interval = (start: string, end: string, allDay = false): Expected => ({
   kind: "resolved",
-  occurrences: [{ start, end }],
+  occurrences: [{ start, end, allDay }],
   recurring: false,
 });
 
@@ -52,7 +52,7 @@ export const fixtures: Fixture[] = [
     id: "date-friday",
     family: "dates",
     text: "next Friday",
-    expected: point("2026-09-18T05:00:00Z"),
+    expected: point("2026-09-18T05:00:00Z", true),
     rationale: "The next Friday after Saturday September 12 is September 18, at midnight CDT.",
     preserve: true,
   },
@@ -60,7 +60,7 @@ export const fixtures: Fixture[] = [
     id: "date-yesterday",
     family: "dates",
     text: "yesterday",
-    expected: point("2026-09-11T05:00:00Z"),
+    expected: point("2026-09-11T05:00:00Z", true),
     rationale: "The preceding civil date starts at midnight CDT.",
     preserve: true,
   },
@@ -86,7 +86,7 @@ export const fixtures: Fixture[] = [
     id: "math-days-first",
     family: "arithmetic",
     text: "jan 30 2026 plus 2 days plus 1 month",
-    expected: point("2026-03-01T06:00:00Z"),
+    expected: point("2026-03-01T06:00:00Z", true),
     rationale: "January 30 plus two days is February 1; one month later is March 1, midnight CST.",
     preserve: true,
   },
@@ -94,7 +94,7 @@ export const fixtures: Fixture[] = [
     id: "math-month-first",
     family: "arithmetic",
     text: "jan 30 2026 plus 1 month plus 2 days",
-    expected: point("2026-03-02T06:00:00Z"),
+    expected: point("2026-03-02T06:00:00Z", true),
     rationale: "January 30 clamps to February 28; two days later is March 2, midnight CST.",
     preserve: true,
   },
@@ -102,7 +102,7 @@ export const fixtures: Fixture[] = [
     id: "math-step-clamp",
     family: "arithmetic",
     text: "jan 31 2026 plus 1 month plus 1 month",
-    expected: point("2026-03-28T05:00:00Z"),
+    expected: point("2026-03-28T05:00:00Z", true),
     rationale: "January 31 clamps to February 28, then advances to March 28, midnight CDT.",
     preserve: true,
   },
@@ -148,9 +148,9 @@ export const fixtures: Fixture[] = [
     id: "sentence-correction",
     family: "sentences",
     text: "Meet Friday at noon, actually Saturday at noon instead",
-    expected: point("2026-09-12T17:00:00Z"),
+    expected: { kind: "ambiguous" },
     rationale:
-      "The correction supersedes Friday; today's noon is still in the future at the reference time.",
+      "Scheduling-intent policy requires confirmation that Saturday replaces Friday. Neither date is an approved event until that choice is made.",
   },
   {
     id: "schedule-weekly",
@@ -160,9 +160,9 @@ export const fixtures: Fixture[] = [
       kind: "resolved",
       recurring: true,
       occurrences: [
-        { start: "2026-09-15T01:00:00Z", end: "2026-09-15T03:00:00Z" },
-        { start: "2026-09-22T01:00:00Z", end: "2026-09-22T03:00:00Z" },
-        { start: "2026-09-29T01:00:00Z", end: "2026-09-29T03:00:00Z" },
+        { start: "2026-09-15T01:00:00Z", end: "2026-09-15T03:00:00Z", allDay: false },
+        { start: "2026-09-22T01:00:00Z", end: "2026-09-22T03:00:00Z", allDay: false },
+        { start: "2026-09-29T01:00:00Z", end: "2026-09-29T03:00:00Z", allDay: false },
       ],
     },
     rationale:
@@ -176,9 +176,9 @@ export const fixtures: Fixture[] = [
       kind: "resolved",
       recurring: false,
       occurrences: [
-        { start: "2026-09-12T18:00:00Z", end: "2026-09-13T01:00:00Z" },
-        { start: "2026-09-13T18:00:00Z", end: "2026-09-14T01:00:00Z" },
-        { start: "2026-09-15T03:00:00Z", end: "2026-09-15T05:00:00Z" },
+        { start: "2026-09-12T18:00:00Z", end: "2026-09-13T01:00:00Z", allDay: false },
+        { start: "2026-09-13T18:00:00Z", end: "2026-09-14T01:00:00Z", allDay: false },
+        { start: "2026-09-15T03:00:00Z", end: "2026-09-15T05:00:00Z", allDay: false },
       ],
     },
     rationale:
@@ -188,7 +188,7 @@ export const fixtures: Fixture[] = [
     id: "schedule-duration",
     family: "schedules",
     text: "set OOO for 3 days from today",
-    expected: interval("2026-09-12T05:00:00Z", "2026-09-15T05:00:00Z"),
+    expected: interval("2026-09-12T05:00:00Z", "2026-09-15T05:00:00Z", true),
     rationale:
       "A three-day all-day absence starts today and ends at exclusive midnight three days later.",
   },
@@ -250,5 +250,53 @@ export const fixtures: Fixture[] = [
     expected: { kind: "ambiguous" },
     rationale:
       "No date-order preference was supplied. March 4 and April 3 are both valid; this corpus requires clarification.",
+  },
+  {
+    id: "sentence-duration-suffix",
+    family: "sentences",
+    text: "Remind me to call Sam tomorrow at noon for 30 minutes",
+    expected: interval("2026-09-13T17:00:00Z", "2026-09-13T17:30:00Z"),
+    rationale:
+      "Tomorrow is September 13; Chicago noon is 17:00Z. Thirty elapsed minutes ends at 17:30Z; a point is incomplete.",
+  },
+  {
+    id: "schedule-duration-exclusion",
+    family: "schedules",
+    text: "every Monday at 9am for 30 minutes until 2026-10-05 except 2026-09-21",
+    expected: {
+      kind: "resolved",
+      recurring: true,
+      occurrences: ["2026-09-14", "2026-09-28", "2026-10-05"].map((date) => ({
+        start: `${date}T14:00:00Z`,
+        end: `${date}T14:30:00Z`,
+        allDay: false,
+      })),
+    },
+    rationale:
+      "The excluded September 21 start is omitted. The inclusive last start date is October 5; all three retained starts are 9 AM CDT with 30-minute ends.",
+  },
+  {
+    id: "duration-calendar-end-ambiguity",
+    family: "recovery",
+    text: "October 31, 2026 at 1:30am for 1 day",
+    expected: { kind: "ambiguous" },
+    rationale:
+      "The next civil day's 1:30 AM occurs twice in Chicago. Calendar duration does not authorize choosing either endpoint offset.",
+  },
+  {
+    id: "group-equal-clock",
+    family: "recovery",
+    text: "Sat 9am-9am Mon 9am-10am",
+    expected: { kind: "ambiguous" },
+    rationale:
+      "Matching Saturday clocks need confirmation of a next-day end under Tempus policy; silently accepting a zero-length or full-day event is not a complete interpretation.",
+  },
+  {
+    id: "duration-incomplete",
+    family: "recovery",
+    text: "Remind me to call Sam tomorrow at noon for",
+    expected: { kind: "invalid" },
+    rationale:
+      "The duration is unfinished. Returning only the noon point would discard a meaningful qualifier.",
   },
 ];

@@ -38,7 +38,9 @@ export function ApiDocs({
     format: effectiveDateFormat,
   });
   const path = `/api/parse?${params}`;
-  const url = new URL(path, window.location.origin).toString();
+  const [origin, setOrigin] = useState("");
+  useEffect(() => setOrigin(window.location.origin), []);
+  const url = origin ? new URL(path, origin).toString() : path;
   const stale = (state.kind === "done" || state.kind === "error") && state.path !== path;
 
   async function copy(value: string, label: string) {

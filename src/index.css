@@ -1,3 +1,19 @@
+@font-face {
+  font-family: "Geist";
+  src: url("/fonts/geist-variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  src: url("/fonts/geist-mono-variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -14,7 +30,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
 
-    --primary: 240 5.9% 10%;
+    --primary: 170 48% 23%;
     --primary-foreground: 0 0% 98%;
 
     --secondary: 240 4.8% 95.9%;
@@ -31,11 +47,11 @@
 
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
-    --ring: 240 10% 3.9%;
+    --ring: 170 48% 23%;
 
     --radius: 0.5rem;
-    --font-sans: "Avenir Next", "Segoe UI", ui-sans-serif, system-ui, sans-serif;
-    --font-mono: "Iosevka Term", "SFMono-Regular", ui-monospace, Consolas, monospace;
+    --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+    --font-mono: "Geist Mono", ui-monospace, monospace;
 
     --primary-50: 240 100% 98%;
     --primary-100: 240 100% 95%;
@@ -116,5 +132,11 @@
 
   .input-focus {
     @apply focus-visible:ring-1 focus-visible:ring-primary/30 focus-visible:border-primary/50;
+  }
+}
+
+@layer utilities {
+  .bg-page {
+    background-color: #f7f8f5;
   }
 }

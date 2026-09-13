@@ -14,6 +14,21 @@ import { compatibilityCases } from "./date-engine/compatibility-fixtures";
 import { examples } from "../features/parser/examples";
 
 describe("Phoenix independent date oracles", () => {
+  it("keeps returned snapshots independent when a consumer annotates one", () => {
+    const calculation = result("today plus 2 days plus 1 month");
+    const expected = structuredClone(calculation);
+    calculation.steps[0].before.local = "consumer annotation";
+    calculation.steps[1].before.iso = "consumer annotation";
+    calculation.result.timestamp = 0;
+    expect(calculation.anchor).toEqual(expected.anchor);
+    expect(calculation.steps[0].after).toEqual(expected.steps[0].after);
+    expect(calculation.steps[1].after).toEqual(expected.steps[1].after);
+    const point = result("now");
+    const anchor = { ...point.anchor };
+    point.result.local = "consumer annotation";
+    expect(point.anchor).toEqual(anchor);
+    expect(result("today plus 2 days plus 1 month")).toEqual(expected);
+  });
   it.each(oracleCases)("%s → %s", (phrase, expected) => {
     const calculation = result(phrase);
     expect(calculation.result.iso).toBe(expected);
@@ -151,4 +166,27 @@ it("covers every advertised example with an independent expected result", () => 
   );
   for (const phrase of Object.values(examples).flat())
     expect(covered.has(phrase), phrase).toBe(true);
+});
+
+it("keeps timezone validation isolated across reuse and more than 64 zones", () => {
+  const context = { timezone: "America/Chicago", reference: "2026-09-12T16:00:00Z" };
+  const first = calculateDate("tomorrow at noon", context);
+  for (const timezone of Intl.supportedValuesOf("timeZone").slice(0, 70)) {
+    const result = calculateDate("now", { ...context, timezone });
+    expect(result.ok).toBe(true);
+    if (result.ok) expect(result.result.iso).toBe("2026-09-12T16:00:00.000Z");
+  }
+  expect(calculateDate("tomorrow at noon", context)).toEqual(first);
+  for (const timezone of ["Invalid/Zone", "+05:00", "", "x".repeat(65)])
+    expect(calculateDate("now", { ...context, timezone })).toMatchObject({
+      ok: false,
+      error: { code: "timezone" },
+    });
+  expect(
+    calculateDate("tomorrow at noon", { ...context, reference: "2026-09-13T16:00:00Z" }),
+  ).not.toEqual(first);
+  expect(calculateDate("November 1, 2026 at 1:30 am", context)).toMatchObject({
+    ok: false,
+    error: { code: "ambiguous-time" },
+  });
 });

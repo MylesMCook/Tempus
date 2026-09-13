@@ -1,15 +1,14 @@
-import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function PrivacyPage() {
   return (
-    <main className="container max-w-3xl py-12">
+    <main id="main" className="container max-w-3xl py-12">
       <Button variant="ghost" asChild className="mb-6">
-        <Link to="/" className="flex items-center gap-2">
+        <a href="/" className="flex items-center gap-2">
           <ArrowLeft className="h-4 w-4" />
           Back to calculator
-        </Link>
+        </a>
       </Button>
       <h1 className="mb-6 text-3xl font-bold">Privacy policy</h1>
       <div className="flex flex-col gap-6 text-sm leading-7 text-muted-foreground sm:text-base">
@@ -30,6 +29,20 @@ export function PrivacyPage() {
             Date format and timezone preferences are saved in your browser’s local storage. They
             remain there until you clear this site’s data. Reset preferences restores the defaults.
             There are no accounts or settings synced across devices.
+          </p>
+        </section>
+        <section>
+          <h2 className="mb-2 text-lg font-semibold text-foreground">Copying and calendar files</h2>
+          <p>
+            Copy buttons put the displayed date, range or schedule preview on your clipboard. That
+            text can include your event title. Other apps may be able to read your clipboard,
+            depending on your device and permissions.
+          </p>
+          <p className="mt-3">
+            Calendar files are prepared in your browser. Choosing Download calendar file saves a
+            file containing the reviewed title, dates, timezone, date phrase and interpretation
+            notes. Tempus does not upload that file or add events to a calendar account. If you
+            import or share the file, its contents go to the app or person you choose.
           </p>
         </section>
         <section>

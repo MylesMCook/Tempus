@@ -1,0 +1,69 @@
+import { useEffect, useRef, useState } from "react";
+import type {
+  CalendarPreparationRequest,
+  CalendarPreparationResponse,
+} from "./calendar-preparation";
+
+/** The request object is the identity boundary. Never expose a response to newer input. */
+export function useCalendarPreparation(request: CalendarPreparationRequest | undefined) {
+  const previous = useRef<CalendarPreparationRequest | undefined>(undefined);
+  const [completed, setCompleted] = useState<{
+    request: CalendarPreparationRequest;
+    response: CalendarPreparationResponse;
+  }>();
+  useEffect(() => {
+    if (!request) {
+      previous.current = undefined;
+      setCompleted(undefined);
+      return;
+    }
+    const editingTitle =
+      previous.current?.interpretation === request.interpretation &&
+      previous.current.reference === request.reference &&
+      previous.current.decisions === request.decisions &&
+      previous.current.title !== request.title;
+    previous.current = request;
+    let worker: Worker | undefined;
+    let cancelled = false;
+    const fail = () => {
+      if (!cancelled)
+        setCompleted({
+          request,
+          response: {
+            ok: false,
+            error:
+              request.output === "occurrences"
+                ? "The full schedule could not be prepared. Try again or use another browser."
+                : "The calendar file could not be prepared. Try again or use another browser.",
+          },
+        });
+      worker?.terminate();
+    };
+    // Avoid starting a fresh computation for every title keystroke.
+    const timer = setTimeout(
+      () => {
+        try {
+          worker = new Worker(new URL("./calendar-preparation.worker.ts", import.meta.url), {
+            type: "module",
+          });
+          worker.onmessage = (event: MessageEvent<CalendarPreparationResponse>) => {
+            if (!cancelled) setCompleted({ request, response: event.data });
+            worker?.terminate();
+          };
+          worker.onerror = fail;
+          worker.onmessageerror = fail;
+          worker.postMessage(request);
+        } catch {
+          fail();
+        }
+      },
+      editingTitle ? 150 : 0,
+    );
+    return () => {
+      cancelled = true;
+      clearTimeout(timer);
+      worker?.terminate();
+    };
+  }, [request]);
+  return completed?.request === request ? completed?.response : undefined;
+}

@@ -1,6 +1,6 @@
 # Cloudflare deployment
 
-The client is a static SPA; `worker/index.ts` handles `/api/*`. The existing production Worker is `tempus-total`, serving `tempus-total.funnydomainname.com`. Local development uses Cloudflare's Vite plugin and simulated bindings on loopback.
+RedwoodSDK 1.7.3 serves the web shell and explicit routes from `src/worker.tsx`; `worker/index.ts` preserves the strict `/api/*` handler. Parsing and calendar-file preparation remain client-side. The existing production Worker is `tempus-total`, serving `tempus-total.funnydomainname.com`. Local development uses Cloudflare's Vite plugin and simulated bindings on loopback.
 
 ## Reproducible configuration
 
@@ -8,9 +8,9 @@ The client is a static SPA; `worker/index.ts` handles `/api/*`. The existing pro
 
 Limits apply per IP and Cloudflare location with eventual consistency. They are an abuse guard, not a global quota or spending cap. Shared networks share a limit. A denied request returns 429 with `Retry-After: 60`; a missing or unavailable limiter returns 503. Normal browser calculations do not call this API.
 
-`public/_headers` protects static responses. Worker responses set their own headers because Cloudflare does not apply `_headers` to them. The browser policy allows same-origin scripts and connections, forbids embedding, and retains inline styles required by the existing components. HSTS applies only to the current hostname, without subdomain or preload directives.
+`public/_headers` protects static assets. RedwoodSDK HTML responses set their own nonce-based CSP and security headers; API responses retain their stricter policy. Cloudflare does not apply `_headers` to Worker-rendered pages. The browser policy allows same-origin scripts and connections, forbids embedding, and retains inline styles required by the existing components. HSTS applies only to the current hostname, without subdomain or preload directives.
 
-The compatibility date remains pinned to preserve date behavior. Observability remains enabled with `redact_query_string=true` to strip query strings from Worker logs and traces. This does not erase historical logs or control other hosting records. Version preview URLs are disabled; both existing production hostnames remain enabled. Account plan, log retention, WAF, zone-wide TLS configuration, and account access policies are separate Cloudflare settings.
+The compatibility date remains pinned to preserve date behavior; `nodejs_compat` supports the RedwoodSDK runtime. No database, account or server-action integration is configured. Observability remains enabled with `redact_query_string=true` to strip query strings from Worker logs and traces. This does not erase historical logs or control other hosting records. Version preview URLs are disabled; both existing production hostnames remain enabled. Account plan, log retention, WAF, zone-wide TLS configuration, and account access policies are separate Cloudflare settings.
 
 ## Release
 
@@ -28,6 +28,8 @@ The original repository's GitHub deployment credential needs replacement through
 ## Verify and recover
 
 Before deployment, run `pnpm exec wrangler deploy --dry-run` after building. Regenerate environment types with `pnpm cf-typegen` when bindings change and compare them with the narrow `Env` interface in `worker/index.ts`.
+
+The production build is in `dist/worker` and `dist/client`; Wrangler uses `.wrangler/deploy/config.json` to select the built entry point.
 
 After deployment, inspect the new version's settings and bindings, then verify `/`, `/privacy`, and a fixed-reference `/api/parse` request on both the custom domain and workers.dev endpoint. Confirm HTTPS, response headers, result/API parity, and browser operation. Test 429 and 503 using the local mocked limiter tests, without flooding production.
 

@@ -1,0 +1,19 @@
+# Explicit start and end dates
+
+This is the next incomplete INPUT/RECOVERY/UX journey under the existing product matrix. Historical archive 8d0c2791 did not resolve either form below. The original acceptance cases below remain requirements. Timed endpoints now have source/main-app evidence described at the end; date-only and mixed precision now have source/app evidence and current packed verification linked below. Broader language, devices and client-import gates remain open.
+
+- `Call Sam from tomorrow at noon until Friday at noon`, reference September 12, 2026 at 16:00 UTC in America/Chicago: one interval from September 13 at noon to September 18 at noon, or 17:00 UTC at each endpoint. Retain `Call Sam` and the original date expression.
+- `Call Sam from 2026-09-13 at noon to 2026-09-18 at noon`: the same interval. Use the written dates; do not replace the end with a duration or an overnight guess.
+- Resolve each endpoint against the same original reference and timezone. Require the end to follow the start. Invalid dates, reversed/equal endpoints, extra qualifiers and unsupported endpoint arithmetic must remain unresolved until explicitly corrected.
+- Numeric-date and DST ambiguity must ask concrete endpoint-specific questions. Later choices preserve earlier answers. Replacing the start invalidates dependent end decisions where needed; editing input, timezone or reference invalidates the entire selection.
+- Date-only and mixed-precision endpoints need an explicit documented policy before support. Do not silently assign a clock or imply that an end date is inclusive. Existing interval end semantics remain exclusive.
+- Verify input → inspect endpoints → correct → copy/download → edit invalidation at narrow and desktop widths. Independently read the entire file with exact start/end and title. Download is separate from real calendar-client import.
+- Preserve original calculator/API v2, duration intervals, same-date clock ranges and recurrence. Verify the new packed artifact in Node/browser/local Worker after source and app checks.
+
+Count-bounded recurrence now has separate source and packed evidence; it remains distinct from this range work.
+
+## Current implementation evidence
+
+Relative and fully dated timed endpoints now use the existing endpoint resolver against one original context. Numeric-date choices precede clock choices; selecting a clock retains the endpoint date. Replacing an endpoint date clears dependent decisions. The explicit end stays exclusive and must follow the start; no overnight date is inferred. Date-only endpoints now ask the explicit inclusive/exclusive last-date question in the schedule contract. Mixed-precision endpoints now ask whether to use the written clock on the other endpoint or midnight; another time can be typed explicitly.
+
+[Source and main-app evidence](../comparison/evidence/explicit-range/README.md): 763 shared tests, production build, two cases at 320/1280 px and four independently read downloads pass. Source tests also reject invalid dates, endpoint arithmetic, reversed/equal ranges and extra qualifiers. The calculator/API v2 grammar was not changed. Archive 47a218ba now passes [Node/browser/local-Worker checks](../comparison/evidence/explicit-range-runtimes/README.md), and the retained replay contains 22 tasks. Earlier 8d0c2791 results remain historical. Current [date-only range evidence](../comparison/evidence/date-only-range/README.md) adds both all-day end choices and four independently read files. [Mixed-precision recovery](../comparison/evidence/mixed-range/README.md) now has ten independently read source/app files. [Archive e33ab0ca](../comparison/evidence/range-policies-sdk/README.md) now verifies these source changes in Node, desktop browsers and a local Worker. Broader conflict journeys, independent usability, devices and actual imports remain open.

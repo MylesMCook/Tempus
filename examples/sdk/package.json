@@ -1,0 +1,8 @@
+{
+  "name": "tempus-sdk-example",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@tempus-date/core": "workspace:*"
+  }
+}

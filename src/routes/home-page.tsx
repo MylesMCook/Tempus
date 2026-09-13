@@ -1,69 +1,84 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import { Link } from "react-router-dom";
-import { Clock3 } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
+import { flushSync } from "react-dom";
 import type { Calculation } from "@/shared/date-parser";
+import { appendSelection, type ClarificationSelection } from "@/shared/clarify-numeric-date";
 import { interpretDate } from "@/shared/interpret-date";
 import { useSettings } from "@/features/parser/context/settings-context";
 import { DatePicker } from "@/features/parser/components/date-picker";
 
-export function HomePage() {
+export function HomePage({ initialReference }: { initialReference?: string }) {
+  const [selection, setSelection] = useState<ClarificationSelection>();
   const [{ expression, reference }, setInput] = useState(() => ({
     expression: "",
-    reference: new Date().toISOString(),
+    reference: initialReference ?? new Date().toISOString(),
   }));
   const { settings } = useSettings();
-  const setExpression = (value: string) =>
+  const setExpression = (value: string) => {
+    setSelection(undefined);
     setInput({ expression: value, reference: new Date().toISOString() });
+  };
   const interpretation = useMemo(
-    () => interpretDate(expression, { timezone: settings.timezone, reference }),
-    [expression, settings.timezone, reference],
+    () => interpretDate(expression, { timezone: settings.timezone, reference, selection }),
+    [expression, settings.timezone, reference, selection],
   );
+  useEffect(() => {
+    if (selection)
+      (
+        document.getElementById("calculated-date") ?? document.getElementById("calculation-error")
+      )?.focus();
+  }, [selection]);
   const calculation: Calculation =
     interpretation.status === "resolved"
-      ? interpretation.value.calculation
+      ? interpretation.value.kind === "point"
+        ? interpretation.value.calculation
+        : interpretation.value.kind === "interval"
+          ? interpretation.value.start
+          : (interpretation.value.occurrences[0]?.start ?? {
+              ok: false,
+              engineVersion: 2,
+              error: {
+                code: "range",
+                message: "No upcoming occurrences.",
+                hint: "Change the schedule boundaries.",
+              },
+            })
       : { ok: false, engineVersion: 2, error: interpretation.error };
 
   return (
-    <div className="min-h-screen bg-slate-50">
-      <main className="container flex flex-col gap-2 px-4 py-6 sm:px-6 sm:py-8">
-        <section className="mx-auto flex w-full max-w-2xl flex-col gap-3 text-left">
-          <div className="inline-flex items-center gap-2 text-primary">
-            <Clock3 className="size-5" />
-            <span className="text-sm font-semibold">TempusTotal</span>
-          </div>
-          <div className="flex flex-col gap-2">
-            <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">Find a date.</h1>
-            <p className="text-base text-muted-foreground">Type it. See the date. Copy it.</p>
-          </div>
-        </section>
-
-        <section className="mx-auto flex w-full max-w-2xl flex-col gap-6">
+    <div className="bg-page">
+      <main id="main" className="mx-auto w-full max-w-3xl px-4 pb-12 pt-8 sm:px-8 sm:pt-12">
+        <header className="mb-8 max-w-xl">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-primary">
+            Natural language → dates
+          </p>
+          <h1 className="text-3xl font-semibold tracking-tight sm:text-5xl">
+            Turn words into dates.
+          </h1>
+          <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
+            Dates, time ranges and repeating patterns. Write a phrase, check the interpretation and
+            use the result.
+          </p>
+        </header>
+        <section className="flex w-full flex-col gap-6">
           <DatePicker
             expression={expression}
             onExpressionChange={setExpression}
             calculation={calculation}
             interpretation={interpretation}
-            reference={reference}
-            onRefresh={() =>
-              setInput((current) => ({ ...current, reference: new Date().toISOString() }))
+            hasSelection={Boolean(selection)}
+            onChoose={(choice) =>
+              flushSync(() => setSelection((previous) => appendSelection(previous, choice)))
             }
+            reference={reference}
+            onRefresh={() => {
+              setSelection(undefined);
+              setInput((current) => ({ ...current, reference: new Date().toISOString() }));
+            }}
           />
         </section>
       </main>
-
-      <footer className="border-t border-border/60 bg-background/80">
-        <div className="mx-auto flex max-w-2xl items-center justify-between gap-4 px-4 py-4 text-xs text-muted-foreground sm:px-6">
-          <span>TempusTotal</span>
-          <Link
-            to="/privacy"
-            className="inline-flex min-h-11 items-center underline-offset-4 hover:underline"
-          >
-            Privacy policy
-          </Link>
-        </div>
-      </footer>
     </div>
   );
 }

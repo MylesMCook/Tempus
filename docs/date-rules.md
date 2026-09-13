@@ -51,7 +51,7 @@ Other abbreviations include sec, ms, mo, and yr. A fortnight is 14 days; a quart
 
 The browser also recognizes a few short sentence forms: `Remind me to call Sam tomorrow at noon`, `Can we talk tomorrow at noon?`, and `The meeting is on September 18, 2026 at 2 pm.` It highlights the date phrase and keeps the event label. This previews a date; it does not create or deliver a reminder.
 
-Reminder labels currently require one supported action and a single-word name or item. Longer labels, corrections, conditions, multiple dates and recurring schedules remain unsupported. Names that look like dates, such as May, may require entering just the date phrase. The browser declines these cases rather than discarding words to produce a result. This is limited sentence recognition, not general prose extraction.
+The interpreter in this checkout accepts a supported reminder action followed by a multiword name or item, then a complete supported date phrase. For example: `Remind me to call Sam Jones tomorrow at noon`. Labels may contain letters, spaces, apostrophes and hyphens. The first recognized temporal marker starts the date phrase; it cannot be swallowed into the label when parsing fails. Numeric targets and names that look like dates, such as May, remain ambiguous or unsupported. Conditions and many idioms remain unsupported. Selectable corrections, finite weekday groups and bounded recurrence are documented in the [schedule contract](schedule-contract.md). This is limited sentence recognition, not general prose extraction.
 
 The strict calculator and API must understand the whole date phrase. They use a fixed English grammar. Surrounding prose, vague amounts such as “a few,” ambiguous numeric dates, and date ranges are unsupported by the API.
 

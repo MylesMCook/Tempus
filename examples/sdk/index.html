@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tempus SDK example</title>
+  <style>
+    body {
+      font: 16px system-ui;
+      max-width: 60rem;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    input {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 0.75rem;
+    }
+    button {
+      padding: 0.75rem;
+      margin: 0.25rem;
+    }
+    pre {
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+  </style>
+  <h1>Tempus SDK example</h1>
+  <p>
+    This developer example uses a fixed reference: September 12, 2026 at 11 AM in Chicago. Parsing
+    runs locally.
+  </p>
+  <label for="phrase">Date or schedule</label>
+  <input id="phrase" value="tomorrow at noon" />
+  <div id="choices" aria-label="Clarification choices"></div>
+  <pre id="result" tabindex="-1" aria-label="Parser result"></pre>
+  <script type="module" src="/browser.ts"></script>
+</html>

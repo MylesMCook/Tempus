@@ -1,5 +1,12 @@
+import {
+  AmbiguousLocalTime,
+  zonedLocal,
+  zonedInstant,
+  type ZonedDate,
+} from "./date-engine/zoned-date.js";
+import { TimezoneDataUnavailable } from "./date-engine/timezone-database.js";
 import { Temporal } from "@js-temporal/polyfill";
-import { parseExpression } from "./date-engine/grammar";
+import { parseExpression } from "./date-engine/grammar.js";
 import {
   CalculationFailure,
   fail,
@@ -8,13 +15,13 @@ import {
   type DateSnapshot,
   type Operation,
   type CalculationStep,
-} from "./date-engine/types";
+} from "./date-engine/types.js";
 export type {
   Calculation,
   CalculationSuccess,
   CalculationStep,
   DateSnapshot,
-} from "./date-engine/types";
+} from "./date-engine/types.js";
 
 const DAY_MS = 86_400_000n;
 const elapsedFactors = {
@@ -25,7 +32,7 @@ const elapsedFactors = {
 } as const;
 const weekdayNames = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
-function snapshot(date: Temporal.ZonedDateTime): DateSnapshot {
+function snapshot(date: ZonedDate): DateSnapshot {
   if (date.year < 1 || date.year > 9999)
     fail(
       "range",
@@ -40,10 +47,11 @@ function snapshot(date: Temporal.ZonedDateTime): DateSnapshot {
   };
 }
 
-function zoned(local: Temporal.PlainDateTime, timezone: string): Temporal.ZonedDateTime {
+function zoned(local: Temporal.PlainDateTime, timezone: string): ZonedDate {
   try {
-    return local.toZonedDateTime(timezone, { disambiguation: "reject" });
-  } catch {
+    return zonedLocal(local, timezone);
+  } catch (error) {
+    if (!(error instanceof AmbiguousLocalTime)) throw error;
     fail(
       "ambiguous-time",
       "That local time is skipped or occurs twice in this timezone.",
@@ -52,7 +60,12 @@ function zoned(local: Temporal.PlainDateTime, timezone: string): Temporal.ZonedD
   }
 }
 
-function resolveAnchor(anchor: Anchor, reference: Temporal.ZonedDateTime, time?: string) {
+function resolveAnchor(
+  anchor: Anchor,
+  reference: ZonedDate,
+  time: string | undefined,
+  resolve = zoned,
+) {
   const today = reference.toPlainDate();
   let date = today;
   let description = "";
@@ -146,12 +159,12 @@ function resolveAnchor(anchor: Anchor, reference: Temporal.ZonedDateTime, time?:
     );
   }
   return {
-    date: zoned(date.toPlainDateTime(clock), reference.timeZoneId),
+    date: resolve(date.toPlainDateTime(clock), reference.timeZoneId),
     description: `${description} ${time ? `Set the clock to ${clock.toString()}.` : "Start at midnight."}`,
   };
 }
 
-function applyOperation(before: Temporal.ZonedDateTime, operation: Operation) {
+function applyOperation(before: ZonedDate, operation: Operation, resolve = zoned) {
   const { numerator, denominator } = operation.amount;
   const details: string[] = [];
   const warnings: string[] = [];
@@ -174,10 +187,10 @@ function applyOperation(before: Temporal.ZonedDateTime, operation: Operation) {
     }
     const count = Number(whole) * sign;
     const calendar = (
-      date: Temporal.ZonedDateTime,
+      date: ZonedDate,
       change: { years?: number; months?: number; days?: number },
     ) => {
-      const after = zoned(
+      const after = resolve(
         date.toPlainDateTime().add(change, { overflow: "constrain" }),
         date.timeZoneId,
       );
@@ -220,12 +233,12 @@ function applyOperation(before: Temporal.ZonedDateTime, operation: Operation) {
         operation.span,
       );
     if (wholeDays !== 0n)
-      after = zoned(
+      after = resolve(
         before.toPlainDateTime().add({ days: Number(wholeDays) * sign }),
         before.timeZoneId,
       );
     const milliseconds = Number(msNumerator / denominator) * sign;
-    if (milliseconds) after = after.add({ milliseconds });
+    if (milliseconds) after = after.addElapsed({ milliseconds });
     details.push(
       `${wholeDays} calendar day${wholeDays === 1n ? "" : "s"}${milliseconds ? ` and ${Math.abs(milliseconds).toLocaleString("en-US")} elapsed milliseconds` : ""}. No rounding.`,
     );
@@ -246,7 +259,7 @@ function applyOperation(before: Temporal.ZonedDateTime, operation: Operation) {
         "Use a smaller elapsed duration.",
         operation.span,
       );
-    after = before.add({ milliseconds });
+    after = before.addElapsed({ milliseconds });
     details.push(
       `${Math.abs(milliseconds).toLocaleString("en-US")} elapsed milliseconds. No rounding.`,
     );
@@ -260,6 +273,17 @@ function applyOperation(before: Temporal.ZonedDateTime, operation: Operation) {
 export function calculateDate(
   expression: string,
   options: { timezone: string; reference: string },
+): Calculation {
+  return calculateWithClockResolver(expression, options, zoned);
+}
+
+/** Internal scheduling entry point. The strict calculator always uses rejection.
+ * Callers must obtain explicit clock selections and retain their provenance.
+ */
+export function calculateWithClockResolver(
+  expression: string,
+  options: { timezone: string; reference: string },
+  resolve: typeof zoned,
 ): Calculation {
   try {
     const plan = parseExpression(expression);
@@ -280,14 +304,11 @@ export function calculateDate(
         "Use an ISO instant such as 2026-01-26T13:30:00Z.",
       );
     }
-    let reference: Temporal.ZonedDateTime;
+    let reference: ZonedDate;
     try {
-      // Match formatting support and reject fixed offsets in favor of named IANA zones.
-      if (!options.timezone || options.timezone.length > 64 || /^[+-]/.test(options.timezone))
-        throw new Error();
-      new Intl.DateTimeFormat("en", { timeZone: options.timezone });
-      reference = instant.toZonedDateTimeISO(options.timezone);
-    } catch {
+      reference = zonedInstant(instant, options.timezone);
+    } catch (error) {
+      if (error instanceof TimezoneDataUnavailable) throw error;
       fail(
         "timezone",
         "That timezone is not recognized.",
@@ -295,16 +316,22 @@ export function calculateDate(
       );
     }
     snapshot(reference);
-    const anchor = resolveAnchor(plan.anchor, reference, plan.time);
+    const anchor = resolveAnchor(plan.anchor, reference, plan.time, resolve);
     const start = snapshot(anchor.date);
     let current = anchor.date;
+    let currentSnapshot = start;
     const steps: CalculationStep[] = [];
     const warnings: string[] = [];
     for (const operation of plan.operations) {
-      const before = snapshot(current);
-      const { after, details, warnings: stepWarnings } = applyOperation(current, operation);
+      const before = { ...currentSnapshot };
+      const {
+        after,
+        details,
+        warnings: stepWarnings,
+      } = applyOperation(current, operation, resolve);
       warnings.push(...stepWarnings);
-      steps.push({ source: operation.source, before, after: snapshot(after), details });
+      currentSnapshot = snapshot(after);
+      steps.push({ source: operation.source, before, after: currentSnapshot, details });
       current = after;
     }
     return {
@@ -318,20 +345,26 @@ export function calculateDate(
       anchorDescription: anchor.description,
       steps,
       warnings: [...new Set(warnings)],
-      result: snapshot(current),
+      result: { ...currentSnapshot },
     };
   } catch (error) {
     return {
       ok: false,
       engineVersion: 2,
       error:
-        error instanceof CalculationFailure
-          ? error.issue
-          : {
-              code: "range",
-              message: "That calculation exceeds the supported date range.",
-              hint: "Use dates between years 0001 and 9999 and smaller time changes.",
-            },
+        error instanceof TimezoneDataUnavailable
+          ? {
+              code: "timezone",
+              message: error.message,
+              hint: "Choose a date covered by the recorded timezone history.",
+            }
+          : error instanceof CalculationFailure
+            ? error.issue
+            : {
+                code: "range",
+                message: "That calculation exceeds the supported date range.",
+                hint: "Use dates between years 0001 and 9999 and smaller time changes.",
+              },
     };
   }
 }

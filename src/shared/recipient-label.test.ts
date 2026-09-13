@@ -1,0 +1,123 @@
+import { expect, it } from "vite-plus/test";
+import { parse, appendSelection, type ClarificationSelection } from "./sdk";
+import { prepareCalendarFile } from "./calendar-file";
+const context = { timezone: "America/Chicago", reference: "2026-09-12T16:00:00Z" };
+const metadata = {
+  uid: "11111111-2222-4333-8444-555555555555",
+  title: "Buy apples for Sam",
+  stamp: context.reference,
+};
+it.each([
+  "Buy apples for Sam",
+  "Send flowers for Jo Smith",
+  "Remind me to buy apples for O’Toole",
+  "Buy groceries for mom",
+  "Send flowers for jo smith",
+  "Remind me to buy apples for o’toole",
+])("confirms the complete recipient title: %s", (title) => {
+  const input = `${title} tomorrow at noon`;
+  const question = parse(input, context);
+  if (question.status !== "needs-clarification" || !question.clarification)
+    throw Error("Missing title question");
+  expect(prepareCalendarFile(question, metadata).ok).toBe(false);
+  const result = parse(input, {
+    ...context,
+    selection: { contextKey: question.clarification.contextKey, id: "event:title" },
+  });
+  expect(result).toMatchObject({
+    status: "resolved",
+    input,
+    event: { text: title.replace(/^Remind me to /, "") },
+    value: { kind: "point", calculation: { result: { iso: "2026-09-13T17:00:00.000Z" } } },
+    apiReplay: false,
+  });
+});
+it.each([
+  ["Sam", "Jo"],
+  ["mom", "dad"],
+])("completes %s recipient correction, file output and edit", (recipient, replacement) => {
+  const title = `Buy apples for ${recipient}`;
+  const input = `${title} on 11/01/2026 at 1:30am for 30 minutes`;
+  let selection: ClarificationSelection | undefined;
+  for (const id of ["event:title", "2026-11-01", "interval:start:2026-11-01T07:30:00Z"]) {
+    const result = parse(input, { ...context, selection });
+    if (result.status !== "needs-clarification" || !result.clarification)
+      throw Error("Missing question");
+    expect(result.clarification.choices.some((choice) => choice.id === id)).toBe(true);
+    expect(prepareCalendarFile(result, metadata).ok).toBe(false);
+    selection = appendSelection(selection, { contextKey: result.clarification.contextKey, id });
+  }
+  const result = parse(input, { ...context, selection });
+  if (result.status !== "resolved") throw Error("Unresolved reminder");
+  expect(result.event?.text).toBe(title);
+  expect(input.slice(result.event!.span.start, result.event!.span.end)).toBe(result.event!.text);
+  expect(input.slice(result.source.span.start, result.source.span.end)).toBe(result.source.text);
+  const file = prepareCalendarFile(result, { ...metadata, title: result.event!.text });
+  if (!file.ok) throw Error(file.reason);
+  expect(file.text).toContain(`SUMMARY:${title}`);
+  expect(file.text).toContain("DTSTART:20261101T073000Z");
+  expect(file.text).toContain("DTEND:20261101T080000Z");
+  const edit = input.replace(recipient, replacement);
+  expect(parse(edit, { ...context, selection })).toEqual(parse(edit, context));
+  expect(prepareCalendarFile(parse(edit, { ...context, selection }), metadata).ok).toBe(false);
+});
+it.each([
+  "Buy apples for 30 minutes tomorrow",
+  "Buy apples for May tomorrow",
+  "Buy apples for Tomorrow at noon",
+  "Buy apples for Sam unless he cancels tomorrow",
+  "Buy apples for Sam maybe tomorrow",
+  "Buy apples for a long time tomorrow",
+  "Buy apples for Sam for about 30 minutes tomorrow",
+  "Buy apples for mom maybe tomorrow",
+  "Buy apples for mom unless tomorrow",
+  "Buy apples for mom then dad tomorrow",
+  "Buy apples for awhile tomorrow",
+  "Buy apples for may tomorrow",
+])("does not hide meaningful qualifiers: %s", (input) => {
+  const result = parse(input, context);
+  expect(result.status).not.toBe("resolved");
+  if (result.status !== "resolved") expect(result.clarification).toBeUndefined();
+});
+it.each([
+  ["Buy apples for Sam Tomorrow at noon", "2026-09-13T17:00:00.000Z"],
+  ["Buy apples For Sam tomorrow at noon", "2026-09-13T17:00:00.000Z"],
+  ["Buy apples for Sam May 5, 2027", "2027-05-05T05:00:00.000Z"],
+  ["Buy apples for Sam At noon tomorrow", "2026-09-13T17:00:00.000Z"],
+])("keeps date words out of a recipient proposal: %s", (input, iso) => {
+  const question = parse(input, context);
+  if (question.status !== "needs-clarification" || !question.clarification)
+    throw Error("Missing recipient title confirmation");
+  expect(question.clarification.question).toMatch(/Buy apples [Ff]or Sam”/);
+  const result = parse(input, {
+    ...context,
+    selection: { contextKey: question.clarification.contextKey, id: "event:title" },
+  });
+  expect(result).toMatchObject({
+    status: "resolved",
+    value: { kind: "point", calculation: { result: { iso } } },
+  });
+});
+it.each(["A Long Time", "Ever", "Life", "An Eternity", "The Foreseeable Future"])(
+  "does not turn indefinite duration into a recipient: %s",
+  (duration) => {
+    const result = parse(`Buy apples for ${duration} tomorrow at noon`, context);
+    expect(result.status).not.toBe("resolved");
+    if (result.status !== "resolved") expect(result.clarification).toBeUndefined();
+  },
+);
+
+it.each(["pending", "assuming", "provided", "Pending", "Assuming", "Provided"])(
+  "keeps conditional %s wording out of recipient titles",
+  (condition) => {
+    for (const input of [
+      `Buy apples for mom ${condition} tomorrow at noon`,
+      `Buy apples ${condition} tomorrow at noon`,
+    ]) {
+      const result = parse(input, context);
+      expect(result.status).not.toBe("resolved");
+      if (result.status !== "resolved") expect(result.clarification).toBeUndefined();
+      expect(prepareCalendarFile(result, metadata).ok).toBe(false);
+    }
+  },
+);

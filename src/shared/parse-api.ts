@@ -1,6 +1,6 @@
-import { formatInTimeZone } from "date-fns-tz";
+import { formatPinnedDate } from "./format-date.js";
 import { z } from "zod";
-import { calculateDate } from "./date-parser";
+import { calculateDate } from "./date-parser.js";
 
 const querySchema = z
   .object({
@@ -42,7 +42,7 @@ export function buildParseResponse(
   let formatted: string | undefined;
   if (format) {
     try {
-      formatted = formatInTimeZone(new Date(calculation.result.timestamp), timezone, format);
+      formatted = formatPinnedDate(new Date(calculation.result.timestamp), timezone, format);
     } catch {
       return {
         status: 400,

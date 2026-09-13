@@ -1,4 +1,4 @@
-import { formatInTimeZone } from "date-fns-tz";
+import { formatPinnedDate } from "../../shared/format-date";
 
 export const dateFormatOptions = [
   { label: "Weekday, month day, year", value: "EEEE, MMMM d, yyyy" },
@@ -9,10 +9,7 @@ export const dateFormatOptions = [
   { label: "Custom format", value: "custom" },
 ] as const;
 
-const browserTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone || "UTC";
-
 export const timezoneOptions = [
-  { label: `Browser default (${browserTimezone})`, value: browserTimezone },
   { label: "UTC", value: "UTC" },
   { label: "US Central", value: "America/Chicago" },
   { label: "US Eastern", value: "America/New_York" },
@@ -26,8 +23,17 @@ export const timezoneOptions = [
 export function safeFormatDate(date: Date, timezone: string, format: string) {
   try {
     if (!format.trim()) return null;
-    return formatInTimeZone(date, timezone, format);
+    return formatPinnedDate(date, timezone, format);
   } catch {
     return null;
   }
+}
+
+/** Preserve calculated clock precision while keeping minute-aligned times compact. */
+export function resultClockFormat(local: string) {
+  return /\.\d*[1-9]/.test(local)
+    ? "h:mm:ss.SSS a zzz"
+    : local.slice(17, 19) !== "00"
+      ? "h:mm:ss a zzz"
+      : "h:mm a zzz";
 }

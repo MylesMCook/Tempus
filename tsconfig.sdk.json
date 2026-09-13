@@ -1,0 +1,16 @@
+{
+  "extends": "./tsconfig.app.json",
+  "compilerOptions": {
+    "rootDir": "src/shared",
+    "outDir": "packages/core/dist",
+    "noEmit": false,
+    "declaration": true,
+    "declarationMap": false,
+    "sourceMap": false,
+    "allowImportingTsExtensions": false,
+    "lib": ["ES2023"],
+    "types": []
+  },
+  "include": [],
+  "files": ["src/shared/sdk.ts", "src/shared/sdk-calendar.ts"]
+}

@@ -1,0 +1,113 @@
+import assert from "node:assert/strict";
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { createHash } from "node:crypto";
+import { resolve, join } from "node:path";
+import { pathToFileURL } from "node:url";
+const [pw, out] = process.argv.slice(2);
+assert.ok(pw && out && process.argv.length === 4);
+const baseURL = process.env.TEMPUS_APP_URL ?? "http://127.0.0.1:5175";
+assert.match(baseURL, /^http:\/\/127\.0\.0\.1:\d+\/?$/);
+const output = resolve(out);
+mkdirSync(output);
+const { chromium } = await import(pathToFileURL(resolve(pw)).href);
+const browser = await chromium.launch({ channel: "chrome" });
+const report = {
+  status: "running",
+  browser: browser.version(),
+  baseURL,
+  runs: [],
+  scope:
+    "Authored written-order task; desktop Chrome, not physical phones, independent users or calendar-client import.",
+};
+const expression = "Call Sam 2026-11-01 at 1:30am and 2026-09-30 at noon";
+const activate = async (control) => {
+  await control.focus();
+  await control.press("Enter");
+};
+try {
+  for (const width of [320, 1280]) {
+    const context = await browser.newContext({
+      viewport: { width, height: 950 },
+      timezoneId: "America/Chicago",
+      permissions: ["clipboard-read", "clipboard-write"],
+    });
+    const page = await context.newPage();
+    const run = { width, status: "running", errors: [] };
+    report.runs.push(run);
+    page.on("pageerror", (error) => run.errors.push(String(error)));
+    try {
+      await page.clock.install({ time: new Date("2026-09-12T16:00:00Z") });
+      await page.goto(baseURL);
+      const input = page.locator("#date-expression");
+      await input.fill(expression);
+      await page.getByRole("button", { name: /UTC-06:00/ }).waitFor();
+      assert.equal(await page.locator("#calendar-export-toggle").count(), 0);
+      await activate(page.getByRole("button", { name: /UTC-06:00/ }));
+      await page.locator("#calculated-date").waitFor();
+      assert.equal(await input.inputValue(), expression);
+      run.rows = await page
+        .locator('#calculated-date > [role="status"] > ol > li')
+        .allTextContents();
+      assert.equal(run.rows.length, 2);
+      assert.match(run.rows[0], /Nov 1, 2026 at 1:30 AM/);
+      assert.match(run.rows[1], /Sep 30, 2026 at 12:00 PM/);
+      assert.equal(await page.getByLabel("Recognized date phrase").innerText(), expression);
+      await activate(page.getByRole("button", { name: "Copy schedule preview", exact: true }));
+      await page.getByText("Schedule preview copied", { exact: true }).waitFor();
+      // Read only after the app writes this task's own text.
+      run.copied = await page.evaluate(() => navigator.clipboard.readText());
+      const copiedRows = run.copied.split("Listed dates (not repeating):\n")[1];
+      assert.ok(copiedRows.indexOf("Nov 1, 2026") < copiedRows.indexOf("Sep 30, 2026"));
+      assert.ok(run.copied.includes("Call Sam"));
+      await activate(page.locator("#calendar-export-toggle"));
+      const downloadButton = page.getByRole("button", {
+        name: "Download calendar file",
+        exact: true,
+      });
+      await page.waitForFunction(() =>
+        [...document.querySelectorAll("button")].some(
+          (b) => b.textContent.trim() === "Download calendar file" && !b.disabled,
+        ),
+      );
+      const [download] = await Promise.all([
+        page.waitForEvent("download"),
+        activate(downloadButton),
+      ]);
+      run.file = `written-order-${width}.ics`;
+      await download.saveAs(join(output, run.file));
+      run.sha256 = createHash("sha256")
+        .update(readFileSync(join(output, run.file)))
+        .digest("hex");
+      assert.equal(
+        await page.evaluate(() => document.documentElement.scrollWidth > innerWidth),
+        false,
+      );
+      await page.screenshot({ path: join(output, `written-order-${width}.png`) });
+      const edited = expression.replace("Sam", "Jo");
+      await input.fill(edited);
+      await page.getByRole("button", { name: /UTC-06:00/ }).waitFor();
+      assert.equal(await input.inputValue(), edited);
+      assert.equal(await page.locator("#calendar-export-toggle").count(), 0);
+      assert.equal(
+        await page.getByRole("button", { name: "Copy schedule preview", exact: true }).count(),
+        0,
+      );
+      assert.deepEqual(run.errors, []);
+      run.status = "passed";
+    } catch (error) {
+      run.status = "failed";
+      run.error = String(error);
+      throw error;
+    } finally {
+      await context.close();
+    }
+  }
+  report.status = "passed";
+} catch (error) {
+  report.status = "failed";
+  throw error;
+} finally {
+  await browser.close();
+  writeFileSync(join(output, "report.json"), JSON.stringify(report, null, 2) + "\n");
+}
+console.log(JSON.stringify({ status: report.status, runs: report.runs.length }));

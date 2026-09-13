@@ -1,5 +1,5 @@
-import { timeUnit, weekdayAliases } from "./vocabulary";
-import { fail, type Amount, type Anchor, type Operation, type Plan, type Token } from "./types";
+import { timeUnit, weekdayAliases } from "./vocabulary.js";
+import { fail, type Amount, type Anchor, type Operation, type Plan, type Token } from "./types.js";
 
 const months: Record<string, number> = {
   jan: 1,

@@ -1,0 +1,30 @@
+{
+  "version": "shared-development-v1",
+  "context": { "reference": "2026-09-12T16:00:00.000Z", "timeZone": "America/Chicago", "limit": 3 },
+  "cases": [
+    {
+      "text": "tomorrow at noon",
+      "recurring": false,
+      "occurrences": [{ "start": "2026-09-13T17:00:00.000Z" }]
+    },
+    {
+      "text": "next Friday",
+      "recurring": false,
+      "occurrences": [{ "start": "2026-09-18T05:00:00.000Z" }]
+    },
+    {
+      "text": "Friday 10pm-12am",
+      "recurring": false,
+      "occurrences": [{ "start": "2026-09-19T03:00:00.000Z", "end": "2026-09-19T05:00:00.000Z" }]
+    },
+    {
+      "text": "every Monday from 8 pm to 10 pm",
+      "recurring": true,
+      "occurrences": [
+        { "start": "2026-09-15T01:00:00.000Z", "end": "2026-09-15T03:00:00.000Z" },
+        { "start": "2026-09-22T01:00:00.000Z", "end": "2026-09-22T03:00:00.000Z" },
+        { "start": "2026-09-29T01:00:00.000Z", "end": "2026-09-29T03:00:00.000Z" }
+      ]
+    }
+  ]
+}

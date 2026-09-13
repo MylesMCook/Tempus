@@ -1,14 +1,16 @@
-# TempusTotal
+# Tempus
 
-Find the date for `3 weeks ago`, `next Friday`, or `tomorrow at noon`.
+Turn short English phrases into dates, ranges and repeating patterns. Inspect the interpretation, resolve ambiguous details and copy the result.
 
-[Open the calculator](https://tempus-total.funnydomainname.com/)
+[Open Tempus](https://tempus-total.funnydomainname.com/)
 
 1. Enter a phrase.
-2. Check the date. Open **Show calculation steps** to see how it was worked out.
-3. Choose **Copy date**.
+2. Check the interpretation. Answer any clarification question; open **Show calculation steps** for date arithmetic.
+3. Copy the result. **Developer tools** exposes JSON; calendar files are another output format.
 
 Calculations run in your browser. Your phrase is sent to the server only if you choose **Check API result**. The starting time stays fixed until you edit the phrase or choose **Refresh now**.
+
+Tempus supplies date interpretation for other applications. The website is a playground for the engine; the local TypeScript package is a preview integration surface. It does not require an account.
 
 ## Run locally
 
@@ -33,6 +35,8 @@ For code changes, start with [Contributing](CONTRIBUTING.md).
 
 - [Date rules and supported phrases](docs/date-rules.md)
 - [API](docs/api.md)
+- [Local TypeScript package candidate](packages/core/README.md) and [integration examples](examples/sdk/README.md)
+- [Product matrix and remaining gaps](docs/product-matrix.md)
 - [Deploy to Cloudflare](docs/cloudflare-workers.md)
 - [Privacy](https://tempus-total.funnydomainname.com/privacy) and [security reports](SECURITY.md)
 

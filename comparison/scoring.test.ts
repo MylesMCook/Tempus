@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vite-plus/test";
-import { score, validateFixtures, type Observed } from "./scoring";
+import { score, scoreWithPrecision, validateFixtures, type Observed } from "./scoring";
 import { fixtures, type Expected } from "./fixtures";
 
 const expected: Expected = {
@@ -95,4 +95,25 @@ describe("comparison scoring", () => {
       ]),
     ).toThrow("offset");
   });
+});
+
+it("does not credit matching midnight timestamps with the wrong date-only meaning", () => {
+  const date = {
+    kind: "resolved" as const,
+    recurring: false,
+    occurrences: [{ start: "2026-09-13T05:00:00Z", allDay: true }],
+  };
+  const timed = { ...empty, occurrences: [{ start: "2026-09-13T05:00:00Z", allDay: false }] };
+  expect(score(date, timed)).toBe("correct");
+  expect(scoreWithPrecision(date, timed)).toBe("incorrect");
+  expect(
+    scoreWithPrecision(date, { ...empty, occurrences: [{ start: "2026-09-13T05:00:00Z" }] }),
+  ).toBe("not-exposed");
+  expect(scoreWithPrecision(date, { ...empty, occurrences: date.occurrences })).toBe("correct");
+});
+it("keeps missing precision expectations and valid abstention distinct from success", () => {
+  expect(scoreWithPrecision(expected, { ...empty, occurrences: expected.occurrences })).toBe(
+    "not-specified",
+  );
+  expect(scoreWithPrecision(expected, empty)).toBe("abstained");
 });

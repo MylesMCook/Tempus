@@ -1,0 +1,30 @@
+{
+  "name": "@tempus-date/core",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local English date calculations and scheduling interpretations.",
+  "license": "MIT",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/sdk.d.ts",
+      "import": "./dist/sdk.js"
+    },
+    "./calendar": {
+      "types": "./dist/sdk-calendar.d.ts",
+      "import": "./dist/sdk-calendar.js"
+    }
+  },
+  "dependencies": {
+    "@js-temporal/polyfill": "0.5.1"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}

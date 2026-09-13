@@ -1,5 +1,5 @@
 # dependencies
-/node_modules
+node_modules/
 /.pnpm-store
 
 # builds
@@ -27,3 +27,9 @@ yarn-error.log*
 .claude
 .next-build.log
 /comparison/results/
+/packages/core/dist/
+/packages/core/*.tgz
+/examples/sdk/node_modules/
+/examples/sdk/.wrangler/
+/examples/sdk/pnpm-lock.yaml
+/aux/

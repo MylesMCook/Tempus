@@ -14,11 +14,12 @@ const defaults: ParserSettings = {
   dateFormat: "EEEE, MMMM d, yyyy",
   customFormat: "yyyy-MM-dd HH:mm",
   isCustomFormat: false,
-  timezone: defaultTimezone(),
+  timezone: "UTC",
 };
 const SettingsContext = createContext<
   | {
       settings: ParserSettings;
+      ready: boolean;
       settingsSaved: boolean;
       effectiveDateFormat: string;
       updateSettings: (change: Partial<ParserSettings>) => void;
@@ -27,24 +28,32 @@ const SettingsContext = createContext<
   | undefined
 >(undefined);
 export function SettingsProvider({ children }: { children: ReactNode }) {
-  const [settings, setSettings] = useState(() => {
-    try {
-      return decodeStoredSettings(window.localStorage.getItem("parserSettings"), defaults);
-    } catch {
-      return defaults;
-    }
-  });
+  const [settings, setSettings] = useState<ParserSettings>(defaults);
+  const [ready, setReady] = useState(false);
   const [settingsSaved, setSettingsSaved] = useState(true);
   useEffect(() => {
+    const browserDefaults = { ...defaults, timezone: defaultTimezone() };
+    try {
+      setSettings(
+        decodeStoredSettings(window.localStorage.getItem("parserSettings"), browserDefaults),
+      );
+    } catch {
+      setSettings(browserDefaults);
+    }
+    setReady(true);
+  }, []);
+  useEffect(() => {
+    if (!ready) return;
     try {
       setSettingsSaved(saveSettings(window.localStorage, settings));
     } catch {
       setSettingsSaved(false);
     }
-  }, [settings]);
+  }, [settings, ready]);
   const value = useMemo(
     () => ({
       settings,
+      ready,
       settingsSaved,
       effectiveDateFormat: settings.isCustomFormat
         ? settings.customFormat.trim()
@@ -53,7 +62,7 @@ export function SettingsProvider({ children }: { children: ReactNode }) {
         setSettings((current) => ({ ...current, ...change })),
       resetSettings: () => setSettings({ ...defaults, timezone: defaultTimezone() }),
     }),
-    [settings, settingsSaved],
+    [settings, settingsSaved, ready],
   );
   return <SettingsContext.Provider value={value}>{children}</SettingsContext.Provider>;
 }

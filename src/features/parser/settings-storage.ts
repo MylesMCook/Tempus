@@ -1,3 +1,4 @@
+import { timezoneDatabase } from "../../shared/date-engine/timezone-database";
 import { dateFormatOptions } from "./options";
 import type { ParserSettings } from "./context/settings-context";
 
@@ -12,7 +13,7 @@ export function decodeStoredSettings(raw: string | null, defaults: ParserSetting
         : defaults[key];
     let timezone = text("timezone");
     try {
-      new Intl.DateTimeFormat("en", { timeZone: timezone });
+      timezoneDatabase(timezone);
     } catch {
       timezone = defaults.timezone;
     }

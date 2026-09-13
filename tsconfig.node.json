@@ -18,5 +18,6 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["vite.config.ts", "vitest.config.ts", "comparison"]
+  "include": ["vite.config.ts", "vitest.config.ts", "comparison"],
+  "exclude": ["comparison/evidence/sdk-contract-review/example-*.ts"]
 }

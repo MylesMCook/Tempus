@@ -66,3 +66,30 @@ export function validateFixtures(
     }
   }
 }
+
+/** Additional preview check, not a complete semantic or calendar-export grade.
+ * Preserve the legacy timestamp grade so historical results stay comparable.
+ */
+export function scoreWithPrecision(
+  expected: Expected,
+  observed: Observed,
+): Grade | "not-exposed" | "not-specified" {
+  const timestampGrade = score(expected, observed);
+  if (timestampGrade !== "correct" || expected.kind !== "resolved") return timestampGrade;
+  if (expected.occurrences.some((row) => row.allDay === undefined)) return "not-specified";
+  if (observed.occurrences.some((row) => row.allDay === undefined)) return "not-exposed";
+  const values = (rows: Occurrence[]) =>
+    rows
+      .map((row) =>
+        JSON.stringify([
+          instant(row.start).toString(),
+          row.end === undefined ? null : instant(row.end).toString(),
+          row.allDay,
+        ]),
+      )
+      .sort();
+  return JSON.stringify(values(expected.occurrences)) ===
+    JSON.stringify(values(observed.occurrences))
+    ? "correct"
+    : "incorrect";
+}

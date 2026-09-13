@@ -1,17 +1,23 @@
+import { observeTempus } from "./observe-tempus";
+import { sourceHashes as sharedSourceHashes, gitIdentity } from "./provenance";
 import { createHash } from "node:crypto";
-import { execFileSync } from "node:child_process";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { defineParser } from "gpu-time";
 import { expect, it } from "vite-plus/test";
 import { calculateDate } from "../src/shared/date-parser";
 import { interpretDate } from "../src/shared/interpret-date";
 import { context, fixtures, type Fixture } from "./fixtures";
-import { score, validateFixtures, type Grade, type Observed } from "./scoring";
+import { score, scoreWithPrecision, validateFixtures, type Grade, type Observed } from "./scoring";
 
 it("records the local development comparison and protects existing arithmetic", async () => {
   validateFixtures(fixtures);
   const parser = await defineParser({ backend: "cpu" });
-  type Evaluation = { grade: Grade; observed: Observed; raw: unknown };
+  type Evaluation = {
+    grade: Grade;
+    valueGrade: ReturnType<typeof scoreWithPrecision>;
+    observed: Observed;
+    raw: unknown;
+  };
   const results: {
     fixture: Fixture;
     context: typeof context;
@@ -35,25 +41,16 @@ it("records the local development comparison and protects existing arithmetic", 
         reference: inputContext.reference,
         timezone: inputContext.timeZone,
       });
-      const observedInterpretation: Observed = {
-        occurrences:
-          interpretation.status === "resolved"
-            ? [{ start: interpretation.value.calculation.result.iso }]
-            : [],
-        recurring: false,
-        diagnostics:
-          interpretation.status === "resolved"
-            ? interpretation.assumptions
-            : [interpretation.status, interpretation.error.message],
-      };
+      const observedInterpretation = observeTempus(interpretation);
       let gpu: unknown;
       let observedGpu: Observed;
       try {
         const result = await parser.parse(fixture.text, inputContext);
         gpu = result;
         observedGpu = {
-          occurrences: result.occurrences.map(({ start, end }) => ({
+          occurrences: result.occurrences.map(({ start, end, allDay }) => ({
             start,
+            allDay,
             ...(end ? { end } : {}),
           })),
           recurring: result.rrules.length > 0,
@@ -73,12 +70,19 @@ it("records the local development comparison and protects existing arithmetic", 
         context: inputContext,
         tempus: {
           grade: score(fixture.expected, observedTempus),
+          valueGrade: scoreWithPrecision(fixture.expected, observedTempus),
           observed: observedTempus,
           raw: tempus,
         },
-        gpu: { grade: score(fixture.expected, observedGpu), observed: observedGpu, raw: gpu },
+        gpu: {
+          grade: score(fixture.expected, observedGpu),
+          valueGrade: scoreWithPrecision(fixture.expected, observedGpu),
+          observed: observedGpu,
+          raw: gpu,
+        },
         interpretation: {
           grade: score(fixture.expected, observedInterpretation),
+          valueGrade: scoreWithPrecision(fixture.expected, observedInterpretation),
           observed: observedInterpretation,
           raw: interpretation,
         },
@@ -103,45 +107,65 @@ it("records the local development comparison and protects existing arithmetic", 
       ),
     })),
   );
+  const valueGrades = [...grades, "not-exposed", "not-specified"] as const;
+  const valueSummary = families.flatMap((family) =>
+    (["tempus", "interpretation", "gpu"] as const).map((engine) => ({
+      family,
+      engine,
+      total: results.filter((row) => row.fixture.family === family).length,
+      counts: Object.fromEntries(
+        valueGrades.map((grade) => [
+          grade,
+          results.filter((row) => row.fixture.family === family && row[engine].valueGrade === grade)
+            .length,
+        ]),
+      ),
+    })),
+  );
   const packageJson = JSON.parse(
     await readFile(new URL("../node_modules/gpu-time/package.json", import.meta.url), "utf8"),
   ) as { version: string };
   const fixtureSha256 = createHash("sha256")
     .update(await readFile(new URL("./fixtures.ts", import.meta.url)))
     .digest("hex");
-  const sourceHashes = Object.fromEntries(
-    await Promise.all(
-      [
-        "src/shared/date-parser.ts",
-        "src/shared/interpret-date.ts",
-        "src/shared/date-engine/grammar.ts",
-        "src/shared/date-engine/types.ts",
-        "comparison/scoring.ts",
-        "comparison/comparison.test.ts",
-        "pnpm-lock.yaml",
-      ].map(async (path) => [
-        path,
-        createHash("sha256")
-          .update(await readFile(new URL(`../${path}`, import.meta.url)))
-          .digest("hex"),
-      ]),
-    ),
-  );
+  const sourceHashes = await sharedSourceHashes([
+    "comparison/fixtures.ts",
+    "comparison/scoring.ts",
+    "comparison/observe-tempus.ts",
+    "comparison/comparison.test.ts",
+  ]);
   const metadata = {
-    corpus: "development-v1",
+    corpus: "development-v4-precision",
     fixtureSha256,
     sourceHashes,
-    tempusCommit: execFileSync("git", ["rev-parse", "HEAD"], { encoding: "utf8" }).trim(),
-    workingTreeDirty:
-      execFileSync("git", ["status", "--porcelain"], { encoding: "utf8" }).trim().length > 0,
+    ...gitIdentity(),
     gpuTimeVersion: packageJson.version,
     backend: "cpu",
     node: process.version,
     platform: process.platform,
     architecture: process.arch,
+    scoringCoverage: {
+      timestampGrade: [
+        "preview instants",
+        "interval endpoints",
+        "occurrence multiplicity",
+        "recurrence flag",
+      ],
+      valueGradeAdds: ["explicit all-day flags"],
+      unscored: [
+        "occurrence order",
+        "event text",
+        "source spans",
+        "full recurrence rule",
+        "occurrences beyond preview",
+        "interactive correction",
+        "calendar export",
+        "human task completion",
+      ],
+    },
     limitations: [
       "Development fixtures; not an independent holdout or general accuracy estimate.",
-      "Bounded occurrence previews only; RRULE validity, all-day flags and recurrence beyond the preview are not scored.",
+      "Legacy grade scores preview timestamps/recurrence flag only. Value grade additionally checks explicit all-day flags; missing precision is not success. Occurrence order, event text/spans, full RRULE semantics and recurrence beyond the preview remain unscored. Both preview grades compare sorted values; they do not verify written or chronological order.",
       "No browser, GPU, task-completion or performance benchmark.",
       "Ambiguity and negation follow the explicitly stated Tempus product policy; policy disagreements are not automatically parser bugs.",
     ],
@@ -150,16 +174,16 @@ it("records the local development comparison and protects existing arithmetic", 
   await mkdir(directory, { recursive: true });
   await writeFile(
     new URL("report.json", directory),
-    JSON.stringify({ metadata, summary, results }, null, 2) + "\n",
+    JSON.stringify({ metadata, summary, valueSummary, results }, null, 2) + "\n",
   );
   const markdown = [
     "# Development comparison",
     "",
-    `Tempus ${metadata.tempusCommit}${metadata.workingTreeDirty ? " (working tree modified)" : ""}; gpu-time ${metadata.gpuTimeVersion}; CPU; ${process.version}.`,
+    `Tempus ${metadata.tempusCommit ?? "source snapshot (Git metadata absent; use source hashes)"}${metadata.workingTreeDirty ? " (working tree modified)" : ""}; gpu-time ${metadata.gpuTimeVersion}; CPU; ${process.version}.`,
     "",
     ...metadata.limitations.map((line) => `- ${line}`),
     "",
-    "| Family | Engine | Cases | Correct result | Correct rejection | Abstained | Incorrect accepted result | Exception |",
+    "| Family | Engine | Cases | Matching timestamp preview | Correct rejection | Abstained | Incorrect accepted preview | Exception |",
     "| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |",
     ...summary.map(
       (row) =>
@@ -168,11 +192,31 @@ it("records the local development comparison and protects existing arithmetic", 
     "",
     "## Cases",
     "",
+    "Legacy timestamp preview grade:",
+    "",
     "| Case | Tempus v2 | Interpretation | gpu-time |",
     "| --- | --- | --- | --- |",
     ...results.map(
       (row) =>
         `| ${row.fixture.id} | ${row.tempus.grade} | ${row.interpretation.grade} | ${row.gpu.grade} |`,
+    ),
+    "",
+    "## Preview values including date-only meaning",
+    "",
+    "`correct` here requires matching preview timestamps, recurrence flag and all-day flags. It does not check occurrence order and is not complete semantic or export validation. Strict v2 does not expose precision; its matching timestamps are marked `not-exposed` rather than inferring meaning from midnight.",
+    "",
+    "| Family | Engine | Cases | Correct preview value | Correct rejection | Abstained | Incorrect accepted value | Exception | Precision not exposed | Precision not specified |",
+    "| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |",
+    ...valueSummary.map(
+      (row) =>
+        `| ${row.family} | ${row.engine} | ${row.total} | ${valueGrades.map((grade) => row.counts[grade]).join(" | ")} |`,
+    ),
+    "",
+    "| Case | Tempus v2 value | Interpretation value | gpu-time value |",
+    "| --- | --- | --- | --- |",
+    ...results.map(
+      (row) =>
+        `| ${row.fixture.id} | ${row.tempus.valueGrade} | ${row.interpretation.valueGrade} | ${row.gpu.valueGrade} |`,
     ),
     "",
     "Full inputs, expectations, rationale, context and raw responses are in report.json.",

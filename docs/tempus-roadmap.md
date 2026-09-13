@@ -1,12 +1,14 @@
 # Tempus development
 
+Use the [product matrix](product-matrix.md) for priorities, current capability gaps and acceptance gates. The comparison now runs gpu-time 0.2.1, with historical 0.2.0 evidence preserved. Implement intervals next against the [schedule contract](schedule-contract.md). Holdout governance and numerical evaluation budgets remain open.
+
 The [local comparison](../comparison/README.md) is running. A bounded sentence recognizer now resolves three of the four existing sentence fixtures while the strict evaluator remains available unchanged. Tempus is a working name; this plan does not change the repository, package or domain names.
 
-## Current: one sentence to one date
+## Shipped: bounded sentence to one date
 
 Make `Remind me to call Sam tomorrow at noon` return the intended date and highlight the words that determined it. Keep `call Sam` as event text. This interprets a reminder; it does not deliver one.
 
-Implemented contract: interpretation version 1 returns a resolved point with source/event spans, or an explicit unresolved status. Interval and recurrence variants are not exposed until their resolvers exist. Reminder labels are intentionally limited to a supported verb and single-word target; corrections, conditions, longer labels and recurring schedules remain open. The first negative test pass caught `every Monday` being misread as one Monday; the recognizer now preserves the entire suffix after the event target.
+Implemented contract: interpretation version 1 returns complete points, intervals, finite weekday collections or bounded weekly recurrence, or an explicit unresolved status. Reminder labels now allow multiple words after a supported action, with a conservative temporal boundary and complete suffix validation. Numeric-date, point-clock and complete correction choices are selectable. The [product matrix](product-matrix.md) and [schedule contract](schedule-contract.md) record remaining coverage and evidence gates.
 
 1. Define a new interpretation contract alongside the existing v2 calculator: resolved, needs clarification, no expression, or unsupported. Resolved values must distinguish points, intervals and recurring schedules. Include source spans and explicit assumptions.
 2. Implement one sentence-to-date path with the current calendar evaluator. Preserve strict arithmetic behavior and source spans. Compare recognition approaches against the same fixtures before adding a model or another parsing dependency.
