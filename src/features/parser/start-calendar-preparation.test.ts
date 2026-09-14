@@ -6,8 +6,8 @@ import type { CalendarPreparationRequest } from "./calendar-preparation";
 import engineApp from "../../engine-app.tsx?raw";
 import {
   calendarPreparationWorker,
-  preloadCalendarPreparationWorker,
   startCalendarPreparation,
+  startClientCalendarWorkerPreload,
 } from "./start-calendar-preparation";
 
 const mock = vi.hoisted(() => {
@@ -52,9 +52,19 @@ afterEach(() => {
 });
 
 it("preloads the worker from the client app without constructing it", async () => {
-  expect(engineApp).toContain("preloadCalendarPreparationWorker");
-  await preloadCalendarPreparationWorker();
+  expect(engineApp).toContain("startClientCalendarWorkerPreload");
+  const load = vi.spyOn(calendarPreparationWorker, "importModule");
+  await startClientCalendarWorkerPreload();
+  expect(load).toHaveBeenCalledOnce();
   expect(mock.instances).toHaveLength(0);
+});
+
+it("swallows a failed startup preload so the page can still retry later", async () => {
+  vi.spyOn(calendarPreparationWorker, "importModule").mockRejectedValue(
+    new Error("Failed to load worker module"),
+  );
+  await expect(startClientCalendarWorkerPreload()).resolves.toBeUndefined();
+  expect(calendarPreparationWorker.pending).toBeUndefined();
 });
 
 it("retries after the worker module fails to load", async () => {

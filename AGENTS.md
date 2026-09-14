@@ -36,7 +36,7 @@ vp install --frozen-lockfile   # or: pnpm install --frozen-lockfile
 node examples/app/verify-calculator.mjs node_modules/playwright-core/index.mjs /tmp/tempus-run-$(uuidgen)
 ```
 
-`verify-calculator.mjs` always uses port 5174. For built-asset / CSP checks, run `pnpm preview --host 127.0.0.1 --port 5175` and set `TEMPUS_APP_URL=http://127.0.0.1:5175` on runners that read it (`verify-worker-preparation.mjs`, `verify-context-reset.mjs`). See `examples/app/README.md`.
+`verify-calculator.mjs` always uses port 5174. For built-asset / CSP checks, run `pnpm preview --host 127.0.0.1 --port 5175` and set `TEMPUS_APP_URL=http://127.0.0.1:5175` on any runner that reads that override. See `examples/app/README.md`.
 
 Python second readers:
 
