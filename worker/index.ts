@@ -51,7 +51,7 @@ export default {
       // Cloudflare supplies this header. Forwarded headers supplied by clients are ignored.
       const ip = request.headers.get("CF-Connecting-IP") ?? "unknown";
       const { success } = await env.PARSE_RATE_LIMITER.limit({
-        key: `tempus-total:parse:${ip}`,
+        key: `tempus:parse:${ip}`,
       });
       if (!success) {
         return json({ error: "Too many API requests. Try again in a minute." }, 429, {

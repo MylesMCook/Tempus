@@ -5,7 +5,7 @@ Send a phrase to `GET /api/parse`. No API key is needed.
 This v2 endpoint accepts date expressions, not full reminder sentences. The browser's sentence recognizer runs locally; **Check API result** sends its highlighted date phrase. The event label is not included in that request.
 
 ```sh
-curl --get 'https://tempus-total.funnydomainname.com/api/parse' \
+curl --get 'https://tempus.funnydomainname.com/api/parse' \
   --data-urlencode 'expression=jan 31 2026 plus 1 month' \
   --data-urlencode 'timezone=America/Chicago' \
   --data-urlencode 'reference=2026-01-26T19:30:00.000Z' \
@@ -61,7 +61,7 @@ The public API allows approximately 120 requests per minute per IP at each Cloud
 | `429`  | Wait 60 seconds before retrying.                                      |
 | `503`  | The rate limiter is unavailable. Try again shortly.                   |
 
-API inputs appear in the request URL. Worker logs redact query strings, but historical logs and other hosting records may contain URLs. Avoid confidential information. Read the [privacy policy](https://tempus-total.funnydomainname.com/privacy) for details.
+API inputs appear in the request URL. Worker logs redact query strings, but historical logs and other hosting records may contain URLs. Avoid confidential information. Read the [privacy policy](https://tempus.funnydomainname.com/privacy) for details.
 
 ## Moving from v1
 

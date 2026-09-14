@@ -1,6 +1,6 @@
 # Feedback
 
-[Open the calculator](https://tempus-total.funnydomainname.com/) and try one phrase you would actually use.
+[Open the calculator](https://tempus.funnydomainname.com/) and try one phrase you would actually use.
 
 1. Enter the phrase and check the date.
 2. Open **Show calculation steps**. Can you tell why it returned that date?

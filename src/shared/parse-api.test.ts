@@ -113,7 +113,7 @@ describe("Worker protections", () => {
       { PARSE_RATE_LIMITER: { limit } },
     );
     expect(response.status).toBe(status);
-    expect(limit).toHaveBeenCalledWith({ key: "tempus-total:parse:192.0.2.1" });
+    expect(limit).toHaveBeenCalledWith({ key: "tempus:parse:192.0.2.1" });
     expect(response.headers.get("Cache-Control")).toBe("no-store");
     expect(response.headers.get("X-Content-Type-Options")).toBe("nosniff");
     expect(response.headers.get("Content-Security-Policy")).toContain("frame-ancestors 'none'");

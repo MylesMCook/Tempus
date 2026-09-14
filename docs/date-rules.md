@@ -1,6 +1,6 @@
 # Date rules
 
-Try a phrase in the [calculator](https://tempus-total.funnydomainname.com/). **Show calculation steps** shows the starting date and each change.
+Try a phrase in the [calculator](https://tempus.funnydomainname.com/). **Show calculation steps** shows the starting date and each change.
 
 ## Starting date
 
