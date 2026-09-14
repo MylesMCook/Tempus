@@ -21,9 +21,9 @@ pnpm run deploy
 
 The deploy script checks, tests, type-checks, builds, and deploys using the existing Wrangler authentication. For a different account, authenticate with `pnpm exec wrangler login` and choose your own Worker name. Do not copy OAuth tokens into GitHub or source files. Development does not require login.
 
-Pull requests and `main` pushes run `.github/workflows/ci.yml`. Automatic deployment is opt-in: set repository variable `CLOUDFLARE_DEPLOY_ENABLED=true` only after configuring valid `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` secrets. Use a token scoped to the intended account's Worker deployment permissions. The deploy workflow also restricts itself to `main` and validates before deploying. Forks do not deploy by default.
+Pull requests and `main` pushes run `.github/workflows/ci.yml`. Pushes to `main` in this repository also run `.github/workflows/deploy-cloudflare.yml`, which validates, deploys `tempus`, then deploys the `tempus-total` compatibility Worker. Forks do not deploy. Pause production deploys by setting repository variable `CLOUDFLARE_DEPLOY_ENABLED=false`. The workflow needs repository secrets `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`. Use a token scoped to this account's Worker deployment permissions.
 
-The original repository's GitHub deployment credential needs replacement through its credential handoff. Manual OAuth deployment works independently; it is not evidence that automated deployment works.
+A successful GitHub Actions deploy is the evidence that automated deployment works. Manual Wrangler OAuth deploys are independent and do not prove the GitHub secrets are valid.
 
 ## Verify and recover
 
@@ -39,6 +39,6 @@ References: [rate limiting](https://developers.cloudflare.com/workers/runtime-ap
 
 ## Tempus hostname migration
 
-The main configuration owns `tempus.funnydomainname.com` and enables `tempus.mylesmcook.workers.dev`. Deploy and verify it first. Then deploy `wrangler.legacy.jsonc` explicitly: `pnpm exec wrangler deploy --config wrangler.legacy.jsonc`. The old `tempus-total` Worker remains only for compatibility: browser paths redirect to the new domain; `/api` requests use a service binding to the main Worker, preserving preflight behavior and rate limiting. The compatibility Worker has no database or secrets.
+The main configuration owns `tempus.funnydomainname.com` and enables `tempus.mylesmcook.workers.dev`. GitHub deploys `tempus` first, then `wrangler.legacy.jsonc`. Manual order is the same: deploy the main Worker, then `pnpm exec wrangler deploy --config wrangler.legacy.jsonc`. The old `tempus-total` Worker remains only for compatibility: browser paths redirect to the new domain; `/api` requests use a service binding to the main Worker, preserving preflight behavior and rate limiting. The compatibility Worker has no database or secrets.
 
 Do not delete the old Worker while old links or integrations exist. Its prior application version `1a9e0cc8-0ed8-46b0-bfae-c876794d07e0` is the pre-migration rollback. Restore that version on `tempus-total` if the new service fails; keep the main service available for clients already using its URL. Domain-local browser preferences start fresh on the new origin; old local storage is not copied or deleted.

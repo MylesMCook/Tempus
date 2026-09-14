@@ -14,7 +14,7 @@ concurrency:
 
 jobs:
   deploy:
-    if: github.ref == 'refs/heads/main' && vars.CLOUDFLARE_DEPLOY_ENABLED == 'true'
+    if: github.repository == 'MylesMCook/Tempus' && github.ref == 'refs/heads/main' && github.event.repository.fork == false && vars.CLOUDFLARE_DEPLOY_ENABLED != 'false'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -38,7 +38,16 @@ jobs:
         run: pnpm build
       - name: Audit dependencies
         run: pnpm audit --audit-level=high
-      - name: Deploy to Cloudflare
+      - name: Confirm Cloudflare credentials
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ] || [ -z "$CLOUDFLARE_ACCOUNT_ID" ]; then
+            echo "::error::Set repository secrets CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID. Pause with repository variable CLOUDFLARE_DEPLOY_ENABLED=false."
+            exit 1
+          fi
+      - name: Deploy tempus
         uses: cloudflare/wrangler-action@9acf94ace14e7dc412b076f2c5c20b8ce93c79cd # v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -46,3 +55,11 @@ jobs:
           wranglerVersion: "4.131.1"
           packageManager: pnpm
           command: deploy
+      - name: Deploy tempus-total
+        uses: cloudflare/wrangler-action@9acf94ace14e7dc412b076f2c5c20b8ce93c79cd # v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: "4.131.1"
+          packageManager: pnpm
+          command: deploy --config wrangler.legacy.jsonc
