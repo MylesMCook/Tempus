@@ -53,10 +53,11 @@ it("permits bundled blob workers without broadening script execution in shipped 
   expect(documentWorker).toContain("script-src 'self' 'nonce-${rw.nonce}'");
 });
 
-it("starts the bundled worker even when offline, without a main-thread fallback", () => {
+it("starts the bundled worker even when offline, without a main-thread fallback", async () => {
   vi.stubGlobal("navigator", { onLine: false });
   const complete = vi.fn();
   startCalendarPreparation(request, complete);
+  await vi.waitFor(() => expect(mock.instances).toHaveLength(1));
   const worker = mock.instances[0];
   expect(worker.postMessage).toHaveBeenCalledWith(request);
   expect(complete).not.toHaveBeenCalled();
@@ -66,13 +67,15 @@ it("starts the bundled worker even when offline, without a main-thread fallback"
   expect(worker.terminate).toHaveBeenCalledOnce();
 });
 
-it("terminates cancelled work and ignores stale responses and errors", () => {
+it("terminates cancelled work and ignores stale responses and errors", async () => {
   const complete = vi.fn();
   const stop = startCalendarPreparation(request, complete);
+  await vi.waitFor(() => expect(mock.instances).toHaveLength(1));
   const oldWorker = mock.instances[0];
   stop();
   const nextComplete = vi.fn();
   startCalendarPreparation({ ...request, title: "New title", attempt: 1 }, nextComplete);
+  await vi.waitFor(() => expect(mock.instances).toHaveLength(2));
   oldWorker.onmessage?.({ data: { ok: true, plan: undefined } });
   oldWorker.onerror?.();
   oldWorker.onmessageerror?.();
@@ -85,11 +88,16 @@ it("terminates cancelled work and ignores stale responses and errors", () => {
 
 it.each(["startup", "post", "error", "messageerror"])(
   "reports actionable worker failures (%s) and allows a fresh retry",
-  (failure) => {
+  async (failure) => {
     mock.state.failStartup = failure === "startup";
     mock.state.failPost = failure === "post";
     const complete = vi.fn();
     startCalendarPreparation(request, complete);
+    if (failure === "startup") {
+      await vi.waitFor(() => expect(complete).toHaveBeenCalledOnce());
+    } else {
+      await vi.waitFor(() => expect(mock.instances).toHaveLength(1));
+    }
     if (failure === "error") mock.instances[0].onerror?.();
     if (failure === "messageerror") mock.instances[0].onmessageerror?.();
     expect(complete).toHaveBeenCalledExactlyOnceWith({
@@ -102,14 +110,18 @@ it.each(["startup", "post", "error", "messageerror"])(
     mock.state.failPost = false;
     const retry = vi.fn();
     startCalendarPreparation({ ...request, attempt: 1 }, retry);
+    await vi.waitFor(() =>
+      expect(mock.instances.length).toBeGreaterThan(failure === "startup" ? 0 : 1),
+    );
     mock.instances.at(-1)?.onmessage?.({ data: { ok: true, plan: undefined } });
     expect(retry).toHaveBeenCalledOnce();
   },
 );
 
-it("preserves computation errors and ignores duplicate worker events after completion", () => {
+it("preserves computation errors and ignores duplicate worker events after completion", async () => {
   const complete = vi.fn();
   startCalendarPreparation(request, complete);
+  await vi.waitFor(() => expect(mock.instances).toHaveLength(1));
   const worker = mock.instances[0];
   const response = { ok: false, reason: "computation", error: "Could not calculate the schedule." };
   worker.onmessage?.({ data: response });

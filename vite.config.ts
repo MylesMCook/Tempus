@@ -1,5 +1,6 @@
 import { fileURLToPath, URL } from "node:url";
 import { cloudflare } from "@cloudflare/vite-plugin";
+import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite-plus";
 import { redwood } from "rwsdk/vite";
 
@@ -16,7 +17,11 @@ export default defineConfig({
     ignorePatterns: ["comparison/evidence/sdk-contract-review/example-*.ts"],
     options: { typeAware: true, typeCheck: true },
   },
-  plugins: [cloudflare({ inspectorPort: false, viteEnvironment: { name: "worker" } }), redwood()],
+  plugins: [
+    cloudflare({ inspectorPort: false, viteEnvironment: { name: "worker" } }),
+    react(),
+    redwood(),
+  ],
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),

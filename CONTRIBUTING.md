@@ -19,11 +19,10 @@ For a vulnerability, use the [private reporting instructions](SECURITY.md).
 3. Open a pull request explaining the problem and what changed. Call out any change to existing date behavior.
 
 ```sh
-pnpm check
-pnpm test
-pnpm build
-pnpm audit --audit-level=high
+pnpm validate
 ```
+
+`pnpm validate` runs check, test, build, and `pnpm audit --audit-level=high`. For UI journeys, keep `pnpm dev` running and see [AGENTS.md](AGENTS.md); they need Chrome and the installed `playwright-core` package.
 
 For UI changes, try a phone-width window and keyboard navigation. Check that errors explain what to do next. Typing a phrase must keep working locally; sending it to the API must remain a separate action.
 
