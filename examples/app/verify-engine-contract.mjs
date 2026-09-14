@@ -89,7 +89,8 @@ try {
         );
       const inspect = async () => {
         const summary = page.getByText("Developer tools", { exact: true });
-        if (!(await summary.locator("..").evaluate((el) => el.open))) await activate(summary);
+        const details = page.locator("details").filter({ has: summary });
+        if (!(await details.evaluate((el) => el.open))) await activate(summary);
         await activate(
           page.getByRole("button", { name: "Copy parser response JSON", exact: true }),
         );

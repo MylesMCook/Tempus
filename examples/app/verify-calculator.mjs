@@ -66,7 +66,7 @@ try {
         copied.includes(visible) && copied.includes(clock) && copied.includes("America/Chicago"),
       );
       const developer = page.getByText("Developer tools", { exact: true });
-      const details = developer.locator("..");
+      const details = page.locator("details").filter({ has: developer });
       if (!(await details.evaluate((el) => el.open))) {
         await developer.focus();
         await page.keyboard.press("Enter");

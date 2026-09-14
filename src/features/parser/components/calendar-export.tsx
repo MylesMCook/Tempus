@@ -81,7 +81,7 @@ export function CalendarExport({
     >
       <summary
         id="calendar-export-toggle"
-        className="cursor-pointer py-3 text-sm font-medium focus-visible:outline focus-visible:outline-2"
+        className="cursor-pointer py-3 text-sm text-muted-foreground hover:text-foreground focus-visible:outline focus-visible:outline-2"
       >
         Download as calendar file
       </summary>

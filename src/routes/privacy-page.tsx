@@ -1,17 +1,8 @@
-import { ArrowLeft } from "lucide-react";
-import { Button } from "@/components/ui/button";
-
 export function PrivacyPage() {
   return (
-    <main id="main" className="t-page-enter container max-w-3xl py-12">
-      <Button variant="ghost" asChild className="mb-6">
-        <a href="/" className="flex items-center gap-2">
-          <ArrowLeft className="h-4 w-4" />
-          Back to calculator
-        </a>
-      </Button>
-      <h1 className="mb-6 text-3xl font-bold">Privacy policy</h1>
-      <div className="flex flex-col gap-6 text-sm leading-7 text-muted-foreground sm:text-base">
+    <main id="main" className="t-page-enter mx-auto max-w-3xl px-4 py-10 sm:px-8">
+      <h1 className="text-lg font-semibold tracking-tight sm:text-xl">Privacy policy</h1>
+      <div className="mt-6 flex flex-col gap-6 text-sm leading-7 sm:text-base">
         <p>
           The calculator works in your browser. The API playground sends requests to our
           Cloudflare-hosted server. Here is what each part stores or sends.
