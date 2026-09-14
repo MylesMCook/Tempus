@@ -18,7 +18,7 @@ The product focus sets the acceptance contract; the existing matrix remains a ca
 
 ## Existing foundation
 
-`src/shared/sdk.ts` already exposes `parse`, `parseMany`, `createParser` and clarification selection. It wraps the existing interpreter; a replacement engine or extra service layer is unnecessary. The first change makes the playground call this entry instead of directly invoking `interpretDate`.
+`src/shared/sdk.ts` already exposes `parse`, `parseMany`, `createParser` and clarification selection. It wraps the existing interpreter; a replacement engine or extra service layer is unnecessary. The playground calls this entry instead of directly invoking `interpretDate`.
 
 The optional calendar entry now exposes `prepareCalendar(result, options)`. It accepts the public parse result and returns `ready`, `needs-clarification`, or `blocked`. A ready recurrence includes its occurrence data and whether it represents an ongoing rule; private serializer policy fields are not returned. Omit `options.file` for data only, or supply title, UUID, timestamp and point precision for file preparation. A ready data result can still contain a failed file result; consumers must check `file.ok` before download.
 
@@ -34,22 +34,13 @@ The older raw calendar entry functions remain available for preview-package comp
 
 The website now derives its point calculation or unresolved error directly from the public result. It no longer constructs a competing calculation object from the first schedule occurrence or invents an engine error for an empty schedule. Rendering and HTTP replay consume only the data applicable to their result kind.
 
-## Refactor sequence
+## Remaining work
 
-1. Make the playground exercise the public parsing contract. Preserve result behavior and existing regression evidence.
-2. Establish the public calendar-review contract using a finite schedule with an ambiguous boundary, correction, complete preview, copy and file output. Verify stale-decision rejection and file contents.
-3. Replace implicit clarification dependencies with explicit typed decisions behind a compatibility boundary. Avoid a flag-day change to stored or host-held selection objects.
-4. Split recurrence recognition, policy resolution and occurrence iteration where doing so removes duplicated decisions. Keep deterministic calendar operations shared.
-5. Profile repeated context validation, parsing and timezone conversions. Optimize only measured duplication, retaining full output equivalence and bounded memory.
-6. Verify the packed package and reference app against the same contract, then document an explicit versioned compatibility commitment. Publishing is separate work requiring authorization.
+Use the [release checklist](release-checklist.md) for current gates. Keep SDK and website results equivalent, reject stale choices, and preserve complete file output. A stable public API still needs a versioned compatibility commitment.
 
-## Completion evidence
+Only optimize measured costs. Timezone data and Temporal dominate the bundle; moving modules does not remove them. Loading changes must preserve offline availability, reproducibility and startup behavior.
 
-The first migration is complete when the same input and answers produce equivalent interpreted dates and complete files through the installed SDK and playground, with edits invalidating stale results. Test unsupported input and ambiguous clocks as well as successful output.
-
-Record current artifact identities and failures in the release checklist. Independently authored cases, user tasks, physical devices and actual calendar imports remain distinct evidence requirements. Refactoring alone establishes neither better language coverage nor competitive superiority.
-
-Timezone data and Temporal are substantial measured bundle costs. Moving code between modules does not remove those costs. Any loading or data-subset change must explicitly account for offline availability, reproducibility and startup before adoption.
+Independent user tasks, physical devices and actual calendar imports remain unverified. Refactoring and passing regression tests do not establish competitive superiority.
 
 ## Measured pruning
 

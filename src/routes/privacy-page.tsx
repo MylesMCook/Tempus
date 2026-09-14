@@ -34,9 +34,8 @@ export function PrivacyPage() {
         <section>
           <h2 className="mb-2 text-lg font-semibold text-foreground">Copying and calendar files</h2>
           <p>
-            Copy buttons put the displayed date, range or schedule preview on your clipboard. That
-            text can include your event title. Other apps may be able to read your clipboard,
-            depending on your device and permissions.
+            Copy buttons put the selected output on your clipboard, including any event title. Other
+            apps may be able to read your clipboard, depending on your device and permissions.
           </p>
           <p className="mt-3">
             Calendar files are prepared in your browser. Choosing Download calendar file saves a

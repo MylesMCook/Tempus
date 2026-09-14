@@ -250,8 +250,7 @@ export function CalendarExport({
           }}
         />
         <p className="text-sm text-muted-foreground">
-          Downloads an .ics file. It includes the date phrase and timezone. Importing it is a
-          separate action in your calendar; no reminder is set.
+          Downloads an .ics file with your phrase and timezone. Import it in your calendar.
         </p>
         <Button
           variant="outline"

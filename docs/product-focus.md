@@ -34,4 +34,4 @@ Before adopting host rules, measure actual savings in a disposable integration, 
 
 ## Release status
 
-Local and unreleased. Public API stability, independent evaluation and actual calendar-client imports remain open. A small bundle alone is not the release gate. The existing matrix is retained as a capability inventory; its broad competitor-parity requirements are no longer the development backlog.
+The website is deployed; the SDK remains an unpublished preview. See the [release checklist](release-checklist.md) for current evidence. API stability, independent evaluation and actual calendar-client imports remain open.

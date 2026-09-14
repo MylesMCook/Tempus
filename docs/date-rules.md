@@ -33,7 +33,7 @@ Whole months and years use the last valid day if the original day does not exist
 
 Fractional years first become whole months: half a year is exactly six months. Remaining fractions use 30.436875 days per month or 365.25 days per year, rounded to the nearest calendar day. The app labels these approximations; the API includes them in `warnings`.
 
-A local time that occurs twice during a clock change is rejected, as is one that does not exist.
+The strict calculator rejects repeated or nonexistent local times during clock changes. The interpreter can offer explicit choices; it does not silently pick one.
 
 ## Supported phrases
 
@@ -49,9 +49,7 @@ Other abbreviations include sec, ms, mo, and yr. A fortnight is 14 days; a quart
 
 ## Unsupported input and limits
 
-The browser also recognizes a few short sentence forms: `Remind me to call Sam tomorrow at noon`, `Can we talk tomorrow at noon?`, and `The meeting is on September 18, 2026 at 2 pm.` It highlights the date phrase and keeps the event label. This previews a date; it does not create or deliver a reminder.
-
-The interpreter in this checkout accepts a supported reminder action followed by a multiword name or item, then a complete supported date phrase. For example: `Remind me to call Sam Jones tomorrow at noon`. Labels may contain letters, spaces and ordinary punctuation, as in `Call Dr. Smith tomorrow at noon` or `Dentist (check-up) tomorrow at noon`; free-form titles still require confirmation. The first recognized temporal marker starts the date phrase; it cannot be swallowed into the label when parsing fails. Numeric targets and names that look like dates, such as May, remain ambiguous or unsupported. Conditions and many idioms remain unsupported. Selectable corrections, finite weekday groups and bounded recurrence are documented in the [schedule contract](schedule-contract.md). This is limited sentence recognition, not general prose extraction.
+The browser recognizes short event phrases such as `Call Sam tomorrow at noon`. It keeps the event text and asks about ambiguous dates. It does not create reminders. This is limited English recognition, not extraction from arbitrary prose; see the [schedule contract](schedule-contract.md) for supported labels, corrections and recurrence.
 
 The strict calculator and API must understand the whole date phrase. They use a fixed English grammar. Surrounding prose, vague amounts such as “a few,” ambiguous numeric dates, and date ranges are unsupported by the API.
 
@@ -61,6 +59,6 @@ For previous behavior and test cases, see the [compatibility notes](parser-compa
 
 ## Calculator questions
 
-The same arithmetic engine accepts bounded question prefixes: `What is …?`, `What date is …?`, `What time is …?`, `What date/time will it be …?`, `Calculate …`, and `What date/time was it … ago?`. For example, `What time was it 2 hours and 15 minutes ago?` evaluates both subtractions and exposes their steps. “date/time” here means either word, not a literal slash.
+Supported question forms include `What is …?`, `What date is …?`, `What time is …?`, `What date will it be …?`, `Calculate …`, and `What time was it … ago?`. Use either “date” or “time” in the latter forms.
 
-The rest of the input must pass the existing calculator grammar. Original input and token positions are retained. Contradictory past/future questions, unrecognized conditions and inline timezone instructions are not silently removed. General conversation, multi-sentence instructions and arbitrary question phrasing remain unsupported; use an explicit starting date and ordered operations when needed.
+Everything after the prefix must match the calculator grammar. Contradictory tense, conditions and inline timezone instructions are rejected. For other phrasing, use an explicit starting date and ordered changes.

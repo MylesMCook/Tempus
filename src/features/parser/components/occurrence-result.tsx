@@ -23,7 +23,7 @@ export function OccurrenceResult({
 }) {
   const [feedback, setFeedback] = useState("");
   const [feedbackOutput, setFeedbackOutput] = useState("");
-  const [previewOpen, setPreviewOpen] = useState(true);
+  const [previewOpen, setPreviewOpen] = useState(false);
   const [format, setFormat] = useState<ScheduleCopyFormat>("text");
   const [page, setPage] = useState(0);
   const [attempt, setAttempt] = useState(0);
@@ -232,6 +232,7 @@ export function OccurrenceResult({
           value={format}
           onChange={(event) => {
             setFormat(event.target.value as ScheduleCopyFormat);
+            setPreviewOpen(true);
             setFeedback("");
           }}
         >
@@ -252,7 +253,7 @@ export function OccurrenceResult({
             {previewOpen ? (
               <div className="grid min-w-0 gap-2 px-3 pb-3">
                 <p id="copy-preview-description" className="text-sm text-muted-foreground">
-                  Exactly what Copy puts on your clipboard. Scroll to inspect the full output.
+                  This is the complete clipboard output.
                 </p>
                 <OutputPreview text={copiedText} format={format} />
               </div>
