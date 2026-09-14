@@ -12,7 +12,7 @@ function result(expression: string, opts = options) {
 
 import { oracleCases } from "./date-engine/oracle-fixtures";
 import { compatibilityCases } from "./date-engine/compatibility-fixtures";
-import { examples } from "../features/parser/examples";
+import { examples, featuredExamples } from "../features/parser/examples";
 
 describe("Phoenix independent date oracles", () => {
   it("keeps returned snapshots independent when a consumer annotates one", () => {
@@ -169,6 +169,13 @@ it("covers every advertised example with an independent expected result", () => 
     .filter(([category]) => category !== "Schedules")
     .flatMap(([, phrases]) => phrases))
     expect(covered.has(phrase), phrase).toBe(true);
+});
+
+it("keeps empty-state chips inside the advertised catalog", () => {
+  const catalog = new Set(Object.values(examples).flat());
+  expect(featuredExamples.length).toBeGreaterThanOrEqual(5);
+  expect(featuredExamples.length).toBeLessThanOrEqual(8);
+  for (const phrase of featuredExamples) expect(catalog.has(phrase), phrase).toBe(true);
 });
 
 it("keeps timezone validation isolated across reuse and more than 64 zones", () => {

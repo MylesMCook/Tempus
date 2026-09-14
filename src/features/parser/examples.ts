@@ -6,6 +6,7 @@ export const examples = {
     "2 weeks plus 3 days",
     "1 month minus 1 week",
     "6 months plus 2 weeks",
+    "jan 31 2026 plus 1 month plus 1 month",
   ],
   Relative: ["in 3 days", "2 weeks from now", "3 months ago", "1 year from now", "3 weeks ago"],
   Simple: ["now", "today", "tomorrow", "yesterday", "next friday", "last monday"],
@@ -31,3 +32,14 @@ export const examples = {
     "Call Sam tomorrow at noon",
   ],
 };
+
+/** Empty-state chips. Subset of `examples`; Browse examples keeps the full catalog. */
+export const featuredExamples = [
+  "today plus 2 weeks minus 3 days",
+  "jan 31 2026 plus 1 month plus 1 month",
+  "2 weeks after dec 25",
+  "Call Sam tomorrow at noon",
+  "tomorrow from 2pm to 4pm",
+  "friday next week",
+  "every Monday at noon for 5 occurrences",
+] as const;

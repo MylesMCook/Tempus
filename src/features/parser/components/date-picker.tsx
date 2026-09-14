@@ -16,7 +16,7 @@ import { OccurrenceResult } from "./occurrence-result";
 import { IntervalResult } from "./interval-result";
 import { CalendarExport } from "./calendar-export";
 import { ApiDocs } from "./api-docs";
-import { examples } from "../examples";
+import { examples, featuredExamples } from "../examples";
 
 async function copy(value: string, label: string, notify = true) {
   try {
@@ -189,17 +189,21 @@ export function DatePicker({
         </div>
         {!hasExpression ? (
           <div className="mt-3 flex flex-wrap gap-2" role="group" aria-label="Try a phrase">
-            <Button
-              disabled={!ready}
-              variant="secondary"
-              className="h-auto min-h-11 whitespace-normal text-left font-normal"
-              onClick={() => {
-                onExpressionChange("today plus 2 weeks");
-                document.getElementById("date-expression")?.focus();
-              }}
-            >
-              today plus 2 weeks
-            </Button>
+            {featuredExamples.map((phrase) => (
+              <Button
+                key={phrase}
+                type="button"
+                disabled={!ready}
+                variant="secondary"
+                className="h-auto min-h-11 whitespace-normal text-left font-normal"
+                onClick={() => {
+                  onExpressionChange(phrase);
+                  document.getElementById("date-expression")?.focus();
+                }}
+              >
+                {phrase}
+              </Button>
+            ))}
           </div>
         ) : null}
         <Disclosure className="mt-2">
