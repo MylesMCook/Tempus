@@ -1,10 +1,10 @@
 # Feedback
 
-[Open the calculator](https://tempus-total.funnydomainname.com/) and try one phrase you would actually use.
+[Open the calculator](https://tempus.funnydomainname.com/) and try one phrase you would actually use.
 
 1. Enter the phrase and check the date.
 2. Open **Show calculation steps**. Can you tell why it returned that date?
-3. [Open an issue](https://github.com/MylesMCook/TempusTotal/issues/new/choose) if something is wrong or confusing. Say what you expected and what happened.
+3. [Open an issue](https://github.com/MylesMCook/Tempus/issues/new/choose) if something is wrong or confusing. Say what you expected and what happened.
 
 You do not need to review the whole app or suggest a fix.
 

@@ -4,7 +4,7 @@
 
 ## Report a problem
 
-[Open an issue](https://github.com/MylesMCook/TempusTotal/issues/new/choose) with what you tried, what you expected, and what happened. A screenshot helps with layout problems.
+[Open an issue](https://github.com/MylesMCook/Tempus/issues/new/choose) with what you tried, what you expected, and what happened. A screenshot helps with layout problems.
 
 For a wrong date, open **Developer tools → Copy calculation details** in the app. This includes the phrase, timezone, and starting time needed to repeat it. Remove anything private before posting.
 

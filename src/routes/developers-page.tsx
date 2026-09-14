@@ -60,7 +60,7 @@ const result = parse("Call Sam tomorrow at noon", {
           </pre>
           <a
             className="mt-3 inline-block py-2 text-primary underline underline-offset-4"
-            href="https://github.com/MylesMCook/TempusTotal/tree/main/packages/core"
+            href="https://github.com/MylesMCook/Tempus/tree/main/packages/core"
           >
             SDK quickstart
           </a>

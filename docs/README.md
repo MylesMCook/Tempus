@@ -2,7 +2,7 @@
 
 ## Use Tempus
 
-- [Calculator](https://tempus-total.funnydomainname.com/) — enter a calculation and see its steps.
+- [Calculator](https://tempus.funnydomainname.com/) — enter a calculation and see its steps.
 - [Date rules](date-rules.md) — starting dates, fractions, month ends and clock changes.
 - [Send feedback](review-guide.md) — report a wrong date or a confusing step.
 

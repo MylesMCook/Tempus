@@ -1,4 +1,4 @@
-# TempusTotal Code Fixes Plan
+# Tempus Code Fixes Plan
 
 This document outlines the planned fixes for issues identified in the codebase review.
 

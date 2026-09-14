@@ -2,7 +2,7 @@
 
 ## Reporting a vulnerability
 
-Use the repository's **Security → Report a vulnerability** form when available: [private reporting](https://github.com/MylesMCook/TempusTotal/security/advisories/new).
+Use the repository's **Security → Report a vulnerability** form when available: [private reporting](https://github.com/MylesMCook/Tempus/security/advisories/new).
 
 If that form is unavailable, open an issue asking for a private security contact, without technical details or sensitive data. Wait for a private channel before sharing a report. Do not include credentials, personal information, or live exploitation instructions in public issues.
 
