@@ -17,7 +17,7 @@ function TimelineDot({ current }: { current?: boolean }) {
     <span
       aria-hidden="true"
       className={`absolute -left-[5px] top-1.5 size-2 rounded-full ring-4 ring-background ${
-        current ? "bg-primary" : "bg-muted-foreground/50"
+        current ? "bg-primary" : "bg-muted-foreground"
       }`}
     />
   );
