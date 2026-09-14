@@ -28,7 +28,7 @@ export function Document({ children }: { children: ReactNode }) {
         <a href="#main" className="sr-only focus:not-sr-only focus:block focus:p-4">
           Skip to content
         </a>
-        <div className="border-b bg-background">
+        <div className="t-nav-enter border-b bg-background">
           <nav
             aria-label="Main navigation"
             className="mx-auto flex h-12 max-w-3xl items-center justify-between gap-4 px-4 sm:h-14 sm:px-8"
@@ -53,6 +53,24 @@ export function Document({ children }: { children: ReactNode }) {
             policy remain available.
           </p>
         </noscript>
+        <svg width="0" height="0" className="absolute" aria-hidden focusable={false}>
+          <filter id="t-shimmer-warp" x="-40%" y="-40%" width="180%" height="180%">
+            <feTurbulence
+              type="fractalNoise"
+              baseFrequency="0.009 0.015"
+              numOctaves={2}
+              seed={7}
+              result="n"
+            />
+            <feDisplacementMap
+              in="SourceGraphic"
+              in2="n"
+              scale={46}
+              xChannelSelector="R"
+              yChannelSelector="G"
+            />
+          </filter>
+        </svg>
         {children}
         <footer className="mx-auto flex max-w-3xl flex-wrap items-center justify-between gap-4 border-t px-4 py-5 text-sm text-muted-foreground sm:px-8">
           <span>Natural language. Inspectable dates.</span>

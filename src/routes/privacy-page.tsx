@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 export function PrivacyPage() {
   return (
-    <main id="main" className="container max-w-3xl py-12">
+    <main id="main" className="t-page-enter container max-w-3xl py-12">
       <Button variant="ghost" asChild className="mb-6">
         <a href="/" className="flex items-center gap-2">
           <ArrowLeft className="h-4 w-4" />

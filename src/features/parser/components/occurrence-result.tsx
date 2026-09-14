@@ -1,6 +1,8 @@
 import { useMemo, useState } from "react";
 import { flushSync } from "react-dom";
 import { appendSelection, type ParseResult } from "@/shared/sdk";
+import { Disclosure } from "@/components/disclosure";
+import { OrganicShimmer } from "@/components/organic-shimmer";
 import { Button } from "@/components/ui/button";
 import { safeFormatDate, resultClockFormat } from "../options";
 import { useCalendarPreparation } from "../use-calendar-preparation";
@@ -134,6 +136,9 @@ export function OccurrenceResult({
               ? `${scheduleQuantity(schedule.occurrences.length, "date")} ready. Copy includes the complete upcoming set.`
               : "No end date. Copy includes the rule and a labeled preview."
             : "Preparing all dates before copying…")}
+        {!ready && !error && !prompt ? (
+          <OrganicShimmer width="100%" height={36} radius={8} className="t-shimmer-bar mt-2" />
+        ) : null}
       </div>
       {prompt ? (
         <div role="group" aria-label={prompt.question} className="grid gap-2">
@@ -241,7 +246,7 @@ export function OccurrenceResult({
           <option value="json">JSON · complete date data</option>
         </select>
         {ready && copiedText ? (
-          <details
+          <Disclosure
             open={previewOpen}
             onToggle={(event) => setPreviewOpen(event.currentTarget.open)}
             className="min-w-0 rounded-md border"
@@ -258,7 +263,7 @@ export function OccurrenceResult({
                 <OutputPreview text={copiedText} format={format} />
               </div>
             ) : null}
-          </details>
+          </Disclosure>
         ) : null}
         <Button
           className="min-h-12"
@@ -311,7 +316,7 @@ export function OccurrenceResult({
             Change date or clock choices
           </Button>
           {clockNotes.length ? (
-            <details>
+            <Disclosure>
               <summary className="cursor-pointer py-2">
                 Interpretation choices ({clockNotes.length})
               </summary>
@@ -320,12 +325,12 @@ export function OccurrenceResult({
                   <li key={note}>{note}</li>
                 ))}
               </ul>
-            </details>
+            </Disclosure>
           ) : null}
         </div>
       ) : null}
       {schedule.kind === "recurrence" ? (
-        <details className="border-t pt-3">
+        <Disclosure className="border-t pt-3">
           <summary className="cursor-pointer py-2 text-sm">Schedule boundaries</summary>
           <dl className="mt-2 grid gap-2 text-sm">
             <div>
@@ -347,10 +352,10 @@ export function OccurrenceResult({
               </div>
             ) : null}
           </dl>
-        </details>
+        </Disclosure>
       ) : null}
       {visible.length ? (
-        <details className="border-t pt-3">
+        <Disclosure className="border-t pt-3">
           <summary className="cursor-pointer py-2 text-sm">
             How {visible.length === 1 ? "this date was" : "these dates were"} calculated
           </summary>
@@ -366,7 +371,7 @@ export function OccurrenceResult({
               ) : null}
             </div>
           ))}
-        </details>
+        </Disclosure>
       ) : null}
     </section>
   );

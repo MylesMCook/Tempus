@@ -1,4 +1,5 @@
 import { useId } from "react";
+import { Disclosure } from "@/components/disclosure";
 import type { Calculation, CalculationStep, DateSnapshot } from "@/shared/date-parser";
 
 const GENERIC_CALENDAR_NOTE = "Calendar change, applied to this step’s starting date.";
@@ -63,7 +64,7 @@ export function CalculationTrace({ calculation }: { calculation: Calculation }) 
   const inputsHeadingId = useId();
   const lastIndex = calculation.ok ? calculation.steps.length - 1 : -1;
   return (
-    <details open={calculation.ok && calculation.steps.length > 0} className="mt-5 border-t">
+    <Disclosure open={calculation.ok && calculation.steps.length > 0} className="mt-5 border-t">
       <summary className="cursor-pointer py-3 text-sm font-medium focus-visible:outline focus-visible:outline-2">
         Show calculation steps
       </summary>
@@ -117,7 +118,7 @@ export function CalculationTrace({ calculation }: { calculation: Calculation }) 
                 <dd className="mt-0.5 break-words font-medium">{calculation.normalized}</dd>
               </div>
             </dl>
-            <details className="mt-3">
+            <Disclosure className="mt-3">
               <summary className="cursor-pointer text-sm text-muted-foreground hover:text-foreground focus-visible:outline focus-visible:outline-2">
                 Exact UTC values
               </summary>
@@ -131,10 +132,10 @@ export function CalculationTrace({ calculation }: { calculation: Calculation }) 
                   <dd className="break-all font-mono">{calculation.result.iso}</dd>
                 </div>
               </dl>
-            </details>
+            </Disclosure>
           </section>
         </div>
       )}
-    </details>
+    </Disclosure>
   );
 }
