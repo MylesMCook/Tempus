@@ -81,3 +81,63 @@ it("asks again for a repeated end after changing a repeated start", () => {
   if (answer.status !== "needs-clarification") throw new Error("Missing renewed end question");
   expect(answer.clarification?.question).toContain("end");
 });
+
+it.each(["starting", "until"])(
+  "replaces the %s boundary and clears dependent schedule decisions, preserving the other boundary",
+  (endpoint) => {
+    const otherEndpoint = endpoint === "starting" ? "until" : "starting";
+    const old = `boundary:${endpoint}:date:2026-09-10`;
+    const replacement = `boundary:${endpoint}:date:2026-10-09`;
+    const other = `boundary:${otherEndpoint}:date:2026-12-11`;
+    const unrelated = "interval:start:date:2026-09-10";
+    const selection = appendSelection(
+      {
+        contextKey: "context",
+        id: old,
+        previous: [
+          other,
+          "monthly:last-day",
+          "count:past:consume",
+          "count:exclusions:replace",
+          "recurrence:2026-11-01:start:2026-11-01T06:30:00Z",
+          "recurrence:2026-11-01:end:2026-11-01T07:30:00Z",
+          unrelated,
+        ],
+      },
+      { contextKey: "context", id: replacement },
+    );
+    expect(selection).toEqual({
+      contextKey: "context",
+      id: replacement,
+      previous: [other, unrelated],
+    });
+  },
+);
+
+it("replays a replacement boundary while retaining the independent end date", () => {
+  const context = { timezone: "America/Chicago", reference: "2026-09-12T16:00:00Z" };
+  const input = "Mondays at noon starting 09/10/2026 until 11/12/2026";
+  const question = interpretDate(input, context);
+  if (question.status !== "needs-clarification" || !question.clarification)
+    throw new Error("Missing boundary question");
+  const contextKey = question.clarification.contextKey;
+  const selection = appendSelection(
+    {
+      contextKey,
+      id: "boundary:until:date:2026-11-12",
+      previous: ["boundary:starting:date:2026-09-10"],
+    },
+    { contextKey, id: "boundary:starting:date:2026-10-09" },
+  );
+  const answer = interpretDate(input, { ...context, selection });
+  expect(answer).toMatchObject({
+    status: "resolved",
+    value: {
+      kind: "recurrence",
+      rule: { starting: "2026-10-09", until: "2026-11-12" },
+    },
+  });
+  if (answer.status !== "resolved" || answer.value.kind !== "recurrence")
+    throw new Error("Missing resolved replacement");
+  expect(answer.value.occurrences[0].start.result.local.slice(0, 10)).toBe("2026-10-12");
+});

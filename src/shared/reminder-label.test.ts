@@ -129,7 +129,6 @@ it.each(["two weeks from now", "a week from now", "one and a half weeks ago"])(
 );
 it.each([
   "weekly on Monday",
-  "Mondays at noon",
   "before Tuesday",
   "after Friday",
   "twice tomorrow",
@@ -139,6 +138,28 @@ it.each([
 ])("does not hide an unsupported temporal qualifier: %s", (phrase) => {
   const result = interpretDate(`Remind me to call Sam Jones ${phrase}`, context);
   expect(result.status).not.toBe("resolved");
+});
+it("keeps plural weekday shorthand as a recurrence rather than part of the reminder label", () => {
+  const input = "Remind me to call Sam Jones Mondays at noon";
+  const result = interpretDate(input, context);
+  expect(result).toMatchObject({
+    status: "resolved",
+    event: { text: "call Sam Jones" },
+    source: { text: "Mondays at noon" },
+    value: {
+      kind: "recurrence",
+      rule: { frequency: "weekly", weekdays: [1], startClock: "noon" },
+      truncated: true,
+    },
+  });
+  if (result.status !== "resolved" || result.value.kind !== "recurrence")
+    throw new Error("Missing repeating reminder");
+  expect(input.slice(result.source.span.start, result.source.span.end)).toBe("Mondays at noon");
+  expect(result.value.occurrences.map((row) => row.start.result.local.slice(0, 10))).toEqual([
+    "2026-09-14",
+    "2026-09-21",
+    "2026-09-28",
+  ]);
 });
 
 it.each(["each Monday", "alternate Monday at noon", "repeat on Monday"])(

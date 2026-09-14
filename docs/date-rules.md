@@ -4,7 +4,7 @@ Try a phrase in the [calculator](https://tempus-total.funnydomainname.com/). **S
 
 ## Starting date
 
-The selected timezone controls the calculation and display. The browser starts with your timezone; the API defaults to UTC.
+The selected timezone controls the calculation and display. The browser starts with your timezone; the API defaults to UTC. For scheduling phrases, select the timezone in the setting rather than writing it inside the phrase. Inline timezone names and abbreviations receive recovery guidance; they are not silently applied or ignored.
 
 `now` and phrases such as `in 3 weeks` start at the captured reference time. `today`, weekdays, and named dates start at midnight. Add `at 14:30` or `at 2 pm` to choose a time.
 
@@ -51,7 +51,7 @@ Other abbreviations include sec, ms, mo, and yr. A fortnight is 14 days; a quart
 
 The browser also recognizes a few short sentence forms: `Remind me to call Sam tomorrow at noon`, `Can we talk tomorrow at noon?`, and `The meeting is on September 18, 2026 at 2 pm.` It highlights the date phrase and keeps the event label. This previews a date; it does not create or deliver a reminder.
 
-The interpreter in this checkout accepts a supported reminder action followed by a multiword name or item, then a complete supported date phrase. For example: `Remind me to call Sam Jones tomorrow at noon`. Labels may contain letters, spaces, apostrophes and hyphens. The first recognized temporal marker starts the date phrase; it cannot be swallowed into the label when parsing fails. Numeric targets and names that look like dates, such as May, remain ambiguous or unsupported. Conditions and many idioms remain unsupported. Selectable corrections, finite weekday groups and bounded recurrence are documented in the [schedule contract](schedule-contract.md). This is limited sentence recognition, not general prose extraction.
+The interpreter in this checkout accepts a supported reminder action followed by a multiword name or item, then a complete supported date phrase. For example: `Remind me to call Sam Jones tomorrow at noon`. Labels may contain letters, spaces and ordinary punctuation, as in `Call Dr. Smith tomorrow at noon` or `Dentist (check-up) tomorrow at noon`; free-form titles still require confirmation. The first recognized temporal marker starts the date phrase; it cannot be swallowed into the label when parsing fails. Numeric targets and names that look like dates, such as May, remain ambiguous or unsupported. Conditions and many idioms remain unsupported. Selectable corrections, finite weekday groups and bounded recurrence are documented in the [schedule contract](schedule-contract.md). This is limited sentence recognition, not general prose extraction.
 
 The strict calculator and API must understand the whole date phrase. They use a fixed English grammar. Surrounding prose, vague amounts such as “a few,” ambiguous numeric dates, and date ranges are unsupported by the API.
 

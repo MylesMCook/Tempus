@@ -13,4 +13,4 @@ export type CalendarPreparationRequest = {
 
 export type CalendarPreparationResponse =
   | { ok: true; plan: ReturnType<typeof resolveRecurringExport>; file?: CalendarFile }
-  | { ok: false; error: string };
+  | { ok: false; reason: "worker-unavailable" | "computation"; error: string };

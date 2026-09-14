@@ -1,3 +1,5 @@
+"use client";
+
 export function DevelopersPage() {
   return (
     <main id="main" className="mx-auto max-w-3xl px-4 py-10 sm:px-8">
@@ -30,7 +32,23 @@ export function DevelopersPage() {
             exposes parsing, batches and reusable parsers; calendar-file preparation is an optional
             entry point.
           </p>
-          <pre className="mt-4 overflow-x-auto rounded-lg border bg-background p-4 text-sm">
+          <pre
+            tabIndex={0}
+            role="region"
+            aria-label="TypeScript package example"
+            onKeyDown={(event) => {
+              if (
+                (event.key === "ArrowLeft" || event.key === "ArrowRight") &&
+                event.currentTarget.scrollWidth > event.currentTarget.clientWidth
+              ) {
+                event.preventDefault();
+                event.currentTarget.scrollBy({
+                  left: event.key === "ArrowRight" ? 40 : -40,
+                });
+              }
+            }}
+            className="mt-4 overflow-x-auto rounded-lg border bg-background p-4 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+          >
             <code>{`import { parse } from "@tempus-date/core";
 
 const result = parse("Call Sam tomorrow at noon", {

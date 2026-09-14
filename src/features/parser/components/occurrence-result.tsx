@@ -7,6 +7,7 @@ import { safeFormatDate, resultClockFormat } from "../options";
 import { useCalendarPreparation } from "../use-calendar-preparation";
 import { useRecurrenceDecisions } from "../context/recurrence-decisions-context";
 import { scheduleCopy, type ScheduleCopyFormat } from "../schedule-copy";
+import { scheduleQuantity } from "../schedule-labels";
 import { OutputPreview } from "./output-preview";
 import { CalculationTrace } from "./calculation-trace";
 
@@ -71,8 +72,8 @@ export function OccurrenceResult({
   const countLabel =
     schedule.kind === "recurrence" && schedule.rule.count
       ? schedule.rule.countPast === "consume"
-        ? `${schedule.rule.count} scheduled dates from the written start${schedule.rule.countExclusions === "consume" ? ", before exclusions" : ""}.`
-        : `${schedule.rule.count} ${schedule.rule.countExclusions === "consume" ? "scheduled dates before exclusions" : "occurrences in total"}.`
+        ? `${scheduleQuantity(schedule.rule.count, "scheduled date")} from the written start${schedule.rule.countExclusions === "consume" ? ", before exclusions" : ""}.`
+        : `${schedule.rule.countExclusions === "consume" ? `${scheduleQuantity(schedule.rule.count, "scheduled date")} before exclusions` : `${scheduleQuantity(schedule.rule.count, "occurrence")} in total`}.`
       : undefined;
   const clockNotes =
     schedule.kind === "recurrence"
@@ -98,12 +99,20 @@ export function OccurrenceResult({
     <section
       id="calculated-date"
       tabIndex={-1}
-      aria-label={schedule.kind === "recurrence" ? "Recurring schedule" : "Multiple date ranges"}
+      aria-label={
+        schedule.kind === "recurrence"
+          ? "Recurring schedule"
+          : schedule.occurrences.length === 1
+            ? "Listed date"
+            : "Multiple date ranges"
+      }
       className="grid gap-4"
     >
       <div>
         <h2 className="text-sm font-medium text-emerald-800">
-          {schedule.kind === "collection" ? "Your listed dates" : "Your repeating schedule"}
+          {schedule.kind === "collection"
+            ? `Your listed date${schedule.occurrences.length === 1 ? "" : "s"}`
+            : "Your repeating schedule"}
         </h2>
         {interpretation.event ? (
           <p className="mt-2 break-words text-xl font-semibold">{interpretation.event.text}</p>
@@ -122,7 +131,7 @@ export function OccurrenceResult({
         {error ??
           (ready
             ? finite
-              ? `${schedule.occurrences.length} dates ready. Copy includes the complete upcoming set.`
+              ? `${scheduleQuantity(schedule.occurrences.length, "date")} ready. Copy includes the complete upcoming set.`
               : "No end date. Copy includes the rule and a labeled preview."
             : "Preparing all dates before copying…")}
       </div>
@@ -167,7 +176,7 @@ export function OccurrenceResult({
       {visible.length ? (
         <ol
           start={pageStart + 1}
-          aria-label={ready && finite ? "Complete schedule dates" : "Preview dates"}
+          aria-label={`${ready && finite ? "Complete schedule" : "Preview"} date${schedule.occurrences.length === 1 ? "" : "s"}`}
           className="grid gap-3"
         >
           {visible.map((row, index) => (
@@ -206,8 +215,9 @@ export function OccurrenceResult({
       ) : null}
       {!finite ? (
         <p className="text-sm text-muted-foreground">
-          These are the next {visible.length} dates, not the whole schedule. Add “for 5 occurrences”
-          or an end date to copy a complete list.
+          {visible.length === 1 ? "This is" : "These are"} the next{" "}
+          {scheduleQuantity(visible.length, "date")}, not the whole schedule. Add “for 5
+          occurrences” or an end date to copy a complete list.
         </p>
       ) : null}
       <div className="grid gap-2">
@@ -255,7 +265,9 @@ export function OccurrenceResult({
             try {
               await navigator.clipboard.writeText(copiedText);
               setFeedback(
-                finite ? `${schedule.occurrences.length} dates copied` : "Rule and preview copied",
+                finite
+                  ? `${scheduleQuantity(schedule.occurrences.length, "date")} copied`
+                  : "Rule and preview copied",
               );
             } catch {
               setFeedback("Copy was blocked. Select text in the preview and copy it manually.");
@@ -265,7 +277,7 @@ export function OccurrenceResult({
         >
           {finite
             ? ready
-              ? `Copy all ${schedule.occurrences.length} dates`
+              ? `Copy ${schedule.occurrences.length === 1 ? "" : "all "}${scheduleQuantity(schedule.occurrences.length, "date")}`
               : "Preparing complete output…"
             : "Copy rule and preview"}
         </Button>
@@ -325,7 +337,9 @@ export function OccurrenceResult({
             ) : null}
             {schedule.rule.exceptions.length ? (
               <div>
-                <dt className="font-medium">Excluded start dates</dt>
+                <dt className="font-medium">
+                  Excluded start date{schedule.rule.exceptions.length === 1 ? "" : "s"}
+                </dt>
                 <dd>{schedule.rule.exceptions.join(", ")}</dd>
               </div>
             ) : null}
@@ -334,7 +348,9 @@ export function OccurrenceResult({
       ) : null}
       {visible.length ? (
         <details className="border-t pt-3">
-          <summary className="cursor-pointer py-2 text-sm">How these dates were calculated</summary>
+          <summary className="cursor-pointer py-2 text-sm">
+            How {visible.length === 1 ? "this date was" : "these dates were"} calculated
+          </summary>
           {visible.map((row, index) => (
             <div key={pageStart + index} className="mt-3">
               <h3 className="font-medium">Occurrence {pageStart + index + 1} · start</h3>

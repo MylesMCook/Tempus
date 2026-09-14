@@ -75,7 +75,13 @@ it.each([
   "every Monday at noon and Friday",
   "not every Monday at noon",
 ])("does not discard a qualifier: %s", (input) => {
-  expect(interpretRecurrence(input, context)).toBeNull();
+  const result = interpretRecurrence(input, context);
+  if (input.startsWith("every"))
+    expect(result).toMatchObject({
+      ok: false,
+      error: { message: expect.stringContaining("repeating schedule") },
+    });
+  else expect(result).toBeNull();
 });
 it("reports empty completed schedules and explicit preview limits", () => {
   const result = interpretRecurrence(

@@ -54,6 +54,8 @@ export function resolveRecurringExport(
     timezone: value.timezone,
     reference,
     policyDecisions: [
+      `boundary:starting:date:${value.rule.starting}`,
+      ...(value.rule.until ? [`boundary:until:date:${value.rule.until}`] : []),
       ...(value.rule.frequency === "monthly" ? [`monthly:${value.rule.shortMonth}`] : []),
       ...(value.rule.countExclusions ? [`count:exclusions:${value.rule.countExclusions}`] : []),
       ...(value.rule.countPast ? [`count:past:${value.rule.countPast}`] : []),

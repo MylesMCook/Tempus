@@ -24,7 +24,14 @@ export type IntervalCandidate =
   | { ok: false; error: CalculationIssue; equalEndpoints?: true; clockPrompt?: ClockPrompt };
 
 const clock = String.raw`(?:\d{1,2}(?::\d{2})?\s*[ap]m|\d{1,2}:\d{2}|noon|midnight)`;
-const range = new RegExp(`^(.+?)\\s+(?:from\\s+)?(${clock})\\s*(?:to|[-–])\\s*(${clock})$`, "i");
+const clockPair = `(?<start>${clock})\\s*(?:to|[-–—])\\s*(?<end>${clock})`;
+const betweenPair = `between\\s+(?<start>${clock})\\s+and\\s+(?<end>${clock})`;
+const ranges = [
+  new RegExp(`^(?<anchor>.+?)\\s+(?:from\\s+)?${clockPair}$`, "i"),
+  new RegExp(`^(?:from\\s+)?${clockPair}\\s+(?<anchor>.+)$`, "i"),
+  new RegExp(`^(?<anchor>.+?)\\s+${betweenPair}$`, "i"),
+  new RegExp(`^${betweenPair}\\s+(?<anchor>.+)$`, "i"),
+];
 const duration = /^for\s+(\d+)\s+(days?|weeks?|hours?|minutes?|seconds?)\s+from\s+(.+)$/i;
 const trailingDuration = /^(.+?)\s+for\s+(\d+)\s+(days?|weeks?|hours?|minutes?|seconds?)$/i;
 
@@ -40,6 +47,26 @@ const issue = (message: string, hint: string): IntervalCandidate => ({
   ok: false,
   error: { code: "syntax", message, hint },
 });
+
+function relativeWeekdayEnd(expression: string, start: CalculationSuccess): string {
+  try {
+    const plan = parseExpression(expression);
+    if (
+      plan.anchor.kind !== "weekday" ||
+      plan.anchor.week ||
+      plan.tokens.some((token) => ["next", "last", "this"].includes(token.value)) ||
+      plan.operations.length
+    )
+      return expression;
+    const date = Temporal.PlainDate.from(start.result.local.slice(0, 10));
+    // The same weekday means the same date, not an implicit extra week.
+    const end = date.add({ days: (plan.anchor.day - date.dayOfWeek + 7) % 7 });
+    return `${end.toString()}${plan.time ? ` at ${plan.time}` : ""}`;
+  } catch {
+    // Let the endpoint evaluator preserve structured syntax/range diagnostics.
+    return expression;
+  }
+}
 
 /** Internal resolver; null means this is not a complete supported interval form. */
 export function interpretInterval(
@@ -77,7 +104,8 @@ export function interpretInterval(
       anchorDescription: `Use the explicitly selected ${name}: ${selected.label}`,
     };
   };
-  const datedRange = /^from\s+(.+?)\s+(?:to|until)\s+(.+)$/i.exec(text);
+  const match = ranges.map((range) => range.exec(text)).find(Boolean);
+  const datedRange = !match && /^from\s+(.+?)\s+(?:to|until)\s+(.+)$/i.exec(text);
   if (datedRange) {
     const resolved: CalculationSuccess[] = [];
     const timed: boolean[] = [];
@@ -114,6 +142,7 @@ export function interpretInterval(
         if (choices.length > 1)
           selectedClocks.push(`${name === "start" ? "Start" : "End"} date: ${choice.label}`);
       }
+      if (name === "end") expression = relativeWeekdayEnd(expression, resolved[0]);
       const value = endpoint(expression, name);
       if (!value.ok) return value;
       if (value.steps.length)
@@ -294,9 +323,24 @@ export function interpretInterval(
       "How long should this event last?",
       "Use a positive whole number and seconds, minutes, hours, days or weeks, such as “tomorrow at noon for 30 minutes”.",
     );
-  const match = range.exec(text);
-  if (!match) return null;
-  const [, anchor, startClock, endClock] = match;
+  if (!match) {
+    const datedClock = /^(.+?)\s+(?:from|between)\s+(?:\d|noon\b|midnight\b)/i.exec(text);
+    let hasDateAnchor = false;
+    if (datedClock) {
+      try {
+        hasDateAnchor = parseExpression(datedClock[1]).operations.length === 0;
+      } catch {
+        // Quantities such as “3 days from today” still belong to the calculator.
+      }
+    }
+    if (/^(?:from|between)\b/i.test(text) || hasDateAnchor)
+      return issue(
+        "That range wording is not supported.",
+        "Use “from Friday at 9am to Monday at 5pm”, “from 9am to 5pm tomorrow”, or “tomorrow between 9am and 5pm”. Include am/pm for clock hours.",
+      );
+    return null;
+  }
+  const { anchor, start: startClock, end: endClock } = match.groups!;
   const startExpression = `${anchor} at ${startClock}`;
   const start = endpoint(startExpression, "start");
   if (!start.ok) return start;

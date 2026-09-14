@@ -10,6 +10,8 @@ Turn short English phrases into dates, ranges and repeating patterns. Inspect th
 
 Calculations run in your browser. Your phrase is sent to the server only if you choose **Check API result**. The starting time stays fixed until you edit the phrase or choose **Refresh now**.
 
+After the app finishes loading, schedule preparation and calendar downloads also work offline, including their first use. Opening or reloading the app offline is not supported.
+
 Tempus supplies date interpretation for other applications. The website is a playground for the engine; the local TypeScript package is a preview integration surface. It does not require an account.
 
 ## Run locally

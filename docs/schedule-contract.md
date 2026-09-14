@@ -17,27 +17,31 @@ Do not expose interval or schedule union variants as supported until resolution 
 
 ## Interpretation policies
 
-| Input or condition                   | Policy                                                                                                                                                 |
-| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `for 3 days from today`              | Calendar interval beginning at local midnight today, ending at exclusive midnight three calendar days later                                            |
-| `3 days from today`                  | Date offset, not a duration interval                                                                                                                   |
-| `for 24 hours from now`              | Timed interval lasting 24 elapsed hours from the reference instant                                                                                     |
-| `Friday 10pm–12am`                   | Upcoming Friday through following midnight; retain the overnight date change                                                                           |
-| A range whose end precedes its start | Roll to the following date only when an explicit clock-range form supports that interpretation. Explicit contradictory dates require clarification     |
-| Equal clock endpoints                | Offer explicit confirmation of the same clock on the next date, or let the user edit. Zero-length intervals remain invalid; use a point for an instant |
-| Bare `8` without AM/PM               | Clarify unless a documented, explicit user preference resolves it                                                                                      |
-| Numeric `03/04/2027`                 | Clarify without a date-order preference. Do not infer locale from server location                                                                      |
-| Repeated or nonexistent local clock  | Show the concrete alternatives or request another time. Never silently select a DST offset or shift a nonexistent clock                                |
-| `Friday, actually Saturday instead`  | Ask whether Saturday replaces Friday. A selected answer resolves the candidate; editing text or context invalidates that selection                     |
-| Cancellation or prohibition          | No scheduling event. Mention extraction is a separate contract and must not be scored as equivalent                                                    |
-| Conditions and exceptions            | Represent them completely or return unresolved; never omit them to export a simpler schedule                                                           |
-| Recurrence                           | Preserve local wall time across DST; use explicit bounds/limits. Clarify any occurrence that lands on an unresolved DST clock before export            |
+| Input or condition                   | Policy                                                                                                                                                         |
+| ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `for 3 days from today`              | Calendar interval beginning at local midnight today, ending at exclusive midnight three calendar days later                                                    |
+| `3 days from today`                  | Date offset, not a duration interval                                                                                                                           |
+| `for 24 hours from now`              | Timed interval lasting 24 elapsed hours from the reference instant                                                                                             |
+| `Friday 10pm–12am`                   | Upcoming Friday through following midnight; retain the overnight date change                                                                                   |
+| A range whose end precedes its start | Clock-only ends can roll overnight; unqualified weekday ends are anchored to the start date as described below. Explicit contradictory dates remain unresolved |
+| Equal clock endpoints                | Offer explicit confirmation of the same clock on the next date, or let the user edit. Zero-length intervals remain invalid; use a point for an instant         |
+| Bare `8` without AM/PM               | Clarify unless a documented, explicit user preference resolves it                                                                                              |
+| Numeric `03/04/2027`                 | Clarify without a date-order preference. Do not infer locale from server location                                                                              |
+| Repeated or nonexistent local clock  | Show the concrete alternatives or request another time. Never silently select a DST offset or shift a nonexistent clock                                        |
+| `Friday, actually Saturday instead`  | Ask whether Saturday replaces Friday. A selected answer resolves the candidate; editing text or context invalidates that selection                             |
+| Cancellation or prohibition          | No scheduling event. Mention extraction is a separate contract and must not be scored as equivalent                                                            |
+| Conditions and exceptions            | Represent them completely or return unresolved; never omit them to export a simpler schedule                                                                   |
+| Recurrence                           | Preserve local wall time across DST; use explicit bounds/limits. Clarify any occurrence that lands on an unresolved DST clock before export                    |
 
 Calendar arithmetic retains written order, stepwise month-end clamping and labeled fractional approximations. A whole calendar day can have 23 or 25 elapsed hours. Do not convert it to 24 hours for convenience.
 
 ## Weekday policy boundary
 
 Scheduling interpretation treats a bare weekday as including today when its clock is still ahead; date-only weekdays include the current civil date. A past clock advances to next week. Explicit `next`, `last` and `this` retain their meaning, and arithmetic expressions keep strict calculator behavior. A repeated or skipped current-day clock stays unresolved.
+
+In a range such as `from Friday to Monday`, the unqualified end weekday is the matching weekday on or after the resolved start date, crossing the week boundary when necessary. The same weekday stays on the same date, not an inferred extra week; equal/reversed timed endpoints remain invalid. Explicit dates and qualified weekdays are never silently moved. Date-only ranges still ask whether to include the final civil date.
+
+Clock ranges accept date-first and clock-first wording, including `tomorrow between 9am and 5pm`, `between 9am and 5pm tomorrow`, and `9am–5pm tomorrow`. Hyphen, en-dash and em-dash clock separators are supported. The entire range must be understood; this does not change arithmetic or ISO date separators.
 
 The strict calculator/API v2 continues to treat bare weekdays as next occurrences excluding today. This distinction was exposed by correction acceptance tests; it is intentional and must be reported as a policy difference in comparisons. The interpreter records its effective `this` expression for reproducibility.
 
@@ -62,7 +66,7 @@ Clock-choice provenance: the selected instant is evaluated as an explicit refere
 
 ## Weekly preview contract
 
-The internal weekly resolver accepts one to seven distinct named weekdays with a shared explicit clock or clock range. Use commas or `and` between weekdays, as in `every Monday, Wednesday and Friday at noon`. Weekday order does not change chronological preview order. Duplicate weekdays are rejected. Optional `starting` and `until` boundaries use ISO calendar dates; both dates include occurrences starting on that date. Exceptions exclude occurrences by their local start date, including overnight ranges. Only occurrences starting at or after the reference instant appear in the preview; an already-started occurrence is not upcoming.
+The internal weekly resolver accepts one to seven distinct named weekdays with a shared explicit clock or clock range. Use commas or `and` between weekdays, as in `every Monday, Wednesday and Friday at noon`; plural shorthand such as `Mondays at noon` is also recognized. Weekday order does not change chronological preview order. Duplicate weekdays are rejected. Optional `starting` and `until` boundaries accept ISO, named or relative calendar dates resolved against the supplied reference and timezone; ambiguous numeric dates require a choice. Both dates include occurrences starting on that date. Exceptions still require ISO dates and exclude occurrences by their local start date, including overnight ranges. Only occurrences starting at or after the reference instant appear in the preview; an already-started occurrence is not upcoming.
 
 Preview limits are 1–100 occurrences (default 3), with at most 10 excluded dates. `truncated` means another occurrence exists beyond the returned preview. An empty finite schedule is distinct from an invalid schedule. A DST-ambiguous occurrence prevents partial success until its occurrence-specific clock choices are answered.
 
@@ -92,7 +96,7 @@ Numeric-date and correction choices retain the chosen point's precision. These a
 
 `daily at noon` and `every day at noon` select all seven weekdays. `every weekday` means Monday–Friday; `every weekend` means Saturday and Sunday. These definitions are explicit product policies, not inferred from location or a personal work calendar. The preview and copied text name the repeat days. Use explicit weekday names for a different workweek or weekend.
 
-`weekly on Monday at noon` (including supported weekday lists) is another spelling of the weekly rule. All forms share complete clock/range resolution, inclusive ISO start/until dates, excluded start dates, three-occurrence preview limits and DST rejection. Rules retain canonical `frequency: weekly` plus the selected ISO `weekdays`, including all seven for daily input. This represents a weekday set, not elapsed 24-hour spacing. Original source text is retained.
+`weekly on Monday at noon` (including supported weekday lists) is another spelling of the weekly rule. All forms share complete clock/range resolution, inclusive calendar start/until dates, excluded start dates, three-occurrence preview limits and DST rejection. Rules retain canonical `frequency: weekly` plus the selected ISO `weekdays`, including all seven for daily input. This represents a weekday set, not elapsed 24-hour spacing. Original source text is retained.
 
 Bare `daily`, `every weekday` or `weekly on Monday` asks what time should repeat; it does not infer midnight or an all-day schedule. All-day recurrence and broader frequencies remain open. Multi-week intervals are supported as specified below.
 
@@ -181,9 +185,9 @@ Negative reminder clauses also include `cannot` and common straight/curly-apostr
 
 ## Monthly schedules
 
-`every month on the first at noon` and numeric days 1–31 use a monthly rule. First, second and third are accepted ordinal words. Dates 29–31 require an explicit skip-month or last-valid-day choice. The written day remains the anchor across shorter months. Choices bind to the original input, timezone and reference; an occurrence clock choice remains a separate answer.
+`every month on the first at noon` and numeric days 1–31 use a monthly rule. First, second and third are accepted ordinal words. Dates 29–31 require an explicit skip-month or last-valid-day choice when it can change the complete finite schedule, or whenever the schedule is open-ended. Finite comparison includes counts, exclusions and past-start policies, not just the preview. The written day remains the anchor across shorter months. Choices bind to the original input, timezone and reference; an occurrence clock choice remains a separate answer.
 
-Shared explicit clocks, ranges, durations, ISO start/end bounds and exact exclusions apply. Preview remains three upcoming starts. Bounded export resolves the complete set under the existing limits. Ongoing point export checks monthly dates against future timezone transitions. Ongoing monthly intervals require successful future-clock and offset-change preflight; ongoing clamping on days 29/30 remains unsupported; no end date is invented. See the [monthly acceptance and evidence](monthly-schedules.md).
+Shared explicit clocks, ranges, durations, calendar start/end bounds and exact exclusions apply. Preview remains three upcoming starts. Bounded export resolves the complete set under the existing limits. Ongoing point export checks monthly dates against future timezone transitions. Ongoing monthly intervals require successful future-clock and offset-change preflight; ongoing clamping on days 29/30 remains unsupported; no end date is invented. See the [monthly acceptance and evidence](monthly-schedules.md).
 
 ## Explicit date lists
 
@@ -211,11 +215,11 @@ Context-bound `list:INDEX:month:NAME` answers preserve original text and item sp
 
 ## Explicit timed start/end dates
 
-`from tomorrow at noon until Friday at noon` and `from 2026-09-13 at noon to 2026-09-18 at noon` resolve each endpoint against the same original reference/timezone. Both must state a time; the end is exclusive and must follow the start. No overnight or inclusive-end guess is made. Numeric-date and DST choices are endpoint-specific and retain original input; edits invalidate them. Date-only endpoints now use the explicitly selected policy below. Mixed-precision endpoints ask for the missing clock as described below; endpoint arithmetic remains unresolved. See [acceptance and evidence](explicit-date-ranges.md); archive 47a218ba now has Node/browser/local-Worker evidence, with devices and actual imports still unverified.
+`from tomorrow at noon until Friday at noon` and `from 2026-09-13 at noon to 2026-09-18 at noon` use the original reference/timezone, except that an unqualified ending weekday is anchored to the resolved start date as specified above. Both must state a time; the end is exclusive and must follow the start. No overnight or inclusive-end guess is made. Numeric-date and DST choices are endpoint-specific and retain original input; edits invalidate them. Date-only endpoints now use the explicitly selected policy below. Mixed-precision endpoints ask for the missing clock as described below; endpoint arithmetic remains unresolved. See [acceptance and evidence](explicit-date-ranges.md); archive 47a218ba now has Node/browser/local-Worker evidence, with devices and actual imports still unverified.
 
 ## Occurrence counts
 
-A count clause such as `for 3 occurrences` or `for three times` follows the recurrence clock/duration and precedes optional ISO boundaries. Digits 1–1,000 and words one through ten are supported. The optional `rule.count` is the requested total; it is independent of preview size and per-event duration. Complete export resolves the finite count with the existing monthly and DST choices. It never infers a calendar end date from the count.
+A count clause such as `for 3 occurrences` or `for three times` follows the recurrence clock/duration and precedes optional calendar boundaries. Digits 1–1,000 and words one through ten are supported. The optional `rule.count` is the requested total; it is independent of preview size and per-event duration. Complete export resolves the finite count with the existing monthly and DST choices. It never infers a calendar end date from the count.
 
 Counts with exclusions ask whether to consume the excluded cadence slots or replace them to keep the requested event count. The optional `rule.countExclusions` records `consume` or `replace`, and the file description records the answer. Only matching cadence dates consume slots. All-excluded sets remain empty and cannot export an event file. Conflicting answers reopen the question; replacing an answer clears dependent occurrence-clock choices. Written past starts ask whether to consume past slots or count only upcoming starts; `rule.countPast` records the choice and the written start remains the cadence anchor. A selected start before the reference follows the explicit past-count policy when a start boundary is written. Insufficient end boundaries, counts above capacity and complete expansion beyond ten years fail without a partial file. See [acceptance cases and remaining work](occurrence-counts.md).
 
