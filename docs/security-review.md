@@ -18,7 +18,7 @@ The formal scan predates the hardening patch. Its result does not certify the pa
 - A Cloudflare rate-limit binding allows approximately 120 requests per 60 seconds per client IP at each edge location. A 100 ms per-invocation CPU budget bounds compute. Neither is a global request or spending cap.
 - API responses are uncached and carry browser security headers. Static responses use a same-origin content policy, no embedding, no referrer, restricted browser permissions, and host-only HSTS. Inline styles remain allowed for existing UI components.
 - Worker observability remains enabled with query-string redaction. Version preview URLs are disabled. The custom domain and production workers.dev endpoint use the same Worker protections.
-- CI uses pinned action commits, read-only repository permissions, frozen installation, checks, tests, build/type validation, and dependency auditing. Deployment requires an explicit repository opt-in and `main`; pull requests do not receive deployment credentials.
+- CI uses pinned action commits, read-only repository permissions, frozen installation, checks, tests, build/type validation, and dependency auditing. Production deploys run from `main` in this repository; pull requests do not receive deployment credentials. Pause with `CLOUDFLARE_DEPLOY_ENABLED=false`.
 
 ## Live verification
 
@@ -28,7 +28,7 @@ Release commit `ebef472` deployed as Worker version `e385941f-1556-4e6e-81a3-304
 
 The account API confirmed the production custom domain and Worker mapping. HTTPS redirects work. The current Wrangler session cannot read the zone's TLS settings or managed WAF rules, and the dashboard is signed out. Zone configuration and account security policies therefore remain unverified. Do not infer account-wide MFA status from the account's MFA-enforcement setting.
 
-The GitHub deployment token needs replacement through the credential handoff. A manual OAuth deployment does not establish that automated deployment works. Keep deployment opt-in disabled until a successful authorized CI deployment is observed.
+A manual OAuth deployment does not establish that automated deployment works. Confirm a successful `Deploy Cloudflare Worker` run on `main` after changing GitHub Cloudflare secrets. Pause deploys with `CLOUDFLARE_DEPLOY_ENABLED=false`.
 
 The public stateless API intentionally has no authentication. Shared networks share its IP allowance; distributed requests can exceed a single location's limit. Query redaction does not erase old logs or govern other hosting records. The client bundle still exceeds Vite's 500 kB warning threshold; unused legacy UI components also produce peer-dependency warnings on a fresh resolution. These are follow-up maintenance issues, not confirmed source vulnerabilities.
 
