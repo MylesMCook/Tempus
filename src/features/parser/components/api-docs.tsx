@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
+import { Disclosure } from "@/components/disclosure";
 import { Button } from "@/components/ui/button";
 import type { CalculationSuccess } from "@/shared/date-parser";
 import { useSettings } from "../context/settings-context";
@@ -157,7 +158,7 @@ export function ApiDocs({
       ) : null}
 
       {state.kind === "done" ? (
-        <details className="min-w-0 border-t pt-3">
+        <Disclosure className="min-w-0 border-t pt-3">
           <summary className="cursor-pointer py-1 font-medium focus-visible:outline focus-visible:outline-2">
             Response JSON
           </summary>
@@ -177,11 +178,11 @@ export function ApiDocs({
           >
             {copied === responseText ? "Response copied" : "Copy response"}
           </Button>
-        </details>
+        </Disclosure>
       ) : null}
 
       {hasExpression ? (
-        <details className="min-w-0 border-t pt-3">
+        <Disclosure className="min-w-0 border-t pt-3">
           <summary className="cursor-pointer py-1 font-medium focus-visible:outline focus-visible:outline-2">
             Request details
           </summary>
@@ -214,10 +215,10 @@ export function ApiDocs({
               />
             </label>
           </div>
-        </details>
+        </Disclosure>
       ) : null}
 
-      <details className="min-w-0 border-t pt-3">
+      <Disclosure className="min-w-0 border-t pt-3">
         <summary className="cursor-pointer py-1 font-medium focus-visible:outline focus-visible:outline-2">
           API reference
         </summary>
@@ -292,7 +293,7 @@ export function ApiDocs({
             </p>
           </div>
         </div>
-      </details>
+      </Disclosure>
     </div>
   );
 }

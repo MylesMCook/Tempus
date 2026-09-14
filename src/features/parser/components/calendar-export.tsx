@@ -1,5 +1,7 @@
 import { useMemo, useState } from "react";
 import { flushSync } from "react-dom";
+import { Disclosure } from "@/components/disclosure";
+import { OrganicShimmer } from "@/components/organic-shimmer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { appendSelection, type ParseResult } from "@/shared/sdk";
@@ -71,7 +73,7 @@ export function CalendarExport({
   const pageSize = 10;
   const pageStart = page * pageSize;
   return (
-    <details
+    <Disclosure
       className="mt-3 border-t"
       onToggle={(event) => {
         setOpen(event.currentTarget.open);
@@ -105,6 +107,13 @@ export function CalendarExport({
                     : prompt
                       ? prompt.question
                       : "Checking the complete schedule…"}
+            {!paused &&
+            !(preparation && !preparation.ok) &&
+            plan?.status !== "ready" &&
+            plan?.status !== "blocked" &&
+            !prompt ? (
+              <OrganicShimmer width="100%" height={36} radius={8} className="t-shimmer-bar" />
+            ) : null}
             {paused || (preparation && !preparation.ok) ? (
               <Button
                 variant="outline"
@@ -304,6 +313,6 @@ export function CalendarExport({
           {feedback || (preparedFile && !preparedFile.ok ? preparedFile.reason : "")}
         </p>
       </div>
-    </details>
+    </Disclosure>
   );
 }

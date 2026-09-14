@@ -1,6 +1,8 @@
-import { useState } from "react";
-import { Check, Copy, RotateCcw } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { Copy, RotateCcw } from "lucide-react";
 import { toast } from "sonner";
+import { Disclosure } from "@/components/disclosure";
+import { StatusBadge, readNum } from "@/components/status-badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -27,17 +29,48 @@ async function copy(value: string, label: string, notify = true) {
   }
 }
 
+function copyGlyph(morph: "idle" | "loading" | "done") {
+  switch (morph) {
+    case "idle":
+      return <Copy className="size-4" />;
+    case "loading":
+      return <StatusBadge state="loading" decorative />;
+    case "done":
+      return <StatusBadge state="done" decorative />;
+    default: {
+      const _exhaustive: never = morph;
+      return _exhaustive;
+    }
+  }
+}
+
 function CopyDate({ value }: { value: string | null }) {
   const [copied, setCopied] = useState(false);
+  const [morph, setMorph] = useState<"idle" | "loading" | "done">("idle");
+  useEffect(() => {
+    if (morph !== "done") return;
+    const t = window.setTimeout(
+      () => {
+        setCopied(false);
+        setMorph("idle");
+      },
+      readNum("--check-hold", 2000),
+    );
+    return () => window.clearTimeout(t);
+  }, [morph]);
   return (
     <Button
       className="h-12 w-full sm:w-auto sm:min-w-40"
       disabled={value === null}
       onClick={async () => {
-        if (value !== null) setCopied(await copy(value, "Date", false));
+        if (value === null) return;
+        setMorph("loading");
+        const ok = await copy(value, "Date", false);
+        setCopied(ok);
+        setMorph(ok ? "done" : "idle");
       }}
     >
-      {copied ? <Check className="mr-2 size-4" /> : <Copy className="mr-2 size-4" />}
+      {copyGlyph(morph)}
       {copied ? "Date copied" : "Copy date"}
     </Button>
   );
@@ -62,6 +95,14 @@ export function DatePicker({
 }) {
   const { settings, ready, settingsSaved, effectiveDateFormat, updateSettings, resetSettings } =
     useSettings();
+  const hasExpression = Boolean(expression.trim());
+  const [resultEnter, setResultEnter] = useState(false);
+  const hadExpression = useRef(false);
+  useEffect(() => {
+    if (hasExpression && !hadExpression.current) setResultEnter(true);
+    if (!hasExpression) setResultEnter(false);
+    hadExpression.current = hasExpression;
+  }, [hasExpression]);
   const clarification =
     interpretation.status === "needs-clarification" ? interpretation.clarification : undefined;
   const recurrence =
@@ -89,7 +130,6 @@ export function DatePicker({
       panel.scrollIntoView({ block: "nearest" });
     }
   };
-  const hasExpression = Boolean(expression.trim());
   return (
     <div className="grid gap-4">
       <section aria-label="Date calculator" className="rounded-xl border bg-background p-4 sm:p-5">
@@ -162,7 +202,7 @@ export function DatePicker({
             </Button>
           </div>
         ) : null}
-        <details className="mt-2">
+        <Disclosure className="mt-2">
           <summary className="cursor-pointer py-2 text-sm text-muted-foreground hover:text-foreground focus-visible:outline focus-visible:outline-2">
             Browse examples
           </summary>
@@ -179,13 +219,18 @@ export function DatePicker({
               });
             }}
           />
-        </details>
+        </Disclosure>
 
         <RecurrenceDecisionsProvider
           key={JSON.stringify([expression, reference, settings.timezone, interpretation])}
         >
           {hasExpression ? (
-            <div className="mt-4 border-t pt-4">
+            <div
+              className={`mt-4 border-t pt-4${resultEnter ? " t-result-enter" : ""}`}
+              onAnimationEnd={(event) => {
+                if (event.target === event.currentTarget) setResultEnter(false);
+              }}
+            >
               {recurrence && interpretation.status === "resolved" ? (
                 <OccurrenceResult
                   reference={reference}
@@ -399,7 +444,7 @@ export function DatePicker({
             </div>
           ) : null}
 
-          <details id="timezone-settings" className="mt-3 border-t">
+          <Disclosure id="timezone-settings" className="mt-3 border-t">
             <summary className="cursor-pointer py-3 text-sm font-medium focus-visible:outline focus-visible:outline-2">
               Change timezone or format
             </summary>
@@ -503,14 +548,14 @@ export function DatePicker({
                 </Button>
               </div>
             </div>
-          </details>
+          </Disclosure>
         </RecurrenceDecisionsProvider>
       </section>
       <p className="px-1 text-xs leading-relaxed text-muted-foreground">
         Copy JSON stays on your device. API compare sends the phrase you typed, or the interpreted
         expression for a single-date result, to this server.
       </p>
-      <details className="px-1 text-sm">
+      <Disclosure className="px-1 text-sm">
         <summary className="cursor-pointer py-3 font-medium text-foreground focus-visible:outline focus-visible:outline-2">
           Developer tools
         </summary>
@@ -607,7 +652,7 @@ export function DatePicker({
             )}
           </section>
         </div>
-      </details>
+      </Disclosure>
     </div>
   );
 }

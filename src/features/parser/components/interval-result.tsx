@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { Interpretation } from "@/shared/interpret-date";
+import { Disclosure } from "@/components/disclosure";
 import { Button } from "@/components/ui/button";
 import { safeFormatDate, resultClockFormat } from "../options";
 import { CalculationTrace } from "./calculation-trace";
@@ -90,7 +91,7 @@ export function IntervalResult({
       <p className="text-sm text-muted-foreground">
         Preview only. No reminder or calendar event has been created.
       </p>
-      <details className="border-t pt-3">
+      <Disclosure className="border-t pt-3">
         <summary className="cursor-pointer py-2 text-sm">How this range was calculated</summary>
         <h3 className="mt-3 font-medium">Start</h3>
         <CalculationTrace calculation={start} />
@@ -101,7 +102,7 @@ export function IntervalResult({
             {assumption}
           </p>
         ))}
-      </details>
+      </Disclosure>
     </section>
   );
 }

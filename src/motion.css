@@ -1,0 +1,472 @@
+/* Transitions.dev Pro recipes used in product UI — snippets, not a library dump.
+   spinner-check-morph, organic-shimmer, image-open-tilt (enter clock/ease only). */
+
+:root {
+  --check-spin-dur: 900ms;
+  --check-pop-dur: 350ms;
+  --check-pop-ease: cubic-bezier(0.34, 1.96, 0.94, 1);
+  --check-fill-dur: 350ms;
+  --check-fill-ease: cubic-bezier(0.34, 1.35, 0.64, 1);
+  --check-draw-dur: 600ms;
+  --check-draw-delay: 80ms;
+  --check-draw-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --check-hold: 2000ms;
+  --check-revert-dur: 250ms;
+  --check-revert-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --check-hop: 3px;
+  --check-up-dur: 250ms;
+  --check-up-ease: cubic-bezier(0.34, 1.35, 0.64, 1);
+  --check-down-dur: 300ms;
+  --check-down-ease: cubic-bezier(0.14, 2.56, 0.94, 1);
+  --check-pop-scale: 1.09;
+  --check-blur: 0.5px;
+  --check-ring-w: 2.5px;
+  --check-mark-w: 2;
+  --check-green: hsl(170 48% 23%);
+
+  --shimmer-dur: 3000ms;
+  --shimmer-ease: ease-out;
+  --shimmer-band-span: 26%;
+  --shimmer-opacity: 0.45;
+  --shimmer-glow-blur: 20px;
+  --shimmer-glow-strength: 0.35;
+  --shimmer-ring-strength: 0.7;
+  --shimmer-scale: 1;
+
+  --opentilt-open-dur: 420ms;
+  --opentilt-open-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --opentilt-close-dur: 280ms;
+}
+
+.t-check-blur-wrap {
+  display: inline-flex;
+  filter: blur(0);
+  transition: filter var(--check-revert-dur) var(--check-revert-ease);
+  will-change: filter;
+}
+.t-check-blur-wrap.is-crossing {
+  filter: blur(var(--check-blur));
+  transition: filter calc(var(--check-fill-dur) * 0.45) var(--check-fill-ease);
+}
+
+.t-check-badge {
+  position: relative;
+  width: 22px;
+  height: 22px;
+  flex: 0 0 22px;
+  scale: 1;
+  transition: scale var(--check-revert-dur) var(--check-revert-ease);
+  will-change: scale, transform;
+}
+.t-check-badge[data-state="done"] {
+  scale: var(--check-pop-scale);
+  transition: scale var(--check-pop-dur) var(--check-pop-ease);
+  animation-name: t-check-pop-up, t-check-pop-down;
+  animation-duration: var(--check-up-dur), var(--check-down-dur);
+  animation-timing-function: var(--check-up-ease), var(--check-down-ease);
+  animation-delay: 0ms, var(--check-up-dur);
+  animation-fill-mode: forwards, forwards;
+}
+@keyframes t-check-pop-up {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(calc(var(--check-hop, 3px) * -1));
+  }
+}
+@keyframes t-check-pop-down {
+  from {
+    transform: translateY(calc(var(--check-hop, 3px) * -1));
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.t-check-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: var(--check-ring-w) solid rgba(0, 0, 0, 0.1);
+  transition:
+    opacity var(--check-revert-dur) ease,
+    filter var(--check-revert-dur) ease;
+}
+.t-check-badge[data-state="done"] .t-check-ring {
+  opacity: 0;
+  transition: opacity calc(var(--check-fill-dur) * 0.7) ease;
+}
+
+.t-check-fill {
+  position: absolute;
+  inset: -1px;
+  border-radius: 50%;
+  background: var(--check-green);
+  box-shadow:
+    0 0 0 0.504px rgba(0, 0, 0, 0.05) inset,
+    0 0.504px 0.504px 0 rgba(0, 0, 0, 0.1),
+    0 0.504px 2.016px 0 rgba(0, 0, 0, 0.08),
+    0 -0.504px 0.504px 0 rgba(0, 0, 0, 0.09) inset;
+  box-shadow:
+    0 0 0 0.504px color(display-p3 0 0 0 / 0.05) inset,
+    0 0.504px 0.504px 0 color(display-p3 0 0 0 / 0.1),
+    0 0.504px 2.016px 0 color(display-p3 0 0 0 / 0.08),
+    0 -0.504px 0.504px 0 color(display-p3 0 0 0 / 0.09) inset;
+  opacity: 0;
+  transition: opacity var(--check-revert-dur) var(--check-revert-ease);
+  will-change: opacity;
+}
+.t-check-badge[data-state="done"] .t-check-fill {
+  opacity: 1;
+  transition: opacity var(--check-fill-dur) var(--check-fill-ease);
+}
+
+.t-check-arc {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: var(--check-ring-w) solid transparent;
+  border-top-color: #7a7a7a;
+  animation-name: t-check-spin;
+  animation-duration: var(--check-spin-dur);
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  transition: opacity var(--check-revert-dur) var(--check-revert-ease);
+  will-change: transform;
+}
+@keyframes t-check-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.t-check-badge[data-state="done"] .t-check-arc {
+  opacity: 0;
+  animation-play-state: paused;
+  transition: opacity calc(var(--check-fill-dur) * 0.5) ease;
+}
+
+.t-check-disc {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+.t-check-disc svg {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.t-check-mark {
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: var(--check-mark-w);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: var(--check-mark-len, 20);
+  stroke-dashoffset: var(--check-mark-len, 20);
+  transition: stroke-dashoffset var(--check-revert-dur) var(--check-revert-ease);
+}
+.t-check-badge[data-state="done"] .t-check-mark {
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset var(--check-draw-dur) var(--check-draw-ease)
+    calc(var(--check-fill-dur) + var(--check-draw-delay) - 200ms);
+}
+
+.t-shimmer-tile {
+  position: relative;
+  width: 142px;
+  height: 142px;
+  border-radius: 12px;
+  background: #eeeeee;
+  overflow: hidden;
+  isolation: isolate;
+  flex-shrink: 0;
+}
+.t-shimmer-tile.t-shimmer-bar {
+  width: 100%;
+  max-width: 100%;
+  flex-shrink: 1;
+}
+.t-shimmer-tile[data-playing="false"] .t-shimmer-band,
+.t-shimmer-tile[data-playing="false"] .t-shimmer-edge {
+  animation-play-state: paused;
+}
+.t-shimmer {
+  position: absolute;
+  inset: calc(-20px * var(--shimmer-scale));
+  filter: url(#t-shimmer-warp) blur(calc(5px * var(--shimmer-scale)));
+  opacity: var(--shimmer-opacity);
+  pointer-events: none;
+}
+.t-shimmer-band {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 49.45% 38.46% at 20% 15%, rgba(40, 140, 255, 0.14), transparent),
+    radial-gradient(ellipse 43.96% 32.97% at 65% 25%, rgba(255, 50, 100, 0.13), transparent),
+    radial-gradient(ellipse 38.46% 43.96% at 30% 55%, rgba(50, 200, 80, 0.12), transparent),
+    radial-gradient(ellipse 49.45% 38.46% at 75% 65%, rgba(180, 40, 240, 0.13), transparent),
+    radial-gradient(ellipse 38.46% 32.97% at 45% 85%, rgba(255, 120, 40, 0.12), transparent),
+    radial-gradient(ellipse 32.97% 32.97% at 10% 85%, rgba(30, 185, 170, 0.11), transparent),
+    linear-gradient(rgba(90, 90, 100, 0.05), rgba(90, 90, 100, 0.05));
+  -webkit-mask-image: linear-gradient(
+    135deg,
+    transparent 0%,
+    transparent calc(50% - var(--shimmer-band-span) * 0.8),
+    rgba(255, 255, 255, 0.25) calc(50% - var(--shimmer-band-span) * 0.45),
+    rgba(255, 255, 255, 0.7) calc(50% - var(--shimmer-band-span) * 0.18),
+    white 50%,
+    rgba(255, 255, 255, 0.7) calc(50% + var(--shimmer-band-span) * 0.18),
+    rgba(255, 255, 255, 0.25) calc(50% + var(--shimmer-band-span) * 0.45),
+    transparent calc(50% + var(--shimmer-band-span) * 0.8),
+    transparent 100%
+  );
+  -webkit-mask-size: 280% 280%;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: 100% 100%;
+  mask-image: linear-gradient(
+    135deg,
+    transparent 0%,
+    transparent calc(50% - var(--shimmer-band-span) * 0.8),
+    rgba(255, 255, 255, 0.25) calc(50% - var(--shimmer-band-span) * 0.45),
+    rgba(255, 255, 255, 0.7) calc(50% - var(--shimmer-band-span) * 0.18),
+    white 50%,
+    rgba(255, 255, 255, 0.7) calc(50% + var(--shimmer-band-span) * 0.18),
+    rgba(255, 255, 255, 0.25) calc(50% + var(--shimmer-band-span) * 0.45),
+    transparent calc(50% + var(--shimmer-band-span) * 0.8),
+    transparent 100%
+  );
+  mask-size: 280% 280%;
+  mask-repeat: no-repeat;
+  mask-position: 100% 100%;
+  animation: t-shimmer-sweep var(--shimmer-dur) var(--shimmer-ease) infinite;
+  pointer-events: none;
+}
+.t-shimmer-edge {
+  position: absolute;
+  inset: calc(-20px * var(--shimmer-scale));
+  z-index: 1;
+  opacity: var(--shimmer-glow-strength);
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(
+    135deg,
+    transparent 0%,
+    transparent calc(50% - var(--shimmer-band-span) * 1.4),
+    rgba(255, 255, 255, 0.06) calc(50% - var(--shimmer-band-span) * 1),
+    rgba(255, 255, 255, 0.18) calc(50% - var(--shimmer-band-span) * 0.6),
+    rgba(255, 255, 255, 0.45) calc(50% - var(--shimmer-band-span) * 0.25),
+    white 50%,
+    rgba(255, 255, 255, 0.5) calc(50% + var(--shimmer-band-span) * 0.18),
+    transparent calc(50% + var(--shimmer-band-span) * 0.35),
+    transparent 100%
+  );
+  -webkit-mask-size: 280% 280%;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: 100% 100%;
+  mask-image: linear-gradient(
+    135deg,
+    transparent 0%,
+    transparent calc(50% - var(--shimmer-band-span) * 1.4),
+    rgba(255, 255, 255, 0.06) calc(50% - var(--shimmer-band-span) * 1),
+    rgba(255, 255, 255, 0.18) calc(50% - var(--shimmer-band-span) * 0.6),
+    rgba(255, 255, 255, 0.45) calc(50% - var(--shimmer-band-span) * 0.25),
+    white 50%,
+    rgba(255, 255, 255, 0.5) calc(50% + var(--shimmer-band-span) * 0.18),
+    transparent calc(50% + var(--shimmer-band-span) * 0.35),
+    transparent 100%
+  );
+  mask-size: 280% 280%;
+  mask-repeat: no-repeat;
+  mask-position: 100% 100%;
+  animation: t-shimmer-sweep var(--shimmer-dur) var(--shimmer-ease) infinite;
+}
+@keyframes t-shimmer-sweep {
+  0% {
+    -webkit-mask-position: 100% 100%;
+    mask-position: 100% 100%;
+  }
+  100% {
+    -webkit-mask-position: 0% 0%;
+    mask-position: 0% 0%;
+  }
+}
+.t-shimmer-edge-ring,
+.t-shimmer-edge-glow,
+.t-shimmer-edge-bloom {
+  position: absolute;
+  inset: calc(20px * var(--shimmer-scale));
+  border-radius: 12px;
+  pointer-events: none;
+}
+.t-shimmer-edge-ring {
+  padding: calc(1px * var(--shimmer-scale));
+  opacity: var(--shimmer-ring-strength);
+  background:
+    radial-gradient(ellipse 29.58% 16.9% at 33% -7.4%, rgba(255, 50, 100, 0.62), transparent),
+    radial-gradient(ellipse 25.35% 14.79% at 12% -5%, rgba(40, 140, 255, 0.48), transparent),
+    radial-gradient(ellipse 16.9% 29.58% at 2.1% 68.3%, rgba(50, 200, 80, 0.55), transparent),
+    radial-gradient(ellipse 8.45% 14.79% at 2.1% 68.3%, rgba(30, 185, 170, 0.44), transparent),
+    radial-gradient(ellipse 76.06% 13.38% at 74.4% 100%, rgba(100, 70, 255, 0.58), transparent),
+    radial-gradient(ellipse 35.92% 11.27% at 55% 100%, rgba(40, 140, 255, 0.51), transparent),
+    radial-gradient(ellipse 30.99% 13.38% at 93.9% 0%, rgba(255, 120, 40, 0.65), transparent),
+    radial-gradient(ellipse 11.27% 17.61% at 100% 27.1%, rgba(240, 50, 180, 0.5), transparent),
+    radial-gradient(ellipse 21.83% 20.42% at 100% 27.1%, rgba(180, 40, 240, 0.56), transparent),
+    linear-gradient(rgba(90, 90, 100, 0.22), rgba(90, 90, 100, 0.22));
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+}
+.t-shimmer-edge-glow {
+  background:
+    radial-gradient(ellipse 27.46% 14.79% at 33% -7.4%, rgba(255, 50, 100, 0.34), transparent),
+    radial-gradient(ellipse 23.24% 12.68% at 12% -5%, rgba(40, 140, 255, 0.28), transparent),
+    radial-gradient(ellipse 14.79% 27.46% at 2.1% 68.3%, rgba(50, 200, 80, 0.3), transparent),
+    radial-gradient(ellipse 6.34% 12.68% at 2.1% 68.3%, rgba(30, 185, 170, 0.25), transparent),
+    radial-gradient(ellipse 73.24% 11.97% at 74.4% 100%, rgba(100, 70, 255, 0.32), transparent),
+    radial-gradient(ellipse 33.8% 9.15% at 55% 100%, rgba(40, 140, 255, 0.28), transparent),
+    radial-gradient(ellipse 28.87% 11.97% at 93.9% 0%, rgba(255, 120, 40, 0.35), transparent),
+    radial-gradient(ellipse 9.15% 16.2% at 100% 27.1%, rgba(240, 50, 180, 0.28), transparent),
+    radial-gradient(ellipse 19.72% 18.31% at 100% 27.1%, rgba(180, 40, 240, 0.3), transparent),
+    radial-gradient(ellipse 25.35% 25.35% at 0% 0%, rgba(90, 90, 100, 0.14), transparent 70%),
+    radial-gradient(ellipse 25.35% 25.35% at 100% 0%, rgba(90, 90, 100, 0.14), transparent 70%),
+    radial-gradient(ellipse 25.35% 25.35% at 0% 100%, rgba(90, 90, 100, 0.14), transparent 70%),
+    radial-gradient(ellipse 25.35% 25.35% at 100% 100%, rgba(90, 90, 100, 0.14), transparent 70%);
+  box-shadow: inset 0 0 calc(14px * var(--shimmer-scale)) calc(1px * var(--shimmer-scale))
+    rgba(90, 90, 100, 0.12);
+  filter: blur(calc(2px * var(--shimmer-scale)));
+  -webkit-mask-image:
+    linear-gradient(
+      white,
+      transparent calc(44px * var(--shimmer-scale)),
+      transparent calc(100% - 44px * var(--shimmer-scale)),
+      white
+    ),
+    linear-gradient(
+      to right,
+      white,
+      transparent calc(44px * var(--shimmer-scale)),
+      transparent calc(100% - 44px * var(--shimmer-scale)),
+      white
+    );
+  -webkit-mask-composite: source-over;
+  mask-image:
+    linear-gradient(
+      white,
+      transparent calc(44px * var(--shimmer-scale)),
+      transparent calc(100% - 44px * var(--shimmer-scale)),
+      white
+    ),
+    linear-gradient(
+      to right,
+      white,
+      transparent calc(44px * var(--shimmer-scale)),
+      transparent calc(100% - 44px * var(--shimmer-scale)),
+      white
+    );
+  mask-composite: add;
+}
+.t-shimmer-edge-bloom {
+  background:
+    radial-gradient(ellipse 38.73% 21.83% at 33% -7.4%, rgba(255, 50, 100, 0.4), transparent),
+    radial-gradient(ellipse 33.1% 19.01% at 12% -5%, rgba(40, 140, 255, 0.34), transparent),
+    radial-gradient(ellipse 21.83% 38.73% at 2.1% 68.3%, rgba(50, 200, 80, 0.38), transparent),
+    radial-gradient(ellipse 98.59% 17.61% at 74.4% 100%, rgba(100, 70, 255, 0.4), transparent),
+    radial-gradient(ellipse 46.48% 14.08% at 55% 100%, rgba(40, 140, 255, 0.35), transparent),
+    radial-gradient(ellipse 40.85% 17.61% at 93.9% 0%, rgba(255, 120, 40, 0.44), transparent),
+    radial-gradient(ellipse 28.17% 26.76% at 100% 27.1%, rgba(180, 40, 240, 0.38), transparent);
+  box-shadow: inset 0 0 calc(var(--shimmer-glow-blur) * 3 * var(--shimmer-scale))
+    calc(var(--shimmer-glow-blur) / 2 * var(--shimmer-scale)) rgba(90, 90, 100, 0.1);
+  filter: blur(calc(var(--shimmer-glow-blur) * var(--shimmer-scale)));
+  -webkit-mask-image:
+    linear-gradient(
+      white,
+      transparent calc(26px * var(--shimmer-scale)),
+      transparent calc(100% - 26px * var(--shimmer-scale)),
+      white
+    ),
+    linear-gradient(
+      to right,
+      white,
+      transparent calc(26px * var(--shimmer-scale)),
+      transparent calc(100% - 26px * var(--shimmer-scale)),
+      white
+    );
+  -webkit-mask-composite: source-over;
+  mask-image:
+    linear-gradient(
+      white,
+      transparent calc(26px * var(--shimmer-scale)),
+      transparent calc(100% - 26px * var(--shimmer-scale)),
+      white
+    ),
+    linear-gradient(
+      to right,
+      white,
+      transparent calc(26px * var(--shimmer-scale)),
+      transparent calc(100% - 26px * var(--shimmer-scale)),
+      white
+    );
+  mask-composite: add;
+}
+
+@keyframes t-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.t-page-enter,
+.t-nav-enter,
+.t-result-enter,
+.t-disclosure.is-opening > :not(summary) {
+  animation: t-enter var(--opentilt-open-dur) var(--opentilt-open-ease) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .t-check-arc {
+    animation: none !important;
+  }
+  .t-check-blur-wrap,
+  .t-check-blur-wrap.is-crossing {
+    filter: none !important;
+    transition: none !important;
+  }
+  .t-check-ring,
+  .t-check-arc,
+  .t-check-fill {
+    transition: none !important;
+  }
+  .t-check-badge,
+  .t-check-mark {
+    transition: none !important;
+    animation: none !important;
+  }
+  .t-check-badge[data-state="done"] .t-check-mark {
+    stroke-dashoffset: 0;
+  }
+  .t-shimmer-band,
+  .t-shimmer-edge {
+    animation: none;
+  }
+  .t-page-enter,
+  .t-nav-enter,
+  .t-result-enter,
+  .t-disclosure.is-opening > :not(summary) {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}

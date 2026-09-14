@@ -26,7 +26,7 @@ const app = defineApp([
     route("*", ({ response }) => {
       response.status = 404;
       return (
-        <main id="main" className="mx-auto max-w-3xl p-8">
+        <main id="main" className="t-page-enter mx-auto max-w-3xl p-8">
           <h1 className="text-2xl font-semibold">Page not found</h1>
           <a className="mt-4 inline-block underline" href="/">
             Return to Tempus

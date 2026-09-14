@@ -62,7 +62,7 @@ function SpecList({
 
 export function DevelopersPage() {
   return (
-    <main id="main" className="mx-auto max-w-3xl px-4 py-10 sm:px-8">
+    <main id="main" className="t-page-enter mx-auto max-w-3xl px-4 py-10 sm:px-8">
       <h1 className="text-3xl font-semibold tracking-tight">Developers</h1>
       <p className="mt-3 max-w-2xl text-base leading-relaxed text-muted-foreground">
         Parse English into dates. Use the playground, the unpublished TypeScript package, or{" "}
