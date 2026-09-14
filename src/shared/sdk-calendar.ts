@@ -9,3 +9,10 @@ export {
 } from "./calendar-file.js";
 export { resolveRecurringExport, prepareRecurringCalendarFile } from "./recurring-calendar-file.js";
 export { retainOccurrenceDecisions } from "./clarify-numeric-date.js";
+export {
+  prepareCalendar,
+  calendarContextKey,
+  type CalendarPreparation,
+  type CalendarMetadata,
+  type PreparedSchedule,
+} from "./prepare-calendar.js";

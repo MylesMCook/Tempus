@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vite-plus/test";
+import { parse } from "./sdk";
 import { calculateDate } from "./date-parser";
 import { parseExpression } from "./date-engine/grammar";
 const reference = "2026-01-26T19:30:00.000Z";
@@ -164,7 +165,9 @@ it("covers every advertised example with an independent expected result", () => 
   const covered = new Set<string>(
     [...oracleCases, ...compatibilityCases].map(([phrase]) => phrase),
   );
-  for (const phrase of Object.values(examples).flat())
+  for (const phrase of Object.entries(examples)
+    .filter(([category]) => category !== "Schedules")
+    .flatMap(([, phrases]) => phrases))
     expect(covered.has(phrase), phrase).toBe(true);
 });
 
@@ -188,5 +191,37 @@ it("keeps timezone validation isolated across reuse and more than 64 zones", () 
   expect(calculateDate("November 1, 2026 at 1:30 am", context)).toMatchObject({
     ok: false,
     error: { code: "ambiguous-time" },
+  });
+});
+
+it("checks the advertised scheduling examples through the public interpreter", () => {
+  expect(examples.Schedules).toEqual([
+    "tomorrow from 2pm to 4pm",
+    "every Monday at noon for 5 occurrences",
+    "Call Sam tomorrow at noon",
+  ]);
+  expect(parse(examples.Schedules[0], options)).toMatchObject({
+    status: "resolved",
+    value: {
+      kind: "interval",
+      start: { result: { iso: "2026-01-27T20:00:00.000Z" } },
+      end: { result: { iso: "2026-01-27T22:00:00.000Z" } },
+    },
+  });
+  expect(parse(examples.Schedules[1], options)).toMatchObject({
+    status: "resolved",
+    value: {
+      kind: "recurrence",
+      occurrences: [
+        { start: { result: { iso: "2026-02-02T18:00:00.000Z" } } },
+        { start: { result: { iso: "2026-02-09T18:00:00.000Z" } } },
+        { start: { result: { iso: "2026-02-16T18:00:00.000Z" } } },
+      ],
+    },
+  });
+  expect(parse(examples.Schedules[2], options)).toMatchObject({
+    status: "resolved",
+    event: { text: "Call Sam" },
+    value: { kind: "point", calculation: { result: { iso: "2026-01-27T18:00:00.000Z" } } },
   });
 });

@@ -10,6 +10,7 @@ interface DateExpressionTabsProps {
 }
 
 const categoryDescriptions: Record<string, string> = {
+  Schedules: "Time ranges, repeating dates and event text use the same input.",
   Simple: "Quick references like now, tomorrow, and next friday.",
   Relative: "Offsets from the current moment such as in 3 days or 5 days ago.",
   "Date Math": "Expressions that add or subtract time from another date.",

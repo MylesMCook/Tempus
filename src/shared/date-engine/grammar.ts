@@ -104,7 +104,16 @@ function rational(value: string): Amount {
 }
 
 export function parseExpression(input: string): Plan {
-  const tokens = tokenize(input);
+  // Only recognize complete calculator question prefixes. Mask rather than slice
+  // so operation/error spans still point into the original input. The remaining
+  // expression must pass the full grammar; constraints and negation are not removed.
+  const question =
+    /^\s*(?:what (?:date|time) (?:is|will it be)|what is|calculate)\s+/i.exec(input) ??
+    /^\s*what (?:date|time) was it\s+(?=.+\bago[?.]?\s*$)/i.exec(input);
+  const expression = question
+    ? " ".repeat(question[0].length) + input.slice(question[0].length).replace(/\?(\s*)$/, " $1")
+    : input;
+  const tokens = tokenize(expression);
   let index = 0;
   const peek = () => tokens[index]?.value;
   const take = () => tokens[index++];
@@ -424,5 +433,15 @@ export function parseExpression(input: string): Plan {
       `Couldn’t use “${input.slice(tokens[index].start)}”.`,
       "Every part of the phrase must describe the date. Use plus or minus between changes.",
     );
-  return { anchor: anchor!, time, operations, tokens };
+  return {
+    anchor: anchor!,
+    time,
+    operations,
+    tokens,
+    ...(question && /will it be/i.test(question[0])
+      ? { questionDirection: "future" as const }
+      : question && /was it/i.test(question[0])
+        ? { questionDirection: "past" as const }
+        : {}),
+  };
 }

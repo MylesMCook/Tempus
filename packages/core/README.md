@@ -2,6 +2,33 @@
 
 Local English date calculations and guided scheduling interpretation. This is a **private 0.1.0 candidate**, not a published package or a proven overall replacement for gpu-time. The name and public compatibility policy are not finalized.
 
+## Prepare complete output
+
+`prepareCalendar` from `@tempus-date/core/calendar` accepts a `ParseResult`. It returns `ready`, `needs-clarification`, or `blocked`. A ready recurrence contains its complete bounded schedule, or a labeled ongoing rule preview. Private serialization policy stays inside the engine.
+
+```ts
+import { parse, appendSelection } from "@tempus-date/core";
+import { prepareCalendar } from "@tempus-date/core/calendar";
+
+const result = parse("every Monday at noon for 5 occurrences", {
+  timezone: "America/Chicago",
+  reference: "2026-09-12T16:00:00Z",
+});
+const prepared = prepareCalendar(result);
+// With no file metadata, preparation does not serialize a calendar file.
+if (prepared.status === "ready") console.log(prepared.schedule?.occurrences);
+
+// If a question is returned, present its choices and use the user's chosen ID:
+// const selection = appendSelection(previousSelection, {
+//   contextKey: prepared.clarification.contextKey, id: chosenId,
+// });
+// const corrected = prepareCalendar(result, { selection });
+```
+
+For a file, pass `{ selection, file: { uid, stamp, title, pointMode } }`. The host supplies a UUID and ISO timestamp; `pointMode` is `"date"` or `"instant"` for single points. Check both `status === "ready"` and `file.ok` before using the file. Data can be ready while file metadata or precision is rejected. The engine never downloads, writes a calendar, reads the clock or requests the network.
+
+Preparation answers use the existing `ClarificationSelection` shape. The opaque context key binds the interpreted result, original input, reference and timezone. Structured cloning is supported; stale answers return `blocked`. Restart preparation without a selection after editing. Older raw calendar helpers remain available for preview-package compatibility, but new integrations should use this contract.
+
 ## Parse with an explicit context
 
 ```ts

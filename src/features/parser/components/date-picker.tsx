@@ -4,9 +4,7 @@ import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import type { Calculation } from "@/shared/date-parser";
-import type { ClarificationSelection } from "@/shared/clarify-numeric-date";
-import type { Interpretation } from "@/shared/interpret-date";
+import type { ClarificationSelection, ParseResult } from "@/shared/sdk";
 import { RecurrenceDecisionsProvider } from "../context/recurrence-decisions-context";
 import { useSettings } from "../context/settings-context";
 import { dateFormatOptions, safeFormatDate, timezoneOptions, resultClockFormat } from "../options";
@@ -48,7 +46,6 @@ function CopyDate({ value }: { value: string | null }) {
 export function DatePicker({
   expression,
   onExpressionChange,
-  calculation,
   interpretation,
   reference,
   onRefresh,
@@ -57,8 +54,7 @@ export function DatePicker({
 }: {
   expression: string;
   onExpressionChange: (value: string) => void;
-  calculation: Calculation;
-  interpretation: Interpretation;
+  interpretation: ParseResult;
   reference: string;
   onRefresh: () => void;
   onChoose: (selection: ClarificationSelection | undefined) => void;
@@ -74,7 +70,12 @@ export function DatePicker({
     interpretation.status === "resolved" &&
     interpretation.value.kind === "point" &&
     interpretation.value.precision === "date";
-  const formatted = calculation.ok
+  const calculation =
+    interpretation.status === "resolved" && interpretation.value.kind === "point"
+      ? interpretation.value.calculation
+      : undefined;
+  const error = interpretation.status !== "resolved" ? interpretation.error : undefined;
+  const formatted = calculation
     ? safeFormatDate(new Date(calculation.result.timestamp), settings.timezone, effectiveDateFormat)
     : null;
   const clock =
@@ -83,7 +84,7 @@ export function DatePicker({
     <div className="grid gap-4">
       <section aria-label="Date calculator" className="rounded-xl border bg-background p-4 sm:p-6">
         <Label htmlFor="date-expression" className="text-base font-semibold">
-          Type a phrase
+          What date do you need?
         </Label>
         <Input
           id="date-expression"
@@ -94,22 +95,19 @@ export function DatePicker({
               : "phrase-help"
           }
           aria-invalid={Boolean(
-            expression.trim() &&
-            interpretation.status !== "resolved" &&
-            !calculation.ok &&
-            calculation.error.code !== "timezone",
+            expression.trim() && interpretation.status !== "resolved" && error?.code !== "timezone",
           )}
           value={expression}
           onChange={(event) => onExpressionChange(event.target.value)}
           autoComplete="off"
           spellCheck={false}
-          placeholder="e.g. in 3 weeks"
+          placeholder="e.g. today plus 2 weeks minus 3 days"
           className="mt-3 h-12 text-base"
         />
         <div className="mt-2 flex min-h-10 items-center justify-between gap-2 text-sm text-muted-foreground">
           <p id="phrase-help">
             {ready
-              ? "Interpreted on your device as you type. Up to 200 characters."
+              ? "Calculated on your device as you type. Up to 200 characters."
               : "Loading the date tools…"}
           </p>
           {expression ? (
@@ -127,7 +125,7 @@ export function DatePicker({
         </div>
         {!expression.trim() ? (
           <div className="mt-2 flex flex-wrap gap-2" role="group" aria-label="Try a phrase">
-            {["in 3 weeks", "03/04/2027 at noon", "every Monday at noon for 5 occurrences"].map(
+            {["today plus 2 weeks", "tomorrow minus 3 days", "6 months before sep 14"].map(
               (phrase) => (
                 <Button
                   key={phrase}
@@ -147,7 +145,7 @@ export function DatePicker({
         ) : null}
         <details className="mt-3 border-t pt-1">
           <summary className="cursor-pointer py-3 text-sm text-muted-foreground underline-offset-4 hover:text-foreground focus-visible:outline focus-visible:outline-2">
-            Browse examples
+            More examples, including schedules
           </summary>
           <DateExpressionTabs
             examples={examples}
@@ -175,7 +173,7 @@ export function DatePicker({
         <div className="rounded-xl border bg-background p-4 sm:p-6">
           {!expression.trim() ? (
             <div className="py-4 text-center text-sm text-muted-foreground">
-              Your interpretation will appear here.
+              Your date and calculation steps will appear here.
             </div>
           ) : recurrence && interpretation.status === "resolved" ? (
             <OccurrenceResult
@@ -198,15 +196,15 @@ export function DatePicker({
                 document.getElementById("calculation-error")?.focus();
               }}
             />
-          ) : !calculation.ok ? (
+          ) : error ? (
             <section
               id="calculation-error"
               tabIndex={-1}
               role="alert"
               className="rounded-md border border-destructive/40 p-3"
             >
-              <h2 className="font-semibold text-destructive">{calculation.error.message}</h2>
-              <p className="mt-2 text-sm">{calculation.error.hint}</p>
+              <h2 className="font-semibold text-destructive">{error.message}</h2>
+              <p className="mt-2 text-sm">{error.hint}</p>
               {interpretation.status === "needs-clarification" && interpretation.clarification ? (
                 <div
                   className="mt-3 grid gap-2"
@@ -247,16 +245,12 @@ export function DatePicker({
                   Restart choices
                 </Button>
               ) : null}
-              {calculation.error.span &&
-              calculation.error.span.end > calculation.error.span.start ? (
+              {error.span && error.span.end > error.span.start ? (
                 <p className="mt-2 break-words text-sm text-muted-foreground">
-                  Check:{" "}
-                  <code>
-                    {expression.slice(calculation.error.span.start, calculation.error.span.end)}
-                  </code>
+                  Check: <code>{expression.slice(error.span.start, error.span.end)}</code>
                 </p>
               ) : null}
-              {calculation.error.code === "timezone" ? (
+              {error.code === "timezone" ? (
                 <Button
                   className="mt-3"
                   variant="outline"
@@ -266,7 +260,7 @@ export function DatePicker({
                 </Button>
               ) : null}
             </section>
-          ) : (
+          ) : calculation ? (
             <section
               id="calculated-date"
               tabIndex={-1}
@@ -274,7 +268,7 @@ export function DatePicker({
               className="pb-1"
             >
               <h2 className="text-sm font-medium text-emerald-800">
-                {formatted === null ? "Date calculated" : "Your date is ready"}
+                {formatted === null ? "Date calculated" : "Calculated date"}
               </h2>
               <div role="status" aria-live="polite" aria-atomic="true" className="mt-2">
                 <p
@@ -371,7 +365,11 @@ export function DatePicker({
                 </Button>
               ) : null}
             </section>
-          )}
+          ) : null}
+
+          {expression.trim() && calculation && !interval && !recurrence ? (
+            <CalculationTrace calculation={calculation} />
+          ) : null}
 
           <CalendarExport
             reference={reference}
@@ -412,11 +410,9 @@ export function DatePicker({
                   }}
                   maxLength={64}
                   aria-describedby={
-                    !calculation.ok && calculation.error.code === "timezone"
-                      ? "timezone-help calculation-error"
-                      : "timezone-help"
+                    error?.code === "timezone" ? "timezone-help calculation-error" : "timezone-help"
                   }
-                  aria-invalid={!calculation.ok && calculation.error.code === "timezone"}
+                  aria-invalid={error?.code === "timezone"}
                   autoComplete="off"
                   spellCheck={false}
                   className="h-12 text-base"
@@ -461,7 +457,7 @@ export function DatePicker({
                     id="custom-format"
                     value={settings.customFormat}
                     maxLength={50}
-                    aria-invalid={calculation.ok && formatted === null}
+                    aria-invalid={Boolean(calculation && formatted === null)}
                     aria-describedby="format-help"
                     onChange={(event) => updateSettings({ customFormat: event.target.value })}
                   />
@@ -490,9 +486,6 @@ export function DatePicker({
               </div>
             </div>
           </details>
-          {expression.trim() && calculation.ok && !interval && !recurrence ? (
-            <CalculationTrace calculation={calculation} />
-          ) : null}
         </div>
       </RecurrenceDecisionsProvider>
       <details className="px-1 text-sm">
@@ -512,7 +505,7 @@ export function DatePicker({
               <p className="mt-2 break-words leading-relaxed text-muted-foreground">
                 Reference time: <time dateTime={reference}>{clock}</time>
               </p>
-              {calculation.ok && !interval && !recurrence ? (
+              {calculation && !interval && !recurrence ? (
                 <div className="mt-3 text-sm">
                   <dl className="mt-3 grid gap-3 sm:grid-cols-2">
                     <div>
@@ -553,7 +546,6 @@ export function DatePicker({
                         timezone: settings.timezone,
                         reference,
                         format: effectiveDateFormat,
-                        calculation,
                         interpretation,
                       },
                       null,
@@ -586,7 +578,7 @@ export function DatePicker({
               </p>
             ) : (
               <ApiDocs
-                expression={calculation.ok ? calculation.expression : expression}
+                expression={calculation ? calculation.expression : expression}
                 reference={reference}
                 calculation={calculation}
               />

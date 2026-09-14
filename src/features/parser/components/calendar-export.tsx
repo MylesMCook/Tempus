@@ -2,20 +2,19 @@ import { useMemo, useState } from "react";
 import { flushSync } from "react-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import type { Interpretation } from "@/shared/interpret-date";
-import { prepareCalendarFile } from "@/shared/calendar-file";
+import { appendSelection, type ParseResult } from "@/shared/sdk";
+import { prepareCalendar } from "@/shared/sdk-calendar";
 import { useRecurrenceDecisions } from "../context/recurrence-decisions-context";
 import { useCalendarPreparation } from "../use-calendar-preparation";
 import { safeFormatDate } from "../options";
 import { scheduleQuantity } from "../schedule-labels";
-import { retainOccurrenceDecisions } from "@/shared/clarify-numeric-date";
 
 /** Remount for every input, context or interpretation change. */
 export function CalendarExport({
   interpretation,
   reference,
 }: {
-  interpretation: Interpretation;
+  interpretation: ParseResult;
   reference: string;
 }) {
   const [title, setTitle] = useState(
@@ -24,7 +23,7 @@ export function CalendarExport({
       : "",
   );
   const [feedback, setFeedback] = useState("");
-  const { decisions, setDecisions } = useRecurrenceDecisions();
+  const { selection, setSelection } = useRecurrenceDecisions();
   const [open, setOpen] = useState(false);
   const [paused, setPaused] = useState(false);
   const [attempt, setAttempt] = useState(0);
@@ -34,12 +33,14 @@ export function CalendarExport({
       !paused &&
       interpretation.status === "resolved" &&
       interpretation.value.kind === "recurrence"
-        ? { interpretation, reference, decisions, title, attempt }
+        ? { interpretation, reference, selection, title, attempt }
         : undefined,
-    [open, paused, interpretation, reference, decisions, title, attempt],
+    [open, paused, interpretation, reference, selection, title, attempt],
   );
   const preparation = useCalendarPreparation(request);
-  const plan = preparation?.ok ? preparation.plan : undefined;
+  const plan = preparation?.ok ? preparation.result : undefined;
+  const prompt = plan?.status === "needs-clarification" ? plan.clarification : undefined;
+  const preparedFile = plan?.status === "ready" ? plan.file : undefined;
   const [page, setPage] = useState(0);
   if (interpretation.status !== "resolved") return null;
   const value = interpretation.value;
@@ -62,8 +63,8 @@ export function CalendarExport({
       : value.kind === "interval"
         ? [value]
         : (value.kind === "recurrence"
-            ? plan?.ok
-              ? plan.occurrences
+            ? plan?.status === "ready"
+              ? (plan.schedule?.occurrences ?? [])
               : []
             : value.occurrences
           ).map((event) => ({ ...event, allDay: "allDay" in event && event.allDay }));
@@ -95,13 +96,15 @@ export function CalendarExport({
               ? "Preparation cancelled."
               : preparation && !preparation.ok
                 ? preparation.error
-                : plan?.ok
-                  ? plan.exportRule
-                    ? `Repeating rule. The next ${scheduleQuantity(plan.occurrences.length, "occurrence")} ${plan.occurrences.length === 1 ? "is" : "are"} shown below; the file keeps repeating.`
-                    : `${scheduleQuantity(plan.occurrences.length, "occurrence")} in the complete file.`
-                  : plan && !plan.ok
-                    ? plan.error.message
-                    : "Checking the complete schedule…"}
+                : plan?.status === "ready"
+                  ? plan.ongoing
+                    ? `Repeating rule. The next ${scheduleQuantity(events.length, "occurrence")} ${events.length === 1 ? "is" : "are"} shown below; the file keeps repeating.`
+                    : `${scheduleQuantity(events.length, "occurrence")} in the complete file.`
+                  : plan?.status === "blocked"
+                    ? plan.reason
+                    : prompt
+                      ? prompt.question
+                      : "Checking the complete schedule…"}
             {paused || (preparation && !preparation.ok) ? (
               <Button
                 variant="outline"
@@ -117,8 +120,8 @@ export function CalendarExport({
                 Cancel preparation
               </Button>
             ) : null}
-            {plan && !plan.ok ? <p>{plan.error.hint}</p> : null}
-            {plan && !plan.ok && !plan.clockPrompt ? (
+            {plan?.status === "blocked" ? <p>{plan.hint}</p> : null}
+            {plan?.status === "blocked" ? (
               <Button
                 variant="outline"
                 onClick={() => {
@@ -132,18 +135,21 @@ export function CalendarExport({
                 Edit schedule
               </Button>
             ) : null}
-            {plan && !plan.ok && plan.clockPrompt ? (
-              <div className="grid gap-2" role="group" aria-label={plan.clockPrompt.question}>
-                <p>{plan.clockPrompt.question}</p>
-                {plan.clockPrompt.choices.map((choice) => (
+            {prompt ? (
+              <div className="grid gap-2" role="group" aria-label={prompt.question}>
+                <p>{prompt.question}</p>
+                {prompt.choices.map((choice) => (
                   <Button
                     key={choice.id}
                     variant="outline"
                     className="h-auto min-h-12 whitespace-normal"
                     onClick={() => {
-                      const next = [choice.id, ...retainOccurrenceDecisions(decisions, choice.id)];
+                      const next = appendSelection(selection, {
+                        contextKey: prompt.contextKey,
+                        id: choice.id,
+                      });
                       flushSync(() => {
-                        setDecisions(next);
+                        setSelection(next);
                         setFeedback("");
                         setPage(0);
                       });
@@ -155,12 +161,12 @@ export function CalendarExport({
                 ))}
               </div>
             ) : null}
-            {decisions.length ? (
+            {selection ? (
               <Button
                 variant="link"
                 onClick={() => {
                   flushSync(() => {
-                    setDecisions([]);
+                    setSelection(undefined);
                     setPaused(false);
                     setFeedback("");
                     setPage(0);
@@ -194,7 +200,7 @@ export function CalendarExport({
         <ol
           start={pageStart + 1}
           aria-label={
-            plan?.ok && plan.exportRule
+            plan?.status === "ready" && plan.ongoing
               ? `Next occurrence${events.length === 1 ? "" : "s"} of the repeating rule`
               : `Event${events.length === 1 ? "" : "s"} in this file`
           }
@@ -250,10 +256,7 @@ export function CalendarExport({
         <Button
           variant="outline"
           className="min-h-12"
-          disabled={
-            !title.trim() ||
-            (value.kind === "recurrence" && (!preparation?.ok || !preparation.file?.ok))
-          }
+          disabled={!title.trim() || (value.kind === "recurrence" && !preparedFile?.ok)}
           onClick={() => {
             try {
               const metadata = {
@@ -262,12 +265,16 @@ export function CalendarExport({
                 uid: crypto.randomUUID(),
                 stamp: new Date().toISOString(),
               };
+              const prepared =
+                value.kind === "recurrence"
+                  ? undefined
+                  : prepareCalendar(interpretation, { file: metadata });
               const file =
                 value.kind === "recurrence"
-                  ? preparation?.ok
-                    ? preparation.file
-                    : undefined
-                  : prepareCalendarFile(interpretation, metadata);
+                  ? preparedFile
+                  : prepared?.status === "ready"
+                    ? prepared.file
+                    : undefined;
               if (!file) return;
               if (!file.ok) {
                 setFeedback(file.reason);
@@ -295,10 +302,7 @@ export function CalendarExport({
           Download calendar file
         </Button>
         <p role="status" className="text-sm">
-          {feedback ||
-            (preparation?.ok && preparation.file && !preparation.file.ok
-              ? preparation.file.reason
-              : "")}
+          {feedback || (preparedFile && !preparedFile.ok ? preparedFile.reason : "")}
         </p>
       </div>
     </details>

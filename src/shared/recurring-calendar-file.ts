@@ -65,6 +65,10 @@ export function resolveRecurringExport(
       ...decisions.reduce((history, next) => retainOccurrenceDecisions(history, next), inherited),
     ],
   };
+  // The resolved interpretation already identifies a bounded schedule. Validate
+  // and enumerate it in one complete pass instead of calculating a preview first.
+  if (value.rule.until || value.rule.count)
+    return interpretRecurrence(interpretation.source.text, { ...parseOptions, complete: true });
   const plan = interpretRecurrence(interpretation.source.text, parseOptions);
   if (!plan?.ok) return plan;
   if (plan.rule.until || plan.rule.count)

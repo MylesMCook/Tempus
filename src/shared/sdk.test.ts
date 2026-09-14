@@ -12,6 +12,30 @@ it("snapshots reusable parser options", () => {
   options.timezone = "UTC";
   expect(parser.parse("today")).toEqual(parse("today", context));
 });
+it("keeps reusable clarification context private across caller and result mutations", () => {
+  const input = "03/04/2027";
+  const first = parse(input, context);
+  if (first.status === "resolved" || !first.clarification) throw new Error("Missing clarification");
+  const options = {
+    ...context,
+    selection: {
+      contextKey: first.clarification.contextKey,
+      id: "2027-03-04",
+      previous: [] as string[],
+    },
+  };
+  const expected = parse(input, options);
+  const parser = createParser(options);
+  options.selection.id = "2027-04-03";
+  options.selection.previous.push("2027-04-03");
+  const result = parser.parse(input);
+  expect(result).toEqual(expected);
+  result.context.timezone = "UTC";
+  expect(parser.parseMany([input, input])).toEqual([expected, expected]);
+  expect(() => parser.parse(123 as unknown as string)).toThrow(TypeError);
+  expect(() => parser.parseMany(Array<string>(2))).toThrow(TypeError);
+  expect(() => parser.parseMany(Array(limits.batchSize + 1).fill(input))).toThrow(RangeError);
+});
 it("preserves full input and context through clarification", () => {
   const input = "03/04/2027";
   const first = parse(input, context);

@@ -9,10 +9,10 @@ export function Document({ children }: { children: ReactNode }) {
         <meta charSet="utf-8" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Tempus — Natural language to dates</title>
+        <title>Tempus — Date math, with the steps</title>
         <meta
           name="description"
-          content="Turn short English phrases into dates, ranges and recurring patterns. Inspect the calculation, resolve ambiguity and use the structured result."
+          content="Calculate dates in words. Follow each addition, subtraction and month-end adjustment, then copy the result or use the date engine in your application."
         />
         <link
           rel="preload"

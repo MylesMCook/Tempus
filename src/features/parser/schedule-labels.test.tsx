@@ -1,7 +1,7 @@
 import { expect, it, vi } from "vite-plus/test";
 import { renderToStaticMarkup } from "react-dom/server";
-import { interpretDate } from "@/shared/interpret-date";
-import { resolveRecurringExport } from "@/shared/recurring-calendar-file";
+import { parse as interpretDate } from "@/shared/sdk";
+import { prepareCalendar } from "@/shared/sdk-calendar";
 import type { CalendarPreparationRequest } from "./calendar-preparation";
 import { RecurrenceDecisionsProvider } from "./context/recurrence-decisions-context";
 import { OccurrenceResult } from "./components/occurrence-result";
@@ -14,7 +14,7 @@ vi.mock("./use-calendar-preparation", () => ({
     request
       ? {
           ok: true,
-          plan: resolveRecurringExport(request.interpretation, request.reference),
+          result: prepareCalendar(request.interpretation),
         }
       : undefined,
 }));

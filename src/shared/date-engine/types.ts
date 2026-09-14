@@ -17,7 +17,13 @@ export type Anchor =
   | { kind: "date"; month: number; day: number; year?: number }
   | { kind: "weekday"; day: number; direction: "next" | "last" | "this"; week: boolean }
   | { kind: "day-number"; day: number };
-export type Plan = { anchor: Anchor; time?: string; operations: Operation[]; tokens: Token[] };
+export type Plan = {
+  anchor: Anchor;
+  time?: string;
+  operations: Operation[];
+  tokens: Token[];
+  questionDirection?: "past" | "future";
+};
 export type CalculationIssue = {
   code: "syntax" | "date" | "timezone" | "reference" | "precision" | "range" | "ambiguous-time";
   message: string;

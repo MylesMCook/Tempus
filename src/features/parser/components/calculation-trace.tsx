@@ -6,7 +6,7 @@ function timestamp(date: DateSnapshot) {
 
 export function CalculationTrace({ calculation }: { calculation: Calculation }) {
   return (
-    <details className="border-t">
+    <details open className="mt-5 border-t">
       <summary className="cursor-pointer py-3 text-sm font-medium focus-visible:outline focus-visible:outline-2">
         Show calculation steps
       </summary>
@@ -17,8 +17,7 @@ export function CalculationTrace({ calculation }: { calculation: Calculation }) 
       ) : (
         <div className="mt-4 grid gap-4 text-sm">
           <p className="text-muted-foreground">
-            Updates with your phrase. Every step below is part of the calculation, in the order you
-            wrote it.
+            Start with the date below, then apply each change in order.
           </p>
           <ol className="grid gap-4" aria-label="Calculation steps">
             <li className="border-l-2 pl-3">

@@ -58,3 +58,9 @@ The strict calculator and API must understand the whole date phrase. They use a 
 Invalid dates, unsupported words, and incomplete phrases return an error instead of a partial answer. Supported years are 0001–9999, with up to 200 characters and 20 changes per phrase.
 
 For previous behavior and test cases, see the [compatibility notes](parser-compatibility.md) and [engine design](phoenix.md).
+
+## Calculator questions
+
+The same arithmetic engine accepts bounded question prefixes: `What is …?`, `What date is …?`, `What time is …?`, `What date/time will it be …?`, `Calculate …`, and `What date/time was it … ago?`. For example, `What time was it 2 hours and 15 minutes ago?` evaluates both subtractions and exposes their steps. “date/time” here means either word, not a literal slash.
+
+The rest of the input must pass the existing calculator grammar. Original input and token positions are retained. Contradictory past/future questions, unrecognized conditions and inline timezone instructions are not silently removed. General conversation, multi-sentence instructions and arbitrary question phrasing remain unsupported; use an explicit starting date and ordered operations when needed.
