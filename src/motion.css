@@ -10,6 +10,7 @@
   --check-draw-dur: 600ms;
   --check-draw-delay: 80ms;
   --check-draw-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --check-mark-len: 13;
   --check-hold: 2000ms;
   --check-revert-dur: 250ms;
   --check-revert-ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -154,6 +155,7 @@
 }
 .t-check-disc svg {
   display: block;
+  overflow: visible;
   width: 100% !important;
   height: 100% !important;
 }
@@ -164,14 +166,20 @@
   stroke-width: var(--check-mark-w);
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: var(--check-mark-len, 20);
-  stroke-dashoffset: var(--check-mark-len, 20);
-  transition: stroke-dashoffset var(--check-revert-dur) var(--check-revert-ease);
+  stroke-dasharray: var(--check-mark-len);
+  stroke-dashoffset: var(--check-mark-len);
 }
 .t-check-badge[data-state="done"] .t-check-mark {
-  stroke-dashoffset: 0;
-  transition: stroke-dashoffset var(--check-draw-dur) var(--check-draw-ease)
-    calc(var(--check-fill-dur) + var(--check-draw-delay) - 200ms);
+  animation: t-check-draw var(--check-draw-dur) var(--check-draw-ease) var(--check-draw-delay)
+    both;
+}
+@keyframes t-check-draw {
+  from {
+    stroke-dashoffset: var(--check-mark-len);
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
 .t-shimmer-tile {
@@ -455,6 +463,7 @@
   }
   .t-check-badge[data-state="done"] .t-check-mark {
     stroke-dashoffset: 0;
+    animation: none !important;
   }
   .t-shimmer-band,
   .t-shimmer-edge {
