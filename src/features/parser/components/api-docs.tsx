@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
-import type { Calculation } from "@/shared/date-parser";
+import type { CalculationSuccess } from "@/shared/date-parser";
 import { useSettings } from "../context/settings-context";
 
 type RequestState =
@@ -23,7 +23,7 @@ export function ApiDocs({
 }: {
   expression: string;
   reference: string;
-  calculation: Calculation;
+  calculation?: CalculationSuccess;
 }) {
   const { settings, effectiveDateFormat } = useSettings();
   const [state, setState] = useState<RequestState>({ kind: "idle" });
@@ -63,11 +63,11 @@ export function ApiDocs({
       const body: unknown = await response.json();
       const matches =
         response.ok &&
-        calculation.ok &&
+        Boolean(calculation) &&
         typeof body === "object" &&
         body !== null &&
         "timestamp" in body &&
-        body.timestamp === calculation.result.timestamp;
+        body.timestamp === calculation?.result.timestamp;
       setState({ kind: "done", path, status: response.status, body, matches });
     } catch {
       setState({

@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, expect, it, vi } from "vite-plus/test";
 import headers from "../../../public/_headers?raw";
 import documentWorker from "../../worker.tsx?raw";
-import { interpretDate } from "@/shared/interpret-date";
+import { parse } from "@/shared/sdk";
 import type { CalendarPreparationRequest } from "./calendar-preparation";
 import { startCalendarPreparation } from "./start-calendar-preparation";
 
@@ -26,12 +26,11 @@ const mock = vi.hoisted(() => {
 vi.mock("./calendar-preparation.worker.ts?worker&inline", () => ({ default: mock.Worker }));
 
 const request: CalendarPreparationRequest = {
-  interpretation: interpretDate("every Monday at noon for 1 occurrence", {
+  interpretation: parse("every Monday at noon for 1 occurrence", {
     timezone: "America/Chicago",
     reference: "2026-09-12T16:00:00Z",
   }),
   reference: "2026-09-12T16:00:00Z",
-  decisions: [],
   title: "Meeting",
   attempt: 0,
   output: "occurrences",

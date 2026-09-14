@@ -1,0 +1,13 @@
+{
+  "status": "candidate_only_not_study_freeze",
+  "tempus_version": "0.1.0",
+  "tempus_archive_sha256": "0d1d2ddbc04cfae5eca8c499f63bc7af4aae3f82edf459a423cc0eb9fedba499",
+  "comparator_version": "gpu-time 0.3.0",
+  "scratch_consumer_lock_sha256": "82c2efd512c79f54c6bd13c909f8a73d34b35f18d7ed8b168cb90d656295c7a4",
+  "study_cases_sha256": null,
+  "study_assignments_sha256": null,
+  "oracle_sha256": null,
+  "playground_build_sha256": null,
+  "participants": 0,
+  "independent_results": 0
+}

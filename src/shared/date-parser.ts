@@ -334,6 +334,16 @@ export function calculateWithClockResolver(
       steps.push({ source: operation.source, before, after: currentSnapshot, details });
       current = after;
     }
+    if (
+      (plan.questionDirection === "future" &&
+        current.epochMilliseconds < reference.epochMilliseconds) ||
+      (plan.questionDirection === "past" && current.epochMilliseconds > reference.epochMilliseconds)
+    )
+      fail(
+        "syntax",
+        "The question and calculation point in different directions.",
+        "Check whether you want a past or future date, then edit the question or the calculation.",
+      );
     return {
       ok: true,
       engineVersion: 2,

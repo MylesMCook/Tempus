@@ -11,6 +11,7 @@ export const oracleCases = [
   ["3 months ago", "2025-10-26T18:30:00.000Z"],
   ["1 year from now", "2027-01-26T19:30:00.000Z"],
   ["5 days ago", "2026-01-21T19:30:00.000Z"],
+  ["today plus 2 weeks minus 3 days", "2026-02-06T06:00:00.000Z"],
   ["today plus 2 weeks", "2026-02-09T06:00:00.000Z"],
   ["tomorrow minus 3 days", "2026-01-24T06:00:00.000Z"],
   ["2 weeks plus 3 days", "2026-02-12T19:30:00.000Z"],

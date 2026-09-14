@@ -1,6 +1,6 @@
 # Performance and resource budgets
 
-Latest resource evidence: [packed a7f9e298](../comparison/evidence/current-a7f-resources/README.md) refreshes Node/Chrome shared CPU timings, initialization/allocation profiles and separate trace/correction/export costs. The scoped desktop figures meet provisional containment targets; gpu-time still leads measured startup, batches, bundle size and slower-end latency. Current full runtime, physical-device, peak-memory, energy and independent-task evidence remains incomplete. Older measurements below retain their original artifact scope.
+Latest local resource evidence: [engine consolidation candidate 0d1d2ddb](engine-consolidation-evidence.md) compares installed archives for startup, parsing, batches, trace/correction/export, bundles and memory indicators. Finite export improves; mixed single-input median worsens and combined gzip grows 581 bytes. Measured desktop lanes fit the unchanged provisional targets below. Rendered performance, maximum-size current-candidate timing, sustained varied-input retention, physical devices, peak memory, energy and independent tasks remain unverified. Earlier gpu-time comparisons below retain their original artifact scope; this consolidation is not a new competitive ranking.
 
 These are provisional engineering gates, not competitive claims or a frozen evaluation protocol. Keep the existing product matrix. A fast wrong answer, a hidden ambiguity or a missing explanation fails release regardless of timing. Freeze device-specific budgets with the evaluator before opening holdouts.
 

@@ -1,4 +1,5 @@
 import { Temporal } from "@js-temporal/polyfill";
+import { retainDecisions } from "./clarification-dependencies.js";
 
 export const MAX_SELECTION_HISTORY = 64;
 
@@ -6,105 +7,29 @@ let numericDateFormatter: Intl.DateTimeFormat | undefined;
 
 export type ClarificationChoice = { id: string; label: string; expression: string };
 export type ClarificationSelection = { contextKey: string; id: string; previous?: string[] };
-/** Replacing an occurrence start also invalidates its dependent end choice.
- * Other occurrences remain independent and retain their explicit answers.
- */
-export function retainOccurrenceDecisions(history: string[], next: string): string[] {
-  const recurrenceBoundary = /^boundary:(starting|until):date:/.exec(next);
-  if (recurrenceBoundary)
-    return history.filter(
-      (id) =>
-        !id.startsWith(`boundary:${recurrenceBoundary[1]}:date:`) &&
-        !id.startsWith("monthly:") &&
-        !id.startsWith("count:") &&
-        !id.startsWith("recurrence:"),
-    );
-  if (/^list:year:\d{4}$/.test(next))
-    return history.filter((id) => !id.startsWith("list:") || /^list:\d+:month:/.test(id));
-  if (next === "monthly:skip" || next === "monthly:last-day")
-    return history.filter(
-      (id) =>
-        !id.startsWith("monthly:") && !id.startsWith("recurrence:") && !id.startsWith("count:"),
-    );
-  if (next.startsWith("count:past:"))
-    return history.filter((id) => !id.startsWith("count:") && !id.startsWith("recurrence:"));
-  if (next.startsWith("count:exclusions:"))
-    return history.filter(
-      (id) => !id.startsWith("count:exclusions:") && !id.startsWith("recurrence:"),
-    );
-  const intervalDate = /^interval:(start|end):date:/.exec(next);
-  if (next.startsWith("interval:end:boundary:"))
-    return history.filter((id) => !id.startsWith("interval:end:boundary:"));
-  if (intervalDate)
-    return history.filter(
-      (id) =>
-        !id.startsWith(`interval:${intervalDate[1]}:`) &&
-        !(intervalDate[1] === "start" && id.startsWith("interval:end:")),
-    );
-  const intervalClock = /^interval:(start|end):\d{4}-/.exec(next);
-  const intervalTime = /^interval:(start|end):time:/.exec(next);
-  if (intervalTime)
-    return history.filter(
-      (id) =>
-        !id.startsWith(`interval:${intervalTime[1]}:`) ||
-        id.startsWith(`interval:${intervalTime[1]}:date:`),
-    );
-  if (intervalClock)
-    return history.filter(
-      (id) =>
-        !id.startsWith(`interval:${intervalClock[1]}:`) ||
-        id.startsWith(`interval:${intervalClock[1]}:date:`) ||
-        id.startsWith(`interval:${intervalClock[1]}:time:`),
-    );
-  const listMonth = /^(list:\d+):month:/.exec(next);
-  if (listMonth) return history.filter((id) => !id.startsWith(`${listMonth[1]}:`));
-  const listYear = /^(list:\d+):year:/.exec(next);
-  if (listYear)
-    return history.filter(
-      (id) => !id.startsWith(`${listYear[1]}:`) || id.startsWith(`${listYear[1]}:month:`),
-    );
-  const listTime = /^(list:\d+):time:/.exec(next);
-  if (listTime)
-    return history.filter(
-      (id) =>
-        !id.startsWith(`${listTime[1]}:`) ||
-        id.startsWith(`${listTime[1]}:date:`) ||
-        id.startsWith(`${listTime[1]}:year:`) ||
-        id.startsWith(`${listTime[1]}:month:`),
-    );
-  const listDate = /^(list:\d+):date:/.exec(next);
-  if (listDate) return history.filter((id) => !id.startsWith(`${listDate[1]}:`));
-  const match = /^(recurrence:\d{4}-\d{2}-\d{2}|group:\d+|list:\d+):(start|end):/.exec(next);
-  if (!match) return history;
-  const [, occurrence, endpoint] = match;
-  return history.filter(
-    (id) =>
-      !id.startsWith(`${occurrence}:${endpoint}:`) &&
-      !(
-        endpoint === "start" &&
-        (id.startsWith(`${occurrence}:end:`) || id === `${occurrence}:end-next-day`)
-      ),
+/** Runtime boundary shared by parsing and calendar preparation. Sparse histories are invalid. */
+export function isClarificationSelection(value: unknown): value is ClarificationSelection {
+  if (!value || typeof value !== "object") return false;
+  const selection = value as Partial<ClarificationSelection>;
+  return (
+    typeof selection.contextKey === "string" &&
+    typeof selection.id === "string" &&
+    (selection.previous === undefined ||
+      (Array.isArray(selection.previous) &&
+        selection.previous.length <= MAX_SELECTION_HISTORY &&
+        Array.from(selection.previous).every((id) => typeof id === "string")))
   );
+}
+/** Preserve the legacy occurrence-only helper; arithmetic invalidation belongs to appendSelection. */
+export function retainOccurrenceDecisions(history: string[], next: string): string[] {
+  return retainDecisions(history, next);
 }
 export function appendSelection(
   previous: ClarificationSelection | undefined,
   next: ClarificationSelection | undefined,
 ): ClarificationSelection | undefined {
   if (!next || previous?.contextKey !== next.contextKey) return next;
-  const arithmeticPosition = /^arithmetic:(\d+):/.exec(next.id)?.[1];
-  const history = retainOccurrenceDecisions(
-    [...(previous.previous ?? []), previous.id],
-    next.id,
-  ).filter((id) => {
-    const position = /^arithmetic:(\d+):/.exec(id)?.[1];
-    // A new answer replaces this arithmetic clock and invalidates downstream
-    // clock decisions. Keep earlier steps and unrelated date/interval choices.
-    return (
-      arithmeticPosition === undefined ||
-      position === undefined ||
-      Number(position) < Number(arithmeticPosition)
-    );
-  });
+  const history = retainDecisions([...(previous.previous ?? []), previous.id], next.id, true);
   return {
     ...next,
     previous: [...new Set(history)].slice(-MAX_SELECTION_HISTORY),

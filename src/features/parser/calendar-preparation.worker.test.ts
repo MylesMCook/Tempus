@@ -1,5 +1,5 @@
 import { afterAll, beforeAll, expect, it, vi } from "vite-plus/test";
-import { interpretDate } from "@/shared/interpret-date";
+import { parse } from "@/shared/sdk";
 import type { CalendarPreparationRequest } from "./calendar-preparation";
 
 const postMessage = vi.fn();
@@ -13,12 +13,11 @@ beforeAll(async () => {
 afterAll(() => vi.unstubAllGlobals());
 
 const request: CalendarPreparationRequest = {
-  interpretation: interpretDate("every Monday at noon for 5 occurrences", {
+  interpretation: parse("every Monday at noon for 5 occurrences", {
     timezone: "America/Chicago",
     reference: "2026-09-12T16:00:00Z",
   }),
   reference: "2026-09-12T16:00:00Z",
-  decisions: [],
   title: "Meeting",
   attempt: 0,
 };
@@ -31,9 +30,9 @@ it.each([undefined, "occurrences"] as const)(
     expect(postMessage).toHaveBeenCalledOnce();
     const response = postMessage.mock.calls[0][0];
     expect(response.ok).toBe(true);
-    expect(response.plan.occurrences).toHaveLength(5);
-    if (output === "occurrences") expect(response.file).toBeUndefined();
-    else expect(response.file.ok).toBe(true);
+    expect(response.result.schedule.occurrences).toHaveLength(5);
+    if (output === "occurrences") expect(response.result.file).toBeUndefined();
+    else expect(response.result.file.ok).toBe(true);
   },
 );
 

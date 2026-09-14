@@ -1,0 +1,278 @@
+[
+  {
+    "input": "What time will it be two and a half hours from now?",
+    "expectedIso": "2026-09-13T17:30:00Z",
+    "rationale": "Reference is 10:00 CDT; adding 2.5 elapsed hours yields 12:30 CDT.",
+    "result": {
+      "interpretationVersion": 1,
+      "status": "resolved",
+      "value": {
+        "kind": "point",
+        "calculation": {
+          "ok": true,
+          "engineVersion": 2,
+          "expression": "What time will it be two and a half hours from now?",
+          "timezone": "America/Chicago",
+          "reference": "2026-09-13T15:00:00.000Z",
+          "normalized": "two and a half hours from now",
+          "anchor": {
+            "iso": "2026-09-13T15:00:00.000Z",
+            "local": "2026-09-13T10:00:00.000",
+            "offset": "-05:00",
+            "timestamp": 1789311600000
+          },
+          "anchorDescription": "Start at the captured reference time.",
+          "steps": [
+            {
+              "source": "Add two and a half hours",
+              "before": {
+                "iso": "2026-09-13T15:00:00.000Z",
+                "local": "2026-09-13T10:00:00.000",
+                "offset": "-05:00",
+                "timestamp": 1789311600000
+              },
+              "after": {
+                "iso": "2026-09-13T17:30:00.000Z",
+                "local": "2026-09-13T12:30:00.000",
+                "offset": "-05:00",
+                "timestamp": 1789320600000
+              },
+              "details": [
+                "9,000,000 elapsed milliseconds. No rounding."
+              ]
+            }
+          ],
+          "warnings": [],
+          "result": {
+            "iso": "2026-09-13T17:30:00.000Z",
+            "local": "2026-09-13T12:30:00.000",
+            "offset": "-05:00",
+            "timestamp": 1789320600000
+          }
+        },
+        "precision": "time",
+        "clockSource": "reference"
+      },
+      "source": {
+        "text": "What time will it be two and a half hours from now?",
+        "span": {
+          "start": 0,
+          "end": 51
+        }
+      },
+      "assumptions": [],
+      "sdkVersion": "0.1.0",
+      "input": "What time will it be two and a half hours from now?",
+      "context": {
+        "timezone": "America/Chicago",
+        "reference": "2026-09-13T15:00:00Z"
+      }
+    }
+  },
+  {
+    "input": "When is three quarters of an hour before September 16, 2026 at noon?",
+    "expectedIso": "2026-09-16T16:15:00Z",
+    "rationale": "Noon Chicago is 17:00Z in September; subtract 45 minutes.",
+    "result": {
+      "interpretationVersion": 1,
+      "status": "unsupported",
+      "error": {
+        "code": "syntax",
+        "message": "Unexpected character “?”.",
+        "hint": "Use a named date, ISO date, or a date phrase.",
+        "span": {
+          "start": 67,
+          "end": 68
+        }
+      },
+      "sdkVersion": "0.1.0",
+      "input": "When is three quarters of an hour before September 16, 2026 at noon?",
+      "context": {
+        "timezone": "America/Chicago",
+        "reference": "2026-09-13T15:00:00Z"
+      }
+    }
+  },
+  {
+    "input": "Starting September 18, 2026 at 8 AM, add one day and then subtract an hour and a half. What time is that?",
+    "expectedIso": "2026-09-19T11:30:00Z",
+    "rationale": "08:00 CDT plus one day is September 19 08:00 CDT; minus 90 minutes is 06:30 CDT.",
+    "result": {
+      "interpretationVersion": 1,
+      "status": "unsupported",
+      "error": {
+        "code": "syntax",
+        "message": "Unexpected character “?”.",
+        "hint": "Use a named date, ISO date, or a date phrase.",
+        "span": {
+          "start": 104,
+          "end": 105
+        }
+      },
+      "sdkVersion": "0.1.0",
+      "input": "Starting September 18, 2026 at 8 AM, add one day and then subtract an hour and a half. What time is that?",
+      "context": {
+        "timezone": "America/Chicago",
+        "reference": "2026-09-13T15:00:00Z"
+      }
+    }
+  },
+  {
+    "input": "What date and time is half a day after September 20, 2026 at 9 PM?",
+    "expectedIso": "2026-09-21T14:00:00Z",
+    "rationale": "Twelve hours after 21:00 CDT is next-day 09:00 CDT, or 14:00Z.",
+    "result": {
+      "interpretationVersion": 1,
+      "status": "unsupported",
+      "error": {
+        "code": "syntax",
+        "message": "Unexpected character “?”.",
+        "hint": "Use a named date, ISO date, or a date phrase.",
+        "span": {
+          "start": 65,
+          "end": 66
+        }
+      },
+      "sdkVersion": "0.1.0",
+      "input": "What date and time is half a day after September 20, 2026 at 9 PM?",
+      "context": {
+        "timezone": "America/Chicago",
+        "reference": "2026-09-13T15:00:00Z"
+      }
+    }
+  },
+  {
+    "input": "If I go back 80 minutes from now and then forward a quarter of an hour, when do I land?",
+    "expectedIso": "2026-09-13T13:55:00Z",
+    "rationale": "Sequential arithmetic subtracts a net 65 minutes from 15:00Z.",
+    "result": {
+      "interpretationVersion": 1,
+      "status": "needs-clarification",
+      "error": {
+        "code": "syntax",
+        "message": "Which date do you want?",
+        "hint": "This needs a more specific date or condition. Enter one complete date phrase for each correction."
+      },
+      "sdkVersion": "0.1.0",
+      "input": "If I go back 80 minutes from now and then forward a quarter of an hour, when do I land?",
+      "context": {
+        "timezone": "America/Chicago",
+        "reference": "2026-09-13T15:00:00Z"
+      }
+    }
+  },
+  {
+    "input": "What time is 1.25 hours after September 23, 2026 at 11:40 PM?",
+    "expectedIso": "2026-09-24T05:55:00Z",
+    "rationale": "75 minutes crosses midnight from 23:40 CDT to September 24 00:55 CDT.",
+    "result": {
+      "interpretationVersion": 1,
+      "status": "resolved",
+      "value": {
+        "kind": "point",
+        "calculation": {
+          "ok": true,
+          "engineVersion": 2,
+          "expression": "What time is 1.25 hours after September 23, 2026 at 11:40 PM?",
+          "timezone": "America/Chicago",
+          "reference": "2026-09-13T15:00:00.000Z",
+          "normalized": "1.25 hours after september 23 2026 at 11:40 pm",
+          "anchor": {
+            "iso": "2026-09-24T04:40:00.000Z",
+            "local": "2026-09-23T23:40:00.000",
+            "offset": "-05:00",
+            "timestamp": 1790224800000
+          },
+          "anchorDescription": "Use the exact calendar date. Set the clock to 23:40:00.",
+          "steps": [
+            {
+              "source": "Add 1.25 hours",
+              "before": {
+                "iso": "2026-09-24T04:40:00.000Z",
+                "local": "2026-09-23T23:40:00.000",
+                "offset": "-05:00",
+                "timestamp": 1790224800000
+              },
+              "after": {
+                "iso": "2026-09-24T05:55:00.000Z",
+                "local": "2026-09-24T00:55:00.000",
+                "offset": "-05:00",
+                "timestamp": 1790229300000
+              },
+              "details": [
+                "4,500,000 elapsed milliseconds. No rounding."
+              ]
+            }
+          ],
+          "warnings": [],
+          "result": {
+            "iso": "2026-09-24T05:55:00.000Z",
+            "local": "2026-09-24T00:55:00.000",
+            "offset": "-05:00",
+            "timestamp": 1790229300000
+          }
+        },
+        "precision": "time",
+        "clockSource": "explicit"
+      },
+      "source": {
+        "text": "What time is 1.25 hours after September 23, 2026 at 11:40 PM?",
+        "span": {
+          "start": 0,
+          "end": 61
+        }
+      },
+      "assumptions": [],
+      "sdkVersion": "0.1.0",
+      "input": "What time is 1.25 hours after September 23, 2026 at 11:40 PM?",
+      "context": {
+        "timezone": "America/Chicago",
+        "reference": "2026-09-13T15:00:00Z"
+      }
+    }
+  },
+  {
+    "input": "When could I start, no earlier than two hours from now?",
+    "expectedUnresolved": true,
+    "rationale": "A lower-bound constraint permits many instants; it must not silently become an exact timestamp.",
+    "result": {
+      "interpretationVersion": 1,
+      "status": "unsupported",
+      "error": {
+        "code": "syntax",
+        "message": "Unexpected character “?”.",
+        "hint": "Use a named date, ISO date, or a date phrase.",
+        "span": {
+          "start": 54,
+          "end": 55
+        }
+      },
+      "sdkVersion": "0.1.0",
+      "input": "When could I start, no earlier than two hours from now?",
+      "context": {
+        "timezone": "America/Chicago",
+        "reference": "2026-09-13T15:00:00Z"
+      }
+    }
+  },
+  {
+    "input": "What time should I use tomorrow, but not at noon?",
+    "expectedUnresolved": true,
+    "rationale": "Negating noon leaves the time unspecified; selecting noon or another exact instant silently would violate the request.",
+    "result": {
+      "interpretationVersion": 1,
+      "status": "no-expression",
+      "error": {
+        "code": "syntax",
+        "message": "No date selected from this instruction.",
+        "hint": "It contains a cancellation or negative instruction. Enter only the date you want to calculate."
+      },
+      "sdkVersion": "0.1.0",
+      "input": "What time should I use tomorrow, but not at noon?",
+      "context": {
+        "timezone": "America/Chicago",
+        "reference": "2026-09-13T15:00:00Z"
+      }
+    }
+  }
+]

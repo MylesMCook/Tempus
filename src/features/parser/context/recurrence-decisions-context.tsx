@@ -6,20 +6,21 @@ import {
   type Dispatch,
   type SetStateAction,
 } from "react";
+import type { ClarificationSelection } from "@/shared/sdk";
 
 const DecisionsContext = createContext<
   | {
-      decisions: string[];
-      setDecisions: Dispatch<SetStateAction<string[]>>;
+      selection: ClarificationSelection | undefined;
+      setSelection: Dispatch<SetStateAction<ClarificationSelection | undefined>>;
     }
   | undefined
 >(undefined);
 
 /** The result container remounts this provider when the interpretation or context changes. */
 export function RecurrenceDecisionsProvider({ children }: { children: ReactNode }) {
-  const [decisions, setDecisions] = useState<string[]>([]);
+  const [selection, setSelection] = useState<ClarificationSelection>();
   return (
-    <DecisionsContext.Provider value={{ decisions, setDecisions }}>
+    <DecisionsContext.Provider value={{ selection, setSelection }}>
       {children}
     </DecisionsContext.Provider>
   );

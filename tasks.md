@@ -1,76 +1,66 @@
-# Tempus release work
+# Tempus product focus
 
 ## Objective and authority
 
-Deliver Tempus as a natural-language-to-date system and coherent web playground, with RedwoodSDK routes. Preserve the [product matrix](docs/product-matrix.md), correctness, complete journeys, resource efficiency and independent evaluation requirements. User authorized deployment after testing. No calendar writes, SDK publication or unrelated cloud changes. Preserve unrelated Rust-spike work.
+One reusable TypeScript engine produces inspectable dates, intervals and schedules. The website is its reference consumer. Use the [product focus](docs/product-focus.md); retain the [matrix](docs/product-matrix.md) as an inventory, not a parity backlog. New feature families are paused. The user now authorizes publishing the tested calculator-focused iteration through the normal Git/Cloudflare release path. No calendar writes or unrelated service changes. The private SDK is not being published to npm.
 
-## Current result
+## Active calculator release
 
-- [x] Run one calculation, one ambiguous reminder and one finite recurring schedule in the current local app and packed SDK b1cbd22a.
-- [x] Check calculation trace/copy/API parity, reminder correction, finite file outputs and edit invalidation. Six downloaded/generated files pass separate date/title/duration/expansion checks after correcting a reader assumption; the failed attempt is retained.
-- [x] Consolidate the backlog into five problems and recommend a calculator-first preview with explicit limitations in the [release checklist](docs/release-checklist.md).
-- [x] Preserve historical reports and matrix requirements. No implementation changes made for this assessment.
+- [x] Support bounded calculator questions while preserving original spans, full validation and uncertainty.
+- [x] Lead the playground with calculations and visible steps; keep schedule support discoverable.
+- [x] Fresh blind arithmetic probes, full tests, production browser journeys and deployment dry run.
+- [ ] Commit/push and deploy the verified iteration; verify live routes and calculation/correction.
 
-## Five priorities — paused for review
+## Synthetic diagnostic lane
 
-1. Coherent release candidate, accurate claims/privacy and package compatibility contract.
-2. Independent complete-task and correction evaluation.
-3. Calendar-client usefulness, faithful export and unresolved ongoing policies.
-4. Physical-device and accessibility completion.
-5. Final-candidate resource containment and device/energy evidence.
+- [x] Run separate blind case-author, oracle-review and public-SDK developer subagents. Freeze 12 cases and capture both engines’ raw output.
+- [x] Check clarification branches and distinguish semantic mismatch from successful resolution. [Report and reusable runner](comparison/agent-evaluation/README.md).
+- [ ] Triage timer/title interpretation, misleading duration diagnostic and complete-output validation wording. No parser fixes or feature expansion in this pass.
 
-The checklist contains the exact three inputs, observed results, failures, proposed scope and blockers. Older records remain in its retained evidence section, [task history](task-history.md) and existing evidence directories. Narrow authored desktop checks do not establish overall superiority, independent usability, physical-phone behavior or actual imports.
+This lane does not satisfy independent human evaluation. Cursor is installed but logged out; Ollama is available but was not loaded.
 
-## Active delivery
+## Active decision gate
 
-- [x] Read RedwoodSDK, Product Wrangler, Laws of UX, Writer and I Have ADHD guidance; preserve the date-system product boundary.
-- [x] Inspect Cloudflare target and record rollback version d28852a9-a777-4bec-b023-3789001583f3. Source backup and before image are in ~/Documents/Codex/2026-09-13-tempus-redwood.
-- [x] Finish RedwoodSDK web shell and coherent phrase → clarification → interpretation → output experience.
-- [x] Replay three journeys, cold start, navigation, keyboard and responsive states against the production build. Check privacy, headers, local parsing and API boundary.
-- [x] Deploy tested artifact to existing tempus-total Worker, verify the live site, and report remaining limitations.
+- [x] Narrow project and README to the explainable engine; preserve current supported behavior.
+- [x] Define independent task protocol, continuation thresholds and maintenance/stop condition.
+- [x] Inspect timezone guarantees and probe host differences: 10 disagreements and 17 unavailable historical samples; no correctness verdict from this comparison.
+- [x] Prepare [independent evaluation handoff](comparison/independent-evaluation/README.md), empty case/observation templates and candidate identity. No study outcomes are claimed.
+- [ ] Independent author/reviewer and six unfamiliar participants: unavailable. No messages sent.
+- [ ] Run frozen complete-task evaluation; decide whether to continue, focus on arithmetic, or maintain/archive.
 
-Primary surface: / playground, /developers integration guide, /privacy and existing /api/parse. No accounts, reminder delivery, storage or parser expansion. Browser verification uses disposable local input; API replay is explicit. No remote data bindings beyond the existing API rate limiter. Three selected lenses: Mental Model, Hick's Law and Law of Proximity. Existing engine/SDK tests and previous three-journey reports are the baseline; framework migration must preserve their outcomes.
+Next action: arrange independent evaluation. Until then, limit code work to demonstrated correctness failures or regressions; no new feature families or timezone replacement.
 
-Alternative considered: an SDK-only product. The user's request for a usable deployed website supports an interactive playground plus integration guide; the SDK remains the underlying integration surface. Confidence is high because the user explicitly corrected the calendar-app direction.
+## Milestones
 
-## Delivered
+### Completed size-pruning pass
 
-Version `70cab9dd-44af-424b-b92a-08a5b239fda0` is live on both existing hostnames. Three production journeys and four file readbacks pass; local cross-browser and cold-start checks pass. The [release checklist](docs/release-checklist.md) records the exact scope and rollback version. Whole-repository formatting, physical devices, independent evaluation and package publication remain outside this completed web pass. No additional implementation is queued automatically.
+- [x] Preserve the dirty worktree in a source archive and capture bundle/dependency baseline under `/Users/mylescook/Documents/Codex/2026-09-13-tempus-pruning`.
+- [x] Trace imports; remove unused UI scaffolding, orphan hooks and the inactive React Router shell. Keep the Redwood application and public engine intact.
+- [x] Remove dependencies used only by deleted files; verify lockfile changes do not upgrade retained packages.
+- [x] Measure page delivery duplication and test a smaller delivery strategy while preserving offline-after-load behavior.
+- [x] Verify complete journeys, keyboard/layout, copy/export and offline output; record measured size changes and remaining costs.
 
-## Complete schedule copying
+Fresh [bundle comparison](docs/bundle-comparison.md): core 151,938 gzip bytes versus gpu-time 0.3.0 at 53,272 (2.85x). Registry version checked; isolated consumer only. Calendar integration adds 6,104 gzip bytes. No new timing claims.
 
-- [x] Replace three-date clipboard previews with complete bounded output, retaining count/exclusion and DST policies. Text, Markdown and full JSON require no added dependency.
-- [x] Share recurrence clock decisions between copy and calendar-file preparation. Reset results when input or context changes; paginate display only; expose full output if clipboard access fails.
-- [x] Production build, scoped lint and 52 targeted tests pass. Chrome, Firefox and WebKit replay five-date copying in all formats, 1,000-date copying, future clock correction, shared file decisions, edit reset, open-ended labeling, clipboard denial and desktop widths 320/390/1440. Chrome uses real clipboard permission; Firefox/WebKit clipboard writes are stubbed. One browser assertion initially matched an unrelated group and was narrowed to its accessible name.
-- [x] Deployed `05e260e4-5f06-4242-b4d0-d01a0c869838`; all three browser journeys pass on the live custom domain. Rollback: `70cab9dd-44af-424b-b92a-08a5b239fda0`.
+Pruning evidence: [size report](docs/size-pruning.md). Removed 35 direct dependencies; CSS is 69% smaller raw. Rejected separate Worker delivery after its first offline preparation failed. Final three-browser journeys and separate file readers pass. No external release actions.
 
-Evidence: ~/Documents/Codex/2026-09-13-tempus-complete-copy. No physical-device test or actual calendar-client import is claimed. No SDK publication or Git push.
+### Completed engine consolidation
 
-## Black-box dogfood follow-up
+- [x] Inspect current checkout, product matrix, release records and SDK/app boundaries; preserve earlier work.
+- [x] Route parsing, clarification and preparation through public engine contracts. Hosts retain rendering, Worker lifecycle, clock/UUID capture, copying and downloads.
+- [x] Remove repeated context snapshots, the redundant finite-preview pass and the app's synthetic calculation prop. Share selection validation. Keep recurrence recognition/iteration together rather than add an unnecessary pipeline.
+- [x] Classify legacy IDs into typed decision families and apply explicit invalidation rules. Preserve the public selection shape. Twelve dependency cases and 1,296 representative before/after selection combinations pass.
+- [x] Verify candidate archive `0d1d2ddb` against the production playground in three browsers: arithmetic/trace, corrected date, complete DST-corrected recurrence/JSON/file, negation/cancellation/unsupported input and stale answers. Compare full results and file semantics; separately expand dates and durations.
+- [x] Replay final Worker lifecycle, offline-after-load and keyboard journeys; separate Python readers pass nine downloads. No actual calendar-client import is claimed.
+- [x] Profile installed archives before/after and report startup, parsing, batches, correction, file preparation, bundle and memory tradeoffs. Finite export improves; mixed single-input median worsens and combined gzip grows 581 bytes. No general speed or superiority claim.
+- [x] Finish final diff, artifact-identity and check audit. Emitted archive files match current code; packed manifest differs only by the final newline. Final three-browser closeout replay passes against the production build. Dependencies, product matrix and deployment configuration are unchanged.
 
-- [x] Run a deployed-site dogfood pass across more than 100 distinct phrases, complete output, recurrence, ambiguity, ranges, timezone/DST, copy, calendar download, API boundaries, offline behavior, navigation, 320px layout, keyboard semantics, accessibility and one desktop performance observation.
-- [x] Record ten reproducible findings in the [dogfood report](docs/dogfood-2026-09-13.md): nine medium, one low, no confirmed high or critical issues. Screenshots, videos and raw browser output remain in the local review archive.
-- [x] Validate a downloaded five-occurrence file with an independent iCalendar reader. This is file validation, not calendar-client import evidence.
-- [ ] Triage and fix findings in a later implementation pass. Highest product priority: cross-week weekday ranges; broadest problem: narrow natural-language variants paired with unrelated recovery messages.
+## Evidence and remaining gaps
 
-No product code was changed during this audit. Physical phones, real calendar clients, assistive technology and independent users remain untested. The agent-browser daemon was repaired separately by configuring its verified installed Chrome runtime.
+[Architecture and contract](docs/engine-first.md), [current evidence report](docs/engine-consolidation-evidence.md), and [release checklist](docs/release-checklist.md) are the handoff. Raw local artifacts are in `/Users/mylescook/Documents/Codex/2026-09-13-tempus-engine-consolidation`.
 
-## Format preview follow-up
+Final checks, types, lint and production build pass. Suite: 1,164 passing tests plus one existing expected failure concerning an independent reader's Chicago pre-DST instant conversion. The large client-chunk warning remains. This bounded consolidation is verified locally; no external release action was taken.
 
-- [x] Add an initially visible, collapsible output preview next to format selection. Show exact clipboard text, Markdown source or formatted JSON using a native read-only viewer; no dependency or HTML execution. Keep the full data scrollable and manually selectable.
-- [x] Verified preview/copy equality, format changes, 1,000-date output, pending choices, keyboard access (WebKit uses Option-Tab), responsive widths and clipboard-denial reopening in Chrome/Firefox/WebKit locally and live. Build and scoped lint pass. Deployed `53bb72bd-bb30-47fa-a363-e27f07739708`; rollback `05e260e4-5f06-4242-b4d0-d01a0c869838`. Native read-only viewer visually checked at 390px. Physical-phone testing remains unverified.
+Physical devices, assistive-technology sessions, independently authored evaluation, unfamiliar users, peak-memory/energy measurements and actual calendar-client imports remain separate unavailable evidence. Existing ongoing-export policy restrictions remain. No recognition features, dependency upgrades or framework/language changes were introduced.
 
-## Pretty-print follow-up
-
-- [x] Replace the textarea with a keyboard-focusable code viewer. JSON retains indentation and uses syntax colors; source strings render as React text, never HTML. Long code lines scroll inside the viewer. Datasets over 100,000 characters retain complete formatted output without syntax spans.
-- [x] Build, scoped lint, preview/copy equality and existing complete-output browser journeys pass locally in Chrome, Firefox and WebKit. Visually inspected the 390px JSON preview. Desktop keyboard access uses Option-Tab in WebKit.
-- [x] Deployed `cb3fc196-18f6-455e-85b8-acb087157130`; all three browser replays pass on the live site, including exact preview/copy equality and syntax highlighting. Rollback: `53bb72bd-bb30-47fa-a363-e27f07739708`.
-
-## Public release closeout
-
-- [x] Publish the source, SDK preview, product matrix, dogfood findings and retained evidence to the public GitHub repository. Keep the SDK package private and unpublished until its compatibility contract is final.
-- [x] Pass full formatting, lint, type checks, 1,015 tests plus one expected failure, production build, dependency audit, packed-file inspection, 99 evidence manifests and Cloudflare dry run.
-- [x] Correct the calendar-reader test that depended on the host timezone. Its all-day file assertions now compare calendar dates; the focused test passes under `TZ=UTC`, and GitHub CI passes on Linux.
-- [x] Deploy Cloudflare version `69c24d73-8e0f-4296-914e-5aa27f50380b`. Both hostnames return the expected routes, headers and fixed-reference API result. The live browser resolves all five dates, shows complete pretty JSON, reports copy success and logs no warnings or errors.
-
-Remaining evidence gaps stay open: physical phones, actual calendar-client imports, assistive-technology sessions, energy measurements and independently authored user evaluation.
+Earlier delivery records are preserved in [task history](task-history.md); their authority does not apply to this local-only work.

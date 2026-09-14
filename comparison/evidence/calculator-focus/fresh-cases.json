@@ -1,0 +1,42 @@
+[
+  {
+    "input": "What time will it be two and a half hours from now?",
+    "expectedIso": "2026-09-13T17:30:00Z",
+    "rationale": "Reference is 10:00 CDT; adding 2.5 elapsed hours yields 12:30 CDT."
+  },
+  {
+    "input": "When is three quarters of an hour before September 16, 2026 at noon?",
+    "expectedIso": "2026-09-16T16:15:00Z",
+    "rationale": "Noon Chicago is 17:00Z in September; subtract 45 minutes."
+  },
+  {
+    "input": "Starting September 18, 2026 at 8 AM, add one day and then subtract an hour and a half. What time is that?",
+    "expectedIso": "2026-09-19T11:30:00Z",
+    "rationale": "08:00 CDT plus one day is September 19 08:00 CDT; minus 90 minutes is 06:30 CDT."
+  },
+  {
+    "input": "What date and time is half a day after September 20, 2026 at 9 PM?",
+    "expectedIso": "2026-09-21T14:00:00Z",
+    "rationale": "Twelve hours after 21:00 CDT is next-day 09:00 CDT, or 14:00Z."
+  },
+  {
+    "input": "If I go back 80 minutes from now and then forward a quarter of an hour, when do I land?",
+    "expectedIso": "2026-09-13T13:55:00Z",
+    "rationale": "Sequential arithmetic subtracts a net 65 minutes from 15:00Z."
+  },
+  {
+    "input": "What time is 1.25 hours after September 23, 2026 at 11:40 PM?",
+    "expectedIso": "2026-09-24T05:55:00Z",
+    "rationale": "75 minutes crosses midnight from 23:40 CDT to September 24 00:55 CDT."
+  },
+  {
+    "input": "When could I start, no earlier than two hours from now?",
+    "expectedUnresolved": true,
+    "rationale": "A lower-bound constraint permits many instants; it must not silently become an exact timestamp."
+  },
+  {
+    "input": "What time should I use tomorrow, but not at noon?",
+    "expectedUnresolved": true,
+    "rationale": "Negating noon leaves the time unspecified; selecting noon or another exact instant silently would violate the request."
+  }
+]

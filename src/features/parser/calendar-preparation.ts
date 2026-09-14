@@ -1,16 +1,15 @@
-import type { Interpretation } from "@/shared/interpret-date";
-import type { CalendarFile } from "@/shared/calendar-file";
-import type { resolveRecurringExport } from "@/shared/recurring-calendar-file";
+import type { ParseResult, ClarificationSelection } from "@/shared/sdk";
+import type { CalendarPreparation } from "@/shared/sdk-calendar";
 
 export type CalendarPreparationRequest = {
   attempt: number;
   output?: "occurrences";
-  interpretation: Interpretation;
+  interpretation: ParseResult;
   reference: string;
-  decisions: string[];
+  selection?: ClarificationSelection;
   title: string;
 };
 
 export type CalendarPreparationResponse =
-  | { ok: true; plan: ReturnType<typeof resolveRecurringExport>; file?: CalendarFile }
+  | { ok: true; result: CalendarPreparation }
   | { ok: false; reason: "worker-unavailable" | "computation"; error: string };

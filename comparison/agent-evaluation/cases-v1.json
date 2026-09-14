@@ -1,0 +1,83 @@
+[
+  {
+    "id": "arithmetic-01",
+    "family": "arithmetic",
+    "input": "Remind me in 90 minutes.",
+    "expected_behavior": "Return reference plus 90 minutes. Explicit unsupported-input abstention is acceptable; accepting another instant silently is wrong.",
+    "expected_instants": ["2026-09-13T16:30:00Z"]
+  },
+  {
+    "id": "arithmetic-02",
+    "family": "arithmetic",
+    "input": "What time was it 2 hours and 15 minutes ago?",
+    "expected_behavior": "Subtract both duration components from the reference. Explicit abstention is acceptable; dropping a component while accepting is wrong.",
+    "expected_instants": ["2026-09-13T12:45:00Z"]
+  },
+  {
+    "id": "arithmetic-03",
+    "family": "arithmetic",
+    "input": "Set a timer for 36 hours from now.",
+    "expected_behavior": "Add 36 elapsed hours. Explicit abstention is acceptable; confusing hours with calendar days or wrapping at midnight is wrong.",
+    "expected_instants": ["2026-09-15T03:00:00Z"]
+  },
+  {
+    "id": "arithmetic-04",
+    "family": "arithmetic",
+    "input": "Ten days from now, at this same time please.",
+    "expected_behavior": "Use the same Chicago wall time ten calendar days later; no DST transition occurs. Explicit abstention is acceptable; another accepted instant is wrong.",
+    "expected_instants": ["2026-09-23T15:00:00Z"]
+  },
+  {
+    "id": "schedule-01",
+    "family": "date/schedule",
+    "input": "Tomorrow morning at 9, remind me to call the dentist.",
+    "expected_behavior": "Resolve tomorrow as September 14 and morning as 09:00 Chicago. Explicit abstention is acceptable; accepting 21:00 or the reference date is wrong.",
+    "expected_instants": ["2026-09-14T14:00:00Z"]
+  },
+  {
+    "id": "schedule-02",
+    "family": "date/schedule",
+    "input": "Friday September 18, 2026 at 5 pm Chicago time.",
+    "expected_behavior": "Resolve the explicit date and local time using Chicago daylight time. Explicit abstention is acceptable; accepting a different instant is wrong.",
+    "expected_instants": ["2026-09-18T22:00:00Z"]
+  },
+  {
+    "id": "schedule-03",
+    "family": "date/schedule",
+    "input": "Put it on October 1st 2026, eight in the morning.",
+    "expected_behavior": "Resolve October 1 at 08:00 in the supplied Chicago timezone. Explicit abstention is acceptable; interpreting eight as evening is wrong.",
+    "expected_instants": ["2026-10-01T13:00:00Z"]
+  },
+  {
+    "id": "schedule-04",
+    "family": "date/schedule",
+    "input": "November 2, 2026 at 9 am in Chicago.",
+    "expected_behavior": "Use Chicago standard time on this date, not the reference date's daylight offset. Explicit abstention is acceptable; accepting 14:00Z is wrong.",
+    "expected_instants": ["2026-11-02T15:00:00Z"]
+  },
+  {
+    "id": "ambiguity-01",
+    "family": "ambiguity/correction/negation",
+    "input": "Next Friday at 3.",
+    "expected_behavior": "Friday may mean September 18 or 25; 3 may mean AM or PM. Ask which date and meridiem, or abstain. An explicitly labeled policy-based interpretation is permissible; hidden assumptions are wrong."
+  },
+  {
+    "id": "ambiguity-02",
+    "family": "ambiguity/correction/negation",
+    "input": "Not Tuesday Sept 15. I meant Wednesday Sept 16, 2026 at 2 pm.",
+    "expected_behavior": "Honor the correction and negation: Wednesday September 16 at 14:00 Chicago. Clarification or explicit abstention is acceptable; silently accepting Tuesday is wrong.",
+    "expected_instants": ["2026-09-16T19:00:00Z"]
+  },
+  {
+    "id": "ambiguity-03",
+    "family": "ambiguity/correction/negation",
+    "input": "Book it for 9/10/2026 at noon.",
+    "expected_behavior": "Numeric date permits September 10 or October 9. Ask the date format or abstain; explicitly stating a declared locale convention is permissible. Silent format choice is not justified by timezone alone."
+  },
+  {
+    "id": "ambiguity-04",
+    "family": "ambiguity/correction/negation",
+    "input": "Don't remind me tomorrow. Remind me sometime after lunch instead.",
+    "expected_behavior": "Tomorrow is negated; after lunch leaves both date and time unclear. Ask which day and time, or abstain. Silently scheduling tomorrow or inventing a lunch-end instant is wrong."
+  }
+]

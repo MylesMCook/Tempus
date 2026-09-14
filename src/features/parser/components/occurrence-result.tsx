@@ -1,7 +1,6 @@
 import { useMemo, useState } from "react";
 import { flushSync } from "react-dom";
-import type { Interpretation } from "@/shared/interpret-date";
-import { retainOccurrenceDecisions } from "@/shared/clarify-numeric-date";
+import { appendSelection, type ParseResult } from "@/shared/sdk";
 import { Button } from "@/components/ui/button";
 import { safeFormatDate, resultClockFormat } from "../options";
 import { useCalendarPreparation } from "../use-calendar-preparation";
@@ -17,7 +16,7 @@ export function OccurrenceResult({
   reference,
   onChangeInterpretation,
 }: {
-  interpretation: Extract<Interpretation, { status: "resolved" }>;
+  interpretation: Extract<ParseResult, { status: "resolved" }>;
   expression: string;
   reference: string;
   onChangeInterpretation: () => void;
@@ -28,7 +27,7 @@ export function OccurrenceResult({
   const [format, setFormat] = useState<ScheduleCopyFormat>("text");
   const [page, setPage] = useState(0);
   const [attempt, setAttempt] = useState(0);
-  const { decisions, setDecisions } = useRecurrenceDecisions();
+  const { selection, setSelection } = useRecurrenceDecisions();
   const value = interpretation.value;
   const bounded = value.kind === "recurrence" && Boolean(value.rule.count || value.rule.until);
   const request = useMemo(
@@ -37,18 +36,19 @@ export function OccurrenceResult({
         ? {
             interpretation,
             reference,
-            decisions,
+            selection,
             title: "",
             attempt,
             output: "occurrences" as const,
           }
         : undefined,
-    [bounded, interpretation, reference, decisions, attempt],
+    [bounded, interpretation, reference, selection, attempt],
   );
   const preparation = useCalendarPreparation(request);
-  const plan = preparation?.ok ? preparation.plan : undefined;
-  const schedule = bounded && plan?.ok ? plan : value;
-  const ready = !bounded || Boolean(plan?.ok && !plan.truncated);
+  const plan = preparation?.ok ? preparation.result : undefined;
+  const schedule = bounded && plan?.status === "ready" && plan.schedule ? plan.schedule : value;
+  const ready =
+    !bounded || Boolean(plan?.status === "ready" && plan.schedule && !plan.schedule.truncated);
   const copiedText = useMemo(
     () =>
       ready && (schedule.kind === "recurrence" || schedule.kind === "collection")
@@ -88,12 +88,12 @@ export function OccurrenceResult({
       schedule.timezone,
       `EEE, MMM d, yyyy 'at' ${resultClockFormat(result.local)}`,
     ) ?? new Date(result.timestamp).toISOString();
-  const prompt = plan && !plan.ok ? plan.clockPrompt : undefined;
+  const prompt = plan?.status === "needs-clarification" ? plan.clarification : undefined;
   const error =
     preparation && !preparation.ok
       ? preparation.error
-      : plan && !plan.ok
-        ? plan.error.message
+      : plan?.status === "blocked"
+        ? plan.reason
         : undefined;
   return (
     <section
@@ -145,7 +145,9 @@ export function OccurrenceResult({
               className="h-auto min-h-12 whitespace-normal"
               onClick={() => {
                 flushSync(() => {
-                  setDecisions([choice.id, ...retainOccurrenceDecisions(decisions, choice.id)]);
+                  setSelection(
+                    appendSelection(selection, { contextKey: prompt.contextKey, id: choice.id }),
+                  );
                   setFeedback("");
                   setPage(0);
                 });
@@ -158,8 +160,8 @@ export function OccurrenceResult({
         </div>
       ) : error ? (
         <div className="grid gap-2 text-sm">
-          {plan && !plan.ok ? (
-            <p>{plan.error.hint}</p>
+          {plan?.status === "blocked" ? (
+            <p>{plan.hint}</p>
           ) : (
             <Button variant="outline" onClick={() => setAttempt(attempt + 1)}>
               Try preparing again
@@ -294,12 +296,12 @@ export function OccurrenceResult({
         </mark>
         {expression.slice(interpretation.source.span.end)}
       </p>
-      {clockNotes.length || interpretation.selectedChoice || decisions.length ? (
+      {clockNotes.length || interpretation.selectedChoice || selection ? (
         <div className="grid gap-2 text-sm">
           <Button
             variant="link"
             onClick={() => {
-              setDecisions([]);
+              setSelection(undefined);
               setPage(0);
               setFeedback("");
               onChangeInterpretation();

@@ -1,6 +1,49 @@
 # Tempus release checklist
 
-## Current release candidate — September 13, 2026
+## Calculator-focused publication — September 13, 2026
+
+The user authorized this bounded website/source release. It does not satisfy the independent-user gate for broader product claims or publish the private SDK to npm.
+
+- [x] Calculator-first page, visible operation steps, secondary scheduling examples and updated metadata.
+- [x] Bounded calculator question prefixes preserve input/spans and reject contradictory tense after evaluation. The reviewer’s two counterexamples are protected regressions.
+- [x] 1,181 tests pass; one existing expected failure in the independent ongoing-timezone reader remains. Types, lint, formatting, build and deployment dry run pass.
+- [x] Final three-browser packed-SDK/playground contract replay passes, including questions and tense rejection. Offline/keyboard journeys and nine separately read lifecycle downloads pass. A 390px layout was visually inspected.
+- [x] Fresh blind agent probes: two of six unambiguous questions resolved correctly; four remained unresolved. Both constraint cases remained unresolved. No false resolved result observed in those eight cases; this is not human or broad language evidence.
+- [ ] Source landed and production verified.
+
+Candidate archive SHA-256: `4d955887db8cda1d7406f3b3086a7c4c627227c3c1cf1d74605eb5fafa843470`. [Retained local release evidence](../comparison/evidence/calculator-focus/) and the reproducible app runners identify this scope. Raw build artifacts and browser downloads are under `/tmp/tempus-calculator-release`. Previous deployed version: `2254407e-a2ca-48c1-a4f3-55b5e9213bd4`.
+
+## Active product decision gate
+
+The [product focus](product-focus.md) supersedes competitor-wide parity as the development goal.
+
+- [x] Narrow scope to the explainable engine and reference playground; freeze feature expansion.
+- [x] Inspect pinned timezone guarantees and run a host-offset comparison; retain disagreements and unavailable historical samples.
+- [x] Prepare the [evaluation handoff](../comparison/independent-evaluation/README.md) and blank records; capture candidate SDK identity without claiming a frozen study.
+- [ ] Arrange an independent task author, oracle reviewer and six unfamiliar participants. No outreach has been authorized or performed.
+- [ ] Freeze holdout, artifact identities and task protocol; evaluate complete output and correction, then apply the continuation/maintenance gate.
+- [ ] Obtain physical-device and assistive-technology evidence. Calendar-client imports remain separate from file validation.
+
+## Current local pruning
+
+The follow-up [size-pruning pass](size-pruning.md) is verified locally and unreleased. It removes unused UI, the inactive app shell and 35 direct dependencies without introducing package versions. Final production checks, three-browser engine journeys and offline/file readers pass. CSS is 69% smaller raw; JavaScript is essentially unchanged. The separate Worker experiment was rejected because it broke first offline use and increased combined gzip. The engine contract, matrix and deployment configuration remain unchanged.
+
+## Preceding local consolidation
+
+The bounded engine-first consolidation is **verified locally and not released**. The pruning section above supersedes this pass for application dependencies and delivery evidence; deployment records below describe earlier artifacts, not the current worktree. No push, publication, deployment or calendar writes are authorized for this work.
+
+- [x] Playground parsing uses the public SDK entry. Batch and reusable parsing preserve captured context without repeated snapshots; mutation isolation and malformed-input checks pass.
+- [x] Capture a fresh installed archive before calendar changes, including CPU and sampled-allocation profiles. This baseline already contains context-reuse changes; it cannot measure their benefit retrospectively.
+- [x] Remove the preliminary preview pass for resolved finite schedules and the app's synthetic calculation prop. Full validation remains in the complete recurrence pass. The current suite has 1,164 passing tests and one existing expected failure.
+- [x] Consolidate public calendar preparation and migrate the reference consumer. Final production-built browser lifecycle/offline/keyboard journeys pass in three desktop engines; nine downloads pass separate Python readers.
+- [x] Type clarification dependency families and preserve the selection wire format. Focused invalidation tests and 1,296 before/after valid-ID selection combinations pass; stale input/context preparation is covered at the public boundary.
+- [x] Replay equivalent complete journeys through candidate archive `0d1d2ddb` and the production playground in three browsers. Full results, retained text, precision, boundaries, complete copy data and semantic files agree; ical.js separately expands the expected dates and durations.
+- [x] Finish before/after resource evidence. Export improves; the mixed single-parse median worsens, startup/batches remain similar and combined gzip grows 581 bytes. Measured desktop lanes fit provisional budgets; unmeasured device/rendering/maximum-size/energy gates remain open.
+- [x] Review the final diff and verify checks, 1,164 passing tests plus one existing expected failure, production build and three-browser closeout replay. The large-client-chunk warning remains. Candidate emitted package files match the worktree byte-for-byte; the packed manifest is semantically identical with pnpm's trailing-newline normalization. Product matrix, dependency manifests/lockfile and deployment configuration are unchanged.
+
+The [current evidence report](engine-consolidation-evidence.md) records artifact identities, commands, measurements, failures and limitations. Final results use `candidate/profile`, `candidate/journeys-closeout`, `candidate/worker-final` and `candidate/identity-audit.json`; intermediate reports retain their original scope. Physical devices, energy measurements, independent users and actual calendar-client imports remain unavailable evidence, not implied passes. The [product matrix](product-matrix.md) remains unchanged.
+
+## Historical deployed web refresh — September 13, 2026
 
 **The RedwoodSDK web refresh and complete schedule-output preview are deployed.** The typography follow-up self-hosts Geist and Geist Mono. Bounded schedules can display and copy their complete data as text, Markdown or pretty-printed JSON. Build and actual font rendering/layout checks passed locally and live at 320px, 390px and 1440px. This delivery supersedes the local-only pause below; no calendar account writes or SDK publication were performed.
 

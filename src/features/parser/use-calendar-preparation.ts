@@ -21,7 +21,7 @@ export function useCalendarPreparation(request: CalendarPreparationRequest | und
     const editingTitle =
       previous.current?.interpretation === request.interpretation &&
       previous.current.reference === request.reference &&
-      previous.current.decisions === request.decisions &&
+      previous.current.selection === request.selection &&
       previous.current.title !== request.title;
     previous.current = request;
     let stop: (() => void) | undefined;

@@ -1,11 +1,11 @@
 # Tempus
 
-Turn short English phrases into dates, ranges and repeating patterns. Inspect the interpretation, resolve ambiguous details and copy the result.
+An explainable date engine for short English instructions. Calculate a date, inspect the steps and correct uncertain details. Existing date ranges and repeating patterns are also supported.
 
 [Open Tempus](https://tempus-total.funnydomainname.com/)
 
-1. Enter a phrase.
-2. Check the interpretation. Answer any clarification question; open **Show calculation steps** for date arithmetic.
+1. Enter a calculation, such as `January 31 2027 plus 1 month plus 1 month`.
+2. Check the interpretation. Answer any clarification question; follow the visible calculation steps for date arithmetic.
 3. Copy the result. **Developer tools** exposes JSON; calendar files are another output format.
 
 Calculations run in your browser. Your phrase is sent to the server only if you choose **Check API result**. The starting time stays fixed until you edit the phrase or choose **Refresh now**.
@@ -26,6 +26,10 @@ pnpm dev
 ```
 
 Open the local address printed in the terminal.
+
+## Current direction
+
+Development is focused on the engine and its small reference playground. New feature families are paused while we evaluate whether its arithmetic, explanations and correction help unfamiliar users. See the [product focus and decision gate](docs/product-focus.md).
 
 ## Contribute
 

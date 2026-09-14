@@ -1,0 +1,1 @@
+participant_id,cohort,case_id,tool,artifact_sha256,interface_build_id,tool_order,device_browser,unassisted_correct,assisted,accepted_wrong,abstained,correction_attempts,elapsed_seconds,final_output_file,confusion_notes,concrete_benefit,would_use_again,participant_explanation

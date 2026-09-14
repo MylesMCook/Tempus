@@ -1,10 +1,16 @@
 # Tempus product matrix
 
+**Scope decision:** [Product focus and decision gate](product-focus.md) supersedes the broad competitor-parity goal below. This matrix is retained as an inventory and historical comparison, not a requirement to implement every competitor capability. New feature families are paused; existing supported behavior remains protected.
+
 **Product boundary (September 13, 2026):** Tempus interprets natural language as date data. This matrix uses reminder and scheduling tasks to evaluate interpretation, correction and outputs. Delivering reminders or managing calendar accounts belongs to applications built on Tempus; neither is a missing native product feature.
 
-This matrix is the acceptance contract for the calculator, guided short-English scheduling app and TypeScript library. The goal remains incomplete. Use the [release checklist](release-checklist.md) for current artifact identities and evidence, and [tasks.md](../tasks.md) for active work.
+The active acceptance contract is the explainable engine and its evaluation gate. The wider capability inventory below remains incomplete. Use the [release checklist](release-checklist.md) for current artifact identities and evidence, and [tasks.md](../tasks.md) for active work.
 
 Performance and resource use are acceptance criteria alongside complete journeys, correctness and independent evaluation. No-model operation is not evidence of low cost; authored tests are not evidence of overall superiority.
+
+## Updated arithmetic evidence
+
+[Direct gpu-time 0.3.0 probes](arithmetic-comparison.md) demonstrate written-order relative shifts, per-step month-end clamping and DST-aware day/hour arithmetic. Earlier failures on Tempus’s five anchored/fractional expressions are grammar-specific evidence, not proof those underlying arithmetic capabilities are absent. The historical baseline below remains versioned.
 
 ## Baseline and scope
 
