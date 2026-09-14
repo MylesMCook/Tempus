@@ -87,7 +87,7 @@ export function ApiDocs({
     <div className="grid min-w-0 gap-5 text-sm leading-relaxed">
       <div className="grid gap-3">
         <p className="text-muted-foreground">
-          Send this calculation to the server and compare the dates.
+          Send this request to the server and compare the dates.
         </p>
         {!hasExpression ? (
           <p className="rounded-lg bg-muted/60 px-4 py-3">
@@ -108,7 +108,8 @@ export function ApiDocs({
           ) : null}
         </div>
         <p className="text-xs leading-relaxed text-muted-foreground">
-          Sends your phrase and settings to Cloudflare. Avoid private information.{" "}
+          Sends the phrase or interpreted expression shown below, plus your settings, to Cloudflare.
+          Avoid private information.{" "}
           <a className="underline underline-offset-4" href="/privacy">
             Privacy details
           </a>

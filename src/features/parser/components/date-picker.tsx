@@ -510,7 +510,8 @@ export function DatePicker({
         </RecurrenceDecisionsProvider>
       </section>
       <p className="px-1 text-xs leading-relaxed text-muted-foreground">
-        Copy JSON stays on your device. API compare sends the parsed expression to this server.
+        Copy JSON stays on your device. API compare sends the phrase you typed, or the interpreted
+        expression for a single-date result, to this server.
       </p>
       <details className="px-1 text-sm">
         <summary className="cursor-pointer py-3 font-medium text-foreground focus-visible:outline focus-visible:outline-2">
