@@ -132,12 +132,15 @@ export function DatePicker({
     }
   };
   return (
-    <div className="grid gap-4">
-      <section aria-label="Date calculator" className="rounded-xl border bg-background p-4 sm:p-5">
+    <div className="grid min-w-0 gap-4">
+      <section
+        aria-label="Date calculator"
+        className="min-w-0 rounded-xl border bg-background p-4 sm:p-5"
+      >
         <Label htmlFor="date-expression" className="text-sm font-medium text-muted-foreground">
           What date do you need?
         </Label>
-        <div className="mt-2 flex items-start gap-2">
+        <div className="mt-2 flex min-w-0 items-start gap-2">
           <textarea
             id="date-expression"
             disabled={!ready}
@@ -161,8 +164,9 @@ export function DatePicker({
             spellCheck={false}
             maxLength={200}
             rows={2}
+            cols={1}
             placeholder="e.g. today plus 2 weeks"
-            className="min-h-12 min-w-0 flex-1 resize-none rounded-md border border-input bg-background px-3 py-2 text-base leading-snug ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+            className="min-h-12 min-w-0 w-full flex-1 resize-none rounded-md border border-input bg-background px-3 py-2 text-base leading-snug ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
           />
           {expression ? (
             <Button
@@ -586,8 +590,8 @@ export function DatePicker({
           </Disclosure>
         </RecurrenceDecisionsProvider>
       </section>
-      <Disclosure className="px-1 text-sm">
-        <summary className="cursor-pointer py-3 text-muted-foreground hover:text-foreground focus-visible:outline focus-visible:outline-2">
+      <Disclosure className="min-w-0 max-w-full px-1 text-sm">
+        <summary className="cursor-pointer whitespace-normal break-words py-3 text-muted-foreground hover:text-foreground focus-visible:outline focus-visible:outline-2">
           <span>Developer tools</span>
           <span className="mt-1 block text-xs font-normal leading-relaxed">
             Copy JSON stays on your device. API compare sends the phrase you typed, or the

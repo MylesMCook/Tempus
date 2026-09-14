@@ -65,10 +65,11 @@ try {
       assert.ok(
         copied.includes(visible) && copied.includes(clock) && copied.includes("America/Chicago"),
       );
-      const developer = page.getByText("Developer tools", { exact: true });
-      const details = page.locator("details").filter({ has: developer });
+      const details = page
+        .locator("details")
+        .filter({ has: page.getByText("Developer tools", { exact: true }) });
       if (!(await details.evaluate((el) => el.open))) {
-        await developer.focus();
+        await details.locator("summary").first().focus();
         await page.keyboard.press("Enter");
       }
       const replay = page.getByRole("button", { name: "Check API result", exact: true });

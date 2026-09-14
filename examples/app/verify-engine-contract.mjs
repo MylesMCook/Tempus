@@ -88,9 +88,11 @@ try {
           name === "chromium",
         );
       const inspect = async () => {
-        const summary = page.getByText("Developer tools", { exact: true });
-        const details = page.locator("details").filter({ has: summary });
-        if (!(await details.evaluate((el) => el.open))) await activate(summary);
+        const details = page
+          .locator("details")
+          .filter({ has: page.getByText("Developer tools", { exact: true }) });
+        if (!(await details.evaluate((el) => el.open)))
+          await activate(details.locator("summary").first());
         await activate(
           page.getByRole("button", { name: "Copy parser response JSON", exact: true }),
         );
