@@ -3,7 +3,12 @@ import headers from "../../../public/_headers?raw";
 import documentWorker from "../../worker.tsx?raw";
 import { parse } from "@/shared/sdk";
 import type { CalendarPreparationRequest } from "./calendar-preparation";
-import { startCalendarPreparation } from "./start-calendar-preparation";
+import engineApp from "../../engine-app.tsx?raw";
+import {
+  calendarPreparationWorker,
+  preloadCalendarPreparationWorker,
+  startCalendarPreparation,
+} from "./start-calendar-preparation";
 
 const mock = vi.hoisted(() => {
   const state = { failStartup: false, failPost: false };
@@ -39,8 +44,39 @@ beforeEach(() => {
   mock.instances.length = 0;
   mock.state.failStartup = false;
   mock.state.failPost = false;
+  calendarPreparationWorker.pending = undefined;
 });
-afterEach(() => vi.unstubAllGlobals());
+afterEach(() => {
+  vi.restoreAllMocks();
+  vi.unstubAllGlobals();
+});
+
+it("preloads the worker from the client app without constructing it", async () => {
+  expect(engineApp).toContain("preloadCalendarPreparationWorker");
+  await preloadCalendarPreparationWorker();
+  expect(mock.instances).toHaveLength(0);
+});
+
+it("retries after the worker module fails to load", async () => {
+  const load = vi
+    .spyOn(calendarPreparationWorker, "importModule")
+    .mockRejectedValueOnce(new Error("Failed to load worker module"))
+    .mockResolvedValue({ default: mock.Worker as unknown as new () => Worker });
+  const complete = vi.fn();
+  startCalendarPreparation(request, complete);
+  await vi.waitFor(() => expect(complete).toHaveBeenCalledOnce());
+  expect(complete).toHaveBeenCalledExactlyOnceWith({
+    ok: false,
+    reason: "worker-unavailable",
+    error: expect.stringContaining("reconnect and reload"),
+  });
+  const retry = vi.fn();
+  startCalendarPreparation({ ...request, attempt: 1 }, retry);
+  await vi.waitFor(() => expect(mock.instances).toHaveLength(1));
+  mock.instances[0].onmessage?.({ data: { ok: true, plan: undefined } });
+  expect(retry).toHaveBeenCalledOnce();
+  expect(load).toHaveBeenCalledTimes(2);
+});
 
 it("permits bundled blob workers without broadening script execution in shipped CSP", () => {
   const policy = headers.match(/Content-Security-Policy: (.+)/)?.[1];

@@ -4,12 +4,26 @@ import type {
 } from "./calendar-preparation";
 
 type CalendarPreparationWorkerConstructor = new () => Worker;
+type CalendarPreparationWorkerModule = { default: CalendarPreparationWorkerConstructor };
 
-let bundledWorkerModule: Promise<{ default: CalendarPreparationWorkerConstructor }> | undefined;
+export const calendarPreparationWorker = {
+  pending: undefined as Promise<CalendarPreparationWorkerModule> | undefined,
+  importModule: () => import("./calendar-preparation.worker.ts?worker&inline"),
+};
 
 function loadBundledWorker() {
-  bundledWorkerModule ??= import("./calendar-preparation.worker.ts?worker&inline");
-  return bundledWorkerModule;
+  calendarPreparationWorker.pending ??= calendarPreparationWorker
+    .importModule()
+    .catch((error: unknown) => {
+      calendarPreparationWorker.pending = undefined;
+      throw error;
+    });
+  return calendarPreparationWorker.pending;
+}
+
+/** Fetch the worker chunk during client startup so later offline use needs no network. */
+export function preloadCalendarPreparationWorker() {
+  return loadBundledWorker().then(() => undefined);
 }
 
 /** Bundle the worker with the app so its first use needs no network request. */
