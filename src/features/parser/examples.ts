@@ -33,13 +33,24 @@ export const examples = {
   ],
 };
 
-/** Empty-state chips. Subset of `examples`; Browse examples keeps the full catalog. */
-export const featuredExamples = [
-  "today plus 2 weeks minus 3 days",
-  "jan 31 2026 plus 1 month plus 1 month",
-  "2 weeks after dec 25",
-  "Call Sam tomorrow at noon",
-  "tomorrow from 2pm to 4pm",
-  "friday next week",
-  "every Monday at noon for 5 occurrences",
+/** Empty-state chips, grouped. Subset of `examples`; Browse examples keeps the full catalog. */
+export const featuredExampleGroups = [
+  {
+    label: "Date math",
+    phrases: ["today plus 2 weeks minus 3 days", "jan 31 2026 plus 1 month plus 1 month"],
+  },
+  {
+    label: "Named dates",
+    phrases: ["2 weeks after dec 25", "friday next week"],
+  },
+  {
+    label: "Schedules",
+    phrases: [
+      "Call Sam tomorrow at noon",
+      "tomorrow from 2pm to 4pm",
+      "every Monday at noon for 5 occurrences",
+    ],
+  },
 ] as const;
+
+export const featuredExamples = featuredExampleGroups.flatMap((group) => [...group.phrases]);

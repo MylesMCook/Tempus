@@ -175,6 +175,7 @@ it("keeps empty-state chips inside the advertised catalog", () => {
   const catalog = new Set(Object.values(examples).flat());
   expect(featuredExamples.length).toBeGreaterThanOrEqual(5);
   expect(featuredExamples.length).toBeLessThanOrEqual(8);
+  expect(new Set(featuredExamples).size).toBe(featuredExamples.length);
   for (const phrase of featuredExamples) expect(catalog.has(phrase), phrase).toBe(true);
 });
 
