@@ -45,6 +45,17 @@ it("marks the starting date as current when there are no steps", () => {
   expect(headingBefore(html, "Starting date")).not.toContain("bg-muted-foreground");
 });
 
+it("keeps calculation steps closed until opened", () => {
+  const html = renderToStaticMarkup(
+    <CalculationTrace calculation={pointCalculation("today plus 2 weeks minus 3 days")} />,
+  );
+  expect(html).toContain("Show calculation steps");
+  expect(html).toContain("Calculation inputs");
+  const detailsTags = html.match(/<details\b[^>]*>/g) ?? [];
+  expect(detailsTags.length).toBeGreaterThan(0);
+  expect(detailsTags.every((tag) => !/\sopen(?:[\s>=]|$)/.test(tag))).toBe(true);
+});
+
 it("keeps the starting date a non-current marker when later steps exist", () => {
   const calculation = pointCalculation("6 months before September 14 2026");
   expect(calculation.steps.length).toBeGreaterThan(0);

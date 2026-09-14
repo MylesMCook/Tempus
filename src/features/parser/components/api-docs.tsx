@@ -210,6 +210,7 @@ export function ApiDocs({
               Request URL
               <input
                 readOnly
+                size={1}
                 value={url}
                 className="min-w-0 w-full rounded-md border bg-muted/40 px-3 py-2 font-mono text-xs text-foreground focus-visible:outline focus-visible:outline-2"
               />

@@ -36,7 +36,7 @@ function CodeSample({ label, children }: { label: string; children: string }) {
       role="region"
       aria-label={label}
       onKeyDown={onCodeSampleKeyDown}
-      className="mt-4 overflow-x-auto rounded-md border bg-background p-4 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+      className="mt-4 overflow-x-auto whitespace-pre-wrap break-all rounded-md border bg-background p-4 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 sm:break-normal sm:whitespace-pre"
     >
       <code>{children}</code>
     </pre>
@@ -63,7 +63,7 @@ function SpecList({
 export function DevelopersPage() {
   return (
     <main id="main" className="t-page-enter mx-auto max-w-3xl px-4 py-10 sm:px-8">
-      <h1 className="text-3xl font-semibold tracking-tight">Developers</h1>
+      <h1 className="text-lg font-semibold tracking-tight sm:text-xl">Developers</h1>
       <p className="mt-3 max-w-2xl text-base leading-relaxed text-muted-foreground">
         Parse English into dates. Use the playground, the unpublished TypeScript package, or{" "}
         <code className="text-foreground">GET /api/parse</code>.
@@ -85,7 +85,7 @@ export function DevelopersPage() {
           </li>
           <li className="flex flex-col gap-1 py-4 sm:flex-row sm:items-baseline sm:gap-8">
             <a
-              className="shrink-0 py-1 font-medium text-primary underline underline-offset-4 sm:w-40"
+              className="shrink-0 py-1 font-medium text-foreground underline underline-offset-4 sm:w-40"
               href="#package"
             >
               TypeScript package
@@ -97,7 +97,7 @@ export function DevelopersPage() {
           </li>
           <li className="flex flex-col gap-1 py-4 sm:flex-row sm:items-baseline sm:gap-8">
             <a
-              className="shrink-0 py-1 font-medium text-primary underline underline-offset-4 sm:w-40"
+              className="shrink-0 py-1 font-medium text-foreground underline underline-offset-4 sm:w-40"
               href="#api"
             >
               HTTP API

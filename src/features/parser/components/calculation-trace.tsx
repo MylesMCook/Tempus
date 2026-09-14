@@ -64,7 +64,7 @@ export function CalculationTrace({ calculation }: { calculation: Calculation }) 
   const inputsHeadingId = useId();
   const lastIndex = calculation.ok ? calculation.steps.length - 1 : -1;
   return (
-    <Disclosure open={calculation.ok && calculation.steps.length > 0} className="mt-5 border-t">
+    <Disclosure className="mt-5 border-t">
       <summary className="cursor-pointer py-3 text-sm font-medium focus-visible:outline focus-visible:outline-2">
         Show calculation steps
       </summary>
@@ -98,42 +98,47 @@ export function CalculationTrace({ calculation }: { calculation: Calculation }) 
           {!calculation.steps.length ? (
             <p>No time changes needed. The starting date is the result.</p>
           ) : null}
-          <section aria-labelledby={inputsHeadingId} className="rounded-md bg-muted/50 px-3 py-3">
-            <h3 id={inputsHeadingId} className="text-sm font-medium">
+          <Disclosure>
+            <summary
+              id={inputsHeadingId}
+              className="cursor-pointer rounded-md bg-muted/50 px-3 py-3 text-sm text-muted-foreground hover:text-foreground focus-visible:outline focus-visible:outline-2"
+            >
               Calculation inputs
-            </h3>
-            <dl className="mt-3 grid gap-3">
-              <div>
-                <dt className="text-sm text-muted-foreground">Timezone</dt>
-                <dd className="mt-0.5 font-medium">{calculation.timezone}</dd>
-              </div>
-              <div>
-                <dt className="text-sm text-muted-foreground">Calendar day</dt>
-                <dd className="mt-0.5 leading-relaxed">
-                  Follows the local clock. 24 hours is elapsed time.
-                </dd>
-              </div>
-              <div>
-                <dt className="text-sm text-muted-foreground">Read as</dt>
-                <dd className="mt-0.5 break-words font-medium">{calculation.normalized}</dd>
-              </div>
-            </dl>
-            <Disclosure className="mt-3">
-              <summary className="cursor-pointer text-sm text-muted-foreground hover:text-foreground focus-visible:outline focus-visible:outline-2">
-                Exact UTC values
-              </summary>
-              <dl className="mt-2 grid gap-2 text-xs">
+            </summary>
+            <section aria-labelledby={inputsHeadingId} className="px-3 pb-3">
+              <dl className="mt-3 grid gap-3">
                 <div>
-                  <dt className="text-muted-foreground">Reference instant</dt>
-                  <dd className="break-all font-mono">{calculation.reference}</dd>
+                  <dt className="text-sm text-muted-foreground">Timezone</dt>
+                  <dd className="mt-0.5 font-medium">{calculation.timezone}</dd>
                 </div>
                 <div>
-                  <dt className="text-muted-foreground">Result in UTC</dt>
-                  <dd className="break-all font-mono">{calculation.result.iso}</dd>
+                  <dt className="text-sm text-muted-foreground">Calendar day</dt>
+                  <dd className="mt-0.5 leading-relaxed">
+                    Follows the local clock. 24 hours is elapsed time.
+                  </dd>
+                </div>
+                <div>
+                  <dt className="text-sm text-muted-foreground">Read as</dt>
+                  <dd className="mt-0.5 break-words font-medium">{calculation.normalized}</dd>
                 </div>
               </dl>
-            </Disclosure>
-          </section>
+              <Disclosure className="mt-3">
+                <summary className="cursor-pointer text-sm text-muted-foreground hover:text-foreground focus-visible:outline focus-visible:outline-2">
+                  Exact UTC values
+                </summary>
+                <dl className="mt-2 grid gap-2 text-xs">
+                  <div>
+                    <dt className="text-muted-foreground">Reference instant</dt>
+                    <dd className="break-all font-mono">{calculation.reference}</dd>
+                  </div>
+                  <div>
+                    <dt className="text-muted-foreground">Result in UTC</dt>
+                    <dd className="break-all font-mono">{calculation.result.iso}</dd>
+                  </div>
+                </dl>
+              </Disclosure>
+            </section>
+          </Disclosure>
         </div>
       )}
     </Disclosure>

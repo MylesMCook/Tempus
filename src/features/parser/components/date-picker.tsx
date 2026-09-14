@@ -16,7 +16,7 @@ import { OccurrenceResult } from "./occurrence-result";
 import { IntervalResult } from "./interval-result";
 import { CalendarExport } from "./calendar-export";
 import { ApiDocs } from "./api-docs";
-import { examples, featuredExamples } from "../examples";
+import { examples, featuredExampleGroups } from "../examples";
 
 async function copy(value: string, label: string, notify = true) {
   try {
@@ -132,53 +132,46 @@ export function DatePicker({
     }
   };
   return (
-    <div className="grid gap-4">
-      <section aria-label="Date calculator" className="rounded-xl border bg-background p-4 sm:p-5">
+    <div className="grid min-w-0 gap-4">
+      <section
+        aria-label="Date calculator"
+        className="min-w-0 rounded-xl border bg-background p-4 sm:p-5"
+      >
         <Label htmlFor="date-expression" className="text-sm font-medium text-muted-foreground">
           What date do you need?
         </Label>
-        <Input
-          id="date-expression"
-          disabled={!ready}
-          aria-describedby={
-            expression.trim() && interpretation.status !== "resolved"
-              ? "phrase-help calculation-error"
-              : "phrase-help"
-          }
-          aria-invalid={Boolean(
-            expression.trim() &&
-            !clarification &&
-            interpretation.status !== "resolved" &&
-            error?.code !== "timezone",
-          )}
-          value={expression}
-          onChange={(event) => onExpressionChange(event.target.value)}
-          autoComplete="off"
-          spellCheck={false}
-          placeholder="e.g. today plus 2 weeks minus 3 days"
-          className="mt-2 h-12 text-base"
-        />
-        <div className="mt-2 flex min-h-9 items-start justify-between gap-2 text-sm text-muted-foreground">
-          <p id="phrase-help" className="leading-relaxed">
-            {ready ? (
-              <>
-                On this device · up to 200 characters.{" "}
-                <button
-                  type="button"
-                  className="text-foreground underline underline-offset-4 hover:text-primary focus-visible:outline focus-visible:outline-2"
-                  onClick={openTimezoneSettings}
-                >
-                  Using {settings.timezone} — change
-                </button>
-              </>
-            ) : (
-              "Loading the date tools…"
+        <div className="mt-2 flex min-w-0 items-start gap-2">
+          <textarea
+            id="date-expression"
+            disabled={!ready}
+            aria-describedby={
+              expression.trim() && interpretation.status !== "resolved"
+                ? "phrase-help calculation-error"
+                : "phrase-help"
+            }
+            aria-invalid={Boolean(
+              expression.trim() &&
+              !clarification &&
+              interpretation.status !== "resolved" &&
+              error?.code !== "timezone",
             )}
-          </p>
+            value={expression}
+            onChange={(event) => onExpressionChange(event.target.value.replaceAll("\n", " "))}
+            onKeyDown={(event) => {
+              if (event.key === "Enter") event.preventDefault();
+            }}
+            autoComplete="off"
+            spellCheck={false}
+            rows={2}
+            cols={1}
+            placeholder="e.g. today plus 2 weeks"
+            className="min-h-12 min-w-0 w-full flex-1 resize-none rounded-md border border-input bg-background px-3 py-2 text-base leading-snug ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+          />
           {expression ? (
             <Button
               variant="ghost"
               size="sm"
+              className="mt-0.5 shrink-0"
               onClick={() => {
                 onExpressionChange("");
                 document.getElementById("date-expression")?.focus();
@@ -188,22 +181,47 @@ export function DatePicker({
             </Button>
           ) : null}
         </div>
-        {!hasExpression ? (
-          <div className="mt-3 flex flex-wrap gap-2" role="group" aria-label="Try a phrase">
-            {featuredExamples.map((phrase) => (
-              <Button
-                key={phrase}
+        <p id="phrase-help" className="mt-2 text-sm leading-relaxed text-muted-foreground">
+          {ready ? (
+            <>
+              On this device · up to 200 characters.{" "}
+              <button
                 type="button"
-                disabled={!ready}
-                variant="secondary"
-                className="h-auto min-h-11 whitespace-normal text-left font-normal"
-                onClick={() => {
-                  onExpressionChange(phrase);
-                  document.getElementById("date-expression")?.focus();
-                }}
+                className="text-foreground underline underline-offset-4 hover:text-primary focus-visible:outline focus-visible:outline-2"
+                onClick={openTimezoneSettings}
               >
-                {phrase}
-              </Button>
+                Using {settings.timezone} — change
+              </button>
+            </>
+          ) : (
+            "Loading the date tools…"
+          )}
+        </p>
+        {!hasExpression ? (
+          <div className="mt-3 grid gap-3" role="group" aria-label="Try a phrase">
+            {featuredExampleGroups.map((group) => (
+              <fieldset key={group.label} className="m-0 min-w-0 border-0 p-0">
+                <legend className="float-none mb-1.5 w-full p-0 text-xs font-medium text-muted-foreground">
+                  {group.label}
+                </legend>
+                <div className="flex flex-wrap gap-2">
+                  {group.phrases.map((phrase) => (
+                    <Button
+                      key={phrase}
+                      type="button"
+                      disabled={!ready}
+                      variant="secondary"
+                      className="h-auto min-h-11 whitespace-normal text-left font-normal"
+                      onClick={() => {
+                        onExpressionChange(phrase);
+                        document.getElementById("date-expression")?.focus();
+                      }}
+                    >
+                      {phrase}
+                    </Button>
+                  ))}
+                </div>
+              </fieldset>
             ))}
           </div>
         ) : null}
@@ -351,6 +369,20 @@ export function DatePicker({
                           )}
                     </p>
                   </div>
+                  <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1">
+                    <p className="text-xs text-muted-foreground">
+                      Time stays fixed until you edit or refresh.
+                    </p>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="h-8 px-2 text-xs"
+                      onClick={onRefresh}
+                    >
+                      <RotateCcw className="mr-1 size-3" />
+                      Refresh now
+                    </Button>
+                  </div>
                   {interpretation.status === "resolved" && interpretation.event ? (
                     <div className="mt-4 grid gap-2 border-t pt-4 text-sm">
                       <p className="break-words">
@@ -432,13 +464,7 @@ export function DatePicker({
                 <CalculationTrace calculation={calculation} />
               ) : null}
 
-              <CalendarExport
-                reference={reference}
-                key={JSON.stringify([expression, reference, settings.timezone, interpretation])}
-                interpretation={interpretation}
-              />
-
-              {hasExpression ? (
+              {hasExpression && !(calculation && !interval && !recurrence) ? (
                 <div className="mt-3 flex flex-wrap items-center justify-between gap-x-2 text-xs text-muted-foreground">
                   <span>Time stays fixed until you edit or refresh.</span>
                   <Button variant="ghost" size="sm" onClick={onRefresh}>
@@ -447,11 +473,17 @@ export function DatePicker({
                   </Button>
                 </div>
               ) : null}
+
+              <CalendarExport
+                reference={reference}
+                key={JSON.stringify([expression, reference, settings.timezone, interpretation])}
+                interpretation={interpretation}
+              />
             </div>
           ) : null}
 
           <Disclosure id="timezone-settings" className="mt-3 border-t">
-            <summary className="cursor-pointer py-3 text-sm font-medium focus-visible:outline focus-visible:outline-2">
+            <summary className="cursor-pointer py-3 text-sm text-muted-foreground hover:text-foreground focus-visible:outline focus-visible:outline-2">
               Change timezone or format
             </summary>
             <div className="grid gap-4 pb-4 pt-2">
@@ -557,13 +589,13 @@ export function DatePicker({
           </Disclosure>
         </RecurrenceDecisionsProvider>
       </section>
-      <p className="px-1 text-xs leading-relaxed text-muted-foreground">
-        Copy JSON stays on your device. API compare sends the phrase you typed, or the interpreted
-        expression for a single-date result, to this server.
-      </p>
-      <Disclosure className="px-1 text-sm">
-        <summary className="cursor-pointer py-3 font-medium text-foreground focus-visible:outline focus-visible:outline-2">
-          Developer tools
+      <Disclosure className="min-w-0 max-w-full px-1 text-sm">
+        <summary className="cursor-pointer whitespace-normal break-words py-3 text-muted-foreground hover:text-foreground focus-visible:outline focus-visible:outline-2">
+          <span>Developer tools</span>
+          <span className="mt-1 block text-xs font-normal leading-relaxed">
+            Copy JSON stays on your device. API compare sends the phrase you typed, or the
+            interpreted expression for a single-date result, to this server.
+          </span>
         </summary>
         <div className="mt-1 grid min-w-0 gap-5 rounded-xl border bg-background p-4 sm:p-5">
           <p className="leading-relaxed text-muted-foreground">

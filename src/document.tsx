@@ -3,6 +3,10 @@ import { requestInfo } from "rwsdk/worker";
 import styles from "./index.css?url";
 
 export function Document({ children }: { children: ReactNode }) {
+  const path = requestInfo.path;
+  const onHome = path === "/";
+  const onDevelopers = path === "/developers";
+  const onPrivacy = path === "/privacy";
   return (
     <html lang="en">
       <head>
@@ -35,13 +39,19 @@ export function Document({ children }: { children: ReactNode }) {
           >
             <a
               href="/"
+              aria-current={onHome ? "page" : undefined}
               className="text-[1.0625rem] font-semibold tracking-[-0.03em] focus-visible:outline focus-visible:outline-2 sm:text-lg"
             >
               Tempus<span className="text-primary">.</span>
             </a>
             <a
               href="/developers"
-              className="py-1 text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline focus-visible:outline-2"
+              aria-current={onDevelopers ? "page" : undefined}
+              className={`py-1 text-sm transition-colors focus-visible:outline focus-visible:outline-2 ${
+                onDevelopers
+                  ? "font-medium text-foreground"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
             >
               Build with Tempus
             </a>
@@ -74,9 +84,13 @@ export function Document({ children }: { children: ReactNode }) {
         {children}
         <footer className="mx-auto flex max-w-3xl flex-wrap items-center justify-between gap-4 border-t px-4 py-5 text-sm text-muted-foreground sm:px-8">
           <span>Natural language. Inspectable dates.</span>
-          <a href="/privacy" className="py-3 underline-offset-4 hover:underline">
-            Privacy policy
-          </a>
+          {onPrivacy ? (
+            <span>Privacy policy</span>
+          ) : (
+            <a href="/privacy" className="py-3 underline-offset-4 hover:underline">
+              Privacy policy
+            </a>
+          )}
         </footer>
         <script nonce={requestInfo.rw.nonce} type="module" src="/src/client.tsx" />
       </body>
