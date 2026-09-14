@@ -4,13 +4,13 @@
 
 One reusable TypeScript engine produces inspectable dates, intervals and schedules. The website is its reference consumer. Use the [product focus](docs/product-focus.md); retain the [matrix](docs/product-matrix.md) as an inventory, not a parity backlog. New feature families are paused. The user now authorizes publishing the tested calculator-focused iteration through the normal Git/Cloudflare release path. No calendar writes or unrelated service changes. The private SDK is not being published to npm.
 
-## Active Writer and UI pass
+## Completed Writer and UI pass
 
 - [x] Shorten site copy and primary docs; keep rules, warnings and technical contracts precise.
 - [x] Compact the calculation trace and remove duplicate schedule output; preserve correction, previews and export.
 - [x] Separate quickstarts/current status from reference material and historical evidence.
 - [x] Verify links, examples, copy-dependent tests and browser layout.
-- [ ] Publish the checked copy update through the established release path.
+- [x] Merged PR #6 as `6c8a414`; deployed `228380e5-5b2f-4ec9-8ca4-69adebe55f4d`. Both hosts and three-browser live journeys pass. [Review and evidence](docs/writer-ui-review.md).
 
 ## Completed calculator release
 
