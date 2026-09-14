@@ -1,8 +1,6 @@
 import { execFileSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
-import { join } from "node:path";
 
-const dir = fileURLToPath(new URL(".", import.meta.url));
 const examples = [
   "node.mjs",
   "state.mjs",
