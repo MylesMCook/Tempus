@@ -62,6 +62,8 @@ export function DatePicker({
 }) {
   const { settings, ready, settingsSaved, effectiveDateFormat, updateSettings, resetSettings } =
     useSettings();
+  const clarification =
+    interpretation.status === "needs-clarification" ? interpretation.clarification : undefined;
   const recurrence =
     interpretation.status === "resolved" &&
     (interpretation.value.kind === "recurrence" || interpretation.value.kind === "collection");
@@ -95,7 +97,10 @@ export function DatePicker({
               : "phrase-help"
           }
           aria-invalid={Boolean(
-            expression.trim() && interpretation.status !== "resolved" && error?.code !== "timezone",
+            expression.trim() &&
+            !clarification &&
+            interpretation.status !== "resolved" &&
+            error?.code !== "timezone",
           )}
           value={expression}
           onChange={(event) => onExpressionChange(event.target.value)}
@@ -196,10 +201,14 @@ export function DatePicker({
             <section
               id="calculation-error"
               tabIndex={-1}
-              role="alert"
-              className="rounded-md border border-destructive/40 p-3"
+              role={clarification ? "status" : "alert"}
+              className={`rounded-md border p-3 ${clarification ? "border-border" : "border-destructive/40"}`}
             >
-              <h2 className="font-semibold text-destructive">{error.message}</h2>
+              <h2
+                className={`font-semibold ${clarification ? "text-foreground" : "text-destructive"}`}
+              >
+                {error.message}
+              </h2>
               <p className="mt-2 text-sm">{error.hint}</p>
               {interpretation.status === "needs-clarification" && interpretation.clarification ? (
                 <div
@@ -451,9 +460,18 @@ export function DatePicker({
                     value={settings.customFormat}
                     maxLength={50}
                     aria-invalid={Boolean(calculation && formatted === null)}
-                    aria-describedby="format-help"
+                    aria-describedby={
+                      calculation && formatted === null
+                        ? "format-help custom-format-error"
+                        : "format-help"
+                    }
                     onChange={(event) => updateSettings({ customFormat: event.target.value })}
                   />
+                  {calculation && formatted === null ? (
+                    <p id="custom-format-error" role="status" className="text-sm text-destructive">
+                      This format could not be applied. Check the tokens below or use yyyy-MM-dd.
+                    </p>
+                  ) : null}
                   <p id="format-help" className="text-xs text-muted-foreground">
                     Use yyyy for year, MM for month, dd for day, HH:mm for time. Example: yyyy-MM-dd
                     HH:mm.

@@ -4,6 +4,15 @@
 
 One reusable TypeScript engine produces inspectable dates, intervals and schedules. The website is its reference consumer. Use the [product focus](docs/product-focus.md); retain the [matrix](docs/product-matrix.md) as an inventory, not a parity backlog. New feature families are paused. The user now authorizes publishing the tested calculator-focused iteration through the normal Git/Cloudflare release path. No calendar writes or unrelated service changes. The private SDK is not being published to npm.
 
+## Active Copilot critique pass
+
+[Reviews, triage and evidence](comparison/copilot-review/README.md). Copilot CLI 1.0.83 installed through `gh copilot` and authenticated using the existing GitHub credential.
+
+- [x] Run distinct Copilot models as occasional user, keyboard power user and SDK integrator.
+- [x] Reproduce findings and select small fixes within existing supported behavior.
+- [ ] Verify affected journeys and release checks; merge and deploy.
+- [x] Record rejected findings and remaining gaps; synthetic critiques are not user studies.
+
 ## Completed Writer and UI pass
 
 - [x] Shorten site copy and primary docs; keep rules, warnings and technical contracts precise.
