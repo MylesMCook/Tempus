@@ -486,11 +486,11 @@ export function interpretRecurrence(
       if (!ending && !count) return monthlyPrompt();
       // Compare the entire finite schedule, not the preview. Unknown count policies
       // remain alternatives; an answered policy must constrain this comparison.
-      const scheduleFor = (
+      const scheduleFor = function* (
         shortMonth: MonthlyCadence["shortMonth"],
         past: "consume" | "upcoming" | undefined,
         excluded: "consume" | "replace" | undefined,
-      ): { ok: true; dates: string[]; fulfilled: boolean } | RecurrenceFailure => {
+      ): Generator<string, { ok: true; fulfilled: boolean } | RecurrenceFailure> {
         const rule = { ...monthlyRule, shortMonth };
         const from =
           past === "consume" || Temporal.PlainDate.compare(beginning, today) > 0
@@ -498,7 +498,6 @@ export function interpretRecurrence(
             : today;
         let candidate = nextMonthlyDate(from, rule);
         let slots = 0;
-        const dates: string[] = [];
         while (
           (!ending || Temporal.PlainDate.compare(candidate, ending) <= 0) &&
           candidate.year <= 9999
@@ -525,12 +524,12 @@ export function interpretRecurrence(
           }
           if ((!isPast || past === "consume") && (!isExcluded || excluded === "consume")) {
             slots++;
-            if (!isPast && !isExcluded) dates.push(key);
+            if (!isPast && !isExcluded) yield key;
             if (count && slots === count) break;
           }
           candidate = nextMonthlyDate(candidate.add({ days: 1 }), rule);
         }
-        return { ok: true, dates, fulfilled: !count || slots === count };
+        return { ok: true, fulfilled: !count || slots === count };
       };
       const pastPolicies =
         pastStart && !countPast ? (["consume", "upcoming"] as const) : [countPast];
@@ -541,15 +540,25 @@ export function interpretRecurrence(
       for (const past of pastPolicies) {
         for (const excluded of exclusionPolicies) {
           const skipped = scheduleFor("skip", past, excluded);
-          if (!skipped.ok) return skipped;
           const clamped = scheduleFor("last-day", past, excluded);
-          if (!clamped.ok) return clamped;
-          if (
-            skipped.fulfilled !== clamped.fulfilled ||
-            skipped.dates.length !== clamped.dates.length ||
-            skipped.dates.some((date, index) => date !== clamped.dates[index])
-          )
-            return monthlyPrompt();
+          for (;;) {
+            const skip = skipped.next();
+            const clamp = clamped.next();
+            if (skip.done) {
+              if (!skip.value.ok) return skip.value;
+              if (clamp.done) {
+                if (!clamp.value.ok) return clamp.value;
+                if (skip.value.fulfilled !== clamp.value.fulfilled) return monthlyPrompt();
+                break;
+              }
+              return monthlyPrompt();
+            }
+            if (clamp.done) {
+              if (!clamp.value.ok) return clamp.value;
+              return monthlyPrompt();
+            }
+            if (skip.value !== clamp.value) return monthlyPrompt();
+          }
         }
       }
     }

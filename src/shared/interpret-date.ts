@@ -682,7 +682,7 @@ export function interpretDate(
   }
   const inlineZone = [
     ...text.matchAll(
-      /\b(?:(?:Africa|America|Antarctica|Arctic|Asia|Atlantic|Australia|Europe|Indian|Pacific|Etc)\/[a-z_+-]+(?:\/[a-z_]+)?|(?:UTC|GMT)(?:[+-]\d{1,2}(?::?\d{2})?)?|[ECMP][SD]T|[ECPM]T|BST|IST|CET|CEST|JST|AEST|AEDT)\b/gi,
+      /\b(?:(?:Africa|America|Antarctica|Arctic|Asia|Atlantic|Australia|Europe|Indian|Pacific|Etc)\/[a-z0-9_+-]+(?:\/[a-z_]+)?|(?:UTC|GMT)(?:[+-]\d{1,2}(?::?\d{2})?)?|[ECMP][SD]T|[ECPM]T|BST|IST|CET|CEST|JST|AEST|AEDT)\b/gi,
     ),
   ].find((match) => temporalStart.test(text.slice(0, match.index)));
   if (inlineZone) {

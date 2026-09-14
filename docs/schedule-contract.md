@@ -17,21 +17,21 @@ Do not expose interval or schedule union variants as supported until resolution 
 
 ## Interpretation policies
 
-| Input or condition                   | Policy                                                                                                                                                 |
-| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `for 3 days from today`              | Calendar interval beginning at local midnight today, ending at exclusive midnight three calendar days later                                            |
-| `3 days from today`                  | Date offset, not a duration interval                                                                                                                   |
-| `for 24 hours from now`              | Timed interval lasting 24 elapsed hours from the reference instant                                                                                     |
-| `Friday 10pm–12am`                   | Upcoming Friday through following midnight; retain the overnight date change                                                                           |
+| Input or condition                   | Policy                                                                                                                                                         |
+| ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `for 3 days from today`              | Calendar interval beginning at local midnight today, ending at exclusive midnight three calendar days later                                                    |
+| `3 days from today`                  | Date offset, not a duration interval                                                                                                                           |
+| `for 24 hours from now`              | Timed interval lasting 24 elapsed hours from the reference instant                                                                                             |
+| `Friday 10pm–12am`                   | Upcoming Friday through following midnight; retain the overnight date change                                                                                   |
 | A range whose end precedes its start | Clock-only ends can roll overnight; unqualified weekday ends are anchored to the start date as described below. Explicit contradictory dates remain unresolved |
-| Equal clock endpoints                | Offer explicit confirmation of the same clock on the next date, or let the user edit. Zero-length intervals remain invalid; use a point for an instant |
-| Bare `8` without AM/PM               | Clarify unless a documented, explicit user preference resolves it                                                                                      |
-| Numeric `03/04/2027`                 | Clarify without a date-order preference. Do not infer locale from server location                                                                      |
-| Repeated or nonexistent local clock  | Show the concrete alternatives or request another time. Never silently select a DST offset or shift a nonexistent clock                                |
-| `Friday, actually Saturday instead`  | Ask whether Saturday replaces Friday. A selected answer resolves the candidate; editing text or context invalidates that selection                     |
-| Cancellation or prohibition          | No scheduling event. Mention extraction is a separate contract and must not be scored as equivalent                                                    |
-| Conditions and exceptions            | Represent them completely or return unresolved; never omit them to export a simpler schedule                                                           |
-| Recurrence                           | Preserve local wall time across DST; use explicit bounds/limits. Clarify any occurrence that lands on an unresolved DST clock before export            |
+| Equal clock endpoints                | Offer explicit confirmation of the same clock on the next date, or let the user edit. Zero-length intervals remain invalid; use a point for an instant         |
+| Bare `8` without AM/PM               | Clarify unless a documented, explicit user preference resolves it                                                                                              |
+| Numeric `03/04/2027`                 | Clarify without a date-order preference. Do not infer locale from server location                                                                              |
+| Repeated or nonexistent local clock  | Show the concrete alternatives or request another time. Never silently select a DST offset or shift a nonexistent clock                                        |
+| `Friday, actually Saturday instead`  | Ask whether Saturday replaces Friday. A selected answer resolves the candidate; editing text or context invalidates that selection                             |
+| Cancellation or prohibition          | No scheduling event. Mention extraction is a separate contract and must not be scored as equivalent                                                            |
+| Conditions and exceptions            | Represent them completely or return unresolved; never omit them to export a simpler schedule                                                                   |
+| Recurrence                           | Preserve local wall time across DST; use explicit bounds/limits. Clarify any occurrence that lands on an unresolved DST clock before export                    |
 
 Calendar arithmetic retains written order, stepwise month-end clamping and labeled fractional approximations. A whole calendar day can have 23 or 25 elapsed hours. Do not convert it to 24 hours for convenience.
 

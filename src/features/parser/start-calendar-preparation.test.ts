@@ -1,4 +1,6 @@
 import { afterEach, beforeEach, expect, it, vi } from "vite-plus/test";
+import headers from "../../../public/_headers?raw";
+import documentWorker from "../../worker.tsx?raw";
 import { interpretDate } from "@/shared/interpret-date";
 import type { CalendarPreparationRequest } from "./calendar-preparation";
 import { startCalendarPreparation } from "./start-calendar-preparation";
@@ -40,6 +42,17 @@ beforeEach(() => {
   mock.state.failPost = false;
 });
 afterEach(() => vi.unstubAllGlobals());
+
+it("permits bundled blob workers without broadening script execution in shipped CSP", () => {
+  const policy = headers.match(/Content-Security-Policy: (.+)/)?.[1];
+  expect(policy).toBeDefined();
+  expect(policy?.split(";").map((directive) => directive.trim())).toContain(
+    "worker-src 'self' blob:",
+  );
+  expect(policy?.split(";").map((directive) => directive.trim())).toContain("script-src 'self'");
+  expect(documentWorker).toContain("worker-src 'self' blob:");
+  expect(documentWorker).toContain("script-src 'self' 'nonce-${rw.nonce}'");
+});
 
 it("starts the bundled worker even when offline, without a main-thread fallback", () => {
   vi.stubGlobal("navigator", { onLine: false });

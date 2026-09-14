@@ -1,7 +1,10 @@
-import { expect, it } from "vite-plus/test";
+import { expect, it, vi } from "vite-plus/test";
+import ICAL from "ical.js";
+import * as monthlyDate from "./monthly-date";
 import { interpretRecurrence } from "./interpret-recurrence";
 import { interpretDate } from "./interpret-date";
 import { appendSelection } from "./clarify-numeric-date";
+import { prepareRecurringCalendarFile, resolveRecurringExport } from "./recurring-calendar-file";
 
 const context = { timezone: "America/Chicago", reference: "2026-09-12T16:00:00Z" };
 const january = { timezone: "UTC", reference: "2026-01-01T00:00:00Z" };
@@ -78,6 +81,66 @@ it("retains independent numeric boundary ambiguity and then canonicalizes the ch
   ).toBe("needs-clarification");
 });
 
+it("exports the full chosen numeric-boundary schedule and replaces it without stale choices", () => {
+  const input = "every Monday at noon starting 09/10/2026 until 10/12/2026";
+  const prompt = interpretDate(input, context);
+  if (prompt.status !== "needs-clarification" || !prompt.clarification)
+    throw Error("No boundary question");
+  const contextKey = prompt.clarification.contextKey;
+  const selection = appendSelection(
+    { contextKey, id: "boundary:starting:date:2026-09-10" },
+    { contextKey, id: "boundary:until:date:2026-10-12" },
+  );
+  const result = interpretDate(input, { ...context, selection });
+  expect(result).toMatchObject({ status: "resolved", value: { truncated: true } });
+  const complete = resolveRecurringExport(result, context.reference);
+  expect(complete).toMatchObject({
+    ok: true,
+    truncated: false,
+    rule: { starting: "2026-09-10", until: "2026-10-12" },
+  });
+  const metadata = {
+    reference: context.reference,
+    stamp: context.reference,
+    uid: "11111111-2222-4333-8444-555555555555",
+    title: "Call Sam",
+  };
+  const exportDates = (interpretation: ReturnType<typeof interpretDate>) => {
+    const file = prepareRecurringCalendarFile(interpretation, metadata);
+    if (!file.ok) throw Error(file.reason);
+    const event = new ICAL.Event(
+      new ICAL.Component(ICAL.parse(file.text)).getFirstSubcomponent("vevent")!,
+    );
+    const iterator = event.iterator();
+    const starts: string[] = [];
+    for (let next = iterator.next(); next; next = iterator.next()) {
+      starts.push(event.getOccurrenceDetails(next).startDate.toJSDate().toISOString());
+      if (starts.length > 10) throw Error("Unbounded calendar file");
+    }
+    expect(file.eventCount).toBe(starts.length);
+    return starts;
+  };
+  expect(exportDates(result)).toEqual([
+    "2026-09-14T17:00:00.000Z",
+    "2026-09-21T17:00:00.000Z",
+    "2026-09-28T17:00:00.000Z",
+    "2026-10-05T17:00:00.000Z",
+    "2026-10-12T17:00:00.000Z",
+  ]);
+  const replacement = appendSelection(selection, {
+    contextKey,
+    id: "boundary:starting:date:2026-10-09",
+  });
+  const changed = interpretDate(input, { ...context, selection: replacement });
+  expect(exportDates(changed)).toEqual(["2026-10-12T17:00:00.000Z"]);
+  const edited = interpretDate(input.replace("09/10/2026", "09/11/2026"), {
+    ...context,
+    selection: replacement,
+  });
+  expect(edited.status).toBe("needs-clarification");
+  expect(prepareRecurringCalendarFile(edited, metadata).ok).toBe(false);
+});
+
 it.each([
   "every month on the last Friday at noon",
   "weekly at noon",
@@ -118,6 +181,7 @@ it("checks beyond the preview for the first short-month difference", () => {
     ok: false,
     policyPrompt: { question: "What happens in months without day 29?" },
   });
+
   expect(
     interpretRecurrence("every month on the 29th at noon until March 1, 2027", {
       ...january,
@@ -125,6 +189,21 @@ it("checks beyond the preview for the first short-month difference", () => {
       limit: 1,
     }),
   ).toMatchObject({ ok: false, policyPrompt: expect.anything() });
+});
+
+it("stops comparing a distant finite schedule at the first differing emitted date", () => {
+  const next = vi.spyOn(monthlyDate, "nextMonthlyDate");
+  try {
+    expect(
+      interpretRecurrence("every month on the 31st at noon until 9999-12-31", january),
+    ).toMatchObject({
+      ok: false,
+      policyPrompt: { question: "What happens in months without day 31?" },
+    });
+    expect(next).toHaveBeenCalledTimes(4);
+  } finally {
+    next.mockRestore();
+  }
 });
 
 it("compares count slots even when the differing short-month date is excluded", () => {

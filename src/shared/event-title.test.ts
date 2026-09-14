@@ -114,6 +114,7 @@ it.each([
   "tomorrow at noon PST",
   "tomorrow at noon CST",
   "tomorrow at noon UTC+05:30",
+  "tomorrow at noon Etc/GMT+5",
   "every Monday at noon EST until 2026-10-01",
   "Call Sam tomorrow at noon America/Chicago",
 ])("explains inline timezone recovery without applying or ignoring it: %s", (input) => {
@@ -128,4 +129,10 @@ it.each([
 it("does not interpret a title abbreviation as a written timezone", () => {
   const result = interpretDate("Call ET tomorrow at noon", context);
   expect(result).toMatchObject({ status: "resolved", event: { text: "Call ET" } });
+});
+
+it("names the complete fixed-offset IANA zone in recovery guidance", () => {
+  const result = interpretDate("tomorrow at noon Etc/GMT+5", context);
+  if (result.status === "resolved") throw Error("Timezone was ignored");
+  expect(result.error.hint).toContain("“Etc/GMT+5”");
 });
