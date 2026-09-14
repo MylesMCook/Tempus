@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export type StatusBadgeState = "loading" | "done";
 
@@ -36,15 +36,8 @@ export function StatusBadge({
   label?: string;
   decorative?: boolean;
 }) {
-  const markRef = useRef<SVGPathElement>(null);
-  const [len, setLen] = useState<number | null>(null);
   const [crossing, setCrossing] = useState(false);
   const mounted = useRef(false);
-
-  useLayoutEffect(() => {
-    const mark = markRef.current;
-    if (mark) setLen(Math.ceil(mark.getTotalLength()));
-  }, []);
 
   useEffect(() => {
     if (!mounted.current) {
@@ -64,7 +57,6 @@ export function StatusBadge({
       <span
         className="t-check-badge"
         data-state={state}
-        style={len ? ({ "--check-mark-len": String(len) } as CSSProperties) : undefined}
         role={decorative ? undefined : "img"}
         aria-label={decorative ? undefined : badgeLabel(state, label)}
       >
@@ -73,7 +65,7 @@ export function StatusBadge({
         <span className="t-check-fill" aria-hidden="true" />
         <span className="t-check-disc" aria-hidden="true">
           <svg viewBox="0 0 24 24">
-            <path ref={markRef} className="t-check-mark" d="M8 12.5L10.8 15.5L16.4 9.5" />
+            <path className="t-check-mark" d="M8 12.5L10.8 15.5L16.4 9.5" />
           </svg>
         </span>
       </span>

@@ -34,9 +34,8 @@ function copyGlyph(morph: "idle" | "loading" | "done") {
     case "idle":
       return <Copy className="size-4" />;
     case "loading":
-      return <StatusBadge state="loading" decorative />;
     case "done":
-      return <StatusBadge state="done" decorative />;
+      return <StatusBadge state={morph} decorative />;
     default: {
       const _exhaustive: never = morph;
       return _exhaustive;
