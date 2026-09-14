@@ -30,13 +30,13 @@ vp install --frozen-lockfile   # or: pnpm install --frozen-lockfile
 
 ## Browser journey tests
 
-`playwright-core` is a dev dependency. Keep **`pnpm dev`** running on port **5174** (default in `vite.config.ts` and journey runners).
+`playwright-core` is a dev dependency. Keep **`pnpm dev`** running; `vite.config.ts` binds **127.0.0.1:5174**, which the journey scripts expect.
 
 ```sh
 node examples/app/verify-calculator.mjs node_modules/playwright-core/index.mjs /tmp/tempus-run-$(uuidgen)
 ```
 
-For built-asset / CSP checks, use preview on **5175** and set `TEMPUS_APP_URL=http://127.0.0.1:5175` (see `examples/app/README.md`).
+`verify-calculator.mjs` always uses port 5174. For built-asset / CSP checks, run `pnpm preview --host 127.0.0.1 --port 5175` and set `TEMPUS_APP_URL=http://127.0.0.1:5175` on runners that read it (`verify-worker-preparation.mjs`, `verify-context-reset.mjs`). See `examples/app/README.md`.
 
 Python second readers:
 
@@ -53,5 +53,5 @@ uv run --locked examples/app/read-reminder.py /tmp/tempus-run
 
 ## Notes
 
-- Calendar preparation uses an inline bundled Web Worker; it is loaded via dynamic `import()` so the Cloudflare + rwsdk dev server can start (static `?worker&inline` imports break SSR module scanning in dev).
+- Calendar preparation uses an inline bundled Web Worker. The client app preloads that chunk at startup; a static `?worker&inline` import still breaks Cloudflare + rwsdk SSR module scanning in `pnpm dev`.
 - `comparison/results/` is gitignored; comparison evidence under `comparison/evidence/` is retained history, not setup docs.
