@@ -103,7 +103,7 @@ try {
         ["2026-02-28T06:00:00.000Z", "2026-02-27T06:00:00.000Z"],
       );
       await input.fill(arithmetic);
-      await page.getByRole("button", { name: "Copy date", exact: true }).waitFor();
+      await page.getByRole("button", { name: "Copy result", exact: true }).waitFor();
       assert.deepEqual(await inspect(), calculated);
       const traceSummary = page.getByText("Show calculation steps", { exact: true });
       if (!(await traceSummary.evaluate((node) => node.parentElement.open)))

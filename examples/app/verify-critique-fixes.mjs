@@ -33,14 +33,14 @@ for (const name of ["chromium", "firefox", "webkit"]) {
     await page.locator("#custom-format-error").waitFor();
     assert.match(await format.getAttribute("aria-describedby"), /custom-format-error/);
     assert.equal(
-      await page.getByRole("button", { name: "Copy date", exact: true }).isEnabled(),
+      await page.getByRole("button", { name: "Copy result", exact: true }).isEnabled(),
       false,
     );
     assert.equal(await input.inputValue(), "03/04/2027");
     await format.fill("yyyy-MM-dd");
     assert.equal(await page.locator("#custom-format-error").count(), 0);
     assert.equal(
-      await page.getByRole("button", { name: "Copy date", exact: true }).isEnabled(),
+      await page.getByRole("button", { name: "Copy result", exact: true }).isEnabled(),
       true,
     );
     assert.equal(await input.inputValue(), "03/04/2027");

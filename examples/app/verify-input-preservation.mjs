@@ -53,7 +53,7 @@ try {
           };
           const unresolved = async () => {
             assert.equal(
-              await page.getByRole("button", { name: "Copy date", exact: true }).count(),
+              await page.getByRole("button", { name: "Copy result", exact: true }).count(),
               0,
             );
             assert.equal(await page.locator("#calendar-export-toggle").count(), 0);
@@ -78,7 +78,7 @@ try {
           assert.doesNotMatch(await page.locator("#calculation-error").innerText(), /too long/i);
           // The user explicitly replaces the whole request; no automatic shortening occurs.
           await replace(complete);
-          await page.getByRole("button", { name: "Copy date", exact: true }).waitFor();
+          await page.getByRole("button", { name: "Copy result", exact: true }).waitFor();
           assert.equal(await input.getAttribute("aria-invalid"), "false");
           assert.equal(await page.locator("#calendar-export-toggle").count(), 1);
           assert.deepEqual(run.errors, []);

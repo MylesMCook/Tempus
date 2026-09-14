@@ -71,7 +71,7 @@ function CopyDate({ value }: { value: string | null }) {
       }}
     >
       {copyGlyph(morph)}
-      {copied ? "Date copied" : "Copy date"}
+      {copied ? "Result copied" : "Copy result"}
     </Button>
   );
 }
@@ -128,6 +128,7 @@ export function DatePicker({
     if (panel instanceof HTMLDetailsElement) {
       panel.open = true;
       panel.scrollIntoView({ block: "nearest" });
+      document.getElementById("calculation-timezone")?.focus({ preventScroll: true });
     }
   };
   return (
@@ -312,7 +313,8 @@ export function DatePicker({
                   ) : null}
                   {error.span && error.span.end > error.span.start ? (
                     <p className="mt-2 break-words text-sm text-muted-foreground">
-                      Check: <code>{expression.slice(error.span.start, error.span.end)}</code>
+                      Check this part of your phrase:{" "}
+                      <code>{expression.slice(error.span.start, error.span.end)}</code>
                     </p>
                   ) : null}
                   {error.code === "timezone" ? (

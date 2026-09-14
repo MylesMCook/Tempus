@@ -33,8 +33,8 @@ try {
       [
         "point",
         "Call Sam tomorrow at noon",
-        "Copy date",
-        "Date copied",
+        "Copy result",
+        "Result copied",
         ["Call Sam", "Sunday, September 13, 2026", "12:00 PM", "America/Chicago"],
       ],
       [
