@@ -26,6 +26,11 @@ export function preloadCalendarPreparationWorker() {
   return loadBundledWorker().then(() => undefined);
 }
 
+/** Best-effort client startup preload; a failure must not become an unhandled rejection. */
+export function startClientCalendarWorkerPreload() {
+  return preloadCalendarPreparationWorker().catch(() => undefined);
+}
+
 /** Bundle the worker with the app so its first use needs no network request. */
 export function startCalendarPreparation(
   request: CalendarPreparationRequest,
