@@ -16,7 +16,7 @@ import { OccurrenceResult } from "./occurrence-result";
 import { IntervalResult } from "./interval-result";
 import { CalendarExport } from "./calendar-export";
 import { ApiDocs } from "./api-docs";
-import { examples, featuredExamples } from "../examples";
+import { examples, featuredExampleGroups } from "../examples";
 
 async function copy(value: string, label: string, notify = true) {
   try {
@@ -188,21 +188,30 @@ export function DatePicker({
           ) : null}
         </div>
         {!hasExpression ? (
-          <div className="mt-3 flex flex-wrap gap-2" role="group" aria-label="Try a phrase">
-            {featuredExamples.map((phrase) => (
-              <Button
-                key={phrase}
-                type="button"
-                disabled={!ready}
-                variant="secondary"
-                className="h-auto min-h-11 whitespace-normal text-left font-normal"
-                onClick={() => {
-                  onExpressionChange(phrase);
-                  document.getElementById("date-expression")?.focus();
-                }}
-              >
-                {phrase}
-              </Button>
+          <div className="mt-3 grid gap-3" role="group" aria-label="Try a phrase">
+            {featuredExampleGroups.map((group) => (
+              <fieldset key={group.label} className="m-0 min-w-0 border-0 p-0">
+                <legend className="float-none mb-1.5 w-full p-0 text-xs font-medium text-muted-foreground">
+                  {group.label}
+                </legend>
+                <div className="flex flex-wrap gap-2">
+                  {group.phrases.map((phrase) => (
+                    <Button
+                      key={phrase}
+                      type="button"
+                      disabled={!ready}
+                      variant="secondary"
+                      className="h-auto min-h-11 whitespace-normal text-left font-normal"
+                      onClick={() => {
+                        onExpressionChange(phrase);
+                        document.getElementById("date-expression")?.focus();
+                      }}
+                    >
+                      {phrase}
+                    </Button>
+                  ))}
+                </div>
+              </fieldset>
             ))}
           </div>
         ) : null}
