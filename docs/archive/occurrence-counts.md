@@ -29,11 +29,11 @@ Keep count resolution in the existing recurrence resolver and complete-export pa
 
 Do not implement count support by removing the suffix, taking the current preview, or converting an occurrence count into an inferred end date. Recurrence traversal begins at the reference date; counted schedules with past written starts require an explicit `countPast` policy rather than silently choosing what consumes a slot. An excluded skipped or repeated clock straddling the reference asks which start instant determines its count slot. Without a written start boundary, a selected past instant does not consume an upcoming slot; a selected future instant does. No event is created on that excluded date. With a written start boundary, the selected past-count policy determines whether that instant consumes a slot. The existing 1,000-event and ten-year export limits remain explicit failures, never silent truncation.
 
-[Current-source evidence](../comparison/evidence/count-journeys-retry/README.md) covers weekly and monthly correction-to-file journeys, four independently read downloads, 782 shared tests and the production build. This is not packed runtime, physical-device, actual calendar import or independent language-evaluation evidence.
+[Current-source evidence](../../comparison/evidence/count-journeys-retry/README.md) covers weekly and monthly correction-to-file journeys, four independently read downloads, 782 shared tests and the production build. This is not packed runtime, physical-device, actual calendar import or independent language-evaluation evidence.
 
-[Count-exclusion source evidence](../comparison/evidence/count-exclusion-files-retry/README.md) now covers both policies through complete downloads and edit invalidation, with eight independently read files and 788 shared tests. The existing packed archive predates this addition.
+[Count-exclusion source evidence](../../comparison/evidence/count-exclusion-files-retry/README.md) now covers both policies through complete downloads and edit invalidation, with eight independently read files and 788 shared tests. The existing packed archive predates this addition.
 
-[Excluded-clock source journeys](../comparison/evidence/excluded-clock-journeys/README.md) pass both choices for spring/fall transitions at two desktop widths, with eight independently read downloads and 793 shared tests.
+[Excluded-clock source journeys](../../comparison/evidence/excluded-clock-journeys/README.md) pass both choices for spring/fall transitions at two desktop widths, with eight independently read downloads and 793 shared tests.
 
 ## Written past starts
 
@@ -41,4 +41,4 @@ Do not implement count support by removing the suffix, taking the current previe
 
 A past-count change clears dependent exclusion and clock answers; a monthly-policy change clears both count policies. Exclusion changes retain the past policy. Conflicting raw answers reopen clarification; input/context edits invalidate history. Past starts whose two clock interpretations are both before the reference can consume a slot without inventing an instant or resolving an irrelevant end. A clock straddling the reference still needs a selectable instant.
 
-[Written-start source evidence](../comparison/evidence/count-past-journeys/README.md) covers both policies through future-only files and edit invalidation, plus cadence, exclusions, empty results and DST source checks. The latest packed archive still predates these changes.
+[Written-start source evidence](../../comparison/evidence/count-past-journeys/README.md) covers both policies through future-only files and edit invalidation, plus cadence, exclusions, empty results and DST source checks. The latest packed archive still predates these changes.

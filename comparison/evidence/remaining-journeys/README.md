@@ -4,7 +4,7 @@ September 13, 2026; packed archive 8d0c2791, with all installed file hashes chec
 
 Both explicit relative-date and ISO-date ranges remain unsupported. A recurrence ending after three occurrences remains unsupported and receives a misleading duration question. Daily recurrence resolves in the control case; a generic dentist title receives a concrete title question. Older notes describing daily/monthly/title behavior must not be treated as current capability evidence.
 
-The next work is the [explicit-date-range journey](../../../docs/explicit-date-ranges.md). The recorded intended UTC endpoints were specified for the fixed reference/timezone, but have not passed an implementation or calendar-file check. No failed task is counted as completed merely because it was rejected.
+The next work is the [explicit-date-range journey](../../../docs/archive/explicit-date-ranges.md). The recorded intended UTC endpoints were specified for the fixed reference/timezone, but have not passed an implementation or calendar-file check. No failed task is counted as completed merely because it was rejected.
 
 To inspect these results, call the installed SDK's `parse` with each report input and its recorded context. This probe performs no calendar, network or deployment action. The raw scratch runner uses this installation's absolute path; the report and artifact identity are retained for review. Existing comparison and holdout datasets are unchanged.
 

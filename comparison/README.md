@@ -1,5 +1,14 @@
 # Compare parsers locally
 
+| Path | What it is |
+| ---- | ---------- |
+| This folder | Parser comparison tests and scoring |
+| [results/](results/report.md) | Generated local reports (gitignored) |
+| [evidence/](evidence/README.md) | Retained hashes and review snapshots |
+| [calendar/](calendar/README.md) | Calendar-file comparison helpers |
+| [performance/](performance/README.md) | Bundle and CPU measurements |
+| [independent-evaluation/](independent-evaluation/README.md) | Holdout study handoff |
+
 ```sh
 pnpm install --frozen-lockfile
 pnpm compare
@@ -13,7 +22,7 @@ The report keeps three entries: `tempus` is the strict v2 evaluator, `interpreta
 
 The [current package replay](evidence/count-quantity-validation/README.md) verifies that the installed SDK matches the 31-case/25-journey source snapshot on Node 26. Earlier Node 22/26 reports retain their own corpus identities. This is consistency evidence, not independent accuracy evaluation.
 
-The [scripted journey report](results/journeys.md) covers 25 correction-to-file tasks through the source SDK. It checks retained input and event text, exact endpoints, date-only precision, independent file expansion and invalidation after an edit. [Raw results](results/journeys.json) and `results/journey-files/` preserve the outputs for the separate [second-reader check](../docs/calendar-export.md#second-reader-verification). Every stage must pass; rejection or an unanswered question does not complete a task. These inspected integration checks do not measure human completion, browser interaction, calendar-client import or comparative performance.
+The [scripted journey report](results/journeys.md) covers 25 correction-to-file tasks through the source SDK. It checks retained input and event text, exact endpoints, date-only precision, independent file expansion and invalidation after an edit. [Raw results](results/journeys.json) and `results/journey-files/` preserve the outputs for the separate [second-reader check](../docs/archive/calendar-export.md#second-reader-verification). Every stage must pass; rejection or an unanswered question does not complete a task. These inspected integration checks do not measure human completion, browser interaction, calendar-client import or comparative performance.
 
 The value grade in development-v4 adds authored date-only/timed expectations to the same 31 inputs. It preserves every legacy timestamp grade and reports per-family value counts separately. A missing precision field is `not-exposed`, not a match inferred from midnight; an absent gold label is `not-specified`. Strict v2 intentionally returns calculator timestamps rather than all-day semantics, so its 11 matching calculations are not newly incorrect. On these cases, all 21 timestamp-matching interpreter results and 14 timestamp-matching gpu-time results also match precision. This adds a guard against misleading scores, not a new competitive win. The prior report is retained under `results/history/development-v3-before-precision/`.
 

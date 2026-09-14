@@ -37,7 +37,7 @@ The public stateless API intentionally has no authentication. Shared networks sh
 - Confirm the proposed MIT license and permission to publish the repository and its history.
 - Enable and verify GitHub private vulnerability reporting when the repository becomes public.
 - Keep credentials out of source; `.env*` and `.dev.vars*` are ignored. Local agent settings have been removed from tracking.
-- Record clean-install, CI, deployment, and live-response evidence in `tasks.md` before release closeout.
+- Record clean-install, CI, deployment, and live-response evidence before release closeout. Historical closeout notes live in [`docs/archive/tasks.md`](archive/tasks.md).
 - Complete the Cloudflare zone/account review with an authorized signed-in session; retain the remaining uncertainty until that review is done.
 
 ## Current local API review — September 13, 2026

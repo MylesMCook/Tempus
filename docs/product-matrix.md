@@ -24,4 +24,4 @@ Check the complete task: input, interpretation, correction and usable output. Re
 
 Agent-authored cases find regressions and awkward wording. Independent cases and unfamiliar users are still needed to decide whether the product is useful enough to keep expanding. [Decision gate](product-focus.md) · [Release status](release-checklist.md).
 
-[Earlier requirements and measurements](product-matrix-history.md) are retained as history, not an active feature backlog.
+[Earlier requirements and measurements](archive/product-matrix-history.md) are retained as history, not an active feature backlog.
