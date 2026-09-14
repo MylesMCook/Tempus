@@ -12,7 +12,14 @@ cd packages/core
 pnpm pack
 ```
 
-Install the resulting tarball in your app. Keep its hash and lockfile: different local builds share version 0.1.0. CommonJS is not provided.
+Requires Node 22.12 or newer and ESM. The archive is `packages/core/tempus-date-core-0.1.0.tgz`. From your app, install it with its absolute path:
+
+```sh
+npm install /absolute/path/to/TempusTotal/packages/core/tempus-date-core-0.1.0.tgz
+node --input-type=module -e 'import { parse, SDK_VERSION } from "@tempus-date/core"; const r = parse("tomorrow", { timezone: "UTC", reference: "2026-09-13T12:00:00Z" }); if (r.status !== "resolved") throw new Error(r.status); console.log(SDK_VERSION, r.status);'
+```
+
+The check prints `0.1.0 resolved`. `pnpm add` accepts the same archive path. Keep its SHA-256 (`shasum -a 256 <archive>`) and your lockfile: different local builds share version 0.1.0. CommonJS is not provided.
 
 ## Calculate a date
 
@@ -50,7 +57,7 @@ const parser = createParser(context);
 const next = parser.parse("Friday 10pm-12am");
 ```
 
-All three calls are synchronous. Check `status` before using a result:
+All three calls are synchronous. Invalid arguments throw; see the [error contract](reference.md#errors). For a valid call, check `status` before using its result:
 
 | Status                | What your app should do                                                                        |
 | --------------------- | ---------------------------------------------------------------------------------------------- |

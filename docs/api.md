@@ -37,7 +37,17 @@ A successful response includes:
 | `reference`, `timezone`                 | The inputs used for the calculation                                         |
 | `anchor`, `steps`, `result`, `warnings` | The starting date, executed changes, result, and any approximation warnings |
 
-Invalid input returns HTTP 400 with an error and recovery guidance. No partial result is returned. Responses use `Cache-Control: no-store`.
+Invalid input returns HTTP 400 with the error fields described below. No partial result is returned. Responses use `Cache-Control: no-store`.
+
+### HTTP 400 bodies
+
+The current v2 calculation endpoint returns different error fields by stage:
+
+- Request validation: `{ engineVersion: 2, error, details, requestId }`; `details` contains validation issues.
+- Date calculation: `{ engineVersion: 2, error, code, message, hint, span?, requestId }`.
+- Display format: `{ engineVersion: 2, error, hint, requestId }`.
+
+Check HTTP status first, then field presence. Only calculation errors have `code`; do not depend on error prose or assume every response has recovery guidance. Other HTTP failures are described below.
 
 ## Limits and privacy
 

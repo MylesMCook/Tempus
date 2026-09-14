@@ -1,0 +1,13 @@
+{
+  "clarification": {
+    "role": "alert",
+    "class": "rounded-md border border-destructive/40 p-3",
+    "text": "Which date do you mean?\n\nChoose the month and day. Your original text stays here.\n\nMarch 4, 2027\nApril 3, 2027"
+  },
+  "focusedAfterChoice": "calculated-date",
+  "format": {
+    "invalid": "true",
+    "description": "format-help",
+    "text": "Custom date format\n\nUse yyyy for year, MM for month, dd for day, HH:mm for time. Example: yyyy-MM-dd HH:mm."
+  }
+}

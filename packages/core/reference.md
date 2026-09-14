@@ -2,6 +2,18 @@
 
 Start with the [quickstart](README.md). This page covers date policies, limits, compatibility and the older calendar helpers.
 
+## Errors
+
+Unrecognized or ambiguous phrases return a result with a `status`; they are not exceptions. Invalid runtime arguments throw before a result exists:
+
+| Call                                     | Throws                                                                                                                |
+| ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| `parse`, reusable `parser.parse`         | `TypeError` for a non-string input.                                                                                   |
+| `parseMany`, reusable `parser.parseMany` | `TypeError` for a non-array or non-string item (including sparse slots); `RangeError` for more than 100 inputs.       |
+| `parse`, `parseMany`, `createParser`     | `TypeError` if timezone/reference are not strings, options are missing, or a supplied selection has an invalid shape. |
+
+Malformed date/timezone strings are interpreted and returned as unresolved results. Validate external data before calling the SDK and catch exceptions at your integration boundary. Do not parse exception messages as machine codes. This table describes the current preview, not a cross-version stability guarantee. `prepareCalendar` reports preparation outcomes through its own status; see the quickstart.
+
 ## Supported input and calendar policies
 
 Tempus accepts specific English phrases. It leaves unsupported qualifiers unresolved; it does not extract dates from arbitrary documents. Clock-first point wording such as `at noon tomorrow` is supported in scheduling: the original text stays intact, while the result explains the evaluated date-first wording. Numeric-date and DST choices remain explicit. This does not extend strict calculator/API v2 grammar or support moving clocks across arithmetic, durations or recurrence.
