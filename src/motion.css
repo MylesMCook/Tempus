@@ -170,8 +170,7 @@
   stroke-dashoffset: var(--check-mark-len);
 }
 .t-check-badge[data-state="done"] .t-check-mark {
-  animation: t-check-draw var(--check-draw-dur) var(--check-draw-ease) var(--check-draw-delay)
-    both;
+  animation: t-check-draw var(--check-draw-dur) var(--check-draw-ease) var(--check-draw-delay) both;
 }
 @keyframes t-check-draw {
   from {
