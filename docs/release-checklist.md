@@ -1,8 +1,10 @@
 # Release status
 
-The simplified calculator site is live. [PR #6](https://github.com/MylesMCook/TempusTotal/pull/6) landed as `6c8a414`; Cloudflare version `228380e5-5b2f-4ec9-8ca4-69adebe55f4d` serves that build. The SDK remains unpublished. Previous version `7e6b8cbf-63cb-4beb-b4d0-c1a3884d9b13` is the rollback target.
+[PR #7](https://github.com/MylesMCook/TempusTotal/pull/7) landed as `ec6e01c`. Cloudflare version `1a9e0cc8-0ed8-46b0-bfae-c876794d07e0` serves the clarification and SDK-guidance fixes. The SDK remains unpublished. Previous version `228380e5-5b2f-4ec9-8ca4-69adebe55f4d` is the rollback target.
 
-## Verified for that release
+[Copilot review and triage](../comparison/copilot-review/README.md): three distinct models, reproduced findings and rejected suggestions. Current checks pass: 1,181 tests plus the existing expected failure, types/lint/build, CI audit, fresh SDK install, packed-SDK/browser journeys and [live fixes](../comparison/copilot-review/live-fixes.json). [Both-host checks](../comparison/copilot-review/live-report.json) pass. No engine or infrastructure change.
+
+## Retained evidence from the preceding UI release
 
 - 1,181 tests pass, with one existing expected failure in a calendar reader's timezone conversion.
 - Types, lint, formatting, build, dependency audit in CI and deployment dry run pass.

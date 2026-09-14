@@ -37,3 +37,7 @@ The [new browser regression](browser.json) covers clarification, keyboard focus,
 [Packed-SDK/browser journeys](browser-contract.json) also pass for calculation, correction, complete copy and calendar-file output. Cloudflare deployment dry run passes.
 
 A clean browser run is not a screen-reader or physical-phone test. These model critiques do not establish usability improvement, language coverage or competitive superiority. Actual calendar imports and the independent evaluation gate remain open.
+
+## Release
+
+[PR #7](https://github.com/MylesMCook/TempusTotal/pull/7) merged as `ec6e01c`. Cloudflare version `1a9e0cc8-0ed8-46b0-bfae-c876794d07e0` is deployed. [Live fixes](live-fixes.json) pass in all three browser engines; [both-host checks](live-report.json) cover routes, API, calculation, correction and full five-date copy. Previous version `228380e5-5b2f-4ec9-8ca4-69adebe55f4d` remains the rollback target.

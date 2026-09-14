@@ -1,0 +1,29 @@
+{
+  "scope": "Authored desktop browser checks, not assistive-technology or physical-device evidence.",
+  "runs": [
+    {
+      "name": "chromium",
+      "version": "153.0.8010.36",
+      "clarification": "passed",
+      "keyboardFocus": "passed",
+      "formatCorrection": "passed",
+      "unsupportedInput": "passed"
+    },
+    {
+      "name": "firefox",
+      "version": "148.0.2",
+      "clarification": "passed",
+      "keyboardFocus": "passed",
+      "formatCorrection": "passed",
+      "unsupportedInput": "passed"
+    },
+    {
+      "name": "webkit",
+      "version": "26.4",
+      "clarification": "passed",
+      "keyboardFocus": "passed",
+      "formatCorrection": "passed",
+      "unsupportedInput": "passed"
+    }
+  ]
+}
