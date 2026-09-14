@@ -7,7 +7,9 @@ const phrase = process.argv
   .trim();
 if (!phrase) {
   console.error("Usage: node examples/sdk/parse-phrase.mjs <phrase>");
-  console.error("Set TEMPUS_TIMEZONE (IANA) and TEMPUS_REFERENCE (ISO instant) to override defaults.");
+  console.error(
+    "Set TEMPUS_TIMEZONE (IANA) and TEMPUS_REFERENCE (ISO instant) to override defaults.",
+  );
   process.exit(2);
 }
 
