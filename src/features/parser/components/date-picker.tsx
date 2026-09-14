@@ -162,7 +162,6 @@ export function DatePicker({
             }}
             autoComplete="off"
             spellCheck={false}
-            maxLength={200}
             rows={2}
             cols={1}
             placeholder="e.g. today plus 2 weeks"
