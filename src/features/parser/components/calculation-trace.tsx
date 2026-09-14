@@ -95,7 +95,10 @@ export function CalculationTrace({ calculation }: { calculation: Calculation }) 
           {!calculation.steps.length ? (
             <p>No time changes needed. The starting date is the result.</p>
           ) : null}
-          <section aria-labelledby="calculation-inputs-heading" className="rounded-md bg-muted/50 px-3 py-3">
+          <section
+            aria-labelledby="calculation-inputs-heading"
+            className="rounded-md bg-muted/50 px-3 py-3"
+          >
             <h3 id="calculation-inputs-heading" className="text-sm font-medium">
               Calculation inputs
             </h3>
