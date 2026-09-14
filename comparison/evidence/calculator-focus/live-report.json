@@ -1,0 +1,194 @@
+{
+  "routes": [
+    {
+      "url": "https://tempus-total.funnydomainname.com/",
+      "status": 200
+    },
+    {
+      "url": "https://tempus-total.funnydomainname.com/privacy",
+      "status": 200
+    },
+    {
+      "url": "https://tempus-total.funnydomainname.com/developers",
+      "status": 200
+    },
+    {
+      "url": "https://tempus-total.funnydomainname.com/api/parse",
+      "status": 200,
+      "data": {
+        "ok": true,
+        "engineVersion": 2,
+        "expression": "What time was it 2 hours and 15 minutes ago?",
+        "timezone": "America/Chicago",
+        "reference": "2026-09-13T15:00:00.000Z",
+        "normalized": "2 hours and 15 minutes ago",
+        "anchor": {
+          "iso": "2026-09-13T15:00:00.000Z",
+          "local": "2026-09-13T10:00:00.000",
+          "offset": "-05:00",
+          "timestamp": 1789311600000
+        },
+        "anchorDescription": "Start at the captured reference time.",
+        "steps": [
+          {
+            "source": "Subtract 2 hours",
+            "before": {
+              "iso": "2026-09-13T15:00:00.000Z",
+              "local": "2026-09-13T10:00:00.000",
+              "offset": "-05:00",
+              "timestamp": 1789311600000
+            },
+            "after": {
+              "iso": "2026-09-13T13:00:00.000Z",
+              "local": "2026-09-13T08:00:00.000",
+              "offset": "-05:00",
+              "timestamp": 1789304400000
+            },
+            "details": [
+              "7,200,000 elapsed milliseconds. No rounding."
+            ]
+          },
+          {
+            "source": "Subtract 15 minutes",
+            "before": {
+              "iso": "2026-09-13T13:00:00.000Z",
+              "local": "2026-09-13T08:00:00.000",
+              "offset": "-05:00",
+              "timestamp": 1789304400000
+            },
+            "after": {
+              "iso": "2026-09-13T12:45:00.000Z",
+              "local": "2026-09-13T07:45:00.000",
+              "offset": "-05:00",
+              "timestamp": 1789303500000
+            },
+            "details": [
+              "900,000 elapsed milliseconds. No rounding."
+            ]
+          }
+        ],
+        "warnings": [],
+        "result": {
+          "iso": "2026-09-13T12:45:00.000Z",
+          "local": "2026-09-13T07:45:00.000",
+          "offset": "-05:00",
+          "timestamp": 1789303500000
+        },
+        "date": "2026-09-13T12:45:00.000Z",
+        "timestamp": 1789303500000,
+        "requestId": "c5381efe"
+      }
+    },
+    {
+      "url": "https://tempus-total.mylesmcook.workers.dev/",
+      "status": 200
+    },
+    {
+      "url": "https://tempus-total.mylesmcook.workers.dev/privacy",
+      "status": 200
+    },
+    {
+      "url": "https://tempus-total.mylesmcook.workers.dev/developers",
+      "status": 200
+    },
+    {
+      "url": "https://tempus-total.mylesmcook.workers.dev/api/parse",
+      "status": 200,
+      "data": {
+        "ok": true,
+        "engineVersion": 2,
+        "expression": "What time was it 2 hours and 15 minutes ago?",
+        "timezone": "America/Chicago",
+        "reference": "2026-09-13T15:00:00.000Z",
+        "normalized": "2 hours and 15 minutes ago",
+        "anchor": {
+          "iso": "2026-09-13T15:00:00.000Z",
+          "local": "2026-09-13T10:00:00.000",
+          "offset": "-05:00",
+          "timestamp": 1789311600000
+        },
+        "anchorDescription": "Start at the captured reference time.",
+        "steps": [
+          {
+            "source": "Subtract 2 hours",
+            "before": {
+              "iso": "2026-09-13T15:00:00.000Z",
+              "local": "2026-09-13T10:00:00.000",
+              "offset": "-05:00",
+              "timestamp": 1789311600000
+            },
+            "after": {
+              "iso": "2026-09-13T13:00:00.000Z",
+              "local": "2026-09-13T08:00:00.000",
+              "offset": "-05:00",
+              "timestamp": 1789304400000
+            },
+            "details": [
+              "7,200,000 elapsed milliseconds. No rounding."
+            ]
+          },
+          {
+            "source": "Subtract 15 minutes",
+            "before": {
+              "iso": "2026-09-13T13:00:00.000Z",
+              "local": "2026-09-13T08:00:00.000",
+              "offset": "-05:00",
+              "timestamp": 1789304400000
+            },
+            "after": {
+              "iso": "2026-09-13T12:45:00.000Z",
+              "local": "2026-09-13T07:45:00.000",
+              "offset": "-05:00",
+              "timestamp": 1789303500000
+            },
+            "details": [
+              "900,000 elapsed milliseconds. No rounding."
+            ]
+          }
+        ],
+        "warnings": [],
+        "result": {
+          "iso": "2026-09-13T12:45:00.000Z",
+          "local": "2026-09-13T07:45:00.000",
+          "offset": "-05:00",
+          "timestamp": 1789303500000
+        },
+        "date": "2026-09-13T12:45:00.000Z",
+        "timestamp": 1789303500000,
+        "requestId": "63dcd195"
+      }
+    }
+  ],
+  "browsers": [
+    {
+      "name": "chromium",
+      "version": "153.0.8010.36",
+      "width": 390,
+      "calculator": true,
+      "correction": true,
+      "tenseRejection": true,
+      "completeFiveDates": true,
+      "pageErrors": []
+    },
+    {
+      "name": "firefox",
+      "version": "148.0.2",
+      "width": 1280,
+      "calculator": true,
+      "correction": true,
+      "tenseRejection": true,
+      "completeFiveDates": true,
+      "pageErrors": []
+    },
+    {
+      "name": "webkit",
+      "version": "26.4",
+      "width": 320,
+      "calculator": true,
+      "correction": true,
+      "tenseRejection": true,
+      "completeFiveDates": true,
+      "pageErrors": []
+    }
+  ]
+}

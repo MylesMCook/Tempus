@@ -9,7 +9,7 @@ One reusable TypeScript engine produces inspectable dates, intervals and schedul
 - [x] Support bounded calculator questions while preserving original spans, full validation and uncertainty.
 - [x] Lead the playground with calculations and visible steps; keep schedule support discoverable.
 - [x] Fresh blind arithmetic probes, full tests, production browser journeys and deployment dry run.
-- [ ] Commit/push and deploy the verified iteration; verify live routes and calculation/correction.
+- [x] Merged PR #5 as `de265f0`; deployed version `7e6b8cbf-63cb-4beb-b4d0-c1a3884d9b13`. Both hostnames and three-browser live calculation/correction/complete-copy checks pass.
 
 ## Synthetic diagnostic lane
 

@@ -1,0 +1,177 @@
+{
+  "status": "passed",
+  "runs": [
+    {
+      "browser": "chromium",
+      "version": "153.0.8010.36",
+      "status": "passed",
+      "errors": [],
+      "files": [
+        {
+          "filename": "chromium-retry.ics",
+          "sha256": "1b6631e8cc62ab6b2e789d490cdd4dab7a0e27fb91ac791a011e2cdb034210f1"
+        },
+        {
+          "filename": "chromium-edited.ics",
+          "sha256": "746ad479a011bd99b786feb1772b67a27f4ca6fbaf64161781496f0d7e1a4213"
+        },
+        {
+          "filename": "chromium-title.ics",
+          "sha256": "3f2abae472a4a03c607fa6e19c66607453818eeafa1c4ebb3c7f55141a609f05"
+        }
+      ]
+    },
+    {
+      "browser": "firefox",
+      "version": "148.0.2",
+      "status": "passed",
+      "errors": [],
+      "files": [
+        {
+          "filename": "firefox-retry.ics",
+          "sha256": "717fb6a8d4fdaec5ed0dba868c7d6eb3fb352bcb78e19c53a67895e03192fef7"
+        },
+        {
+          "filename": "firefox-edited.ics",
+          "sha256": "b74b7c9ab454434f150e1314dcfdf696180abc3ee3c59e0dd445d15426af92f2"
+        },
+        {
+          "filename": "firefox-title.ics",
+          "sha256": "b3b2fdfd55ef3a0025757da7ff5ba8ee24016ef3fe2a6e4247388bea63c37f28"
+        }
+      ]
+    },
+    {
+      "browser": "webkit",
+      "version": "26.4",
+      "status": "passed",
+      "errors": [],
+      "files": [
+        {
+          "filename": "webkit-retry.ics",
+          "sha256": "c577cc891a5954cd88424d4619a746494707e8af3b8a3fab1b6a7b1767dc3b0c"
+        },
+        {
+          "filename": "webkit-edited.ics",
+          "sha256": "680b2fc265be460c0f99dbea62bfd46ffb0e7f68f81d2cdd5336f15fab44db40"
+        },
+        {
+          "filename": "webkit-title.ics",
+          "sha256": "21c6272b06b23a14abe59ebeffa80add26d1ebaedf11b98f45101ffd96cde6e3"
+        }
+      ]
+    }
+  ],
+  "offlineRuns": [
+    {
+      "browser": "chromium",
+      "width": 320,
+      "offlineMode": "browser-offline",
+      "status": "passed",
+      "filename": "chromium-offline-320.ics",
+      "sha256": "01a02d95d156b810f52f2303b29d4fbb0ff7d297c23348640bbcce275f5a9cd3"
+    },
+    {
+      "browser": "chromium",
+      "width": 1280,
+      "offlineMode": "browser-offline",
+      "status": "passed",
+      "filename": "chromium-offline-1280.ics",
+      "sha256": "962f2753f06d4e3968df177405789cf021c4416dc3dd3ad9fe23870dcfc10ba7"
+    },
+    {
+      "browser": "firefox",
+      "width": 320,
+      "offlineMode": "browser-offline",
+      "status": "passed",
+      "filename": "firefox-offline-320.ics",
+      "sha256": "fb1aef67abb10fe9e92c25a622162a0a4951f5d889bfd216d2085865a02341f1"
+    },
+    {
+      "browser": "firefox",
+      "width": 1280,
+      "offlineMode": "browser-offline",
+      "status": "passed",
+      "filename": "firefox-offline-1280.ics",
+      "sha256": "1c905de2ce6a2afc66788d2d70aec9642f1bb520a5bc74547c8bf9ba8284d4f3"
+    },
+    {
+      "browser": "webkit",
+      "width": 320,
+      "offlineMode": "http-https-blocked",
+      "status": "passed",
+      "filename": "webkit-offline-320.ics",
+      "sha256": "60b5495f674477e166e87cadda0871211eeb3593e13ca122ae3b57df449c2a59"
+    },
+    {
+      "browser": "webkit",
+      "width": 1280,
+      "offlineMode": "http-https-blocked",
+      "status": "passed",
+      "filename": "webkit-offline-1280.ics",
+      "sha256": "76b523e77fe6d68a0d07a3b38007dac602d0fc63372700e97a5902f9799de559"
+    }
+  ],
+  "developerRuns": [
+    {
+      "browser": "chromium",
+      "width": 320,
+      "status": "passed",
+      "tabFocus": true,
+      "visibleRing": true,
+      "arrowScroll": "passed"
+    },
+    {
+      "browser": "chromium",
+      "width": 1280,
+      "status": "passed",
+      "tabFocus": true,
+      "visibleRing": true,
+      "arrowScroll": "not-needed"
+    },
+    {
+      "browser": "firefox",
+      "width": 320,
+      "status": "passed",
+      "tabFocus": true,
+      "visibleRing": true,
+      "arrowScroll": "passed"
+    },
+    {
+      "browser": "firefox",
+      "width": 1280,
+      "status": "passed",
+      "tabFocus": true,
+      "visibleRing": true,
+      "arrowScroll": "not-needed"
+    },
+    {
+      "browser": "webkit",
+      "width": 320,
+      "status": "passed",
+      "tabFocus": true,
+      "visibleRing": true,
+      "arrowScroll": "passed"
+    },
+    {
+      "browser": "webkit",
+      "width": 1280,
+      "status": "passed",
+      "tabFocus": true,
+      "visibleRing": true,
+      "arrowScroll": "not-needed"
+    }
+  ],
+  "sourceHashes": {
+    "src/features/parser/calendar-preparation.worker.ts": "37ca2f0daaa35dea795872252563db4883c92f098d1c8e47da455f23b14dd9ca",
+    "src/features/parser/start-calendar-preparation.ts": "9728806395bfa17cf0b864a7a457ea40119868871fd90a0349f594505ac6c66f",
+    "src/features/parser/use-calendar-preparation.ts": "abb4bda30eeccd7f38939bd7587a640616ae043b736582de0f66f6d75a1613a4",
+    "src/features/parser/components/calendar-export.tsx": "31b01afdd2a42ba2e788cb29fec31454bd4e9856c286f459570c68f9d3961231",
+    "src/routes/developers-page.tsx": "33e9e0ea751d18e35e385eb5b00887da9af76d9507a38c60b54dade590ae131d",
+    "src/worker.tsx": "45df9aed5fc9d13921142da307298840e66feb08a3f3bc257d5519fafbe2783b",
+    "public/_headers": "420645e0ad9be0597ec18480b74377730a4d09a5a2c2b1cc99a58f04bb0039aa",
+    "src/shared/recurring-calendar-file.ts": "048edb5e9e394a33b06f753f50958771b226e8606d0e4159c1be697718cd6279",
+    "examples/app/verify-worker-preparation.mjs": "fa5d51984ad40fef5b47e70145907316d4a6b26e954cf41a1c8322f1999044d5"
+  },
+  "scope": "Real desktop workers, direct focus/Enter and files. Offline uses browser emulation in Chromium/Firefox and blocks every HTTP(S) request in WebKit, whose offline emulation rejects even standalone blob Workers. Harness delays actual message delivery and simulates unavailable Worker construction for cancellation/stale-response/failure tests. Not physical device evidence."
+}

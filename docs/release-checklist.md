@@ -9,9 +9,11 @@ The user authorized this bounded website/source release. It does not satisfy the
 - [x] 1,181 tests pass; one existing expected failure in the independent ongoing-timezone reader remains. Types, lint, formatting, build and deployment dry run pass.
 - [x] Final three-browser packed-SDK/playground contract replay passes, including questions and tense rejection. Offline/keyboard journeys and nine separately read lifecycle downloads pass. A 390px layout was visually inspected.
 - [x] Fresh blind agent probes: two of six unambiguous questions resolved correctly; four remained unresolved. Both constraint cases remained unresolved. No false resolved result observed in those eight cases; this is not human or broad language evidence.
-- [ ] Source landed and production verified.
+- [x] PR [#5](https://github.com/MylesMCook/TempusTotal/pull/5) merged as `de265f0` after CI and bounded full-diff review. Deployed version `7e6b8cbf-63cb-4beb-b4d0-c1a3884d9b13`. Both hostnames pass home/privacy/developer/API checks; live Chromium/Firefox/WebKit pass calculator steps, numeric-date correction, tense rejection and complete five-date copy without page errors or horizontal overflow.
 
 Candidate archive SHA-256: `4d955887db8cda1d7406f3b3086a7c4c627227c3c1cf1d74605eb5fafa843470`. [Retained local release evidence](../comparison/evidence/calculator-focus/) and the reproducible app runners identify this scope. Raw build artifacts and browser downloads are under `/tmp/tempus-calculator-release`. Previous deployed version: `2254407e-a2ca-48c1-a4f3-55b5e9213bd4`.
+
+Current engine bundle: 533,494 minified / 152,164 gzip bytes, up 226 gzip bytes from the preceding core candidate. No dependency additions. Live evidence is retained in [live-report.json](../comparison/evidence/calculator-focus/live-report.json); these desktop browser checks do not prove physical-phone or calendar-client import behavior.
 
 ## Active product decision gate
 
