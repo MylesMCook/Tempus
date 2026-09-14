@@ -58,3 +58,16 @@ it("makes the developer example a named, focusable scroll region with a visible 
   expect(html).toContain("overflow-x-auto");
   expect(html).toContain("focus-visible:ring-2");
 });
+
+it("states unpublished package, local parse, API path and clarification contract", () => {
+  const html = renderToStaticMarkup(<DevelopersPage />);
+  expect(html).toContain("not published yet");
+  expect(html).toContain("not on npm");
+  expect(html).toContain("Check API result");
+  expect(html).toContain("GET /api/parse");
+  expect(html).toContain("needs-clarification");
+  expect(html).toContain("Do not pick a date silently");
+  expect(html).toContain("on your device unless");
+  expect(html).not.toContain("Build with Tempus");
+  expect(html).not.toContain("Use the date engine");
+});
