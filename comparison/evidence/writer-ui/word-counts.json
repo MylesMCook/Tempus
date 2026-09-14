@@ -1,0 +1,18 @@
+{
+  "README.md": {
+    "before": 306,
+    "after": 177
+  },
+  "packages/core/README.md": {
+    "before": 2464,
+    "after": 693
+  },
+  "docs/product-matrix.md": {
+    "before": 2773,
+    "after": 388
+  },
+  "docs/release-checklist.md": {
+    "before": 4325,
+    "after": 290
+  }
+}

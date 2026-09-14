@@ -31,16 +31,12 @@ export function HomePage({ initialReference }: { initialReference?: string }) {
   return (
     <div className="bg-page">
       <main id="main" className="mx-auto w-full max-w-3xl px-4 pb-12 pt-8 sm:px-8 sm:pt-12">
-        <header className="mb-8 max-w-xl">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-primary">
-            Date calculator
-          </p>
+        <header className="mb-5 max-w-xl">
           <h1 className="text-3xl font-semibold tracking-tight sm:text-5xl">
             Date math, with the steps.
           </h1>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Add or subtract time in plain English. See the starting date, each change and the
-            result.
+            Add or subtract time in plain English.
           </p>
         </header>
         <section className="flex w-full flex-col gap-6">

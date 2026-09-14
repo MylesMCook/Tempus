@@ -1,22 +1,20 @@
 # Tempus
 
-An explainable date engine for short English instructions. Calculate a date, inspect the steps and correct uncertain details. Existing date ranges and repeating patterns are also supported.
+Calculate dates in words and see each step.
 
-[Open Tempus](https://tempus-total.funnydomainname.com/)
+`January 31 2027 plus 1 month plus 1 month` → **March 28, 2027**
 
-1. Enter a calculation, such as `January 31 2027 plus 1 month plus 1 month`.
-2. Check the interpretation. Answer any clarification question; follow the visible calculation steps for date arithmetic.
-3. Copy the result. **Developer tools** exposes JSON; calendar files are another output format.
+January 31 becomes February 28, then March 28. Tempus shows the month-end adjustment instead of hiding it.
 
-Calculations run in your browser. Your phrase is sent to the server only if you choose **Check API result**. The starting time stays fixed until you edit the phrase or choose **Refresh now**.
+[Open the calculator](https://tempus-total.funnydomainname.com/) · [Date rules](docs/date-rules.md) · [TypeScript quickstart](packages/core/README.md)
 
-After the app finishes loading, schedule preparation and calendar downloads also work offline, including their first use. Opening or reloading the app offline is not supported.
+Calculations run on your device. **Check API result** sends the calculation to the server; typing does not. After the app loads, copying schedules and preparing calendar files also work offline. Opening or reloading offline is not supported.
 
-Tempus supplies date interpretation for other applications. The website is a playground for the engine; the local TypeScript package is a preview integration surface. It does not require an account.
+The engine also supports date ranges and repeating schedules. The TypeScript package is unpublished; its API may change.
 
 ## Run locally
 
-You need Node.js 22.12 or newer and pnpm 10.33.0. No Cloudflare account or API key is needed.
+Use Node.js 22.12+ and pnpm 10.33.0. No API key or Cloudflare account is needed.
 
 ```sh
 git clone https://github.com/MylesMCook/TempusTotal.git
@@ -27,23 +25,10 @@ pnpm dev
 
 Open the local address printed in the terminal.
 
-## Current direction
+## Help improve it
 
-Development is focused on the engine and its small reference playground. New feature families are paused while we evaluate whether its arithmetic, explanations and correction help unfamiliar users. See the [product focus and decision gate](docs/product-focus.md).
+[Report a wrong date or confusing step](https://github.com/MylesMCook/TempusTotal/issues/new/choose). Include your input and expected result; remove private details.
 
-## Contribute
-
-Found a wrong date or something confusing? [Report it](https://github.com/MylesMCook/TempusTotal/issues/new/choose). Include what you typed and what you expected.
-
-For code changes, start with [Contributing](CONTRIBUTING.md).
-
-## Reference
-
-- [Date rules and supported phrases](docs/date-rules.md)
-- [API](docs/api.md)
-- [Local TypeScript package candidate](packages/core/README.md) and [integration examples](examples/sdk/README.md)
-- [Product matrix and remaining gaps](docs/product-matrix.md)
-- [Deploy to Cloudflare](docs/cloudflare-workers.md)
-- [Privacy](https://tempus-total.funnydomainname.com/privacy) and [security reports](SECURITY.md)
+[Contributing](CONTRIBUTING.md) · [All docs](docs/README.md) · [Current direction](docs/product-focus.md) · [Privacy](https://tempus-total.funnydomainname.com/privacy) · [Security](SECURITY.md)
 
 [MIT license](LICENSE) · [Third-party notices](THIRD_PARTY_NOTICES.md)

@@ -7,7 +7,7 @@ export function DevelopersPage() {
         Build with Tempus
       </p>
       <h1 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-        Your app takes it from here.
+        Use the date engine
       </h1>
       <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
         Tempus turns short English into dates, ranges and recurrence rules. Your application decides
@@ -15,22 +15,21 @@ export function DevelopersPage() {
       </p>
       <div className="mt-8 grid grid-cols-1 gap-8 leading-relaxed">
         <section>
-          <h2 className="text-xl font-semibold">Try the interpretation first</h2>
+          <h2 className="text-xl font-semibold">Try a phrase</h2>
           <p className="mt-2">
             Enter a phrase on the{" "}
             <a className="text-primary underline underline-offset-4" href="/">
               playground
             </a>
-            . Check the result and any clarification choices, then open Developer tools to copy the
-            JSON. Dates are calculated locally; API replay is a separate, explicit action.
+            . Check the result, answer any questions, then open Developer tools to copy the JSON.
+            Parsing stays on your device unless you choose Check API result.
           </p>
         </section>
         <section>
           <h2 className="text-xl font-semibold">Use the TypeScript package</h2>
           <p className="mt-2">
-            The package is a local preview in the repository, not a published npm release. It
-            exposes parsing, batches and reusable parsers; calendar-file preparation is an optional
-            entry point.
+            Parse one phrase or a batch. Reuse a parser with a fixed context. Add the optional
+            calendar entry to prepare complete schedules and files.
           </p>
           <pre
             tabIndex={0}
@@ -61,13 +60,12 @@ const result = parse("Call Sam tomorrow at noon", {
           </pre>
           <a
             className="mt-3 inline-block py-2 text-primary underline underline-offset-4"
-            href="https://github.com/MylesMCook/TempusTotal"
+            href="https://github.com/MylesMCook/TempusTotal/tree/main/packages/core"
           >
-            Source repository
+            SDK quickstart
           </a>
           <p className="text-sm text-muted-foreground">
-            This deployed preview may be ahead of the repository's published branch. A stable
-            package contract and release are still pending.
+            The package is not published yet. Its public API may change.
           </p>
         </section>
         <section>
@@ -85,9 +83,8 @@ const result = parse("Call Sam tomorrow at noon", {
         <section>
           <h2 className="text-xl font-semibold">HTTP API: date calculations</h2>
           <p className="mt-2">
-            The existing <code>/api/parse</code> endpoint handles strict date calculations. It does
-            not expose the full natural-language clarification and recurrence interface. Use the
-            package for those capabilities.
+            Use <code>/api/parse</code> for strict date calculations. Use the package for
+            clarification and recurrence.
           </p>
           <p className="mt-2 text-sm text-muted-foreground">
             Calendar files are an output format. Actual calendar-client imports and physical-device

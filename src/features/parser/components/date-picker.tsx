@@ -145,7 +145,7 @@ export function DatePicker({
         ) : null}
         <details className="mt-3 border-t pt-1">
           <summary className="cursor-pointer py-3 text-sm text-muted-foreground underline-offset-4 hover:text-foreground focus-visible:outline focus-visible:outline-2">
-            More examples, including schedules
+            More examples
           </summary>
           <DateExpressionTabs
             examples={examples}
@@ -160,10 +160,6 @@ export function DatePicker({
               });
             }}
           />
-          <p className="pb-3 text-sm text-muted-foreground">
-            Try “Call Sam tomorrow at noon” to keep event text alongside a date. Short English
-            phrases work best; ambiguous details become questions.
-          </p>
         </details>
       </section>
 
@@ -299,9 +295,6 @@ export function DatePicker({
                       {interpretation.source.text}
                     </mark>
                     {expression.slice(interpretation.source.span.end)}
-                  </p>
-                  <p className="text-muted-foreground">
-                    Event text is kept with the interpreted date.
                   </p>
                 </div>
               ) : null}
