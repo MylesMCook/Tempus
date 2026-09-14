@@ -92,8 +92,8 @@ export function DatePicker({
   const hasExpression = Boolean(expression.trim());
   return (
     <div className="grid gap-4">
-      <section aria-label="Date calculator" className="rounded-xl border bg-background p-4 sm:p-6">
-        <Label htmlFor="date-expression" className="text-base font-semibold">
+      <section aria-label="Date calculator" className="rounded-xl border bg-background p-4 sm:p-5">
+        <Label htmlFor="date-expression" className="text-sm font-medium text-muted-foreground">
           What date do you need?
         </Label>
         <Input
@@ -115,13 +115,13 @@ export function DatePicker({
           autoComplete="off"
           spellCheck={false}
           placeholder="e.g. today plus 2 weeks minus 3 days"
-          className="mt-3 h-12 text-base"
+          className="mt-2 h-12 text-base"
         />
-        <div className="mt-2 flex min-h-10 items-center justify-between gap-2 text-sm text-muted-foreground">
-          <p id="phrase-help">
+        <div className="mt-2 flex min-h-9 items-start justify-between gap-2 text-sm text-muted-foreground">
+          <p id="phrase-help" className="leading-relaxed">
             {ready ? (
               <>
-                Calculated on your device as you type. Up to 200 characters.{" "}
+                On this device · up to 200 characters.{" "}
                 <button
                   type="button"
                   className="text-foreground underline underline-offset-4 hover:text-primary focus-visible:outline focus-visible:outline-2"
@@ -148,10 +148,10 @@ export function DatePicker({
           ) : null}
         </div>
         {!hasExpression ? (
-          <div className="mt-2 flex flex-wrap gap-2" role="group" aria-label="Try a phrase">
+          <div className="mt-3 flex flex-wrap gap-2" role="group" aria-label="Try a phrase">
             <Button
               disabled={!ready}
-              variant="outline"
+              variant="secondary"
               className="h-auto min-h-11 whitespace-normal text-left font-normal"
               onClick={() => {
                 onExpressionChange("today plus 2 weeks");
@@ -162,8 +162,8 @@ export function DatePicker({
             </Button>
           </div>
         ) : null}
-        <details className="mt-3 border-t pt-1">
-          <summary className="cursor-pointer py-3 text-sm text-muted-foreground underline-offset-4 hover:text-foreground focus-visible:outline focus-visible:outline-2">
+        <details className="mt-2">
+          <summary className="cursor-pointer py-2 text-sm text-muted-foreground hover:text-foreground focus-visible:outline focus-visible:outline-2">
             Browse examples
           </summary>
           <DateExpressionTabs
@@ -283,15 +283,12 @@ export function DatePicker({
                   aria-label="Calculated date"
                   className="pb-1"
                 >
-                  <h2 className="text-sm font-medium text-emerald-800">
-                    {formatted === null ? "Date calculated" : "Calculated date"}
-                  </h2>
-                  <div role="status" aria-live="polite" aria-atomic="true" className="mt-2">
-                    <p
+                  <div role="status" aria-live="polite" aria-atomic="true">
+                    <h2
                       className={`break-words text-2xl font-semibold tracking-tight sm:text-3xl ${formatted === null ? "text-destructive" : ""}`}
                     >
                       {formatted ?? "Choose a valid date format."}
-                    </p>
+                    </h2>
                     <p className="mt-2 text-sm text-muted-foreground">
                       {calculation.timezone} ·{" "}
                       {dateOnly

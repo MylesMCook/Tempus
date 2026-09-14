@@ -31,14 +31,17 @@ export function Document({ children }: { children: ReactNode }) {
         <div className="border-b bg-background">
           <nav
             aria-label="Main navigation"
-            className="mx-auto flex max-w-3xl items-center justify-between gap-4 px-4 py-3 sm:px-8"
+            className="mx-auto flex h-12 max-w-3xl items-center justify-between gap-4 px-4 sm:h-14 sm:px-8"
           >
-            <a href="/" className="py-2 text-xl font-semibold tracking-tight">
+            <a
+              href="/"
+              className="text-[1.0625rem] font-semibold tracking-[-0.03em] focus-visible:outline focus-visible:outline-2 sm:text-lg"
+            >
               Tempus<span className="text-primary">.</span>
             </a>
             <a
               href="/developers"
-              className="py-3 text-sm font-medium underline-offset-4 hover:underline"
+              className="py-1 text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline focus-visible:outline-2"
             >
               Build with Tempus
             </a>
