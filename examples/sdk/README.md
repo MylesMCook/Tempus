@@ -2,6 +2,8 @@
 
 Run `pnpm install --frozen-lockfile` and `pnpm build:sdk` at the repository root. The workspace links the example to the package. For release verification, copy this example outside the workspace and install the packed tarball instead of the workspace dependency.
 
+From the repository root, **`pnpm sdk:dogfood`** runs all seven Node integration scripts against the workspace-linked package. **`pnpm sdk:parse -- "your phrase"`** prints JSON for a one-off phrase (`TEMPUS_TIMEZONE`, `TEMPUS_REFERENCE` optional).
+
 From this directory, `node node.mjs` runs the Node assertions.
 
 `node state.mjs` checks a reminder through numeric-date and repeated-clock correction, then file preparation. It verifies that changed event text, duration, timezone or reference invalidates the answers; batch items cannot borrow another input's answers; and a reusable parser captures nested options independently of caller mutations. It writes no files or calendars. Run it against the copied packed installation for release evidence.

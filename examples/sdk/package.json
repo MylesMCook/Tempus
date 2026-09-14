@@ -2,6 +2,9 @@
   "name": "tempus-sdk-example",
   "private": true,
   "type": "module",
+  "scripts": {
+    "parse:cli": "node parse-phrase.mjs"
+  },
   "dependencies": {
     "@tempus-date/core": "workspace:*"
   }
