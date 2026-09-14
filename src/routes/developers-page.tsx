@@ -65,14 +65,17 @@ export function DevelopersPage() {
     <main id="main" className="mx-auto max-w-3xl px-4 py-10 sm:px-8">
       <h1 className="text-3xl font-semibold tracking-tight">Developers</h1>
       <p className="mt-3 max-w-2xl text-base leading-relaxed text-muted-foreground">
-        Parse English into dates in the playground, from an unpublished TypeScript package, or with{" "}
+        Parse English into dates. Use the playground, the unpublished TypeScript package, or{" "}
         <code className="text-foreground">GET /api/parse</code>.
       </p>
 
       <nav aria-label="Integration paths" className="mt-8 border-y">
         <ul className="divide-y">
           <li className="flex flex-col gap-1 py-4 sm:flex-row sm:items-baseline sm:gap-8">
-            <a className="shrink-0 font-medium underline-offset-4 hover:underline sm:w-40" href="/">
+            <a
+              className="shrink-0 py-1 font-medium text-primary underline underline-offset-4 sm:w-40"
+              href="/"
+            >
               Playground
             </a>
             <p className="text-sm leading-relaxed text-muted-foreground">
@@ -82,7 +85,7 @@ export function DevelopersPage() {
           </li>
           <li className="flex flex-col gap-1 py-4 sm:flex-row sm:items-baseline sm:gap-8">
             <a
-              className="shrink-0 font-medium underline-offset-4 hover:underline sm:w-40"
+              className="shrink-0 py-1 font-medium text-primary underline underline-offset-4 sm:w-40"
               href="#package"
             >
               TypeScript package
@@ -94,7 +97,7 @@ export function DevelopersPage() {
           </li>
           <li className="flex flex-col gap-1 py-4 sm:flex-row sm:items-baseline sm:gap-8">
             <a
-              className="shrink-0 font-medium underline-offset-4 hover:underline sm:w-40"
+              className="shrink-0 py-1 font-medium text-primary underline underline-offset-4 sm:w-40"
               href="#api"
             >
               HTTP API
