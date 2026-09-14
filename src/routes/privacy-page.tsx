@@ -47,11 +47,13 @@ export function PrivacyPage() {
         <section>
           <h2 className="mb-2 text-lg font-semibold text-foreground">API requests and hosting</h2>
           <p>
-            An API request includes your phrase, date format, timezone, and reference time in its
-            URL. Cloudflare processes these requests and serves the website. Hosting logs are
-            enabled. Worker logs are configured to remove query strings; older logs and other
-            hosting records may still contain request URLs and metadata. Avoid confidential
-            information in API requests or URLs you share.
+            An API request includes the phrase or interpreted expression shown in Compare with the
+            API (typed words when there is no single-date calculation yet, otherwise the interpreted
+            expression), plus date format, timezone, and reference time in its URL. Cloudflare
+            processes these requests and serves the website. Hosting logs are enabled. Worker logs
+            are configured to remove query strings; older logs and other hosting records may still
+            contain request URLs and metadata. Avoid confidential information in API requests or
+            URLs you share.
           </p>
           <p className="mt-3">
             Cloudflare also uses your IP address to limit API requests. People sharing a network may
