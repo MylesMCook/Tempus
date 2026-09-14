@@ -53,13 +53,13 @@ try {
       ],
     ]) {
       await input.fill(expression);
-      const copy = page.getByRole("button", { name: "Copy date", exact: true });
+      const copy = page.getByRole("button", { name: "Copy result", exact: true });
       await copy.waitFor();
       const shown = await page.locator("#calculated-date").innerText();
       assert.ok(shown.includes(visible) && shown.includes(clock), shown);
       await copy.focus();
       await page.keyboard.press("Enter");
-      await page.getByRole("button", { name: "Date copied", exact: true }).waitFor();
+      await page.getByRole("button", { name: "Result copied", exact: true }).waitFor();
       // Never inspect pre-existing clipboard content; read only after our successful write.
       const copied = await page.evaluate(() => navigator.clipboard.readText());
       assert.ok(
@@ -110,8 +110,11 @@ try {
       );
       await input.fill("February 30, 2026");
       await page.locator("#calculation-error").waitFor();
-      assert.equal(await page.getByRole("button", { name: "Date copied", exact: true }).count(), 0);
-      assert.equal(await page.getByRole("button", { name: "Copy date", exact: true }).count(), 0);
+      assert.equal(
+        await page.getByRole("button", { name: "Result copied", exact: true }).count(),
+        0,
+      );
+      assert.equal(await page.getByRole("button", { name: "Copy result", exact: true }).count(), 0);
       report.runs.push({ width, expression, iso, copied, steps, status: "passed" });
     }
     await context.close();
