@@ -32,7 +32,7 @@ export function HomePage({ initialReference }: { initialReference?: string }) {
     <div className="bg-page">
       <main id="main" className="mx-auto w-full max-w-3xl px-4 pb-12 pt-8 sm:px-8 sm:pt-12">
         <header className="mb-5 max-w-xl">
-          <h1 className="text-3xl font-semibold tracking-tight sm:text-5xl">
+          <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
             Date math, with the steps.
           </h1>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">

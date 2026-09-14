@@ -21,7 +21,7 @@
     "cf-typegen": "wrangler types",
     "build:sdk": "tsc -p tsconfig.sdk.json && node -e \"require('node:fs').copyFileSync('src/shared/date-engine/timezone-LICENSE.txt', 'packages/core/dist/date-engine/timezone-LICENSE.txt')\"",
     "sdk:dogfood": "pnpm build:sdk && node examples/sdk/run-node-dogfood.mjs",
-    "sdk:parse": "pnpm build:sdk && pnpm -C examples/sdk run parse:cli",
+    "sdk:parse": "pnpm build:sdk && pnpm -C examples/sdk run parse:cli --",
     "benchmark:cpu": "pnpm build:sdk && node comparison/performance/run.mjs",
     "validate": "pnpm check && pnpm test && pnpm build && pnpm audit --audit-level=high"
   },
