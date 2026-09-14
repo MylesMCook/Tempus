@@ -1,0 +1,103 @@
+{
+  "domains": [
+    {
+      "hostname": "tempus.funnydomainname.com",
+      "service": "tempus",
+      "enabled": true,
+      "previews_enabled": false
+    },
+    {
+      "hostname": "tempus-total.funnydomainname.com",
+      "service": "tempus-total",
+      "enabled": true,
+      "previews_enabled": false
+    }
+  ],
+  "workers": {
+    "tempus": {
+      "compatibility_date": "2026-03-29",
+      "compatibility_flags": [
+        "nodejs_compat"
+      ],
+      "limits": {
+        "cpu_ms": 100
+      },
+      "observability": {
+        "enabled": true,
+        "head_sampling_rate": 1,
+        "redact_query_string": true,
+        "logs": {
+          "enabled": true,
+          "head_sampling_rate": 1,
+          "persist": true,
+          "invocation_logs": true
+        },
+        "traces": {
+          "enabled": false,
+          "persist": true,
+          "head_sampling_rate": 1
+        }
+      },
+      "bindings": [
+        {
+          "type": "assets",
+          "name": "ASSETS",
+          "namespace_id": null,
+          "simple": null,
+          "service": null
+        },
+        {
+          "type": "ratelimit",
+          "name": "PARSE_RATE_LIMITER",
+          "namespace_id": "2026091201",
+          "simple": {
+            "limit": 120,
+            "period": 60
+          },
+          "service": null
+        }
+      ],
+      "subdomain": {
+        "enabled": true,
+        "previews_enabled": false
+      }
+    },
+    "tempus-total": {
+      "compatibility_date": "2026-03-29",
+      "compatibility_flags": [],
+      "limits": {
+        "cpu_ms": 100
+      },
+      "observability": {
+        "enabled": true,
+        "head_sampling_rate": 1,
+        "redact_query_string": true,
+        "logs": {
+          "enabled": true,
+          "head_sampling_rate": 1,
+          "persist": true,
+          "invocation_logs": true
+        },
+        "traces": {
+          "enabled": false,
+          "persist": true,
+          "head_sampling_rate": 1
+        }
+      },
+      "bindings": [
+        {
+          "type": "service",
+          "name": "TEMPUS",
+          "namespace_id": null,
+          "simple": null,
+          "service": "tempus"
+        }
+      ],
+      "subdomain": {
+        "enabled": true,
+        "previews_enabled": false
+      }
+    }
+  },
+  "dnsRecordInventory": "OAuth permission unavailable (403); domain provisioning and HTTPS verified through deployed endpoints."
+}

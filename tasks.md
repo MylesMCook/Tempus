@@ -4,14 +4,14 @@
 
 One reusable TypeScript engine produces inspectable dates, intervals and schedules. The website is its reference consumer. Use the [product focus](docs/product-focus.md); retain the [matrix](docs/product-matrix.md) as an inventory, not a parity backlog. New feature families are paused. The user now authorizes publishing the tested calculator-focused iteration through the normal Git/Cloudflare release path. No calendar writes or unrelated service changes. The private SDK is not being published to npm.
 
-## Active Tempus rename
+## Completed Tempus rename
 
 - [x] Verify `MylesMCook/Tempus` is available; no releases, issues or PR titles need renaming.
 - [x] Update GitHub links, clone instructions and private root-package metadata.
 - [x] Renamed to `MylesMCook/Tempus`; origin and description updated. Old URL returns 301 to the new repository.
-- [ ] Land checked references and verify GitHub state.
-- [ ] Deploy Worker `tempus` and `tempus.funnydomainname.com`, verify security/bindings/browser/API, then preserve old URLs through a compatibility Worker.
-- [ ] Update GitHub homepage and deployment/rollback records.
+- [x] PR #8 merged as `03e846f`; GitHub name, origin, links and homepage use Tempus.
+- [x] Main Worker `tempus` deployed as `df3c7f40-f513-43c8-98b6-94e9533af521`. Both new endpoints pass browser/API checks. Old Worker is compatibility-only version `04888dfd-aa9a-4804-b581-6533d373def3`; redirects and API/preflight parity pass.
+- [x] Updated GitHub homepage, deployment guide and [migration evidence](comparison/evidence/tempus-rename/README.md).
 
 ## Completed Copilot critique pass
 

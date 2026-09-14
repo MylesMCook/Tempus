@@ -1,0 +1,18 @@
+[
+  {
+    "origin": "https://tempus-total.funnydomainname.com",
+    "redirect": 308,
+    "location": "https://tempus.funnydomainname.com/privacy?from=old%20bookmark",
+    "api": 200,
+    "date": "2027-03-28T05:00:00.000Z",
+    "preflight": 200
+  },
+  {
+    "origin": "https://tempus-total.mylesmcook.workers.dev",
+    "redirect": 308,
+    "location": "https://tempus.funnydomainname.com/privacy?from=old%20bookmark",
+    "api": 200,
+    "date": "2027-03-28T05:00:00.000Z",
+    "preflight": 200
+  }
+]

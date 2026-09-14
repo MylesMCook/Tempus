@@ -1,8 +1,12 @@
 # Release status
 
-[PR #7](https://github.com/MylesMCook/Tempus/pull/7) landed as `ec6e01c`. Cloudflare version `1a9e0cc8-0ed8-46b0-bfae-c876794d07e0` serves the clarification and SDK-guidance fixes. The SDK remains unpublished. Previous version `228380e5-5b2f-4ec9-8ca4-69adebe55f4d` is the rollback target.
+[PR #8](https://github.com/MylesMCook/Tempus/pull/8) landed as `03e846f`. The canonical site is [tempus.funnydomainname.com](https://tempus.funnydomainname.com/), served by Worker `tempus`, version `df3c7f40-f513-43c8-98b6-94e9533af521`. The SDK remains unpublished.
 
-[Copilot review and triage](../comparison/copilot-review/README.md): three distinct models, reproduced findings and rejected suggestions. Current checks pass: 1,181 tests plus the existing expected failure, types/lint/build, CI audit, fresh SDK install, packed-SDK/browser journeys and [live fixes](../comparison/copilot-review/live-fixes.json). [Both-host checks](../comparison/copilot-review/live-report.json) pass. No engine or infrastructure change.
+The old Worker is compatibility-only, version `04888dfd-aa9a-4804-b581-6533d373def3`: browser URLs redirect; API requests forward internally. Its pre-migration application version `1a9e0cc8-0ed8-46b0-bfae-c876794d07e0` remains the fallback. See [deployment and recovery](cloudflare-workers.md).
+
+[Migration evidence](../comparison/evidence/tempus-rename/README.md): 1,184 tests pass plus the existing expected failure; types/lint/build, CI audit and both deployment dry runs pass. New endpoints pass three-browser calculation, correction and complete-copy checks. Both legacy endpoints preserve API results and CORS preflights. Cloudflare bindings, CPU limits, query redaction and disabled preview URLs were read back.
+
+[Copilot review and triage](../comparison/copilot-review/README.md) retains the preceding SDK install, error-contract and UI-fix evidence. The date engine is unchanged.
 
 ## Retained evidence from the preceding UI release
 
