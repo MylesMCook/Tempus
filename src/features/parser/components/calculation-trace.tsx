@@ -1,3 +1,4 @@
+import { useId } from "react";
 import type { Calculation, CalculationStep, DateSnapshot } from "@/shared/date-parser";
 
 const GENERIC_CALENDAR_NOTE = "Calendar change, applied to this step’s starting date.";
@@ -59,6 +60,7 @@ function StepNotes({ step }: { step: CalculationStep }) {
 }
 
 export function CalculationTrace({ calculation }: { calculation: Calculation }) {
+  const inputsHeadingId = useId();
   const lastIndex = calculation.ok ? calculation.steps.length - 1 : -1;
   return (
     <details open={calculation.ok && calculation.steps.length > 0} className="mt-5 border-t">
@@ -76,7 +78,7 @@ export function CalculationTrace({ calculation }: { calculation: Calculation }) 
             aria-label="Calculation steps"
           >
             <li className="relative pb-5 pl-5">
-              <TimelineDot />
+              <TimelineDot current={calculation.steps.length === 0} />
               <h3 className="font-medium text-muted-foreground">Starting date</h3>
               <TimestampLine date={calculation.anchor} />
               <p className="mt-1.5 leading-relaxed">{calculation.anchorDescription}</p>
@@ -95,11 +97,8 @@ export function CalculationTrace({ calculation }: { calculation: Calculation }) 
           {!calculation.steps.length ? (
             <p>No time changes needed. The starting date is the result.</p>
           ) : null}
-          <section
-            aria-labelledby="calculation-inputs-heading"
-            className="rounded-md bg-muted/50 px-3 py-3"
-          >
-            <h3 id="calculation-inputs-heading" className="text-sm font-medium">
+          <section aria-labelledby={inputsHeadingId} className="rounded-md bg-muted/50 px-3 py-3">
+            <h3 id={inputsHeadingId} className="text-sm font-medium">
               Calculation inputs
             </h3>
             <dl className="mt-3 grid gap-3">
