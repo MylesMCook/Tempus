@@ -17,8 +17,8 @@ The engine also supports date ranges and repeating schedules. The TypeScript pac
 Use Node.js 22.12+ and pnpm 10.33.0. No API key or Cloudflare account is needed.
 
 ```sh
-git clone https://github.com/MylesMCook/TempusTotal.git
-cd TempusTotal
+git clone https://github.com/MylesMCook/Tempus.git
+cd Tempus
 pnpm install --frozen-lockfile
 pnpm dev
 ```
@@ -27,7 +27,7 @@ Open the local address printed in the terminal.
 
 ## Help improve it
 
-[Report a wrong date or confusing step](https://github.com/MylesMCook/TempusTotal/issues/new/choose). Include your input and expected result; remove private details.
+[Report a wrong date or confusing step](https://github.com/MylesMCook/Tempus/issues/new/choose). Include your input and expected result; remove private details.
 
 [Contributing](CONTRIBUTING.md) · [All docs](docs/README.md) · [Current direction](docs/product-focus.md) · [Privacy](https://tempus-total.funnydomainname.com/privacy) · [Security](SECURITY.md)
 

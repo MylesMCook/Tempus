@@ -4,6 +4,13 @@
 
 One reusable TypeScript engine produces inspectable dates, intervals and schedules. The website is its reference consumer. Use the [product focus](docs/product-focus.md); retain the [matrix](docs/product-matrix.md) as an inventory, not a parity backlog. New feature families are paused. The user now authorizes publishing the tested calculator-focused iteration through the normal Git/Cloudflare release path. No calendar writes or unrelated service changes. The private SDK is not being published to npm.
 
+## Active GitHub rename
+
+- [x] Verify `MylesMCook/Tempus` is available; no releases, issues or PR titles need renaming.
+- [x] Update GitHub links, clone instructions and private root-package metadata.
+- [x] Renamed to `MylesMCook/Tempus`; origin and description updated. Old URL returns 301 to the new repository.
+- [ ] Land checked references and verify GitHub state.
+
 ## Completed Copilot critique pass
 
 [Reviews, triage and evidence](comparison/copilot-review/README.md). Copilot CLI 1.0.83 installed through `gh copilot` and authenticated using the existing GitHub credential.

@@ -1,12 +1,12 @@
 {
-  "name": "tempus-total",
+  "name": "tempus",
   "version": "0.1.0",
   "private": true,
   "description": "A local-first date calculator with an explainable parser and stateless API.",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/MylesMCook/TempusTotal.git"
+    "url": "https://github.com/MylesMCook/Tempus.git"
   },
   "type": "module",
   "scripts": {

@@ -15,7 +15,7 @@ pnpm pack
 Requires Node 22.12 or newer and ESM. The archive is `packages/core/tempus-date-core-0.1.0.tgz`. From your app, install it with its absolute path:
 
 ```sh
-npm install /absolute/path/to/TempusTotal/packages/core/tempus-date-core-0.1.0.tgz
+npm install /absolute/path/to/Tempus/packages/core/tempus-date-core-0.1.0.tgz
 node --input-type=module -e 'import { parse, SDK_VERSION } from "@tempus-date/core"; const r = parse("tomorrow", { timezone: "UTC", reference: "2026-09-13T12:00:00Z" }); if (r.status !== "resolved") throw new Error(r.status); console.log(SDK_VERSION, r.status);'
 ```
 
