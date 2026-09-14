@@ -33,14 +33,14 @@ Open the local address printed in the terminal.
 
 ## Repository layout
 
-| Path | What it is |
-| ---- | ---------- |
-| `src/` | Calculator UI, routes, and the shared date engine |
-| `worker/` | Cloudflare HTTP API |
-| `packages/core/` | Unpublished TypeScript SDK |
-| `docs/` | Current product, API, and deploy guides |
-| `docs/archive/` | Historical notes and completed task logs |
-| `comparison/` | Parser comparison tests and retained evidence |
-| [`examples/`](examples/README.md) | Browser journeys and SDK samples |
+| Path                              | What it is                                        |
+| --------------------------------- | ------------------------------------------------- |
+| `src/`                            | Calculator UI, routes, and the shared date engine |
+| `worker/`                         | Cloudflare HTTP API                               |
+| `packages/core/`                  | Unpublished TypeScript SDK                        |
+| `docs/`                           | Current product, API, and deploy guides           |
+| `docs/archive/`                   | Historical notes and completed task logs          |
+| `comparison/`                     | Parser comparison tests and retained evidence     |
+| [`examples/`](examples/README.md) | Browser journeys and SDK samples                  |
 
 [MIT license](LICENSE) · [Third-party notices](THIRD_PARTY_NOTICES.md)

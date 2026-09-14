@@ -1,13 +1,13 @@
 # Compare parsers locally
 
-| Path | What it is |
-| ---- | ---------- |
-| This folder | Parser comparison tests and scoring |
-| [results/](results/report.md) | Generated local reports (gitignored) |
-| [evidence/](evidence/README.md) | Retained hashes and review snapshots |
-| [calendar/](calendar/README.md) | Calendar-file comparison helpers |
-| [performance/](performance/README.md) | Bundle and CPU measurements |
-| [independent-evaluation/](independent-evaluation/README.md) | Holdout study handoff |
+| Path                                                        | What it is                           |
+| ----------------------------------------------------------- | ------------------------------------ |
+| This folder                                                 | Parser comparison tests and scoring  |
+| [results/](results/report.md)                               | Generated local reports (gitignored) |
+| [evidence/](evidence/README.md)                             | Retained hashes and review snapshots |
+| [calendar/](calendar/README.md)                             | Calendar-file comparison helpers     |
+| [performance/](performance/README.md)                       | Bundle and CPU measurements          |
+| [independent-evaluation/](independent-evaluation/README.md) | Holdout study handoff                |
 
 ```sh
 pnpm install --frozen-lockfile
