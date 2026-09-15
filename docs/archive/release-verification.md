@@ -1,10 +1,10 @@
 # Local journey and package verification
 
-For the current candidate and open gates, start with the [release checklist](release-checklist.md). This evidence log retains historical milestones: “current” and “latest” inside an older section refer to that section’s artifact, not the present release candidate.
+For the current candidate and open gates, start with the [release checklist](../release-checklist.md). This evidence log retains historical milestones: “current” and “latest” inside an older section refer to that section’s artifact, not the present release candidate.
 
 ## Local API boundary follow-up
 
-The dated [security record](security-review.md#current-local-api-review--september-13-2026) now explicitly excludes the current parser/calendar worktree from the older formal scan's verdict. This follow-up inspected the Worker boundary, changed shared API formatting and replay UI. No new defect was identified in that limited scope; the full current security review and live Cloudflare checks remain open.
+The dated [security record](../security-review.md#current-local-api-review--september-13-2026) now explicitly excludes the current parser/calendar worktree from the older formal scan's verdict. This follow-up inspected the Worker boundary, changed shared API formatting and replay UI. No new defect was identified in that limited scope; the full current security review and live Cloudflare checks remain open.
 
 `pnpm exec vp test run src/shared/parse-api.test.ts src/shared/timezone-integration.test.ts src/shared/compatibility.test.ts` passes **159 tests across three files**. These are local regression checks, including mocked request controls and pinned timezone/API parity. They do not represent new independent security coverage or production verification. No code behavior changed in this follow-up.
 
@@ -54,7 +54,7 @@ The four-hour candidate with Tempus's generated timezone and one exclusion passe
 
 The wider investigation also found failures. Without ICU, libical produces wrong weekly dates in 2100; a plain UTC control reproduces it, so it is not caused by Tempus's timezone output. The ICU-backed build fixes that case. Later-year windows still fail: 2582 has incorrect offsets and later windows are empty. Libical's timezone expansion code has an explicit 2582 cap. Original failures remain recorded, and the third reader still fails both ambiguous-clock controls.
 
-Candidate, window checks and UTC controls: `/Users/mylescook/Documents/Codex/2026-09-13-tempus-elapsed-ongoing/`. Durable cycle results: `comparison/results/calendar/elapsed-duration-cycle/`. Build identity includes the existing ICU libraries' hashes; no ICU install or upgrade occurred. [Reproduction and scope](../comparison/calendar/README.md#ongoing-elapsed-duration-candidate) explain both build configurations.
+Candidate, window checks and UTC controls: `/Users/mylescook/Documents/Codex/2026-09-13-tempus-elapsed-ongoing/`. Durable cycle results: `comparison/results/calendar/elapsed-duration-cycle/`. Build identity includes the existing ICU libraries' hashes; no ICU install or upgrade occurred. [Reproduction and scope](../../comparison/calendar/README.md#ongoing-elapsed-duration-candidate) explain both build configurations.
 
 App and SDK behavior and archive `0341e306…` are unchanged. A product decision has been requested before exposing this path as experimental because readers disagree and actual calendar-client import remains unverified. Keeping it blocked preserves the current behavior; experimental exposure would need a visible compatibility warning and would not authorize calendar writes or close the release gate. Until that decision arrives, the path remains blocked.
 
@@ -64,7 +64,7 @@ A task-local libical 4.0.5 build now provides a third reader. The unchanged four
 
 The distinction matters: one calendar day crosses spring/autumn DST in 23/25 elapsed hours; 24 hours remains 24. This reader preserves that distinction. It supports investigating faithful ongoing elapsed-duration output, but does not establish general client compatibility or resolve ambiguous-start policy. App and SDK behavior and current archive `0341e306…` are unchanged.
 
-Source archive, compiler/configuration logs, static library, executable and build manifest are retained in `/Users/mylescook/Documents/Codex/2026-09-13-tempus-libical/`. Checked source/probe/build hashes accompany `comparison/results/calendar/libical-v4.0.5-verified/report.json`. The first configure attempt failed on optional introspection and was corrected by disabling it. A separate actual-file attempt was refused because this adapter does not expand detached exceptions; no third-reader pass is claimed for the 103-interval file. See [reproduction and limitations](../comparison/calendar/README.md#third-reader-libical-405).
+Source archive, compiler/configuration logs, static library, executable and build manifest are retained in `/Users/mylescook/Documents/Codex/2026-09-13-tempus-libical/`. Checked source/probe/build hashes accompany `comparison/results/calendar/libical-v4.0.5-verified/report.json`. The first configure attempt failed on optional introspection and was corrected by disabling it. A separate actual-file attempt was refused because this adapter does not expand detached exceptions; no third-reader pass is claimed for the 103-interval file. See [reproduction and limitations](../../comparison/calendar/README.md#third-reader-libical-405).
 
 No dependency was added to the app or SDK, no system-wide install was performed, and no calendar client was used. Existing reader failures and missing real import/device/independent-evaluation gates remain visible.
 
@@ -126,7 +126,7 @@ App/SDK implementation and archive `1edbaacb…` are unchanged. Unbounded future
 
 Our earlier generated-gap conformance expectation was wrong. [RFC 5545 verified erratum 4271](https://www.rfc-editor.org/errata/eid4271) distinguishes invalid dates (skip) from nonexistent local times (apply section 3.3.5, using the pre-gap offset). For Chicago March 8, 2026 at 02:30, the expected instant is 08:30Z. Both current diagnostic readers return 07:30Z, so the corrected case still fails.
 
-The version 2 [client diagnostic pack](calendar-client-check.md) and ongoing-event generator now use the corrected expectation. Explicit EXDATE skipping remains a separate chosen policy. Original files and reports are preserved in `comparison/results/calendar/history/before-erratum-4271/`; earlier omission-based conclusions below are historical and superseded. This is a diagnostic correction, not an enabled automatic clock policy or proof of calendar-client compatibility.
+The version 2 [client diagnostic pack](../calendar-client-check.md) and ongoing-event generator now use the corrected expectation. Explicit EXDATE skipping remains a separate chosen policy. Original files and reports are preserved in `comparison/results/calendar/history/before-erratum-4271/`; earlier omission-based conclusions below are historical and superseded. This is a diagnostic correction, not an enabled automatic clock policy or proof of calendar-client compatibility.
 
 Re-run: sixteen bounded journey files, the fixed-offset file, and captured Chicago point/workday files pass the locked Python reader. The aggregate command exits 1: duration, missing-clock and other recurrence probes still fail; timezone candidates remain 7/8. No client import occurred. App/SDK source and archive `1edbaacb…` are unchanged by this correction.
 
@@ -144,7 +144,7 @@ The refreshed packed desktop comparison verifies installed files against archive
 
 Custom-format correction: the previous date-fns-tz path could collapse the second Chicago 1:30 AM into the first when formatting `t`/`T` or offsets introduced by localized `P`/`p` formats. Tests now assert the actual selected timestamp and -06:00 offset for the second occurrence. Other tested formats retain their output where timezone data agrees. This corrects a formatting defect; it is not an API shape change or a reason to preserve a wrong timestamp.
 
-September 12, 2026. This is an inspected development check, not independent evaluation or a release certification. Source remains uncommitted and local. The [release checklist](release-checklist.md) retains all missing gates.
+September 12, 2026. This is an inspected development check, not independent evaluation or a release certification. Source remains uncommitted and local. The [release checklist](../release-checklist.md) retains all missing gates.
 
 ## Web journeys
 
@@ -172,7 +172,7 @@ Artifact and clean consumer: `/Users/mylescook/Documents/Codex/2026-09-12-tempus
 | Chrome 150                    | Chicago November 1 at 07:00Z: second 1:30 AM choice yields November 1/8 at 07:30Z, retains `call Sam`, focuses result; editing restores the question. At 08:00Z, midnight–1:30 AM recurrence yields November 8 only, 06:00Z–07:30Z, without choices. No browser errors. | Desktop browser, not physical device or application-wide UI certification. |
 | Wrangler 4.131.1 local Worker | Reference 07:00Z and 07:30Z keep repeated-start clarification; 08:00Z skips the past start. Past-midnight ranges retain exactly the November 8 interval in all three contexts.                                                                                          | Local workerd, not deployed Worker.                                        |
 
-Scratch browser finishes with labeled Chicago reference `2026-11-01T08:00:00Z`; Worker contains the three-reference probe. Both scratch servers were stopped and ports 5184/8788 checked for listeners. Reproduce setup with the [example instructions](../examples/sdk/README.md). Earlier archives, including `after-reference-validation` SHA-256 `f8da7f0f8ca3fbc92e31efb48225c6f2400a5083efd25a2f1c98589fa33868f5`, remain historical. Later core edits require a fresh artifact before claiming current-package verification.
+Scratch browser finishes with labeled Chicago reference `2026-11-01T08:00:00Z`; Worker contains the three-reference probe. Both scratch servers were stopped and ports 5184/8788 checked for listeners. Reproduce setup with the [example instructions](../../examples/sdk/README.md). Earlier archives, including `after-reference-validation` SHA-256 `f8da7f0f8ca3fbc92e31efb48225c6f2400a5083efd25a2f1c98589fa33868f5`, remain historical. Later core edits require a fresh artifact before claiming current-package verification.
 
 ## Remaining failures and gates
 
@@ -289,7 +289,7 @@ The preceding reference-validation section records the original browser defect. 
 
 ### Current archive performance
 
-The `after-past-occurrences` artifact above was benchmarked from its clean installation, with every archived file verified before timing. The [packed performance report](../comparison/results/performance/packed/report.md) retains the unchanged four-case protocol and raw observations separately from historical emitted-source runs. Tempus is still slower and larger than gpu-time in this workload. No core SDK or app code changed in this measurement milestone; existing artifact/runtime evidence remains applicable. Physical-device and independent-evaluation gaps remain open.
+The `after-past-occurrences` artifact above was benchmarked from its clean installation, with every archived file verified before timing. The [packed performance report](../../comparison/results/performance/packed/report.md) retains the unchanged four-case protocol and raw observations separately from historical emitted-source runs. Tempus is still slower and larger than gpu-time in this workload. No core SDK or app code changed in this measurement milestone; existing artifact/runtime evidence remains applicable. Physical-device and independent-evaluation gaps remain open.
 
 ### Unbounded-rule validation failure
 
@@ -568,7 +568,7 @@ Added `comparison/calendar/client-import-pack.mjs` and the optional `--client-im
 
 Both readers pass the UTC control. ical.js fails the three DST cases; Python passes repeated-clock interpretation but fails exact duration and missing-clock omission. The initial UTC control omitted its first occurrence during ICAL iteration when DTSTART was not also listed in RDATE; the final control repeats that value without changing its expected recurrence set, and records the behavior. Exact expected/observed values, versions and file hashes are retained under `comparison/results/calendar/client-import-pack/`. The Python command still exits 1 for known failures; ten current app correction files continue passing.
 
-[Client review instructions](calendar-client-check.md) separate file validation from actual imports, require version/UID/endpoint/default-alarm observations and preserve the no-write boundary. RFC 5545 sections 3.3.5, 3.3.10 and 3.8.5.3 were rechecked against the primary source. No actual client check, public action, app or SDK change occurred. These finite diagnostic rules do not truncate a user schedule or replace the unbounded export goal.
+[Client review instructions](../calendar-client-check.md) separate file validation from actual imports, require version/UID/endpoint/default-alarm observations and preserve the no-write boundary. RFC 5545 sections 3.3.5, 3.3.10 and 3.8.5.3 were rechecked against the primary source. No actual client check, public action, app or SDK change occurred. These finite diagnostic rules do not truncate a user schedule or replace the unbounded export goal.
 
 ## Cached Firefox and WebKit runtime coverage
 
@@ -960,7 +960,7 @@ Three new source cases cover input/precision routing, an export question outside
 
 Current archive: `f5d114901252852f1d14e163e0af761607c963a8e2572923ccc02907500d438e`, retained under `/Users/mylescook/Documents/Codex/2026-09-13-tempus-sdk-verification/failure-codes/`. All 56 installed files match. Five examples each pass on Node 22/26; an installed strict TypeScript consumer exhaustively maps all failure codes. Three desktop browser engines (Chrome 153.0.8010.36, Firefox 148.0.2, WebKit 26.4) and local Wrangler 4.131.1/workerd pass all seven failure codes, metadata recovery and the selected nine-event file. The locked Python reader independently validates all four runtime files' exact endpoints. The browser checks execute the SDK through intercepted local assets; they do not repeat the prior keyboard/download UI journeys or perform calendar-client imports. The local Worker was stopped and port 8788 is clear.
 
-Compared with `52d5c981…`, changed package files are the finite/recurring serializer JavaScript, calendar export entry JavaScript, their affected declarations and README. Parsing bundle SHA-256 is unchanged (`e3e67a7c…`), so prior Node/Chrome parsing measurements describe the same bundled parsing code; no new runtime timing run is claimed. Current combined parsing/calendar bundle is 530,558 minified / 151,170 gzip bytes, adding 17,632 / 5,512 to parsing. [Bundle report](../comparison/results/performance/calendar-bundle-failure-codes/report.md). Historical archives, UI journeys, performance and failing recurrence probes remain preserved. The two pending export-policy decisions remain unanswered.
+Compared with `52d5c981…`, changed package files are the finite/recurring serializer JavaScript, calendar export entry JavaScript, their affected declarations and README. Parsing bundle SHA-256 is unchanged (`e3e67a7c…`), so prior Node/Chrome parsing measurements describe the same bundled parsing code; no new runtime timing run is claimed. Current combined parsing/calendar bundle is 530,558 minified / 151,170 gzip bytes, adding 17,632 / 5,512 to parsing. [Bundle report](../../comparison/results/performance/calendar-bundle-failure-codes/report.md). Historical archives, UI journeys, performance and failing recurrence probes remain preserved. The two pending export-policy decisions remain unanswered.
 
 ## Same-month shorthand reminder journey
 
@@ -1002,7 +1002,7 @@ Portable reports and reproduction instructions are in `comparison/evidence/packe
 
 The current `4ec18030…` archive passed the repository package runner in a new offline installation (56 matching files). Copied `verification-worker.ts` passed strict NodeNext/ES2023/DOM checking and ran through local Wrangler 4.131.1 workerd. GET `/verify` returned 200; GET `/` and POST `/verify` returned 404. The server was stopped after checking.
 
-All seven export failure codes, metadata recovery and stale-answer rejection passed. The diagnostic produced a complete nine-event weekly file after selecting the future repeated clock, a two-point shorthand date-list file after shared-time clarification, and a four-event bounded monthly file after short-month policy selection. The locked Python reader independently matched endpoints, titles and timed-point precision in all three. [Retained reports and reproduction](../comparison/evidence/packed-worker/README.md).
+All seven export failure codes, metadata recovery and stale-answer rejection passed. The diagnostic produced a complete nine-event weekly file after selecting the future repeated clock, a two-point shorthand date-list file after shared-time clarification, and a four-event bounded monthly file after short-month policy selection. The locked Python reader independently matched endpoints, titles and timed-point precision in all three. [Retained reports and reproduction](../../comparison/evidence/packed-worker/README.md).
 
 This adds portable runtime evidence without changing SDK or app behavior. It does not close ongoing export failures, deployed Worker validation, physical-device testing, actual client import or independent evaluation. Development checks do not establish competitive superiority.
 
@@ -1010,7 +1010,7 @@ This adds portable runtime evidence without changing SDK or app behavior. It doe
 
 The current `4ec18030…` installation passed `examples/sdk/verify-browser.mjs` in Chrome, Firefox and WebKit at 320/1280 px. Installed SDK bytes and copied example source were checked before execution. Each run corrected the future November repeated clock, downloaded nine weekly intervals, restarted, corrected shared-time scope in a two-date reminder and downloaded two timed points. It verified input retention, result focus, stale-answer invalidation, invalid-input cleanup, blocked ongoing export, no horizontal overflow and no unexpected external page requests.
 
-All twelve actual downloads passed `read-browser-files.py` with locked icalendar 7.3.0 and recurring-ical-events 3.8.2. Exact expected endpoints, title and point precision were checked independently of the SDK result. [Portable files, reports and reproduction](../comparison/evidence/packed-browser/README.md).
+All twelve actual downloads passed `read-browser-files.py` with locked icalendar 7.3.0 and recurring-ical-events 3.8.2. Exact expected endpoints, title and point precision were checked independently of the SDK result. [Portable files, reports and reproduction](../../comparison/evidence/packed-browser/README.md).
 
 This developer example displays long JSON; the 320px Chrome screenshot was visually inspected. Programmatic focus followed by Enter verifies keyboard activation, not full Tab traversal. Desktop viewport resizing does not provide physical-phone evidence. No SDK/app behavior changed, no calendar was imported and no competitive claim follows from these authored tasks. The temporary example server was stopped after verification.
 
@@ -1018,7 +1018,7 @@ This developer example displays long JSON; the 320px Chrome screenshot was visua
 
 Replaced direct focus and input filling in the browser runner with Tab/Shift-Tab navigation, keyboard selection/text insertion and Enter. It now records each focus transition and explicitly marks per-run failures. The original packed SDK and example source were unchanged.
 
-The final six-run command exits 1: Chrome/Firefox pass at 320/1280 px; WebKit fails both widths while trying to reach the repeated-clock clarification button. Tab alternates between the input and an unfocused document. An earlier forward-only Firefox attempt also failed after download; Shift-Tab reaches the earlier controls. These facts are retained separately, not normalized into a universal pass. [Reports and limits](../comparison/evidence/packed-keyboard/README.md).
+The final six-run command exits 1: Chrome/Firefox pass at 320/1280 px; WebKit fails both widths while trying to reach the repeated-clock clarification button. Tab alternates between the input and an unfocused document. An earlier forward-only Firefox attempt also failed after download; Shift-Tab reaches the earlier controls. These facts are retained separately, not normalized into a universal pass. [Reports and limits](../../comparison/evidence/packed-keyboard/README.md).
 
 No root cause is yet proven. Browser/OS keyboard configuration and actual Safari behavior need investigation. Eight files from completed runs are retained, but this milestone makes no new independent-reader claim. The all-browser reader refuses the failed report as intended. The task-local server was stopped afterward. No app/SDK behavior, machine settings or calendars changed.
 
@@ -1026,7 +1026,7 @@ No root cause is yet proven. Browser/OS keyboard configuration and actual Safari
 
 A minimal native input/two-button/link form reproduces WebKit 26.4’s ordinary-Tab sequence: input, unfocused document, input. Option-Tab reaches both buttons and the link. Apple documents distinct Tab/Option-Tab navigation and related preferences. This supports a navigation-mode explanation for the SDK failure; no specific machine preference value was inspected or changed.
 
-The runner now accepts an explicit `--webkit-option-tab` mode and records it. Chrome/Firefox retain Tab/Shift-Tab; WebKit uses Option-Tab/Shift-Option-Tab. All six 320/1280px journeys pass on the unchanged `4ec18030…` SDK and example. All twelve downloads pass independent Python readback. [Reports, native control and reproduction](../comparison/evidence/packed-option-tab/README.md).
+The runner now accepts an explicit `--webkit-option-tab` mode and records it. Chrome/Firefox retain Tab/Shift-Tab; WebKit uses Option-Tab/Shift-Option-Tab. All six 320/1280px journeys pass on the unchanged `4ec18030…` SDK and example. All twelve downloads pass independent Python readback. [Reports, native control and reproduction](../../comparison/evidence/packed-option-tab/README.md).
 
 The default ordinary-Tab failures remain frozen. No application workaround or silent test fallback was added. Actual Safari.app, physical devices, screen readers, main-app usability and calendar-client imports remain separate gates. The local server was stopped after checking.
 
@@ -1034,13 +1034,13 @@ The default ordinary-Tab failures remain frozen. No application workaround or si
 
 Changed only the developer example presentation: event title, timezone, authoritative local dates/offsets, file count, first-three preview and separate ongoing label precede actions. Raw JSON is optional. Clarification/restart focuses the readable interpretation. Date-only, point-duration and exclusive-end semantics stay visible.
 
-Current unchanged SDK `4ec18030…` passed clean packed installation (56 files), five Node 26 examples and installed strict TypeScript checking with the new consumer. Six browser/viewport journeys pass, including diagnostic disclosure keyboard activation, stale output, date-only and all-day interval rendering. WebKit uses explicit Option-Tab. Twelve actual downloads pass independent readback; the 320px Chrome screenshot was visually inspected. [Retained evidence](../comparison/evidence/readable-sdk/README.md).
+Current unchanged SDK `4ec18030…` passed clean packed installation (56 files), five Node 26 examples and installed strict TypeScript checking with the new consumer. Six browser/viewport journeys pass, including diagnostic disclosure keyboard activation, stale output, date-only and all-day interval rendering. WebKit uses explicit Option-Tab. Twelve actual downloads pass independent readback; the 320px Chrome screenshot was visually inspected. [Retained evidence](../../comparison/evidence/readable-sdk/README.md).
 
 Initial presentation type errors were corrected. An initial browser run encountered empty JSON before module initialization; the runner now waits for initialization. Failed scratch reports remain, and no failure is counted as a pass. No app/SDK behavior, machine settings, deployments or calendars changed. The temporary server was stopped after checking.
 
 ## Exact-duration fixture correction control
 
-Inspected the retained RRULE/DTEND fixture against RFC 5545: its two-hour exact-duration expectation is unchanged, but its VCALENDAR lacked required PRODID. Added a separate hash-bound diagnostic that retains the historical file and generates a version differing only by PRODID. Both ical.js 2.2.1 and locked Python readers still return March 8 07:00–08:00Z rather than 07:00–09:00Z; both commands exit 1. [Portable reproduction and reports](../comparison/evidence/duration-control/README.md).
+Inspected the retained RRULE/DTEND fixture against RFC 5545: its two-hour exact-duration expectation is unchanged, but its VCALENDAR lacked required PRODID. Added a separate hash-bound diagnostic that retains the historical file and generates a version differing only by PRODID. Both ical.js 2.2.1 and locked Python readers still return March 8 07:00–08:00Z rather than 07:00–09:00Z; both commands exit 1. [Portable reproduction and reports](../../comparison/evidence/duration-control/README.md).
 
 The fixture is authored independently of the exporter. This confirms the scoped reader mismatch survives the fixture correction; it does not identify a new exporter defect or justify ongoing export. Expected answers and original reports were preserved. No calendar, publication or external report was written.
 
@@ -1048,13 +1048,13 @@ The fixture is authored independently of the exporter. This confirms the scoped 
 
 The README described every recurrence through `rule.weekdays`, contradicting the monthly discriminated union. It now requires frequency-specific access and documents monthly day/short-month fields. Export guidance now distinguishes a finite complete occurrence set from an ongoing rule's preview; no preview is relabeled as the full ongoing schedule.
 
-Archive `e2293d2d7279e51e10c50fa31bfd827dfd08dfc738d80294fa6a412d3554fb7c` passes the package runner on Node 26.8.1 (56 matching files, five examples, strict installed consumers) and both extracted README TypeScript snippets. Only README.md differs from `4ec18030…`; all other 55 installed files are byte-identical. [Retained evidence](../comparison/evidence/sdk-contract-docs/README.md). Earlier Node 22/browser/Worker execution is not claimed as a fresh run. No runtime behavior or acceptance gate changed; all work remains local.
+Archive `e2293d2d7279e51e10c50fa31bfd827dfd08dfc738d80294fa6a412d3554fb7c` passes the package runner on Node 26.8.1 (56 matching files, five examples, strict installed consumers) and both extracted README TypeScript snippets. Only README.md differs from `4ec18030…`; all other 55 installed files are byte-identical. [Retained evidence](../../comparison/evidence/sdk-contract-docs/README.md). Earlier Node 22/browser/Worker execution is not claimed as a fresh run. No runtime behavior or acceptance gate changed; all work remains local.
 
 ## Same-month shared-year clarification
 
 Source now asks an explicit shared-year question for yearless same-month lists, before shared-time clarification. Choices offer the reference's local year and next year within supported bounds; neither is automatic, and another year can be written explicitly. Replacing the year clears dependent list decisions. Original source spans/text remain unchanged; invalid dates and unoffered IDs cannot produce an export. The app's optional choice disclosure now says Interpretation choices because it includes years as well as clocks.
 
-All 755 source checks plus the 17-journey replay pass (756 test cases, 38 files). Build passes with the existing bundle warning: client 898.73 kB / 264.81 kB gzip. Five changed source/UI files pass formatting, lint and type checks. The main-app Chrome journey at 320/1280 px completes year → shared time → two-event download → edit reset. Both files independently read back with exact dates/title/no invented duration. The narrow screenshot was inspected. [Evidence](../comparison/evidence/year-choice/README.md).
+All 755 source checks plus the 17-journey replay pass (756 test cases, 38 files). Build passes with the existing bundle warning: client 898.73 kB / 264.81 kB gzip. Five changed source/UI files pass formatting, lint and type checks. The main-app Chrome journey at 320/1280 px completes year → shared time → two-event download → edit reset. Both files independently read back with exact dates/title/no invented duration. The narrow screenshot was inspected. [Evidence](../../comparison/evidence/year-choice/README.md).
 
 Packed candidate e2293d2d predates this implementation. New package examples, browser/Worker integration and broader year-selection edge cases remain the next verification step; no old package evidence is relabeled. No calendar-client import, deployment or publication occurred.
 
@@ -1062,7 +1062,7 @@ Packed candidate e2293d2d predates this implementation. New package examples, br
 
 Archive `906f3a6f9e0d4cf73cd18e281f0dc9ed2d2b6312b35d3475562a6d39dd8d8004` includes the shared-year implementation and updated README. All 56 installed files match. Five examples pass on Node 22.12.0 and 26.8.1; the list example checks year → time → complete file plus year replacement and input/timezone/reference invalidation. Installed strict TypeScript consumers and the updated Worker compile.
 
-Six browser/viewport runs pass the existing weekly recovery and new yearless list task; WebKit uses explicit Option-Tab. Twelve actual downloads independently read back. Local workerd (Wrangler 4.131.1) also passes year/time selection, source spans and stale-answer checks plus retained failure-code/weekly/monthly diagnostics. Three Worker files pass independent readback. [Retained reports and file hashes](../comparison/evidence/year-sdk/README.md).
+Six browser/viewport runs pass the existing weekly recovery and new yearless list task; WebKit uses explicit Option-Tab. Twelve actual downloads independently read back. Local workerd (Wrangler 4.131.1) also passes year/time selection, source spans and stale-answer checks plus retained failure-code/weekly/monthly diagnostics. Three Worker files pass independent readback. [Retained reports and file hashes](../../comparison/evidence/year-sdk/README.md).
 
 This supersedes the earlier pending-package status only for the scoped shared-year path. No new source behavior was added during this verification turn. Both task-local servers stopped. No publication, deployment, real calendar import, device evidence or independent evaluation is claimed.
 
@@ -1070,7 +1070,7 @@ This supersedes the earlier pending-package status only for the scoped shared-ye
 
 Measured installed archive 906f3a6f with the unchanged four-input CPU workload after copying the prior packed reports to history/before-year-choice/packed. Registry lookup still returns gpu-time 0.2.1 and the pinned integrity. All 56 installed files match. Five alternating fresh Node processes per engine and ten Chrome processes complete with matching previews. New browser/calendar output directories preserve earlier measurements.
 
-Node Tempus/gpu-time import-through-first p50: 25.040/17.600 ms; batch100: 20.808/10.829 ms; single p50/p95: 0.159/1.402 versus 0.196/0.439 ms. Chrome import-through-first median: 17.40/13.80 ms; batch100: 27.25/8.05 ms. Parsing bundle: 146,124 versus 52,903 gzip bytes. Calendar integration adds 5,511 gzip bytes. [Retained samples, memory measurements and scope](../comparison/evidence/performance-year/README.md).
+Node Tempus/gpu-time import-through-first p50: 25.040/17.600 ms; batch100: 20.808/10.829 ms; single p50/p95: 0.159/1.402 versus 0.196/0.439 ms. Chrome import-through-first median: 17.40/13.80 ms; batch100: 27.25/8.05 ms. Parsing bundle: 146,124 versus 52,903 gzip bytes. Calendar integration adds 5,511 gzip bytes. [Retained samples, memory measurements and scope](../../comparison/evidence/performance-year/README.md).
 
 The lower Tempus Node single p50 does not outweigh the higher p95 or establish general speed. Year clarification, correction latency, export, devices, peak memory and human completion remain unmeasured. No source, deployment or package publication changed during this turn.
 
@@ -1078,6 +1078,6 @@ The lower Tempus Node single p50 does not outweigh the higher p95 or establish g
 
 Added one authored task to the reusable source-to-file replay: choose a shared year, share noon, retain two points/title/spans, reject intermediate exports, validate the complete file and invalidate answers after edits. The harness now checks collection item spans and explicitly rejects invented DTEND/DURATION for timed points; reader-provided point ends are normalized only for comparison.
 
-All 18 scripted tasks pass. The comparison/scoring/journey command passes 13 test cases across three files; the 31-case per-family and value summaries are unchanged. The strict locked Python reader passes all eighteen journey files and its fixed ongoing control but exits 1 for the known duration-conformance diagnostic. Optional candidate suites were not rerun. [Current snapshot](../comparison/evidence/year-journeys/README.md) and [independent file readback](../comparison/evidence/year-journey-readback.json) retain the evidence; every reader hash matches the snapshot's exact file bytes.
+All 18 scripted tasks pass. The comparison/scoring/journey command passes 13 test cases across three files; the 31-case per-family and value summaries are unchanged. The strict locked Python reader passes all eighteen journey files and its fixed ongoing control but exits 1 for the known duration-conformance diagnostic. Optional candidate suites were not rerun. [Current snapshot](../../comparison/evidence/year-journeys/README.md) and [independent file readback](../../comparison/evidence/year-journey-readback.json) retain the evidence; every reader hash matches the snapshot's exact file bytes.
 
 Prior working reports were copied to history/before-year-journey; the historical immutable snapshot remains untouched. No parser/SDK behavior, device, real-calendar import or independent evaluation changed. Additional repetitions do not establish superiority.

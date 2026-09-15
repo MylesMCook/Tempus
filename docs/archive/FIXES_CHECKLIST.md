@@ -1,5 +1,7 @@
 # Code Fixes Checklist
 
+> Archived Next.js-era checklist. Companion: [FIXES_PLAN.md](FIXES_PLAN.md). Paths are obsolete.
+
 Track progress on implementing the fixes identified in `FIXES_PLAN.md`.
 
 ## Fixes to Implement

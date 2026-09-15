@@ -50,6 +50,10 @@ uv run --locked examples/app/read-reminder.py /tmp/tempus-run
 - Cloudflare Worker HTTP API: `worker/index.ts`
 - App UI: `src/features/parser/`, `src/routes/`
 - App entry / CSP: `src/worker.tsx`
+- Current docs: `docs/` (hub: `docs/README.md`)
+- Historical notes: `docs/archive/`
+- Samples and browser journeys: `examples/` (hub: `examples/README.md`)
+- Keep `/api/parse` stable. Parser logic stays in shared modules so the UI and Worker match.
 
 ## Notes
 

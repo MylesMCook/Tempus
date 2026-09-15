@@ -1,5 +1,7 @@
 # AI Development Rules
 
+> Archived. Current local setup and code map: [AGENTS.md](../../AGENTS.md).
+
 ## Project Structure
 
 - Build around the current `Vite+` and Cloudflare shape.

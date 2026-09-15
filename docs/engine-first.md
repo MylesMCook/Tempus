@@ -24,7 +24,7 @@ The optional calendar entry now exposes `prepareCalendar(result, options)`. It a
 
 Preparation choices use the existing `ClarificationSelection` shape and `appendSelection`. Their opaque context key binds the full interpreted result, including original input, reference and timezone. Structured cloning preserves this identity; editing the input/context or replacing the interpreted result invalidates old choices. The Worker and output components now use this public entry. Clock/UUID capture, rendering, Worker cancellation, clipboard and download remain host effects.
 
-The older raw calendar entry functions remain available for preview-package compatibility. New consumers should use `prepareCalendar`; no public deep imports are supported. The installed candidate and production playground pass the [bounded parity journeys](engine-consolidation-evidence.md). This verifies the local preview contract, not a published cross-version stability guarantee.
+The older raw calendar entry functions remain available for preview-package compatibility. New consumers should use `prepareCalendar`; no public deep imports are supported. The installed candidate and production playground pass the [bounded parity journeys](archive/engine-consolidation-evidence.md). This verifies the local preview contract, not a published cross-version stability guarantee.
 
 ## Clarification dependencies and compatibility
 

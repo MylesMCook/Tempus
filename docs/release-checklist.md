@@ -18,7 +18,7 @@ The old Worker is compatibility-only, version `04888dfd-aa9a-4804-b581-6533d373d
 
 [Live results](../comparison/evidence/writer-ui/live-report.json) · [Browser/SDK checks](../comparison/evidence/writer-ui/browser-contract.json) · [Offline checks](../comparison/evidence/writer-ui/offline-keyboard.json) · [File readers](../comparison/evidence/writer-ui/calendar-readers.json)
 
-The [copy/UI review](writer-ui-review.md) records this release’s changes. The engine and its measured bundle are unchanged.
+The [copy/UI review](archive/writer-ui-review.md) records this release’s changes. The engine and its measured bundle are unchanged.
 
 Earlier fresh agent-authored questions exposed limits: two of six unambiguous questions resolved; four stayed unresolved. Both constraint cases stayed unresolved. These are diagnostic cases, not a user study.
 
@@ -28,7 +28,7 @@ Earlier fresh agent-authored questions exposed limits: two of six unambiguous qu
 - [ ] Physical-phone and assistive-technology checks.
 - [ ] Actual calendar-client imports; file-reader success is separate evidence.
 - [ ] Stable SDK naming, versioning and compatibility policy before npm publication.
-- [ ] Broader wording and the recorded timer/title, duration-diagnostic and output-label issues in [tasks](../tasks.md).
+- [ ] Broader wording and the recorded timer/title, duration-diagnostic and output-label issues in [tasks](archive/tasks.md).
 
 The recorded reader failure and unsupported phrases remain visible; no general accuracy or superiority claim follows from these checks.
 
@@ -36,4 +36,4 @@ The recorded reader failure and unsupported phrases remain visible; no general a
 
 Run `pnpm check`, `pnpm test`, `pnpm build` and the CI dependency audit. Replay the affected browser journeys, run the Cloudflare dry run, then verify the deployed page and fixed-reference API result. Keep the prior version for rollback. Follow the [deployment guide](cloudflare-workers.md).
 
-[Earlier plans, artifact hashes and measurements](release-history.md) retain their original scope. Current work is tracked in [tasks](../tasks.md).
+[Earlier plans, artifact hashes and measurements](archive/release-history.md) retain their original scope. Current direction is in [product focus](product-focus.md). The completed delivery checklist is in [archive/tasks.md](archive/tasks.md).

@@ -2,7 +2,7 @@
 
 ## Objective
 
-Rebuild Tempus around explicit timezone/reference inputs, sequential calendar arithmetic, a truthful live trace, and matching browser/API results. Current contract and evidence: [Phoenix](docs/phoenix.md).
+Rebuild Tempus around explicit timezone/reference inputs, sequential calendar arithmetic, a truthful live trace, and matching browser/API results. Current contract and evidence: [Phoenix](phoenix.md).
 
 ## Status
 
@@ -42,7 +42,7 @@ Current state: Phoenix rebuild complete and live. Remaining operational follow-u
 
 Decision: apply the I Have ADHD plugin's low-distraction and visible-state guidance without storing phrases or changing calculation semantics.
 
-Verification: 255 tests; source/type/build checks; desktop, 390px and 320px browser paths, keyboard copy/example navigation, format/timezone/phrase recovery, approximation trace, and matching API replay. Details: [UX review](docs/phoenix-ux-review.md#adhd-oriented-follow-up--september-12-2026).
+Verification: 255 tests; source/type/build checks; desktop, 390px and 320px browser paths, keyboard copy/example navigation, format/timezone/phrase recovery, approximation trace, and matching API replay. Details: [UX review](phoenix-ux-review.md#adhd-oriented-follow-up--september-12-2026).
 
 GitHub run `34699827081` passed check/test/build and failed deployment. Manual deployment succeeded independently. Worktree closeout is documentation-only; the existing automated-deployment credential handoff remains open. Rollback: revert `844f00d`, rebuild, and deploy through the same path.
 
@@ -58,7 +58,7 @@ GitHub run `34700146532` passed check/test/build and failed automated deployment
 
 ## Open-source and security readiness — release verified
 
-- [x] Codex Security standard source scan at `81dce96`: 97 files reviewed, no confirmed source-backed vulnerabilities. History secret/metadata scans found no detections. See [security review](docs/security-review.md) for scope and limits.
+- [x] Codex Security standard source scan at `81dce96`: 97 files reviewed, no confirmed source-backed vulnerabilities. History secret/metadata scans found no detections. See [security review](../security-review.md) for scope and limits.
 - [x] Patched dependencies; final audit reports zero advisories. Vite+ 0.3.1 resolves the intermittent type-checker failure found during clean-install verification.
 - [x] Prepared MIT license, third-party attribution, contributor/security docs, critique issue forms, review guide, and credential-free CI with opt-in deployment.
 - [x] Fresh `ebef472` checkout passed frozen install, checks, 260 tests, and build. Tests also passed under UTC, America/New_York, and Asia/Tokyo during hardening. Main checkout checks, tests, build, and deploy dry run passed before release.
@@ -110,10 +110,10 @@ Constraint: no claim of arbitrary prose understanding or reminder delivery. Inte
 
 ## Product matrix — local documentation
 
-- [x] Added [the product matrix](docs/product-matrix.md): nine capability areas, current gaps, acceptance gates, work order and rules for comparative claims. Linked roadmap and comparison guidance to it.
+- [x] Added [the product matrix](../product-matrix.md): nine capability areas, current gaps, acceptance gates, work order and rules for comparative claims. Linked roadmap and comparison guidance to it.
 - [x] Checked upstream source at `aba27e5` (0.2.1); it reports a duration fix since our evaluated 0.2.0. Historical scores remain explicitly versioned. No dependency or runtime change in this task.
 - [x] Preserved local 0.2.0 and unchanged-corpus 0.2.1 reports under `comparison/results/history/`; pinned the comparison dependency to 0.2.1. Correct-result counts are unchanged; one incorrect arithmetic result becomes abstention. The duration fixture still returns the same incorrect point in this context.
-- [x] Defined [schedule semantics](docs/schedule-contract.md) and interval acceptance examples. Corrected the automatic-correction expectation to require clarification, matching product policy; corpus is now `development-v2`. No parser improvement is claimed from this policy edit.
+- [x] Defined [schedule semantics](../schedule-contract.md) and interval acceptance examples. Corrected the automatic-correction expectation to require clarification, matching product policy; corpus is now `development-v2`. No parser improvement is claimed from this policy edit.
 - [x] Verified 298 tests, comparison, formatting, lint, types, build and documentation links. Browser client remains `index-PCguxmMf.js`; no application behavior or deployment changed. Build still warns about the existing client chunk size.
 - [ ] Next implementation: interval results and complete duration/range interpretation, preserving strict calculator behavior. Holdout governance and numerical evaluation budgets remain open; the whole first matrix milestone is not yet complete.
 
@@ -272,11 +272,11 @@ Constraint: no claim of arbitrary prose understanding or reminder delivery. Inte
 
 ## Objective
 
-Keep the existing [product matrix](docs/product-matrix.md) as the acceptance contract: reliable original calculator plus short-English reminder/schedule interpretation, usable web flows and a supported TypeScript package. Work stays local.
+Keep the existing [product matrix](../product-matrix.md) as the acceptance contract: reliable original calculator plus short-English reminder/schedule interpretation, usable web flows and a supported TypeScript package. Work stays local.
 
 ## Current priorities
 
-1. [ ] Continue the [journey verification](docs/release-verification.md): calculator/correction/finite-file tasks pass in scoped checks; bounded repeating schedule → file passes; fixed-future-offset unbounded rule → real download passes; future-DST rules and calendar import remain incomplete. Failure/retry/Clear/boundary recovery checked; natural suffix-duration reminder now resolves; numeric-date-plus-duration and chained DST recovery now pass.
+1. [ ] Continue the [journey verification](release-verification.md): calculator/correction/finite-file tasks pass in scoped checks; bounded repeating schedule → file passes; fixed-future-offset unbounded rule → real download passes; future-DST rules and calendar import remain incomplete. Failure/retry/Clear/boundary recovery checked; natural suffix-duration reminder now resolves; numeric-date-plus-duration and chained DST recovery now pass.
 2. [ ] Finish calendar export. Finite files and fixed-future-offset rules are implemented and independently read; future-DST rules and real calendar-client import remain incomplete. Calendar writes require authorization.
 3. [ ] Refresh the SDK after arithmetic clarification. Preceding archive `20a1fd98…` passes its recorded runtime checks, but does not include this interpreter change. Preserve those reports; add the new arithmetic journeys to the next installed-package verification.
 4. [x] Consolidated the matrix and release checklist in place. Historical matrix updates are archived; acceptance rows, requirement cells, milestone exits and comparative-claim rules were checked unchanged. Stale packed-runtime checkmarks are reopened. Missing access/evaluation now has explicit unblock actions.
@@ -310,7 +310,7 @@ Next actions:
 - Current archive: `ongoing-metadata/tempus-date-core-0.1.0.tgz`, SHA-256 `20a1fd980d43a90183e84fa437b4e16273b8268ae5e48a7b455a28fe7ff407f0`. See release verification for its absolute path and scoped evidence. Performance figures above belong to the preserved preceding archive.
 - Keep calendar imports, physical-device evidence and independent evaluation open. The disposable local import request remains unanswered; no calendar write is authorized.
 
-Historical milestone evidence is preserved in [task-history.md](task-history.md). Current export details and remaining gates are in [calendar export](docs/calendar-export.md) and [release verification](docs/release-verification.md).
+Historical milestone evidence is preserved in [task-history.md](task-history.md). Current export details and remaining gates are in [calendar export](calendar-export.md) and [release verification](release-verification.md).
 
 Ongoing workday milestone: zoned intervals now export only when neither endpoint is ambiguous and no occurrence contains an offset change across recorded transitions/the checked future cycle. Chicago Monday 9–5 with exclusion passes actual download and both readers. Sunday midnight–4 remains blocked. Next: explicit future-clock policy and faithful exports for intervals spanning changes; SDK refresh remains pending.
 
@@ -318,13 +318,13 @@ Ongoing workday milestone: zoned intervals now export only when neither endpoint
 
 Historical authority and artifact statements below do not authorize current external actions.
 
-Deliver Tempus as a natural-language-to-date system and coherent web playground, with RedwoodSDK routes. Preserve the [product matrix](docs/product-matrix.md), correctness, complete journeys, resource efficiency and independent evaluation requirements. User authorized deployment after testing. No calendar writes, SDK publication or unrelated cloud changes. Preserve unrelated Rust-spike work.
+Deliver Tempus as a natural-language-to-date system and coherent web playground, with RedwoodSDK routes. Preserve the [product matrix](../product-matrix.md), correctness, complete journeys, resource efficiency and independent evaluation requirements. User authorized deployment after testing. No calendar writes, SDK publication or unrelated cloud changes. Preserve unrelated Rust-spike work.
 
 ## Current result
 
 - [x] Run one calculation, one ambiguous reminder and one finite recurring schedule in the current local app and packed SDK b1cbd22a.
 - [x] Check calculation trace/copy/API parity, reminder correction, finite file outputs and edit invalidation. Six downloaded/generated files pass separate date/title/duration/expansion checks after correcting a reader assumption; the failed attempt is retained.
-- [x] Consolidate the backlog into five problems and recommend a calculator-first preview with explicit limitations in the [release checklist](docs/release-checklist.md).
+- [x] Consolidate the backlog into five problems and recommend a calculator-first preview with explicit limitations in the [release checklist](../release-checklist.md).
 - [x] Preserve historical reports and matrix requirements. No implementation changes made for this assessment.
 
 ## Five priorities — paused for review
@@ -351,7 +351,7 @@ Alternative considered: an SDK-only product. The user's request for a usable dep
 
 ## Delivered
 
-Version `70cab9dd-44af-424b-b92a-08a5b239fda0` is live on both existing hostnames. Three production journeys and four file readbacks pass; local cross-browser and cold-start checks pass. The [release checklist](docs/release-checklist.md) records the exact scope and rollback version. Whole-repository formatting, physical devices, independent evaluation and package publication remain outside this completed web pass. No additional implementation is queued automatically.
+Version `70cab9dd-44af-424b-b92a-08a5b239fda0` is live on both existing hostnames. Three production journeys and four file readbacks pass; local cross-browser and cold-start checks pass. The [release checklist](../release-checklist.md) records the exact scope and rollback version. Whole-repository formatting, physical devices, independent evaluation and package publication remain outside this completed web pass. No additional implementation is queued automatically.
 
 ## Complete schedule copying
 
@@ -365,7 +365,7 @@ Evidence: ~/Documents/Codex/2026-09-13-tempus-complete-copy. No physical-device 
 ## Black-box dogfood follow-up
 
 - [x] Run a deployed-site dogfood pass across more than 100 distinct phrases, complete output, recurrence, ambiguity, ranges, timezone/DST, copy, calendar download, API boundaries, offline behavior, navigation, 320px layout, keyboard semantics, accessibility and one desktop performance observation.
-- [x] Record ten reproducible findings in the [dogfood report](docs/dogfood-2026-09-13.md): nine medium, one low, no confirmed high or critical issues. Screenshots, videos and raw browser output remain in the local review archive.
+- [x] Record ten reproducible findings in the [dogfood report](dogfood-2026-09-13.md): nine medium, one low, no confirmed high or critical issues. Screenshots, videos and raw browser output remain in the local review archive.
 - [x] Validate a downloaded five-occurrence file with an independent iCalendar reader. This is file validation, not calendar-client import evidence.
 - [ ] Triage and fix findings in a later implementation pass. Highest product priority: cross-week weekday ranges; broadest problem: narrow natural-language variants paired with unrelated recovery messages.
 
