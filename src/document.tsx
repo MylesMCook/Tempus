@@ -1,9 +1,11 @@
 import type { ReactNode } from "react";
 import { requestInfo } from "rwsdk/worker";
+import { pathnameFromUrl } from "@/lib/request-path";
 import styles from "./index.css?url";
 
 export function Document({ children }: { children: ReactNode }) {
-  const path = requestInfo.path;
+  // rwsdk's ALS proxy does not expose `path`; the request URL is the live route.
+  const path = pathnameFromUrl(requestInfo.request.url);
   const onHome = path === "/";
   const onDevelopers = path === "/developers";
   const onPrivacy = path === "/privacy";
@@ -85,7 +87,7 @@ export function Document({ children }: { children: ReactNode }) {
         <footer className="mx-auto flex max-w-3xl flex-wrap items-center justify-between gap-4 border-t px-4 py-5 text-sm text-muted-foreground sm:px-8">
           <span>Natural language. Inspectable dates.</span>
           {onPrivacy ? (
-            <span>Privacy policy</span>
+            <span aria-current="page">Privacy policy</span>
           ) : (
             <a href="/privacy" className="py-3 underline-offset-4 hover:underline">
               Privacy policy
