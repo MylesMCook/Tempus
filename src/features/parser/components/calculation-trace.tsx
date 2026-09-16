@@ -33,6 +33,21 @@ function TimestampLine({ date }: { date: DateSnapshot }) {
   );
 }
 
+function StepEndpoints({ step }: { step: CalculationStep }) {
+  return (
+    <dl className="mt-1.5 grid gap-0.5 font-mono text-xs tabular-nums tracking-tight sm:text-sm">
+      <div>
+        <dt className="inline text-muted-foreground">From </dt>
+        <dd className="inline break-words">{timestamp(step.before)}</dd>
+      </div>
+      <div>
+        <dt className="inline text-muted-foreground">To </dt>
+        <dd className="inline break-words">{timestamp(step.after)}</dd>
+      </div>
+    </dl>
+  );
+}
+
 function StepNotes({ step }: { step: CalculationStep }) {
   const notes = step.details
     .map((detail) => ({ detail, kind: classifyDetail(detail) }))
@@ -60,6 +75,31 @@ function StepNotes({ step }: { step: CalculationStep }) {
   );
 }
 
+function PhraseParts({ expression, normalized }: { expression: string; normalized: string }) {
+  const parts = normalized.split(/\s+/).filter(Boolean);
+  if (!parts.length) return null;
+  const typed = expression.trim();
+  const showTyped = typed.length > 0 && typed.toLowerCase() !== normalized;
+  return (
+    <div>
+      <h3 className="font-medium text-muted-foreground">Read the phrase</h3>
+      <ul className="mt-2 flex flex-wrap gap-1.5" aria-label="Recognized parts">
+        {parts.map((part, index) => (
+          <li
+            key={`${index}-${part}`}
+            className="max-w-full break-all rounded-md bg-muted px-2 py-1 font-mono text-xs"
+          >
+            {part}
+          </li>
+        ))}
+      </ul>
+      {showTyped ? (
+        <p className="mt-2 break-words text-sm text-muted-foreground">Typed as {typed}</p>
+      ) : null}
+    </div>
+  );
+}
+
 export function CalculationTrace({ calculation }: { calculation: Calculation }) {
   const inputsHeadingId = useId();
   const lastIndex = calculation.ok ? calculation.steps.length - 1 : -1;
@@ -74,6 +114,10 @@ export function CalculationTrace({ calculation }: { calculation: Calculation }) 
         </p>
       ) : (
         <div className="mt-1 grid gap-5 pb-1 text-sm">
+          <p className="text-muted-foreground">
+            Each change runs in written order, from one instant to the next.
+          </p>
+          <PhraseParts expression={calculation.expression} normalized={calculation.normalized} />
           <ol
             className="relative ml-3 grid border-l-2 border-primary/25"
             aria-label="Calculation steps"
@@ -90,7 +134,7 @@ export function CalculationTrace({ calculation }: { calculation: Calculation }) 
                 <h3 className="font-medium">
                   {index + 1}. {step.source}
                 </h3>
-                <TimestampLine date={step.after} />
+                <StepEndpoints step={step} />
                 <StepNotes step={step} />
               </li>
             ))}
