@@ -1,6 +1,6 @@
 # Tempus product focus
 
-> Archived completed checklist. Current direction: [product focus](../product-focus.md).
+> Archived delivery checklist. Some gates remain open. Current direction: [product focus](../product-focus.md).
 
 ## Objective and authority
 

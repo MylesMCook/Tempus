@@ -1,6 +1,6 @@
 # Archived notes
 
-These files record work that already shipped or a review of a specific build. They are not current setup, contributing, or deploy instructions.
+These files record shipped work, dated reviews, and historical plans or task logs. They are not current setup, contributing, or deploy instructions.
 
 Use [current docs](../README.md) for the calculator, API, SDK, and Cloudflare deploy.
 

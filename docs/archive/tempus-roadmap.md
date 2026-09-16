@@ -11,4 +11,4 @@ Next work:
 
 Existing schedules remain supported. Reminder delivery and calendar accounts belong to applications using the engine.
 
-[Active tasks](tasks.md) · [Continue-or-stop criteria](../product-focus.md) · [Release status](../release-checklist.md)
+[Archived tasks](tasks.md) · [Continue-or-stop criteria](../product-focus.md) · [Release status](../release-checklist.md)

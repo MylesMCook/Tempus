@@ -4,7 +4,7 @@ These tools inspect files and timezone data. They never write to a calendar acco
 
 ## Pinned timezone investigation
 
-The app and SDK now use the bundled 2026d timezone database through the typed reader. `tzif-prototype.mjs` remains an investigation tool, not a public SDK API. The early runtime and format results below are historical; current packed-runtime evidence is recorded in [release verification](../../docs/archive/release-verification.md).
+The app and SDK now use the bundled 2026d timezone database through the typed reader. `tzif-prototype.mjs` remains an investigation tool, not a public SDK API. The early runtime and format results below are historical; dated packed-runtime evidence is recorded in [release verification](../../docs/archive/release-verification.md). Current release gates are in [release status](../../docs/release-checklist.md).
 
 Use the official IANA [2026d data](https://data.iana.org/time-zones/releases/tzdata2026d.tar.gz) and [2026d compiler source](https://data.iana.org/time-zones/releases/tzcode2026d.tar.gz). Build into new scratch directories with the existing C toolchain:
 
