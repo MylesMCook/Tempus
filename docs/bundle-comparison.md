@@ -23,6 +23,6 @@ node_modules/.bin/esbuild ENTRY --bundle --minify --format=esm --platform=browse
 
 Use `comparison/performance/calendar-bundle.mjs INSTALLED-PACKAGE ARCHIVE NEW-OUTPUT` for the verified combined calendar measurement. That runner verifies installed files against the archive before bundling.
 
-Raw bundles, esbuild input maps, hashes, installed lockfile, archive and calendar report are in `/Users/mylescook/Documents/Codex/2026-09-13-tempus-bundle-refresh`. `bundles.json` contains compression measurements; `gpu-time-cpu-smoke.json` retains the CPU result. These are local generated assets, not observed CDN transfer sizes. The website's React, Worker and CSS payload is separate; comparing a whole website against a parser library would be misleading. The preceding website CSS reduction remains documented in [size pruning](size-pruning.md).
+Raw bundles, esbuild input maps, hashes, installed lockfile, archive and calendar report are in `/Users/mylescook/Documents/Codex/2026-09-13-tempus-bundle-refresh`. `bundles.json` contains compression measurements; `gpu-time-cpu-smoke.json` retains the CPU result. These are local generated assets, not observed CDN transfer sizes. The website's React, Worker and CSS payload is separate; comparing a whole website against a parser library would be misleading. The preceding website CSS reduction remains documented in [size pruning](archive/size-pruning.md).
 
 No project dependencies were upgraded, and nothing was pushed, published or deployed. Bundle size does not establish parsing correctness or overall product superiority.

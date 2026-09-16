@@ -1,8 +1,10 @@
 # Tempus product focus
 
+> Archived delivery checklist. Some gates remain open. Current direction: [product focus](../product-focus.md).
+
 ## Objective and authority
 
-One reusable TypeScript engine produces inspectable dates, intervals and schedules. The website is its reference consumer. Use the [product focus](docs/product-focus.md); retain the [matrix](docs/product-matrix.md) as an inventory, not a parity backlog. New feature families are paused. The user now authorizes publishing the tested calculator-focused iteration through the normal Git/Cloudflare release path. No calendar writes or unrelated service changes. The private SDK is not being published to npm.
+One reusable TypeScript engine produces inspectable dates, intervals and schedules. The website is its reference consumer. Use the [product focus](../product-focus.md); retain the [matrix](../product-matrix.md) as an inventory, not a parity backlog. New feature families are paused. The user now authorizes publishing the tested calculator-focused iteration through the normal Git/Cloudflare release path. No calendar writes or unrelated service changes. The private SDK is not being published to npm.
 
 ## Completed Tempus rename
 
@@ -11,11 +13,11 @@ One reusable TypeScript engine produces inspectable dates, intervals and schedul
 - [x] Renamed to `MylesMCook/Tempus`; origin and description updated. Old URL returns 301 to the new repository.
 - [x] PR #8 merged as `03e846f`; GitHub name, origin, links and homepage use Tempus.
 - [x] Main Worker `tempus` deployed as `df3c7f40-f513-43c8-98b6-94e9533af521`. Both new endpoints pass browser/API checks. Old Worker is compatibility-only version `04888dfd-aa9a-4804-b581-6533d373def3`; redirects and API/preflight parity pass.
-- [x] Updated GitHub homepage, deployment guide and [migration evidence](comparison/evidence/tempus-rename/README.md).
+- [x] Updated GitHub homepage, deployment guide and [migration evidence](../../comparison/evidence/tempus-rename/README.md).
 
 ## Completed Copilot critique pass
 
-[Reviews, triage and evidence](comparison/copilot-review/README.md). Copilot CLI 1.0.83 installed through `gh copilot` and authenticated using the existing GitHub credential.
+[Reviews, triage and evidence](../../comparison/copilot-review/README.md). Copilot CLI 1.0.83 installed through `gh copilot` and authenticated using the existing GitHub credential.
 
 - [x] Run distinct Copilot models as occasional user, keyboard power user and SDK integrator.
 - [x] Reproduce findings and select small fixes within existing supported behavior.
@@ -28,7 +30,7 @@ One reusable TypeScript engine produces inspectable dates, intervals and schedul
 - [x] Compact the calculation trace and remove duplicate schedule output; preserve correction, previews and export.
 - [x] Separate quickstarts/current status from reference material and historical evidence.
 - [x] Verify links, examples, copy-dependent tests and browser layout.
-- [x] Merged PR #6 as `6c8a414`; deployed `228380e5-5b2f-4ec9-8ca4-69adebe55f4d`. Both hosts and three-browser live journeys pass. [Review and evidence](docs/writer-ui-review.md).
+- [x] Merged PR #6 as `6c8a414`; deployed `228380e5-5b2f-4ec9-8ca4-69adebe55f4d`. Both hosts and three-browser live journeys pass. [Review and evidence](writer-ui-review.md).
 
 ## Completed calculator release
 
@@ -40,7 +42,7 @@ One reusable TypeScript engine produces inspectable dates, intervals and schedul
 ## Synthetic diagnostic lane
 
 - [x] Run separate blind case-author, oracle-review and public-SDK developer subagents. Freeze 12 cases and capture both engines’ raw output.
-- [x] Check clarification branches and distinguish semantic mismatch from successful resolution. [Report and reusable runner](comparison/agent-evaluation/README.md).
+- [x] Check clarification branches and distinguish semantic mismatch from successful resolution. [Report and reusable runner](../../comparison/agent-evaluation/README.md).
 - [ ] Triage timer/title interpretation, misleading duration diagnostic and complete-output validation wording. No parser fixes or feature expansion in this pass.
 
 This lane does not satisfy independent human evaluation. Cursor is installed but logged out; Ollama is available but was not loaded.
@@ -50,7 +52,7 @@ This lane does not satisfy independent human evaluation. Cursor is installed but
 - [x] Narrow project and README to the explainable engine; preserve current supported behavior.
 - [x] Define independent task protocol, continuation thresholds and maintenance/stop condition.
 - [x] Inspect timezone guarantees and probe host differences: 10 disagreements and 17 unavailable historical samples; no correctness verdict from this comparison.
-- [x] Prepare [independent evaluation handoff](comparison/independent-evaluation/README.md), empty case/observation templates and candidate identity. No study outcomes are claimed.
+- [x] Prepare [independent evaluation handoff](../../comparison/independent-evaluation/README.md), empty case/observation templates and candidate identity. No study outcomes are claimed.
 - [ ] Independent author/reviewer and six unfamiliar participants: unavailable. No messages sent.
 - [ ] Run frozen complete-task evaluation; decide whether to continue, focus on arithmetic, or maintain/archive.
 
@@ -66,9 +68,9 @@ Next action: arrange independent evaluation. Until then, limit code work to demo
 - [x] Measure page delivery duplication and test a smaller delivery strategy while preserving offline-after-load behavior.
 - [x] Verify complete journeys, keyboard/layout, copy/export and offline output; record measured size changes and remaining costs.
 
-Fresh [bundle comparison](docs/bundle-comparison.md): core 151,938 gzip bytes versus gpu-time 0.3.0 at 53,272 (2.85x). Registry version checked; isolated consumer only. Calendar integration adds 6,104 gzip bytes. No new timing claims.
+Fresh [bundle comparison](../bundle-comparison.md): core 151,938 gzip bytes versus gpu-time 0.3.0 at 53,272 (2.85x). Registry version checked; isolated consumer only. Calendar integration adds 6,104 gzip bytes. No new timing claims.
 
-Pruning evidence: [size report](docs/size-pruning.md). Removed 35 direct dependencies; CSS is 69% smaller raw. Rejected separate Worker delivery after its first offline preparation failed. Final three-browser journeys and separate file readers pass. No external release actions.
+Pruning evidence: [size report](size-pruning.md). Removed 35 direct dependencies; CSS is 69% smaller raw. Rejected separate Worker delivery after its first offline preparation failed. Final three-browser journeys and separate file readers pass. No external release actions.
 
 ### Completed engine consolidation
 
@@ -83,7 +85,7 @@ Pruning evidence: [size report](docs/size-pruning.md). Removed 35 direct depende
 
 ## Evidence and remaining gaps
 
-[Architecture and contract](docs/engine-first.md), [current evidence report](docs/engine-consolidation-evidence.md), and [release checklist](docs/release-checklist.md) are the handoff. Raw local artifacts are in `/Users/mylescook/Documents/Codex/2026-09-13-tempus-engine-consolidation`.
+[Architecture and contract](../engine-first.md), [current evidence report](engine-consolidation-evidence.md), and [release checklist](../release-checklist.md) are the handoff. Raw local artifacts are in `/Users/mylescook/Documents/Codex/2026-09-13-tempus-engine-consolidation`.
 
 Final checks, types, lint and production build pass. Suite: 1,164 passing tests plus one existing expected failure concerning an independent reader's Chicago pre-DST instant conversion. The large client-chunk warning remains. This bounded consolidation is verified locally; no external release action was taken.
 

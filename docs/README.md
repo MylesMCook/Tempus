@@ -1,28 +1,35 @@
 # Tempus docs
 
-## Use Tempus
+Current guides live here. Finished investigations and old task logs live in [archive](archive/README.md).
 
-- [Calculator](https://tempus.funnydomainname.com/) — enter a calculation and see its steps.
-- [Date rules](date-rules.md) — starting dates, fractions, month ends and clock changes.
-- [Send feedback](review-guide.md) — report a wrong date or a confusing step.
+## Use the calculator
+
+- [Open Tempus](https://tempus.funnydomainname.com/)
+- [Date rules](date-rules.md) — starting dates, fractions, month ends, clock changes
+- [Report a problem](review-guide.md)
 
 ## Build with the engine
 
-- [TypeScript quickstart](../packages/core/README.md) and [SDK reference](../packages/core/reference.md).
-- [HTTP API](api.md) — date calculations over GET.
-- [Schedule rules](schedule-contract.md) — ranges, recurrence and clarification.
-- [Calendar import checks](calendar-client-check.md) — file validation versus client behavior.
-- [Cloudflare deployment](cloudflare-workers.md).
+- [TypeScript quickstart](../packages/core/README.md) and [SDK reference](../packages/core/reference.md)
+- [HTTP API](api.md)
+- [Schedule rules](schedule-contract.md)
+- [Calendar file checks](calendar-client-check.md)
 
-## Maintain the project
+## Operate the site
 
-- [Current release](release-checklist.md) and [active tasks](../tasks.md).
-- [Product direction](product-focus.md) and [engine design](engine-first.md).
-- [Capability summary](product-matrix.md), [arithmetic comparison](arithmetic-comparison.md) and [bundle measurements](bundle-comparison.md).
-- [Performance budgets](performance-budgets.md), [security policy](../SECURITY.md) and [security review](security-review.md).
+- [Cloudflare deployment](cloudflare-workers.md)
+- [Release status](release-checklist.md)
+- [Security policy](../SECURITY.md) and [security review](security-review.md)
 
-## Investigation records
+## Product decisions
 
-These preserve results from specific builds. They are not setup instructions or promises about the current release.
+- [Current direction](product-focus.md)
+- [Engine design](engine-first.md)
+- [Capability summary](product-matrix.md)
+- [Arithmetic comparison](arithmetic-comparison.md)
+- [Bundle measurements](bundle-comparison.md)
+- [Performance budgets](performance-budgets.md)
 
-[Release log](release-verification.md) · [Earlier release plans](release-history.md) · [Matrix history](product-matrix-history.md) · [Calendar investigation](calendar-export.md) · [Engine consolidation](engine-consolidation-evidence.md) · [Size pruning](size-pruning.md) · [Parser audit](parser-system-audit.md) · [Compatibility](parser-compatibility.md) · [Original rebuild](phoenix.md) · [UX review](phoenix-ux-review.md) · [Copy review](copy-ux-review.md) · [Dogfooding](dogfood-2026-09-13.md) · [Date ranges](explicit-date-ranges.md) · [Monthly schedules](monthly-schedules.md) · [Occurrence counts](occurrence-counts.md).
+## Historical notes
+
+[Archive index](archive/README.md) — Phoenix rebuild, past releases, completed checklists, and dated reviews. Not setup instructions.

@@ -8,7 +8,7 @@
 
 For a wrong date, open **Developer tools → Copy calculation details** in the app. This includes the phrase, timezone, and starting time needed to repeat it. Remove anything private before posting.
 
-You can report confusing behavior without proposing a fix. If you want a few things to try, use the [review guide](docs/review-guide.md).
+You can report confusing behavior without proposing a fix. If you want a few things to try, use the [review guide](docs/review-guide.md). Current guides are in the [docs hub](docs/README.md).
 
 For a vulnerability, use the [private reporting instructions](SECURITY.md).
 
@@ -38,5 +38,6 @@ For parser coverage work, run `pnpm compare` and inspect the [local comparison r
 | Date arithmetic or calculation steps | [date-parser.ts](src/shared/date-parser.ts)                                 |
 | API validation and HTTP responses    | [parse-api.ts](src/shared/parse-api.ts), [worker/index.ts](worker/index.ts) |
 | The interface and saved preferences  | [src/features/parser](src/features/parser/)                                 |
+| Docs, deploy, and product direction  | [docs/README.md](docs/README.md)                                            |
 
 The app uses React and TypeScript, with Tailwind/Radix components and a Cloudflare Worker. Temporal handles timezone arithmetic; date-fns-tz formats dates. See [deployment notes](docs/cloudflare-workers.md) when you need to publish a build.

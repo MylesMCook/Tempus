@@ -29,6 +29,18 @@ Open the local address printed in the terminal.
 
 [Report a wrong date or confusing step](https://github.com/MylesMCook/Tempus/issues/new/choose). Include your input and expected result; remove private details.
 
-[Contributing](CONTRIBUTING.md) · [All docs](docs/README.md) · [Current direction](docs/product-focus.md) · [Privacy](https://tempus.funnydomainname.com/privacy) · [Security](SECURITY.md)
+[Contributing](CONTRIBUTING.md) · [Docs](docs/README.md) · [Current direction](docs/product-focus.md) · [Privacy](https://tempus.funnydomainname.com/privacy) · [Security](SECURITY.md)
+
+## Repository layout
+
+| Path                              | What it is                                        |
+| --------------------------------- | ------------------------------------------------- |
+| `src/`                            | Calculator UI, routes, and the shared date engine |
+| `worker/`                         | Cloudflare HTTP API                               |
+| `packages/core/`                  | Unpublished TypeScript SDK                        |
+| `docs/`                           | Current product, API, and deploy guides           |
+| `docs/archive/`                   | Historical notes and completed task logs          |
+| `comparison/`                     | Parser comparison tests and retained evidence     |
+| [`examples/`](examples/README.md) | Browser journeys and SDK samples                  |
 
 [MIT license](LICENSE) · [Third-party notices](THIRD_PARTY_NOTICES.md)

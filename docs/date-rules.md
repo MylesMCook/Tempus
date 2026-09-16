@@ -55,7 +55,7 @@ The strict calculator and API must understand the whole date phrase. They use a 
 
 Invalid dates, unsupported words, and incomplete phrases return an error instead of a partial answer. Supported years are 0001–9999, with up to 200 characters and 20 changes per phrase.
 
-For previous behavior and test cases, see the [compatibility notes](parser-compatibility.md) and [engine design](phoenix.md).
+For previous behavior and test cases, see the [compatibility notes](archive/parser-compatibility.md) and [engine design](archive/phoenix.md).
 
 ## Calculator questions
 

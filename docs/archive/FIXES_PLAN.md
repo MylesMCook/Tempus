@@ -1,5 +1,7 @@
 # Tempus Code Fixes Plan
 
+> Archived Next.js-era plan. Paths and stack notes are obsolete. Current setup: [AGENTS.md](../../AGENTS.md).
+
 This document outlines the planned fixes for issues identified in the codebase review.
 
 ---
