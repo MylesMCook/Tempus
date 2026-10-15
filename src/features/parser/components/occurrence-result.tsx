@@ -362,11 +362,17 @@ export function OccurrenceResult({
           {visible.map((row, index) => (
             <div key={pageStart + index} className="mt-3">
               <h3 className="font-medium">Occurrence {pageStart + index + 1} · start</h3>
-              <CalculationTrace calculation={row.start} />
+              <CalculationTrace
+                calculation={row.start}
+                dateOnly={"allDay" in row && row.allDay === true}
+              />
               {row.end ? (
                 <>
                   <h3 className="mt-3 font-medium">End</h3>
-                  <CalculationTrace calculation={row.end} />
+                  <CalculationTrace
+                    calculation={row.end}
+                    dateOnly={"allDay" in row && row.allDay === true}
+                  />
                 </>
               ) : null}
             </div>

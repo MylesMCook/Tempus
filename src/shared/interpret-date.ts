@@ -692,6 +692,39 @@ export function interpretDate(
       `The written timezone “${inlineZone[0]}” has not been applied. Select an IANA timezone such as “America/Chicago”, then remove the timezone from the phrase. Abbreviations can be ambiguous.`,
     );
   }
+  if (/^no\s+plus\s+/i.test(text)) {
+    const corrected = text.replace(/^no\b/i, "now");
+    const candidate = calculateScheduleDate(corrected, options);
+    if (candidate.ok) {
+      const contextKey = interpretationContextKey(input, options);
+      if (options.selection?.contextKey === contextKey && options.selection.id === "spelling:now") {
+        const result = fromCalculation(candidate, leading, text);
+        if (result.status === "resolved")
+          return {
+            ...result,
+            apiReplay: false,
+            selectedChoice: "Spelling: “no” means “now”",
+            assumptions: [...result.assumptions, "You confirmed “no” means “now”."],
+          };
+        return result;
+      }
+      const question = `Did you mean “${corrected}”?`;
+      return {
+        interpretationVersion: 1,
+        status: "needs-clarification",
+        error: {
+          code: "syntax",
+          message: question,
+          hint: "Your phrase has not been changed. Confirm to calculate from the captured current time, or edit your input.",
+        },
+        clarification: {
+          contextKey,
+          question,
+          choices: [{ id: "spelling:now", label: `Use “${corrected}”`, expression: corrected }],
+        },
+      };
+    }
+  }
   const alternatives = /^(?:(meet)\s+)?(.+?)\s+or\s+(.+)$/i.exec(text);
   const isAlternative =
     Boolean(alternatives) &&

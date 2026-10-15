@@ -25,6 +25,7 @@ yarn-error.log*
 
 # local agent and generated files
 .claude
+/.playwright-cli/
 .next-build.log
 /comparison/results/
 /packages/core/dist/

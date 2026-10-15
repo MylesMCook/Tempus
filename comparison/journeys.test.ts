@@ -303,6 +303,7 @@ const journeys = [
   },
 ];
 
+// Calendar replay, artifact writes and provenance hashing need an integration-test time budget.
 it("records complete scripted correction-to-file tasks without claiming user completion", async () => {
   const records = [];
   await mkdir("comparison/results/journey-files", { recursive: true });
@@ -466,4 +467,4 @@ it("records complete scripted correction-to-file tasks without claiming user com
   expect(
     records.filter((row) => row.status === "failed").map(({ id, failure }) => ({ id, failure })),
   ).toEqual([]);
-});
+}, 30_000);

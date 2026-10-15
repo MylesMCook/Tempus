@@ -94,9 +94,9 @@ export function IntervalResult({
       <Disclosure className="border-t pt-3">
         <summary className="cursor-pointer py-2 text-sm">How this range was calculated</summary>
         <h3 className="mt-3 font-medium">Start</h3>
-        <CalculationTrace calculation={start} />
+        <CalculationTrace calculation={start} dateOnly={allDay} />
         <h3 className="mt-3 font-medium">End</h3>
-        <CalculationTrace calculation={end} />
+        <CalculationTrace calculation={end} dateOnly={allDay} />
         {interpretation.assumptions.map((assumption) => (
           <p key={assumption} className="mt-2 text-sm text-muted-foreground">
             {assumption}

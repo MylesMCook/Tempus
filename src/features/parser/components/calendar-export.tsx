@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { Download } from "lucide-react";
 import { flushSync } from "react-dom";
 import { Disclosure } from "@/components/disclosure";
 import { OrganicShimmer } from "@/components/organic-shimmer";
@@ -85,8 +86,10 @@ export function CalendarExport({
       >
         Download as calendar file
       </summary>
-      <div className="grid gap-3 pb-3">
-        <p className="text-sm">{description}</p>
+      <div className="grid min-w-0 gap-6 pb-4 pt-2">
+        {pointMode !== "date" ? (
+          <p className="text-sm text-muted-foreground">{description}</p>
+        ) : null}
         {value.kind === "recurrence" ? (
           <div
             id="calendar-export-status"
@@ -216,7 +219,10 @@ export function CalendarExport({
           className="grid gap-3 text-sm"
         >
           {events.slice(pageStart, pageStart + pageSize).map((event, index) => (
-            <li key={pageStart + index} className="min-w-0 rounded-md border p-3">
+            <li
+              key={pageStart + index}
+              className="grid min-w-0 gap-1 border-b pb-4 last:border-0 last:pb-0"
+            >
               {events.length > 1 ? (
                 <p className="font-medium">Event {pageStart + index + 1}</p>
               ) : null}
@@ -227,8 +233,10 @@ export function CalendarExport({
                 ] as const
               ).map(([label, date]) =>
                 date ? (
-                  <p key={label} className="break-words">
-                    <span className="font-medium">{label}: </span>
+                  <p key={label} className="break-words text-base font-medium leading-relaxed">
+                    <span className="block text-xs font-normal text-muted-foreground">
+                      {label}:{" "}
+                    </span>
                     {safeFormatDate(
                       new Date(date.result.timestamp),
                       date.timezone,
@@ -238,80 +246,87 @@ export function CalendarExport({
                           ? "EEEE, MMMM d, yyyy 'at' h:mm:ss a zzz"
                           : "EEEE, MMMM d, yyyy 'at' h:mm:ss.SSS a zzz",
                     ) ?? date.result.local}
-                    {!event.allDay ? ` (UTC${date.result.offset})` : " · all day"}
+                    {!event.allDay ? ` (UTC${date.result.offset})` : ""}
                   </p>
                 ) : null,
               )}
-              <p className="break-words text-muted-foreground">{event.start.timezone}</p>
+              <p className="break-words text-muted-foreground">
+                {event.allDay ? "All day · " : ""}
+                {event.start.timezone}
+              </p>
             </li>
           ))}
         </ol>
-        <label htmlFor="calendar-title" className="text-sm font-medium">
-          Event title
-        </label>
-        <Input
-          id="calendar-title"
-          value={title}
-          maxLength={2000}
-          onChange={(event) => {
-            setTitle(event.target.value);
-            setFeedback("");
-          }}
-        />
-        <p className="text-sm text-muted-foreground">
-          Downloads an .ics file with your phrase and timezone. Import it in your calendar.
-        </p>
-        <Button
-          variant="outline"
-          className="min-h-12"
-          disabled={!title.trim() || (value.kind === "recurrence" && !preparedFile?.ok)}
-          onClick={() => {
-            try {
-              const metadata = {
-                title,
-                pointMode,
-                uid: crypto.randomUUID(),
-                stamp: new Date().toISOString(),
-              };
-              const prepared =
-                value.kind === "recurrence"
-                  ? undefined
-                  : prepareCalendar(interpretation, { file: metadata });
-              const file =
-                value.kind === "recurrence"
-                  ? preparedFile
-                  : prepared?.status === "ready"
-                    ? prepared.file
-                    : undefined;
-              if (!file) return;
-              if (!file.ok) {
-                setFeedback(file.reason);
-                return;
-              }
-              const link = document.createElement("a");
-              const url = URL.createObjectURL(new Blob([file.text], { type: file.mimeType }));
+        <div className="grid gap-1.5">
+          <label htmlFor="calendar-title" className="text-sm font-medium">
+            Event title
+          </label>
+          <Input
+            id="calendar-title"
+            value={title}
+            maxLength={2000}
+            onChange={(event) => {
+              setTitle(event.target.value);
+              setFeedback("");
+            }}
+          />
+        </div>
+        <div className="grid gap-2">
+          <Button
+            className="min-h-12 w-full sm:w-fit"
+            disabled={!title.trim() || (value.kind === "recurrence" && !preparedFile?.ok)}
+            onClick={() => {
               try {
-                link.href = url;
-                link.download = "tempus-events.ics";
-                document.body.append(link);
-                link.click();
-              } finally {
-                link.remove();
-                setTimeout(() => URL.revokeObjectURL(url), 1000);
+                const metadata = {
+                  title,
+                  pointMode,
+                  uid: crypto.randomUUID(),
+                  stamp: new Date().toISOString(),
+                };
+                const prepared =
+                  value.kind === "recurrence"
+                    ? undefined
+                    : prepareCalendar(interpretation, { file: metadata });
+                const file =
+                  value.kind === "recurrence"
+                    ? preparedFile
+                    : prepared?.status === "ready"
+                      ? prepared.file
+                      : undefined;
+                if (!file) return;
+                if (!file.ok) {
+                  setFeedback(file.reason);
+                  return;
+                }
+                const link = document.createElement("a");
+                const url = URL.createObjectURL(new Blob([file.text], { type: file.mimeType }));
+                try {
+                  link.href = url;
+                  link.download = "tempus-events.ics";
+                  document.body.append(link);
+                  link.click();
+                } finally {
+                  link.remove();
+                  setTimeout(() => URL.revokeObjectURL(url), 1000);
+                }
+                setFeedback(
+                  "Download requested. Open the file in your calendar to review and import it.",
+                );
+              } catch {
+                setFeedback("The file could not be downloaded. Try again in your browser.");
               }
-              setFeedback(
-                "Download requested. Open the file in your calendar to review and import it.",
-              );
-            } catch {
-              setFeedback("The file could not be downloaded. Try again in your browser.");
-            }
-          }}
-        >
-          Download calendar file
-        </Button>
-        <p role="status" className="text-sm">
-          {feedback || (preparedFile && !preparedFile.ok ? preparedFile.reason : "")}
-        </p>
+            }}
+          >
+            <Download aria-hidden="true" data-icon="inline-start" />
+            Download calendar file
+          </Button>
+          <p className="text-sm text-muted-foreground">
+            Downloads an .ics file with your phrase and timezone. Import it in your calendar.
+          </p>
+          <p role="status" className="text-sm">
+            {feedback || (preparedFile && !preparedFile.ok ? preparedFile.reason : "")}
+          </p>
+        </div>
       </div>
     </Disclosure>
   );

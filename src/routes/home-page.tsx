@@ -32,12 +32,15 @@ export function HomePage({ initialReference }: { initialReference?: string }) {
     <div className="bg-page">
       <main
         id="main"
-        className="t-page-enter mx-auto w-full max-w-3xl px-4 pb-12 pt-6 sm:px-8 sm:pt-8"
+        className="t-page-enter mx-auto w-full max-w-6xl px-4 pb-10 pt-10 sm:px-8 sm:pt-14"
       >
-        <header className="mb-3">
-          <h1 className="text-lg font-semibold tracking-tight sm:text-xl">
+        <header className="mb-8 lg:mb-10">
+          <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
             Date math, with the steps.
           </h1>
+          <p className="mt-3 max-w-xl text-base leading-relaxed text-muted-foreground">
+            Write a date in your own words. See where it lands and how it gets there.
+          </p>
         </header>
         <section className="flex w-full flex-col gap-6">
           <DatePicker

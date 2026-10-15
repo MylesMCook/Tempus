@@ -1,4 +1,7 @@
+@import "tailwindcss" source(none);
 @import "./motion.css";
+@config "../tailwind.config.js";
+@source "./";
 
 @font-face {
   font-family: "Geist";
@@ -15,10 +18,6 @@
   font-style: normal;
   font-display: swap;
 }
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 @layer base {
   :root {
@@ -46,6 +45,9 @@
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 32 95% 25%;
 
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
@@ -92,6 +94,7 @@
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
+    --warning-foreground: 43 96% 80%;
 
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
@@ -102,6 +105,10 @@
 @layer base {
   * {
     @apply border-border;
+  }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
   }
   html {
     @apply scroll-smooth;
@@ -117,11 +124,11 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm;
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 shadow-xs;
   }
 
   .btn-outline {
-    @apply border border-input bg-background hover:bg-primary/5 hover:border-primary/50 shadow-sm;
+    @apply border border-input bg-background hover:bg-primary/5 hover:border-primary/50 shadow-xs;
   }
 
   .btn-ghost {

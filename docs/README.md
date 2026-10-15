@@ -24,6 +24,7 @@ Current guides live here. Finished investigations and old task logs live in [arc
 ## Product decisions
 
 - [Current direction](product-focus.md)
+- [Calculation transparency review](calculation-transparency-review.md) — Cici reviews, approved examples and the date-ladder redesign
 - [Engine design](engine-first.md)
 - [Capability summary](product-matrix.md)
 - [Arithmetic comparison](arithmetic-comparison.md)

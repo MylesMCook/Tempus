@@ -62,3 +62,30 @@ For previous behavior and test cases, see the [compatibility notes](archive/pars
 Supported question forms include `What is …?`, `What date is …?`, `What time is …?`, `What date will it be …?`, `Calculate …`, and `What time was it … ago?`. Use either “date” or “time” in the latter forms.
 
 Everything after the prefix must match the calculator grammar. Contradictory tense, conditions and inline timezone instructions are rejected. For other phrasing, use an explicit starting date and ordered changes.
+
+## Explicit typo confirmation
+
+The app recognizes one narrow recovery case: a phrase beginning `no plus …` can offer `now plus …` only when the complete corrected calculator expression is valid. It does not edit the typed input or calculate until the user confirms. Confirmation uses the captured reference instant, creates no event title, and is invalidated by a different input, timezone, reference or choice. Other event-title handling is unchanged. There is no fuzzy matching or general autocorrect engine. The strict calculator and HTTP API continue rejecting the typo.
+
+Approved acceptance cases (unit bindings: `src/shared/clarify-typo.test.ts`; browser checks: `examples/app/verify-panels.mjs`):
+
+```gherkin
+Scenario: Confirm the narrow now typo before calculating
+  Given I entered "no plus 2 weeks minus 3 days + 5 hours"
+  When the app checks the complete suggested expression
+  Then it offers "now plus 2 weeks minus 3 days + 5 hours"
+  And no date is calculated and no event title is proposed
+  When I confirm that expression
+  Then its exact calculation starts at the captured reference instant
+  And my typed input remains unchanged
+
+Scenario: Require confirmation for a different context
+  Given I confirmed the now typo
+  When the input, reference or timezone changes
+  Then the previous confirmation cannot resolve the new calculation
+
+Scenario: Preserve ordinary titles
+  Given an ordinary event title precedes a supported date phrase
+  When it does not match the complete narrow typo correction
+  Then the existing event-title confirmation remains available
+```

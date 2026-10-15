@@ -1,6 +1,13 @@
-import { useId } from "react";
+import { useId, useState } from "react";
+import { Bug, Check, ChevronDown, Clock3, Copy, Info } from "lucide-react";
 import { Disclosure } from "@/components/disclosure";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 import type { Calculation, CalculationStep, DateSnapshot } from "@/shared/date-parser";
+import { resultClockFormat, safeFormatDate } from "../options";
 
 const GENERIC_CALENDAR_NOTE = "Calendar change, applied to this step’s starting date.";
 
@@ -8,41 +15,117 @@ function timestamp(date: DateSnapshot) {
   return `${date.local.replace("T", " ").replace(/\.000$/, "")} ${date.offset}`;
 }
 
-function classifyDetail(detail: string): "omit" | "clamp" | "note" {
+function classifyDetail(detail: string): "omit" | "clamp" | "approximation" | "note" {
   if (detail === GENERIC_CALENDAR_NOTE) return "omit";
   if (detail.includes("clamp to day")) return "clamp";
+  if (detail.startsWith("Approximation:")) return "approximation";
   return "note";
+}
+
+function elapsedTime(step: Pick<CalculationStep, "before" | "after">) {
+  const elapsed = BigInt(step.after.timestamp) - BigInt(step.before.timestamp);
+  let remaining = elapsed < 0n ? -elapsed : elapsed;
+  const parts: string[] = [];
+  for (const [size, unit] of [
+    [3_600_000n, "hour"],
+    [60_000n, "minute"],
+    [1_000n, "second"],
+    [1n, "millisecond"],
+  ] as const) {
+    const count = remaining / size;
+    remaining %= size;
+    if (count) parts.push(`${count} ${unit}${count === 1n ? "" : "s"}`);
+  }
+  return `${elapsed < 0n ? "-" : ""}${parts.join(" ") || "0 milliseconds"}`;
 }
 
 function TimelineDot({ current }: { current?: boolean }) {
   return (
     <span
       aria-hidden="true"
-      className={`absolute -left-[5px] top-1.5 size-2 rounded-full ring-4 ring-background ${
-        current ? "bg-primary" : "bg-muted-foreground"
-      }`}
+      className={cn(
+        "absolute -left-[7px] top-1.5 size-3 rounded-full border-2 border-background ring-2",
+        current ? "bg-primary ring-primary/30" : "bg-background ring-muted-foreground/50",
+      )}
     />
   );
 }
 
-function TimestampLine({ date }: { date: DateSnapshot }) {
+function SnapshotFields({ date, timezone }: { date: DateSnapshot; timezone: string }) {
   return (
-    <p className="mt-1 break-words font-mono text-xs tabular-nums tracking-tight sm:text-sm">
-      {timestamp(date)}
-    </p>
+    <dl className="@container min-w-0 divide-y text-sm">
+      {[
+        [`Local time (${timezone})`, timestamp(date)],
+        ["Weekday", safeFormatDate(new Date(date.timestamp), timezone, "EEEE") ?? "Unavailable"],
+        ["UTC", date.iso],
+        ["Epoch milliseconds", date.timestamp],
+        ["UTC offset", date.offset],
+      ].map(([label, value]) => (
+        <div
+          key={label}
+          className="grid min-w-0 gap-1 py-2 first:pt-0 last:pb-0 @min-[24rem]:grid-cols-[9rem_minmax(0,1fr)] @min-[24rem]:gap-4"
+        >
+          <dt className="text-xs text-muted-foreground">{label}</dt>
+          <dd className="break-words font-mono tabular-nums">{value}</dd>
+        </div>
+      ))}
+    </dl>
   );
 }
 
-function StepEndpoints({ step }: { step: CalculationStep }) {
+function DateCheckpoint({
+  date,
+  timezone,
+  dateOnly,
+  result = false,
+}: {
+  date: DateSnapshot;
+  timezone: string;
+  dateOnly: boolean;
+  result?: boolean;
+}) {
   return (
-    <dl className="mt-1.5 grid gap-0.5 font-mono text-xs tabular-nums tracking-tight sm:text-sm">
+    <>
+      <time dateTime={date.iso} className="block">
+        <span
+          className={cn(
+            "block tabular-nums",
+            result ? "text-xl font-semibold tracking-tight" : "text-base font-medium",
+          )}
+        >
+          {safeFormatDate(new Date(date.timestamp), timezone, "EEE, MMM d, yyyy") ??
+            timestamp(date)}
+        </span>
+        {!dateOnly ? (
+          <span className="mt-0.5 block text-sm tabular-nums text-muted-foreground">
+            {safeFormatDate(new Date(date.timestamp), timezone, resultClockFormat(date.local)) ??
+              timestamp(date)}
+          </span>
+        ) : null}
+      </time>
+      {result && dateOnly ? (
+        <p className="mt-1 text-sm text-muted-foreground">
+          Date only; no time of day was requested.
+        </p>
+      ) : null}
+    </>
+  );
+}
+
+function StepEndpoints({ step, timezone }: { step: CalculationStep; timezone: string }) {
+  return (
+    <dl className="grid min-w-0 gap-4 divide-y sm:grid-cols-2 sm:divide-x sm:divide-y-0">
       <div>
-        <dt className="inline text-muted-foreground">From </dt>
-        <dd className="inline break-words">{timestamp(step.before)}</dd>
+        <dt className="mb-3 font-medium">From </dt>
+        <dd>
+          <SnapshotFields date={step.before} timezone={timezone} />
+        </dd>
       </div>
-      <div>
-        <dt className="inline text-muted-foreground">To </dt>
-        <dd className="inline break-words">{timestamp(step.after)}</dd>
+      <div className="pt-4 sm:pl-4 sm:pt-0">
+        <dt className="mb-3 font-medium">To </dt>
+        <dd>
+          <SnapshotFields date={step.after} timezone={timezone} />
+        </dd>
       </div>
     </dl>
   );
@@ -51,138 +134,328 @@ function StepEndpoints({ step }: { step: CalculationStep }) {
 function StepNotes({ step }: { step: CalculationStep }) {
   const notes = step.details
     .map((detail) => ({ detail, kind: classifyDetail(detail) }))
-    .filter((item) => item.kind !== "omit");
+    .filter((item) => item.kind === "clamp" || item.kind === "approximation");
   if (!notes.length) return null;
   return (
     <div className="mt-2 grid gap-2">
-      {notes.map(({ detail, kind }) =>
-        kind === "clamp" ? (
-          <p
-            key={detail}
-            role="note"
-            className="rounded-md border border-amber-300 bg-amber-50 px-2.5 py-2 text-sm text-amber-950"
-          >
-            <span className="font-medium">Clamped. </span>
-            {detail}
-          </p>
-        ) : (
-          <p key={detail} className="text-sm leading-relaxed text-muted-foreground">
-            {detail}
-          </p>
-        ),
-      )}
+      {notes.map(({ detail, kind }, index) => (
+        <Alert key={index} role="note" variant="warning">
+          <Info aria-hidden="true" />
+          <AlertTitle>{kind === "clamp" ? "Clamped." : "Approximated."}</AlertTitle>
+          <AlertDescription>{detail}</AlertDescription>
+        </Alert>
+      ))}
     </div>
   );
 }
 
-function PhraseParts({ expression, normalized }: { expression: string; normalized: string }) {
-  const parts = normalized.split(/\s+/).filter(Boolean);
-  if (!parts.length) return null;
-  const typed = expression.trim();
-  const showTyped = typed.length > 0 && typed.toLowerCase() !== normalized;
+function ReadPhrase({ normalized }: { normalized: string }) {
   return (
     <div>
-      <h3 className="font-medium text-muted-foreground">Read the phrase</h3>
-      <ul className="mt-2 flex flex-wrap gap-1.5" aria-label="Recognized parts">
-        {parts.map((part, index) => (
-          <li
-            key={`${index}-${part}`}
-            className="max-w-full break-all rounded-md bg-muted px-2 py-1 font-mono text-xs"
-          >
-            {part}
-          </li>
-        ))}
-      </ul>
-      {showTyped ? (
-        <p className="mt-2 break-words text-sm text-muted-foreground">Typed as {typed}</p>
-      ) : null}
+      <h5 className="font-medium text-muted-foreground">Read as</h5>
+      <p className="mt-2 font-mono text-sm [overflow-wrap:anywhere]">{normalized}</p>
     </div>
   );
 }
 
-export function CalculationTrace({ calculation }: { calculation: Calculation }) {
-  const inputsHeadingId = useId();
+function CalculationDebug({ calculation }: { calculation: Extract<Calculation, { ok: true }> }) {
+  const headingId = useId();
+  const jsonHeadingId = `${headingId}-json`;
+  const json = JSON.stringify(calculation, null, 2);
+  const [copyFeedback, setCopyFeedback] = useState({ json: "", message: "" });
+  return (
+    <Card className="mt-3">
+      <Disclosure className="group/debug">
+        <Button asChild variant="ghost" className="h-auto w-full justify-between gap-3 px-4 py-3">
+          <summary id={headingId}>
+            <span className="flex items-center gap-2">
+              <Bug aria-hidden="true" />
+              Debug calculation
+            </span>
+            <ChevronDown
+              aria-hidden="true"
+              className="transition-transform duration-150 ease-out group-open/debug:rotate-180 motion-reduce:transition-none"
+            />
+          </summary>
+        </Button>
+        <section aria-labelledby={headingId}>
+          <CardHeader className="p-4">
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <CardTitle role="heading" aria-level={3}>
+                Calculation summary
+              </CardTitle>
+              <Button
+                type="button"
+                variant="outline"
+                size="sm"
+                className="min-h-11"
+                onClick={async () => {
+                  try {
+                    await navigator.clipboard.writeText(json);
+                    setCopyFeedback({ json, message: "Debug JSON copied." });
+                  } catch {
+                    setCopyFeedback({
+                      json,
+                      message: "Copy was blocked. Select the JSON below and copy it manually.",
+                    });
+                  }
+                }}
+              >
+                <Copy data-icon="inline-start" aria-hidden="true" />
+                Copy debug JSON
+              </Button>
+            </div>
+            <CardDescription>
+              The captured inputs and the exact values recorded by the engine.
+            </CardDescription>
+            <p role="status" className="text-xs text-muted-foreground">
+              {copyFeedback.json === json ? copyFeedback.message : ""}
+            </p>
+          </CardHeader>
+          <CardContent className="grid min-w-0 grid-cols-1 gap-8 p-4 pt-0 [overflow-wrap:anywhere]">
+            <dl className="@container min-w-0 divide-y text-sm">
+              <div className="grid min-w-0 gap-1 py-3 first:pt-0 @min-[24rem]:grid-cols-[9rem_minmax(0,1fr)] @min-[24rem]:gap-4">
+                <dt className="text-muted-foreground">Engine version</dt>
+                <dd>{calculation.engineVersion}</dd>
+              </div>
+              <div className="grid min-w-0 gap-1 py-3 first:pt-0 @min-[24rem]:grid-cols-[9rem_minmax(0,1fr)] @min-[24rem]:gap-4">
+                <dt className="text-muted-foreground">Timezone</dt>
+                <dd className="break-words">{calculation.timezone}</dd>
+              </div>
+              <div className="grid min-w-0 gap-1 py-3 first:pt-0 @min-[24rem]:grid-cols-[9rem_minmax(0,1fr)] @min-[24rem]:gap-4">
+                <dt className="text-muted-foreground">Steps</dt>
+                <dd>{calculation.steps.length}</dd>
+              </div>
+              <div className="grid min-w-0 gap-1 py-3 first:pt-0 @min-[24rem]:grid-cols-[9rem_minmax(0,1fr)] @min-[24rem]:gap-4">
+                <dt className="text-muted-foreground">Reference instant (UTC)</dt>
+                <dd className="break-all font-mono">{calculation.reference}</dd>
+              </div>
+              <div className="grid min-w-0 gap-1 py-3 first:pt-0 @min-[24rem]:grid-cols-[9rem_minmax(0,1fr)] @min-[24rem]:gap-4">
+                <dt className="text-muted-foreground">Result (UTC)</dt>
+                <dd className="break-all font-mono">{calculation.result.iso}</dd>
+              </div>
+              <div className="grid min-w-0 gap-1 py-3 first:pt-0 @min-[24rem]:grid-cols-[9rem_minmax(0,1fr)] @min-[24rem]:gap-4">
+                <dt className="text-muted-foreground">Total elapsed time</dt>
+                <dd>{elapsedTime({ before: calculation.anchor, after: calculation.result })}</dd>
+              </div>
+              <div className="grid min-w-0 gap-1 py-3 @min-[24rem]:grid-cols-[9rem_minmax(0,1fr)] @min-[24rem]:gap-4">
+                <dt className="text-muted-foreground">Warnings</dt>
+                <dd>
+                  {calculation.warnings.length ? (
+                    <Alert role="note" variant="warning">
+                      <AlertDescription>
+                        <ul className="grid gap-1">
+                          {calculation.warnings.map((warning, index) => (
+                            <li key={index}>{warning}</li>
+                          ))}
+                        </ul>
+                      </AlertDescription>
+                    </Alert>
+                  ) : (
+                    "None"
+                  )}
+                </dd>
+              </div>
+            </dl>
+            <div className="grid min-w-0 gap-4 border-t pt-6">
+              <h4 className="flex items-center gap-2 font-medium">
+                <Badge variant="secondary">Input</Badge>Expression analysis
+              </h4>
+              <h5 className="text-sm text-muted-foreground">
+                Engine input · {Array.from(calculation.expression).length} characters
+              </h5>
+              <pre className="whitespace-pre-wrap font-mono text-sm">{calculation.expression}</pre>
+              <ReadPhrase normalized={calculation.normalized} />
+              <p className="break-words text-sm text-muted-foreground">
+                Reference used:{" "}
+                {safeFormatDate(
+                  new Date(calculation.reference),
+                  calculation.timezone,
+                  "MMM d, yyyy HH:mm:ss.SSS xxx",
+                ) ?? calculation.reference}
+              </p>
+            </div>
+            <div className="grid min-w-0 gap-4 border-t pt-6">
+              <h4 className="font-medium">Starting date</h4>
+              <p className="text-sm text-muted-foreground">{calculation.anchorDescription}</p>
+              <SnapshotFields date={calculation.anchor} timezone={calculation.timezone} />
+            </div>
+            {!calculation.steps.length ? (
+              <p className="text-sm text-muted-foreground">No adjustments recorded.</p>
+            ) : null}
+            {calculation.steps.map((step, index) => (
+              <div key={index} className="grid min-w-0 gap-4 border-t pt-6">
+                <h4 className="flex flex-wrap items-center gap-2 font-medium">
+                  <Badge variant="secondary">Step {index + 1}</Badge>
+                  {step.source}
+                </h4>
+                <StepEndpoints step={step} timezone={calculation.timezone} />
+                <p className="text-sm">
+                  <span className="text-muted-foreground">Elapsed time: </span>
+                  {elapsedTime(step)}
+                </p>
+                <StepNotes step={step} />
+                <ul className="grid list-disc gap-1 pl-4 text-sm leading-relaxed text-muted-foreground">
+                  {step.details
+                    .filter(
+                      (detail) => !["clamp", "approximation"].includes(classifyDetail(detail)),
+                    )
+                    .map((detail, detailIndex) => (
+                      <li key={detailIndex}>{detail}</li>
+                    ))}
+                </ul>
+              </div>
+            ))}
+            <div className="grid min-w-0 gap-4 border-t pt-6">
+              <h4 className="flex items-center gap-2 font-medium">
+                <Badge>Result</Badge>Final calculation
+              </h4>
+              <SnapshotFields date={calculation.result} timezone={calculation.timezone} />
+            </div>
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              Calendar days follow the local clock. 24 hours is elapsed time. Negative elapsed
+              values run backward.
+            </p>
+            <div className="grid min-w-0 gap-4 border-t pt-6">
+              <h4 id={jsonHeadingId} className="font-medium">
+                Raw calculation JSON
+              </h4>
+              <pre
+                tabIndex={0}
+                role="region"
+                aria-labelledby={jsonHeadingId}
+                className="max-h-64 min-w-0 max-w-full overflow-auto whitespace-pre rounded-md border bg-muted/30 p-3 text-sm focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring"
+              >
+                {json}
+              </pre>
+            </div>
+          </CardContent>
+        </section>
+      </Disclosure>
+    </Card>
+  );
+}
+
+export function CalculationTrace({
+  calculation,
+  dateOnly = false,
+}: {
+  calculation: Calculation;
+  dateOnly?: boolean;
+}) {
   const lastIndex = calculation.ok ? calculation.steps.length - 1 : -1;
   return (
-    <Disclosure className="mt-5 border-t">
-      <summary className="cursor-pointer py-3 text-sm font-medium focus-visible:outline focus-visible:outline-2">
-        Show calculation steps
-      </summary>
+    <Disclosure className="t-calculation-trace group/trace mt-5">
+      <Button asChild variant="ghost" className="h-auto w-full justify-between gap-2 px-0 py-3">
+        <summary>
+          Show calculation steps
+          <ChevronDown
+            aria-hidden="true"
+            className="transition-transform duration-150 ease-out group-open/trace:rotate-180 motion-reduce:transition-none"
+          />
+        </summary>
+      </Button>
       {!calculation.ok ? (
         <p className="mt-3 text-sm text-muted-foreground">
           {calculation.error.message} {calculation.error.hint}
         </p>
       ) : (
-        <div className="mt-1 grid gap-5 pb-1 text-sm">
-          <p className="text-muted-foreground">
-            Each change runs in written order, from one instant to the next.
+        <div className="mt-2 grid gap-5 pb-1 text-sm">
+          <p className="text-sm text-muted-foreground">
+            Reference time:{" "}
+            <time dateTime={calculation.reference} className="tabular-nums">
+              {safeFormatDate(
+                new Date(calculation.reference),
+                calculation.timezone,
+                "EEE, MMM d, yyyy 'at' h:mm a zzz",
+              ) ?? calculation.reference}
+            </time>
+            {" · "}
+            {calculation.timezone}
           </p>
-          <PhraseParts expression={calculation.expression} normalized={calculation.normalized} />
           <ol
-            className="relative ml-3 grid border-l-2 border-primary/25"
+            className="relative ml-3 grid border-l-2 border-border"
             aria-label="Calculation steps"
           >
-            <li className="relative pb-5 pl-5">
+            <li className="relative pl-5">
               <TimelineDot current={calculation.steps.length === 0} />
-              <h3 className="font-medium text-muted-foreground">Starting date</h3>
-              <TimestampLine date={calculation.anchor} />
-              <p className="mt-1.5 leading-relaxed">{calculation.anchorDescription}</p>
+              {!calculation.steps.length ? (
+                <div className="mb-2">
+                  <Badge>
+                    <Check aria-hidden="true" />
+                    Result
+                  </Badge>
+                </div>
+              ) : null}
+              <DateCheckpoint
+                date={calculation.anchor}
+                timezone={calculation.timezone}
+                dateOnly={dateOnly}
+                result={calculation.steps.length === 0}
+              />
+              {!calculation.steps.length ? (
+                <p className="mt-1 text-sm text-muted-foreground">
+                  Your phrase gives the result directly, with no arithmetic adjustments.
+                </p>
+              ) : null}
             </li>
             {calculation.steps.map((step, index) => (
-              <li key={index} className="relative pb-5 pl-5 last:pb-0">
-                <TimelineDot current={index === lastIndex} />
-                <h3 className="font-medium">
-                  {index + 1}. {step.source}
-                </h3>
-                <StepEndpoints step={step} />
-                <StepNotes step={step} />
+              <li key={index} className="pl-5">
+                <div className="pb-4 pt-4">
+                  <h3 className="flex items-center gap-2">
+                    <Badge variant="outline">{step.source}</Badge>
+                  </h3>
+                  {index > 0 &&
+                  calculation.steps[index - 1].details.some(
+                    (detail) => classifyDetail(detail) === "clamp",
+                  ) ? (
+                    <p className="mt-1 pl-2.5 text-sm text-muted-foreground">
+                      {`Starts from step ${index}'s result: ${safeFormatDate(new Date(step.before.timestamp), calculation.timezone, "MMM d, yyyy") ?? timestamp(step.before)}.`}
+                    </p>
+                  ) : null}
+                  <div className="[&>div]:mt-1">
+                    <StepNotes step={step} />
+                  </div>
+                  <div className="mt-1 grid gap-1 pl-2.5 text-sm text-muted-foreground">
+                    {step.details
+                      .filter(
+                        (detail) =>
+                          classifyDetail(detail) === "note" &&
+                          !detail.startsWith("The timezone offset changes from "),
+                      )
+                      .map((detail, index) => (
+                        <p key={index}>{detail}</p>
+                      ))}
+                  </div>
+                  {step.before.offset !== step.after.offset ? (
+                    <Alert role="note" variant="warning" className="mt-1">
+                      <Clock3 aria-hidden="true" />
+                      <AlertTitle>{`Elapsed: ${elapsedTime(step)}`}</AlertTitle>
+                      <AlertDescription>{`The UTC offset changes from ${step.before.offset} to ${step.after.offset}. Calendar days follow the local clock; hours measure elapsed time.`}</AlertDescription>
+                    </Alert>
+                  ) : null}
+                </div>
+                <div className="relative -ml-5 pl-5">
+                  <TimelineDot current={index === lastIndex} />
+                  {index === lastIndex ? (
+                    <div className="mb-2">
+                      <Badge>
+                        <Check aria-hidden="true" />
+                        Result
+                      </Badge>
+                    </div>
+                  ) : null}
+                  <DateCheckpoint
+                    date={step.after}
+                    timezone={calculation.timezone}
+                    dateOnly={dateOnly}
+                    result={index === lastIndex}
+                  />
+                </div>
               </li>
             ))}
           </ol>
-          {!calculation.steps.length ? (
-            <p>No time changes needed. The starting date is the result.</p>
-          ) : null}
-          <Disclosure>
-            <summary
-              id={inputsHeadingId}
-              className="cursor-pointer rounded-md bg-muted/50 px-3 py-3 text-sm text-muted-foreground hover:text-foreground focus-visible:outline focus-visible:outline-2"
-            >
-              Calculation inputs
-            </summary>
-            <section aria-labelledby={inputsHeadingId} className="px-3 pb-3">
-              <dl className="mt-3 grid gap-3">
-                <div>
-                  <dt className="text-sm text-muted-foreground">Timezone</dt>
-                  <dd className="mt-0.5 font-medium">{calculation.timezone}</dd>
-                </div>
-                <div>
-                  <dt className="text-sm text-muted-foreground">Calendar day</dt>
-                  <dd className="mt-0.5 leading-relaxed">
-                    Follows the local clock. 24 hours is elapsed time.
-                  </dd>
-                </div>
-                <div>
-                  <dt className="text-sm text-muted-foreground">Read as</dt>
-                  <dd className="mt-0.5 break-words font-medium">{calculation.normalized}</dd>
-                </div>
-              </dl>
-              <Disclosure className="mt-3">
-                <summary className="cursor-pointer text-sm text-muted-foreground hover:text-foreground focus-visible:outline focus-visible:outline-2">
-                  Exact UTC values
-                </summary>
-                <dl className="mt-2 grid gap-2 text-xs">
-                  <div>
-                    <dt className="text-muted-foreground">Reference instant</dt>
-                    <dd className="break-all font-mono">{calculation.reference}</dd>
-                  </div>
-                  <div>
-                    <dt className="text-muted-foreground">Result in UTC</dt>
-                    <dd className="break-all font-mono">{calculation.result.iso}</dd>
-                  </div>
-                </dl>
-              </Disclosure>
-            </section>
-          </Disclosure>
+          <CalculationDebug calculation={calculation} />
         </div>
       )}
     </Disclosure>

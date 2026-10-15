@@ -95,11 +95,18 @@ try {
       const trace = await page
         .getByRole("list", { name: "Calculation steps", exact: true })
         .innerText();
+      const debugSummary = page.locator("summary").filter({ hasText: /^Debug calculation$/ });
+      const debug = debugSummary.locator("..");
+      if (!(await debug.evaluate((element) => element.open))) {
+        await debugSummary.focus();
+        await page.keyboard.press("Enter");
+      }
+      const exactValues = await debug.innerText();
       for (const step of api.steps) {
         assert.ok(trace.includes(step.source));
         for (const endpoint of [step.before, step.after])
           assert.ok(
-            trace.includes(
+            exactValues.includes(
               endpoint.local.replace("T", " ").replace(/\.000$/, "") + " " + endpoint.offset,
             ),
           );

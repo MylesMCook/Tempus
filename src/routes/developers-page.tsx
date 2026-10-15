@@ -36,7 +36,7 @@ function CodeSample({ label, children }: { label: string; children: string }) {
       role="region"
       aria-label={label}
       onKeyDown={onCodeSampleKeyDown}
-      className="mt-4 overflow-x-auto whitespace-pre-wrap break-all rounded-md border bg-background p-4 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 sm:break-normal sm:whitespace-pre"
+      className="mt-4 overflow-x-auto whitespace-pre-wrap break-all rounded-md border bg-background p-4 text-sm focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 sm:break-normal sm:whitespace-pre"
     >
       <code>{children}</code>
     </pre>

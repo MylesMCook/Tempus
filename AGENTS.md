@@ -57,5 +57,6 @@ uv run --locked examples/app/read-reminder.py /tmp/tempus-run
 
 ## Notes
 
+- The test runner uses two workers to avoid resource contention on development laptops. Comparison/report and Git-process integration tests have explicit 30-second limits; unit-test defaults and assertions remain unchanged.
 - Calendar preparation uses an inline bundled Web Worker. The client app preloads that chunk at startup; a static `?worker&inline` import still breaks Cloudflare + rwsdk SSR module scanning in `pnpm dev`.
 - `comparison/results/` is gitignored; comparison evidence under `comparison/evidence/` is retained history, not setup docs.

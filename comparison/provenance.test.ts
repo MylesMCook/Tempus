@@ -11,6 +11,7 @@ it("does not borrow a containing repository's Git identity", () => {
     gitMetadataStatus: "absent",
   });
 });
+// Git process startup and temporary-file cleanup can exceed the unit-test limit on Windows.
 it("does not disguise broken Git metadata as an archive", () => {
   const directory = mkdtempSync(join(tmpdir(), "tempus-git-identity-"));
   try {
@@ -19,4 +20,4 @@ it("does not disguise broken Git metadata as an archive", () => {
   } finally {
     rmSync(directory, { recursive: true });
   }
-});
+}, 30_000);

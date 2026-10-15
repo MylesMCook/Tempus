@@ -88,13 +88,29 @@ export function ApiDocs({
     <div className="grid min-w-0 gap-5 text-sm leading-relaxed">
       <div className="grid gap-3">
         <p className="text-muted-foreground">
-          Send this request to the server and compare the dates.
+          Compare the captured input below with the server. A request runs only when you choose
+          Check API result.
         </p>
         {!hasExpression ? (
           <p className="rounded-lg bg-muted/60 px-4 py-3">
             Enter a phrase above to build a request.
           </p>
         ) : null}
+        {hasExpression ? (
+          <div className="grid min-w-0 gap-1 border-l-2 pl-3">
+            <p className="font-mono text-xs">GET /api/parse</p>
+            <p className="min-w-0 break-words font-mono text-sm [overflow-wrap:anywhere]">
+              {expression}
+            </p>
+          </div>
+        ) : null}
+        <p className="text-sm leading-relaxed text-muted-foreground">
+          Sends this expression, timezone, reference time and date format to Cloudflare. Avoid
+          private information.{" "}
+          <a className="underline underline-offset-4" href="/privacy">
+            Privacy details
+          </a>
+        </p>
         <div className="flex flex-wrap items-center gap-2">
           <Button
             onClick={() => void replay()}
@@ -108,13 +124,6 @@ export function ApiDocs({
             </Button>
           ) : null}
         </div>
-        <p className="text-xs leading-relaxed text-muted-foreground">
-          Sends the phrase or interpreted expression shown below, plus your settings, to Cloudflare.
-          Avoid private information.{" "}
-          <a className="underline underline-offset-4" href="/privacy">
-            Privacy details
-          </a>
-        </p>
       </div>
 
       {state.kind !== "idle" ? (

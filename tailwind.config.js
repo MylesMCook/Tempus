@@ -24,6 +24,10 @@ module.exports = {
         mono: ["var(--font-mono)"],
       },
       colors: {
+        amber: { 50: "#fffbeb", 100: "#fef3c7", 300: "#fcd34d", 950: "#451a03" },
+        slate: { 50: "#f8fafc" },
+        blue: { 800: "#1e40af" },
+        emerald: { 800: "#065f46" },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -51,6 +55,10 @@ module.exports = {
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
+        },
+        warning: {
+          DEFAULT: "hsl(var(--warning))",
+          foreground: "hsl(var(--warning-foreground))",
         },
         muted: {
           DEFAULT: "hsl(var(--muted))",

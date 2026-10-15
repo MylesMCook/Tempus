@@ -1,4 +1,16 @@
-# Release status
+# Release verification
+
+## Calculator interface release, October 15, 2026
+
+The two-column calculator, readable date ladder, nested exact Debug view, calendar export and developer panels were refined with Cici. Exact engine calculations and the strict HTTP API remain unchanged. The specific `no plus` recovery requires confirmation and preserves the typed phrase; there is no general autocorrection engine. Approved dependency remediation migrates Tailwind to version 4.
+
+Local verification: `pnpm validate` passes formatting, lint, types, 1,236 tests plus one existing expected failure, production build and audit with zero vulnerabilities. Built Chrome journeys pass at 320/1280px: 34 transparency cases, panel/copy/API failure and recovery checks, and actual point/range/recurrence calendar downloads. Both Cloudflare deployment dry runs pass. See [task evidence](../tasks.md) and [transparency review](calculation-transparency-review.md).
+
+Pushes to `main` deploy through the [production workflow](https://github.com/MylesMCook/Tempus/actions/workflows/deploy-cloudflare.yml), which repeats the release checks before deploying both Workers. Its run log records the deployed version IDs. Previous versions retained for rollback: `tempus` version `fee50e6a-8b0f-47c6-bbfa-46768e894a15`; compatibility Worker `tempus-total` version `5c3d0814-e6c6-4f01-8c60-ea32f013c4a5`.
+
+Physical devices, assistive technology and actual calendar-client imports remain unverified for this release. The SDK remains unpublished.
+
+## Earlier migration release (historical)
 
 [PR #8](https://github.com/MylesMCook/Tempus/pull/8) landed as `03e846f`. The canonical site is [tempus.funnydomainname.com](https://tempus.funnydomainname.com/), served by Worker `tempus`, version `df3c7f40-f513-43c8-98b6-94e9533af521`. The SDK remains unpublished.
 
