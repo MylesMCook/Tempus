@@ -15,7 +15,7 @@ const querySchema = z
       .optional(),
     preserveDayOfMonth: z
       .never({
-        invalid_type_error:
+        error:
           "preserveDayOfMonth was retired in engine v2. Month changes clamp at each step; remove this parameter.",
       })
       .optional(),

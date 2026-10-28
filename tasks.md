@@ -31,6 +31,13 @@ Objective: implement the approved desktop input/result layout, stacked on mobile
 - Complete locally; no commit, push or deployment. Cici's transparency proposals await a separate implementation decision. Build emits existing large-chunk warnings; no bundle optimization is in scope. Tailwind 4 requires modern browsers: [official upgrade guide](https://tailwindcss.com/docs/upgrade-guide).
 - Cici's read-only trace review is complete: [recommendations and proposed scenarios](docs/calculation-transparency-review.md). No transparency UI edits approved or implemented.
 
+## October 28 audit remediation
+
+- New advisories failed `pnpm validate` at audit: 7 high (undici via miniflare, zod, vite-plus bundled launch-editor) plus moderates. User approved full upgrades.
+- Implemented: undici override 7.30.1, fast-uri override 3.1.9, vite-plus/vite-plus-core 1.4.0 (Vitest 5), zod ^4.6.7. Zod 4 dropped `invalid_type_error`; the retired `preserveDayOfMonth` message now uses `error`. A new test failed on the generic zod 4 message before the fix and passes after. Other `/api/parse` validation `details` wording follows zod 4.
+- Audit exception: GHSA-mrhx-c7xc-m3w5 ignored in `pnpm-workspace.yaml`. Only rwsdk's pinned puppeteer smoke-test and vibe-rules helpers still carry zod 3; Tempus does not run them and they do not validate request input. Remove when rwsdk moves to zod 4.
+- Verified: `pnpm install --frozen-lockfile`, then `pnpm validate` passes (323 formatted files, lint/types, 72 test files with 1237 passed and one existing expected failure, build, audit 0 unignored). `wrangler deploy --dry-run` succeeds. No browser journeys run; no commit, push or deployment.
+
 ## Approved calculation transparency implementation
 
 - User approved all Cici recommendations, preserving exact calculation values and rerunning checks.
