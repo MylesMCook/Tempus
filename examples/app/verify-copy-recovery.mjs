@@ -47,14 +47,13 @@ try {
       [
         "schedule",
         "Call Sam every Monday at noon for 3 occurrences",
-        "Copy schedule preview",
-        "Schedule preview copied",
+        "Copy all 3 dates",
+        "3 dates copied",
         [
           "Call Sam",
-          "Upcoming occurrence preview:",
-          "Sep 14, 2026",
-          "Sep 21, 2026",
-          "Sep 28, 2026",
+          "1. 2026-09-14 12:00",
+          "2. 2026-09-21 12:00",
+          "3. 2026-09-28 12:00",
           "America/Chicago",
         ],
       ],
@@ -84,6 +83,14 @@ try {
         await page.locator("#calculated-date").waitFor();
         const before = await page.locator("#calculated-date").innerText();
         const button = page.getByRole("button", { name: buttonName, exact: true });
+        // Complete schedules prepare in a worker; the copy control is disabled until ready.
+        await page.waitForFunction(
+          (name) =>
+            [...document.querySelectorAll("button")].some(
+              (element) => element.textContent.trim() === name && !element.disabled,
+            ),
+          buttonName,
+        );
         await input.focus();
         let tabs = 0;
         while (!(await button.evaluate((element) => document.activeElement === element))) {

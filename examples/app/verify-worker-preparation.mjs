@@ -150,7 +150,8 @@ try {
         const overflowing = await example.evaluate(
           (element) => element.scrollWidth > element.clientWidth,
         );
-        if (width === 320) assert.equal(overflowing, true);
+        // Phone widths wrap code samples instead of scrolling them sideways.
+        if (width === 320) assert.equal(overflowing, false);
         if (overflowing) {
           await developerPage.keyboard.press("ArrowRight");
           await developerPage.waitForFunction(
@@ -217,6 +218,8 @@ try {
           }
         };
       });
+      // Fixed reference: the 1:30am clock choice must stay beyond the preview, not today's date.
+      await page.clock.install({ time: new Date("2026-09-12T16:00:00Z") });
       await page.goto(baseURL);
       const input = page.locator("#date-expression");
       const download = page.getByRole("button", { name: "Download calendar file", exact: true });

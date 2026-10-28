@@ -45,22 +45,23 @@ try {
       await activate(page.getByRole("button", { name: /UTC-06:00/ }));
       await page.locator("#calculated-date").waitFor();
       assert.equal(await input.inputValue(), expression);
-      run.rows = await page
-        .locator('#calculated-date > [role="status"] > ol > li')
-        .allTextContents();
+      run.rows = await page.locator("#calculated-date > ol > li").allTextContents();
       assert.equal(run.rows.length, 2);
       assert.match(run.rows[0], /Nov 1, 2026 at 1:30 AM/);
       assert.match(run.rows[1], /Sep 30, 2026 at 12:00 PM/);
       assert.equal(await page.getByLabel("Recognized date phrase").innerText(), expression);
-      await activate(page.getByRole("button", { name: "Copy schedule preview", exact: true }));
-      await page.getByText("Schedule preview copied", { exact: true }).waitFor();
+      await activate(page.getByRole("button", { name: "Copy all 2 dates", exact: true }));
+      await page.getByText("2 dates copied", { exact: true }).waitFor();
       // Read only after the app writes this task's own text.
       run.copied = await page.evaluate(() => navigator.clipboard.readText());
-      const copiedRows = run.copied.split("Listed dates (not repeating):\n")[1];
-      assert.ok(copiedRows.indexOf("Nov 1, 2026") < copiedRows.indexOf("Sep 30, 2026"));
+      assert.ok(
+        run.copied.indexOf("1. 2026-11-01 01:30") < run.copied.indexOf("2. 2026-09-30 12:00"),
+      );
       assert.ok(run.copied.includes("Call Sam"));
-      await activate(page.locator("#calendar-export-toggle"));
-      const downloadButton = page.getByRole("button", {
+      const exportToggle = page.locator("#calendar-export-toggle");
+      if (!(await exportToggle.locator("..").evaluate((element) => element.open)))
+        await activate(exportToggle);
+      const downloadButton = exportToggle.locator("..").getByRole("button", {
         name: "Download calendar file",
         exact: true,
       });
@@ -88,10 +89,7 @@ try {
       await page.getByRole("button", { name: /UTC-06:00/ }).waitFor();
       assert.equal(await input.inputValue(), edited);
       assert.equal(await page.locator("#calendar-export-toggle").count(), 0);
-      assert.equal(
-        await page.getByRole("button", { name: "Copy schedule preview", exact: true }).count(),
-        0,
-      );
+      assert.equal(await page.getByRole("button", { name: /^Copy all/ }).count(), 0);
       assert.deepEqual(run.errors, []);
       run.status = "passed";
     } catch (error) {

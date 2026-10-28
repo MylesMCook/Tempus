@@ -37,7 +37,7 @@ export function Document({ children }: { children: ReactNode }) {
         <div className="t-nav-enter border-b bg-background">
           <nav
             aria-label="Main navigation"
-            className={`mx-auto flex h-16 items-center justify-between gap-4 px-4 sm:px-8 ${onHome ? "max-w-6xl" : "max-w-3xl"}`}
+            className={`mx-auto flex h-16 items-center justify-between gap-4 px-4 sm:px-8 ${onPrivacy ? "max-w-3xl" : "max-w-6xl"}`}
           >
             <a
               href="/"
@@ -85,7 +85,7 @@ export function Document({ children }: { children: ReactNode }) {
         </svg>
         {children}
         <footer
-          className={`mx-auto flex flex-wrap items-center justify-between gap-4 border-t px-4 py-5 text-xs text-muted-foreground sm:px-8 ${onHome ? "max-w-6xl" : "max-w-3xl"}`}
+          className={`mx-auto flex flex-wrap items-center justify-between gap-4 border-t px-4 py-5 text-xs text-muted-foreground sm:px-8 ${onPrivacy ? "max-w-3xl" : "max-w-6xl"}`}
         >
           <span>Natural language. Inspectable dates.</span>
           {onPrivacy ? (

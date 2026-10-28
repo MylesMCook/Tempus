@@ -8,7 +8,8 @@ export default defineConfig({
     environment: "node",
     globals: true,
     include: ["**/*.test.ts", "**/*.test.tsx"],
-    exclude: ["dist", "node_modules", ".next", ".open-next"],
+    // Agent worktrees under .claude/ carry their own copy of the repository and dependencies.
+    exclude: ["**/dist/**", "**/node_modules/**", ".next/**", ".open-next/**", ".claude/**"],
   },
   resolve: {
     alias: {

@@ -89,3 +89,29 @@ Scenario: Preserve ordinary titles
   When it does not match the complete narrow typo correction
   Then the existing event-title confirmation remains available
 ```
+
+## Title followed by “for”
+
+After a proposed event title, a phrase starting with “for” keeps its duration meaning when that parses. If it does not, the app retries the phrase without “for”, so `Book it for 9/10/2026 at noon.` reaches the usual numeric-date question instead of asking for a duration. When both readings parse, as in `Set a timer for 36 hours from now.`, the title question offers one time (`event:title:point`) or a span (`event:title`); the app never picks the shape. Untitled durations and the recipient path (`Call Sam for …`) are unchanged.
+
+Approved acceptance cases (unit bindings: `src/shared/event-title.test.ts`):
+
+```gherkin
+Scenario: A timer phrase asks for the shape instead of assuming one
+  When I enter "Set a timer for 36 hours from now."
+  Then I am asked to confirm "Set a timer" as the title
+  And I can choose one time 36 hours from now or a 36-hour span starting now
+
+Scenario: Changed input clears the timer choice
+  Given I chose the single-time option
+  When I edit the input or change the timezone
+  Then I am asked again
+
+Scenario: "for" before a date reaches the date question
+  When I enter "Book it for 9/10/2026 at noon." and confirm "Book it"
+  Then I am asked whether I mean September 10 or October 9
+
+Scenario: Real durations keep their current behavior
+  Then "tomorrow at noon for 30 minutes" still lasts 30 minutes
+  And "Remind me to call Sam tomorrow at noon for" still asks how long the event should last
+```

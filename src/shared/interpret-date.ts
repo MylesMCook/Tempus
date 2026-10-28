@@ -998,19 +998,41 @@ export function interpretDate(
         title,
       )
     ) {
-      const phrase = text.slice(boundary);
-      const candidate = interpretDate(phrase.replace(/^on\s+/i, ""), {
-        timezone: options.timezone,
-        reference: options.reference,
-      });
+      let phraseStart = boundary;
+      const context = { timezone: options.timezone, reference: options.reference };
+      let candidate = interpretDate(text.slice(boundary).replace(/^on\s+/i, ""), context);
+      // “Book it for 9/10” names a date, not a duration; retry without “for” only on failure.
+      const leadingFor = /^for\s+/i.exec(text.slice(boundary));
+      if (candidate.status === "unsupported" && leadingFor) {
+        const dated = interpretDate(text.slice(boundary + leadingFor[0].length), context);
+        if (dated.status !== "unsupported") {
+          phraseStart = boundary + leadingFor[0].length;
+          candidate = dated;
+        }
+      }
+      // “Set a timer for 36 hours from now” may mean one time or a 36-hour span; ask, never assume.
+      const pointStart =
+        leadingFor &&
+        phraseStart === boundary &&
+        candidate.status === "resolved" &&
+        candidate.value.kind === "interval"
+          ? boundary + leadingFor[0].length
+          : undefined;
+      const point =
+        pointStart === undefined ? undefined : interpretDate(text.slice(pointStart), context);
+      const pointChoice =
+        point?.status === "resolved" && point.value.kind === "point" && !point.event;
+      const phrase = text.slice(phraseStart);
       const supported =
         candidate.status === "resolved" ? !candidate.event : Boolean(candidate.clarification);
       if (supported) {
         const contextKey = interpretationContextKey(input, options);
-        const confirmed =
-          options.selection?.contextKey === contextKey &&
-          [...(options.selection.previous ?? []), options.selection.id].includes("event:title");
-        if (!confirmed) {
+        const history =
+          options.selection?.contextKey === contextKey
+            ? [...(options.selection.previous ?? []), options.selection.id]
+            : [];
+        const pointChosen = pointChoice && history.includes("event:title:point");
+        if (!pointChosen && !history.includes("event:title")) {
           const question = `Use “${title}” as the event title?`;
           return {
             interpretationVersion: 1,
@@ -1018,17 +1040,32 @@ export function interpretDate(
             error: {
               code: "syntax",
               message: question,
-              hint: `Date phrase: ${phrase}. Confirm the title or edit your input.`,
+              hint: pointChoice
+                ? `Date phrase: ${phrase}. Choose one time or a span, or edit your input.`
+                : `Date phrase: ${phrase}. Confirm the title or edit your input.`,
             },
             clarification: {
               contextKey,
               question,
-              choices: [{ id: "event:title", label: `Use “${title}”`, expression: phrase }],
+              choices: pointChoice
+                ? [
+                    {
+                      id: "event:title:point",
+                      label: `Use “${title}” once, ${text.slice(pointStart)}`,
+                      expression: text.slice(pointStart),
+                    },
+                    {
+                      id: "event:title",
+                      label: `Use “${title}” as a span ${phrase}`,
+                      expression: phrase,
+                    },
+                  ]
+                : [{ id: "event:title", label: `Use “${title}”`, expression: phrase }],
             },
           };
         }
         confirmedTitle = true;
-        dateStart = boundary;
+        dateStart = pointChosen ? pointStart : phraseStart;
         const titleStart = leading + (titleProposal?.start ?? 0);
         event = { text: title, span: { start: titleStart, end: titleStart + title.length } };
       }

@@ -514,34 +514,33 @@ export function DatePicker({
               <Label htmlFor="calculation-timezone" className="text-base">
                 Timezone
               </Label>
-              <Input
+              <select
                 id="calculation-timezone"
-                list="timezone-options"
                 value={settings.timezone}
                 onChange={(event) => {
                   const timezone = event.currentTarget.value;
                   onChoose(undefined);
                   updateSettings({ timezone });
                 }}
-                maxLength={64}
                 aria-describedby={
                   error?.code === "timezone" ? "timezone-help calculation-error" : "timezone-help"
                 }
                 aria-invalid={error?.code === "timezone"}
-                autoComplete="off"
-                spellCheck={false}
-                className="h-12 text-base"
-              />
-              <datalist id="timezone-options">
+                className="h-12 w-full min-w-0 rounded-md border bg-background px-2 text-base focus-visible:outline focus-visible:outline-2"
+              >
+                {/* Keep a device or stored zone outside the list (e.g. Etc/GMT+5) visible. */}
+                {timezoneOptions.some((zone) => zone.value === settings.timezone) ? null : (
+                  <option value={settings.timezone}>{settings.timezone}</option>
+                )}
                 {timezoneOptions.map((zone) => (
                   <option key={zone.value} value={zone.value}>
                     {zone.label}
                   </option>
                 ))}
-              </datalist>
+              </select>
             </div>
             <p id="timezone-help" className="text-xs text-muted-foreground">
-              Choose a suggestion or enter an IANA timezone.
+              Words like “today” and “at noon” are calculated in this timezone.
             </p>
             <div className="grid max-w-full gap-2">
               <Label htmlFor="date-format">Display format (single dates)</Label>

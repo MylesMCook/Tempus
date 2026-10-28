@@ -22,9 +22,8 @@ function classifyDetail(detail: string): "omit" | "clamp" | "approximation" | "n
   return "note";
 }
 
-function elapsedTime(step: Pick<CalculationStep, "before" | "after">) {
-  const elapsed = BigInt(step.after.timestamp) - BigInt(step.before.timestamp);
-  let remaining = elapsed < 0n ? -elapsed : elapsed;
+function duration(milliseconds: bigint) {
+  let remaining = milliseconds < 0n ? -milliseconds : milliseconds;
   const parts: string[] = [];
   for (const [size, unit] of [
     [3_600_000n, "hour"],
@@ -36,7 +35,27 @@ function elapsedTime(step: Pick<CalculationStep, "before" | "after">) {
     remaining %= size;
     if (count) parts.push(`${count} ${unit}${count === 1n ? "" : "s"}`);
   }
-  return `${elapsed < 0n ? "-" : ""}${parts.join(" ") || "0 milliseconds"}`;
+  return parts.join(" ") || "0 milliseconds";
+}
+
+function elapsedTime(step: Pick<CalculationStep, "before" | "after">) {
+  const elapsed = BigInt(step.after.timestamp) - BigInt(step.before.timestamp);
+  return `${elapsed < 0n ? "-" : ""}${duration(elapsed)}`;
+}
+
+function offsetMinutes(offset: string) {
+  const match = /^([+-])(\d\d):(\d\d)$/.exec(offset);
+  return match ? (match[1] === "-" ? -1 : 1) * (Number(match[2]) * 60 + Number(match[3])) : 0;
+}
+
+/** Describes the real-world clock change between the earlier and later date, whichever way the step runs. */
+function clockChange(step: Pick<CalculationStep, "before" | "after">) {
+  const [earlier, later] =
+    step.after.timestamp < step.before.timestamp
+      ? [step.after, step.before]
+      : [step.before, step.after];
+  const shift = offsetMinutes(later.offset) - offsetMinutes(earlier.offset);
+  return `Clocks go ${shift < 0 ? "back" : "forward"} ${duration(BigInt(shift) * 60_000n)} during this step`;
 }
 
 function TimelineDot({ current }: { current?: boolean }) {
@@ -430,8 +449,8 @@ export function CalculationTrace({
                   {step.before.offset !== step.after.offset ? (
                     <Alert role="note" variant="warning" className="mt-1">
                       <Clock3 aria-hidden="true" />
-                      <AlertTitle>{`Elapsed: ${elapsedTime(step)}`}</AlertTitle>
-                      <AlertDescription>{`The UTC offset changes from ${step.before.offset} to ${step.after.offset}. Calendar days follow the local clock; hours measure elapsed time.`}</AlertDescription>
+                      <AlertTitle>{clockChange(step)}</AlertTitle>
+                      <AlertDescription>{`Actual time between these dates: ${duration(BigInt(step.after.timestamp) - BigInt(step.before.timestamp))}.`}</AlertDescription>
                     </Alert>
                   ) : null}
                 </div>

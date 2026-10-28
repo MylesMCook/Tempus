@@ -136,3 +136,68 @@ it("names the complete fixed-offset IANA zone in recovery guidance", () => {
   if (result.status === "resolved") throw Error("Timezone was ignored");
   expect(result.error.hint).toContain("“Etc/GMT+5”");
 });
+
+const evaluation = { timezone: "America/Chicago", reference: "2026-09-13T15:00:00Z" };
+it("asks whether a titled “for N from now” phrase is a time or a duration", () => {
+  const input = "Set a timer for 36 hours from now.";
+  const prompt = interpretDate(input, evaluation);
+  if (prompt.status === "resolved" || !prompt.clarification) throw Error("Missing title question");
+  expect(prompt.clarification.question).toBe("Use “Set a timer” as the event title?");
+  expect(prompt.clarification.choices.map((c) => [c.id, c.expression])).toEqual([
+    ["event:title:point", "36 hours from now"],
+    ["event:title", "for 36 hours from now"],
+  ]);
+  const choose = (id: string, options = evaluation) =>
+    interpretDate(input, {
+      ...options,
+      selection: { contextKey: prompt.clarification!.contextKey, id },
+    });
+  const point = choose("event:title:point");
+  if (point.status !== "resolved" || point.value.kind !== "point") throw Error("Missing point");
+  expect(point.value.calculation.result.iso).toBe("2026-09-15T03:00:00.000Z");
+  expect(point.event?.text).toBe("Set a timer");
+  expect(input.slice(point.source.span.start, point.source.span.end)).toBe("36 hours from now");
+  const span = choose("event:title");
+  if (span.status !== "resolved" || span.value.kind !== "interval") throw Error("Missing span");
+  expect([span.value.start.result.iso, span.value.end.result.iso]).toEqual([
+    "2026-09-13T15:00:00.000Z",
+    "2026-09-15T03:00:00.000Z",
+  ]);
+  expect(
+    interpretDate(`${input} `, {
+      ...evaluation,
+      selection: { contextKey: prompt.clarification.contextKey, id: "event:title:point" },
+    }).status,
+  ).toBe("needs-clarification");
+  expect(choose("event:title:point", { ...evaluation, timezone: "UTC" }).status).toBe(
+    "needs-clarification",
+  );
+});
+
+it("reaches the numeric-date question when a title is followed by “for” and a date", () => {
+  const input = "Book it for 9/10/2026 at noon.";
+  let selection: ClarificationSelection | undefined;
+  for (const [id, expression] of [
+    ["event:title", "9/10/2026 at noon"],
+    ["2026-09-10", "2026-09-10 at noon"],
+  ]) {
+    const r = interpretDate(input, { ...evaluation, selection });
+    if (r.status === "resolved" || !r.clarification) throw Error(JSON.stringify(r));
+    expect(r.clarification.choices).toContainEqual(expect.objectContaining({ id, expression }));
+    selection = appendSelection(selection, { contextKey: r.clarification.contextKey, id });
+  }
+  const result = interpretDate(input, { ...evaluation, selection });
+  if (result.status !== "resolved" || result.value.kind !== "point") throw Error("Missing point");
+  expect(result.value.calculation.result.iso).toBe("2026-09-10T17:00:00.000Z");
+  expect(result.event?.text).toBe("Book it");
+  expect(input.slice(result.source.span.start, result.source.span.end)).toBe("9/10/2026 at noon");
+});
+
+it("keeps an untitled duration a duration", () => {
+  const result = interpretDate("tomorrow at noon for 30 minutes", evaluation);
+  if (result.status !== "resolved" || result.value.kind !== "interval") throw Error("Missing span");
+  expect([result.value.start.result.iso, result.value.end.result.iso]).toEqual([
+    "2026-09-14T17:00:00.000Z",
+    "2026-09-14T17:30:00.000Z",
+  ]);
+});

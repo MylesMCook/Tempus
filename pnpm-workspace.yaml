@@ -3,14 +3,17 @@ packages:
   - examples/sdk
 
 overrides:
-  vite: npm:@voidzero-dev/vite-plus-core@0.3.1
+  vite: npm:@voidzero-dev/vite-plus-core@1.4.0
   tinypool@2.1.0: 2.1.2
-  undici@7.29.0: 7.29.1
+  undici@7.29.0: 7.30.1
   sharp@0.35.4: 0.35.5
   source-map-js@1.2.1: 1.2.2
   brace-expansion@1.1.18: 1.1.21
   brace-expansion@5.0.9: 5.0.12
-  fast-uri@3.1.7: 3.1.8
+  fast-uri@3.1.7: 3.1.9
+  # rwsdk pins zod 3 (GHSA-mrhx-c7xc-m3w5) through these; remove when rwsdk moves to zod 4.
+  puppeteer-core@25.4.0: 25.16.0
+  vibe-rules>zod: 4.6.7
 
 onlyBuiltDependencies:
   - esbuild

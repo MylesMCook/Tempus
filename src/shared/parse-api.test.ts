@@ -53,6 +53,14 @@ describe("API v2 calculation parity", () => {
       body: { engineVersion: 2, error: expect.any(String) },
     });
   });
+  it("explains the retired preserveDayOfMonth parameter", () => {
+    expect(buildParseResponse({ expression: "now", preserveDayOfMonth: "false" })).toMatchObject({
+      status: 400,
+      body: {
+        details: [{ path: ["preserveDayOfMonth"], message: expect.stringMatching(/retired/) }],
+      },
+    });
+  });
   it("makes now reproducible even after the server clock changes", () => {
     vi.useFakeTimers();
     vi.setSystemTime(new Date(reference));

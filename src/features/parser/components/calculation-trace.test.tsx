@@ -90,7 +90,8 @@ it("distinguishes the two occurrences of the repeated autumn clock hour", () => 
   const ladder = html.slice(0, html.indexOf("</ol>"));
   expect(ladder).toContain("1:30 AM CDT");
   expect(ladder).toContain("1:30 AM CST");
-  expect(ladder).toContain("Elapsed: 1 hour");
+  expect(ladder).toContain("Clocks go back 1 hour during this step");
+  expect(ladder).toContain("Actual time between these dates: 1 hour.");
   expect(ladder).toContain(calculation.anchor.iso);
   expect(ladder).toContain(calculation.result.iso);
 });
@@ -225,29 +226,38 @@ it("shows the captured reference first while retaining exact UTC", () => {
 });
 
 it.each([
-  ["March 7 2026 at noon plus 1 day", "23 hours"],
-  ["March 7 2026 at noon plus 24 hours", "24 hours"],
-  ["October 31 2026 at noon plus 1 day", "25 hours"],
-  ["March 8 2026 at noon minus 1 day", "-23 hours"],
-  ["March 7 2026 at noon plus 23.5005 hours", "23 hours 30 minutes 1 second 800 milliseconds"],
-])("explains elapsed time for %s without changing exact endpoints", (expression, elapsed) => {
-  const calculation = pointCalculation(expression);
-  const before = JSON.stringify(calculation);
-  const html = renderToStaticMarkup(<CalculationTrace calculation={calculation} />);
-  expect(html).toContain(`Elapsed: ${elapsed}`);
-  for (const step of calculation.steps) {
-    expect(html).toContain(timestamp(step.before));
-    expect(html).toContain(timestamp(step.after));
-    for (const detail of step.details) expect(html).toContain(detail);
-  }
-  expect(JSON.stringify(calculation)).toBe(before);
-});
+  ["March 7 2026 at noon plus 1 day", "forward", "23 hours"],
+  ["March 7 2026 at noon plus 24 hours", "forward", "24 hours"],
+  ["October 31 2026 at noon plus 1 day", "back", "25 hours"],
+  ["March 8 2026 at noon minus 1 day", "forward", "23 hours"],
+  [
+    "March 7 2026 at noon plus 23.5005 hours",
+    "forward",
+    "23 hours 30 minutes 1 second 800 milliseconds",
+  ],
+])(
+  "explains the clock change for %s without changing exact endpoints",
+  (expression, direction, elapsed) => {
+    const calculation = pointCalculation(expression);
+    const before = JSON.stringify(calculation);
+    const html = renderToStaticMarkup(<CalculationTrace calculation={calculation} />);
+    expect(html).toContain(`Clocks go ${direction} 1 hour during this step`);
+    expect(html).toContain(`Actual time between these dates: ${elapsed}.`);
+    expect(html).not.toContain("UTC offset changes");
+    for (const step of calculation.steps) {
+      expect(html).toContain(timestamp(step.before));
+      expect(html).toContain(timestamp(step.after));
+      for (const detail of step.details) expect(html).toContain(detail);
+    }
+    expect(JSON.stringify(calculation)).toBe(before);
+  },
+);
 
-it("adds no elapsed line when neither step changes offset", () => {
+it("adds no clock-change note when neither step changes offset", () => {
   const html = renderToStaticMarkup(
     <CalculationTrace calculation={pointCalculation("today plus 2 weeks minus 3 days")} />,
   );
-  expect(html).not.toContain("Elapsed:");
+  expect(html).not.toContain("Actual time between");
 });
 
 it("highlights the actual approximation and preserves its conversion and rounding rule", () => {
