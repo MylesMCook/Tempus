@@ -204,8 +204,13 @@ try {
         for (const detail of step.details.filter((value) => !value.startsWith("Calendar change,")))
           assert.ok(text.includes(detail));
       }
-      if (elapsed) assert.ok(text.includes(`Elapsed: ${elapsed}`), expression);
-      else assert.ok(!text.includes("Elapsed:"), expression);
+      if (elapsed) {
+        assert.match(text, /Clocks go (?:back|forward) 1 hour during this step/, expression);
+        assert.ok(
+          text.includes(`Actual time between these dates: ${elapsed.replace(/^-/, "")}.`),
+          expression,
+        );
+      } else assert.ok(!text.includes("Actual time between"), expression);
       if (elapsed) {
         const index = calculation.steps.findIndex(
           (step) => step.before.offset !== step.after.offset,
@@ -291,7 +296,8 @@ try {
     const foldLadder = foldTrace.getByRole("list", { name: "Calculation steps", exact: true });
     assert.match(await foldLadder.innerText(), /1:30 AM CDT/);
     assert.match(await foldLadder.innerText(), /1:30 AM CST/);
-    assert.match(await foldLadder.innerText(), /Elapsed: 1 hour/);
+    assert.match(await foldLadder.innerText(), /Clocks go back 1 hour during this step/);
+    assert.match(await foldLadder.innerText(), /Actual time between these dates: 1 hour\./);
     await page
       .locator("summary")
       .filter({ hasText: /^Debug calculation$/ })

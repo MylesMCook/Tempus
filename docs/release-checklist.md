@@ -1,5 +1,13 @@
 # Release verification
 
+## Clarity, timezone and dependency release, October 28, 2026
+
+Plain-language clock-change note in calculation steps; titled “for N from now” asks one time or a span; titled “for <date>” reaches the date question; every IANA timezone selectable; Developers page matches the app. Dependencies: Vite+ 1.4.0 (Vitest 5), zod 4, undici and fast-uri patches, and overrides that move rwsdk's puppeteer and vibe-rules off zod 3. No audit exceptions.
+
+Local verification: `pnpm validate` passes with no warnings (323 formatted files, lint/types, 72 test files with 1,241 tests plus one existing expected failure, production build, audit). `pnpm audit --audit-level=low` reports no known vulnerabilities. Both Cloudflare dry runs pass. Browser journeys on the built preview pass in Chrome (and Firefox where the journey covers it); WebKit is not installed locally. Three stale journeys (copy recovery, list order, worker preparation) were updated to the current labels, markup and a fixed reference date; worker preparation's offline step needs the built preview, not the dev server.
+
+Previous versions retained for rollback: `tempus` version `a10816b4-bc51-4ae0-8a98-7f0eb4e6755a`; compatibility Worker `tempus-total` version `2a195bcf-6a3c-4a2c-b22f-c29f53dfcc6a`.
+
 ## Calculator interface release, October 15, 2026
 
 The two-column calculator, readable date ladder, nested exact Debug view, calendar export and developer panels were refined with Cici. Exact engine calculations and the strict HTTP API remain unchanged. The specific `no plus` recovery requires confirmation and preserves the typed phrase; there is no general autocorrection engine. Approved dependency remediation migrates Tailwind to version 4.
@@ -40,7 +48,7 @@ Earlier fresh agent-authored questions exposed limits: two of six unambiguous qu
 - [ ] Physical-phone and assistive-technology checks.
 - [ ] Actual calendar-client imports; file-reader success is separate evidence.
 - [ ] Stable SDK naming, versioning and compatibility policy before npm publication.
-- [ ] Broader wording and the recorded timer/title, duration-diagnostic and output-label issues in [tasks](archive/tasks.md).
+- [ ] Broader wording coverage. The recorded timer/title, duration-diagnostic and output-label issues are triaged in [tasks](archive/tasks.md); “Call Sam for <date>” remains open.
 
 The recorded reader failure and unsupported phrases remain visible; no general accuracy or superiority claim follows from these checks.
 

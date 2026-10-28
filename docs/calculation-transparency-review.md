@@ -32,7 +32,8 @@ The user approved these scenarios with the recommendations. Coverage lives in `s
 Scenario Outline: Explain elapsed time across the spring clock change
   Given I calculate "March 7 2026 at noon plus <amount>" in America/Chicago
   When I open the calculation steps
-  Then the step shows "Elapsed: <hours> hours"
+  Then the step says "Clocks go forward 1 hour during this step"
+  And it shows "Actual time between these dates: <hours> hours."
   When I open Debug calculation
   Then the existing exact From and To values remain visible
 
@@ -45,7 +46,8 @@ Scenario: Explain the longer autumn calendar day
   Given I calculate "October 31 2026 at noon plus 1 day" in America/Chicago
   When I open the calculation steps
   Then the result remains November 1 at noon
-  And the step shows "Elapsed: 25 hours"
+  And the step says "Clocks go back 1 hour during this step"
+  And it shows "Actual time between these dates: 25 hours."
 
 Scenario: Keep ordinary calendar arithmetic concise
   Given I calculate "today plus 2 weeks minus 3 days" in America/Chicago using the October 15 reference

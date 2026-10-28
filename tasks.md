@@ -36,6 +36,7 @@ Objective: implement the approved desktop input/result layout, stacked on mobile
 - New advisories failed `pnpm validate` at audit: 7 high (undici via miniflare, zod, vite-plus bundled launch-editor) plus moderates. User approved full upgrades.
 - Implemented: undici override 7.30.1, fast-uri override 3.1.9, vite-plus/vite-plus-core 1.4.0 (Vitest 5), zod ^4.6.7. Zod 4 dropped `invalid_type_error`; the retired `preserveDayOfMonth` message now uses `error`. A new test failed on the generic zod 4 message before the fix and passes after. Other `/api/parse` validation `details` wording follows zod 4.
 - Audit exception: GHSA-mrhx-c7xc-m3w5 ignored in `pnpm-workspace.yaml`. Only rwsdk's pinned puppeteer smoke-test and vibe-rules helpers still carry zod 3; Tempus does not run them and they do not validate request input. Remove when rwsdk moves to zod 4.
+- Superseded: user asked for no exceptions. The exception is removed; overrides `puppeteer-core@25.4.0: 25.16.0` (its chromium-bidi uses zod 4) and `vibe-rules>zod: 4.6.7` (uses only basic schema calls) leave one zod (4.6.7). Both packages load and the vibe-rules CLI runs. `pnpm audit --audit-level=low` reports no known vulnerabilities.
 - Verified: `pnpm install --frozen-lockfile`, then `pnpm validate` passes (323 formatted files, lint/types, 72 test files with 1237 passed and one existing expected failure, build, audit 0 unignored). `wrangler deploy --dry-run` succeeds. No browser journeys run; no commit, push or deployment.
 
 ## Approved calculation transparency implementation
@@ -109,3 +110,18 @@ Objective: implement the approved desktop input/result layout, stacked on mobile
 ### Production closeout
 
 - User explicitly approved commit, push and production deployment. All final local validation and browser evidence above applies to this release; both Cloudflare dry runs pass. Production delivery uses the existing main-branch workflow, with exact version IDs retained in its run log. Previous production versions are recorded in docs/release-checklist.md for rollback.
+
+## Diagnostic triage (2026-10-28)
+
+- User approved the scenarios in [date rules](docs/date-rules.md#title-followed-by-for): titled “for N from now” asks one time or span; titled “for <date>” reaches the date question; untitled durations unchanged. `validation: "preview-only"` kept as a documented legacy label.
+- Implemented in `src/shared/interpret-date.ts` title proposal only. No grammar, API or dependency changes. “Call Sam for <date>” (recipient path) still asks for a duration; left open.
+- Red/green: two new `event-title.test.ts` cases failed without the change (single title choice; duration question), then all 33 passed.
+- Verified: `pnpm validate` format/lint/types pass, 72 test files (1239 passed, 1 existing expected failure), build passes. Its audit step fails on new undici advisories via `@cloudflare/vite-plugin>miniflare` (7 high); no dependency changed here. Built preview (5175, Chrome, desktop only): timer shows both choices and “once” gives one time; “Book it for 9/10/2026 at noon.” reaches the September/October choice.
+- No commit, push or deployment requested.
+
+## Developers page alignment
+
+- User said the Developers page felt disconnected and approved the in-app mockup. Scope: `src/routes/developers-page.tsx` and nav/footer width in `src/document.tsx`. Copy, `/api/parse` contract and keyboard-scrollable code regions unchanged.
+- Implemented: Home-scale header, three clickable integration cards, package/API sections as Home-style cards with code beside text at desktop, nav/footer full width everywhere except Privacy (kept narrow).
+- Verified: `pnpm check` passes; Developers unit assertions 6/6; Chrome dev-server check at 320/390/1280 for `/`, `/developers`, `/privacy` has no horizontal overflow, Tab reaches the code region with a visible ring, card links reach their sections.
+- Not verified: `verify-worker-preparation.mjs` stopped in its offline calendar step on the dev server, before its Developers part. Its 320px "code sample must overflow" assertion also fails against the original page (the sample wraps), so it was already stale. No built-preview run. No commit.

@@ -1,6 +1,17 @@
 import { expect, it } from "vite-plus/test";
 import { calculateDate } from "../../shared/date-parser";
-import { resultClockFormat, safeFormatDate } from "./options";
+import { timezoneDatabase } from "../../shared/date-engine/timezone-database";
+import { resultClockFormat, safeFormatDate, timezoneOptions } from "./options";
+
+it("offers every regional IANA timezone the calculator accepts, common zones first", () => {
+  const zones = timezoneOptions.map((option) => option.value);
+  for (const zone of ["Europe/Paris", "Australia/Sydney", "America/Chicago", "Asia/Kolkata"])
+    expect(zones).toContain(zone);
+  expect(zones.length).toBeGreaterThan(300);
+  expect(new Set(zones).size).toBe(zones.length);
+  expect(zones.slice(0, 2)).toEqual(["UTC", "America/Chicago"]);
+  for (const zone of zones) expect(() => timezoneDatabase(zone)).not.toThrow();
+});
 
 it.each([
   ["April 3, 2027 at noon", "12:00 PM CDT"],

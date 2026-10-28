@@ -1,3 +1,4 @@
+import { timezoneData } from "../../shared/date-engine/timezone-data";
 import { formatPinnedDate } from "../../shared/format-date";
 
 export const dateFormatOptions = [
@@ -11,11 +12,18 @@ export const dateFormatOptions = [
 
 export const timezoneOptions = [
   { label: "UTC", value: "UTC" },
-  { label: "US Central", value: "America/Chicago" },
-  { label: "US Eastern", value: "America/New_York" },
-  { label: "US Pacific", value: "America/Los_Angeles" },
-  { label: "London", value: "Europe/London" },
-  { label: "Tokyo", value: "Asia/Tokyo" },
+  { label: "US Central (America/Chicago)", value: "America/Chicago" },
+  { label: "US Eastern (America/New_York)", value: "America/New_York" },
+  { label: "US Pacific (America/Los_Angeles)", value: "America/Los_Angeles" },
+  { label: "London (Europe/London)", value: "Europe/London" },
+  { label: "Tokyo (Asia/Tokyo)", value: "Asia/Tokyo" },
+  // Bundled data, not Intl.supportedValuesOf, so server and browser render the same list.
+  ...Object.keys(timezoneData.aliases)
+    .filter((name) =>
+      /^(Africa|America|Antarctica|Asia|Atlantic|Australia|Europe|Indian|Pacific)\//.test(name),
+    )
+    .sort()
+    .map((name) => ({ label: name, value: name })),
 ].filter(
   (option, index, options) => options.findIndex((entry) => entry.value === option.value) === index,
 );

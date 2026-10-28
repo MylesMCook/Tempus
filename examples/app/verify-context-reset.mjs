@@ -74,7 +74,7 @@ try {
       await page.locator("#calendar-title").fill("Old reviewed title");
       await activate(page.getByText("Change timezone or format", { exact: true }));
       const timezone = page.locator("#calculation-timezone");
-      await timezone.fill("UTC");
+      await timezone.selectOption("UTC");
       await unresolved();
       await resolveChoices();
       const summary = await page.locator("#calculated-date").innerText();
@@ -97,9 +97,8 @@ try {
         sha256: createHash("sha256").update(bytes).digest("hex"),
       });
 
-      await timezone.fill("Invalid/Timezone");
+      await timezone.selectOption("America/Chicago");
       await unresolved();
-      await timezone.fill("America/Chicago");
       await resolveChoices();
       await page.clock.setFixedTime(new Date("2026-09-13T16:00:00Z"));
       await activate(page.getByRole("button", { name: "Refresh now", exact: true }));

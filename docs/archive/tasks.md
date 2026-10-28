@@ -43,7 +43,7 @@ One reusable TypeScript engine produces inspectable dates, intervals and schedul
 
 - [x] Run separate blind case-author, oracle-review and public-SDK developer subagents. Freeze 12 cases and capture both engines’ raw output.
 - [x] Check clarification branches and distinguish semantic mismatch from successful resolution. [Report and reusable runner](../../comparison/agent-evaluation/README.md).
-- [ ] Triage timer/title interpretation, misleading duration diagnostic and complete-output validation wording. No parser fixes or feature expansion in this pass.
+- [x] Triaged timer/title, duration diagnostic and complete-output wording (2026-10-28). Timer and “for” + date fixes recorded in [date rules](../date-rules.md); `validation: "preview-only"` kept as a documented legacy label.
 
 This lane does not satisfy independent human evaluation. Cursor is installed but logged out; Ollama is available but was not loaded.
 
