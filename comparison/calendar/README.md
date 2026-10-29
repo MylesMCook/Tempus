@@ -35,6 +35,8 @@ The builder also accepts `slim` as its optional fifth argument. **Historical hos
 
 ## Existing file checks
 
+- `app-import-pack.mjs`: after `pnpm build:sdk`, writes ten files the app would download today (timed, all-day, list, weekly and monthly) plus a manifest of hand-written expectations to `comparison/results/calendar/app-import-pack/`. It checks each file with ical.js. Manual import steps are in [calendar-client check](../../docs/calendar-client-check.md).
+
 - `rule-probe.mjs`: authored RRULE/DTEND conformance fixture; use `--require-conformance` to expose the known ical.js failure.
 - `second-reader.py`: pinned independent reader for finite and bounded recurrence files; see its `--help` and adjacent dependency lock.
 - `timezone-source-probe.mjs`: captured timezone component identity, revision and parser agreement. The current runtime-data discrepancy remains an open failure.

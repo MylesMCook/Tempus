@@ -46,7 +46,7 @@ Earlier fresh agent-authored questions exposed limits: two of six unambiguous qu
 
 - [ ] Independent task author, reviewer and six unfamiliar participants for the [product decision](product-focus.md).
 - [ ] Physical-phone and assistive-technology checks.
-- [ ] Actual calendar-client imports; file-reader success is separate evidence.
+- [ ] Actual calendar-client imports; file-reader success is separate evidence. Test files and a manual checklist are ready in [calendar-client check](calendar-client-check.md); no import has run.
 - [ ] Stable SDK naming, versioning and compatibility policy before npm publication.
 - [ ] Broader wording coverage. The recorded timer/title, duration-diagnostic and output-label issues are triaged in [tasks](archive/tasks.md); “Call Sam for <date>” remains open.
 

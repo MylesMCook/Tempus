@@ -26,6 +26,7 @@ export function CalendarExport({
       : "",
   );
   const [feedback, setFeedback] = useState("");
+  const [length, setLength] = useState<"start" | 15 | 30 | 60>();
   const { selection, setSelection } = useRecurrenceDecisions();
   const [open, setOpen] = useState(false);
   const [paused, setPaused] = useState(false);
@@ -56,7 +57,7 @@ export function CalendarExport({
       : value.kind === "point"
         ? pointMode === "date"
           ? "One all-day event on the date shown above."
-          : "One event at the time shown above. No duration is added; your calendar may display its own default."
+          : "One event starting at the time shown above."
         : value.kind === "interval"
           ? "One event with the start and end shown above."
           : `${scheduleQuantity(value.occurrences.length, "separate event")}, in listed order. No repetition.${value.occurrences.some((row) => row.allDay) ? " Dates without times become all-day events." : ""}${value.occurrences.some((row) => !row.allDay && !row.end) ? " No duration is added to timed points; your calendar may display a default." : ""}`;
@@ -257,6 +258,43 @@ export function CalendarExport({
             </li>
           ))}
         </ol>
+        {pointMode === "instant" ? (
+          <fieldset className="grid min-w-0 gap-2">
+            <legend className="mb-2 text-sm font-medium">How long is this event?</legend>
+            <div className="grid gap-2 sm:grid-cols-2">
+              {(
+                [
+                  ["start", "Start time only"],
+                  [15, "15 minutes"],
+                  [30, "30 minutes"],
+                  [60, "1 hour"],
+                ] as const
+              ).map(([choice, label]) => (
+                <label
+                  key={choice}
+                  className="flex min-h-12 cursor-pointer items-center gap-3 rounded-md border px-3 text-sm has-[:checked]:border-primary has-[:focus-visible]:outline has-[:focus-visible]:outline-2"
+                >
+                  <input
+                    type="radio"
+                    name="calendar-length"
+                    value={choice}
+                    checked={length === choice}
+                    onChange={() => {
+                      setLength(choice);
+                      setFeedback("");
+                    }}
+                  />
+                  {label}
+                </label>
+              ))}
+            </div>
+            <p className="text-sm text-muted-foreground">
+              {length === "start"
+                ? "No end time is added. Your calendar may show its own default length."
+                : "For another length, add it to your phrase, like “for 45 minutes”."}
+            </p>
+          </fieldset>
+        ) : null}
         <div className="grid gap-1.5">
           <label htmlFor="calendar-title" className="text-sm font-medium">
             Event title
@@ -274,12 +312,17 @@ export function CalendarExport({
         <div className="grid gap-2">
           <Button
             className="min-h-12 w-full sm:w-fit"
-            disabled={!title.trim() || (value.kind === "recurrence" && !preparedFile?.ok)}
+            disabled={
+              !title.trim() ||
+              (value.kind === "recurrence" && !preparedFile?.ok) ||
+              (pointMode === "instant" && length === undefined)
+            }
             onClick={() => {
               try {
                 const metadata = {
                   title,
                   pointMode,
+                  ...(typeof length === "number" ? { pointLengthMinutes: length } : {}),
                   uid: crypto.randomUUID(),
                   stamp: new Date().toISOString(),
                 };
@@ -321,7 +364,9 @@ export function CalendarExport({
             Download calendar file
           </Button>
           <p className="text-sm text-muted-foreground">
-            Downloads an .ics file with your phrase and timezone. Import it in your calendar.
+            {pointMode === "instant" && length === undefined ? "Choose a length to download. " : ""}
+            Downloads an .ics file with your phrase and timezone. It sets no alert or reminder; your
+            calendar may add its own. Import it in your calendar.
           </p>
           <p role="status" className="text-sm">
             {feedback || (preparedFile && !preparedFile.ok ? preparedFile.reason : "")}

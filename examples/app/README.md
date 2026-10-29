@@ -6,6 +6,7 @@ Use a new output directory for each run. The parent directory must exist. From t
 
 ```sh
 node examples/app/verify-reminder.mjs /absolute/path/to/playwright-core/index.mjs /absolute/path/to/new-reminder-run
+node examples/app/verify-event-length.mjs /absolute/path/to/playwright-core/index.mjs /absolute/path/to/new-event-length-run
 uv run --locked examples/app/read-reminder.py /absolute/path/to/new-reminder-run
 node examples/app/verify-calculator.mjs /absolute/path/to/playwright-core/index.mjs /absolute/path/to/new-calculator-run
 node examples/app/verify-layout.mjs /absolute/path/to/playwright-core/index.mjs /absolute/path/to/new-layout-run

@@ -170,3 +170,42 @@ it("rejects a UTC event outside the supported calendar year range", () => {
     reason: "Calendar dates must use years 0001–9999.",
   });
 });
+
+it("adds the length chosen at download to a timed point", () => {
+  const output = prepareCalendarFile(interpretDate("Call Sam tomorrow at noon", context), {
+    ...metadata,
+    pointMode: "instant",
+    pointLengthMinutes: 30,
+  });
+  if (!output.ok) throw new Error(output.reason);
+  const event = new ICAL.Event(
+    new ICAL.Component(ICAL.parse(output.text)).getFirstSubcomponent("vevent")!,
+  );
+  expect(event.startDate.toJSDate().toISOString()).toBe("2026-09-13T17:00:00.000Z");
+  expect(event.endDate.toJSDate().toISOString()).toBe("2026-09-13T17:30:00.000Z");
+  expect(event.description).toContain("Length chosen at download: 30 minutes");
+});
+it("counts a chosen length in elapsed time across a clock change", () => {
+  const output = prepareCalendarFile(interpretDate("March 14, 2027 at 1:30am", context), {
+    ...metadata,
+    pointMode: "instant",
+    pointLengthMinutes: 60,
+  });
+  if (!output.ok) throw new Error(output.reason);
+  expect(output.text).toContain("DTSTART:20270314T073000Z\r\n");
+  // 08:30Z is 3:30 AM CDT: one elapsed hour after 1:30 AM CST.
+  expect(output.text).toContain("DTEND:20270314T083000Z\r\n");
+  expect(output.text).toContain("Length chosen at download: 1 hour");
+});
+it.each([
+  { input: "tomorrow at noon", pointMode: "instant", pointLengthMinutes: 45 },
+  { input: "tomorrow", pointMode: "date", pointLengthMinutes: 30 },
+  { input: "tomorrow at noon for 30 minutes", pointLengthMinutes: 15 },
+] as const)("refuses a download length that does not apply: %j", ({ input, ...options }) => {
+  expect(
+    prepareCalendarFile(interpretDate(input, context), {
+      ...metadata,
+      ...(options as { pointMode?: "date" | "instant"; pointLengthMinutes: 15 | 30 | 60 }),
+    }).ok,
+  ).toBe(false);
+});
