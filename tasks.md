@@ -134,3 +134,11 @@ Objective: implement the approved desktop input/result layout, stacked on mobile
 - Red/green: five new `calendar-file.test.ts` cases failed before the change and pass after. New `verify-event-length.mjs` failed on the old panel (no length question), then passed all six scenarios at 320/1280px on the dev server and the built preview.
 - Verified: `pnpm check` passes; `pnpm test` 72 files, 1,246 passed plus one existing expected failure; `pnpm build` passes. Pack checked with ical.js under three process timezones. Dev-server journeys pass: context-reset, count, date-only-range, date-range, event-identifiers (updated to choose "Start time only"), excluded-clock, large-export, mixed-range, panels, reminder, calculator. Built preview: list-order passes; worker-preparation passes Chrome and Firefox, stops at WebKit launch (not installed).
 - Not verified: real calendar imports (pending the user's manual check), WebKit, physical devices, assistive technology. `verify-engine-contract.mjs` not run (needs a packed archive). No commit, push or deployment.
+- Committed as 2c638c3; PR #30 opened on user request. Outlook import accepted (user report); per-file results pending.
+
+## Add to calendar button and shorter panel copy (2026-10-29)
+
+- User approved the [mockup](https://claude.ai/artifact/ECDfk8h8cSdRD7LxC64vg5) with all three recommendations, then asked to cut wordy text.
+- Implemented: results with event text lead with Add to calendar (copy becomes outlined), opening the same form in place, title first, focus to its heading, Close returns focus. Plain dates keep the quiet link. Panel copy shortened; redundant "shown above" lines and the interval "Preview only" note removed; whole-minute times drop seconds.
+- Red/green: new `verify-event-cta.mjs` failed on the old UI (no button), then passed at 320/1280px. Journeys updated for new wording: event-length, excluded-clock, large-export, panels.
+- Verified on dev: event-cta, event-length, context-reset, count, date-only-range, date-range, event-identifiers, excluded-clock, large-export, mixed-range, panels, reminder, calculator, layout, transparency, typing-feel, choice-focus. `pnpm check` and `pnpm test` (1,246 plus one expected failure) pass. Built preview not rerun for this change.
