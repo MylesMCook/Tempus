@@ -10,9 +10,12 @@ uv run --locked examples/app/read-reminder.py /absolute/path/to/new-reminder-run
 node examples/app/verify-calculator.mjs /absolute/path/to/playwright-core/index.mjs /absolute/path/to/new-calculator-run
 node examples/app/verify-layout.mjs /absolute/path/to/playwright-core/index.mjs /absolute/path/to/new-layout-run
 node examples/app/verify-transparency.mjs /absolute/path/to/playwright-core/index.mjs /absolute/path/to/new-transparency-run
+node examples/app/verify-typing-feel.mjs /absolute/path/to/playwright-core/index.mjs /absolute/path/to/new-typing-feel-run
 ```
 
 The layout journey checks the two-column desktop calculator and stacked mobile layout at 320, 390, 768, 1054 and 1280 pixels. It checks example selection, clarification focus, and overflow for dates, intervals, recurrence and errors, and saves empty/result screenshots.
+
+`verify-typing-feel.mjs` types phrases key by key at 320 and 1280 pixels. It checks that the answer pane does not re-animate while the kind of answer stays the same, that rows below it move less than 90px per keystroke, and that a phrase not yet understood stays neutral until typing pauses for 600ms or the field loses focus. It checks that clicking an example keeps the page still with the caret at the end of the field, that a touch tap at 390 pixels neither scrolls nor focuses the field, and that reduced motion runs no animation. It accepts `TEMPUS_APP_URL`.
 
 The transparency journey checks the reference → selected date → arithmetic walkthrough and nested Debug calculation panel at 320/1280px. It covers “friday next week” versus “next friday”, date-only versus explicit midnight/now clock display, and verifies Debug is hidden when steps close. It compares every structured snapshot and the entire debug JSON with the engine, including exact local/UTC values, offsets, epoch milliseconds, warnings and reference. It verifies offsets do not split across display lines and keyboard users can focus and scroll long raw JSON lines. It also covers clamping, approximations, signed/subsecond elapsed time, the repeated autumn clock hour and range/recurrence callers. Debug copying covers an injected clipboard denial, real successful write/readback, cleared feedback after changing inputs and the correct payload for each panel. It also checks repeated Enter/Space disclosure toggles with normal and reduced motion, including the scoped trace/debug reveal and chevron timing. It saves walkthrough and debug screenshots. `TEMPUS_APP_URL` can target the local production preview.
 

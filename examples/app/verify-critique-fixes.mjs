@@ -45,8 +45,8 @@ for (const name of ["chromium", "firefox", "webkit"]) {
     );
     assert.equal(await input.inputValue(), "03/04/2027");
     await input.fill("tomorrow plus bananas");
-    await page.locator("#calculation-error").waitFor();
-    assert.equal(await page.locator("#calculation-error").getAttribute("role"), "alert");
+    // The error stays quiet while typing and becomes an alert once typing pauses.
+    await page.locator("#calculation-error[role='alert']").waitFor();
     assert.equal(await input.getAttribute("aria-invalid"), "true");
     assert.equal(
       await page.evaluate(() => document.documentElement.scrollWidth > innerWidth),
