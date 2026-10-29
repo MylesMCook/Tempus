@@ -57,6 +57,8 @@ try {
               0,
             );
             assert.equal(await page.locator("#calendar-export-toggle").count(), 0);
+            // The error is marked once typing pauses.
+            await page.locator("#calculation-error[role='alert']").waitFor();
             assert.equal(await input.getAttribute("aria-invalid"), "true");
           };
           await replace(original);

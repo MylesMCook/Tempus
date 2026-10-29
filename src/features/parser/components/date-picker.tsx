@@ -96,13 +96,13 @@ export function DatePicker({
   const { settings, ready, settingsSaved, effectiveDateFormat, updateSettings, resetSettings } =
     useSettings();
   const hasExpression = Boolean(expression.trim());
-  const [resultEnter, setResultEnter] = useState(false);
-  const hadExpression = useRef(false);
+  // A phrase that is not understood stays quiet until typing pauses or the field loses focus.
+  const [settledExpression, setSettledExpression] = useState(expression);
   useEffect(() => {
-    if (hasExpression && !hadExpression.current) setResultEnter(true);
-    if (!hasExpression) setResultEnter(false);
-    hadExpression.current = hasExpression;
-  }, [hasExpression]);
+    const timer = window.setTimeout(() => setSettledExpression(expression), 600);
+    return () => window.clearTimeout(timer);
+  }, [expression]);
+  const pane = useRef<HTMLDivElement>(null);
   const clarification =
     interpretation.status === "needs-clarification" ? interpretation.clarification : undefined;
   const recurrence =
@@ -118,6 +118,37 @@ export function DatePicker({
       ? interpretation.value.calculation
       : undefined;
   const error = interpretation.status !== "resolved" ? interpretation.error : undefined;
+  const quietError = Boolean(
+    error && !clarification && error.code !== "timezone" && settledExpression !== expression,
+  );
+  const answerKind = !hasExpression
+    ? "examples"
+    : recurrence
+      ? "recurrence"
+      : interval
+        ? "interval"
+        : clarification
+          ? "choices"
+          : error
+            ? "message"
+            : "result";
+  const chooseExample = (phrase: string) => {
+    // Hold the pane's height so the rows below ease up instead of snapping.
+    const box = pane.current;
+    if (box) {
+      box.style.transition = "none";
+      box.style.minHeight = `${box.offsetHeight}px`;
+      void box.offsetHeight;
+      requestAnimationFrame(() => {
+        box.style.removeProperty("transition");
+        box.style.removeProperty("min-height");
+      });
+    }
+    onExpressionChange(phrase);
+    // Touch keeps the page still and the keyboard closed; elsewhere the caret stays in the field.
+    if (!window.matchMedia("(pointer: coarse)").matches)
+      document.getElementById("date-expression")?.focus({ preventScroll: true });
+  };
   const formatted = calculation
     ? safeFormatDate(new Date(calculation.result.timestamp), settings.timezone, effectiveDateFormat)
     : null;
@@ -154,10 +185,12 @@ export function DatePicker({
                 expression.trim() &&
                 !clarification &&
                 interpretation.status !== "resolved" &&
-                error?.code !== "timezone",
+                error?.code !== "timezone" &&
+                !quietError,
               )}
               value={expression}
               onChange={(event) => onExpressionChange(event.target.value.replaceAll("\n", " "))}
+              onBlur={() => setSettledExpression(expression)}
               onKeyDown={(event) => {
                 if (event.key === "Enter") event.preventDefault();
               }}
@@ -199,206 +232,124 @@ export function DatePicker({
             )}
           </p>
         </div>
-        <div className="min-w-0 rounded-2xl border bg-background p-5 shadow-xs sm:p-7 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:min-h-[24rem]">
-          {!hasExpression ? (
-            <div className="grid gap-5" role="group" aria-label="Try a phrase">
-              <div>
-                <h2 className="text-lg font-semibold tracking-tight">Try a phrase</h2>
-                <p className="mt-1 text-sm text-muted-foreground">
-                  Pick an example, or write your own.
-                </p>
+        <div
+          ref={pane}
+          className="min-h-[24rem] min-w-0 rounded-2xl border bg-background p-5 shadow-xs ease-out motion-safe:transition-[min-height] motion-safe:duration-200 sm:p-7 lg:col-start-2 lg:row-span-2 lg:row-start-1"
+        >
+          <div key={answerKind} className="t-answer-swap min-w-0">
+            {!hasExpression ? (
+              <div className="grid gap-5" role="group" aria-label="Try a phrase">
+                <div>
+                  <h2 className="text-lg font-semibold tracking-tight">Try a phrase</h2>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    Pick an example, or write your own.
+                  </p>
+                </div>
+                {featuredExampleGroups.map((group) => (
+                  <fieldset key={group.label} className="m-0 min-w-0 border-0 p-0">
+                    <legend className="float-none mb-1.5 w-full p-0 text-xs font-medium text-muted-foreground">
+                      {group.label}
+                    </legend>
+                    <div className="flex flex-wrap gap-2">
+                      {group.phrases.map((phrase) => (
+                        <Button
+                          key={phrase}
+                          type="button"
+                          disabled={!ready}
+                          variant="outline"
+                          className="h-auto min-h-10 justify-start whitespace-normal px-3 py-2 text-left text-sm font-normal shadow-none hover:border-primary/40 hover:bg-primary/5"
+                          onClick={() => chooseExample(phrase)}
+                        >
+                          {phrase}
+                        </Button>
+                      ))}
+                    </div>
+                  </fieldset>
+                ))}
               </div>
-              {featuredExampleGroups.map((group) => (
-                <fieldset key={group.label} className="m-0 min-w-0 border-0 p-0">
-                  <legend className="float-none mb-1.5 w-full p-0 text-xs font-medium text-muted-foreground">
-                    {group.label}
-                  </legend>
-                  <div className="flex flex-wrap gap-2">
-                    {group.phrases.map((phrase) => (
-                      <Button
-                        key={phrase}
-                        type="button"
-                        disabled={!ready}
-                        variant="outline"
-                        className="h-auto min-h-10 justify-start whitespace-normal px-3 py-2 text-left text-sm font-normal shadow-none hover:border-primary/40 hover:bg-primary/5"
-                        onClick={() => {
-                          onExpressionChange(phrase);
-                          document.getElementById("date-expression")?.focus();
-                        }}
-                      >
-                        {phrase}
-                      </Button>
-                    ))}
-                  </div>
-                </fieldset>
-              ))}
-            </div>
-          ) : null}
-          <RecurrenceDecisionsProvider
-            key={JSON.stringify([expression, reference, settings.timezone, interpretation])}
-          >
-            {hasExpression ? (
-              <div
-                className={`min-w-0${resultEnter ? " t-result-enter" : ""}`}
-                onAnimationEnd={(event) => {
-                  if (event.target === event.currentTarget) setResultEnter(false);
-                }}
-              >
-                {recurrence && interpretation.status === "resolved" ? (
-                  <OccurrenceResult
-                    reference={reference}
-                    key={JSON.stringify([expression, reference, settings.timezone])}
-                    interpretation={interpretation}
-                    expression={expression}
-                    onChangeInterpretation={() => {
-                      onChoose(undefined);
-                      document.getElementById("calculation-error")?.focus();
-                    }}
-                  />
-                ) : interval && interpretation.status === "resolved" ? (
-                  <IntervalResult
-                    key={JSON.stringify([expression, reference, settings.timezone])}
-                    interpretation={interpretation}
-                    expression={expression}
-                    onChangeInterpretation={() => {
-                      onChoose(undefined);
-                      document.getElementById("calculation-error")?.focus();
-                    }}
-                  />
-                ) : error ? (
-                  <section
-                    id="calculation-error"
-                    tabIndex={-1}
-                    role={clarification ? "status" : "alert"}
-                    className={cn(
-                      "grid min-w-0 gap-3 rounded-lg border p-4 sm:p-5",
-                      clarification
-                        ? "border-border bg-background"
-                        : "border-destructive/30 bg-destructive/5",
-                    )}
-                  >
-                    <h2
+            ) : null}
+            <RecurrenceDecisionsProvider
+              key={JSON.stringify([expression, reference, settings.timezone, interpretation])}
+            >
+              {hasExpression ? (
+                <div className="min-w-0">
+                  {recurrence && interpretation.status === "resolved" ? (
+                    <OccurrenceResult
+                      reference={reference}
+                      key={JSON.stringify([expression, reference, settings.timezone])}
+                      interpretation={interpretation}
+                      expression={expression}
+                      onChangeInterpretation={() => {
+                        onChoose(undefined);
+                        document.getElementById("calculation-error")?.focus();
+                      }}
+                    />
+                  ) : interval && interpretation.status === "resolved" ? (
+                    <IntervalResult
+                      key={JSON.stringify([expression, reference, settings.timezone])}
+                      interpretation={interpretation}
+                      expression={expression}
+                      onChangeInterpretation={() => {
+                        onChoose(undefined);
+                        document.getElementById("calculation-error")?.focus();
+                      }}
+                    />
+                  ) : error ? (
+                    <section
+                      // A fresh alert node is announced once typing pauses.
+                      key={String(quietError)}
+                      id="calculation-error"
+                      tabIndex={-1}
+                      role={clarification ? "status" : quietError ? undefined : "alert"}
                       className={cn(
-                        "font-semibold leading-relaxed",
-                        !clarification && "text-destructive",
+                        "grid min-w-0 gap-3 rounded-lg border p-4 sm:p-5",
+                        clarification
+                          ? "border-border bg-background"
+                          : quietError
+                            ? "border-border bg-muted/40"
+                            : "border-destructive/30 bg-destructive/5",
                       )}
                     >
-                      {error.message}
-                    </h2>
-                    <p className="text-sm leading-relaxed text-muted-foreground">{error.hint}</p>
-                    {interpretation.status === "needs-clarification" &&
-                    interpretation.clarification ? (
-                      <div
-                        className="flex flex-wrap items-start gap-2"
-                        role="group"
-                        aria-label={interpretation.clarification.question}
-                      >
-                        {interpretation.clarification.choices.map((choice) => (
-                          <Button
-                            key={choice.id}
-                            variant="outline"
-                            className="h-auto min-h-12 w-full justify-start whitespace-normal text-left sm:w-auto"
-                            onClick={() => {
-                              if (interpretation.clarification)
-                                onChoose({
-                                  contextKey: interpretation.clarification.contextKey,
-                                  id: choice.id,
-                                });
-                              // onChoose commits synchronously; focus before the next user action.
-                              (
-                                document.getElementById("calculated-date") ??
-                                document.getElementById("calculation-error")
-                              )?.focus();
-                            }}
-                          >
-                            {choice.label}
-                          </Button>
-                        ))}
-                      </div>
-                    ) : null}
-                    {hasSelection ? (
-                      <Button
-                        variant="link"
-                        onClick={() => {
-                          onChoose(undefined);
-                          document.getElementById("calculation-error")?.focus();
-                        }}
-                      >
-                        Restart choices
-                      </Button>
-                    ) : null}
-                    {error.span && error.span.end > error.span.start ? (
-                      <p className="mt-2 break-words text-sm text-muted-foreground">
-                        Check this part of your phrase:{" "}
-                        <code>{expression.slice(error.span.start, error.span.end)}</code>
-                      </p>
-                    ) : null}
-                    {error.code === "timezone" ? (
-                      <Button
-                        className="mt-3"
-                        variant="outline"
-                        onClick={() => updateSettings({ timezone: "UTC" })}
-                      >
-                        Use UTC
-                      </Button>
-                    ) : null}
-                  </section>
-                ) : calculation ? (
-                  <section
-                    id="calculated-date"
-                    tabIndex={-1}
-                    aria-label="Calculated date"
-                    className="pb-1"
-                  >
-                    <div role="status" aria-live="polite" aria-atomic="true">
                       <h2
-                        className={`break-words text-2xl font-semibold tracking-tight sm:text-3xl ${formatted === null ? "text-destructive" : ""}`}
+                        className={cn(
+                          "font-semibold leading-relaxed",
+                          !clarification && !quietError && "text-destructive",
+                        )}
                       >
-                        {formatted ?? "Choose a valid date format."}
+                        {error.message}
                       </h2>
-                      <p className="mt-2 text-sm text-muted-foreground">
-                        {calculation.timezone} ·{" "}
-                        {dateOnly
-                          ? "Date only · no time specified"
-                          : safeFormatDate(
-                              new Date(calculation.result.timestamp),
-                              calculation.timezone,
-                              resultClockFormat(calculation.result.local),
-                            )}
-                      </p>
-                    </div>
-                    <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1">
-                      <p className="text-xs text-muted-foreground">
-                        Time stays fixed until you edit or refresh.
-                      </p>
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        className="h-8 px-2 text-xs"
-                        onClick={onRefresh}
-                      >
-                        <RotateCcw className="mr-1 size-3" />
-                        Refresh now
-                      </Button>
-                    </div>
-                    {interpretation.status === "resolved" && interpretation.event ? (
-                      <div className="mt-4 grid gap-2 border-t pt-4 text-sm">
-                        <p className="break-words">
-                          <span className="font-medium">Event: </span>
-                          {interpretation.event.text}
-                        </p>
-                        <p className="break-words" aria-label="Recognized date phrase">
-                          {expression.slice(0, interpretation.source.span.start)}
-                          <mark className="rounded bg-amber-100 px-1 text-amber-950">
-                            {interpretation.source.text}
-                          </mark>
-                          {expression.slice(interpretation.source.span.end)}
-                        </p>
-                      </div>
-                    ) : null}
-                    {interpretation.status === "resolved" && interpretation.selectedChoice ? (
-                      <div className="mt-3 text-sm">
-                        <p>Using {interpretation.selectedChoice}</p>
+                      <p className="text-sm leading-relaxed text-muted-foreground">{error.hint}</p>
+                      {interpretation.status === "needs-clarification" &&
+                      interpretation.clarification ? (
+                        <div
+                          className="flex flex-wrap items-start gap-2"
+                          role="group"
+                          aria-label={interpretation.clarification.question}
+                        >
+                          {interpretation.clarification.choices.map((choice) => (
+                            <Button
+                              key={choice.id}
+                              variant="outline"
+                              className="h-auto min-h-12 w-full justify-start whitespace-normal text-left sm:w-auto"
+                              onClick={() => {
+                                if (interpretation.clarification)
+                                  onChoose({
+                                    contextKey: interpretation.clarification.contextKey,
+                                    id: choice.id,
+                                  });
+                                // onChoose commits synchronously; focus before the next user action.
+                                (
+                                  document.getElementById("calculated-date") ??
+                                  document.getElementById("calculation-error")
+                                )?.focus();
+                              }}
+                            >
+                              {choice.label}
+                            </Button>
+                          ))}
+                        </div>
+                      ) : null}
+                      {hasSelection ? (
                         <Button
                           variant="link"
                           onClick={() => {
@@ -406,83 +357,166 @@ export function DatePicker({
                             document.getElementById("calculation-error")?.focus();
                           }}
                         >
-                          Change date interpretation
+                          Restart choices
+                        </Button>
+                      ) : null}
+                      {error.span && error.span.end > error.span.start ? (
+                        <p className="mt-2 break-words text-sm text-muted-foreground">
+                          Check this part of your phrase:{" "}
+                          <code>{expression.slice(error.span.start, error.span.end)}</code>
+                        </p>
+                      ) : null}
+                      {error.code === "timezone" ? (
+                        <Button
+                          className="mt-3"
+                          variant="outline"
+                          onClick={() => updateSettings({ timezone: "UTC" })}
+                        >
+                          Use UTC
+                        </Button>
+                      ) : null}
+                    </section>
+                  ) : calculation ? (
+                    <section
+                      id="calculated-date"
+                      tabIndex={-1}
+                      aria-label="Calculated date"
+                      className="pb-1"
+                    >
+                      <div role="status" aria-live="polite" aria-atomic="true">
+                        <h2
+                          className={`break-words text-2xl font-semibold tracking-tight sm:text-3xl ${formatted === null ? "text-destructive" : ""}`}
+                        >
+                          {formatted ?? "Choose a valid date format."}
+                        </h2>
+                        <p className="mt-2 text-sm text-muted-foreground">
+                          {calculation.timezone} ·{" "}
+                          {dateOnly
+                            ? "Date only · no time specified"
+                            : safeFormatDate(
+                                new Date(calculation.result.timestamp),
+                                calculation.timezone,
+                                resultClockFormat(calculation.result.local),
+                              )}
+                        </p>
+                      </div>
+                      <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1">
+                        <p className="text-xs text-muted-foreground">
+                          Time stays fixed until you edit or refresh.
+                        </p>
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          className="h-8 px-2 text-xs"
+                          onClick={onRefresh}
+                        >
+                          <RotateCcw className="mr-1 size-3" />
+                          Refresh now
                         </Button>
                       </div>
-                    ) : null}
-                    {calculation.warnings.map((warning) => (
-                      <p
-                        key={warning}
-                        className="mt-3 rounded-md border border-amber-300 bg-amber-50 p-3 text-sm text-amber-950"
-                        role="note"
-                      >
-                        {warning}
-                      </p>
-                    ))}
-                    <div className="mt-4 flex flex-wrap items-end gap-3">
-                      <CopyDate
-                        key={JSON.stringify([
-                          expression,
-                          reference,
-                          settings.timezone,
-                          effectiveDateFormat,
-                        ])}
-                        value={
-                          formatted === null
-                            ? null
-                            : [
-                                interpretation.status === "resolved"
-                                  ? interpretation.event?.text
-                                  : undefined,
-                                formatted,
-                                dateOnly
-                                  ? `Date only · no time specified · ${calculation.timezone}`
-                                  : `${safeFormatDate(new Date(calculation.result.timestamp), calculation.timezone, resultClockFormat(calculation.result.local))} · ${calculation.timezone} (UTC${calculation.result.offset})`,
-                              ]
-                                .filter(Boolean)
-                                .join("\n")
-                        }
-                      />
-                    </div>
-                    {formatted === null ? (
-                      <Button
-                        className="mt-3"
-                        variant="outline"
-                        onClick={() =>
-                          updateSettings({
-                            isCustomFormat: false,
-                            dateFormat: "EEEE, MMMM d, yyyy",
-                          })
-                        }
-                      >
-                        Restore readable format
+                      {interpretation.status === "resolved" && interpretation.event ? (
+                        <div className="mt-4 grid gap-2 border-t pt-4 text-sm">
+                          <p className="break-words">
+                            <span className="font-medium">Event: </span>
+                            {interpretation.event.text}
+                          </p>
+                          <p className="break-words" aria-label="Recognized date phrase">
+                            {expression.slice(0, interpretation.source.span.start)}
+                            <mark className="rounded bg-amber-100 px-1 text-amber-950">
+                              {interpretation.source.text}
+                            </mark>
+                            {expression.slice(interpretation.source.span.end)}
+                          </p>
+                        </div>
+                      ) : null}
+                      {interpretation.status === "resolved" && interpretation.selectedChoice ? (
+                        <div className="mt-3 text-sm">
+                          <p>Using {interpretation.selectedChoice}</p>
+                          <Button
+                            variant="link"
+                            onClick={() => {
+                              onChoose(undefined);
+                              document.getElementById("calculation-error")?.focus();
+                            }}
+                          >
+                            Change date interpretation
+                          </Button>
+                        </div>
+                      ) : null}
+                      {calculation.warnings.map((warning) => (
+                        <p
+                          key={warning}
+                          className="mt-3 rounded-md border border-amber-300 bg-amber-50 p-3 text-sm text-amber-950"
+                          role="note"
+                        >
+                          {warning}
+                        </p>
+                      ))}
+                      <div className="mt-4 flex flex-wrap items-end gap-3">
+                        <CopyDate
+                          key={JSON.stringify([
+                            expression,
+                            reference,
+                            settings.timezone,
+                            effectiveDateFormat,
+                          ])}
+                          value={
+                            formatted === null
+                              ? null
+                              : [
+                                  interpretation.status === "resolved"
+                                    ? interpretation.event?.text
+                                    : undefined,
+                                  formatted,
+                                  dateOnly
+                                    ? `Date only · no time specified · ${calculation.timezone}`
+                                    : `${safeFormatDate(new Date(calculation.result.timestamp), calculation.timezone, resultClockFormat(calculation.result.local))} · ${calculation.timezone} (UTC${calculation.result.offset})`,
+                                ]
+                                  .filter(Boolean)
+                                  .join("\n")
+                          }
+                        />
+                      </div>
+                      {formatted === null ? (
+                        <Button
+                          className="mt-3"
+                          variant="outline"
+                          onClick={() =>
+                            updateSettings({
+                              isCustomFormat: false,
+                              dateFormat: "EEEE, MMMM d, yyyy",
+                            })
+                          }
+                        >
+                          Restore readable format
+                        </Button>
+                      ) : null}
+                    </section>
+                  ) : null}
+
+                  {hasExpression && calculation && !interval && !recurrence ? (
+                    <CalculationTrace calculation={calculation} dateOnly={dateOnly} />
+                  ) : null}
+
+                  {hasExpression && !(calculation && !interval && !recurrence) ? (
+                    <div className="mt-3 flex flex-wrap items-center justify-between gap-x-2 text-xs text-muted-foreground">
+                      <span>Time stays fixed until you edit or refresh.</span>
+                      <Button variant="ghost" size="sm" onClick={onRefresh}>
+                        <RotateCcw className="mr-1 size-3" />
+                        Refresh now
                       </Button>
-                    ) : null}
-                  </section>
-                ) : null}
+                    </div>
+                  ) : null}
 
-                {hasExpression && calculation && !interval && !recurrence ? (
-                  <CalculationTrace calculation={calculation} dateOnly={dateOnly} />
-                ) : null}
-
-                {hasExpression && !(calculation && !interval && !recurrence) ? (
-                  <div className="mt-3 flex flex-wrap items-center justify-between gap-x-2 text-xs text-muted-foreground">
-                    <span>Time stays fixed until you edit or refresh.</span>
-                    <Button variant="ghost" size="sm" onClick={onRefresh}>
-                      <RotateCcw className="mr-1 size-3" />
-                      Refresh now
-                    </Button>
-                  </div>
-                ) : null}
-
-                <CalendarExport
-                  reference={reference}
-                  key={JSON.stringify([expression, reference, settings.timezone, interpretation])}
-                  interpretation={interpretation}
-                />
-              </div>
-            ) : null}
-          </RecurrenceDecisionsProvider>
+                  <CalendarExport
+                    reference={reference}
+                    key={JSON.stringify([expression, reference, settings.timezone, interpretation])}
+                    interpretation={interpretation}
+                  />
+                </div>
+              ) : null}
+            </RecurrenceDecisionsProvider>
+          </div>
           <Disclosure className="mt-5 border-t pt-2">
             <summary className="cursor-pointer py-2 text-sm text-muted-foreground hover:text-foreground focus-visible:outline focus-visible:outline-2">
               Browse examples

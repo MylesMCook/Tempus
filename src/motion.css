@@ -436,7 +436,6 @@
 
 .t-page-enter,
 .t-nav-enter,
-.t-result-enter,
 .t-disclosure.is-opening > :not(summary) {
   animation: t-enter var(--opentilt-open-dur) var(--opentilt-open-ease) both;
 }
@@ -453,7 +452,8 @@
 }
 
 .t-calculation-trace[open] > :not(summary),
-.t-calculation-trace .t-disclosure[open] > :not(summary) {
+.t-calculation-trace .t-disclosure[open] > :not(summary),
+.t-answer-swap {
   animation: t-trace-reveal 160ms cubic-bezier(0.2, 0, 0, 1) backwards;
 }
 
@@ -488,7 +488,7 @@
   .t-calculation-trace .t-disclosure[open] > :not(summary),
   .t-page-enter,
   .t-nav-enter,
-  .t-result-enter,
+  .t-answer-swap,
   .t-disclosure.is-opening > :not(summary) {
     animation: none;
   }
