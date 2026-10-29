@@ -179,7 +179,7 @@ export function interpretDate(
       ...(event ? { event } : {}),
       ...(calculation.warnings.includes(DATE_START_POLICY) ? { apiReplay: false as const } : {}),
       assumptions: [
-        ...(event ? ["The event text is a label only; no reminder has been created."] : []),
+        ...(event ? ["The event text is only a title. Tempus sets no alert or reminder."] : []),
         ...calculation.warnings.filter((warning) => warning === DATE_START_POLICY),
       ],
     };

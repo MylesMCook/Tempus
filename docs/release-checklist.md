@@ -1,5 +1,13 @@
 # Release verification
 
+## Calendar event length release, October 29, 2026
+
+Timed single events ask how long they last (start time only, 15 minutes, 30 minutes or 1 hour) before download; the length counts real elapsed time across clock changes. Results recognized as events lead with an Add to calendar button that opens the export form in place. Calendar panel copy is shorter and says plainly that no alert or reminder is set. A ten-file import pack and a manual Google/Apple/Outlook checklist are in [calendar-client check](calendar-client-check.md). The SDK gains optional `pointLengthMinutes` and remains unpublished.
+
+Local verification: `pnpm validate` passes (formatting, lint/types, 1,246 tests plus the existing expected failure, production build, audit with no known vulnerabilities). On the built preview, Chrome journeys pass at 320/1280px for event length, Add to calendar, event identifiers, panels, large export, list order, copy recovery, 34 transparency cases and context reset; excluded clock passes on the dev server. New journeys `verify-event-length.mjs` and `verify-event-cta.mjs` failed on the previous code first. Outlook accepted an import (user report); per-file results for all three apps, WebKit, phones and assistive technology remain unverified.
+
+Previous versions retained for rollback: `tempus` version `60bf7aaf-cd62-43ad-a0e1-21876838e3fc`; compatibility Worker `tempus-total` version `572f5d70-c2e4-42e2-aba6-ae8436cf565b`.
+
 ## Clarity, timezone and dependency release, October 28, 2026
 
 Plain-language clock-change note in calculation steps; titled “for N from now” asks one time or a span; titled “for <date>” reaches the date question; every IANA timezone selectable; Developers page matches the app. Dependencies: Vite+ 1.4.0 (Vitest 5), zod 4, undici and fast-uri patches, and overrides that move rwsdk's puppeteer and vibe-rules off zod 3. No audit exceptions.
@@ -46,7 +54,7 @@ Earlier fresh agent-authored questions exposed limits: two of six unambiguous qu
 
 - [ ] Independent task author, reviewer and six unfamiliar participants for the [product decision](product-focus.md).
 - [ ] Physical-phone and assistive-technology checks.
-- [ ] Actual calendar-client imports; file-reader success is separate evidence.
+- [ ] Actual calendar-client imports; file-reader success is separate evidence. Test files and a manual checklist are ready in [calendar-client check](calendar-client-check.md); Outlook accepted one import (user report), and per-file results are pending.
 - [ ] Stable SDK naming, versioning and compatibility policy before npm publication.
 - [ ] Broader wording coverage. The recorded timer/title, duration-diagnostic and output-label issues are triaged in [tasks](archive/tasks.md); “Call Sam for <date>” remains open.
 

@@ -70,7 +70,7 @@ const file = prepareCalendarFile(result, {
 if (file.ok) console.log(file.text); // Example only; this writes no calendar.
 ```
 
-`prepareCalendarFile` handles points, intervals and collections. Points require `pointMode: date | instant`; respect the parsed precision. Successful file results contain `text`, `eventCount` and `mimeType`. Failures contain `code` and a display `reason`. Branch on the exported `CalendarFileFailureCode`, not wording:
+`prepareCalendarFile` handles points, intervals and collections. Points require `pointMode: date | instant`; respect the parsed precision. A timed single point may add `pointLengthMinutes: 15 | 30 | 60`, an elapsed length the person chose at download; omit it for a start time only. Any other value, or a length on another kind of result, fails with `invalid-file`. Successful file results contain `text`, `eventCount` and `mimeType`. Failures contain `code` and a display `reason`. Branch on the exported `CalendarFileFailureCode`, not wording:
 
 | Code                     | Caller action                                                          |
 | ------------------------ | ---------------------------------------------------------------------- |

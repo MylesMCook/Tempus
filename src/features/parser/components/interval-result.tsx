@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import type { Interpretation } from "@/shared/interpret-date";
 import { Disclosure } from "@/components/disclosure";
 import { Button } from "@/components/ui/button";
@@ -8,10 +8,12 @@ import { CalculationTrace } from "./calculation-trace";
 export function IntervalResult({
   interpretation,
   expression,
+  calendar,
   onChangeInterpretation,
 }: {
   interpretation: Extract<Interpretation, { status: "resolved" }>;
   expression: string;
+  calendar?: ReactNode;
   onChangeInterpretation: () => void;
 }) {
   const [feedback, setFeedback] = useState("");
@@ -72,8 +74,10 @@ export function IntervalResult({
         </mark>
         {expression.slice(interpretation.source.span.end)}
       </p>
+      {calendar}
       <Button
         className="min-h-12"
+        variant={calendar ? "outline" : undefined}
         onClick={async () => {
           try {
             await navigator.clipboard.writeText(copyText);
@@ -87,9 +91,6 @@ export function IntervalResult({
       </Button>
       <p role="status" className="text-sm">
         {feedback}
-      </p>
-      <p className="text-sm text-muted-foreground">
-        Preview only. No reminder or calendar event has been created.
       </p>
       <Disclosure className="border-t pt-3">
         <summary className="cursor-pointer py-2 text-sm">How this range was calculated</summary>

@@ -44,7 +44,7 @@ function copyGlyph(morph: "idle" | "loading" | "done") {
   }
 }
 
-function CopyDate({ value }: { value: string | null }) {
+function CopyDate({ value, variant }: { value: string | null; variant?: "outline" }) {
   const [copied, setCopied] = useState(false);
   const [morph, setMorph] = useState<"idle" | "loading" | "done">("idle");
   useEffect(() => {
@@ -60,6 +60,7 @@ function CopyDate({ value }: { value: string | null }) {
   }, [morph]);
   return (
     <Button
+      variant={variant}
       className="h-12 w-full sm:w-auto sm:min-w-40"
       disabled={value === null}
       onClick={async () => {
@@ -118,6 +119,16 @@ export function DatePicker({
       ? interpretation.value.calculation
       : undefined;
   const error = interpretation.status !== "resolved" ? interpretation.error : undefined;
+  const calendarExport = (
+    <CalendarExport
+      reference={reference}
+      key={JSON.stringify([expression, reference, settings.timezone, interpretation])}
+      interpretation={interpretation}
+    />
+  );
+  // Recognized events lead with Add to calendar beside their copy action.
+  const eventCalendar =
+    interpretation.status === "resolved" && interpretation.event ? calendarExport : undefined;
   const quietError = Boolean(
     error && !clarification && error.code !== "timezone" && settledExpression !== expression,
   );
@@ -279,6 +290,7 @@ export function DatePicker({
                       key={JSON.stringify([expression, reference, settings.timezone])}
                       interpretation={interpretation}
                       expression={expression}
+                      calendar={eventCalendar}
                       onChangeInterpretation={() => {
                         onChoose(undefined);
                         document.getElementById("calculation-error")?.focus();
@@ -289,6 +301,7 @@ export function DatePicker({
                       key={JSON.stringify([expression, reference, settings.timezone])}
                       interpretation={interpretation}
                       expression={expression}
+                      calendar={eventCalendar}
                       onChangeInterpretation={() => {
                         onChoose(undefined);
                         document.getElementById("calculation-error")?.focus();
@@ -453,7 +466,9 @@ export function DatePicker({
                         </p>
                       ))}
                       <div className="mt-4 flex flex-wrap items-end gap-3">
+                        {eventCalendar}
                         <CopyDate
+                          variant={eventCalendar ? "outline" : undefined}
                           key={JSON.stringify([
                             expression,
                             reference,
@@ -508,11 +523,7 @@ export function DatePicker({
                     </div>
                   ) : null}
 
-                  <CalendarExport
-                    reference={reference}
-                    key={JSON.stringify([expression, reference, settings.timezone, interpretation])}
-                    interpretation={interpretation}
-                  />
+                  {eventCalendar ? null : calendarExport}
                 </div>
               ) : null}
             </RecurrenceDecisionsProvider>

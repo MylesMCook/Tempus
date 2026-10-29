@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, type ReactNode } from "react";
 import { flushSync } from "react-dom";
 import { appendSelection, type ParseResult } from "@/shared/sdk";
 import { Disclosure } from "@/components/disclosure";
@@ -16,11 +16,13 @@ export function OccurrenceResult({
   interpretation,
   expression,
   reference,
+  calendar,
   onChangeInterpretation,
 }: {
   interpretation: Extract<ParseResult, { status: "resolved" }>;
   expression: string;
   reference: string;
+  calendar?: ReactNode;
   onChangeInterpretation: () => void;
 }) {
   const [feedback, setFeedback] = useState("");
@@ -227,6 +229,7 @@ export function OccurrenceResult({
           occurrences” or an end date to copy a complete list.
         </p>
       ) : null}
+      {calendar}
       <div className="grid gap-2">
         <label htmlFor="schedule-copy-format" className="text-sm font-medium">
           Copy as
@@ -267,6 +270,7 @@ export function OccurrenceResult({
         ) : null}
         <Button
           className="min-h-12"
+          variant={calendar ? "outline" : undefined}
           disabled={!ready || !copiedText}
           onClick={async () => {
             setFeedbackOutput(copiedText);

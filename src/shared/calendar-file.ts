@@ -63,10 +63,27 @@ function dateValue(calculation: CalculationSuccess): string {
     .replace(/-/g, "");
 }
 
+// Elapsed minutes from the exact start, so a clock change shortens or lengthens the wall-clock span.
+// Only the UTC instant is updated: timed file endpoints never read the local fields.
+function lengthEnd(start: CalculationSuccess, minutes: number): CalculationSuccess {
+  const end = Temporal.Instant.from(start.result.iso).add({ minutes });
+  return {
+    ...start,
+    result: { ...start.result, iso: end.toString(), timestamp: end.epochMilliseconds },
+  };
+}
+
 /** Internal file preparation only. No clock reads, downloads, network or calendar writes. */
 export function prepareCalendarFile(
   interpretation: Interpretation,
-  options: { uid: string; stamp: string; title: string; pointMode?: "date" | "instant" },
+  options: {
+    uid: string;
+    stamp: string;
+    title: string;
+    pointMode?: "date" | "instant";
+    /** Elapsed length chosen at download for a timed point. Omit for a start time only. */
+    pointLengthMinutes?: 15 | 30 | 60;
+  },
 ): CalendarFile {
   if (interpretation.status !== "resolved")
     return { ok: false, code: "unresolved", reason: "Resolve the date before exporting it." };
@@ -90,11 +107,25 @@ export function prepareCalendarFile(
       throw new Error("Provide a calendar title of 1–2000 characters.");
     if (options.pointMode !== undefined && !["date", "instant"].includes(options.pointMode))
       throw new Error("Choose a supported point format.");
+    const length = options.pointLengthMinutes;
+    if (
+      length !== undefined &&
+      (![15, 30, 60].includes(length) ||
+        interpretation.value.kind !== "point" ||
+        options.pointMode !== "instant")
+    )
+      throw new Error("Choose 15, 30 or 60 minutes for a timed single event.");
     const stamp = utc(options.stamp, true);
     const value = interpretation.value;
     const events: { start: CalculationSuccess; end?: CalculationSuccess; allDay: boolean }[] =
       value.kind === "point"
-        ? [{ start: value.calculation, allDay: options.pointMode === "date" }]
+        ? [
+            {
+              start: value.calculation,
+              ...(length ? { end: lengthEnd(value.calculation, length) } : {}),
+              allDay: options.pointMode === "date",
+            },
+          ]
         : value.kind === "interval"
           ? [value]
           : value.occurrences.map((row) => ({ ...row, allDay: "allDay" in row && row.allDay }));
@@ -114,7 +145,7 @@ export function prepareCalendarFile(
         `UID:${options.uid}-${index}@tempus.invalid`,
         `DTSTAMP:${stamp}`,
         `SUMMARY:${escapeText(options.title)}`,
-        `DESCRIPTION:${escapeText([`Date phrase: ${interpretation.source.text}`, `Timezone: ${event.start.timezone}`, ...interpretation.assumptions].join("\n"))}`,
+        `DESCRIPTION:${escapeText([`Date phrase: ${interpretation.source.text}`, `Timezone: ${event.start.timezone}`, ...interpretation.assumptions, ...(length ? [`Length chosen at download: ${length === 60 ? "1 hour" : `${length} minutes`}`] : [])].join("\n"))}`,
         event.allDay
           ? `DTSTART;VALUE=DATE:${dateValue(event.start)}`
           : `DTSTART:${utc(event.start.result.iso)}`,

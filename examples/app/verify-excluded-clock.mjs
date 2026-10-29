@@ -64,9 +64,7 @@ try {
         await page.waitForFunction(() => document.activeElement?.id === "calculated-date");
         assert.equal(await input.inputValue(), text);
         await activate(page.locator("#calendar-export-toggle"));
-        await page
-          .getByText(`${total} occurrences in the complete file.`, { exact: true })
-          .waitFor();
+        await page.getByText(`${total} events in the file.`, { exact: true }).waitFor();
         await page.waitForFunction(() =>
           Array.from(document.querySelectorAll("button")).some(
             (button) => button.textContent?.trim() === "Download calendar file" && !button.disabled,

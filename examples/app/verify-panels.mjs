@@ -227,7 +227,7 @@ try {
         if (name === "range")
           assert.equal(event.endDate.toUnixTime() - event.startDate.toUnixTime(), 7200);
       }
-      await calendar.getByRole("status").filter({ hasText: "Download requested." }).waitFor();
+      await calendar.getByRole("status").filter({ hasText: "Download started." }).waitFor();
     }
     report.push({
       width,

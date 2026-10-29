@@ -156,6 +156,10 @@ try {
         assert.equal(await input.inputValue(), expression);
         assert.ok((await page.locator("#calculated-date").innerText()).includes(title));
         await activate(page.locator("#calendar-export-toggle"));
+        await page.locator("#calendar-title").waitFor();
+        // Timed single events ask for a length; start time only keeps the original file.
+        const startOnly = page.getByRole("radio", { name: "Start time only" });
+        if (await startOnly.count()) await startOnly.check();
         await page.waitForFunction(() =>
           [...document.querySelectorAll("button")].some(
             (b) => b.textContent.trim() === "Download calendar file" && !b.disabled,

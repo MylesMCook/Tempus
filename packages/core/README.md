@@ -103,7 +103,7 @@ if (prepared.status === "ready") {
 
 Preparation returns `ready`, `needs-clarification` or `blocked`. Show any question and pass its chosen ID through `appendSelection`, then prepare again with `{ selection }`. Parsing choices and preparation choices each use their own offered context key.
 
-Omit `file` to get data only. To prepare an `.ics` file, pass `{ selection, file: { uid, stamp, title, pointMode } }`. Your app supplies the UUID and creation timestamp; points require `pointMode: "date" | "instant"` matching their precision. Check both `prepared.status === "ready"` and `prepared.file?.ok` before using file text. Ready data does not guarantee a valid file.
+Omit `file` to get data only. To prepare an `.ics` file, pass `{ selection, file: { uid, stamp, title, pointMode } }`. Your app supplies the UUID and creation timestamp; points require `pointMode: "date" | "instant"` matching their precision. A timed single point can add `pointLengthMinutes: 15 | 30 | 60` when the person chooses a length; omit it for a start time only. Check both `prepared.status === "ready"` and `prepared.file?.ok` before using file text. Ready data does not guarantee a valid file.
 
 A finite result contains all its dates; an ongoing rule has a labeled preview. Use the preparation status and `ongoing`/`truncated` fields to interpret the output. The legacy `schedule.validation: "preview-only"` label remains even after finite dates are prepared; it does not indicate truncation. The engine never downloads a file or writes a calendar.
 
