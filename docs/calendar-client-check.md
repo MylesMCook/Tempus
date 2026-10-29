@@ -2,6 +2,8 @@
 
 **Not run yet.** On October 29, 2026 the user chose to import the app pack by hand into throwaway calendars in Google Calendar, Apple Calendar and Outlook, following the checklist below. No agent signs in to any account. The DST diagnostic pack is not covered by that approval.
 
+**Results so far:** Outlook accepted the import (user report, October 29, 2026). Per-file times, lengths and the extra checks are not recorded yet. Google and Apple are not run.
+
 There are two packs. The **app pack** holds the files the app downloads today. The **DST diagnostic pack** below isolates clock-change cases. Run the app pack first.
 
 ## App pack: manual import checklist
