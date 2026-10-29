@@ -28,8 +28,11 @@ async function enter(page, phrase) {
   await page.locator("#date-expression").fill(phrase);
   const toggle = page.locator("#calendar-export-toggle");
   await toggle.waitFor();
-  if (!(await page.locator("details:has(#calendar-export-toggle)").evaluate((d) => d.open)))
-    await toggle.click();
+  // Events use the Add to calendar button; plain dates use the quiet disclosure.
+  const open = await toggle.evaluate(
+    (t) => t.getAttribute("aria-expanded") === "true" || t.closest("details")?.open === true,
+  );
+  if (!open) await toggle.click();
   await page.getByRole("button", { name: "Download calendar file", exact: true }).waitFor();
 }
 const lengthGroup = (page) => page.getByRole("group", { name: "How long is this event?" });
@@ -81,7 +84,7 @@ try {
       run.scenarios.push("chosen length becomes the end");
 
       await page.getByRole("radio", { name: "Start time only" }).check();
-      await page.getByText("Your calendar may show its own default length.").waitFor();
+      await page.getByText("No end time. Your calendar may pick its own length.").waitFor();
       text = await download(page, run, "start-only");
       assert.ok(text.includes("DTSTART:20261030T170000Z\r\n"));
       assert.ok(!text.includes("DTEND") && !text.includes("DURATION"));

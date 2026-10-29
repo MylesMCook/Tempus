@@ -56,7 +56,7 @@ try {
       const start = performance.now();
       await activate(page.locator("#calendar-export-toggle"));
       await page.waitForFunction(() =>
-        document.querySelector("#calendar-export-status")?.textContent.includes("1000 occurrences"),
+        document.querySelector("#calendar-export-status")?.textContent.includes("1000 events"),
       );
       await page.evaluate(
         () => new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve))),
@@ -107,7 +107,7 @@ try {
       await page.locator("#calculated-date").waitFor();
       await activate(page.locator("#calendar-export-toggle"));
       await page.waitForFunction(() =>
-        document.querySelector("#calendar-export-status")?.textContent.includes("5 occurrences"),
+        document.querySelector("#calendar-export-status")?.textContent.includes("5 events"),
       );
       assert.equal(await list.locator("li").count(), 5);
       assert.equal(await page.getByRole("navigation", { name: "Review file events" }).count(), 0);
